@@ -1,0 +1,657 @@
+<?xml version="1.0" encoding="ascii"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+          "DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>pyffi.formats.tri.TriFormat</title>
+  <link rel="stylesheet" href="epydoc.css" type="text/css" />
+  <script type="text/javascript" src="epydoc.js"></script>
+</head>
+
+<body bgcolor="white" text="black" link="blue" vlink="#204080"
+      alink="#204080">
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+  <!-- Home link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="pyffi-module.html">Home</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Project homepage -->
+      <th class="navbar" align="right" width="100%">
+        <table border="0" cellpadding="0" cellspacing="0">
+          <tr><th class="navbar" align="center"
+            >&nbsp;&nbsp;&nbsp;<a class="navbar" target="_top" href="http://pyffi.sourceforge.net/">Python File Format Interface</a>&nbsp;&nbsp;&nbsp;</th><th class="navbar" align="center">&nbsp;&nbsp;&nbsp;<a class="navbar" target="_top" href="http://sourceforge.net"><img src="http://sflogo.sourceforge.net/sflogo.php?group_id=199269" width="88" height="31" border="0" alt="SourceForge.net Logo" /></a>&nbsp;&nbsp;&nbsp;</th>
+          </tr></table></th>
+  </tr>
+</table>
+<table width="100%" cellpadding="0" cellspacing="0">
+  <tr valign="top">
+    <td width="100%">
+      <span class="breadcrumbs">
+        <a href="pyffi-module.html">Package&nbsp;pyffi</a> ::
+        <a href="pyffi.formats-module.html">Package&nbsp;formats</a> ::
+        <a href="pyffi.formats.tri-module.html">Package&nbsp;tri</a> ::
+        Class&nbsp;TriFormat
+      </span>
+    </td>
+    <td>
+      <table cellpadding="0" cellspacing="0">
+        <!-- hide/show private -->
+        <tr><td align="right"><span class="options">[<a href="javascript:void(0);" class="privatelink"
+    onclick="toggle_private();">hide&nbsp;private</a>]</span></td></tr>
+        <tr><td align="right"><span class="options"
+            >[<a href="frames.html" target="_top">frames</a
+            >]&nbsp;|&nbsp;<a href="pyffi.formats.tri.TriFormat-class.html"
+            target="_top">no&nbsp;frames</a>]</span></td></tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<!-- ==================== CLASS DESCRIPTION ==================== -->
+<h1 class="epydoc">Class TriFormat</h1><p class="nomargin-top"><span class="codelink"><a href="pyffi.formats.tri-pysrc.html#TriFormat">source&nbsp;code</a></span></p>
+<pre class="base-tree">
+              object --+        
+                       |        
+<a href="pyffi.object_models.FileFormat-class.html">object_models.FileFormat</a> --+    
+                           |    
+<a href="pyffi.object_models.xml.FileFormat-class.html">object_models.xml.FileFormat</a> --+
+                               |
+                              <strong class="uidshort">TriFormat</strong>
+</pre>
+
+<hr />
+This class implements the TRI format.
+
+<!-- ==================== NESTED CLASSES ==================== -->
+<a name="section-NestedClasses"></a>
+<table class="summary" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Nested Classes</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-NestedClasses"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a href="pyffi.object_models.common.Int-class.html" class="summary-name">int</a><br />
+      Basic implementation of a 32-bit signed integer type.
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a href="pyffi.object_models.common.UInt-class.html" class="summary-name">uint</a><br />
+      Implementation of a 32-bit unsigned integer type.
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a href="pyffi.object_models.common.Byte-class.html" class="summary-name">byte</a><br />
+      Implementation of a 8-bit signed integer type.
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a href="pyffi.object_models.common.UByte-class.html" class="summary-name">ubyte</a><br />
+      Implementation of a 8-bit unsigned integer type.
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a href="pyffi.object_models.common.Char-class.html" class="summary-name">char</a><br />
+      Implementation of an (unencoded) 8-bit character.
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a href="pyffi.object_models.common.Short-class.html" class="summary-name">short</a><br />
+      Implementation of a 16-bit signed integer type.
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a href="pyffi.object_models.common.UShort-class.html" class="summary-name">ushort</a><br />
+      Implementation of a 16-bit unsigned integer type.
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a href="pyffi.object_models.common.Float-class.html" class="summary-name">float</a><br />
+      Implementation of a 32-bit float.
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a href="pyffi.formats.tri.TriFormat.SizedStringZ-class.html" class="summary-name">SizedStringZ</a>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a href="pyffi.formats.tri.TriFormat.FileSignature-class.html" class="summary-name">FileSignature</a><br />
+      Basic type which implements the header of a TRI file.
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a href="pyffi.formats.tri.TriFormat.FileVersion-class.html" class="summary-name">FileVersion</a>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a href="pyffi.formats.tri.TriFormat.Header-class.html" class="summary-name">Header</a><br />
+      A class to contain the actual tri data.
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a href="pyffi.formats.tri.TriFormat.MorphRecord-class.html" class="summary-name">MorphRecord</a>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a href="pyffi.formats.tri.TriFormat.Header-class.html" class="summary-name">Data</a><br />
+      A class to contain the actual tri data.
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a href="pyffi.formats.tri.TriFormat.ModifierRecord-class.html" class="summary-name">ModifierRecord</a><br />
+      A modifier replaces the vertices from the base model(Header.vertices) with those in Header.modifier_vertices.
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a href="pyffi.formats.tri.TriFormat.QuadFace-class.html" class="summary-name">QuadFace</a><br />
+      Not used by the Oblivion engine as it's tri based.
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a href="pyffi.formats.tri.TriFormat.ShortRelativeVertex-class.html" class="summary-name">ShortRelativeVertex</a>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a href="pyffi.formats.tri.TriFormat.TexCoord-class.html" class="summary-name">TexCoord</a>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a href="pyffi.formats.tri.TriFormat.TriFace-class.html" class="summary-name">TriFace</a>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a href="pyffi.formats.tri.TriFormat.Vertex-class.html" class="summary-name">Vertex</a>
+    </td>
+  </tr>
+<tr class="private">
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a href="pyffi.formats.tri.TriFormat._Header-class.html" class="summary-name" onclick="show_private();">_Header</a>
+    </td>
+  </tr>
+<tr class="private">
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a href="pyffi.formats.tri.TriFormat._MorphRecord-class.html" class="summary-name" onclick="show_private();">_MorphRecord</a><br />
+      The formula for a morph is:NewVertex[CurrentVertex] = VertexList[CurrentVertex]+(MorphList[CurrentMorph].VertexList[CurrentVertex]*scale*MorphAmount);MorphAmount: 0 = no morphing, 1 = total morphing.
+    </td>
+  </tr>
+  <tr>
+    <td colspan="2" class="summary">
+    <p class="indent-wrapped-lines"><b>Inherited from <code><a href="pyffi.object_models.xml.FileFormat-class.html">object_models.xml.FileFormat</a></code></b>:
+      <code><a href="pyffi.object_models.xml.MetaFileFormat-class.html">__metaclass__</a></code>
+      </p>
+    </td>
+  </tr>
+</table>
+<!-- ==================== INSTANCE METHODS ==================== -->
+<a name="section-InstanceMethods"></a>
+<table class="summary" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Instance Methods</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-InstanceMethods"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+  <tr>
+    <td colspan="2" class="summary">
+    <p class="indent-wrapped-lines"><b>Inherited from <code>object</code></b>:
+      <code>__delattr__</code>,
+      <code>__format__</code>,
+      <code>__getattribute__</code>,
+      <code>__hash__</code>,
+      <code>__init__</code>,
+      <code>__new__</code>,
+      <code>__reduce__</code>,
+      <code>__reduce_ex__</code>,
+      <code>__repr__</code>,
+      <code>__setattr__</code>,
+      <code>__sizeof__</code>,
+      <code>__str__</code>,
+      <code>__subclasshook__</code>
+      </p>
+    </td>
+  </tr>
+</table>
+<!-- ==================== CLASS METHODS ==================== -->
+<a name="section-ClassMethods"></a>
+<table class="summary" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Class Methods</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-ClassMethods"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+  <tr>
+    <td colspan="2" class="summary">
+    <p class="indent-wrapped-lines"><b>Inherited from <code><a href="pyffi.object_models.xml.FileFormat-class.html">object_models.xml.FileFormat</a></code></b>:
+      <code><a href="pyffi.object_models.xml.FileFormat-class.html#vercondFilter">vercondFilter</a></code>
+      </p>
+    <p class="indent-wrapped-lines"><b>Inherited from <code><a href="pyffi.object_models.FileFormat-class.html">object_models.FileFormat</a></code></b>:
+      <code><a href="pyffi.object_models.FileFormat-class.html#name_attribute">name_attribute</a></code>,
+      <code><a href="pyffi.object_models.FileFormat-class.html#name_class">name_class</a></code>,
+      <code><a href="pyffi.object_models.FileFormat-class.html#name_parts">name_parts</a></code>,
+      <code><a href="pyffi.object_models.FileFormat-class.html#walk">walk</a></code>,
+      <code><a href="pyffi.object_models.FileFormat-class.html#walkData">walkData</a></code>
+      </p>
+    </td>
+  </tr>
+</table>
+<!-- ==================== STATIC METHODS ==================== -->
+<a name="section-StaticMethods"></a>
+<table class="summary" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Static Methods</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-StaticMethods"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="pyffi.formats.tri.TriFormat-class.html#version_number" class="summary-sig-name">version_number</a>(<span class="summary-sig-arg">version_str</span>)</span><br />
+      Converts version string into an integer.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="pyffi.formats.tri-pysrc.html#TriFormat.version_number">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+</table>
+<!-- ==================== CLASS VARIABLES ==================== -->
+<a name="section-ClassVariables"></a>
+<table class="summary" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Class Variables</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-ClassVariables"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="xml_file_name"></a><span class="summary-name">xml_file_name</span> = <code title="'tri.xml'"><code class="variable-quote">'</code><code class="variable-string">tri.xml</code><code class="variable-quote">'</code></code><br />
+      Override.
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a href="pyffi.formats.tri.TriFormat-class.html#xml_file_path" class="summary-name">xml_file_path</a> = <code title="[None, '/usr/lib/python2.7/site-packages/pyffi/formats/tri']"><code class="variable-group">[</code>None<code class="variable-op">, </code><code class="variable-quote">'</code><code class="variable-string">/usr/lib/python2.7/site-packages/pyffi</code><code class="variable-ellipsis">...</code></code><br />
+      Override.
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="RE_FILENAME"></a><span class="summary-name">RE_FILENAME</span> = <code title="re.compile(r'(?i)^.*\.tri$')">re.compile(r'<code class="re-flags">(?i)</code>^.<code class="re-op">*</code>\.tri$')</code><br />
+      Override this with a regular expression (the result of a <tt class="rst-rst-rst-rst-rst-rst-rst-rst-rst-rst-rst-rst-docutils literal rst-rst-rst-rst-rst-rst-rst-rst-rst-rst-rst-docutils literal rst-rst-rst-rst-rst-rst-rst-rst-rst-rst-docutils literal rst-rst-rst-rst-rst-rst-rst-rst-rst-docutils literal rst-rst-rst-rst-rst-rst-rst-rst-docutils literal rst-rst-rst-rst-rst-rst-rst-docutils literal rst-rst-rst-rst-rst-rst-docutils literal rst-rst-rst-rst-rst-docutils literal rst-rst-rst-rst-docutils literal rst-rst-rst-docutils literal rst-rst-docutils literal rst-docutils literal">re.compile</tt>
+call) for the file extension of the format you are implementing.
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="games"></a><span class="summary-name">games</span> = <code title="{}"><code class="variable-group">{</code><code class="variable-group">}</code></code>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="versions"></a><span class="summary-name">versions</span> = <code title="{}"><code class="variable-group">{</code><code class="variable-group">}</code></code>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a href="pyffi.formats.tri.TriFormat-class.html#xml_struct" class="summary-name">xml_struct</a> = <code title="[&lt;class 'pyffi.formats.tri.Vertex'&gt;,
+ &lt;class 'pyffi.formats.tri.TriFace'&gt;,
+ &lt;class 'pyffi.formats.tri.QuadFace'&gt;,
+ &lt;class 'pyffi.formats.tri.TexCoord'&gt;,
+ &lt;class 'pyffi.formats.tri.ShortRelativeVertex'&gt;,
+ &lt;class 'pyffi.formats.tri._MorphRecord'&gt;,
+ &lt;class 'pyffi.formats.tri.ModifierRecord'&gt;,
+ &lt;class 'pyffi.formats.tri._Header'&gt;]"><code class="variable-group">[</code>&lt;class 'pyffi.formats.tri.Vertex'&gt;<code class="variable-op">, </code>&lt;class 'pyff<code class="variable-ellipsis">...</code></code>
+    </td>
+  </tr>
+  <tr>
+    <td colspan="2" class="summary">
+    <p class="indent-wrapped-lines"><b>Inherited from <code><a href="pyffi.object_models.xml.FileFormat-class.html">object_models.xml.FileFormat</a></code></b>:
+      <code><a href="pyffi.object_models.xml.FileFormat-class.html#logger">logger</a></code>,
+      <code><a href="pyffi.object_models.xml.FileFormat-class.html#xml_alias">xml_alias</a></code>,
+      <code><a href="pyffi.object_models.xml.FileFormat-class.html#xml_bit_struct">xml_bit_struct</a></code>,
+      <code><a href="pyffi.object_models.xml.FileFormat-class.html#xml_enum">xml_enum</a></code>
+      </p>
+    <p class="indent-wrapped-lines"><b>Inherited from <code><a href="pyffi.object_models.FileFormat-class.html">object_models.FileFormat</a></code></b>:
+      <code><a href="pyffi.object_models.FileFormat-class.html#ARCHIVE_CLASSES">ARCHIVE_CLASSES</a></code>
+      </p>
+    <div class="private">    <p class="indent-wrapped-lines"><b>Inherited from <code><a href="pyffi.object_models.FileFormat-class.html">object_models.FileFormat</a></code></b> (private):
+      <code><a href="pyffi.object_models.FileFormat-class.html#_RE_NAME_CAMEL" onclick="show_private();">_RE_NAME_CAMEL</a></code>,
+      <code><a href="pyffi.object_models.FileFormat-class.html#_RE_NAME_DIGITS" onclick="show_private();">_RE_NAME_DIGITS</a></code>,
+      <code><a href="pyffi.object_models.FileFormat-class.html#_RE_NAME_LC" onclick="show_private();">_RE_NAME_LC</a></code>,
+      <code><a href="pyffi.object_models.FileFormat-class.html#_RE_NAME_SEP" onclick="show_private();">_RE_NAME_SEP</a></code>,
+      <code><a href="pyffi.object_models.FileFormat-class.html#_RE_NAME_UC" onclick="show_private();">_RE_NAME_UC</a></code>
+      </p></div>
+    </td>
+  </tr>
+</table>
+<!-- ==================== PROPERTIES ==================== -->
+<a name="section-Properties"></a>
+<table class="summary" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Properties</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-Properties"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+  <tr>
+    <td colspan="2" class="summary">
+    <p class="indent-wrapped-lines"><b>Inherited from <code>object</code></b>:
+      <code>__class__</code>
+      </p>
+    </td>
+  </tr>
+</table>
+<!-- ==================== METHOD DETAILS ==================== -->
+<a name="section-MethodDetails"></a>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Method Details</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-MethodDetails"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+</table>
+<a name="version_number"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">version_number</span>(<span class="sig-arg">version_str</span>)</span>
+    <br /><em class="fname">Static Method</em>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="pyffi.formats.tri-pysrc.html#TriFormat.version_number">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Converts version string into an integer.</p>
+<pre class="py-doctest">
+<span class="py-prompt">&gt;&gt;&gt; </span>TriFormat.version_number(<span class="py-string">'003'</span>)
+<span class="py-output">3</span>
+<span class="py-output"></span><span class="py-prompt">&gt;&gt;&gt; </span>TriFormat.version_number(<span class="py-string">'XXX'</span>)
+<span class="py-output">-1</span></pre>
+  <dl class="fields">
+    <dt>Parameters:</dt>
+    <dd><ul class="nomargin-top">
+        <li><strong class="pname"><code>version_str</code></strong> (str) - The version string.</li>
+    </ul></dd>
+    <dt>Returns:</dt>
+        <dd>A version integer.</dd>
+    <dt>Overrides:
+        <a href="pyffi.object_models.FileFormat-class.html#version_number">object_models.FileFormat.version_number</a>
+    </dt>
+  </dl>
+</td></tr></table>
+</div>
+<br />
+<!-- ==================== CLASS VARIABLE DETAILS ==================== -->
+<a name="section-ClassVariableDetails"></a>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Class Variable Details</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-ClassVariableDetails"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+</table>
+<a name="xml_file_path"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <h3 class="epydoc">xml_file_path</h3>
+  Override.
+  <dl class="fields">
+  </dl>
+  <dl class="fields">
+    <dt>Value:</dt>
+      <dd><table><tr><td><pre class="variable">
+<code class="variable-group">[</code>None<code class="variable-op">, </code><code class="variable-quote">'</code><code class="variable-string">/usr/lib/python2.7/site-packages/pyffi/formats/tri</code><code class="variable-quote">'</code><code class="variable-group">]</code>
+</pre></td></tr></table>
+</dd>
+  </dl>
+</td></tr></table>
+</div>
+<a name="xml_struct"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <h3 class="epydoc">xml_struct</h3>
+  
+  <dl class="fields">
+  </dl>
+  <dl class="fields">
+    <dt>Value:</dt>
+      <dd><table><tr><td><pre class="variable">
+<code class="variable-group">[</code>&lt;class 'pyffi.formats.tri.Vertex'&gt;<code class="variable-op">,</code>
+ &lt;class 'pyffi.formats.tri.TriFace'&gt;<code class="variable-op">,</code>
+ &lt;class 'pyffi.formats.tri.QuadFace'&gt;<code class="variable-op">,</code>
+ &lt;class 'pyffi.formats.tri.TexCoord'&gt;<code class="variable-op">,</code>
+ &lt;class 'pyffi.formats.tri.ShortRelativeVertex'&gt;<code class="variable-op">,</code>
+ &lt;class 'pyffi.formats.tri._MorphRecord'&gt;<code class="variable-op">,</code>
+ &lt;class 'pyffi.formats.tri.ModifierRecord'&gt;<code class="variable-op">,</code>
+ &lt;class 'pyffi.formats.tri._Header'&gt;<code class="variable-group">]</code>
+</pre></td></tr></table>
+</dd>
+  </dl>
+</td></tr></table>
+</div>
+<br />
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+  <!-- Home link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="pyffi-module.html">Home</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Project homepage -->
+      <th class="navbar" align="right" width="100%">
+        <table border="0" cellpadding="0" cellspacing="0">
+          <tr><th class="navbar" align="center"
+            >&nbsp;&nbsp;&nbsp;<a class="navbar" target="_top" href="http://pyffi.sourceforge.net/">Python File Format Interface</a>&nbsp;&nbsp;&nbsp;</th><th class="navbar" align="center">&nbsp;&nbsp;&nbsp;<a class="navbar" target="_top" href="http://sourceforge.net"><img src="http://sflogo.sourceforge.net/sflogo.php?group_id=199269" width="88" height="31" border="0" alt="SourceForge.net Logo" /></a>&nbsp;&nbsp;&nbsp;</th>
+          </tr></table></th>
+  </tr>
+</table>
+<table border="0" cellpadding="0" cellspacing="0" width="100%%">
+  <tr>
+    <td align="left" class="footer">
+    Generated by Epydoc 3.0.1 on Sat Nov 26 08:35:14 2011
+    </td>
+    <td align="right" class="footer">
+      <a target="mainFrame" href="http://epydoc.sourceforge.net"
+        >http://epydoc.sourceforge.net</a>
+    </td>
+  </tr>
+</table>
+
+<script type="text/javascript">
+  <!--
+  // Private objects are initially displayed (because if
+  // javascript is turned off then we want them to be
+  // visible); but by default, we want to hide them.  So hide
+  // them unless we have a cookie that says to show them.
+  checkCookie();
+  // -->
+</script>
+</body>
+</html>

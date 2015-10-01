@@ -1,0 +1,1091 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE fileformat>
+<fileformat>
+    <version num="744">Far Cry, Crysis</version>
+    <version num="750">Aion</version>
+
+    <!--
+    *******************
+    *** basic types ***
+    *******************
+    -->
+
+    <basic name="ubyte">
+        An unsigned 8-bit integer.
+    </basic>
+
+    <basic name="byte">
+        A signed 8-bit integer.
+    </basic>
+
+    <basic name="ushort">
+        An unsigned 16-bit integer.
+    </basic>
+
+    <basic name="short">
+        A signed 16-bit integer.
+    </basic>
+
+    <basic name="uint">
+        An unsigned 32-bit integer.
+    </basic>
+
+    <basic name="int">
+        A signed 32-bit integer.
+    </basic>
+
+    <basic name="char">
+        An 8-bit character.
+    </basic>
+
+    <basic name="float">
+        A standard 32-bit floating point number.
+    </basic>
+
+    <basic name="String">
+        A null-terminated string.
+    </basic>
+
+    <basic name="Ref" istemplate="1">
+        A reference to another block.
+    </basic>
+
+    <basic name="Ptr" istemplate="1">
+        A back-reference to another block (up the hierarchy).
+    </basic>
+
+    <!--
+    *******************
+    *** alias types ***
+    *******************
+    -->
+
+    <alias name="bool" type="ubyte" />
+    
+    <alias name="ChunkVersion" type="uint">
+        The version of a particular chunk, or the version of the chunk table.
+    </alias>
+
+    <alias name="FileOffset" type="int" default="-1">
+        Points to a position in a file.
+    </alias>
+
+    <!--
+    ******************
+    *** enum types ***
+    ******************
+    -->
+
+    <enum name="FileType" numbytes="4" default="0xFFFF0000">
+        An unsigned 32-bit integer, describing the file type.
+        <option value="0xFFFF0000" name="GEOM">Geometry file.</option>
+        <option value="0xFFFF0001" name="ANIM">Animation file.</option>
+    </enum>
+    
+    <enum name="ChunkType" numbytes="4">
+        An unsigned 32-bit integer, describing the chunk type.
+        <option value="0" name="ANY" />
+        <option value="0xCCCC0000" name="Mesh" />
+        <option value="0xCCCC0001" name="Helper" />
+        <option value="0xCCCC0002" name="VertAnim" />
+        <option value="0xCCCC0003" name="BoneAnim" />
+        <option value="0xCCCC0004" name="GeomNameList">Obsolete.</option>
+        <option value="0xCCCC0005" name="BoneNameList" />
+        <option value="0xCCCC0006" name="MtlList">Obsolete.</option>
+        <option value="0xCCCC0007" name="MRM">Obsolete.</option>
+        <option value="0xCCCC0008" name="SceneProps" />
+        <option value="0xCCCC0009" name="Light" />
+        <option value="0xCCCC000A" name="PatchMesh">Not implemented.</option>
+        <option value="0xCCCC000B" name="Node" />
+        <option value="0xCCCC000C" name="Mtl" />
+        <option value="0xCCCC000D" name="Controller" />
+        <option value="0xCCCC000E" name="Timing" />
+        <option value="0xCCCC000F" name="BoneMesh" />
+        <option value="0xCCCC0010" name="BoneLightBinding">Describes the lights binded to bones</option>
+        <option value="0xCCCC0011" name="MeshMorphTarget">Describes a morph target of a mesh chunk</option>
+        <option value="0xCCCC0012" name="BoneInitialPos">Describes the initial position (4x3 matrix) of each bone; just an array of 4x3 matrices</option>
+        <option value="0xCCCC0013" name="SourceInfo">Describes the source from which the cgf was exported: source max file, machine and user.</option>
+        <!-- the following chunk types are crysis exclusive -->
+        <option value="0xCCCC0014" name="MtlName">Provides material name (as used in the material xml file).</option>
+        <option value="0xCCCC0015" name="ExportFlags">Describes export information.</option>
+        <option value="0xCCCC0016" name="DataStream">A data stream.</option>
+        <option value="0xCCCC0017" name="MeshSubsets">Describes an array of mesh subsets.</option>
+        <option value="0xCCCC0018" name="MeshPhysicsData">Physicalized mesh data.</option>
+        <option value="0xACDC0000" name="CompiledBones">Unknown chunk. Used in Crysis.</option>
+        <option value="0xACDC0001" name="CompiledPhysicalBones">Unknown chunk. Used in Crysis.</option>
+        <option value="0xACDC0002" name="CompiledMorphTargets">Unknown chunk. Used in Crysis.</option>
+        <option value="0xACDC0003" name="CompiledPhysicalProxies">Unknown chunk. Used in Crysis.</option>
+        <option value="0xACDC0004" name="CompiledIntFaces">Unknown chunk. Used in Crysis.</option>
+        <option value="0xACDC0005" name="CompiledIntSkinVertices">Unknown chunk. Used in Crysis.</option>
+        <option value="0xACDC0006" name="CompiledExt2IntMap">Unknown chunk. Used in Crysis.</option>
+        <option value="0xAAFC0000" name="BreakablePhysics">Unknown chunk. Used in Crysis.</option>
+        <option value="0xAAFC0001" name="FaceMap">Unknown chunk. Used in Crysis.</option>
+        <option value="0xAAFC0002" name="SpeedInfo">Speed and distant info.</option>
+        <option value="0xAAFC0003" name="FootPlantInfo">Footplant information.</option>
+        <option value="0xAAFC0004" name="BonesBoxes">Unknown chunk. Used in Crysis.</option>
+        <option value="0xAAFC0005" name="UnknownAAFC0005">Unknown chunk. Used in Crysis.</option>
+    </enum>
+
+    <enum name="HelperType" numbytes="1">
+        <option value="0" name="POINT" />
+        <option value="1" name="DUMMY" />
+        <option value="2" name="XREF" />
+        <option value="3" name="CAMERA" />
+        <option value="4" name="GEOMETRY" />
+    </enum>
+
+    <enum name="TextureMappingType" numbytes="1">
+        <option value="0" name="NORMAL" />
+        <option value="1" name="ENVIRONMENT" />
+        <option value="2" name="SCREENENVIRONMENT" />
+        <option value="3" name="CUBIC" />
+        <option value="4" name="AUTOCUBIC" />
+    </enum>
+
+    <enum name="MtlType" numbytes="4">
+        <option value="0" name="UNKNOWN" />
+        <option value="1" name="STANDARD" />
+        <option value="2" name="MULTI" />
+        <option value="3" name="TWOSIDED" />
+    </enum>
+
+    <enum name="MtlNamePhysicsType" numbytes="4">
+        <option value="0xffffffff" name="NONE">No physics, the polygons are not physicalized.</option>
+        <option value="0" name="DEFAULT">The polygons are physicalized to block the player and vehicles and can get a shader assigned.</option>
+        <option value="1" name="NOCOLLIDE">Use this for very simple proxies that do not block the player, but are used for detecting bullet shots.</option>
+        <option value="2" name="OBSTRUCT">The polygons are physicalized in order to block the AI view; player, AI and vehicles can pass through, i.e. used for vegetation cover objects.</option>
+        <option value="256" name="DEFAULTPROXY">The polygons are physicalized to block the player and vehicles but are invisible and do not get a shader assigned.</option>
+    </enum>
+    
+    <enum name="LightType" numbytes="4">
+        <option value="0" name="OMNI" />
+        <option value="1" name="SPOT" />
+        <option value="2" name="DIRECT" />
+        <option value="3" name="AMBIENT" />
+    </enum>
+
+    <enum name="CtrlType" numbytes="4">
+        <option value="0" name="NONE" />
+        <option value="1" name="CRYBONE" />
+        <option value="2" name="LINEAR1" />
+        <option value="3" name="LINEAR3" />
+        <option value="4" name="LINEARQ" />
+        <option value="5" name="BEZIER1" />
+        <option value="6" name="BEZIER3" />
+        <option value="7" name="BEZIERQ" />
+        <option value="8" name="TBC1" />
+        <option value="9" name="TBC3" />
+        <option value="10" name="TBCQ" />
+        <option value="11" name="BSPLINE2O">2-byte fixed values, open</option>
+        <option value="12" name="BSPLINE1O">1-byte fixed values, open</option>
+        <option value="13" name="BSPLINE2C">2-byte fixed values, closed</option>
+        <option value="14" name="BSPLINE1C">1-byte fixed values, closed</option>
+        <option value="11" name="CONST">constant</option>
+    </enum>
+
+    <enum name="DataStreamType" numbytes="4">
+        <option value="0" name="VERTICES" />
+        <option value="1" name="NORMALS" />
+        <option value="2" name="UVS" />
+        <option value="3" name="COLORS" />
+        <option value="4" name="COLORS2" />
+        <option value="5" name="INDICES" />
+        <option value="6" name="TANGENTS" />
+        <option value="7" name="SHCOEFFS" />
+        <option value="8" name="SHAPEDEFORMATION" />
+        <option value="9" name="BONEMAP" />
+        <option value="10" name="FACEMAP" />
+        <option value="11" name="VERTMATS" />
+    </enum>
+
+    <enum name="PhysicsPrimitiveType" numbytes="4">
+        <option value="0" name="CUBE" />
+        <option value="1" name="POLYHEDRON" />
+        <option value="5" name="CYLINDER" />
+        <option value="6" name="UNKNOWN6" />
+    </enum>
+
+    <!--
+    ******************
+    *** bitstructs ***
+    ******************
+    -->
+
+    <bitstruct name="TextureMappingFlags" numbytes="1">
+        <bits name="No Mipmap" numbits="1" />
+    </bitstruct>
+
+    <bitstruct name="MtlFlags" numbytes="4">
+        <bits name="Wire" numbits="1" />          <!-- 1 -->
+        <bits name="Two Sided" numbits="1" />     <!-- 2 -->
+        <bits name="Facemap" numbits="1" />       <!-- 4 -->
+        <bits name="Faceted" numbits="1" />       <!-- 8 -->
+        <bits name="Additive" numbits="1" />      <!-- 16 -->
+        <bits name="Substractive" numbits="1" />  <!-- 32 -->
+        <bits name="Cry Shader" numbits="1" />    <!-- 64 -->
+        <bits name="Physicalize" numbits="1" />   <!-- 128 -->
+        <bits name="Additive Decal" numbits="1" /><!-- 256 -->
+        <bits name="Use Glossiness" numbits="1" /><!-- 512 -->
+    </bitstruct>
+
+    <bitstruct name="MtlNameFlags" numbytes="4">
+        <bits name="Multi" numbits="1">Has material sub materials info?</bits>
+        <bits name="Sub" numbits="1">Is material a sub material?</bits>
+        <bits name="Sh Coeffs" numbits="1">Material should get spherical harmonics coefficients computed.</bits>
+        <bits name="Sh Two Sided" numbits="1">This material will be used as 2 sided in the spherical harmonics precomputation.</bits>
+        <bits name="Sh Ambient" numbits="1">This material will get an ambient spherical harmonics term (to not shadow it entirely).</bits>
+    </bitstruct>
+
+    <bitstruct name="CtrlFlags" numbytes="4">
+        <bits name="Cycle" numbits="1" />
+        <bits name="Loop" numbits="1" />
+    </bitstruct>
+
+    <bitstruct name="MeshSubsetsFlags" numbytes="4">
+        <bits name="Sh Has Decompr Mat" numbits="1" />
+        <bits name="Bone Indices" numbits="1" />
+    </bitstruct>
+    
+    <bitstruct name="ExportFlags" numbytes="4">
+        <bits name="Merge All Nodes" numbits="1" />
+    </bitstruct>
+
+    <!--
+    ***************
+    *** structs ***
+    ***************
+    -->
+
+    <struct name="String16">
+        <add name="Data" type="char" arr1="16" />
+    </struct>
+
+    <struct name="String32">
+        <add name="Data" type="char" arr1="32" />
+    </struct>
+
+    <struct name="String64">
+        <add name="Data" type="char" arr1="64" />
+    </struct>
+
+    <struct name="String128">
+        <add name="Data" type="char" arr1="128" />
+    </struct>
+
+    <struct name="String256">
+        <add name="Data" type="char" arr1="256" />
+    </struct>
+
+    <struct name="SizedString">
+	    <add name="Length" type="uint" />
+        <add name="Data" type="char" arr1="Length" />
+    </struct>
+
+    <struct name="Vector3">
+        A vector in 3D space (x,y,z).
+        <add name="x" type="float">First coordinate.</add>
+        <add name="y" type="float">Second coordinate.</add>
+        <add name="z" type="float">Third coordinate.</add>
+    </struct>
+
+    <struct name="Matrix33">
+        A 3x3 transformation matrix.
+        <add name="m11" type="float">The (1,1) element.</add>
+        <add name="m12" type="float">The (2,1) element.</add>
+        <add name="m13" type="float">The (3,1) element.</add>
+        <add name="m21" type="float">The (1,2) element.</add>
+        <add name="m22" type="float">The (2,2) element.</add>
+        <add name="m23" type="float">The (3,2) element.</add>
+        <add name="m31" type="float">The (1,3) element.</add>
+        <add name="m32" type="float">The (2,3) element.</add>
+        <add name="m33" type="float">The (3,3) element.</add>
+    </struct>
+
+    <struct name="Matrix44">
+        A 4x4 transformation matrix.
+        <add name="m11" type="float">The (1,1) element.</add>
+        <add name="m12" type="float">The (2,1) element.</add>
+        <add name="m13" type="float">The (3,1) element.</add>
+        <add name="m14" type="float">The (4,1) element.</add>
+        <add name="m21" type="float">The (1,2) element.</add>
+        <add name="m22" type="float">The (2,2) element.</add>
+        <add name="m23" type="float">The (3,2) element.</add>
+        <add name="m24" type="float">The (4,2) element.</add>
+        <add name="m31" type="float">The (1,3) element.</add>
+        <add name="m32" type="float">The (2,3) element.</add>
+        <add name="m33" type="float">The (3,3) element.</add>
+        <add name="m34" type="float">The (4,3) element.</add>
+        <add name="m41" type="float">The (1,4) element.</add>
+        <add name="m42" type="float">The (2,4) element.</add>
+        <add name="m43" type="float">The (3,4) element.</add>
+        <add name="m44" type="float">The (4,4) element.</add>
+    </struct>
+
+    <struct name="Quat">
+        A quaternion (x,y,z,w).
+        <add name="x" type="float">First coordinate.</add>
+        <add name="y" type="float">Second coordinate.</add>
+        <add name="z" type="float">Third coordinate.</add>
+        <add name="w" type="float">Fourth coordinate.</add>
+    </struct>
+
+    <struct name="Vertex">
+        <add name="p" type="Vector3">Position.</add>
+        <add name="n" type="Vector3">Normal.</add>
+    </struct>
+
+    <struct name="Face">
+        A mesh face.
+        <add name="v0" type="int">First vertex index.</add>
+        <add name="v1" type="int">Second vertex index.</add>
+        <add name="v2" type="int">Third vertex index.</add>
+        <add name="Material" type="int">Material index.</add>
+        <add name="Sm Group" type="int" default="1">Smoothing group.</add>
+    </struct>
+    
+    <struct name="Key">
+        <add name="Time" type="int">Time in ticks.</add>
+        <add name="Abs Pos" type="Vector3">Absolute position.</add>
+        <add name="Rel Pos" type="Vector3">Relative position.</add>
+        <add name="Rel Quat" type="Quat" cond="ARG == 1">Relative Quaternion.</add>
+        <add name="Unknown 1" type="Vector3" cond="ARG == 6">Unknown.</add>
+        <add name="Unknown 1" type="Vector3" cond="ARG == 10">Unknown.</add>
+        <add name="Unknown 2" type="float" arr1="2" cond="ARG == 9">Unknown.</add>
+    </struct>
+    
+    <struct name="UV">
+        Texture coordinate.
+        <add name="U" type="float" />
+        <add name="V" type="float" />
+    </struct>
+
+    <struct name="UVFace">
+        A texture face (vertex indices).
+        <add name="t0" type="int">First vertex index.</add>
+        <add name="t1" type="int">Second vertex index.</add>
+        <add name="t2" type="int">Third vertex index.</add>
+    </struct>
+
+    <struct name="TextureMap">
+        <add name="Name" type="String32" ver2="745">Name of the texture map.</add>
+        <add name="Long Name" type="String128" ver1="746">Name of the texture map.</add>
+        <!-- if there is no name and no long name, then the texture slot is not in use and all following bytes are zero -->
+        <add name="Type" type="TextureMappingType" ver1="745">Mapping type</add>
+        <add name="Flags" type="TextureMappingFlags" ver1="745">Mapping flags</add>
+        <add name="Amount" type="ubyte" ver1="745">Unknown. 100 for used texture slots?</add>
+        <add name="Reserved1" type="ubyte" ver1="745">Unknown.</add>
+        <add name="Reserved2" type="ubyte" arr1="31" ver1="746">Unknown.</add>
+        <!--tiling and mirror-->
+        <add name="U Tile" type="bool" default="1" />
+        <add name="U Mirror" type="bool" />
+        <add name="V Tile" type="bool" default="1" />
+        <add name="V Mirror" type="bool" />
+        <add name="Reserved3" type="ubyte">Zero, padding byte.</add>
+        <!--reflection settings-->
+        <add name="Ref Update" type="int" ver1="745">Update reflection every nth frame.</add>
+        <add name="Ref Size" type="int" ver1="745">Reflection size.</add>
+        <add name="Ref Blur" type="float" ver1="745">Reflection blur.</add>
+        <!--texture position values-->
+        <add  name="U Off Val" type="float" />
+        <add  name="U Scl Val" type="float" default="1.0" />
+        <add  name="U Rot Val" type="float" />
+        <add  name="V Off Val" type="float" />
+        <add  name="V Scl Val" type="float" default="1.0" />
+        <add  name="V Rot Val" type="float" />
+        <add  name="W Rot Val" type="float" />
+
+        <!--texture position controller chunk id's (if not animated they are -1)-->
+        <add name="U Off Ctrl" type="Ref" template="ControllerChunk" cond="(Name != &quot;&quot;) || (Long Name != &quot;&quot;)" />
+        <add name="U Scl Ctrl" type="Ref" template="ControllerChunk" cond="(Name != &quot;&quot;) || (Long Name != &quot;&quot;)" />
+        <add name="U Rot Ctrl" type="Ref" template="ControllerChunk" cond="(Name != &quot;&quot;) || (Long Name != &quot;&quot;)" />
+        <add name="V Off Ctrl" type="Ref" template="ControllerChunk" cond="(Name != &quot;&quot;) || (Long Name != &quot;&quot;)" />
+        <add name="V Scl Ctrl" type="Ref" template="ControllerChunk" cond="(Name != &quot;&quot;) || (Long Name != &quot;&quot;)" />
+        <add name="V Rot Ctrl" type="Ref" template="ControllerChunk" cond="(Name != &quot;&quot;) || (Long Name != &quot;&quot;)" />
+        <add name="W Rot Ctrl" type="Ref" template="ControllerChunk" cond="(Name != &quot;&quot;) || (Long Name != &quot;&quot;)" />
+        <add name="Reserved4" type="ubyte" arr1="28" cond="(Name == &quot;&quot;) &amp;&amp; (Long Name == &quot;&quot;)" />
+    </struct>
+
+    <struct name="BoneLink">
+        A bone link.
+        <add name="Bone" type="uint"> <!-- type="Ref" template="NodeChunk" -->The bone chunk.</add>
+        <add name="Offset" type="Vector3">The bone offset?</add>
+        <add name="Blending" type="float">Vertex weight.</add>
+    </struct>
+    
+    <struct name="VertexWeight">
+        <add name="Num Bone Links" type="uint" />
+        <add name="Bone Links" type="BoneLink" arr1="Num Bone Links" />
+    </struct>
+
+    <struct name="IRGB">
+        R8G8B8.
+        <add name="r" type="ubyte" />
+        <add name="g" type="ubyte" />
+        <add name="b" type="ubyte" />
+    </struct>
+    
+    <struct name="IRGBA">
+        R8G8B8A8.
+        <add name="r" type="ubyte" />
+        <add name="g" type="ubyte" />
+        <add name="b" type="ubyte" />
+        <add name="a" type="ubyte" />
+    </struct>
+    
+    <struct name="FRGB">
+        R32G32B32 (float).
+        <add name="r" type="float" />
+        <add name="g" type="float" />
+        <add name="b" type="float" />
+    </struct>
+
+    <struct name="Tangent">
+        Tangents. Divide each component by 32767 to get the actual value.
+        <add name="x" type="short" />
+        <add name="y" type="short" />
+        <add name="z" type="short" />
+        <add name="w" type="short">Handness? Either 32767 (+1.0) or -32767 (-1.0).</add>
+    </struct>
+    
+    <struct name="FileSignature">
+        <add name="Signature" type="char" arr1="8">&quot;CryTek\0\0&quot;</add>
+    </struct>
+
+    <struct name="ChunkHeader">
+        A CGF chunk header.
+        <add name="Type" type="ChunkType">Type of chunk referred to.</add>
+        <add name="Version" type="ChunkVersion">Version of the chunk referred to.</add>
+        <add name="Offset" type="uint">Position of the chunk in the CGF file.</add>
+        <add name="Id" type="uint" ver1="744">The chunk identifier.</add>
+    </struct>
+
+    <struct name="RangeEntity">
+        <add name="Name" type="String32" />
+        <add name="Start" type="int" />
+        <add name="End" type="int" />
+    </struct>
+
+    <struct name="BonePhysics">
+        <add name="Geometry" type="Ref" template="BoneMeshChunk">Geometry of a separate mesh for this bone.</add>
+        <!-- joint parameters -->
+        <add name="Flags" type="uint" />
+        <add name="Min" type="Vector3" />
+        <add name="Max" type="Vector3" />
+        <add name="Spring Angle" type="Vector3" />
+        <add name="Spring Tension" type="Vector3" />
+        <add name="Damping" type="Vector3" />
+        <add name="Frame Matrix" type="Matrix33" />
+    </struct>
+
+    <struct name="BoneEntity">
+        <add name="Bone Id" type="int">Bone identifier.</add>
+        <add name="Parent Id" type="int">Parent identifier.</add>
+        <add name="Num Children" type="uint" />
+        <add name="Bone Name CRC32" type="uint">CRC32 of bone name as listed in the BoneNameListChunk.
+
+In Python this can be calculated using zlib.crc32(name)</add>
+        <add name="Properties" type="String32" />
+        <add name="Physics" type="BonePhysics" />
+    </struct>
+
+    <struct name="BoneLightBinding">
+        <add name="Light" type="Ref" template="LightChunk">Light that is bound to a bone.</add>
+        <add name="Bone" type="Ptr" template="NodeChunk">Parent bone.</add>
+        <add name="Pos" type="Vector3">Position of light in parent bone coordinates.</add>
+        <add name="Rot" type="Vector3">Logarithm of quaternion that describes the light orientation relative to the parent bone.</add>
+    </struct>
+
+    <struct name="InitialPosMatrix">
+        A bone initial position matrix.
+        <add name="Rot" type="Matrix33" />
+        <add name="Pos" type="Vector3" />
+    </struct>
+
+    <struct name="MorphVertex">
+        <add name="Vertex Index" type="uint">The vertex index in the mesh.</add>
+        <add name="Vertex Target" type="Vector3">The morphed vertex coordinates.</add>
+    </struct>
+
+    <struct name="MeshSubset">
+        <add name="First Index" type="uint" />
+        <add name="Num Indices" type="uint" />
+        <add name="First Vertex" type="uint" />
+        <add name="Num Vertices" type="uint" />
+        <add name="Mat Id" type="uint" />
+        <add name="Radius" type="float" />
+        <add name="Center" type="Vector3" />
+    </struct>
+
+    <struct name="MeshBoneIds">
+        <add name="Num Bone Ids" type="uint" />
+        <add name="Bones" type="ushort" arr1="Num Bone Ids" />
+        <add name="Padding" type="ushort" arr1="0x80 - Num Bone Ids" />
+    </struct>
+
+    <!--real file blocks-->
+
+    <struct name="Header">
+        The CGF header.
+        <add name="Signature" type="FileSignature">The CGF file signature.</add>
+        <add name="Type" type="FileType">The CGF file type (geometry or animation).</add>
+        <add name="Version" type="ChunkVersion">The version of the chunk table.</add>
+        <add name="Offset" type="FileOffset">Position of the chunk table in the CGF file.</add>
+    </struct>
+
+    <struct name="ChunkTable">
+        List of all chunks in the CGF file. Usually this table is put at the end of the CGF file.
+        <add name="Num Chunks" type="uint">Number of chunks.</add>
+        <add name="Chunk Headers" type="ChunkHeader" arr1="Num Chunks">Header for each chunk.</add>
+    </struct>
+
+    <struct name="Chunk">
+        Base class for all chunks.
+    </struct>
+
+    <struct name="GeomNameListChunk">
+        Obsolete, not decoded.
+    </struct>
+
+    <struct name="MtlListChunk">
+        Obsolete, not decoded.
+    </struct>
+
+    <struct name="MRMChunk">
+        Obsolete, not decoded.
+    </struct>
+
+    <struct name="PatchMeshChunk">
+        Obsolete, not decoded.
+    </struct>
+
+    <struct name="ScenePropsChunk">
+        Not decoded. Nowhere used?
+    </struct>
+
+    <struct name="AbstractObjectChunk" inherit="Chunk">
+        Common parent for HelperChunk and MeshChunk.
+    </struct>
+
+    <struct name="MeshChunk" inherit="AbstractObjectChunk">
+        <version num="623">Far Cry</version>
+        <version num="744">Far Cry, Aion, Crysis</version>
+        <version num="800">Crysis</version>
+        Geometry.
+        <add name="Has Vertex Weights" type="bool" ver2="744" />
+        <add name="Has Vertex Colors" type="bool" ver2="744"/>
+        <add name="In World Space" type="bool" ver2="623" />
+        <add name="Reserved 1" type="ubyte" ver1="744" ver2="744">Padding byte</add>
+        <add name="Reserved 2" type="ubyte" ver2="744">Padding byte</add>
+        <add name="Flags 1" type="uint" ver1="800" />
+        <add name="Flags 2" type="uint" ver1="800" />
+        <add name="Num Vertices" type="uint" />
+        <add name="Num Indices" type="uint" ver1="800">Number of indices (each triangle has 3 indices, so this is the number of triangles times 3).</add>
+        <add name="Num Uvs" type="uint" ver2="744" />
+        <add name="Num Faces" type="uint" ver2="744" />
+        <add name="Material" type="Ref" template="MtlChunk" ver2="623">Material chunk.</add>
+        <!-- mesh chunks of version 0x623 never encountered, and the next field is very confusing, so deleted -->
+        <!--<add name="Property String Length" type="uint" ver2="623" />-->
+        <add name="Num Mesh Subsets" type="uint" ver1="800">Number of mesh subsets.</add>
+        <add name="Mesh Subsets" type="Ref" template="MeshSubsetsChunk" ver1="800" />
+        <add name="Vert Anim" type="Ref" template="VertAnimChunk" ver1="744" />
+        
+        <add name="Vertices" type="Vertex" arr1="Num Vertices" ver2="744" />
+        
+        <add name="Faces" type="Face" arr1="Num Faces" ver2="744" />
+        
+        <add name="Uvs" type="UV" arr1="Num Uvs" ver2="744" />
+        <add name="Uv Faces" type="UVFace" arr1="Num Faces" cond="Num Uvs" ver2="744" />
+
+        <add name="Vertex Weights" type="VertexWeight" arr1="Num Vertices" cond="Has Vertex Weights" ver2="744" />
+        <add name="Vertex Colors" type="IRGB" arr1="Num Vertices" cond="Has Vertex Colors" ver2="744" />
+
+        <add name="Vertices Data" type="Ref" template="DataStreamChunk" ver1="800" />
+        <add name="Normals Data" type="Ref" template="DataStreamChunk" ver1="800" />
+        <add name="Uvs Data" type="Ref" template="DataStreamChunk" ver1="800" />
+        <add name="Colors Data" type="Ref" template="DataStreamChunk" ver1="800" />
+        <add name="Colors 2 Data" type="Ref" template="DataStreamChunk" ver1="800" />
+        <add name="Indices Data" type="Ref" template="DataStreamChunk" ver1="800" />
+        <add name="Tangents Data" type="Ref" template="DataStreamChunk" ver1="800" />
+        <add name="Sh Coeffs Data" type="Ref" template="DataStreamChunk" ver1="800" />
+        <add name="Shape Deformation Data" type="Ref" template="DataStreamChunk" ver1="800" />
+        <add name="Bone Map Data" type="Ref" template="DataStreamChunk" ver1="800" />
+        <add name="Face Map Data" type="Ref" template="DataStreamChunk" ver1="800" />
+        <add name="Vert Mats Data" type="Ref" template="DataStreamChunk" ver1="800" />
+        <add name="Reserved Data" type="Ref" template="DataStreamChunk" arr1="4" ver1="800" />
+        <add name="Physics Data" type="Ref" template="MeshPhysicsDataChunk" arr1="4" ver1="800" />
+        <add name="Min Bound" type="Vector3" ver1="800">Minimum coordinate values.</add>
+        <add name="Max Bound" type="Vector3" ver1="800">Maximum coordinate values.</add>
+        <add name="Reserved 3" type="uint" arr1="32" ver1="800" />
+    </struct>
+
+    <struct name="HelperChunk" inherit="AbstractObjectChunk">
+        <version num="362">Far Cry</version>
+        <version num="744">Far Cry, Crysis</version>
+        <add name="Name" type="String64" ver2="362">Helper name</add>
+        <add name="Type" type="HelperType">Point, dummy, xref or camera.</add>
+        <add name="Pos" type="Vector3">World position</add>
+        <add name="Transform" type="Matrix44" ver2="362">Transformation matrix</add>
+    </struct>
+
+    <struct name="VertAnimChunk" inherit="Chunk">
+        <version num="744">Far Cry</version>
+    <!-- todo: decode -->
+    </struct>
+
+    <struct name="BoneAnimChunk" inherit="Chunk">
+        <version num="290">Far Cry, Crysis, Aion</version>
+        <add name="Num Bones" type="uint" />
+        <add name="Bones" type="BoneEntity" arr1="Num Bones" />
+    </struct>
+
+    <struct name="BoneNameListChunk" inherit="Chunk">
+        <version num="745">Far Cry, Crysis, Aion</version>
+        <add name="Num Names" type="uint" />
+        <add name="Names" type="String" arr1="Num Names" />
+        <add name="Unknown" type="ubyte" />
+    </struct>
+
+    <struct name="LightChunk" inherit="Chunk">
+        <version num="351">Far Cry</version>
+        <version num="744">Far Cry</version>
+        <add name="Name" type="String64" ver2="351" />
+        <add name="Type" type="LightType" />
+        <add name="On" type="bool" />
+        <add name="Reserved1" type="ubyte" arr1="3" ver2="351">Padding bytes.</add>
+        <add name="Pos" type="Vector3" ver2="351">World position.</add>
+        <add name="Transform" type="Matrix44" ver2="351">Transformation matrix.</add>
+        <add name="Color" type="IRGB">Color.</add>
+        <add name="Intensity" type="float">Light intensity.</add>
+        <add name="Hot Size" type="float">For spot and direct light hotspot value.</add>
+        <add name="Fall Size" type="float">For spot and direct light falloff value.</add>
+        <add name="Use Near Attenuation" type="bool">Near attenuation on.</add>
+        <add name="Reserved2" type="ubyte" arr1="3">Padding bytes.</add>
+        <add name="Near Attenuation Start" type="float">Start of near attenuation.</add>
+        <add name="Near Attenuation End" type="float">End of near attenuation.</add>
+        <add name="Use Far Attenuation" type="bool">Far attenuation on.</add>
+        <add name="Reserved3" type="ubyte" arr1="3">Padding bytes.</add>
+        <add name="Far Attenuation Start" type="float">Start of far attenuation.</add>
+        <add name="Far Attenuation End" type="float">End of far attenuation.</add>
+        <add name="Shadow" type="bool">Shadow is on.</add>
+        <add name="Reserved4" type="ubyte" arr1="3">Padding bytes.</add>
+        <add name="Direction" type="Vector3" ver1="744">Spot light direction</add>
+        <add name="Image" type="String256">Spot light image.</add>
+    </struct>
+
+    <struct name="NodeChunk" inherit="Chunk">
+        <version num="823">Far Cry, Crysis, Aion</version>
+        <add name="Name" type="String64" />
+        <add name="Object" type="Ref" template="AbstractObjectChunk">Mesh or helper object chunk.</add>
+        <add name="Parent" type="Ptr" template="NodeChunk">Node parent.</add>
+        <add name="Num Children" type="uint">Number of children.</add>
+        <add name="Material" type="Ref" template="AbstractMtlChunk">Material chunk or helper chunk.</add>
+
+        <add name="Is Group Head" type="bool" />
+        <add name="Is Group Member" type="bool" />
+        <add name="Reserved1" type="ubyte" arr1="2">Padding bytes.</add>
+
+        <add name="Transform" type="Matrix44">Transformation matrix.</add>
+        <add name="Pos" type="Vector3">Position component of above matrix.</add>
+        <add name="Rot" type="Quat">Rotation component of above matrix.</add>
+        <add name="Scl" type="Vector3">Scale component of above matrix.</add>
+
+        <add name="Pos Ctrl" type="Ref" template="ControllerChunk">Position controller.</add>
+        <add name="Rot Ctrl" type="Ref" template="ControllerChunk">Rotation controller.</add>
+        <add name="Scl Ctrl" type="Ref" template="ControllerChunk">Scale controller.</add>
+
+        <add name="Property String" type="SizedString">Property string.</add>
+        <!-- only CE1 files have list of children here hence userver="1" -->
+        <add name="Children" type="Ref" template="NodeChunk" arr1="Num Children" userver="1">Children.</add>
+    </struct>
+
+    <struct name="AbstractMtlChunk" inherit="Chunk">
+        Common parent for MtlChunk and MtlNameChunk.
+    </struct>
+    
+    <struct name="MtlChunk" inherit="AbstractMtlChunk">
+        <version num="744">Far Cry</version>
+        <version num="745">Far Cry</version>
+        <version num="746">Far Cry, Crysis</version>
+        <version num="747">Aion</version>
+        <add name="Name" type="String64">Material and shader name.</add>
+        <add name="Reserved" type="ubyte" arr1="60" ver1="746">Reserved.</add>
+        <add name="Alpha Test" type="float" ver1="746">Unknown.</add>
+        <add name="Type" type="MtlType">Material type.</add>
+
+        <!-- colors -->
+        <add name="Col D" type="IRGB" cond="Type == 1">Diffuse color.</add>
+        <add name="Col S" type="IRGB" cond="Type == 1">Specular color.</add>
+        <add name="Col A" type="IRGB" cond="Type == 1">Ambient color.</add>
+        <add name="Unknown" type="ubyte" arr1="3" cond="Type == 1">Zero, probably just padding bytes.</add>
+        <add name="Spec Level" type="float" cond="Type == 1" ver1="745">Specular level.</add>
+        <add name="Spec Shininess" type="float" default="0.1" cond="Type == 1" ver1="745">Specular shininess.</add>
+        <add name="Self Illum" type="float" cond="Type == 1" ver1="745">Self illumination.</add>
+        <add name="Opacity" type="float" default="1.0" cond="Type == 1" ver1="745">Opacity.</add>
+        <add name="Reserved3" type="ubyte" arr1="8" ver1="747">Unknown. Only in Aion.</add>
+        <!-- textures -->
+        <add name="Tex A" type="TextureMap" cond="Type == 1" ver1="745">Ambient texture settings.</add>
+        <add name="Tex D" type="TextureMap" cond="Type == 1">Diffuse texture settings.</add>
+        <add name="Tex S" type="TextureMap" cond="Type == 1" ver1="745">Specular texture settings.</add>
+        <add name="Tex O" type="TextureMap" cond="Type == 1">Opacity texture settings.</add>
+        <add name="Tex B" type="TextureMap" cond="Type == 1">Bump texture settings.</add>
+        <add name="Tex G" type="TextureMap" cond="Type == 1" ver1="745">Gloss texture settings.</add>
+        <add name="Tex F" type="TextureMap" cond="Type == 1" ver1="746">Filter texture settings.</add>
+        <add name="Tex C" type="TextureMap" cond="Type == 1" ver1="745" ver2="745">Cubemap texture settings.</add>
+        <add name="Tex R" type="TextureMap" cond="Type == 1" ver1="745">Reflection texture settings.</add>
+        <add name="Tex Subsurf" type="TextureMap" cond="Type == 1" ver1="745">Subsurface scattering texture settings.</add>
+        <add name="Tex Detail" type="TextureMap" cond="Type == 1" ver1="745">Detail texture settings.</add>
+        <!-- physics -->
+        <add name="Flags" type="MtlFlags" cond="Type == 1" ver1="745" />
+        <add name="Dyn Bounce" type="float" cond="Type == 1">Set 1.0 to activate collision, 0.0 for walkthrough.</add>
+        <add name="Dyn Static Friction" type="float" cond="Type == 1" />
+        <add name="Dyn Sliding Friction" type="float" cond="Type == 1" />
+
+        <add name="Num Children" type="int" cond="Type == 2" />
+        <add name="Reserved2" type="ubyte" arr1="2400" cond="Type == 2">All zero?</add>
+        <add name="Children" type="Ref" template="MtlChunk" arr1="Num Children" cond="Type == 2">Links to other material chunks.</add>
+    </struct>
+
+    <struct name="ControllerChunk" inherit="Chunk">
+        <version num="826">Far Cry, Crysis, Aion</version>
+        <version num="827">Far Cry, Crysis</version>
+        <version num="829">Crysis</version>
+        <add name="Type" type="CtrlType" ver2="826" />
+        <add name="Num Keys" type="uint" ver2="827" />
+        <add name="Flags" type="CtrlFlags" ver2="826" />
+        <add name="Ctrl Id" type="uint" ver2="827">Unique id based on CRC32 of bone name</add>
+        <add name="Keys" type="Key" arr1="Num Keys" arg="Type" ver2="827" />
+    </struct>
+
+    <struct name="TimingChunk" inherit="Chunk">
+        <version num="918">Far Cry, Crysis, Aion</version>
+        <add name="Secs Per Tick" type="float">seconds/ticks</add>
+        <add name="Ticks Per Frame" type="int">ticks/frame</add>
+        <add name="Global Range" type="RangeEntity">Covers all of the time ranges.</add>
+        <add name="Num Sub Ranges" type="int" />
+    </struct>
+
+    <struct name="BoneMeshChunk" inherit="MeshChunk">
+        <version num="744">Far Cry, Crysis, Aion</version>
+    </struct>
+
+    <struct name="BoneLightBindingChunk" inherit="Chunk">
+        <version num="1">Far Cry</version>
+        <add name="Num Bindings" type="uint" />
+        <add name="Bindings" type="BoneLightBinding" arr1="Num Bindings" />
+    </struct>
+
+    <struct name="BoneInitialPosChunk" inherit="Chunk">
+        <version num="1">Far Cry, Crysis, Aion</version>
+        <add name="Mesh" type="Ptr" template="MeshChunk">The mesh with bone info for which these bone initial positions are applicable. There might be some unused bones here as well. There must be the same number of bones as in the other chunks - they are placed in BoneId order.</add>
+        <add name="Num Bones" type="uint">Number of bone initial positions.</add>
+        <add name="Initial Pos Matrices" type="InitialPosMatrix" arr1="Num Bones" />
+    </struct>
+
+    <struct name="SourceInfoChunk" inherit="Chunk">
+        <version num="0">Far Cry, Crysis, Aion</version>
+        <add name="Source File" type="String" />
+        <add name="Date" type="String" />
+        <add name="Author" type="String" />
+    </struct>
+
+    <struct name="MeshMorphTargetChunk" inherit="Chunk">
+        <version num="1">Far Cry</version>
+        <add name="Mesh" type="Ptr" template="MeshChunk">The mesh chunk for which this morph target is.</add>
+        <add name="Num Morph Vertices" type="uint">Number of vertices</add>
+        <add name="Morph Vertices" type="MorphVertex" arr1="Num Morph Vertices">The morph vertices</add>
+        <add name="Target Name" type="String">The target name.</add>
+    </struct>
+
+<!-- crysis chunks -->
+
+    <struct name="MtlNameChunk" inherit="AbstractMtlChunk">
+        <version num="744">Aion</version>
+        <version num="800">Crysis</version>
+        <add name="Flags 1" type="MtlNameFlags" />
+        <add name="Flags 2" type="uint" />
+        <add name="Name" type="String128">Material/shader name.</add>
+        <add name="Physics Type" type="MtlNamePhysicsType" />
+        <add name="Num Children" type="uint">Maximum is 66.</add>
+        <add name="Children" type="Ref" template="MtlNameChunk" arr1="Num Children" />
+        <!-- should not have more than 32 materials, but some files have, for instance
+        Objects/Vehicles/KuanTi/kuanti_details1_lod1.cgf -->
+        <add name="Padding" type="uint" arr1="32 - Num Children" cond="Num Children &lt;= 32" />
+        <add name="Advanced Data" type="uint" cond="Num Children &lt;= 32" />
+        <add name="Sh Opacity" type="float" cond="Num Children &lt;= 33" />
+        <add name="Reserved 2" type="int" arr1="32" />
+    </struct>
+
+    <struct name="ExportFlagsChunk" inherit="Chunk">
+        Export information.
+        <!-- in Crysis this occurs in caf files, which are of the old Far Cry
+        style, hence we allow these for Far Cry cgf files as well although
+        probably Far Cry is not going to recognize this chunk -->
+        <version num="1">Far Cry, Crysis</version>
+        <add name="Flags" type="ExportFlags" />
+        <add name="RC Version" type="uint" arr1="4" />
+        <add name="RC Version String" type="String16" />
+        <add name="Reserved" type="uint" arr1="32" />
+    </struct>
+
+    <struct name="DataStreamChunk" inherit="Chunk">
+        Contains data such as vertices, normals, etc.
+        <version num="800">Crysis</version>
+        <add name="Flags" type="uint">Not used.</add>
+        <add name="Data Stream Type" type="DataStreamType">The type of data.</add>
+        <add name="Num Elements" type="uint">Number of data entries.</add>
+        <add name="Bytes Per Element" type="uint">Bytes per data entry.</add>
+        <add name="Reserved 1" type="uint" />
+        <add name="Reserved 2" type="uint" />
+        <add name="Vertices" type="Vector3" arr1="Num Elements" cond="Data Stream Type == 0" />
+        <add name="Normals" type="Vector3" arr1="Num Elements" cond="Data Stream Type == 1" />
+        <add name="Uvs" type="UV" arr1="Num Elements" cond="Data Stream Type == 2" />
+        <add name="RGB Colors" type="IRGB" arr1="Num Elements" cond="(Data Stream Type == 3) &amp;&amp; (Bytes Per Element == 3)" />
+        <add name="RGBA Colors" type="IRGBA" arr1="Num Elements" cond="(Data Stream Type == 3) &amp;&amp; (Bytes Per Element == 4)" />
+        <add name="Colors 2" type="IRGBA" arr1="Num Elements" cond="Data Stream Type == 4" />
+        <add name="Indices" type="ushort" arr1="Num Elements" cond="Data Stream Type == 5" />
+        <add name="Tangents" type="Tangent" arr1="Num Elements" arr2="2" cond="Data Stream Type == 6" />
+        <add name="Sh Coeffs" type="ubyte" arr1="Num Elements" arr2="Bytes Per Element" cond="Data Stream Type == 7" />
+        <add name="Shape Deformation" type="ubyte" arr1="Num Elements" arr2="Bytes Per Element" cond="Data Stream Type == 8" />
+        <add name="Bone Map" type="ubyte" arr1="Num Elements" arr2="Bytes Per Element" cond="Data Stream Type == 9" />
+        <add name="Face Map" type="ubyte" arr1="Num Elements" arr2="Bytes Per Element" cond="Data Stream Type == 10" />
+        <add name="Vert Mats" type="ubyte" arr1="Num Elements" arr2="Bytes Per Element" cond="Data Stream Type == 11" />
+    </struct>
+
+    <struct name="MeshSubsetsChunk" inherit="Chunk">
+        <!-- Aion note: block reads, but data does not seem to match -->
+        <version num="1">Aion</version>
+        <version num="800">Crysis</version>
+        <add name="Flags" type="MeshSubsetsFlags" />
+        <add name="Num Mesh Subsets" type="int" />
+        <add name="Reserved 1" type="int" />
+        <add name="Reserved 2" type="int" />
+        <add name="Reserved 3" type="int" ver2="1" />
+        <add name="Mesh Subsets" type="MeshSubset" arr1="Num Mesh Subsets" />
+    </struct>
+
+    <struct name="PhysicsStruct1">
+        <add name="Unknown 1" type="Matrix33" />
+        <add name="Unknown 2" type="int" />
+        <add name="Unknown 3" type="float" arr1="6" />
+    </struct>
+
+    <struct name="PhysicsStruct2">
+        <add name="Unknown 1" type="Matrix33" />
+        <add name="Unknown 2" type="float" arr1="6" />
+        <add name="Unknown 3" type="int" arr1="3" />
+    </struct>
+
+    <struct name="PhysicsStruct50">
+        <add name="Unknown 11" type="short" />
+        <add name="Unknown 12" type="short" />
+        <add name="Unknown 21" type="short" />
+        <add name="Unknown 22" type="short" />
+        <add name="Unknown 23" type="short" />
+        <add name="Unknown 24" type="short" />
+    </struct>
+
+    <struct name="PhysicsDataType0">
+        <!-- this structure seems finished -->
+        <add name="Num Data" type="int">Some number, a count?</add>
+        <add name="Data" type="PhysicsStruct2" arr1="Num Data"></add>
+        <add name="Unknown 33" type="int" arr1="3" />
+        <add name="Unknown 80" type="float" />
+    </struct>
+
+    <struct name="PhysicsDataType1">
+        <!-- this structure seems pretty much finished 
+        TODO try to unify Data 1 and Data 2: can we predict when Num Data 1
+        will be 0xffffffff? -->
+        <add name="Num Data 1" type="uint">Usually 4294967295 (0xffffffff)</add>
+        <add name="Data 1" type="PhysicsStruct50" arr1="Num Data 1" cond="Num Data 1 != 4294967295" />
+        <add name="Num Data 2" type="int" cond="Num Data 1 == 4294967295">A count.</add>
+        <add name="Data 2" type="PhysicsStruct50" arr1="Num Data 2"  cond="Num Data 1 == 4294967295" />
+        <add name="Unknown 60" type="float" arr1="6" />
+        <add name="Unknown 61" type="Matrix33">A rotation matrix.</add>
+        <add name="Unknown 70" type="int" arr1="3" />
+        <add name="Unknown 80" type="float" />
+    </struct>
+
+    <struct name="PhysicsDataType2">
+        <!-- this structure seems pretty much finished -->
+        <add name="Unknown 1" type="Matrix33">A rotation matrix.</add>
+        <add name="Unknown 2" type="int" />
+        <add name="Unknown 3" type="float" arr1="6" />
+        <add name="Unknown 4" type="int" />
+    </struct>
+
+    <struct name="PhysicsCube">
+        <add name="Unknown 14" type="PhysicsStruct1" />
+        <add name="Unknown 15" type="PhysicsStruct1" />
+        <add name="Unknown 16" type="int" />
+    </struct>
+
+    <struct name="PhysicsPolyhedron">
+        <add name="Num Vertices" type="uint">Number of vertices (in this physics mesh?).</add>
+        <add name="Num Triangles" type="uint" />
+        <add name="Unknown 17" type="int">This could be determining the type of data coming further on? Typically, 3, 4, 5, or 8.</add>
+        <add name="Unknown 18" type="int" />
+        <add name="Has Vertex Map" type="ubyte" />
+        <add name="Vertex Map" type="ushort" arr1="Num Vertices" cond="Has Vertex Map == 1">
+             If the (non-physics) mesh has say 200 vertices, then the first 200
+             entries of this map give a mapping identifying the unique vertices.
+             The meaning of the extra entries is unknown.
+        </add>
+        <add name="Use Data Stream" type="ubyte">Not sure. Theory:
+		Value of 1 means that vertices are recycled from the VERTICES DataStreamChunk.
+		Value of 0 means that the vertices are defined here.</add>
+        <add name="Vertices" type="Vector3" arr1="Num Vertices" cond="Use Data Stream == 0">Vertices</add>
+        <add name="Triangles" type="ushort" arr1="Num Triangles" arr2="3" cond="Use Data Stream == 0">Triangles</add>
+        <add name="Unknown 210" type="byte" cond="Use Data Stream == 0">Junk?</add>
+        <add name="Triangle Flags" type="byte" arr1="Num Triangles" cond="Use Data Stream == 0">Flags?</add>
+        <add name="Triangle Map" type="ushort" arr1="Num Triangles" cond="Use Data Stream == 1"/>
+        <add name="Unknown 45" type="byte" arr1="16">Random junk</add>
+        <add name="Unknown 461" type="int">0</add>
+        <add name="Unknown 462" type="int">0</add>
+        <add name="Unknown 463" type="float">0.02</add>
+        <add name="Unknown 464" type="float">not sure</add>
+<!-- alternative to Unknown 464:
+        <add name="Unknown 4641" type="short">not sure</add>
+        <add name="Unknown 4642" type="short">not sure</add>
+-->
+        <add name="Unknown 465" type="float">-1.0</add>
+        <add name="Unknown 466" type="float">not sure</add>
+<!-- alternative to Unknown 466:
+        <add name="Unknown 4661" type="short">not sure</add>
+        <add name="Unknown 4662" type="short">not sure</add>
+-->
+        <add name="Unknown 467" type="float">-1.0</add>
+        <add name="Unknown 468" type="float">not sure</add>
+<!-- alternative to Unknown 468:
+        <add name="Unknown 4681" type="short">not sure</add>
+        <add name="Unknown 4682" type="short">not sure</add>
+-->
+        <add name="Unknown 469" type="float">-1.0</add>
+        <add name="Data Type" type="uint">
+             0, 1, and
+             sometimes also 2 (Objects/Characters/Alien/Hunter/weak_point_a.cgf)
+        </add>
+        <add name="Data 0" type="PhysicsDataType0" cond="Data Type == 0" />
+        <add name="Data 1" type="PhysicsDataType1" cond="Data Type == 1" />
+        <add name="Data 2" type="PhysicsDataType2" cond="Data Type == 2" />
+    </struct>
+
+    <struct name="PhysicsCylinder">
+        <add name="Unknown 1" type="float" arr1="8" />
+        <add name="Unknown 2" type="int" />
+        <add name="Unknown 3" type="PhysicsDataType2" />
+    </struct>
+
+    <struct name="PhysicsShape6">
+        <!-- identical to cylinder? -->
+        <add name="Unknown 1" type="float" arr1="8" />
+        <add name="Unknown 2" type="int" />
+        <add name="Unknown 3" type="PhysicsDataType2" />
+    </struct>
+
+    <struct name="PhysicsData">
+        <add name="Unknown 4" type="int">Seems to be 1 in all cases observed.</add>
+        <add name="Unknown 5" type="int">Unknown, does not seem to be flags.</add>
+        <add name="Unknown 6" type="float" arr1="3">Inertia?</add>
+        <add name="Rot" type="Quat">Most definitely a quaternion. Probably describes rotation of the physics object.</add>
+        <add name="Center" type="Vector3">Center, or position. Probably describes translation of the physics object. Often corresponds to the center of the mesh data as described in the submesh chunk.</add>
+        <add name="Unknown 10" type="float">Mass?</add>
+        <add name="Unknown 11" type="int">Usually 1.</add>
+        <add name="Unknown 12" type="int">Another number, could be a count (observed values: 0, 1, 17, ...).</add>
+        <add name="Unknown 13" type="float" />
+        <add name="Unknown 14" type="float" />
+        <add name="Primitive Type" type="PhysicsPrimitiveType">Describes the shape type: cube, polyhedron, cylinder, ...</add>
+        <add name="Cube" type="PhysicsCube" cond="Primitive Type == 0">Cube data</add>
+        <add name="Polyhedron" type="PhysicsPolyhedron" cond="Primitive Type == 1">Polyhedron data</add>
+        <add name="Cylinder" type="PhysicsCylinder" cond="Primitive Type == 5">Cylinder data</add>
+        <add name="Unknown Shape 6" type="PhysicsShape6" cond="Primitive Type == 6">Unknown shape data</add><!-- Objects/Vehicles/Asian_AAA/asian_AAA.cga, hull_proxy_03 -->
+    </struct>
+
+    <struct name="MeshPhysicsDataChunk" inherit="Chunk">
+        <version num="800">Crysis</version>
+        <version num="1">Aion</version>
+        <add name="Physics Data Size" type="uint">Size of the physical data at the end of the chunk.</add>
+        <add name="Flags" type="uint">Not used?</add>
+        <add name="Tetrahedra Data Size" type="uint" />
+        <add name="Tetrahedra" type="Ref" template="DataStreamChunk">Not sure which type this should be.</add>
+        <add name="Reserved 1" type="uint" />
+        <add name="Reserved 2" type="uint" />
+        <add name="Physics Data" type="PhysicsData" cond="Physics Data Size != 0" />
+        <add name="Tetrahedra Data" type="ubyte" arr1="Tetrahedra Data Size" />
+    </struct>
+
+    <struct name="CompiledBonesChunk" inherit="Chunk">
+        <version num="800">Crysis</version>
+    </struct>
+
+    <struct name="CompiledPhysicalBonesChunk" inherit="Chunk">
+        <version num="800">Crysis</version>
+    </struct>
+
+    <struct name="CompiledMorphTargetsChunk" inherit="Chunk">
+        <version num="800">Crysis</version>
+        <version num="801">Crysis</version>
+    </struct>
+
+    <struct name="CompiledPhysicalProxiesChunk" inherit="Chunk">
+        <version num="800">Crysis</version>
+    </struct>
+
+    <struct name="CompiledIntFacesChunk" inherit="Chunk">
+        <version num="800">Crysis</version>
+    </struct>
+
+    <struct name="CompiledIntSkinVerticesChunk" inherit="Chunk">
+        <version num="800">Crysis</version>
+    </struct>
+
+    <struct name="CompiledExt2IntMapChunk" inherit="Chunk">
+        <version num="800">Crysis</version>
+    </struct>
+
+    <struct name="BreakablePhysicsChunk" inherit="Chunk">
+        <version num="1">Crysis</version>
+    </struct>
+
+    <struct name="FaceMapChunk" inherit="Chunk">
+        <version num="800">Crysis</version>
+    </struct>
+
+    <struct name="SpeedInfoChunk" inherit="Chunk">
+        <version num="920">Crysis</version>
+        <version num="921">Crysis</version>
+        <version num="922">Crysis</version>
+        <add name="Speed" type="float" />
+        <add name="Distance" type="float" />
+        <add name="Slope" type="float" />
+        <add name="Looped" type="int" />
+        <add name="Move Direction" type="Vector3" ver1="921" />
+        <add name="Start Position" type="Quat" ver1="922" />
+    </struct>
+
+    <struct name="FootPlantInfoChunk" inherit="Chunk">
+        <version num="920">Crysis</version>
+        <add name="Num Poses" type="uint" />
+        <add name="L Heel Start" type="float" />
+        <add name="L Heel End" type="float" />
+        <add name="L Toe0 Start" type="float" />
+        <add name="L Toe0 End" type="float" />
+        <add name="R Heel Start" type="float" />
+        <add name="R Heel End" type="float" />
+        <add name="R Toe0 Start" type="float" />
+        <add name="R Toe0 End" type="float" />
+    </struct>
+
+    <struct name="BonesBoxesChunk" inherit="Chunk">
+        <version num="800">Crysis</version>
+        <version num="801">Crysis</version>
+    </struct>
+
+    <struct name="UnknownAAFC0005Chunk" inherit="Chunk">
+        Unknown. An extra block written by the XSI exporter.
+        <version num="1">Crysis</version>
+        <add name="Unknown" type="byte" arr1="16" />
+    </struct>
+
+</fileformat>
+

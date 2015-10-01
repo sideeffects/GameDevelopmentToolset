@@ -1,0 +1,157 @@
+Doctests for the modify_delbranches spell and its friends
+=========================================================
+
+NifToaster modify_delbranches check
+-----------------------------------
+
+>>> from pyffi.formats.nif import NifFormat
+>>> filename = "tests/nif/test_opt_mergeduplicates.nif"
+>>> outfilename = "tests/nif/_test_opt_mergeduplicates.nif"
+>>> # check that file has properties
+>>> data = NifFormat.Data()
+>>> data.read(open(filename, "rb"))
+>>> print([block.__class__.__name__ for block in data.blocks])
+['NiNode', 'NiVertexColorProperty', 'NiZBufferProperty', 'NiStencilProperty', 'NiDitherProperty', 'NiNode', 'NiZBufferProperty', 'NiVertexColorProperty', 'NiStencilProperty', 'NiDitherProperty', 'NiTriStrips', 'NiTexturingProperty', 'NiSourceTexture', 'NiMaterialProperty', 'NiSpecularProperty', 'NiTriStripsData', 'NiTriStrips', 'NiTexturingProperty', 'NiSourceTexture', 'NiMaterialProperty', 'NiSpecularProperty', 'NiAlphaProperty', 'NiTriStripsData', 'NiTriStrips', 'NiTexturingProperty', 'NiSourceTexture', 'NiMaterialProperty', 'NiWireframeProperty', 'NiAlphaProperty', 'NiTriStripsData', 'NiTriStrips', 'NiTexturingProperty', 'NiSourceTexture', 'NiMaterialProperty', 'NiWireframeProperty', 'NiDitherProperty', 'NiTriStripsData']
+>>> # strip properties
+>>> import sys
+>>> sys.path.append("scripts/nif")
+>>> import niftoaster
+>>> sys.argv = ["niftoaster.py", "--prefix", "_", "--noninteractive", "-x", "NiProperty", "modify_delbranches", filename]
+>>> niftoaster.NifToaster().cli()
+pyffi.toaster:INFO:=== tests/nif/test_opt_mergeduplicates.nif ===
+pyffi.toaster:INFO:  --- modify_delbranches ---
+pyffi.toaster:INFO:    ~~~ NiNode [Scene Root] ~~~
+pyffi.toaster:INFO:      ~~~ NiVertexColorProperty [] ~~~
+pyffi.toaster:INFO:        stripping this branch
+pyffi.toaster:INFO:      ~~~ NiZBufferProperty [] ~~~
+pyffi.toaster:INFO:        stripping this branch
+pyffi.toaster:INFO:      ~~~ NiStencilProperty [] ~~~
+pyffi.toaster:INFO:        stripping this branch
+pyffi.toaster:INFO:      ~~~ NiDitherProperty [] ~~~
+pyffi.toaster:INFO:        stripping this branch
+pyffi.toaster:INFO:      ~~~ NiNode [Cone] ~~~
+pyffi.toaster:INFO:        ~~~ NiZBufferProperty [] ~~~
+pyffi.toaster:INFO:          stripping this branch
+pyffi.toaster:INFO:        ~~~ NiVertexColorProperty [] ~~~
+pyffi.toaster:INFO:          stripping this branch
+pyffi.toaster:INFO:        ~~~ NiStencilProperty [] ~~~
+pyffi.toaster:INFO:          stripping this branch
+pyffi.toaster:INFO:        ~~~ NiDitherProperty [] ~~~
+pyffi.toaster:INFO:          stripping this branch
+pyffi.toaster:INFO:        ~~~ NiTriStrips [Tri Cone 0] ~~~
+pyffi.toaster:INFO:          ~~~ NiTexturingProperty [] ~~~
+pyffi.toaster:INFO:            stripping this branch
+pyffi.toaster:INFO:          ~~~ NiMaterialProperty [Red] ~~~
+pyffi.toaster:INFO:            stripping this branch
+pyffi.toaster:INFO:          ~~~ NiSpecularProperty [] ~~~
+pyffi.toaster:INFO:            stripping this branch
+pyffi.toaster:INFO:          ~~~ NiTriStripsData [] ~~~
+pyffi.toaster:INFO:        ~~~ NiTriStrips [Tri Cone 1] ~~~
+pyffi.toaster:INFO:          ~~~ NiTexturingProperty [] ~~~
+pyffi.toaster:INFO:            stripping this branch
+pyffi.toaster:INFO:          ~~~ NiMaterialProperty [AlsoRed] ~~~
+pyffi.toaster:INFO:            stripping this branch
+pyffi.toaster:INFO:          ~~~ NiSpecularProperty [] ~~~
+pyffi.toaster:INFO:            stripping this branch
+pyffi.toaster:INFO:          ~~~ NiAlphaProperty [] ~~~
+pyffi.toaster:INFO:            stripping this branch
+pyffi.toaster:INFO:          ~~~ NiTriStripsData [] ~~~
+pyffi.toaster:INFO:        ~~~ NiTriStrips [Tri Cone 2] ~~~
+pyffi.toaster:INFO:          ~~~ NiTexturingProperty [] ~~~
+pyffi.toaster:INFO:            stripping this branch
+pyffi.toaster:INFO:          ~~~ NiMaterialProperty [Skin] ~~~
+pyffi.toaster:INFO:            stripping this branch
+pyffi.toaster:INFO:          ~~~ NiWireframeProperty [] ~~~
+pyffi.toaster:INFO:            stripping this branch
+pyffi.toaster:INFO:          ~~~ NiAlphaProperty [] ~~~
+pyffi.toaster:INFO:            stripping this branch
+pyffi.toaster:INFO:          ~~~ NiTriStripsData [] ~~~
+pyffi.toaster:INFO:        ~~~ NiTriStrips [Tri Cone 3] ~~~
+pyffi.toaster:INFO:          ~~~ NiTexturingProperty [] ~~~
+pyffi.toaster:INFO:            stripping this branch
+pyffi.toaster:INFO:          ~~~ NiMaterialProperty [Red] ~~~
+pyffi.toaster:INFO:            stripping this branch
+pyffi.toaster:INFO:          ~~~ NiWireframeProperty [] ~~~
+pyffi.toaster:INFO:            stripping this branch
+pyffi.toaster:INFO:          ~~~ NiDitherProperty [] ~~~
+pyffi.toaster:INFO:            stripping this branch
+pyffi.toaster:INFO:          ~~~ NiTriStripsData [] ~~~
+pyffi.toaster:INFO:  writing tests/nif/_test_opt_mergeduplicates.nif
+pyffi.toaster:INFO:Finished.
+>>> # check that file no longer has properties
+>>> data = NifFormat.Data()
+>>> data.read(open(outfilename, "rb"))
+>>> print([block.__class__.__name__ for block in data.blocks])
+['NiNode', 'NiNode', 'NiTriStrips', 'NiTriStripsData', 'NiTriStrips', 'NiTriStripsData', 'NiTriStrips', 'NiTriStripsData', 'NiTriStrips', 'NiTriStripsData']
+>>> # clean up
+>>> import os
+>>> os.remove(outfilename)
+
+NifToaster modify_delalphaprop check
+------------------------------------
+
+>>> from pyffi.formats.nif import NifFormat
+>>> filename = "tests/nif/test_opt_mergeduplicates.nif"
+>>> outfilename = "tests/nif/_test_opt_mergeduplicates.nif"
+>>> # check that file has alpha properties
+>>> data = NifFormat.Data()
+>>> data.read(open(filename, "rb"))
+>>> print([block.__class__.__name__ for block in data.blocks])
+['NiNode', 'NiVertexColorProperty', 'NiZBufferProperty', 'NiStencilProperty', 'NiDitherProperty', 'NiNode', 'NiZBufferProperty', 'NiVertexColorProperty', 'NiStencilProperty', 'NiDitherProperty', 'NiTriStrips', 'NiTexturingProperty', 'NiSourceTexture', 'NiMaterialProperty', 'NiSpecularProperty', 'NiTriStripsData', 'NiTriStrips', 'NiTexturingProperty', 'NiSourceTexture', 'NiMaterialProperty', 'NiSpecularProperty', 'NiAlphaProperty', 'NiTriStripsData', 'NiTriStrips', 'NiTexturingProperty', 'NiSourceTexture', 'NiMaterialProperty', 'NiWireframeProperty', 'NiAlphaProperty', 'NiTriStripsData', 'NiTriStrips', 'NiTexturingProperty', 'NiSourceTexture', 'NiMaterialProperty', 'NiWireframeProperty', 'NiDitherProperty', 'NiTriStripsData']
+>>> # strip properties
+>>> import sys
+>>> sys.path.append("scripts/nif")
+>>> import niftoaster
+>>> sys.argv = ["niftoaster.py", "--prefix", "_", "--noninteractive", "modify_delalphaprop", filename]
+>>> niftoaster.NifToaster().cli() # doctest: +REPORT_UDIFF
+pyffi.toaster:INFO:=== tests/nif/test_opt_mergeduplicates.nif ===
+pyffi.toaster:INFO:  --- modify_delalphaprop ---
+pyffi.toaster:INFO:    ~~~ NiNode [Scene Root] ~~~
+pyffi.toaster:INFO:      ~~~ NiVertexColorProperty [] ~~~
+pyffi.toaster:INFO:      ~~~ NiZBufferProperty [] ~~~
+pyffi.toaster:INFO:      ~~~ NiStencilProperty [] ~~~
+pyffi.toaster:INFO:      ~~~ NiDitherProperty [] ~~~
+pyffi.toaster:INFO:      ~~~ NiNode [Cone] ~~~
+pyffi.toaster:INFO:        ~~~ NiZBufferProperty [] ~~~
+pyffi.toaster:INFO:        ~~~ NiVertexColorProperty [] ~~~
+pyffi.toaster:INFO:        ~~~ NiStencilProperty [] ~~~
+pyffi.toaster:INFO:        ~~~ NiDitherProperty [] ~~~
+pyffi.toaster:INFO:        ~~~ NiTriStrips [Tri Cone 0] ~~~
+pyffi.toaster:INFO:          ~~~ NiTexturingProperty [] ~~~
+pyffi.toaster:INFO:            ~~~ NiSourceTexture [] ~~~
+pyffi.toaster:INFO:          ~~~ NiMaterialProperty [Red] ~~~
+pyffi.toaster:INFO:          ~~~ NiSpecularProperty [] ~~~
+pyffi.toaster:INFO:          ~~~ NiTriStripsData [] ~~~
+pyffi.toaster:INFO:        ~~~ NiTriStrips [Tri Cone 1] ~~~
+pyffi.toaster:INFO:          ~~~ NiTexturingProperty [] ~~~
+pyffi.toaster:INFO:            ~~~ NiSourceTexture [] ~~~
+pyffi.toaster:INFO:          ~~~ NiMaterialProperty [AlsoRed] ~~~
+pyffi.toaster:INFO:          ~~~ NiSpecularProperty [] ~~~
+pyffi.toaster:INFO:          ~~~ NiAlphaProperty [] ~~~
+pyffi.toaster:INFO:            stripping this branch
+pyffi.toaster:INFO:          ~~~ NiTriStripsData [] ~~~
+pyffi.toaster:INFO:        ~~~ NiTriStrips [Tri Cone 2] ~~~
+pyffi.toaster:INFO:          ~~~ NiTexturingProperty [] ~~~
+pyffi.toaster:INFO:            ~~~ NiSourceTexture [] ~~~
+pyffi.toaster:INFO:          ~~~ NiMaterialProperty [Skin] ~~~
+pyffi.toaster:INFO:          ~~~ NiWireframeProperty [] ~~~
+pyffi.toaster:INFO:          ~~~ NiAlphaProperty [] ~~~
+pyffi.toaster:INFO:            stripping this branch
+pyffi.toaster:INFO:          ~~~ NiTriStripsData [] ~~~
+pyffi.toaster:INFO:        ~~~ NiTriStrips [Tri Cone 3] ~~~
+pyffi.toaster:INFO:          ~~~ NiTexturingProperty [] ~~~
+pyffi.toaster:INFO:            ~~~ NiSourceTexture [] ~~~
+pyffi.toaster:INFO:          ~~~ NiMaterialProperty [Red] ~~~
+pyffi.toaster:INFO:          ~~~ NiWireframeProperty [] ~~~
+pyffi.toaster:INFO:          ~~~ NiDitherProperty [] ~~~
+pyffi.toaster:INFO:          ~~~ NiTriStripsData [] ~~~
+pyffi.toaster:INFO:  writing tests/nif/_test_opt_mergeduplicates.nif
+pyffi.toaster:INFO:Finished.
+>>> # check that file no longer has properties
+>>> data = NifFormat.Data()
+>>> data.read(open(outfilename, "rb"))
+>>> print([block.__class__.__name__ for block in data.blocks])
+['NiNode', 'NiVertexColorProperty', 'NiZBufferProperty', 'NiStencilProperty', 'NiDitherProperty', 'NiNode', 'NiZBufferProperty', 'NiVertexColorProperty', 'NiStencilProperty', 'NiDitherProperty', 'NiTriStrips', 'NiTexturingProperty', 'NiSourceTexture', 'NiMaterialProperty', 'NiSpecularProperty', 'NiTriStripsData', 'NiTriStrips', 'NiTexturingProperty', 'NiSourceTexture', 'NiMaterialProperty', 'NiSpecularProperty', 'NiTriStripsData', 'NiTriStrips', 'NiTexturingProperty', 'NiSourceTexture', 'NiMaterialProperty', 'NiWireframeProperty', 'NiTriStripsData', 'NiTriStrips', 'NiTexturingProperty', 'NiSourceTexture', 'NiMaterialProperty', 'NiWireframeProperty', 'NiDitherProperty', 'NiTriStripsData']
+>>> # clean up
+>>> import os
+>>> os.remove(outfilename)

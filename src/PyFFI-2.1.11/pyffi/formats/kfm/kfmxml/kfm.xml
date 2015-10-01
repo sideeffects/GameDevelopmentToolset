@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE niftoolsxml>
+<niftoolsxml version="0.7.0.0">
+
+    <version num="1.0">Civilization IV</version>
+    <version num="1.2.4b">Oblivion, Civilization IV, Pro Cycling Manager, The Guild 2, Prison Tycoon, Red Ocean, Loki</version><!--16927488-->
+    <version num="2.0.0.0b">Civilization IV, Sid Meier's Railroads</version>
+    <version num="2.1.0.0b">Emerge, Megami Tensei: Imagine</version>
+    <version num="2.2.0.0b">Emerge</version><!--33685515-->
+
+    <compound name="Animation">
+        <add name="Event Code" type="int" />
+        <add name="Name" type="SizedString" ver2="16927488" />
+        <add name="KF File Name" type="SizedString" />
+        <add name="Index" type="int">An index?</add>
+        <add name="Num Transitions" type="int" />
+        <add name="Transitions" type="Transition" arr1="Num Transitions">Max = Num Animations -1? No transition from animation to itself.</add>
+    </compound>
+
+    <compound name="IntermediateAnim">
+        <add name="Unknown Int" type="int" />
+        <add name="Event" type="SizedString" />
+    </compound>
+
+    <compound name="Transition">
+        <add name="Animation" type="int">Refers to another animation</add>
+        <add name="Type" type="int" />
+        <add name="Duration" type="float" cond="Type != 5" />
+        <add name="Num Intermediate Anims" type="int" cond="Type != 5" />
+        <add name="Intermediate Anims" type="IntermediateAnim" arr1="Num Intermediate Anims" cond="Type != 5" />
+        <add name="Num TextKeyPairs" type="int" cond="Type != 5" />
+    </compound>
+
+    <compound name="Header">
+        <add name="Header String" type="HeaderString" />
+        <add name="Text String" type="TextString" ver2="1.0" />
+        <add name="Unknown Byte" type="byte" ver1="33554432" />
+        <add name="NIF File Name" type="SizedString" ver1="16909312" />
+        <add name="Master" type="SizedString" ver1="16909312" />
+        <add name="Unknown Int 1" type="int" ver1="16909312" />
+        <add name="Unknown Int 2" type="int" ver1="16909312" />
+        <add name="Unknown Float 1" type="float" ver1="16909312" />
+        <add name="Unknown Float 2" type="float" ver1="16909312" />
+        <add name="Num Animations" type="int" ver1="16909312" />
+        <add name="Animations" type="Animation" arr1="Num Animations" ver1="16909312" />
+        <add name="Unknown Int" type="int" ver1="16909312" />
+    </compound>
+
+</niftoolsxml>
+

@@ -1,0 +1,402 @@
+<?xml version="1.0" encoding="ascii"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+          "DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>pyffi.spells.nif</title>
+  <link rel="stylesheet" href="epydoc.css" type="text/css" />
+  <script type="text/javascript" src="epydoc.js"></script>
+</head>
+
+<body bgcolor="white" text="black" link="blue" vlink="#204080"
+      alink="#204080">
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+  <!-- Home link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="pyffi-module.html">Home</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Project homepage -->
+      <th class="navbar" align="right" width="100%">
+        <table border="0" cellpadding="0" cellspacing="0">
+          <tr><th class="navbar" align="center"
+            >&nbsp;&nbsp;&nbsp;<a class="navbar" target="_top" href="http://pyffi.sourceforge.net/">Python File Format Interface</a>&nbsp;&nbsp;&nbsp;</th><th class="navbar" align="center">&nbsp;&nbsp;&nbsp;<a class="navbar" target="_top" href="http://sourceforge.net"><img src="http://sflogo.sourceforge.net/sflogo.php?group_id=199269" width="88" height="31" border="0" alt="SourceForge.net Logo" /></a>&nbsp;&nbsp;&nbsp;</th>
+          </tr></table></th>
+  </tr>
+</table>
+<table width="100%" cellpadding="0" cellspacing="0">
+  <tr valign="top">
+    <td width="100%">
+      <span class="breadcrumbs">
+        <a href="pyffi-module.html">Package&nbsp;pyffi</a> ::
+        <a href="pyffi.spells-module.html">Package&nbsp;spells</a> ::
+        Package&nbsp;nif
+      </span>
+    </td>
+    <td>
+      <table cellpadding="0" cellspacing="0">
+        <!-- hide/show private -->
+        <tr><td align="right"><span class="options">[<a href="javascript:void(0);" class="privatelink"
+    onclick="toggle_private();">hide&nbsp;private</a>]</span></td></tr>
+        <tr><td align="right"><span class="options"
+            >[<a href="frames.html" target="_top">frames</a
+            >]&nbsp;|&nbsp;<a href="pyffi.spells.nif-pysrc.html"
+            target="_top">no&nbsp;frames</a>]</span></td></tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<h1 class="epydoc">Source Code for <a href="pyffi.spells.nif-module.html">Package pyffi.spells.nif</a></h1>
+<pre class="py-src">
+<a name="L1"></a><tt class="py-lineno">  1</tt>  <tt class="py-line"><tt class="py-docstring">"""</tt> </tt>
+<a name="L2"></a><tt class="py-lineno">  2</tt>  <tt class="py-line"><tt class="py-docstring">:mod:`pyffi.spells.nif` ---  NetImmerse/Gamebryo File/Keyframe (.nif/.kf/.kfa) spells</tt> </tt>
+<a name="L3"></a><tt class="py-lineno">  3</tt>  <tt class="py-line"><tt class="py-docstring">=====================================================================================</tt> </tt>
+<a name="L4"></a><tt class="py-lineno">  4</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
+<a name="L5"></a><tt class="py-lineno">  5</tt>  <tt class="py-line"><tt class="py-docstring">.. automodule:: pyffi.spells.nif.check</tt> </tt>
+<a name="L6"></a><tt class="py-lineno">  6</tt>  <tt class="py-line"><tt class="py-docstring">.. automodule:: pyffi.spells.nif.dump</tt> </tt>
+<a name="L7"></a><tt class="py-lineno">  7</tt>  <tt class="py-line"><tt class="py-docstring">.. automodule:: pyffi.spells.nif.fix</tt> </tt>
+<a name="L8"></a><tt class="py-lineno">  8</tt>  <tt class="py-line"><tt class="py-docstring">.. automodule:: pyffi.spells.nif.optimize</tt> </tt>
+<a name="L9"></a><tt class="py-lineno">  9</tt>  <tt class="py-line"><tt class="py-docstring">.. automodule:: pyffi.spells.nif.modify</tt> </tt>
+<a name="L10"></a><tt class="py-lineno"> 10</tt>  <tt class="py-line"><tt class="py-docstring">"""</tt> </tt>
+<a name="L11"></a><tt class="py-lineno"> 11</tt>  <tt class="py-line"> </tt>
+<a name="L12"></a><tt class="py-lineno"> 12</tt>  <tt class="py-line"><tt class="py-comment"># --------------------------------------------------------------------------</tt> </tt>
+<a name="L13"></a><tt class="py-lineno"> 13</tt>  <tt class="py-line"><tt class="py-comment"># ***** BEGIN LICENSE BLOCK *****</tt> </tt>
+<a name="L14"></a><tt class="py-lineno"> 14</tt>  <tt class="py-line"><tt class="py-comment">#</tt> </tt>
+<a name="L15"></a><tt class="py-lineno"> 15</tt>  <tt class="py-line"><tt class="py-comment"># Copyright (c) 2007-2011, NIF File Format Library and Tools.</tt> </tt>
+<a name="L16"></a><tt class="py-lineno"> 16</tt>  <tt class="py-line"><tt class="py-comment"># All rights reserved.</tt> </tt>
+<a name="L17"></a><tt class="py-lineno"> 17</tt>  <tt class="py-line"><tt class="py-comment">#</tt> </tt>
+<a name="L18"></a><tt class="py-lineno"> 18</tt>  <tt class="py-line"><tt class="py-comment"># Redistribution and use in source and binary forms, with or without</tt> </tt>
+<a name="L19"></a><tt class="py-lineno"> 19</tt>  <tt class="py-line"><tt class="py-comment"># modification, are permitted provided that the following conditions</tt> </tt>
+<a name="L20"></a><tt class="py-lineno"> 20</tt>  <tt class="py-line"><tt class="py-comment"># are met:</tt> </tt>
+<a name="L21"></a><tt class="py-lineno"> 21</tt>  <tt class="py-line"><tt class="py-comment">#</tt> </tt>
+<a name="L22"></a><tt class="py-lineno"> 22</tt>  <tt class="py-line"><tt class="py-comment">#    * Redistributions of source code must retain the above copyright</tt> </tt>
+<a name="L23"></a><tt class="py-lineno"> 23</tt>  <tt class="py-line"><tt class="py-comment">#      notice, this list of conditions and the following disclaimer.</tt> </tt>
+<a name="L24"></a><tt class="py-lineno"> 24</tt>  <tt class="py-line"><tt class="py-comment">#</tt> </tt>
+<a name="L25"></a><tt class="py-lineno"> 25</tt>  <tt class="py-line"><tt class="py-comment">#    * Redistributions in binary form must reproduce the above</tt> </tt>
+<a name="L26"></a><tt class="py-lineno"> 26</tt>  <tt class="py-line"><tt class="py-comment">#      copyright notice, this list of conditions and the following</tt> </tt>
+<a name="L27"></a><tt class="py-lineno"> 27</tt>  <tt class="py-line"><tt class="py-comment">#      disclaimer in the documentation and/or other materials provided</tt> </tt>
+<a name="L28"></a><tt class="py-lineno"> 28</tt>  <tt class="py-line"><tt class="py-comment">#      with the distribution.</tt> </tt>
+<a name="L29"></a><tt class="py-lineno"> 29</tt>  <tt class="py-line"><tt class="py-comment">#</tt> </tt>
+<a name="L30"></a><tt class="py-lineno"> 30</tt>  <tt class="py-line"><tt class="py-comment">#    * Neither the name of the NIF File Format Library and Tools</tt> </tt>
+<a name="L31"></a><tt class="py-lineno"> 31</tt>  <tt class="py-line"><tt class="py-comment">#      project nor the names of its contributors may be used to endorse</tt> </tt>
+<a name="L32"></a><tt class="py-lineno"> 32</tt>  <tt class="py-line"><tt class="py-comment">#      or promote products derived from this software without specific</tt> </tt>
+<a name="L33"></a><tt class="py-lineno"> 33</tt>  <tt class="py-line"><tt class="py-comment">#      prior written permission.</tt> </tt>
+<a name="L34"></a><tt class="py-lineno"> 34</tt>  <tt class="py-line"><tt class="py-comment">#</tt> </tt>
+<a name="L35"></a><tt class="py-lineno"> 35</tt>  <tt class="py-line"><tt class="py-comment"># THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS</tt> </tt>
+<a name="L36"></a><tt class="py-lineno"> 36</tt>  <tt class="py-line"><tt class="py-comment"># "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT</tt> </tt>
+<a name="L37"></a><tt class="py-lineno"> 37</tt>  <tt class="py-line"><tt class="py-comment"># LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS</tt> </tt>
+<a name="L38"></a><tt class="py-lineno"> 38</tt>  <tt class="py-line"><tt class="py-comment"># FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE</tt> </tt>
+<a name="L39"></a><tt class="py-lineno"> 39</tt>  <tt class="py-line"><tt class="py-comment"># COPYRIGHT OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT,</tt> </tt>
+<a name="L40"></a><tt class="py-lineno"> 40</tt>  <tt class="py-line"><tt class="py-comment"># INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING,</tt> </tt>
+<a name="L41"></a><tt class="py-lineno"> 41</tt>  <tt class="py-line"><tt class="py-comment"># BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES;</tt> </tt>
+<a name="L42"></a><tt class="py-lineno"> 42</tt>  <tt class="py-line"><tt class="py-comment"># LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER</tt> </tt>
+<a name="L43"></a><tt class="py-lineno"> 43</tt>  <tt class="py-line"><tt class="py-comment"># CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT</tt> </tt>
+<a name="L44"></a><tt class="py-lineno"> 44</tt>  <tt class="py-line"><tt class="py-comment"># LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN</tt> </tt>
+<a name="L45"></a><tt class="py-lineno"> 45</tt>  <tt class="py-line"><tt class="py-comment"># ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE</tt> </tt>
+<a name="L46"></a><tt class="py-lineno"> 46</tt>  <tt class="py-line"><tt class="py-comment"># POSSIBILITY OF SUCH DAMAGE.</tt> </tt>
+<a name="L47"></a><tt class="py-lineno"> 47</tt>  <tt class="py-line"><tt class="py-comment">#</tt> </tt>
+<a name="L48"></a><tt class="py-lineno"> 48</tt>  <tt class="py-line"><tt class="py-comment"># ***** END LICENSE BLOCK *****</tt> </tt>
+<a name="L49"></a><tt class="py-lineno"> 49</tt>  <tt class="py-line"><tt class="py-comment"># --------------------------------------------------------------------------</tt> </tt>
+<a name="L50"></a><tt class="py-lineno"> 50</tt>  <tt class="py-line"> </tt>
+<a name="L51"></a><tt class="py-lineno"> 51</tt>  <tt class="py-line"><tt class="py-keyword">import</tt> <tt id="link-0" class="py-name" targets="Package pyffi=pyffi-module.html"><a title="pyffi" class="py-name" href="#" onclick="return doclink('link-0', 'pyffi', 'link-0');">pyffi</a></tt><tt class="py-op">.</tt><tt id="link-1" class="py-name" targets="Package pyffi.spells=pyffi.spells-module.html,Variable pyffi.spells.SpellGroupBase.spells=pyffi.spells.SpellGroupBase-class.html#spells"><a title="pyffi.spells
+pyffi.spells.SpellGroupBase.spells" class="py-name" href="#" onclick="return doclink('link-1', 'spells', 'link-1');">spells</a></tt> </tt>
+<a name="L52"></a><tt class="py-lineno"> 52</tt>  <tt class="py-line"><tt class="py-keyword">from</tt> <tt id="link-2" class="py-name"><a title="pyffi" class="py-name" href="#" onclick="return doclink('link-2', 'pyffi', 'link-0');">pyffi</a></tt><tt class="py-op">.</tt><tt id="link-3" class="py-name" targets="Package pyffi.formats=pyffi.formats-module.html"><a title="pyffi.formats" class="py-name" href="#" onclick="return doclink('link-3', 'formats', 'link-3');">formats</a></tt><tt class="py-op">.</tt><tt id="link-4" class="py-name" targets="Package pyffi.formats.nif=pyffi.formats.nif-module.html,Package pyffi.spells.nif=pyffi.spells.nif-module.html"><a title="pyffi.formats.nif
+pyffi.spells.nif" class="py-name" href="#" onclick="return doclink('link-4', 'nif', 'link-4');">nif</a></tt> <tt class="py-keyword">import</tt> <tt id="link-5" class="py-name" targets="Class pyffi.formats.nif.NifFormat=pyffi.formats.nif.NifFormat-class.html"><a title="pyffi.formats.nif.NifFormat" class="py-name" href="#" onclick="return doclink('link-5', 'NifFormat', 'link-5');">NifFormat</a></tt> </tt>
+<a name="L53"></a><tt class="py-lineno"> 53</tt>  <tt class="py-line"> </tt>
+<a name="NifSpell"></a><div id="NifSpell-def"><a name="L54"></a><tt class="py-lineno"> 54</tt> <a class="py-toggle" href="#" id="NifSpell-toggle" onclick="return toggle('NifSpell');">-</a><tt class="py-line"><tt class="py-keyword">class</tt> <a class="py-def-name" href="pyffi.spells.nif.NifSpell-class.html">NifSpell</a><tt class="py-op">(</tt><tt class="py-base-class">pyffi</tt><tt class="py-op">.</tt><tt class="py-base-class">spells</tt><tt class="py-op">.</tt><tt class="py-base-class">Spell</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="NifSpell-collapsed" style="display:none;" pad="+++" indent="++++"></div><div id="NifSpell-expanded"><a name="L55"></a><tt class="py-lineno"> 55</tt>  <tt class="py-line">    <tt class="py-docstring">"""Base class for spells for nif files."""</tt> </tt>
+<a name="L56"></a><tt class="py-lineno"> 56</tt>  <tt class="py-line"> </tt>
+<a name="NifSpell._datainspect"></a><div id="NifSpell._datainspect-def"><a name="L57"></a><tt class="py-lineno"> 57</tt> <a class="py-toggle" href="#" id="NifSpell._datainspect-toggle" onclick="return toggle('NifSpell._datainspect');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="pyffi.spells.nif.NifSpell-class.html#_datainspect">_datainspect</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="NifSpell._datainspect-collapsed" style="display:none;" pad="+++" indent="++++++++"></div><div id="NifSpell._datainspect-expanded"><a name="L58"></a><tt class="py-lineno"> 58</tt>  <tt class="py-line">        <tt class="py-comment"># list of all block types used in the header</tt> </tt>
+<a name="L59"></a><tt class="py-lineno"> 59</tt>  <tt class="py-line">        <tt class="py-comment"># (do this first, spells may depend on this being present)</tt> </tt>
+<a name="L60"></a><tt class="py-lineno"> 60</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">header_types</tt> <tt class="py-op">=</tt> <tt class="py-op">[</tt><tt class="py-op">]</tt> </tt>
+<a name="L61"></a><tt class="py-lineno"> 61</tt>  <tt class="py-line">        <tt class="py-keyword">for</tt> <tt class="py-name">block_type</tt> <tt class="py-keyword">in</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-6" class="py-name" targets="Variable pyffi.formats.cgf.CgfFormat.PhysicsDataType0.data=pyffi.formats.cgf.CgfFormat.PhysicsDataType0-class.html#data,Variable pyffi.formats.nif.NifFormat.AdditionalDataBlock.data=pyffi.formats.nif.NifFormat.AdditionalDataBlock-class.html#data,Variable pyffi.formats.nif.NifFormat.BSMultiBound.data=pyffi.formats.nif.NifFormat.BSMultiBound-class.html#data,Variable pyffi.formats.nif.NifFormat.BSPSysMultiTargetEmitterCtlr.data=pyffi.formats.nif.NifFormat.BSPSysMultiTargetEmitterCtlr-class.html#data,Variable pyffi.formats.nif.NifFormat.BSPackedAdditionalDataBlock.data=pyffi.formats.nif.NifFormat.BSPackedAdditionalDataBlock-class.html#data,Variable pyffi.formats.nif.NifFormat.BSTreadTransfInfo.data=pyffi.formats.nif.NifFormat.BSTreadTransfInfo-class.html#data,Variable pyffi.formats.nif.NifFormat.NiAlphaController.data=pyffi.formats.nif.NifFormat.NiAlphaController-class.html#data,Variable pyffi.formats.nif.NifFormat.NiBinaryVoxelExtraData.data=pyffi.formats.nif.NifFormat.NiBinaryVoxelExtraData-class.html#data,Variable pyffi.formats.nif.NifFormat.NiBoolData.data=pyffi.formats.nif.NifFormat.NiBoolData-class.html#data,Variable pyffi.formats.nif.NifFormat.NiBoolInterpolator.data=pyffi.formats.nif.NifFormat.NiBoolInterpolator-class.html#data,Variable pyffi.formats.nif.NifFormat.NiColorData.data=pyffi.formats.nif.NifFormat.NiColorData-class.html#data,Variable pyffi.formats.nif.NifFormat.NiColorExtraData.data=pyffi.formats.nif.NifFormat.NiColorExtraData-class.html#data,Variable pyffi.formats.nif.NifFormat.NiDataStream.data=pyffi.formats.nif.NifFormat.NiDataStream-class.html#data,Variable pyffi.formats.nif.NifFormat.NiFloatData.data=pyffi.formats.nif.NifFormat.NiFloatData-class.html#data,Variable pyffi.formats.nif.NifFormat.NiFloatInterpolator.data=pyffi.formats.nif.NifFormat.NiFloatInterpolator-class.html#data,Variable pyffi.formats.nif.NifFormat.NiFloatsExtraData.data=pyffi.formats.nif.NifFormat.NiFloatsExtraData-class.html#data,Variable pyffi.formats.nif.NifFormat.NiGeomMorpherController.data=pyffi.formats.nif.NifFormat.NiGeomMorpherController-class.html#data,Variable pyffi.formats.nif.NifFormat.NiIntegersExtraData.data=pyffi.formats.nif.NifFormat.NiIntegersExtraData-class.html#data,Variable pyffi.formats.nif.NifFormat.NiKeyframeController.data=pyffi.formats.nif.NifFormat.NiKeyframeController-class.html#data,Variable pyffi.formats.nif.NifFormat.NiMorpherController.data=pyffi.formats.nif.NifFormat.NiMorpherController-class.html#data,Variable pyffi.formats.nif.NifFormat.NiPSysColorModifier.data=pyffi.formats.nif.NifFormat.NiPSysColorModifier-class.html#data,Variable pyffi.formats.nif.NifFormat.NiPSysEmitterCtlr.data=pyffi.formats.nif.NifFormat.NiPSysEmitterCtlr-class.html#data,Variable pyffi.formats.nif.NifFormat.NiPSysModifierActiveCtlr.data=pyffi.formats.nif.NifFormat.NiPSysModifierActiveCtlr-class.html#data,Variable pyffi.formats.nif.NifFormat.NiPSysModifierFloatCtlr.data=pyffi.formats.nif.NifFormat.NiPSysModifierFloatCtlr-class.html#data,Variable pyffi.formats.nif.NifFormat.NiPoint3InterpController.data=pyffi.formats.nif.NifFormat.NiPoint3InterpController-class.html#data,Variable pyffi.formats.nif.NifFormat.NiPoint3Interpolator.data=pyffi.formats.nif.NifFormat.NiPoint3Interpolator-class.html#data,Variable pyffi.formats.nif.NifFormat.NiPosData.data=pyffi.formats.nif.NifFormat.NiPosData-class.html#data,Variable pyffi.formats.nif.NifFormat.NiRollController.data=pyffi.formats.nif.NifFormat.NiRollController-class.html#data,Variable pyffi.formats.nif.NifFormat.NiSkinInstance.data=pyffi.formats.nif.NifFormat.NiSkinInstance-class.html#data,Variable pyffi.formats.nif.NifFormat.NiStringsExtraData.data=pyffi.formats.nif.NifFormat.NiStringsExtraData-class.html#data,Variable pyffi.formats.nif.NifFormat.NiTextureTransformController.data=pyffi.formats.nif.NifFormat.NiTextureTransformController-class.html#data,Variable pyffi.formats.nif.NifFormat.NiUVController.data=pyffi.formats.nif.NifFormat.NiUVController-class.html#data,Variable pyffi.formats.nif.NifFormat.NiVisController.data=pyffi.formats.nif.NifFormat.NiVisController-class.html#data,Variable pyffi.formats.nif.NifFormat._NiGeometry.data=pyffi.formats.nif.NifFormat._NiGeometry-class.html#data,Variable pyffi.formats.nif.NifFormat._NiTransformInterpolator.data=pyffi.formats.nif.NifFormat._NiTransformInterpolator-class.html#data,Variable pyffi.formats.nif.NifFormat._bhkPackedNiTriStripsShape.data=pyffi.formats.nif.NifFormat._bhkPackedNiTriStripsShape-class.html#data,Variable pyffi.formats.tga.TgaFormat.ColorMapEntry.data=pyffi.formats.tga.TgaFormat.ColorMapEntry-class.html#data,Variable pyffi.formats.tga.TgaFormat.Pixel.data=pyffi.formats.tga.TgaFormat.Pixel-class.html#data,Method pyffi.qskope.detail_model.DetailModel.data()=pyffi.qskope.detail_model.DetailModel-class.html#data,Method pyffi.qskope.global_model.GlobalModel.data()=pyffi.qskope.global_model.GlobalModel-class.html#data,Variable pyffi.spells.Spell.data=pyffi.spells.Spell-class.html#data"><a title="pyffi.formats.cgf.CgfFormat.PhysicsDataType0.data
+pyffi.formats.nif.NifFormat.AdditionalDataBlock.data
+pyffi.formats.nif.NifFormat.BSMultiBound.data
+pyffi.formats.nif.NifFormat.BSPSysMultiTargetEmitterCtlr.data
+pyffi.formats.nif.NifFormat.BSPackedAdditionalDataBlock.data
+pyffi.formats.nif.NifFormat.BSTreadTransfInfo.data
+pyffi.formats.nif.NifFormat.NiAlphaController.data
+pyffi.formats.nif.NifFormat.NiBinaryVoxelExtraData.data
+pyffi.formats.nif.NifFormat.NiBoolData.data
+pyffi.formats.nif.NifFormat.NiBoolInterpolator.data
+pyffi.formats.nif.NifFormat.NiColorData.data
+pyffi.formats.nif.NifFormat.NiColorExtraData.data
+pyffi.formats.nif.NifFormat.NiDataStream.data
+pyffi.formats.nif.NifFormat.NiFloatData.data
+pyffi.formats.nif.NifFormat.NiFloatInterpolator.data
+pyffi.formats.nif.NifFormat.NiFloatsExtraData.data
+pyffi.formats.nif.NifFormat.NiGeomMorpherController.data
+pyffi.formats.nif.NifFormat.NiIntegersExtraData.data
+pyffi.formats.nif.NifFormat.NiKeyframeController.data
+pyffi.formats.nif.NifFormat.NiMorpherController.data
+pyffi.formats.nif.NifFormat.NiPSysColorModifier.data
+pyffi.formats.nif.NifFormat.NiPSysEmitterCtlr.data
+pyffi.formats.nif.NifFormat.NiPSysModifierActiveCtlr.data
+pyffi.formats.nif.NifFormat.NiPSysModifierFloatCtlr.data
+pyffi.formats.nif.NifFormat.NiPoint3InterpController.data
+pyffi.formats.nif.NifFormat.NiPoint3Interpolator.data
+pyffi.formats.nif.NifFormat.NiPosData.data
+pyffi.formats.nif.NifFormat.NiRollController.data
+pyffi.formats.nif.NifFormat.NiSkinInstance.data
+pyffi.formats.nif.NifFormat.NiStringsExtraData.data
+pyffi.formats.nif.NifFormat.NiTextureTransformController.data
+pyffi.formats.nif.NifFormat.NiUVController.data
+pyffi.formats.nif.NifFormat.NiVisController.data
+pyffi.formats.nif.NifFormat._NiGeometry.data
+pyffi.formats.nif.NifFormat._NiTransformInterpolator.data
+pyffi.formats.nif.NifFormat._bhkPackedNiTriStripsShape.data
+pyffi.formats.tga.TgaFormat.ColorMapEntry.data
+pyffi.formats.tga.TgaFormat.Pixel.data
+pyffi.qskope.detail_model.DetailModel.data
+pyffi.qskope.global_model.GlobalModel.data
+pyffi.spells.Spell.data" class="py-name" href="#" onclick="return doclink('link-6', 'data', 'link-6');">data</a></tt><tt class="py-op">.</tt><tt id="link-7" class="py-name" targets="Variable pyffi.formats.tga.TgaFormat.RLEPixels.header=pyffi.formats.tga.TgaFormat.RLEPixels-class.html#header"><a title="pyffi.formats.tga.TgaFormat.RLEPixels.header" class="py-name" href="#" onclick="return doclink('link-7', 'header', 'link-7');">header</a></tt><tt class="py-op">.</tt><tt id="link-8" class="py-name" targets="Variable pyffi.formats.nif.NifFormat._Header.block_types=pyffi.formats.nif.NifFormat._Header-class.html#block_types"><a title="pyffi.formats.nif.NifFormat._Header.block_types" class="py-name" href="#" onclick="return doclink('link-8', 'block_types', 'link-8');">block_types</a></tt><tt class="py-op">:</tt> </tt>
+<a name="L62"></a><tt class="py-lineno"> 62</tt>  <tt class="py-line">            <tt class="py-name">block_type</tt> <tt class="py-op">=</tt> <tt class="py-name">block_type</tt><tt class="py-op">.</tt><tt class="py-name">decode</tt><tt class="py-op">(</tt><tt class="py-string">"ascii"</tt><tt class="py-op">)</tt> </tt>
+<a name="L63"></a><tt class="py-lineno"> 63</tt>  <tt class="py-line">            <tt class="py-comment"># handle NiDataStream</tt> </tt>
+<a name="L64"></a><tt class="py-lineno"> 64</tt>  <tt class="py-line">            <tt class="py-keyword">if</tt> <tt class="py-name">block_type</tt><tt class="py-op">.</tt><tt class="py-name">startswith</tt><tt class="py-op">(</tt><tt class="py-string">"NiDataStream\x01"</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+<a name="L65"></a><tt class="py-lineno"> 65</tt>  <tt class="py-line">                <tt class="py-name">block_type</tt> <tt class="py-op">=</tt> <tt class="py-string">"NiDataStream"</tt> </tt>
+<a name="L66"></a><tt class="py-lineno"> 66</tt>  <tt class="py-line">            <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">header_types</tt><tt class="py-op">.</tt><tt id="link-9" class="py-name" targets="Method pyffi.object_models.array_type.UniformSimpleArray.append()=pyffi.object_models.array_type.UniformSimpleArray-class.html#append,Method pyffi.object_models.array_type.ValidatedList.append()=pyffi.object_models.array_type.ValidatedList-class.html#append"><a title="pyffi.object_models.array_type.UniformSimpleArray.append
+pyffi.object_models.array_type.ValidatedList.append" class="py-name" href="#" onclick="return doclink('link-9', 'append', 'link-9');">append</a></tt><tt class="py-op">(</tt><tt class="py-name">getattr</tt><tt class="py-op">(</tt><tt id="link-10" class="py-name"><a title="pyffi.formats.nif.NifFormat" class="py-name" href="#" onclick="return doclink('link-10', 'NifFormat', 'link-5');">NifFormat</a></tt><tt class="py-op">,</tt> <tt class="py-name">block_type</tt><tt class="py-op">)</tt><tt class="py-op">)</tt> </tt>
+<a name="L67"></a><tt class="py-lineno"> 67</tt>  <tt class="py-line"> </tt>
+<a name="L68"></a><tt class="py-lineno"> 68</tt>  <tt class="py-line">        <tt class="py-comment"># call base method</tt> </tt>
+<a name="L69"></a><tt class="py-lineno"> 69</tt>  <tt class="py-line">        <tt class="py-keyword">if</tt> <tt class="py-keyword">not</tt> <tt id="link-11" class="py-name"><a title="pyffi" class="py-name" href="#" onclick="return doclink('link-11', 'pyffi', 'link-0');">pyffi</a></tt><tt class="py-op">.</tt><tt id="link-12" class="py-name"><a title="pyffi.spells
+pyffi.spells.SpellGroupBase.spells" class="py-name" href="#" onclick="return doclink('link-12', 'spells', 'link-1');">spells</a></tt><tt class="py-op">.</tt><tt id="link-13" class="py-name" targets="Class pyffi.spells.Spell=pyffi.spells.Spell-class.html"><a title="pyffi.spells.Spell" class="py-name" href="#" onclick="return doclink('link-13', 'Spell', 'link-13');">Spell</a></tt><tt class="py-op">.</tt><tt id="link-14" class="py-name" targets="Method pyffi.spells.Spell._datainspect()=pyffi.spells.Spell-class.html#_datainspect,Method pyffi.spells.cgf.CgfSpell._datainspect()=pyffi.spells.cgf.CgfSpell-class.html#_datainspect,Method pyffi.spells.nif.NifSpell._datainspect()=pyffi.spells.nif.NifSpell-class.html#_datainspect"><a title="pyffi.spells.Spell._datainspect
+pyffi.spells.cgf.CgfSpell._datainspect
+pyffi.spells.nif.NifSpell._datainspect" class="py-name" href="#" onclick="return doclink('link-14', '_datainspect', 'link-14');">_datainspect</a></tt><tt class="py-op">(</tt><tt class="py-name">self</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+<a name="L70"></a><tt class="py-lineno"> 70</tt>  <tt class="py-line">            <tt class="py-keyword">return</tt> <tt class="py-name">False</tt> </tt>
+<a name="L71"></a><tt class="py-lineno"> 71</tt>  <tt class="py-line"> </tt>
+<a name="L72"></a><tt class="py-lineno"> 72</tt>  <tt class="py-line">        <tt class="py-comment"># shortcut for common case (speeds up the check in most cases)</tt> </tt>
+<a name="L73"></a><tt class="py-lineno"> 73</tt>  <tt class="py-line">        <tt class="py-keyword">if</tt> <tt class="py-keyword">not</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-15" class="py-name" targets="Variable pyffi.spells.Spell.toaster=pyffi.spells.Spell-class.html#toaster"><a title="pyffi.spells.Spell.toaster" class="py-name" href="#" onclick="return doclink('link-15', 'toaster', 'link-15');">toaster</a></tt><tt class="py-op">.</tt><tt id="link-16" class="py-name" targets="Variable pyffi.spells.Toaster.include_types=pyffi.spells.Toaster-class.html#include_types"><a title="pyffi.spells.Toaster.include_types" class="py-name" href="#" onclick="return doclink('link-16', 'include_types', 'link-16');">include_types</a></tt> <tt class="py-keyword">and</tt> <tt class="py-keyword">not</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-17" class="py-name"><a title="pyffi.spells.Spell.toaster" class="py-name" href="#" onclick="return doclink('link-17', 'toaster', 'link-15');">toaster</a></tt><tt class="py-op">.</tt><tt id="link-18" class="py-name" targets="Variable pyffi.spells.Toaster.exclude_types=pyffi.spells.Toaster-class.html#exclude_types"><a title="pyffi.spells.Toaster.exclude_types" class="py-name" href="#" onclick="return doclink('link-18', 'exclude_types', 'link-18');">exclude_types</a></tt><tt class="py-op">:</tt> </tt>
+<a name="L74"></a><tt class="py-lineno"> 74</tt>  <tt class="py-line">            <tt class="py-keyword">return</tt> <tt class="py-name">True</tt> </tt>
+<a name="L75"></a><tt class="py-lineno"> 75</tt>  <tt class="py-line"> </tt>
+<a name="L76"></a><tt class="py-lineno"> 76</tt>  <tt class="py-line">        <tt class="py-comment"># old file formats have no list of block types</tt> </tt>
+<a name="L77"></a><tt class="py-lineno"> 77</tt>  <tt class="py-line">        <tt class="py-comment"># we cover that here</tt> </tt>
+<a name="L78"></a><tt class="py-lineno"> 78</tt>  <tt class="py-line">        <tt class="py-keyword">if</tt> <tt class="py-keyword">not</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">header_types</tt><tt class="py-op">:</tt> </tt>
+<a name="L79"></a><tt class="py-lineno"> 79</tt>  <tt class="py-line">            <tt class="py-keyword">return</tt> <tt class="py-name">True</tt> </tt>
+<a name="L80"></a><tt class="py-lineno"> 80</tt>  <tt class="py-line"> </tt>
+<a name="L81"></a><tt class="py-lineno"> 81</tt>  <tt class="py-line">        <tt class="py-comment"># check that at least one block type of the header is admissible</tt> </tt>
+<a name="L82"></a><tt class="py-lineno"> 82</tt>  <tt class="py-line">        <tt class="py-keyword">return</tt> <tt class="py-name">any</tt><tt class="py-op">(</tt><tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-19" class="py-name"><a title="pyffi.spells.Spell.toaster" class="py-name" href="#" onclick="return doclink('link-19', 'toaster', 'link-15');">toaster</a></tt><tt class="py-op">.</tt><tt id="link-20" class="py-name" targets="Method pyffi.spells.Toaster.is_admissible_branch_class()=pyffi.spells.Toaster-class.html#is_admissible_branch_class"><a title="pyffi.spells.Toaster.is_admissible_branch_class" class="py-name" href="#" onclick="return doclink('link-20', 'is_admissible_branch_class', 'link-20');">is_admissible_branch_class</a></tt><tt class="py-op">(</tt><tt class="py-name">header_type</tt><tt class="py-op">)</tt> </tt>
+<a name="L83"></a><tt class="py-lineno"> 83</tt>  <tt class="py-line">                   <tt class="py-keyword">for</tt> <tt class="py-name">header_type</tt> <tt class="py-keyword">in</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">header_types</tt><tt class="py-op">)</tt> </tt>
+</div><a name="L84"></a><tt class="py-lineno"> 84</tt>  <tt class="py-line"> </tt>
+<a name="NifSpell.inspectblocktype"></a><div id="NifSpell.inspectblocktype-def"><a name="L85"></a><tt class="py-lineno"> 85</tt> <a class="py-toggle" href="#" id="NifSpell.inspectblocktype-toggle" onclick="return toggle('NifSpell.inspectblocktype');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="pyffi.spells.nif.NifSpell-class.html#inspectblocktype">inspectblocktype</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">,</tt> <tt class="py-param">block_type</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="NifSpell.inspectblocktype-collapsed" style="display:none;" pad="+++" indent="++++++++"></div><div id="NifSpell.inspectblocktype-expanded"><a name="L86"></a><tt class="py-lineno"> 86</tt>  <tt class="py-line">        <tt class="py-docstring">"""This function heuristically checks whether the given block type</tt> </tt>
+<a name="L87"></a><tt class="py-lineno"> 87</tt>  <tt class="py-line"><tt class="py-docstring">        is used in the nif file, using header information only. When in doubt,</tt> </tt>
+<a name="L88"></a><tt class="py-lineno"> 88</tt>  <tt class="py-line"><tt class="py-docstring">        it returns ``True``.</tt> </tt>
+<a name="L89"></a><tt class="py-lineno"> 89</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
+<a name="L90"></a><tt class="py-lineno"> 90</tt>  <tt class="py-line"><tt class="py-docstring">        :param block_type: The block type.</tt> </tt>
+<a name="L91"></a><tt class="py-lineno"> 91</tt>  <tt class="py-line"><tt class="py-docstring">        :type block_type: :class:`NifFormat.NiObject`</tt> </tt>
+<a name="L92"></a><tt class="py-lineno"> 92</tt>  <tt class="py-line"><tt class="py-docstring">        :return: ``False`` if the nif has no block of the given type,</tt> </tt>
+<a name="L93"></a><tt class="py-lineno"> 93</tt>  <tt class="py-line"><tt class="py-docstring">            with certainty. ``True`` if the nif has the block, or if it</tt> </tt>
+<a name="L94"></a><tt class="py-lineno"> 94</tt>  <tt class="py-line"><tt class="py-docstring">            cannot be determined.</tt> </tt>
+<a name="L95"></a><tt class="py-lineno"> 95</tt>  <tt class="py-line"><tt class="py-docstring">        :rtype: ``bool``</tt> </tt>
+<a name="L96"></a><tt class="py-lineno"> 96</tt>  <tt class="py-line"><tt class="py-docstring">        """</tt> </tt>
+<a name="L97"></a><tt class="py-lineno"> 97</tt>  <tt class="py-line">        <tt class="py-keyword">try</tt><tt class="py-op">:</tt> </tt>
+<a name="L98"></a><tt class="py-lineno"> 98</tt>  <tt class="py-line">            <tt class="py-comment"># try via header</tt> </tt>
+<a name="L99"></a><tt class="py-lineno"> 99</tt>  <tt class="py-line">            <tt class="py-keyword">return</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-21" class="py-name"><a title="pyffi.formats.cgf.CgfFormat.PhysicsDataType0.data
+pyffi.formats.nif.NifFormat.AdditionalDataBlock.data
+pyffi.formats.nif.NifFormat.BSMultiBound.data
+pyffi.formats.nif.NifFormat.BSPSysMultiTargetEmitterCtlr.data
+pyffi.formats.nif.NifFormat.BSPackedAdditionalDataBlock.data
+pyffi.formats.nif.NifFormat.BSTreadTransfInfo.data
+pyffi.formats.nif.NifFormat.NiAlphaController.data
+pyffi.formats.nif.NifFormat.NiBinaryVoxelExtraData.data
+pyffi.formats.nif.NifFormat.NiBoolData.data
+pyffi.formats.nif.NifFormat.NiBoolInterpolator.data
+pyffi.formats.nif.NifFormat.NiColorData.data
+pyffi.formats.nif.NifFormat.NiColorExtraData.data
+pyffi.formats.nif.NifFormat.NiDataStream.data
+pyffi.formats.nif.NifFormat.NiFloatData.data
+pyffi.formats.nif.NifFormat.NiFloatInterpolator.data
+pyffi.formats.nif.NifFormat.NiFloatsExtraData.data
+pyffi.formats.nif.NifFormat.NiGeomMorpherController.data
+pyffi.formats.nif.NifFormat.NiIntegersExtraData.data
+pyffi.formats.nif.NifFormat.NiKeyframeController.data
+pyffi.formats.nif.NifFormat.NiMorpherController.data
+pyffi.formats.nif.NifFormat.NiPSysColorModifier.data
+pyffi.formats.nif.NifFormat.NiPSysEmitterCtlr.data
+pyffi.formats.nif.NifFormat.NiPSysModifierActiveCtlr.data
+pyffi.formats.nif.NifFormat.NiPSysModifierFloatCtlr.data
+pyffi.formats.nif.NifFormat.NiPoint3InterpController.data
+pyffi.formats.nif.NifFormat.NiPoint3Interpolator.data
+pyffi.formats.nif.NifFormat.NiPosData.data
+pyffi.formats.nif.NifFormat.NiRollController.data
+pyffi.formats.nif.NifFormat.NiSkinInstance.data
+pyffi.formats.nif.NifFormat.NiStringsExtraData.data
+pyffi.formats.nif.NifFormat.NiTextureTransformController.data
+pyffi.formats.nif.NifFormat.NiUVController.data
+pyffi.formats.nif.NifFormat.NiVisController.data
+pyffi.formats.nif.NifFormat._NiGeometry.data
+pyffi.formats.nif.NifFormat._NiTransformInterpolator.data
+pyffi.formats.nif.NifFormat._bhkPackedNiTriStripsShape.data
+pyffi.formats.tga.TgaFormat.ColorMapEntry.data
+pyffi.formats.tga.TgaFormat.Pixel.data
+pyffi.qskope.detail_model.DetailModel.data
+pyffi.qskope.global_model.GlobalModel.data
+pyffi.spells.Spell.data" class="py-name" href="#" onclick="return doclink('link-21', 'data', 'link-6');">data</a></tt><tt class="py-op">.</tt><tt id="link-22" class="py-name"><a title="pyffi.formats.tga.TgaFormat.RLEPixels.header" class="py-name" href="#" onclick="return doclink('link-22', 'header', 'link-7');">header</a></tt><tt class="py-op">.</tt><tt id="link-23" class="py-name" targets="Method pyffi.formats.nif.NifFormat.Header.has_block_type()=pyffi.formats.nif.NifFormat.Header-class.html#has_block_type"><a title="pyffi.formats.nif.NifFormat.Header.has_block_type" class="py-name" href="#" onclick="return doclink('link-23', 'has_block_type', 'link-23');">has_block_type</a></tt><tt class="py-op">(</tt><tt class="py-name">block_type</tt><tt class="py-op">)</tt> </tt>
+<a name="L100"></a><tt class="py-lineno">100</tt>  <tt class="py-line">        <tt class="py-keyword">except</tt> <tt class="py-name">ValueError</tt><tt class="py-op">:</tt> </tt>
+<a name="L101"></a><tt class="py-lineno">101</tt>  <tt class="py-line">            <tt class="py-comment"># header does not have the information because nif version is</tt> </tt>
+<a name="L102"></a><tt class="py-lineno">102</tt>  <tt class="py-line">            <tt class="py-comment"># too old</tt> </tt>
+<a name="L103"></a><tt class="py-lineno">103</tt>  <tt class="py-line">            <tt class="py-keyword">return</tt> <tt class="py-name">True</tt> </tt>
+</div></div><a name="L104"></a><tt class="py-lineno">104</tt>  <tt class="py-line"> </tt>
+<a name="SpellVisitSkeletonRoots"></a><div id="SpellVisitSkeletonRoots-def"><a name="L105"></a><tt class="py-lineno">105</tt> <a class="py-toggle" href="#" id="SpellVisitSkeletonRoots-toggle" onclick="return toggle('SpellVisitSkeletonRoots');">-</a><tt class="py-line"><tt class="py-keyword">class</tt> <a class="py-def-name" href="pyffi.spells.nif.SpellVisitSkeletonRoots-class.html">SpellVisitSkeletonRoots</a><tt class="py-op">(</tt><tt class="py-base-class">NifSpell</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="SpellVisitSkeletonRoots-collapsed" style="display:none;" pad="+++" indent="++++"></div><div id="SpellVisitSkeletonRoots-expanded"><a name="L106"></a><tt class="py-lineno">106</tt>  <tt class="py-line">    <tt class="py-docstring">"""Abstract base class for spells that visit all skeleton roots.</tt> </tt>
+<a name="L107"></a><tt class="py-lineno">107</tt>  <tt class="py-line"><tt class="py-docstring">    Override the skelrootentry method with your implementation.</tt> </tt>
+<a name="L108"></a><tt class="py-lineno">108</tt>  <tt class="py-line"><tt class="py-docstring">    """</tt> </tt>
+<a name="L109"></a><tt class="py-lineno">109</tt>  <tt class="py-line"> </tt>
+<a name="SpellVisitSkeletonRoots.datainspect"></a><div id="SpellVisitSkeletonRoots.datainspect-def"><a name="L110"></a><tt class="py-lineno">110</tt> <a class="py-toggle" href="#" id="SpellVisitSkeletonRoots.datainspect-toggle" onclick="return toggle('SpellVisitSkeletonRoots.datainspect');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="pyffi.spells.nif.SpellVisitSkeletonRoots-class.html#datainspect">datainspect</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="SpellVisitSkeletonRoots.datainspect-collapsed" style="display:none;" pad="+++" indent="++++++++"></div><div id="SpellVisitSkeletonRoots.datainspect-expanded"><a name="L111"></a><tt class="py-lineno">111</tt>  <tt class="py-line">        <tt class="py-comment"># only run the spell if there are skinned geometries</tt> </tt>
+<a name="L112"></a><tt class="py-lineno">112</tt>  <tt class="py-line">        <tt class="py-keyword">return</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-24" class="py-name" targets="Method pyffi.spells.cgf.CgfSpell.inspectblocktype()=pyffi.spells.cgf.CgfSpell-class.html#inspectblocktype,Method pyffi.spells.nif.NifSpell.inspectblocktype()=pyffi.spells.nif.NifSpell-class.html#inspectblocktype"><a title="pyffi.spells.cgf.CgfSpell.inspectblocktype
+pyffi.spells.nif.NifSpell.inspectblocktype" class="py-name" href="#" onclick="return doclink('link-24', 'inspectblocktype', 'link-24');">inspectblocktype</a></tt><tt class="py-op">(</tt><tt id="link-25" class="py-name"><a title="pyffi.formats.nif.NifFormat" class="py-name" href="#" onclick="return doclink('link-25', 'NifFormat', 'link-5');">NifFormat</a></tt><tt class="py-op">.</tt><tt id="link-26" class="py-name" targets="Class pyffi.formats.nif.NifFormat.NiSkinInstance=pyffi.formats.nif.NifFormat.NiSkinInstance-class.html"><a title="pyffi.formats.nif.NifFormat.NiSkinInstance" class="py-name" href="#" onclick="return doclink('link-26', 'NiSkinInstance', 'link-26');">NiSkinInstance</a></tt><tt class="py-op">)</tt> </tt>
+</div><a name="L113"></a><tt class="py-lineno">113</tt>  <tt class="py-line"> </tt>
+<a name="SpellVisitSkeletonRoots.dataentry"></a><div id="SpellVisitSkeletonRoots.dataentry-def"><a name="L114"></a><tt class="py-lineno">114</tt> <a class="py-toggle" href="#" id="SpellVisitSkeletonRoots.dataentry-toggle" onclick="return toggle('SpellVisitSkeletonRoots.dataentry');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="pyffi.spells.nif.SpellVisitSkeletonRoots-class.html#dataentry">dataentry</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="SpellVisitSkeletonRoots.dataentry-collapsed" style="display:none;" pad="+++" indent="++++++++"></div><div id="SpellVisitSkeletonRoots.dataentry-expanded"><a name="L115"></a><tt class="py-lineno">115</tt>  <tt class="py-line">        <tt class="py-comment"># make list of skeleton roots</tt> </tt>
+<a name="L116"></a><tt class="py-lineno">116</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">_skelroots</tt> <tt class="py-op">=</tt> <tt class="py-name">set</tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+<a name="L117"></a><tt class="py-lineno">117</tt>  <tt class="py-line">        <tt class="py-keyword">for</tt> <tt class="py-name">branch</tt> <tt class="py-keyword">in</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-27" class="py-name"><a title="pyffi.formats.cgf.CgfFormat.PhysicsDataType0.data
+pyffi.formats.nif.NifFormat.AdditionalDataBlock.data
+pyffi.formats.nif.NifFormat.BSMultiBound.data
+pyffi.formats.nif.NifFormat.BSPSysMultiTargetEmitterCtlr.data
+pyffi.formats.nif.NifFormat.BSPackedAdditionalDataBlock.data
+pyffi.formats.nif.NifFormat.BSTreadTransfInfo.data
+pyffi.formats.nif.NifFormat.NiAlphaController.data
+pyffi.formats.nif.NifFormat.NiBinaryVoxelExtraData.data
+pyffi.formats.nif.NifFormat.NiBoolData.data
+pyffi.formats.nif.NifFormat.NiBoolInterpolator.data
+pyffi.formats.nif.NifFormat.NiColorData.data
+pyffi.formats.nif.NifFormat.NiColorExtraData.data
+pyffi.formats.nif.NifFormat.NiDataStream.data
+pyffi.formats.nif.NifFormat.NiFloatData.data
+pyffi.formats.nif.NifFormat.NiFloatInterpolator.data
+pyffi.formats.nif.NifFormat.NiFloatsExtraData.data
+pyffi.formats.nif.NifFormat.NiGeomMorpherController.data
+pyffi.formats.nif.NifFormat.NiIntegersExtraData.data
+pyffi.formats.nif.NifFormat.NiKeyframeController.data
+pyffi.formats.nif.NifFormat.NiMorpherController.data
+pyffi.formats.nif.NifFormat.NiPSysColorModifier.data
+pyffi.formats.nif.NifFormat.NiPSysEmitterCtlr.data
+pyffi.formats.nif.NifFormat.NiPSysModifierActiveCtlr.data
+pyffi.formats.nif.NifFormat.NiPSysModifierFloatCtlr.data
+pyffi.formats.nif.NifFormat.NiPoint3InterpController.data
+pyffi.formats.nif.NifFormat.NiPoint3Interpolator.data
+pyffi.formats.nif.NifFormat.NiPosData.data
+pyffi.formats.nif.NifFormat.NiRollController.data
+pyffi.formats.nif.NifFormat.NiSkinInstance.data
+pyffi.formats.nif.NifFormat.NiStringsExtraData.data
+pyffi.formats.nif.NifFormat.NiTextureTransformController.data
+pyffi.formats.nif.NifFormat.NiUVController.data
+pyffi.formats.nif.NifFormat.NiVisController.data
+pyffi.formats.nif.NifFormat._NiGeometry.data
+pyffi.formats.nif.NifFormat._NiTransformInterpolator.data
+pyffi.formats.nif.NifFormat._bhkPackedNiTriStripsShape.data
+pyffi.formats.tga.TgaFormat.ColorMapEntry.data
+pyffi.formats.tga.TgaFormat.Pixel.data
+pyffi.qskope.detail_model.DetailModel.data
+pyffi.qskope.global_model.GlobalModel.data
+pyffi.spells.Spell.data" class="py-name" href="#" onclick="return doclink('link-27', 'data', 'link-6');">data</a></tt><tt class="py-op">.</tt><tt id="link-28" class="py-name" targets="Method pyffi.utils.graph.GlobalNode.get_global_iterator()=pyffi.utils.graph.GlobalNode-class.html#get_global_iterator"><a title="pyffi.utils.graph.GlobalNode.get_global_iterator" class="py-name" href="#" onclick="return doclink('link-28', 'get_global_iterator', 'link-28');">get_global_iterator</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+<a name="L118"></a><tt class="py-lineno">118</tt>  <tt class="py-line">            <tt class="py-keyword">if</tt> <tt class="py-name">isinstance</tt><tt class="py-op">(</tt><tt class="py-name">branch</tt><tt class="py-op">,</tt> <tt id="link-29" class="py-name"><a title="pyffi.formats.nif.NifFormat" class="py-name" href="#" onclick="return doclink('link-29', 'NifFormat', 'link-5');">NifFormat</a></tt><tt class="py-op">.</tt><tt id="link-30" class="py-name" targets="Class pyffi.formats.nif.NifFormat.NiGeometry=pyffi.formats.nif.NifFormat.NiGeometry-class.html"><a title="pyffi.formats.nif.NifFormat.NiGeometry" class="py-name" href="#" onclick="return doclink('link-30', 'NiGeometry', 'link-30');">NiGeometry</a></tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+<a name="L119"></a><tt class="py-lineno">119</tt>  <tt class="py-line">                <tt class="py-keyword">if</tt> <tt class="py-name">branch</tt><tt class="py-op">.</tt><tt id="link-31" class="py-name" targets="Variable pyffi.formats.nif.NifFormat.SkinShape.skin_instance=pyffi.formats.nif.NifFormat.SkinShape-class.html#skin_instance,Variable pyffi.formats.nif.NifFormat._NiGeometry.skin_instance=pyffi.formats.nif.NifFormat._NiGeometry-class.html#skin_instance"><a title="pyffi.formats.nif.NifFormat.SkinShape.skin_instance
+pyffi.formats.nif.NifFormat._NiGeometry.skin_instance" class="py-name" href="#" onclick="return doclink('link-31', 'skin_instance', 'link-31');">skin_instance</a></tt><tt class="py-op">:</tt> </tt>
+<a name="L120"></a><tt class="py-lineno">120</tt>  <tt class="py-line">                    <tt class="py-name">skelroot</tt> <tt class="py-op">=</tt> <tt class="py-name">branch</tt><tt class="py-op">.</tt><tt id="link-32" class="py-name"><a title="pyffi.formats.nif.NifFormat.SkinShape.skin_instance
+pyffi.formats.nif.NifFormat._NiGeometry.skin_instance" class="py-name" href="#" onclick="return doclink('link-32', 'skin_instance', 'link-31');">skin_instance</a></tt><tt class="py-op">.</tt><tt id="link-33" class="py-name" targets="Variable pyffi.formats.nif.NifFormat.NiSkinInstance.skeleton_root=pyffi.formats.nif.NifFormat.NiSkinInstance-class.html#skeleton_root,Variable pyffi.formats.nif.NifFormat.NiSkinningMeshModifier.skeleton_root=pyffi.formats.nif.NifFormat.NiSkinningMeshModifier-class.html#skeleton_root"><a title="pyffi.formats.nif.NifFormat.NiSkinInstance.skeleton_root
+pyffi.formats.nif.NifFormat.NiSkinningMeshModifier.skeleton_root" class="py-name" href="#" onclick="return doclink('link-33', 'skeleton_root', 'link-33');">skeleton_root</a></tt> </tt>
+<a name="L121"></a><tt class="py-lineno">121</tt>  <tt class="py-line">                    <tt class="py-keyword">if</tt> <tt class="py-name">skelroot</tt> <tt class="py-keyword">and</tt> <tt class="py-keyword">not</tt><tt class="py-op">(</tt><tt id="link-34" class="py-name" targets="Variable pyffi.formats.cgf.CgfFormat.ChunkHeader.id=pyffi.formats.cgf.CgfFormat.ChunkHeader-class.html#id"><a title="pyffi.formats.cgf.CgfFormat.ChunkHeader.id" class="py-name" href="#" onclick="return doclink('link-34', 'id', 'link-34');">id</a></tt><tt class="py-op">(</tt><tt class="py-name">skelroot</tt><tt class="py-op">)</tt> <tt class="py-keyword">in</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">_skelroots</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+<a name="L122"></a><tt class="py-lineno">122</tt>  <tt class="py-line">                        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">_skelroots</tt><tt class="py-op">.</tt><tt class="py-name">add</tt><tt class="py-op">(</tt><tt id="link-35" class="py-name"><a title="pyffi.formats.cgf.CgfFormat.ChunkHeader.id" class="py-name" href="#" onclick="return doclink('link-35', 'id', 'link-34');">id</a></tt><tt class="py-op">(</tt><tt class="py-name">skelroot</tt><tt class="py-op">)</tt><tt class="py-op">)</tt> </tt>
+<a name="L123"></a><tt class="py-lineno">123</tt>  <tt class="py-line">        <tt class="py-comment"># only apply spell if there are skeleton roots</tt> </tt>
+<a name="L124"></a><tt class="py-lineno">124</tt>  <tt class="py-line">        <tt class="py-keyword">if</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">_skelroots</tt><tt class="py-op">:</tt> </tt>
+<a name="L125"></a><tt class="py-lineno">125</tt>  <tt class="py-line">            <tt class="py-keyword">return</tt> <tt class="py-name">True</tt> </tt>
+<a name="L126"></a><tt class="py-lineno">126</tt>  <tt class="py-line">        <tt class="py-keyword">else</tt><tt class="py-op">:</tt> </tt>
+<a name="L127"></a><tt class="py-lineno">127</tt>  <tt class="py-line">            <tt class="py-keyword">return</tt> <tt class="py-name">False</tt> </tt>
+</div><a name="L128"></a><tt class="py-lineno">128</tt>  <tt class="py-line"> </tt>
+<a name="SpellVisitSkeletonRoots.branchinspect"></a><div id="SpellVisitSkeletonRoots.branchinspect-def"><a name="L129"></a><tt class="py-lineno">129</tt> <a class="py-toggle" href="#" id="SpellVisitSkeletonRoots.branchinspect-toggle" onclick="return toggle('SpellVisitSkeletonRoots.branchinspect');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="pyffi.spells.nif.SpellVisitSkeletonRoots-class.html#branchinspect">branchinspect</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">,</tt> <tt class="py-param">branch</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="SpellVisitSkeletonRoots.branchinspect-collapsed" style="display:none;" pad="+++" indent="++++++++"></div><div id="SpellVisitSkeletonRoots.branchinspect-expanded"><a name="L130"></a><tt class="py-lineno">130</tt>  <tt class="py-line">        <tt class="py-comment"># only inspect the NiNode branch</tt> </tt>
+<a name="L131"></a><tt class="py-lineno">131</tt>  <tt class="py-line">        <tt class="py-keyword">return</tt> <tt class="py-name">isinstance</tt><tt class="py-op">(</tt><tt class="py-name">branch</tt><tt class="py-op">,</tt> <tt id="link-36" class="py-name"><a title="pyffi.formats.nif.NifFormat" class="py-name" href="#" onclick="return doclink('link-36', 'NifFormat', 'link-5');">NifFormat</a></tt><tt class="py-op">.</tt><tt id="link-37" class="py-name" targets="Class pyffi.formats.nif.NifFormat.NiNode=pyffi.formats.nif.NifFormat.NiNode-class.html"><a title="pyffi.formats.nif.NifFormat.NiNode" class="py-name" href="#" onclick="return doclink('link-37', 'NiNode', 'link-37');">NiNode</a></tt><tt class="py-op">)</tt> </tt>
+</div><a name="L132"></a><tt class="py-lineno">132</tt>  <tt class="py-line">     </tt>
+<a name="SpellVisitSkeletonRoots.branchentry"></a><div id="SpellVisitSkeletonRoots.branchentry-def"><a name="L133"></a><tt class="py-lineno">133</tt> <a class="py-toggle" href="#" id="SpellVisitSkeletonRoots.branchentry-toggle" onclick="return toggle('SpellVisitSkeletonRoots.branchentry');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="pyffi.spells.nif.SpellVisitSkeletonRoots-class.html#branchentry">branchentry</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">,</tt> <tt class="py-param">branch</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="SpellVisitSkeletonRoots.branchentry-collapsed" style="display:none;" pad="+++" indent="++++++++"></div><div id="SpellVisitSkeletonRoots.branchentry-expanded"><a name="L134"></a><tt class="py-lineno">134</tt>  <tt class="py-line">        <tt class="py-keyword">if</tt> <tt id="link-38" class="py-name"><a title="pyffi.formats.cgf.CgfFormat.ChunkHeader.id" class="py-name" href="#" onclick="return doclink('link-38', 'id', 'link-34');">id</a></tt><tt class="py-op">(</tt><tt class="py-name">branch</tt><tt class="py-op">)</tt> <tt class="py-keyword">in</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">_skelroots</tt><tt class="py-op">:</tt> </tt>
+<a name="L135"></a><tt class="py-lineno">135</tt>  <tt class="py-line">            <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-39" class="py-name" targets="Method pyffi.spells.nif.SpellVisitSkeletonRoots.skelrootentry()=pyffi.spells.nif.SpellVisitSkeletonRoots-class.html#skelrootentry,Method pyffi.spells.nif.fix.SpellSendBonesToBindPosition.skelrootentry()=pyffi.spells.nif.fix.SpellSendBonesToBindPosition-class.html#skelrootentry,Method pyffi.spells.nif.fix.SpellSendDetachedGeometriesToNodePosition.skelrootentry()=pyffi.spells.nif.fix.SpellSendDetachedGeometriesToNodePosition-class.html#skelrootentry,Method pyffi.spells.nif.fix.SpellSendGeometriesToBindPosition.skelrootentry()=pyffi.spells.nif.fix.SpellSendGeometriesToBindPosition-class.html#skelrootentry"><a title="pyffi.spells.nif.SpellVisitSkeletonRoots.skelrootentry
+pyffi.spells.nif.fix.SpellSendBonesToBindPosition.skelrootentry
+pyffi.spells.nif.fix.SpellSendDetachedGeometriesToNodePosition.skelrootentry
+pyffi.spells.nif.fix.SpellSendGeometriesToBindPosition.skelrootentry" class="py-name" href="#" onclick="return doclink('link-39', 'skelrootentry', 'link-39');">skelrootentry</a></tt><tt class="py-op">(</tt><tt class="py-name">branch</tt><tt class="py-op">)</tt> </tt>
+<a name="L136"></a><tt class="py-lineno">136</tt>  <tt class="py-line">            <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">_skelroots</tt><tt class="py-op">.</tt><tt id="link-40" class="py-name" targets="Method pyffi.object_models.array_type.UniformSimpleArray.remove()=pyffi.object_models.array_type.UniformSimpleArray-class.html#remove"><a title="pyffi.object_models.array_type.UniformSimpleArray.remove" class="py-name" href="#" onclick="return doclink('link-40', 'remove', 'link-40');">remove</a></tt><tt class="py-op">(</tt><tt id="link-41" class="py-name"><a title="pyffi.formats.cgf.CgfFormat.ChunkHeader.id" class="py-name" href="#" onclick="return doclink('link-41', 'id', 'link-34');">id</a></tt><tt class="py-op">(</tt><tt class="py-name">branch</tt><tt class="py-op">)</tt><tt class="py-op">)</tt> </tt>
+<a name="L137"></a><tt class="py-lineno">137</tt>  <tt class="py-line">        <tt class="py-comment"># keep recursing into children if there are skeleton roots left</tt> </tt>
+<a name="L138"></a><tt class="py-lineno">138</tt>  <tt class="py-line">        <tt class="py-keyword">return</tt> <tt id="link-42" class="py-name" targets="Class pyffi.formats.dds.DdsFormat.bool=pyffi.formats.dds.DdsFormat.bool-class.html,Class pyffi.formats.nif.NifFormat.bool=pyffi.formats.nif.NifFormat.bool-class.html,Class pyffi.formats.tga.TgaFormat.bool=pyffi.formats.tga.TgaFormat.bool-class.html"><a title="pyffi.formats.dds.DdsFormat.bool
+pyffi.formats.nif.NifFormat.bool
+pyffi.formats.tga.TgaFormat.bool" class="py-name" href="#" onclick="return doclink('link-42', 'bool', 'link-42');">bool</a></tt><tt class="py-op">(</tt><tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">_skelroots</tt><tt class="py-op">)</tt> </tt>
+</div><a name="L139"></a><tt class="py-lineno">139</tt>  <tt class="py-line"> </tt>
+<a name="SpellVisitSkeletonRoots.skelrootentry"></a><div id="SpellVisitSkeletonRoots.skelrootentry-def"><a name="L140"></a><tt class="py-lineno">140</tt> <a class="py-toggle" href="#" id="SpellVisitSkeletonRoots.skelrootentry-toggle" onclick="return toggle('SpellVisitSkeletonRoots.skelrootentry');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="pyffi.spells.nif.SpellVisitSkeletonRoots-class.html#skelrootentry">skelrootentry</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">,</tt> <tt class="py-param">branch</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="SpellVisitSkeletonRoots.skelrootentry-collapsed" style="display:none;" pad="+++" indent="++++++++"></div><div id="SpellVisitSkeletonRoots.skelrootentry-expanded"><a name="L141"></a><tt class="py-lineno">141</tt>  <tt class="py-line">        <tt class="py-docstring">"""Do something with a skeleton root. Return value is ignored."""</tt> </tt>
+<a name="L142"></a><tt class="py-lineno">142</tt>  <tt class="py-line">        <tt class="py-keyword">raise</tt> <tt class="py-name">NotImplementedError</tt> </tt>
+</div></div><a name="L143"></a><tt class="py-lineno">143</tt>  <tt class="py-line"> </tt>
+<a name="NifToaster"></a><div id="NifToaster-def"><a name="L144"></a><tt class="py-lineno">144</tt> <a class="py-toggle" href="#" id="NifToaster-toggle" onclick="return toggle('NifToaster');">-</a><tt class="py-line"><tt class="py-keyword">class</tt> <a class="py-def-name" href="pyffi.spells.nif.NifToaster-class.html">NifToaster</a><tt class="py-op">(</tt><tt class="py-base-class">pyffi</tt><tt class="py-op">.</tt><tt class="py-base-class">spells</tt><tt class="py-op">.</tt><tt class="py-base-class">Toaster</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="NifToaster-collapsed" style="display:none;" pad="+++" indent="++++"></div><div id="NifToaster-expanded"><a name="L145"></a><tt class="py-lineno">145</tt>  <tt class="py-line">    <tt class="py-name">FILEFORMAT</tt> <tt class="py-op">=</tt> <tt id="link-43" class="py-name"><a title="pyffi.formats.nif.NifFormat" class="py-name" href="#" onclick="return doclink('link-43', 'NifFormat', 'link-5');">NifFormat</a></tt> </tt>
+</div><a name="L146"></a><tt class="py-lineno">146</tt>  <tt class="py-line"> </tt><script type="text/javascript">
+<!--
+expandto(location.href);
+// -->
+</script>
+</pre>
+<br />
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+  <!-- Home link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="pyffi-module.html">Home</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Project homepage -->
+      <th class="navbar" align="right" width="100%">
+        <table border="0" cellpadding="0" cellspacing="0">
+          <tr><th class="navbar" align="center"
+            >&nbsp;&nbsp;&nbsp;<a class="navbar" target="_top" href="http://pyffi.sourceforge.net/">Python File Format Interface</a>&nbsp;&nbsp;&nbsp;</th><th class="navbar" align="center">&nbsp;&nbsp;&nbsp;<a class="navbar" target="_top" href="http://sourceforge.net"><img src="http://sflogo.sourceforge.net/sflogo.php?group_id=199269" width="88" height="31" border="0" alt="SourceForge.net Logo" /></a>&nbsp;&nbsp;&nbsp;</th>
+          </tr></table></th>
+  </tr>
+</table>
+<table border="0" cellpadding="0" cellspacing="0" width="100%%">
+  <tr>
+    <td align="left" class="footer">
+    Generated by Epydoc 3.0.1 on Sat Nov 26 08:35:30 2011
+    </td>
+    <td align="right" class="footer">
+      <a target="mainFrame" href="http://epydoc.sourceforge.net"
+        >http://epydoc.sourceforge.net</a>
+    </td>
+  </tr>
+</table>
+
+<script type="text/javascript">
+  <!--
+  // Private objects are initially displayed (because if
+  // javascript is turned off then we want them to be
+  // visible); but by default, we want to hide them.  So hide
+  // them unless we have a cookie that says to show them.
+  checkCookie();
+  // -->
+</script>
+</body>
+</html>

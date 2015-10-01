@@ -1,0 +1,119 @@
+Doctests for the cgftoaster script
+==================================
+
+The --spells switch
+-------------------
+
+>>> import sys
+>>> sys.path.append("scripts/cgf")
+>>> import cgftoaster
+>>> sys.argv = ["cgftoaster.py", "--spells"]
+>>> cgftoaster.CgfToaster().cli()
+check_read
+check_readwrite
+check_tangentspace
+check_vcols
+dump
+
+The check_read and check_readwrite spells
+-----------------------------------------
+
+>>> import sys
+>>> sys.path.append("scripts/cgf")
+>>> import cgftoaster
+>>> sys.argv = ["cgftoaster.py", "--verbose=1", "check_read", "tests/cgf/"]
+>>> cgftoaster.CgfToaster().cli() # doctest: +ELLIPSIS
+pyffi.toaster:INFO:=== tests/cgf/invalid.cgf ===
+pyffi.toaster:ERROR:TEST FAILED ON tests/cgf/invalid.cgf
+pyffi.toaster:ERROR:If you were running a spell that came with PyFFI, then
+pyffi.toaster:ERROR:please report this as a bug (include the file) on
+pyffi.toaster:ERROR:http://sourceforge.net/tracker/?group_id=199269
+pyffi.toaster:INFO:=== tests/cgf/monkey.cgf ===
+pyffi.toaster:INFO:  --- check_read ---
+pyffi.toaster:INFO:=== tests/cgf/test.cgf ===
+pyffi.toaster:INFO:  --- check_read ---
+pyffi.toaster:INFO:=== tests/cgf/vcols.cgf ===
+pyffi.toaster:INFO:  --- check_read ---
+pyffi.toaster:INFO:Finished.
+>>> sys.argv = ["cgftoaster.py", "--verbose=1", "check_readwrite", "tests/cgf/test.cgf"]
+>>> cgftoaster.CgfToaster().cli() # doctest: +ELLIPSIS
+pyffi.toaster:INFO:=== tests/cgf/test.cgf ===
+pyffi.toaster:INFO:  --- check_readwrite ---
+pyffi.toaster:INFO:    writing to temporary file
+pyffi.toaster:INFO:      comparing file sizes
+pyffi.toaster:INFO:      original size: 166
+pyffi.toaster:INFO:      written size:  168
+pyffi.toaster:INFO:      padding:       2
+pyffi.toaster:INFO:Finished.
+
+The dump spell
+--------------
+
+>>> import sys
+>>> sys.path.append("scripts/cgf")
+>>> import cgftoaster
+>>> sys.argv = ["cgftoaster.py", "--verbose=1", "dump", "tests/cgf/test.cgf"]
+>>> cgftoaster.CgfToaster().cli() # doctest: +ELLIPSIS
+pyffi.toaster:INFO:=== tests/cgf/test.cgf ===
+pyffi.toaster:INFO:  --- dump ---
+pyffi.toaster:INFO:    ~~~ SourceInfoChunk [] ~~~
+pyffi.toaster:INFO:      <class 'pyffi.formats.cgf.SourceInfoChunk'> instance at 0x...
+pyffi.toaster:INFO:      * source_file : <None>
+pyffi.toaster:INFO:      * date : Fri Sep 28 22:40:44 2007
+pyffi.toaster:INFO:      * author : blender@BLENDER
+pyffi.toaster:INFO:      
+pyffi.toaster:INFO:    ~~~ TimingChunk [GlobalRange] ~~~
+pyffi.toaster:INFO:      <class 'pyffi.formats.cgf.TimingChunk'> instance at 0x...
+pyffi.toaster:INFO:      * secs_per_tick : 0.0002083...
+pyffi.toaster:INFO:      * ticks_per_frame : 160
+pyffi.toaster:INFO:      * global_range :
+pyffi.toaster:INFO:          <class 'pyffi.formats.cgf.RangeEntity'> instance at 0x...
+pyffi.toaster:INFO:          * name : GlobalRange
+pyffi.toaster:INFO:          * start : 0
+pyffi.toaster:INFO:          * end : 100
+pyffi.toaster:INFO:      * num_sub_ranges : 0
+pyffi.toaster:INFO:      
+pyffi.toaster:INFO:Finished.
+
+The check_tangentspace spell
+----------------------------
+
+>>> import sys
+>>> sys.path.append("scripts/cgf")
+>>> import cgftoaster
+>>> sys.argv = ["cgftoaster.py", "--verbose=1", "check_tangentspace", "tests/cgf/monkey.cgf"]
+>>> cgftoaster.CgfToaster().cli() # doctest: +ELLIPSIS
+pyffi.toaster:INFO:=== tests/cgf/monkey.cgf ===
+pyffi.toaster:INFO:  --- check_tangentspace ---
+pyffi.toaster:INFO:    ~~~ NodeChunk [Merged] ~~~
+pyffi.toaster:INFO:      ~~~ MeshChunk [] ~~~
+pyffi.toaster:INFO:        recalculating new tangent space
+pyffi.toaster:INFO:        validating and checking old with new
+pyffi.toaster:WARNING:...
+...
+pyffi.toaster:INFO:    ~~~ NodeChunk [CryExportNode_monkey-CGF-monkey-DoExport-MergeNodes] ~~~
+pyffi.toaster:INFO:Finished.
+
+The check_vcols spell
+---------------------
+
+>>> import sys
+>>> sys.path.append("scripts/cgf")
+>>> import cgftoaster
+>>> sys.argv = ["cgftoaster.py", "--verbose=1", "check_vcols", "tests/cgf/monkey.cgf"]
+>>> cgftoaster.CgfToaster().cli() # doctest: +ELLIPSIS
+pyffi.toaster:INFO:=== tests/cgf/monkey.cgf ===
+pyffi.toaster:INFO:  --- check_vcols ---
+pyffi.toaster:INFO:    ~~~ NodeChunk [Merged] ~~~
+pyffi.toaster:INFO:      ~~~ MeshChunk [] ~~~
+pyffi.toaster:INFO:    ~~~ NodeChunk [CryExportNode_monkey-CGF-monkey-DoExport-MergeNodes] ~~~
+pyffi.toaster:INFO:Finished.
+>>> sys.argv = ["cgftoaster.py", "--verbose=1", "check_vcols", "tests/cgf/vcols.cgf"]
+>>> cgftoaster.CgfToaster().cli() # doctest: +ELLIPSIS
+pyffi.toaster:INFO:=== tests/cgf/vcols.cgf ===
+pyffi.toaster:INFO:  --- check_vcols ---
+pyffi.toaster:INFO:    ~~~ NodeChunk [Monkey] ~~~
+pyffi.toaster:INFO:      ~~~ MeshChunk [] ~~~
+pyffi.toaster:INFO:        has vertex colors!
+pyffi.toaster:INFO:Finished.
+

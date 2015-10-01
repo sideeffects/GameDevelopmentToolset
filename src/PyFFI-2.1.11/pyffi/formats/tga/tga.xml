@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE fileformat>
+<fileformat>
+    <!--
+    *******************
+    *** basic types ***
+    *******************
+    -->
+
+    <basic name="ubyte">
+        An unsigned 8-bit integer.
+    </basic>
+
+    <basic name="byte">
+        A signed 8-bit integer.
+    </basic>
+
+    <basic name="ushort">
+        An unsigned 16-bit integer.
+    </basic>
+
+    <basic name="short">
+        A signed 16-bit integer.
+    </basic>
+
+    <basic name="uint">
+        An unsigned 32-bit integer.
+    </basic>
+
+    <basic name="int">
+        A signed 32-bit integer.
+    </basic>
+
+    <basic name="char">
+        An 8-bit character.
+    </basic>
+
+    <basic name="float">
+        A standard 32-bit floating point number.
+    </basic>
+
+    <!--
+    *******************
+    *** alias types ***
+    *******************
+    -->
+
+    <alias name="bool" type="ubyte" />
+    
+    <!--
+    ******************
+    *** enum types ***
+    ******************
+    -->
+
+    <enum name="ImageType" numbytes="1" default="2">
+        An unsigned 8-bit integer, describing the image type.
+        <option value="1" name="INDEXED" />
+        <option value="2" name="RGB" />
+        <option value="3" name="GREY" />
+        <option value="9" name="RLE_INDEXED" />
+        <option value="10" name="RLE_RGB" />
+        <option value="11" name="RLE_GREY" />
+    </enum>
+    
+    <enum name="ColorMapType" numbytes="1">
+        An unsigned 8-bit integer, describing the color map type.
+        <option value="0" name="ABSENT" />
+        <option value="1" name="PRESENT" />
+        <!-- TODO: add more -->
+    </enum>
+
+    <!--
+    ******************
+    *** bitstructs ***
+    ******************
+    -->
+
+    <bitstruct name="TgaFlags" numbytes="1" >
+        <bits name="Alpha Channel Depth" numbits="4" />
+        <bits name="Origin Right" numbits="1" />
+        <bits name="Origin Upper" numbits="1" />
+        <bits name="Interleave 2 Way" numbits="1" />
+        <bits name="Interleave 4 Way" numbits="1" />
+    </bitstruct>
+
+    <bitstruct name="RLEHeader" numbytes="1" >
+        <bits name="Count" numbits="7" />
+        <bits name="Is Compressed" numbits="1" />
+    </bitstruct>
+
+    <!--
+    ***************
+    *** structs ***
+    ***************
+    -->
+
+    <struct name="ColorMapEntry">
+        <add name="Data" type="ubyte" arr1="ARG / 8" />
+    </struct>
+
+    <struct name="Pixel">
+        <add name="Data" type="ubyte" arr1="ARG / 8" />
+    </struct>
+
+    <struct name="RLEPixels">
+        <add name="Header" type="RLEHeader" />
+	<add name="Uncompressed Pixels" type="Pixel" arg="ARG" cond="Header.Is Compressed == 0" arr1="Header.Count + 1" />
+	<add name="Compressed Pixels" type="Pixel" arg="ARG" cond="Header.Is Compressed == 1"/>
+    </struct>
+
+    <struct name="Header">
+        <add name="Image Id Length" type="ubyte">Length of the Image ID field.</add>
+        <add name="Color Map Type" type="ColorMapType" />
+        <add name="Image Type" type="ImageType" />
+        <add name="Color Map Index" type="ushort">Offset to the color map table.</add>
+        <add name="Color Map Length" type="ushort">Number of entries.</add>
+        <add name="Color Map Size" type="ubyte">Number of bits per pixel in the color map.</add>
+        <add name="X Origin" type="ushort" />
+        <add name="Y Origin" type="ushort" />
+        <add name="Width" type="ushort" />
+        <add name="Height" type="ushort" />
+        <add name="Pixel Size" type="ubyte">Number of bits per pixel in the image data.</add>
+        <add name="Flags" type="TgaFlags" />
+        <add name="Image Id" type="ubyte" arr1="Image Id Length">
+             Image identification.
+        </add>
+        <add name="Color Map" type="ColorMapEntry" cond="Color Map Type != 0" arr1="Color Map Length" arg="Color Map Size">
+            Color lookup table.
+        </add>
+    </struct>
+
+
+    <struct name="Footer">
+        <add name="Extension Offset" type="uint" />
+        <add name="Developer Area Offset" type="uint" />
+        <add name="Signature" type="FooterString" />
+    </struct>
+</fileformat>
+

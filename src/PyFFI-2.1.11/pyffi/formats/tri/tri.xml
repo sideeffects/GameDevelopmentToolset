@@ -1,0 +1,216 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE fileformat>
+<fileformat>
+
+    <!--
+    *******************
+    *** basic types ***
+    *******************
+    -->
+
+    <basic name="ubyte">
+        An unsigned 8-bit integer.
+    </basic>
+
+    <basic name="byte">
+        A signed 8-bit integer.
+    </basic>
+
+    <basic name="ushort">
+        An unsigned 16-bit integer.
+    </basic>
+
+    <basic name="short">
+        A signed 16-bit integer.
+    </basic>
+
+    <basic name="uint">
+        An unsigned 32-bit integer.
+    </basic>
+
+    <basic name="int">
+        A signed 32-bit integer.
+    </basic>
+
+    <basic name="char">
+        An 8-bit character.
+    </basic>
+
+    <basic name="float">
+        A standard 32-bit floating point number.
+    </basic>
+
+    <basic name="FileVersion">
+        Version string.
+    </basic>
+
+    <!--
+    *******************
+    *** alias types ***
+    *******************
+    -->
+
+    <!--
+    ******************
+    *** enum types ***
+    ******************
+    -->
+
+    <!--
+    ******************
+    *** bitstructs ***
+    ******************
+    -->
+
+    <!--
+    ***************
+    *** structs ***
+    ***************
+    -->
+
+   <struct name="SizedStringZ">
+       A null terminated string, with length short.
+       <add name="Length" type="uint">The string length.</add>
+       <add name="Value" type="char" arr1="Length">
+           The string, null terminated
+       </add>
+   </struct>
+
+   <struct name="Vertex">
+       <add name="x" type="float"/>
+       <add name="y" type="float"/>
+       <add name="z" type="float"/>
+   </struct>
+
+   <struct name="TriFace">
+       <add name="v1" type="int"/>
+       <add name="v2" type="int"/>
+       <add name="v3" type="int"/>
+   </struct>
+
+   <struct name="QuadFace">
+       Not used by the Oblivion engine as it's tri based.
+       <add name="v1" type="int"/>
+       <add name="v2" type="int"/>
+       <add name="v3" type="int"/>
+       <add name="v4" type="int"/>
+   </struct>
+
+   <struct name="TexCoord">
+       <add name="U" type="float"/>
+       <add name="V" type="float"/>
+   </struct>
+
+   <struct name="ShortRelativeVertex">
+       <add name="x" type="short"/>
+       <add name="y" type="short"/>
+       <add name="z" type="short"/>
+   </struct>
+
+   <struct name="MorphRecord">
+       The formula for a morph is:
+       NewVertex[CurrentVertex] = VertexList[CurrentVertex]+(MorphList[CurrentMorph].VertexList[CurrentVertex]*scale*MorphAmount);
+       MorphAmount: 0 = no morphing, 1 = total morphing. 
+
+       <add name="Name" type="SizedStringZ">
+           Name of the morph.
+       </add>
+       <add name="Scale" type="float">
+           All the following relative vertices are multiplied by this scale.
+       </add>
+       <add name="Vertices" type="ShortRelativeVertex" arr1="ARG">
+            <!-- ARG is Num Vertices -->
+           Amount to alter the base model corresponding vertex by.
+       </add>
+   </struct>
+
+   <struct name="ModifierRecord">
+       A modifier replaces the vertices from the base model
+       (Header.vertices) with those in Header.modifier_vertices. Note
+       that Header.modifier_vertices counts up from the first modifier
+       onwards. For example, if you were to take the 4th vertex to be
+       modified in the 2nd modifier and the size of the 1st modifier
+       was 10 vertices, then you would need
+       Header.modifier_vertices[14].  Therefore,
+       Header.num_modifier_vertices =
+       sum(modifier.num_vertices_to_modify for modifier in
+       Header.modifiers).
+       <add name="Name" type="SizedStringZ">
+           Name of the Modifier.
+       </add>
+       <add name="Num Vertices To Modify" type="int"/>
+       <add name="Vertices To Modify" type="int" arr1="Num Vertices To Modify">
+           List of Vertices To Modify.
+       </add>
+       <add name="Modifier Vertices" type="Vertex" arr1="Num Vertices To Modify" abstract="1">
+           The actual modifier vertices (copied from Header.modifier_vertices).
+       </add>
+   </struct>
+
+    <struct name="Header">
+        <add name="Signature" type="FileSignature">FRTRI</add>
+        <add name="Version" type="FileVersion">003 for Oblivion</add>
+        <add name="Num Vertices" type="int">
+            Number of vertices in the base model.
+        </add>
+        <add name="Num Tri Faces" type="int">
+            Number of 3 sided faces in the model.
+        </add>
+        <add name="Num Quad Faces" type="int">
+            Number of 4 sided faces in the model. Always 0 for Oblivion.
+        </add>
+        <add name="Unknown1" type="int">Always 0.</add>
+        <add name="Unknown2" type="int">Always 0.</add>
+        <add name="Num Uvs" type="int">
+            Number of UV vertices in model.
+        </add>
+        <add name="Has Uv" type="int">
+            Does the model have uv coordinates? Always 1.
+        </add>
+        <add name="Num Morphs" type="int">
+            Number of relative morphs.
+        </add>
+        <add name="Num Modifiers" type="int">
+            Number of absolute morphs
+        </add>
+        <add name="Num Modifier Vertices" type="int">
+            Number of vertices that are changed by all the modifiers.
+        </add>
+        <add name="Unknown3" type="int">Always 0.</add>
+        <add name="Unknown4" type="int">Always 0.</add>
+        <add name="Unknown5" type="int">Always 0.</add>
+        <add name="Unknown6" type="int">Always 0.</add>
+        <add name="Vertices" type="Vertex" arr1="Num Vertices">
+            List of vertices for base model. Indexed from 0.
+        </add>
+        <add name="Modifier Vertices" type="Vertex" arr1="Num Modifier Vertices">
+            List of vertices that modify the base model. Indexed from 0.
+        </add>
+        <add name="Tri Faces" type="TriFace" arr1="Num Tri Faces">
+            List of 3 sided faces. Each point is indexed to VertexList.
+        </add>
+        <add name="Quad Faces" type="QuadFace" arr1="Num Quad Faces">
+            List of 4 sided faces. Each point is indexed to VertexList.
+            Not used by Oblivion.
+        </add>
+        <add name="Uvs" type="TexCoord" arr1="Num Uvs">
+            List of vertices for the UV of the base model.
+        </add>
+        <add name="Uv Tri Faces" type="TriFace" arr1="Num Tri Faces"
+	     cond="Has UV">
+            List of 3 sided UV faces.
+        </add>
+        <add name="Uv Quad Faces" type="QuadFace" arr1="Num Quad Faces"
+	     cond="Has Uv">
+            List of 4 sided UV faces.
+        </add>
+        <add name="Morphs" type="MorphRecord" arr1="Num Morphs"
+	     arg="Num Vertices">
+             List of morphs.
+        </add>
+        <add name="Modifiers" type="ModifierRecord" arr1="Num Modifiers">
+             List of modifiers.
+        </add>
+     </struct>
+
+</fileformat>

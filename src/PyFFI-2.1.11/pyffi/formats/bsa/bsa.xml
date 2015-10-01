@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE fileformat>
+<fileformat>
+
+    <!--
+    *******************
+    *** basic types ***
+    *******************
+    -->
+
+    <basic name="UInt32">
+        An unsigned 32-bit integer.
+    </basic>
+
+    <basic name="Hash">
+        An unsigned 64-bit integer.
+    </basic>
+
+    <basic name="ZString">
+        A null terminated string.
+    </basic>
+
+    <basic name="BZString">
+        A null terminated string, with byte prefix for length.
+    </basic>
+
+    <basic name="FileVersion">
+        "BSA\x00" + version, or "\x00\x01\x00\x00".
+    </basic>
+
+    <!--
+    *******************
+    *** alias types ***
+    *******************
+    -->
+
+    <!--
+    ******************
+    *** enum types ***
+    ******************
+    -->
+
+    <!--
+    ******************
+    *** bitstructs ***
+    ******************
+    -->
+
+    <bitstruct name="ArchiveFlags" numbytes="4">
+        <bits name="Has Folder Records" numbits="1" default="1" />
+        <bits name="Has File Records" numbits="1" default="1" />
+        <bits name="Is Compressed" numbits="1" />
+        <bits name="Unknown 4" numbits="1" />
+        <bits name="Unknown 5" numbits="1">
+            Unknown. Observed being set in official BSA files containing
+            sounds (but not voices).
+        </bits>
+        <bits name="Unknown 6" numbits="1" />
+        <bits name="Unknown 7" numbits="1" />
+        <bits name="Unknown 8" numbits="1">
+            Unknown. Related to the bInvalidateOlderFiles and
+            bCheckRuntimeCollisions INI settings in Oblivion.ini.
+            Also somehow related to is_compressed.
+        </bits>
+        <bits name="Unknown 9" numbits="1" default="1">
+            Unknown, but observed being set in official BSA files.
+        </bits>
+        <bits name="Unknown 10" numbits="1" default="1">
+            Unknown, but observed being set in official BSA files.
+        </bits>
+        <bits name="Unknown 11" numbits="1" default="1">
+            Unknown, but observed being set in official BSA files.
+        </bits>
+    </bitstruct>
+
+    <bitstruct name="FileFlags" numbytes="4">
+        <bits name="Has Nif" numbits="1" />
+        <bits name="Has Dds" numbits="1" />
+        <bits name="Has Xml" numbits="1" />
+        <bits name="Has Wav" numbits="1" />
+        <bits name="Has Mp3" numbits="1" />
+        <bits name="Has Txt Html Bat Scc" numbits="1" />
+        <bits name="Has Spt" numbits="1" />
+        <bits name="Has Tex Fnt" numbits="1" />
+        <bits name="Has Ctl" numbits="1" />
+    </bitstruct>
+
+    <bitstruct name="FileSize" numbytes="4">
+        <bits name="Num Bytes" numbits="30" />
+        <bits name="Is Compressed Override" numbits="1" />
+    </bitstruct>
+
+    <!--
+    ***************
+    *** structs ***
+    ***************
+    -->
+
+   <struct name="OldFile">
+       <add name="Data Size" type="UInt32" />
+       <add name="Data Offset" type="UInt32">
+           Relative position in file where raw file data starts.
+       </add>
+       <!-- the following field is written after all files -->
+       <add name="Name Offset" type="UInt32" abstract="1" />
+       <!-- the following field is written after all offsets -->
+       <add name="Name" type="ZString" abstract="1" />
+       <!-- the following field is written after all names -->
+       <add name="Name Hash" type="Hash" abstract="1" />
+   </struct>
+
+   <struct name="File">
+       <add name="Name Hash" type="Hash" />
+       <add name="File Size" type="FileSize" />
+       <add name="Offset" type="UInt32">
+           Absolute position in file where raw file data starts.
+       </add>
+       <!-- the following field is written after all folders and files -->
+       <add name="Name" type="ZString" abstract="1" />
+   </struct>
+
+   <struct name="Folder">
+       <add name="Name Hash" type="Hash" />
+       <add name="Num Files" type="UInt32">
+           Number of files in this folder.
+       </add>
+       <add name="Offset" type="UInt32">
+           Absolute position in file where file data starts.
+       </add>
+       <!-- the following two fields are written after all folders -->
+       <add name="Name" type="BZString" abstract="1" />
+       <add name="Files" type="File" arr1="Num Files" abstract="1" />
+   </struct>
+
+   <struct name="Header">
+       <add name="Version" type="FileVersion">
+           BSA\x00 + version for Oblivion and up,
+           \x00\x01\x00\x00 for Morrowind.
+       </add>
+       <!-- Morrowind -->
+       <add name="Old File Hashes Offset" type="UInt32" ver2="0" />
+       <add name="Num Old Files" type="UInt32" ver2="0" />
+       <add name="Old Files" type="OldFile" arr1="Num Old Files" ver2="0" abstract="1" />
+       <!-- Oblivion -->
+       <add name="Folders Offset" type="UInt32" default="36" ver1="103">
+           Position in file where folder data starts.
+       </add>
+       <add name="Archive Flags" type="ArchiveFlags" ver1="103">
+           Various settings.
+       </add>
+       <add name="Num Folders" type="UInt32" ver1="103" />
+       <add name="Num Files" type="UInt32" ver1="103" />
+       <add name="Total Folder Name Length" type="UInt32" ver1="103">
+           Total length of all folder names, including \0's but not including
+           the prefixed length byte.
+       </add>
+       <add name="Total File Name Length" type="UInt32" ver1="103">
+           Total length of all file names, including \0's.
+       </add>
+       <add name="File Flags" type="FileFlags" ver1="103">
+           Seems to indicate what kinds of files are in the archive.
+       </add>
+       <add name="Folders" type="Folder" arr1="Num Folders" abstract="1" ver1="103" />
+   </struct>
+
+</fileformat>

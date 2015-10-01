@@ -1,0 +1,776 @@
+<?xml version="1.0" encoding="ascii"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+          "DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>pyffi.qskope.detail_delegate</title>
+  <link rel="stylesheet" href="epydoc.css" type="text/css" />
+  <script type="text/javascript" src="epydoc.js"></script>
+</head>
+
+<body bgcolor="white" text="black" link="blue" vlink="#204080"
+      alink="#204080">
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+  <!-- Home link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="pyffi-module.html">Home</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Project homepage -->
+      <th class="navbar" align="right" width="100%">
+        <table border="0" cellpadding="0" cellspacing="0">
+          <tr><th class="navbar" align="center"
+            >&nbsp;&nbsp;&nbsp;<a class="navbar" target="_top" href="http://pyffi.sourceforge.net/">Python File Format Interface</a>&nbsp;&nbsp;&nbsp;</th><th class="navbar" align="center">&nbsp;&nbsp;&nbsp;<a class="navbar" target="_top" href="http://sourceforge.net"><img src="http://sflogo.sourceforge.net/sflogo.php?group_id=199269" width="88" height="31" border="0" alt="SourceForge.net Logo" /></a>&nbsp;&nbsp;&nbsp;</th>
+          </tr></table></th>
+  </tr>
+</table>
+<table width="100%" cellpadding="0" cellspacing="0">
+  <tr valign="top">
+    <td width="100%">
+      <span class="breadcrumbs">
+        <a href="pyffi-module.html">Package&nbsp;pyffi</a> ::
+        <a href="pyffi.qskope-module.html">Package&nbsp;qskope</a> ::
+        Module&nbsp;detail_delegate
+      </span>
+    </td>
+    <td>
+      <table cellpadding="0" cellspacing="0">
+        <!-- hide/show private -->
+        <tr><td align="right"><span class="options">[<a href="javascript:void(0);" class="privatelink"
+    onclick="toggle_private();">hide&nbsp;private</a>]</span></td></tr>
+        <tr><td align="right"><span class="options"
+            >[<a href="frames.html" target="_top">frames</a
+            >]&nbsp;|&nbsp;<a href="pyffi.qskope.detail_delegate-pysrc.html"
+            target="_top">no&nbsp;frames</a>]</span></td></tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<h1 class="epydoc">Source Code for <a href="pyffi.qskope.detail_delegate-module.html">Module pyffi.qskope.detail_delegate</a></h1>
+<pre class="py-src">
+<a name="L1"></a><tt class="py-lineno">  1</tt>  <tt class="py-line"><tt class="py-docstring">"""Class definition for editing the detail view."""</tt> </tt>
+<a name="L2"></a><tt class="py-lineno">  2</tt>  <tt class="py-line"> </tt>
+<a name="L3"></a><tt class="py-lineno">  3</tt>  <tt class="py-line"><tt class="py-comment"># ***** BEGIN LICENSE BLOCK *****</tt> </tt>
+<a name="L4"></a><tt class="py-lineno">  4</tt>  <tt class="py-line"><tt class="py-comment">#</tt> </tt>
+<a name="L5"></a><tt class="py-lineno">  5</tt>  <tt class="py-line"><tt class="py-comment"># Copyright (c) 2007-2011, Python File Format Interface</tt> </tt>
+<a name="L6"></a><tt class="py-lineno">  6</tt>  <tt class="py-line"><tt class="py-comment"># All rights reserved.</tt> </tt>
+<a name="L7"></a><tt class="py-lineno">  7</tt>  <tt class="py-line"><tt class="py-comment">#</tt> </tt>
+<a name="L8"></a><tt class="py-lineno">  8</tt>  <tt class="py-line"><tt class="py-comment"># Redistribution and use in source and binary forms, with or without</tt> </tt>
+<a name="L9"></a><tt class="py-lineno">  9</tt>  <tt class="py-line"><tt class="py-comment"># modification, are permitted provided that the following conditions</tt> </tt>
+<a name="L10"></a><tt class="py-lineno"> 10</tt>  <tt class="py-line"><tt class="py-comment"># are met:</tt> </tt>
+<a name="L11"></a><tt class="py-lineno"> 11</tt>  <tt class="py-line"><tt class="py-comment">#</tt> </tt>
+<a name="L12"></a><tt class="py-lineno"> 12</tt>  <tt class="py-line"><tt class="py-comment">#    * Redistributions of source code must retain the above copyright</tt> </tt>
+<a name="L13"></a><tt class="py-lineno"> 13</tt>  <tt class="py-line"><tt class="py-comment">#      notice, this list of conditions and the following disclaimer.</tt> </tt>
+<a name="L14"></a><tt class="py-lineno"> 14</tt>  <tt class="py-line"><tt class="py-comment">#</tt> </tt>
+<a name="L15"></a><tt class="py-lineno"> 15</tt>  <tt class="py-line"><tt class="py-comment">#    * Redistributions in binary form must reproduce the above</tt> </tt>
+<a name="L16"></a><tt class="py-lineno"> 16</tt>  <tt class="py-line"><tt class="py-comment">#      copyright notice, this list of conditions and the following</tt> </tt>
+<a name="L17"></a><tt class="py-lineno"> 17</tt>  <tt class="py-line"><tt class="py-comment">#      disclaimer in the documentation and/or other materials provided</tt> </tt>
+<a name="L18"></a><tt class="py-lineno"> 18</tt>  <tt class="py-line"><tt class="py-comment">#      with the distribution.</tt> </tt>
+<a name="L19"></a><tt class="py-lineno"> 19</tt>  <tt class="py-line"><tt class="py-comment">#</tt> </tt>
+<a name="L20"></a><tt class="py-lineno"> 20</tt>  <tt class="py-line"><tt class="py-comment">#    * Neither the name of the Python File Format Interface</tt> </tt>
+<a name="L21"></a><tt class="py-lineno"> 21</tt>  <tt class="py-line"><tt class="py-comment">#      project nor the names of its contributors may be used to endorse</tt> </tt>
+<a name="L22"></a><tt class="py-lineno"> 22</tt>  <tt class="py-line"><tt class="py-comment">#      or promote products derived from this software without specific</tt> </tt>
+<a name="L23"></a><tt class="py-lineno"> 23</tt>  <tt class="py-line"><tt class="py-comment">#      prior written permission.</tt> </tt>
+<a name="L24"></a><tt class="py-lineno"> 24</tt>  <tt class="py-line"><tt class="py-comment">#</tt> </tt>
+<a name="L25"></a><tt class="py-lineno"> 25</tt>  <tt class="py-line"><tt class="py-comment"># THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS</tt> </tt>
+<a name="L26"></a><tt class="py-lineno"> 26</tt>  <tt class="py-line"><tt class="py-comment"># "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT</tt> </tt>
+<a name="L27"></a><tt class="py-lineno"> 27</tt>  <tt class="py-line"><tt class="py-comment"># LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS</tt> </tt>
+<a name="L28"></a><tt class="py-lineno"> 28</tt>  <tt class="py-line"><tt class="py-comment"># FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE</tt> </tt>
+<a name="L29"></a><tt class="py-lineno"> 29</tt>  <tt class="py-line"><tt class="py-comment"># COPYRIGHT OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT,</tt> </tt>
+<a name="L30"></a><tt class="py-lineno"> 30</tt>  <tt class="py-line"><tt class="py-comment"># INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING,</tt> </tt>
+<a name="L31"></a><tt class="py-lineno"> 31</tt>  <tt class="py-line"><tt class="py-comment"># BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES;</tt> </tt>
+<a name="L32"></a><tt class="py-lineno"> 32</tt>  <tt class="py-line"><tt class="py-comment"># LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER</tt> </tt>
+<a name="L33"></a><tt class="py-lineno"> 33</tt>  <tt class="py-line"><tt class="py-comment"># CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT</tt> </tt>
+<a name="L34"></a><tt class="py-lineno"> 34</tt>  <tt class="py-line"><tt class="py-comment"># LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN</tt> </tt>
+<a name="L35"></a><tt class="py-lineno"> 35</tt>  <tt class="py-line"><tt class="py-comment"># ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE</tt> </tt>
+<a name="L36"></a><tt class="py-lineno"> 36</tt>  <tt class="py-line"><tt class="py-comment"># POSSIBILITY OF SUCH DAMAGE.</tt> </tt>
+<a name="L37"></a><tt class="py-lineno"> 37</tt>  <tt class="py-line"><tt class="py-comment">#</tt> </tt>
+<a name="L38"></a><tt class="py-lineno"> 38</tt>  <tt class="py-line"><tt class="py-comment"># ***** END LICENSE BLOCK *****</tt> </tt>
+<a name="L39"></a><tt class="py-lineno"> 39</tt>  <tt class="py-line"> </tt>
+<a name="L40"></a><tt class="py-lineno"> 40</tt>  <tt class="py-line"><tt class="py-keyword">from</tt> <tt class="py-name">PyQt4</tt> <tt class="py-keyword">import</tt> <tt class="py-name">QtCore</tt><tt class="py-op">,</tt> <tt class="py-name">QtGui</tt> </tt>
+<a name="L41"></a><tt class="py-lineno"> 41</tt>  <tt class="py-line"> </tt>
+<a name="L42"></a><tt class="py-lineno"> 42</tt>  <tt class="py-line"><tt class="py-comment"># each delegate type corresponds to a QtGui delegate type</tt> </tt>
+<a name="L43"></a><tt class="py-lineno"> 43</tt>  <tt class="py-line"><tt class="py-comment"># (see _checkValidEditor for more details)</tt> </tt>
+<a name="L44"></a><tt class="py-lineno"> 44</tt>  <tt class="py-line"><tt class="py-keyword">from</tt> <tt id="link-0" class="py-name" targets="Package pyffi=pyffi-module.html"><a title="pyffi" class="py-name" href="#" onclick="return doclink('link-0', 'pyffi', 'link-0');">pyffi</a></tt><tt class="py-op">.</tt><tt id="link-1" class="py-name" targets="Package pyffi.object_models=pyffi.object_models-module.html"><a title="pyffi.object_models" class="py-name" href="#" onclick="return doclink('link-1', 'object_models', 'link-1');">object_models</a></tt><tt class="py-op">.</tt><tt id="link-2" class="py-name" targets="Module pyffi.object_models.editable=pyffi.object_models.editable-module.html"><a title="pyffi.object_models.editable" class="py-name" href="#" onclick="return doclink('link-2', 'editable', 'link-2');">editable</a></tt> <tt class="py-keyword">import</tt> <tt id="link-3" class="py-name" targets="Class pyffi.object_models.editable.EditableComboBox=pyffi.object_models.editable.EditableComboBox-class.html"><a title="pyffi.object_models.editable.EditableComboBox" class="py-name" href="#" onclick="return doclink('link-3', 'EditableComboBox', 'link-3');">EditableComboBox</a></tt>     <tt class="py-comment"># -&gt; QComboBox</tt> </tt>
+<a name="L45"></a><tt class="py-lineno"> 45</tt>  <tt class="py-line"><tt class="py-keyword">from</tt> <tt id="link-4" class="py-name"><a title="pyffi" class="py-name" href="#" onclick="return doclink('link-4', 'pyffi', 'link-0');">pyffi</a></tt><tt class="py-op">.</tt><tt id="link-5" class="py-name"><a title="pyffi.object_models" class="py-name" href="#" onclick="return doclink('link-5', 'object_models', 'link-1');">object_models</a></tt><tt class="py-op">.</tt><tt id="link-6" class="py-name"><a title="pyffi.object_models.editable" class="py-name" href="#" onclick="return doclink('link-6', 'editable', 'link-2');">editable</a></tt> <tt class="py-keyword">import</tt> <tt id="link-7" class="py-name" targets="Class pyffi.object_models.editable.EditableFloatSpinBox=pyffi.object_models.editable.EditableFloatSpinBox-class.html"><a title="pyffi.object_models.editable.EditableFloatSpinBox" class="py-name" href="#" onclick="return doclink('link-7', 'EditableFloatSpinBox', 'link-7');">EditableFloatSpinBox</a></tt> <tt class="py-comment"># -&gt; QDoubleSpinBox</tt> </tt>
+<a name="L46"></a><tt class="py-lineno"> 46</tt>  <tt class="py-line"><tt class="py-keyword">from</tt> <tt id="link-8" class="py-name"><a title="pyffi" class="py-name" href="#" onclick="return doclink('link-8', 'pyffi', 'link-0');">pyffi</a></tt><tt class="py-op">.</tt><tt id="link-9" class="py-name"><a title="pyffi.object_models" class="py-name" href="#" onclick="return doclink('link-9', 'object_models', 'link-1');">object_models</a></tt><tt class="py-op">.</tt><tt id="link-10" class="py-name"><a title="pyffi.object_models.editable" class="py-name" href="#" onclick="return doclink('link-10', 'editable', 'link-2');">editable</a></tt> <tt class="py-keyword">import</tt> <tt id="link-11" class="py-name" targets="Class pyffi.object_models.editable.EditableSpinBox=pyffi.object_models.editable.EditableSpinBox-class.html"><a title="pyffi.object_models.editable.EditableSpinBox" class="py-name" href="#" onclick="return doclink('link-11', 'EditableSpinBox', 'link-11');">EditableSpinBox</a></tt>      <tt class="py-comment"># -&gt; QSpinBox</tt> </tt>
+<a name="L47"></a><tt class="py-lineno"> 47</tt>  <tt class="py-line"><tt class="py-keyword">from</tt> <tt id="link-12" class="py-name"><a title="pyffi" class="py-name" href="#" onclick="return doclink('link-12', 'pyffi', 'link-0');">pyffi</a></tt><tt class="py-op">.</tt><tt id="link-13" class="py-name"><a title="pyffi.object_models" class="py-name" href="#" onclick="return doclink('link-13', 'object_models', 'link-1');">object_models</a></tt><tt class="py-op">.</tt><tt id="link-14" class="py-name"><a title="pyffi.object_models.editable" class="py-name" href="#" onclick="return doclink('link-14', 'editable', 'link-2');">editable</a></tt> <tt class="py-keyword">import</tt> <tt id="link-15" class="py-name" targets="Class pyffi.object_models.editable.EditableTextEdit=pyffi.object_models.editable.EditableTextEdit-class.html"><a title="pyffi.object_models.editable.EditableTextEdit" class="py-name" href="#" onclick="return doclink('link-15', 'EditableTextEdit', 'link-15');">EditableTextEdit</a></tt>     <tt class="py-comment"># -&gt; QTextEdit</tt> </tt>
+<a name="L48"></a><tt class="py-lineno"> 48</tt>  <tt class="py-line"><tt class="py-keyword">from</tt> <tt id="link-16" class="py-name"><a title="pyffi" class="py-name" href="#" onclick="return doclink('link-16', 'pyffi', 'link-0');">pyffi</a></tt><tt class="py-op">.</tt><tt id="link-17" class="py-name"><a title="pyffi.object_models" class="py-name" href="#" onclick="return doclink('link-17', 'object_models', 'link-1');">object_models</a></tt><tt class="py-op">.</tt><tt id="link-18" class="py-name"><a title="pyffi.object_models.editable" class="py-name" href="#" onclick="return doclink('link-18', 'editable', 'link-2');">editable</a></tt> <tt class="py-keyword">import</tt> <tt id="link-19" class="py-name" targets="Class pyffi.object_models.editable.EditableLineEdit=pyffi.object_models.editable.EditableLineEdit-class.html"><a title="pyffi.object_models.editable.EditableLineEdit" class="py-name" href="#" onclick="return doclink('link-19', 'EditableLineEdit', 'link-19');">EditableLineEdit</a></tt>     <tt class="py-comment"># -&gt; QLineEdit</tt> </tt>
+<a name="L49"></a><tt class="py-lineno"> 49</tt>  <tt class="py-line"> </tt>
+<a name="L50"></a><tt class="py-lineno"> 50</tt>  <tt class="py-line"><tt class="py-comment"># implementation details:</tt> </tt>
+<a name="L51"></a><tt class="py-lineno"> 51</tt>  <tt class="py-line"><tt class="py-comment"># http://doc.trolltech.com/4.3/model-view-delegate.html</tt> </tt>
+<a name="L52"></a><tt class="py-lineno"> 52</tt>  <tt class="py-line"><tt class="py-comment"># http://doc.trolltech.com/4.3/qitemdelegate.html#details</tt> </tt>
+<a name="DetailDelegate"></a><div id="DetailDelegate-def"><a name="L53"></a><tt class="py-lineno"> 53</tt> <a class="py-toggle" href="#" id="DetailDelegate-toggle" onclick="return toggle('DetailDelegate');">-</a><tt class="py-line"><tt class="py-keyword">class</tt> <a class="py-def-name" href="pyffi.qskope.detail_delegate.DetailDelegate-class.html">DetailDelegate</a><tt class="py-op">(</tt><tt class="py-base-class">QtGui</tt><tt class="py-op">.</tt><tt class="py-base-class">QItemDelegate</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="DetailDelegate-collapsed" style="display:none;" pad="+++" indent="++++"></div><div id="DetailDelegate-expanded"><a name="L54"></a><tt class="py-lineno"> 54</tt>  <tt class="py-line">    <tt class="py-docstring">"""Defines an editor for data in the detail view."""</tt> </tt>
+<a name="L55"></a><tt class="py-lineno"> 55</tt>  <tt class="py-line"> </tt>
+<a name="DetailDelegate._checkValidEditor"></a><div id="DetailDelegate._checkValidEditor-def"><a name="L56"></a><tt class="py-lineno"> 56</tt> <a class="py-toggle" href="#" id="DetailDelegate._checkValidEditor-toggle" onclick="return toggle('DetailDelegate._checkValidEditor');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="pyffi.qskope.detail_delegate.DetailDelegate-class.html#_checkValidEditor">_checkValidEditor</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">,</tt> <tt class="py-param">data</tt><tt class="py-op">,</tt> <tt class="py-param">editor</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="DetailDelegate._checkValidEditor-collapsed" style="display:none;" pad="+++" indent="++++++++"></div><div id="DetailDelegate._checkValidEditor-expanded"><a name="L57"></a><tt class="py-lineno"> 57</tt>  <tt class="py-line">        <tt class="py-docstring">"""This function checks that the delegate class has the correct editor.</tt> </tt>
+<a name="L58"></a><tt class="py-lineno"> 58</tt>  <tt class="py-line"><tt class="py-docstring">        If data and editor do not correspond to one another, then a ValueError is</tt> </tt>
+<a name="L59"></a><tt class="py-lineno"> 59</tt>  <tt class="py-line"><tt class="py-docstring">        raised.</tt> </tt>
+<a name="L60"></a><tt class="py-lineno"> 60</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
+<a name="L61"></a><tt class="py-lineno"> 61</tt>  <tt class="py-line"><tt class="py-docstring">        All functions checking for delegate base classes should respect</tt> </tt>
+<a name="L62"></a><tt class="py-lineno"> 62</tt>  <tt class="py-line"><tt class="py-docstring">        the order in this function, because a class may derive from more than</tt> </tt>
+<a name="L63"></a><tt class="py-lineno"> 63</tt>  <tt class="py-line"><tt class="py-docstring">        one delegate class. So this function determines which editor is</tt> </tt>
+<a name="L64"></a><tt class="py-lineno"> 64</tt>  <tt class="py-line"><tt class="py-docstring">        preferred if this happens. The order is:</tt> </tt>
+<a name="L65"></a><tt class="py-lineno"> 65</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
+<a name="L66"></a><tt class="py-lineno"> 66</tt>  <tt class="py-line"><tt class="py-docstring">        - ComboBox</tt> </tt>
+<a name="L67"></a><tt class="py-lineno"> 67</tt>  <tt class="py-line"><tt class="py-docstring">        - FloatSpinBox</tt> </tt>
+<a name="L68"></a><tt class="py-lineno"> 68</tt>  <tt class="py-line"><tt class="py-docstring">        - SpinBox</tt> </tt>
+<a name="L69"></a><tt class="py-lineno"> 69</tt>  <tt class="py-line"><tt class="py-docstring">        - TextEdit</tt> </tt>
+<a name="L70"></a><tt class="py-lineno"> 70</tt>  <tt class="py-line"><tt class="py-docstring">        - LineEdit</tt> </tt>
+<a name="L71"></a><tt class="py-lineno"> 71</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
+<a name="L72"></a><tt class="py-lineno"> 72</tt>  <tt class="py-line"><tt class="py-docstring">        This function is only used for internal debugging purposes.</tt> </tt>
+<a name="L73"></a><tt class="py-lineno"> 73</tt>  <tt class="py-line"><tt class="py-docstring">        """</tt> </tt>
+<a name="L74"></a><tt class="py-lineno"> 74</tt>  <tt class="py-line">        <tt class="py-comment"># the general idea is to check complex instances (that derive from</tt> </tt>
+<a name="L75"></a><tt class="py-lineno"> 75</tt>  <tt class="py-line">        <tt class="py-comment"># simpler ones) first</tt> </tt>
+<a name="L76"></a><tt class="py-lineno"> 76</tt>  <tt class="py-line"> </tt>
+<a name="L77"></a><tt class="py-lineno"> 77</tt>  <tt class="py-line">        <tt class="py-comment"># check combo box</tt> </tt>
+<a name="L78"></a><tt class="py-lineno"> 78</tt>  <tt class="py-line">        <tt class="py-comment"># (some combo types may also derive from spin box such as bools,</tt> </tt>
+<a name="L79"></a><tt class="py-lineno"> 79</tt>  <tt class="py-line">        <tt class="py-comment"># in that case prefer the combo box representation)</tt> </tt>
+<a name="L80"></a><tt class="py-lineno"> 80</tt>  <tt class="py-line">        <tt class="py-keyword">if</tt> <tt class="py-name">isinstance</tt><tt class="py-op">(</tt><tt id="link-20" class="py-name" targets="Variable pyffi.formats.cgf.CgfFormat.PhysicsDataType0.data=pyffi.formats.cgf.CgfFormat.PhysicsDataType0-class.html#data,Variable pyffi.formats.nif.NifFormat.AdditionalDataBlock.data=pyffi.formats.nif.NifFormat.AdditionalDataBlock-class.html#data,Variable pyffi.formats.nif.NifFormat.BSMultiBound.data=pyffi.formats.nif.NifFormat.BSMultiBound-class.html#data,Variable pyffi.formats.nif.NifFormat.BSPSysMultiTargetEmitterCtlr.data=pyffi.formats.nif.NifFormat.BSPSysMultiTargetEmitterCtlr-class.html#data,Variable pyffi.formats.nif.NifFormat.BSPackedAdditionalDataBlock.data=pyffi.formats.nif.NifFormat.BSPackedAdditionalDataBlock-class.html#data,Variable pyffi.formats.nif.NifFormat.BSTreadTransfInfo.data=pyffi.formats.nif.NifFormat.BSTreadTransfInfo-class.html#data,Variable pyffi.formats.nif.NifFormat.NiAlphaController.data=pyffi.formats.nif.NifFormat.NiAlphaController-class.html#data,Variable pyffi.formats.nif.NifFormat.NiBinaryVoxelExtraData.data=pyffi.formats.nif.NifFormat.NiBinaryVoxelExtraData-class.html#data,Variable pyffi.formats.nif.NifFormat.NiBoolData.data=pyffi.formats.nif.NifFormat.NiBoolData-class.html#data,Variable pyffi.formats.nif.NifFormat.NiBoolInterpolator.data=pyffi.formats.nif.NifFormat.NiBoolInterpolator-class.html#data,Variable pyffi.formats.nif.NifFormat.NiColorData.data=pyffi.formats.nif.NifFormat.NiColorData-class.html#data,Variable pyffi.formats.nif.NifFormat.NiColorExtraData.data=pyffi.formats.nif.NifFormat.NiColorExtraData-class.html#data,Variable pyffi.formats.nif.NifFormat.NiDataStream.data=pyffi.formats.nif.NifFormat.NiDataStream-class.html#data,Variable pyffi.formats.nif.NifFormat.NiFloatData.data=pyffi.formats.nif.NifFormat.NiFloatData-class.html#data,Variable pyffi.formats.nif.NifFormat.NiFloatInterpolator.data=pyffi.formats.nif.NifFormat.NiFloatInterpolator-class.html#data,Variable pyffi.formats.nif.NifFormat.NiFloatsExtraData.data=pyffi.formats.nif.NifFormat.NiFloatsExtraData-class.html#data,Variable pyffi.formats.nif.NifFormat.NiGeomMorpherController.data=pyffi.formats.nif.NifFormat.NiGeomMorpherController-class.html#data,Variable pyffi.formats.nif.NifFormat.NiIntegersExtraData.data=pyffi.formats.nif.NifFormat.NiIntegersExtraData-class.html#data,Variable pyffi.formats.nif.NifFormat.NiKeyframeController.data=pyffi.formats.nif.NifFormat.NiKeyframeController-class.html#data,Variable pyffi.formats.nif.NifFormat.NiMorpherController.data=pyffi.formats.nif.NifFormat.NiMorpherController-class.html#data,Variable pyffi.formats.nif.NifFormat.NiPSysColorModifier.data=pyffi.formats.nif.NifFormat.NiPSysColorModifier-class.html#data,Variable pyffi.formats.nif.NifFormat.NiPSysEmitterCtlr.data=pyffi.formats.nif.NifFormat.NiPSysEmitterCtlr-class.html#data,Variable pyffi.formats.nif.NifFormat.NiPSysModifierActiveCtlr.data=pyffi.formats.nif.NifFormat.NiPSysModifierActiveCtlr-class.html#data,Variable pyffi.formats.nif.NifFormat.NiPSysModifierFloatCtlr.data=pyffi.formats.nif.NifFormat.NiPSysModifierFloatCtlr-class.html#data,Variable pyffi.formats.nif.NifFormat.NiPoint3InterpController.data=pyffi.formats.nif.NifFormat.NiPoint3InterpController-class.html#data,Variable pyffi.formats.nif.NifFormat.NiPoint3Interpolator.data=pyffi.formats.nif.NifFormat.NiPoint3Interpolator-class.html#data,Variable pyffi.formats.nif.NifFormat.NiPosData.data=pyffi.formats.nif.NifFormat.NiPosData-class.html#data,Variable pyffi.formats.nif.NifFormat.NiRollController.data=pyffi.formats.nif.NifFormat.NiRollController-class.html#data,Variable pyffi.formats.nif.NifFormat.NiSkinInstance.data=pyffi.formats.nif.NifFormat.NiSkinInstance-class.html#data,Variable pyffi.formats.nif.NifFormat.NiStringsExtraData.data=pyffi.formats.nif.NifFormat.NiStringsExtraData-class.html#data,Variable pyffi.formats.nif.NifFormat.NiTextureTransformController.data=pyffi.formats.nif.NifFormat.NiTextureTransformController-class.html#data,Variable pyffi.formats.nif.NifFormat.NiUVController.data=pyffi.formats.nif.NifFormat.NiUVController-class.html#data,Variable pyffi.formats.nif.NifFormat.NiVisController.data=pyffi.formats.nif.NifFormat.NiVisController-class.html#data,Variable pyffi.formats.nif.NifFormat._NiGeometry.data=pyffi.formats.nif.NifFormat._NiGeometry-class.html#data,Variable pyffi.formats.nif.NifFormat._NiTransformInterpolator.data=pyffi.formats.nif.NifFormat._NiTransformInterpolator-class.html#data,Variable pyffi.formats.nif.NifFormat._bhkPackedNiTriStripsShape.data=pyffi.formats.nif.NifFormat._bhkPackedNiTriStripsShape-class.html#data,Variable pyffi.formats.tga.TgaFormat.ColorMapEntry.data=pyffi.formats.tga.TgaFormat.ColorMapEntry-class.html#data,Variable pyffi.formats.tga.TgaFormat.Pixel.data=pyffi.formats.tga.TgaFormat.Pixel-class.html#data,Method pyffi.qskope.detail_model.DetailModel.data()=pyffi.qskope.detail_model.DetailModel-class.html#data,Method pyffi.qskope.global_model.GlobalModel.data()=pyffi.qskope.global_model.GlobalModel-class.html#data,Variable pyffi.spells.Spell.data=pyffi.spells.Spell-class.html#data"><a title="pyffi.formats.cgf.CgfFormat.PhysicsDataType0.data
+pyffi.formats.nif.NifFormat.AdditionalDataBlock.data
+pyffi.formats.nif.NifFormat.BSMultiBound.data
+pyffi.formats.nif.NifFormat.BSPSysMultiTargetEmitterCtlr.data
+pyffi.formats.nif.NifFormat.BSPackedAdditionalDataBlock.data
+pyffi.formats.nif.NifFormat.BSTreadTransfInfo.data
+pyffi.formats.nif.NifFormat.NiAlphaController.data
+pyffi.formats.nif.NifFormat.NiBinaryVoxelExtraData.data
+pyffi.formats.nif.NifFormat.NiBoolData.data
+pyffi.formats.nif.NifFormat.NiBoolInterpolator.data
+pyffi.formats.nif.NifFormat.NiColorData.data
+pyffi.formats.nif.NifFormat.NiColorExtraData.data
+pyffi.formats.nif.NifFormat.NiDataStream.data
+pyffi.formats.nif.NifFormat.NiFloatData.data
+pyffi.formats.nif.NifFormat.NiFloatInterpolator.data
+pyffi.formats.nif.NifFormat.NiFloatsExtraData.data
+pyffi.formats.nif.NifFormat.NiGeomMorpherController.data
+pyffi.formats.nif.NifFormat.NiIntegersExtraData.data
+pyffi.formats.nif.NifFormat.NiKeyframeController.data
+pyffi.formats.nif.NifFormat.NiMorpherController.data
+pyffi.formats.nif.NifFormat.NiPSysColorModifier.data
+pyffi.formats.nif.NifFormat.NiPSysEmitterCtlr.data
+pyffi.formats.nif.NifFormat.NiPSysModifierActiveCtlr.data
+pyffi.formats.nif.NifFormat.NiPSysModifierFloatCtlr.data
+pyffi.formats.nif.NifFormat.NiPoint3InterpController.data
+pyffi.formats.nif.NifFormat.NiPoint3Interpolator.data
+pyffi.formats.nif.NifFormat.NiPosData.data
+pyffi.formats.nif.NifFormat.NiRollController.data
+pyffi.formats.nif.NifFormat.NiSkinInstance.data
+pyffi.formats.nif.NifFormat.NiStringsExtraData.data
+pyffi.formats.nif.NifFormat.NiTextureTransformController.data
+pyffi.formats.nif.NifFormat.NiUVController.data
+pyffi.formats.nif.NifFormat.NiVisController.data
+pyffi.formats.nif.NifFormat._NiGeometry.data
+pyffi.formats.nif.NifFormat._NiTransformInterpolator.data
+pyffi.formats.nif.NifFormat._bhkPackedNiTriStripsShape.data
+pyffi.formats.tga.TgaFormat.ColorMapEntry.data
+pyffi.formats.tga.TgaFormat.Pixel.data
+pyffi.qskope.detail_model.DetailModel.data
+pyffi.qskope.global_model.GlobalModel.data
+pyffi.spells.Spell.data" class="py-name" href="#" onclick="return doclink('link-20', 'data', 'link-20');">data</a></tt><tt class="py-op">,</tt> <tt id="link-21" class="py-name"><a title="pyffi.object_models.editable.EditableComboBox" class="py-name" href="#" onclick="return doclink('link-21', 'EditableComboBox', 'link-3');">EditableComboBox</a></tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+<a name="L81"></a><tt class="py-lineno"> 81</tt>  <tt class="py-line">            <tt class="py-name">isvalid</tt> <tt class="py-op">=</tt> <tt class="py-name">isinstance</tt><tt class="py-op">(</tt><tt class="py-name">editor</tt><tt class="py-op">,</tt> <tt class="py-name">QtGui</tt><tt class="py-op">.</tt><tt class="py-name">QComboBox</tt><tt class="py-op">)</tt> </tt>
+<a name="L82"></a><tt class="py-lineno"> 82</tt>  <tt class="py-line">        <tt class="py-comment"># check float spin box</tt> </tt>
+<a name="L83"></a><tt class="py-lineno"> 83</tt>  <tt class="py-line">        <tt class="py-keyword">elif</tt> <tt class="py-name">isinstance</tt><tt class="py-op">(</tt><tt id="link-22" class="py-name"><a title="pyffi.formats.cgf.CgfFormat.PhysicsDataType0.data
+pyffi.formats.nif.NifFormat.AdditionalDataBlock.data
+pyffi.formats.nif.NifFormat.BSMultiBound.data
+pyffi.formats.nif.NifFormat.BSPSysMultiTargetEmitterCtlr.data
+pyffi.formats.nif.NifFormat.BSPackedAdditionalDataBlock.data
+pyffi.formats.nif.NifFormat.BSTreadTransfInfo.data
+pyffi.formats.nif.NifFormat.NiAlphaController.data
+pyffi.formats.nif.NifFormat.NiBinaryVoxelExtraData.data
+pyffi.formats.nif.NifFormat.NiBoolData.data
+pyffi.formats.nif.NifFormat.NiBoolInterpolator.data
+pyffi.formats.nif.NifFormat.NiColorData.data
+pyffi.formats.nif.NifFormat.NiColorExtraData.data
+pyffi.formats.nif.NifFormat.NiDataStream.data
+pyffi.formats.nif.NifFormat.NiFloatData.data
+pyffi.formats.nif.NifFormat.NiFloatInterpolator.data
+pyffi.formats.nif.NifFormat.NiFloatsExtraData.data
+pyffi.formats.nif.NifFormat.NiGeomMorpherController.data
+pyffi.formats.nif.NifFormat.NiIntegersExtraData.data
+pyffi.formats.nif.NifFormat.NiKeyframeController.data
+pyffi.formats.nif.NifFormat.NiMorpherController.data
+pyffi.formats.nif.NifFormat.NiPSysColorModifier.data
+pyffi.formats.nif.NifFormat.NiPSysEmitterCtlr.data
+pyffi.formats.nif.NifFormat.NiPSysModifierActiveCtlr.data
+pyffi.formats.nif.NifFormat.NiPSysModifierFloatCtlr.data
+pyffi.formats.nif.NifFormat.NiPoint3InterpController.data
+pyffi.formats.nif.NifFormat.NiPoint3Interpolator.data
+pyffi.formats.nif.NifFormat.NiPosData.data
+pyffi.formats.nif.NifFormat.NiRollController.data
+pyffi.formats.nif.NifFormat.NiSkinInstance.data
+pyffi.formats.nif.NifFormat.NiStringsExtraData.data
+pyffi.formats.nif.NifFormat.NiTextureTransformController.data
+pyffi.formats.nif.NifFormat.NiUVController.data
+pyffi.formats.nif.NifFormat.NiVisController.data
+pyffi.formats.nif.NifFormat._NiGeometry.data
+pyffi.formats.nif.NifFormat._NiTransformInterpolator.data
+pyffi.formats.nif.NifFormat._bhkPackedNiTriStripsShape.data
+pyffi.formats.tga.TgaFormat.ColorMapEntry.data
+pyffi.formats.tga.TgaFormat.Pixel.data
+pyffi.qskope.detail_model.DetailModel.data
+pyffi.qskope.global_model.GlobalModel.data
+pyffi.spells.Spell.data" class="py-name" href="#" onclick="return doclink('link-22', 'data', 'link-20');">data</a></tt><tt class="py-op">,</tt> <tt id="link-23" class="py-name"><a title="pyffi.object_models.editable.EditableFloatSpinBox" class="py-name" href="#" onclick="return doclink('link-23', 'EditableFloatSpinBox', 'link-7');">EditableFloatSpinBox</a></tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+<a name="L84"></a><tt class="py-lineno"> 84</tt>  <tt class="py-line">            <tt class="py-name">isvalid</tt> <tt class="py-op">=</tt> <tt class="py-name">isinstance</tt><tt class="py-op">(</tt><tt class="py-name">editor</tt><tt class="py-op">,</tt> <tt class="py-name">QtGui</tt><tt class="py-op">.</tt><tt class="py-name">QDoubleSpinBox</tt><tt class="py-op">)</tt> </tt>
+<a name="L85"></a><tt class="py-lineno"> 85</tt>  <tt class="py-line">        <tt class="py-comment"># check spin box</tt> </tt>
+<a name="L86"></a><tt class="py-lineno"> 86</tt>  <tt class="py-line">        <tt class="py-keyword">elif</tt> <tt class="py-name">isinstance</tt><tt class="py-op">(</tt><tt id="link-24" class="py-name"><a title="pyffi.formats.cgf.CgfFormat.PhysicsDataType0.data
+pyffi.formats.nif.NifFormat.AdditionalDataBlock.data
+pyffi.formats.nif.NifFormat.BSMultiBound.data
+pyffi.formats.nif.NifFormat.BSPSysMultiTargetEmitterCtlr.data
+pyffi.formats.nif.NifFormat.BSPackedAdditionalDataBlock.data
+pyffi.formats.nif.NifFormat.BSTreadTransfInfo.data
+pyffi.formats.nif.NifFormat.NiAlphaController.data
+pyffi.formats.nif.NifFormat.NiBinaryVoxelExtraData.data
+pyffi.formats.nif.NifFormat.NiBoolData.data
+pyffi.formats.nif.NifFormat.NiBoolInterpolator.data
+pyffi.formats.nif.NifFormat.NiColorData.data
+pyffi.formats.nif.NifFormat.NiColorExtraData.data
+pyffi.formats.nif.NifFormat.NiDataStream.data
+pyffi.formats.nif.NifFormat.NiFloatData.data
+pyffi.formats.nif.NifFormat.NiFloatInterpolator.data
+pyffi.formats.nif.NifFormat.NiFloatsExtraData.data
+pyffi.formats.nif.NifFormat.NiGeomMorpherController.data
+pyffi.formats.nif.NifFormat.NiIntegersExtraData.data
+pyffi.formats.nif.NifFormat.NiKeyframeController.data
+pyffi.formats.nif.NifFormat.NiMorpherController.data
+pyffi.formats.nif.NifFormat.NiPSysColorModifier.data
+pyffi.formats.nif.NifFormat.NiPSysEmitterCtlr.data
+pyffi.formats.nif.NifFormat.NiPSysModifierActiveCtlr.data
+pyffi.formats.nif.NifFormat.NiPSysModifierFloatCtlr.data
+pyffi.formats.nif.NifFormat.NiPoint3InterpController.data
+pyffi.formats.nif.NifFormat.NiPoint3Interpolator.data
+pyffi.formats.nif.NifFormat.NiPosData.data
+pyffi.formats.nif.NifFormat.NiRollController.data
+pyffi.formats.nif.NifFormat.NiSkinInstance.data
+pyffi.formats.nif.NifFormat.NiStringsExtraData.data
+pyffi.formats.nif.NifFormat.NiTextureTransformController.data
+pyffi.formats.nif.NifFormat.NiUVController.data
+pyffi.formats.nif.NifFormat.NiVisController.data
+pyffi.formats.nif.NifFormat._NiGeometry.data
+pyffi.formats.nif.NifFormat._NiTransformInterpolator.data
+pyffi.formats.nif.NifFormat._bhkPackedNiTriStripsShape.data
+pyffi.formats.tga.TgaFormat.ColorMapEntry.data
+pyffi.formats.tga.TgaFormat.Pixel.data
+pyffi.qskope.detail_model.DetailModel.data
+pyffi.qskope.global_model.GlobalModel.data
+pyffi.spells.Spell.data" class="py-name" href="#" onclick="return doclink('link-24', 'data', 'link-20');">data</a></tt><tt class="py-op">,</tt> <tt id="link-25" class="py-name"><a title="pyffi.object_models.editable.EditableSpinBox" class="py-name" href="#" onclick="return doclink('link-25', 'EditableSpinBox', 'link-11');">EditableSpinBox</a></tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+<a name="L87"></a><tt class="py-lineno"> 87</tt>  <tt class="py-line">            <tt class="py-name">isvalid</tt> <tt class="py-op">=</tt> <tt class="py-name">isinstance</tt><tt class="py-op">(</tt><tt class="py-name">editor</tt><tt class="py-op">,</tt> <tt class="py-name">QtGui</tt><tt class="py-op">.</tt><tt class="py-name">QSpinBox</tt><tt class="py-op">)</tt> </tt>
+<a name="L88"></a><tt class="py-lineno"> 88</tt>  <tt class="py-line">        <tt class="py-comment"># check text editor</tt> </tt>
+<a name="L89"></a><tt class="py-lineno"> 89</tt>  <tt class="py-line">        <tt class="py-keyword">elif</tt> <tt class="py-name">isinstance</tt><tt class="py-op">(</tt><tt id="link-26" class="py-name"><a title="pyffi.formats.cgf.CgfFormat.PhysicsDataType0.data
+pyffi.formats.nif.NifFormat.AdditionalDataBlock.data
+pyffi.formats.nif.NifFormat.BSMultiBound.data
+pyffi.formats.nif.NifFormat.BSPSysMultiTargetEmitterCtlr.data
+pyffi.formats.nif.NifFormat.BSPackedAdditionalDataBlock.data
+pyffi.formats.nif.NifFormat.BSTreadTransfInfo.data
+pyffi.formats.nif.NifFormat.NiAlphaController.data
+pyffi.formats.nif.NifFormat.NiBinaryVoxelExtraData.data
+pyffi.formats.nif.NifFormat.NiBoolData.data
+pyffi.formats.nif.NifFormat.NiBoolInterpolator.data
+pyffi.formats.nif.NifFormat.NiColorData.data
+pyffi.formats.nif.NifFormat.NiColorExtraData.data
+pyffi.formats.nif.NifFormat.NiDataStream.data
+pyffi.formats.nif.NifFormat.NiFloatData.data
+pyffi.formats.nif.NifFormat.NiFloatInterpolator.data
+pyffi.formats.nif.NifFormat.NiFloatsExtraData.data
+pyffi.formats.nif.NifFormat.NiGeomMorpherController.data
+pyffi.formats.nif.NifFormat.NiIntegersExtraData.data
+pyffi.formats.nif.NifFormat.NiKeyframeController.data
+pyffi.formats.nif.NifFormat.NiMorpherController.data
+pyffi.formats.nif.NifFormat.NiPSysColorModifier.data
+pyffi.formats.nif.NifFormat.NiPSysEmitterCtlr.data
+pyffi.formats.nif.NifFormat.NiPSysModifierActiveCtlr.data
+pyffi.formats.nif.NifFormat.NiPSysModifierFloatCtlr.data
+pyffi.formats.nif.NifFormat.NiPoint3InterpController.data
+pyffi.formats.nif.NifFormat.NiPoint3Interpolator.data
+pyffi.formats.nif.NifFormat.NiPosData.data
+pyffi.formats.nif.NifFormat.NiRollController.data
+pyffi.formats.nif.NifFormat.NiSkinInstance.data
+pyffi.formats.nif.NifFormat.NiStringsExtraData.data
+pyffi.formats.nif.NifFormat.NiTextureTransformController.data
+pyffi.formats.nif.NifFormat.NiUVController.data
+pyffi.formats.nif.NifFormat.NiVisController.data
+pyffi.formats.nif.NifFormat._NiGeometry.data
+pyffi.formats.nif.NifFormat._NiTransformInterpolator.data
+pyffi.formats.nif.NifFormat._bhkPackedNiTriStripsShape.data
+pyffi.formats.tga.TgaFormat.ColorMapEntry.data
+pyffi.formats.tga.TgaFormat.Pixel.data
+pyffi.qskope.detail_model.DetailModel.data
+pyffi.qskope.global_model.GlobalModel.data
+pyffi.spells.Spell.data" class="py-name" href="#" onclick="return doclink('link-26', 'data', 'link-20');">data</a></tt><tt class="py-op">,</tt> <tt id="link-27" class="py-name"><a title="pyffi.object_models.editable.EditableTextEdit" class="py-name" href="#" onclick="return doclink('link-27', 'EditableTextEdit', 'link-15');">EditableTextEdit</a></tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+<a name="L90"></a><tt class="py-lineno"> 90</tt>  <tt class="py-line">            <tt class="py-name">isvalid</tt> <tt class="py-op">=</tt> <tt class="py-name">isinstance</tt><tt class="py-op">(</tt><tt class="py-name">editor</tt><tt class="py-op">,</tt> <tt class="py-name">QtGui</tt><tt class="py-op">.</tt><tt class="py-name">QTextEdit</tt><tt class="py-op">)</tt> </tt>
+<a name="L91"></a><tt class="py-lineno"> 91</tt>  <tt class="py-line">        <tt class="py-comment"># check line editor</tt> </tt>
+<a name="L92"></a><tt class="py-lineno"> 92</tt>  <tt class="py-line">        <tt class="py-keyword">elif</tt> <tt class="py-name">isinstance</tt><tt class="py-op">(</tt><tt id="link-28" class="py-name"><a title="pyffi.formats.cgf.CgfFormat.PhysicsDataType0.data
+pyffi.formats.nif.NifFormat.AdditionalDataBlock.data
+pyffi.formats.nif.NifFormat.BSMultiBound.data
+pyffi.formats.nif.NifFormat.BSPSysMultiTargetEmitterCtlr.data
+pyffi.formats.nif.NifFormat.BSPackedAdditionalDataBlock.data
+pyffi.formats.nif.NifFormat.BSTreadTransfInfo.data
+pyffi.formats.nif.NifFormat.NiAlphaController.data
+pyffi.formats.nif.NifFormat.NiBinaryVoxelExtraData.data
+pyffi.formats.nif.NifFormat.NiBoolData.data
+pyffi.formats.nif.NifFormat.NiBoolInterpolator.data
+pyffi.formats.nif.NifFormat.NiColorData.data
+pyffi.formats.nif.NifFormat.NiColorExtraData.data
+pyffi.formats.nif.NifFormat.NiDataStream.data
+pyffi.formats.nif.NifFormat.NiFloatData.data
+pyffi.formats.nif.NifFormat.NiFloatInterpolator.data
+pyffi.formats.nif.NifFormat.NiFloatsExtraData.data
+pyffi.formats.nif.NifFormat.NiGeomMorpherController.data
+pyffi.formats.nif.NifFormat.NiIntegersExtraData.data
+pyffi.formats.nif.NifFormat.NiKeyframeController.data
+pyffi.formats.nif.NifFormat.NiMorpherController.data
+pyffi.formats.nif.NifFormat.NiPSysColorModifier.data
+pyffi.formats.nif.NifFormat.NiPSysEmitterCtlr.data
+pyffi.formats.nif.NifFormat.NiPSysModifierActiveCtlr.data
+pyffi.formats.nif.NifFormat.NiPSysModifierFloatCtlr.data
+pyffi.formats.nif.NifFormat.NiPoint3InterpController.data
+pyffi.formats.nif.NifFormat.NiPoint3Interpolator.data
+pyffi.formats.nif.NifFormat.NiPosData.data
+pyffi.formats.nif.NifFormat.NiRollController.data
+pyffi.formats.nif.NifFormat.NiSkinInstance.data
+pyffi.formats.nif.NifFormat.NiStringsExtraData.data
+pyffi.formats.nif.NifFormat.NiTextureTransformController.data
+pyffi.formats.nif.NifFormat.NiUVController.data
+pyffi.formats.nif.NifFormat.NiVisController.data
+pyffi.formats.nif.NifFormat._NiGeometry.data
+pyffi.formats.nif.NifFormat._NiTransformInterpolator.data
+pyffi.formats.nif.NifFormat._bhkPackedNiTriStripsShape.data
+pyffi.formats.tga.TgaFormat.ColorMapEntry.data
+pyffi.formats.tga.TgaFormat.Pixel.data
+pyffi.qskope.detail_model.DetailModel.data
+pyffi.qskope.global_model.GlobalModel.data
+pyffi.spells.Spell.data" class="py-name" href="#" onclick="return doclink('link-28', 'data', 'link-20');">data</a></tt><tt class="py-op">,</tt> <tt id="link-29" class="py-name"><a title="pyffi.object_models.editable.EditableLineEdit" class="py-name" href="#" onclick="return doclink('link-29', 'EditableLineEdit', 'link-19');">EditableLineEdit</a></tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+<a name="L93"></a><tt class="py-lineno"> 93</tt>  <tt class="py-line">            <tt class="py-name">isvalid</tt> <tt class="py-op">=</tt> <tt class="py-name">isinstance</tt><tt class="py-op">(</tt><tt class="py-name">editor</tt><tt class="py-op">,</tt> <tt class="py-name">QtGui</tt><tt class="py-op">.</tt><tt class="py-name">QLineEdit</tt><tt class="py-op">)</tt> </tt>
+<a name="L94"></a><tt class="py-lineno"> 94</tt>  <tt class="py-line">        <tt class="py-keyword">else</tt><tt class="py-op">:</tt> </tt>
+<a name="L95"></a><tt class="py-lineno"> 95</tt>  <tt class="py-line">            <tt class="py-comment"># data has no delegate class, which is classified as invalid</tt> </tt>
+<a name="L96"></a><tt class="py-lineno"> 96</tt>  <tt class="py-line">            <tt class="py-name">isvalid</tt> <tt class="py-op">=</tt> <tt class="py-name">False</tt> </tt>
+<a name="L97"></a><tt class="py-lineno"> 97</tt>  <tt class="py-line"> </tt>
+<a name="L98"></a><tt class="py-lineno"> 98</tt>  <tt class="py-line">        <tt class="py-comment"># if invalid, raise ValueError</tt> </tt>
+<a name="L99"></a><tt class="py-lineno"> 99</tt>  <tt class="py-line">        <tt class="py-keyword">if</tt> <tt class="py-keyword">not</tt> <tt class="py-name">isvalid</tt><tt class="py-op">:</tt> </tt>
+<a name="L100"></a><tt class="py-lineno">100</tt>  <tt class="py-line">            <tt class="py-keyword">raise</tt> <tt class="py-name">ValueError</tt><tt class="py-op">(</tt><tt class="py-string">"data %s has bad editor %s"</tt> </tt>
+<a name="L101"></a><tt class="py-lineno">101</tt>  <tt class="py-line">                             <tt class="py-op">%</tt> <tt class="py-op">(</tt><tt id="link-30" class="py-name"><a title="pyffi.formats.cgf.CgfFormat.PhysicsDataType0.data
+pyffi.formats.nif.NifFormat.AdditionalDataBlock.data
+pyffi.formats.nif.NifFormat.BSMultiBound.data
+pyffi.formats.nif.NifFormat.BSPSysMultiTargetEmitterCtlr.data
+pyffi.formats.nif.NifFormat.BSPackedAdditionalDataBlock.data
+pyffi.formats.nif.NifFormat.BSTreadTransfInfo.data
+pyffi.formats.nif.NifFormat.NiAlphaController.data
+pyffi.formats.nif.NifFormat.NiBinaryVoxelExtraData.data
+pyffi.formats.nif.NifFormat.NiBoolData.data
+pyffi.formats.nif.NifFormat.NiBoolInterpolator.data
+pyffi.formats.nif.NifFormat.NiColorData.data
+pyffi.formats.nif.NifFormat.NiColorExtraData.data
+pyffi.formats.nif.NifFormat.NiDataStream.data
+pyffi.formats.nif.NifFormat.NiFloatData.data
+pyffi.formats.nif.NifFormat.NiFloatInterpolator.data
+pyffi.formats.nif.NifFormat.NiFloatsExtraData.data
+pyffi.formats.nif.NifFormat.NiGeomMorpherController.data
+pyffi.formats.nif.NifFormat.NiIntegersExtraData.data
+pyffi.formats.nif.NifFormat.NiKeyframeController.data
+pyffi.formats.nif.NifFormat.NiMorpherController.data
+pyffi.formats.nif.NifFormat.NiPSysColorModifier.data
+pyffi.formats.nif.NifFormat.NiPSysEmitterCtlr.data
+pyffi.formats.nif.NifFormat.NiPSysModifierActiveCtlr.data
+pyffi.formats.nif.NifFormat.NiPSysModifierFloatCtlr.data
+pyffi.formats.nif.NifFormat.NiPoint3InterpController.data
+pyffi.formats.nif.NifFormat.NiPoint3Interpolator.data
+pyffi.formats.nif.NifFormat.NiPosData.data
+pyffi.formats.nif.NifFormat.NiRollController.data
+pyffi.formats.nif.NifFormat.NiSkinInstance.data
+pyffi.formats.nif.NifFormat.NiStringsExtraData.data
+pyffi.formats.nif.NifFormat.NiTextureTransformController.data
+pyffi.formats.nif.NifFormat.NiUVController.data
+pyffi.formats.nif.NifFormat.NiVisController.data
+pyffi.formats.nif.NifFormat._NiGeometry.data
+pyffi.formats.nif.NifFormat._NiTransformInterpolator.data
+pyffi.formats.nif.NifFormat._bhkPackedNiTriStripsShape.data
+pyffi.formats.tga.TgaFormat.ColorMapEntry.data
+pyffi.formats.tga.TgaFormat.Pixel.data
+pyffi.qskope.detail_model.DetailModel.data
+pyffi.qskope.global_model.GlobalModel.data
+pyffi.spells.Spell.data" class="py-name" href="#" onclick="return doclink('link-30', 'data', 'link-20');">data</a></tt><tt class="py-op">.</tt><tt class="py-name">__class__</tt><tt class="py-op">.</tt><tt class="py-name">__name__</tt><tt class="py-op">,</tt> </tt>
+<a name="L102"></a><tt class="py-lineno">102</tt>  <tt class="py-line">                                <tt class="py-name">editor</tt><tt class="py-op">.</tt><tt class="py-name">__class__</tt><tt class="py-op">.</tt><tt class="py-name">__name__</tt><tt class="py-op">)</tt><tt class="py-op">)</tt> </tt>
+</div><a name="L103"></a><tt class="py-lineno">103</tt>  <tt class="py-line"> </tt>
+<a name="DetailDelegate.createEditor"></a><div id="DetailDelegate.createEditor-def"><a name="L104"></a><tt class="py-lineno">104</tt> <a class="py-toggle" href="#" id="DetailDelegate.createEditor-toggle" onclick="return toggle('DetailDelegate.createEditor');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="pyffi.qskope.detail_delegate.DetailDelegate-class.html#createEditor">createEditor</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">,</tt> <tt class="py-param">parent</tt><tt class="py-op">,</tt> <tt class="py-param">option</tt><tt class="py-op">,</tt> <tt class="py-param">index</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="DetailDelegate.createEditor-collapsed" style="display:none;" pad="+++" indent="++++++++"></div><div id="DetailDelegate.createEditor-expanded"><a name="L105"></a><tt class="py-lineno">105</tt>  <tt class="py-line">        <tt class="py-docstring">"""Returns the widget used to change data."""</tt> </tt>
+<a name="L106"></a><tt class="py-lineno">106</tt>  <tt class="py-line">        <tt class="py-comment"># check if index is valid</tt> </tt>
+<a name="L107"></a><tt class="py-lineno">107</tt>  <tt class="py-line">        <tt class="py-keyword">if</tt> <tt class="py-keyword">not</tt> <tt id="link-31" class="py-name" targets="Variable pyffi.formats.kfm.KfmFormat._Animation.index=pyffi.formats.kfm.KfmFormat._Animation-class.html#index,Variable pyffi.formats.nif.NifFormat.SemanticData.index=pyffi.formats.nif.NifFormat.SemanticData-class.html#index,Variable pyffi.formats.nif.NifFormat.SkinWeight.index=pyffi.formats.nif.NifFormat.SkinWeight-class.html#index,Method pyffi.object_models.array_type.UniformSimpleArray.index()=pyffi.object_models.array_type.UniformSimpleArray-class.html#index,Method pyffi.qskope.detail_model.DetailModel.index()=pyffi.qskope.detail_model.DetailModel-class.html#index,Method pyffi.qskope.global_model.GlobalModel.index()=pyffi.qskope.global_model.GlobalModel-class.html#index"><a title="pyffi.formats.kfm.KfmFormat._Animation.index
+pyffi.formats.nif.NifFormat.SemanticData.index
+pyffi.formats.nif.NifFormat.SkinWeight.index
+pyffi.object_models.array_type.UniformSimpleArray.index
+pyffi.qskope.detail_model.DetailModel.index
+pyffi.qskope.global_model.GlobalModel.index" class="py-name" href="#" onclick="return doclink('link-31', 'index', 'link-31');">index</a></tt><tt class="py-op">.</tt><tt class="py-name">isValid</tt><tt class="py-op">(</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+<a name="L108"></a><tt class="py-lineno">108</tt>  <tt class="py-line">            <tt class="py-keyword">return</tt> <tt class="py-name">None</tt> </tt>
+<a name="L109"></a><tt class="py-lineno">109</tt>  <tt class="py-line">        <tt class="py-comment"># get the data</tt> </tt>
+<a name="L110"></a><tt class="py-lineno">110</tt>  <tt class="py-line">        <tt id="link-32" class="py-name" targets="Variable pyffi.formats.nif.NifFormat.NiPhysXTransformDest.node=pyffi.formats.nif.NifFormat.NiPhysXTransformDest-class.html#node"><a title="pyffi.formats.nif.NifFormat.NiPhysXTransformDest.node" class="py-name" href="#" onclick="return doclink('link-32', 'node', 'link-32');">node</a></tt> <tt class="py-op">=</tt> <tt id="link-33" class="py-name"><a title="pyffi.formats.kfm.KfmFormat._Animation.index
+pyffi.formats.nif.NifFormat.SemanticData.index
+pyffi.formats.nif.NifFormat.SkinWeight.index
+pyffi.object_models.array_type.UniformSimpleArray.index
+pyffi.qskope.detail_model.DetailModel.index
+pyffi.qskope.global_model.GlobalModel.index" class="py-name" href="#" onclick="return doclink('link-33', 'index', 'link-31');">index</a></tt><tt class="py-op">.</tt><tt class="py-name">internalPointer</tt><tt class="py-op">(</tt><tt class="py-op">)</tt><tt class="py-op">.</tt><tt id="link-34" class="py-name"><a title="pyffi.formats.cgf.CgfFormat.PhysicsDataType0.data
+pyffi.formats.nif.NifFormat.AdditionalDataBlock.data
+pyffi.formats.nif.NifFormat.BSMultiBound.data
+pyffi.formats.nif.NifFormat.BSPSysMultiTargetEmitterCtlr.data
+pyffi.formats.nif.NifFormat.BSPackedAdditionalDataBlock.data
+pyffi.formats.nif.NifFormat.BSTreadTransfInfo.data
+pyffi.formats.nif.NifFormat.NiAlphaController.data
+pyffi.formats.nif.NifFormat.NiBinaryVoxelExtraData.data
+pyffi.formats.nif.NifFormat.NiBoolData.data
+pyffi.formats.nif.NifFormat.NiBoolInterpolator.data
+pyffi.formats.nif.NifFormat.NiColorData.data
+pyffi.formats.nif.NifFormat.NiColorExtraData.data
+pyffi.formats.nif.NifFormat.NiDataStream.data
+pyffi.formats.nif.NifFormat.NiFloatData.data
+pyffi.formats.nif.NifFormat.NiFloatInterpolator.data
+pyffi.formats.nif.NifFormat.NiFloatsExtraData.data
+pyffi.formats.nif.NifFormat.NiGeomMorpherController.data
+pyffi.formats.nif.NifFormat.NiIntegersExtraData.data
+pyffi.formats.nif.NifFormat.NiKeyframeController.data
+pyffi.formats.nif.NifFormat.NiMorpherController.data
+pyffi.formats.nif.NifFormat.NiPSysColorModifier.data
+pyffi.formats.nif.NifFormat.NiPSysEmitterCtlr.data
+pyffi.formats.nif.NifFormat.NiPSysModifierActiveCtlr.data
+pyffi.formats.nif.NifFormat.NiPSysModifierFloatCtlr.data
+pyffi.formats.nif.NifFormat.NiPoint3InterpController.data
+pyffi.formats.nif.NifFormat.NiPoint3Interpolator.data
+pyffi.formats.nif.NifFormat.NiPosData.data
+pyffi.formats.nif.NifFormat.NiRollController.data
+pyffi.formats.nif.NifFormat.NiSkinInstance.data
+pyffi.formats.nif.NifFormat.NiStringsExtraData.data
+pyffi.formats.nif.NifFormat.NiTextureTransformController.data
+pyffi.formats.nif.NifFormat.NiUVController.data
+pyffi.formats.nif.NifFormat.NiVisController.data
+pyffi.formats.nif.NifFormat._NiGeometry.data
+pyffi.formats.nif.NifFormat._NiTransformInterpolator.data
+pyffi.formats.nif.NifFormat._bhkPackedNiTriStripsShape.data
+pyffi.formats.tga.TgaFormat.ColorMapEntry.data
+pyffi.formats.tga.TgaFormat.Pixel.data
+pyffi.qskope.detail_model.DetailModel.data
+pyffi.qskope.global_model.GlobalModel.data
+pyffi.spells.Spell.data" class="py-name" href="#" onclick="return doclink('link-34', 'data', 'link-20');">data</a></tt><tt class="py-op">.</tt><tt id="link-35" class="py-name"><a title="pyffi.formats.nif.NifFormat.NiPhysXTransformDest.node" class="py-name" href="#" onclick="return doclink('link-35', 'node', 'link-32');">node</a></tt> </tt>
+<a name="L111"></a><tt class="py-lineno">111</tt>  <tt class="py-line">        <tt class="py-comment"># determine editor by checking for delegate base classes</tt> </tt>
+<a name="L112"></a><tt class="py-lineno">112</tt>  <tt class="py-line">        <tt class="py-comment"># (see _checkValidEditor for the correct delegate preference order)</tt> </tt>
+<a name="L113"></a><tt class="py-lineno">113</tt>  <tt class="py-line">        <tt class="py-keyword">if</tt> <tt class="py-name">isinstance</tt><tt class="py-op">(</tt><tt id="link-36" class="py-name"><a title="pyffi.formats.nif.NifFormat.NiPhysXTransformDest.node" class="py-name" href="#" onclick="return doclink('link-36', 'node', 'link-32');">node</a></tt><tt class="py-op">,</tt> <tt id="link-37" class="py-name"><a title="pyffi.object_models.editable.EditableComboBox" class="py-name" href="#" onclick="return doclink('link-37', 'EditableComboBox', 'link-3');">EditableComboBox</a></tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+<a name="L114"></a><tt class="py-lineno">114</tt>  <tt class="py-line">            <tt class="py-comment"># a general purpose combo box</tt> </tt>
+<a name="L115"></a><tt class="py-lineno">115</tt>  <tt class="py-line">            <tt class="py-name">editor</tt> <tt class="py-op">=</tt> <tt class="py-name">QtGui</tt><tt class="py-op">.</tt><tt class="py-name">QComboBox</tt><tt class="py-op">(</tt><tt id="link-38" class="py-name" targets="Variable pyffi.formats.cgf.CgfFormat._NodeChunk.parent=pyffi.formats.cgf.CgfFormat._NodeChunk-class.html#parent,Variable pyffi.formats.nif.NifFormat.Ni3dsAlphaAnimator.parent=pyffi.formats.nif.NifFormat.Ni3dsAlphaAnimator-class.html#parent,Variable pyffi.formats.nif.NifFormat.NiPSysCollider.parent=pyffi.formats.nif.NifFormat.NiPSysCollider-class.html#parent,Variable pyffi.formats.nif.NifFormat.NiPSysDragModifier.parent=pyffi.formats.nif.NifFormat.NiPSysDragModifier-class.html#parent,Method pyffi.qskope.detail_model.DetailModel.parent()=pyffi.qskope.detail_model.DetailModel-class.html#parent,Method pyffi.qskope.global_model.GlobalModel.parent()=pyffi.qskope.global_model.GlobalModel-class.html#parent"><a title="pyffi.formats.cgf.CgfFormat._NodeChunk.parent
+pyffi.formats.nif.NifFormat.Ni3dsAlphaAnimator.parent
+pyffi.formats.nif.NifFormat.NiPSysCollider.parent
+pyffi.formats.nif.NifFormat.NiPSysDragModifier.parent
+pyffi.qskope.detail_model.DetailModel.parent
+pyffi.qskope.global_model.GlobalModel.parent" class="py-name" href="#" onclick="return doclink('link-38', 'parent', 'link-38');">parent</a></tt><tt class="py-op">)</tt> </tt>
+<a name="L116"></a><tt class="py-lineno">116</tt>  <tt class="py-line">            <tt class="py-keyword">for</tt> <tt class="py-name">key</tt> <tt class="py-keyword">in</tt> <tt id="link-39" class="py-name"><a title="pyffi.formats.nif.NifFormat.NiPhysXTransformDest.node" class="py-name" href="#" onclick="return doclink('link-39', 'node', 'link-32');">node</a></tt><tt class="py-op">.</tt><tt id="link-40" class="py-name" targets="Method pyffi.object_models.editable.EditableBoolComboBox.get_editor_keys()=pyffi.object_models.editable.EditableBoolComboBox-class.html#get_editor_keys,Method pyffi.object_models.editable.EditableComboBox.get_editor_keys()=pyffi.object_models.editable.EditableComboBox-class.html#get_editor_keys,Method pyffi.object_models.xml.enum.EnumBase.get_editor_keys()=pyffi.object_models.xml.enum.EnumBase-class.html#get_editor_keys"><a title="pyffi.object_models.editable.EditableBoolComboBox.get_editor_keys
+pyffi.object_models.editable.EditableComboBox.get_editor_keys
+pyffi.object_models.xml.enum.EnumBase.get_editor_keys" class="py-name" href="#" onclick="return doclink('link-40', 'get_editor_keys', 'link-40');">get_editor_keys</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+<a name="L117"></a><tt class="py-lineno">117</tt>  <tt class="py-line">                <tt class="py-name">editor</tt><tt class="py-op">.</tt><tt class="py-name">addItem</tt><tt class="py-op">(</tt><tt class="py-name">key</tt><tt class="py-op">)</tt> </tt>
+<a name="L118"></a><tt class="py-lineno">118</tt>  <tt class="py-line">        <tt class="py-keyword">elif</tt> <tt class="py-name">isinstance</tt><tt class="py-op">(</tt><tt id="link-41" class="py-name"><a title="pyffi.formats.nif.NifFormat.NiPhysXTransformDest.node" class="py-name" href="#" onclick="return doclink('link-41', 'node', 'link-32');">node</a></tt><tt class="py-op">,</tt> <tt id="link-42" class="py-name"><a title="pyffi.object_models.editable.EditableFloatSpinBox" class="py-name" href="#" onclick="return doclink('link-42', 'EditableFloatSpinBox', 'link-7');">EditableFloatSpinBox</a></tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+<a name="L119"></a><tt class="py-lineno">119</tt>  <tt class="py-line">            <tt class="py-comment"># a spinbox for floats</tt> </tt>
+<a name="L120"></a><tt class="py-lineno">120</tt>  <tt class="py-line">            <tt class="py-name">editor</tt> <tt class="py-op">=</tt> <tt class="py-name">QtGui</tt><tt class="py-op">.</tt><tt class="py-name">QDoubleSpinBox</tt><tt class="py-op">(</tt><tt id="link-43" class="py-name"><a title="pyffi.formats.cgf.CgfFormat._NodeChunk.parent
+pyffi.formats.nif.NifFormat.Ni3dsAlphaAnimator.parent
+pyffi.formats.nif.NifFormat.NiPSysCollider.parent
+pyffi.formats.nif.NifFormat.NiPSysDragModifier.parent
+pyffi.qskope.detail_model.DetailModel.parent
+pyffi.qskope.global_model.GlobalModel.parent" class="py-name" href="#" onclick="return doclink('link-43', 'parent', 'link-38');">parent</a></tt><tt class="py-op">)</tt> </tt>
+<a name="L121"></a><tt class="py-lineno">121</tt>  <tt class="py-line">            <tt class="py-name">editor</tt><tt class="py-op">.</tt><tt class="py-name">setMinimum</tt><tt class="py-op">(</tt><tt id="link-44" class="py-name"><a title="pyffi.formats.nif.NifFormat.NiPhysXTransformDest.node" class="py-name" href="#" onclick="return doclink('link-44', 'node', 'link-32');">node</a></tt><tt class="py-op">.</tt><tt id="link-45" class="py-name" targets="Method pyffi.object_models.binary_type.IntType.get_editor_minimum()=pyffi.object_models.binary_type.IntType-class.html#get_editor_minimum,Method pyffi.object_models.common.Int.get_editor_minimum()=pyffi.object_models.common.Int-class.html#get_editor_minimum,Method pyffi.object_models.editable.EditableSpinBox.get_editor_minimum()=pyffi.object_models.editable.EditableSpinBox-class.html#get_editor_minimum,Method pyffi.object_models.xml.bit_struct.Bits.get_editor_minimum()=pyffi.object_models.xml.bit_struct.Bits-class.html#get_editor_minimum"><a title="pyffi.object_models.binary_type.IntType.get_editor_minimum
+pyffi.object_models.common.Int.get_editor_minimum
+pyffi.object_models.editable.EditableSpinBox.get_editor_minimum
+pyffi.object_models.xml.bit_struct.Bits.get_editor_minimum" class="py-name" href="#" onclick="return doclink('link-45', 'get_editor_minimum', 'link-45');">get_editor_minimum</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt><tt class="py-op">)</tt> </tt>
+<a name="L122"></a><tt class="py-lineno">122</tt>  <tt class="py-line">            <tt class="py-name">editor</tt><tt class="py-op">.</tt><tt class="py-name">setMaximum</tt><tt class="py-op">(</tt><tt id="link-46" class="py-name"><a title="pyffi.formats.nif.NifFormat.NiPhysXTransformDest.node" class="py-name" href="#" onclick="return doclink('link-46', 'node', 'link-32');">node</a></tt><tt class="py-op">.</tt><tt id="link-47" class="py-name" targets="Method pyffi.object_models.binary_type.IntType.get_editor_maximum()=pyffi.object_models.binary_type.IntType-class.html#get_editor_maximum,Method pyffi.object_models.common.Int.get_editor_maximum()=pyffi.object_models.common.Int-class.html#get_editor_maximum,Method pyffi.object_models.editable.EditableSpinBox.get_editor_maximum()=pyffi.object_models.editable.EditableSpinBox-class.html#get_editor_maximum,Method pyffi.object_models.xml.bit_struct.Bits.get_editor_maximum()=pyffi.object_models.xml.bit_struct.Bits-class.html#get_editor_maximum"><a title="pyffi.object_models.binary_type.IntType.get_editor_maximum
+pyffi.object_models.common.Int.get_editor_maximum
+pyffi.object_models.editable.EditableSpinBox.get_editor_maximum
+pyffi.object_models.xml.bit_struct.Bits.get_editor_maximum" class="py-name" href="#" onclick="return doclink('link-47', 'get_editor_maximum', 'link-47');">get_editor_maximum</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt><tt class="py-op">)</tt> </tt>
+<a name="L123"></a><tt class="py-lineno">123</tt>  <tt class="py-line">            <tt class="py-name">editor</tt><tt class="py-op">.</tt><tt class="py-name">setDecimals</tt><tt class="py-op">(</tt><tt id="link-48" class="py-name"><a title="pyffi.formats.nif.NifFormat.NiPhysXTransformDest.node" class="py-name" href="#" onclick="return doclink('link-48', 'node', 'link-32');">node</a></tt><tt class="py-op">.</tt><tt id="link-49" class="py-name" targets="Method pyffi.object_models.editable.EditableFloatSpinBox.get_editor_decimals()=pyffi.object_models.editable.EditableFloatSpinBox-class.html#get_editor_decimals"><a title="pyffi.object_models.editable.EditableFloatSpinBox.get_editor_decimals" class="py-name" href="#" onclick="return doclink('link-49', 'get_editor_decimals', 'link-49');">get_editor_decimals</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt><tt class="py-op">)</tt> </tt>
+<a name="L124"></a><tt class="py-lineno">124</tt>  <tt class="py-line">        <tt class="py-keyword">elif</tt> <tt class="py-name">isinstance</tt><tt class="py-op">(</tt><tt id="link-50" class="py-name"><a title="pyffi.formats.nif.NifFormat.NiPhysXTransformDest.node" class="py-name" href="#" onclick="return doclink('link-50', 'node', 'link-32');">node</a></tt><tt class="py-op">,</tt> <tt id="link-51" class="py-name"><a title="pyffi.object_models.editable.EditableSpinBox" class="py-name" href="#" onclick="return doclink('link-51', 'EditableSpinBox', 'link-11');">EditableSpinBox</a></tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+<a name="L125"></a><tt class="py-lineno">125</tt>  <tt class="py-line">            <tt class="py-comment"># an integer spin box</tt> </tt>
+<a name="L126"></a><tt class="py-lineno">126</tt>  <tt class="py-line">            <tt class="py-name">editor</tt> <tt class="py-op">=</tt> <tt class="py-name">QtGui</tt><tt class="py-op">.</tt><tt class="py-name">QSpinBox</tt><tt class="py-op">(</tt><tt id="link-52" class="py-name"><a title="pyffi.formats.cgf.CgfFormat._NodeChunk.parent
+pyffi.formats.nif.NifFormat.Ni3dsAlphaAnimator.parent
+pyffi.formats.nif.NifFormat.NiPSysCollider.parent
+pyffi.formats.nif.NifFormat.NiPSysDragModifier.parent
+pyffi.qskope.detail_model.DetailModel.parent
+pyffi.qskope.global_model.GlobalModel.parent" class="py-name" href="#" onclick="return doclink('link-52', 'parent', 'link-38');">parent</a></tt><tt class="py-op">)</tt> </tt>
+<a name="L127"></a><tt class="py-lineno">127</tt>  <tt class="py-line">            <tt class="py-name">editor</tt><tt class="py-op">.</tt><tt class="py-name">setMinimum</tt><tt class="py-op">(</tt><tt id="link-53" class="py-name"><a title="pyffi.formats.nif.NifFormat.NiPhysXTransformDest.node" class="py-name" href="#" onclick="return doclink('link-53', 'node', 'link-32');">node</a></tt><tt class="py-op">.</tt><tt id="link-54" class="py-name"><a title="pyffi.object_models.binary_type.IntType.get_editor_minimum
+pyffi.object_models.common.Int.get_editor_minimum
+pyffi.object_models.editable.EditableSpinBox.get_editor_minimum
+pyffi.object_models.xml.bit_struct.Bits.get_editor_minimum" class="py-name" href="#" onclick="return doclink('link-54', 'get_editor_minimum', 'link-45');">get_editor_minimum</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt><tt class="py-op">)</tt> </tt>
+<a name="L128"></a><tt class="py-lineno">128</tt>  <tt class="py-line">            <tt class="py-comment"># work around a qt "bug": maximum must be C type "int"</tt> </tt>
+<a name="L129"></a><tt class="py-lineno">129</tt>  <tt class="py-line">            <tt class="py-comment"># so cannot be larger than 0x7fffffff</tt> </tt>
+<a name="L130"></a><tt class="py-lineno">130</tt>  <tt class="py-line">            <tt class="py-name">editor</tt><tt class="py-op">.</tt><tt class="py-name">setMaximum</tt><tt class="py-op">(</tt><tt id="link-55" class="py-name" targets="Variable pyffi.formats.cgf.CgfFormat.BonePhysics.min=pyffi.formats.cgf.CgfFormat.BonePhysics-class.html#min"><a title="pyffi.formats.cgf.CgfFormat.BonePhysics.min" class="py-name" href="#" onclick="return doclink('link-55', 'min', 'link-55');">min</a></tt><tt class="py-op">(</tt><tt id="link-56" class="py-name"><a title="pyffi.formats.nif.NifFormat.NiPhysXTransformDest.node" class="py-name" href="#" onclick="return doclink('link-56', 'node', 'link-32');">node</a></tt><tt class="py-op">.</tt><tt id="link-57" class="py-name"><a title="pyffi.object_models.binary_type.IntType.get_editor_maximum
+pyffi.object_models.common.Int.get_editor_maximum
+pyffi.object_models.editable.EditableSpinBox.get_editor_maximum
+pyffi.object_models.xml.bit_struct.Bits.get_editor_maximum" class="py-name" href="#" onclick="return doclink('link-57', 'get_editor_maximum', 'link-47');">get_editor_maximum</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt><tt class="py-op">,</tt> <tt class="py-number">0x7fffffff</tt><tt class="py-op">)</tt><tt class="py-op">)</tt> </tt>
+<a name="L131"></a><tt class="py-lineno">131</tt>  <tt class="py-line">        <tt class="py-keyword">elif</tt> <tt class="py-name">isinstance</tt><tt class="py-op">(</tt><tt id="link-58" class="py-name"><a title="pyffi.formats.nif.NifFormat.NiPhysXTransformDest.node" class="py-name" href="#" onclick="return doclink('link-58', 'node', 'link-32');">node</a></tt><tt class="py-op">,</tt> <tt id="link-59" class="py-name"><a title="pyffi.object_models.editable.EditableTextEdit" class="py-name" href="#" onclick="return doclink('link-59', 'EditableTextEdit', 'link-15');">EditableTextEdit</a></tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+<a name="L132"></a><tt class="py-lineno">132</tt>  <tt class="py-line">            <tt class="py-comment"># a text editor</tt> </tt>
+<a name="L133"></a><tt class="py-lineno">133</tt>  <tt class="py-line">            <tt class="py-name">editor</tt> <tt class="py-op">=</tt> <tt class="py-name">QtGui</tt><tt class="py-op">.</tt><tt class="py-name">QTextEdit</tt><tt class="py-op">(</tt><tt id="link-60" class="py-name"><a title="pyffi.formats.cgf.CgfFormat._NodeChunk.parent
+pyffi.formats.nif.NifFormat.Ni3dsAlphaAnimator.parent
+pyffi.formats.nif.NifFormat.NiPSysCollider.parent
+pyffi.formats.nif.NifFormat.NiPSysDragModifier.parent
+pyffi.qskope.detail_model.DetailModel.parent
+pyffi.qskope.global_model.GlobalModel.parent" class="py-name" href="#" onclick="return doclink('link-60', 'parent', 'link-38');">parent</a></tt><tt class="py-op">)</tt> </tt>
+<a name="L134"></a><tt class="py-lineno">134</tt>  <tt class="py-line">        <tt class="py-keyword">elif</tt> <tt class="py-name">isinstance</tt><tt class="py-op">(</tt><tt id="link-61" class="py-name"><a title="pyffi.formats.nif.NifFormat.NiPhysXTransformDest.node" class="py-name" href="#" onclick="return doclink('link-61', 'node', 'link-32');">node</a></tt><tt class="py-op">,</tt> <tt id="link-62" class="py-name"><a title="pyffi.object_models.editable.EditableLineEdit" class="py-name" href="#" onclick="return doclink('link-62', 'EditableLineEdit', 'link-19');">EditableLineEdit</a></tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+<a name="L135"></a><tt class="py-lineno">135</tt>  <tt class="py-line">            <tt class="py-comment"># a line editor</tt> </tt>
+<a name="L136"></a><tt class="py-lineno">136</tt>  <tt class="py-line">            <tt class="py-name">editor</tt> <tt class="py-op">=</tt> <tt class="py-name">QtGui</tt><tt class="py-op">.</tt><tt class="py-name">QLineEdit</tt><tt class="py-op">(</tt><tt id="link-63" class="py-name"><a title="pyffi.formats.cgf.CgfFormat._NodeChunk.parent
+pyffi.formats.nif.NifFormat.Ni3dsAlphaAnimator.parent
+pyffi.formats.nif.NifFormat.NiPSysCollider.parent
+pyffi.formats.nif.NifFormat.NiPSysDragModifier.parent
+pyffi.qskope.detail_model.DetailModel.parent
+pyffi.qskope.global_model.GlobalModel.parent" class="py-name" href="#" onclick="return doclink('link-63', 'parent', 'link-38');">parent</a></tt><tt class="py-op">)</tt> </tt>
+<a name="L137"></a><tt class="py-lineno">137</tt>  <tt class="py-line">        <tt class="py-keyword">else</tt><tt class="py-op">:</tt> </tt>
+<a name="L138"></a><tt class="py-lineno">138</tt>  <tt class="py-line">            <tt class="py-keyword">return</tt> <tt class="py-name">None</tt> </tt>
+<a name="L139"></a><tt class="py-lineno">139</tt>  <tt class="py-line">        <tt class="py-comment"># check validity</tt> </tt>
+<a name="L140"></a><tt class="py-lineno">140</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-64" class="py-name" targets="Method pyffi.qskope.detail_delegate.DetailDelegate._checkValidEditor()=pyffi.qskope.detail_delegate.DetailDelegate-class.html#_checkValidEditor"><a title="pyffi.qskope.detail_delegate.DetailDelegate._checkValidEditor" class="py-name" href="#" onclick="return doclink('link-64', '_checkValidEditor', 'link-64');">_checkValidEditor</a></tt><tt class="py-op">(</tt><tt id="link-65" class="py-name"><a title="pyffi.formats.nif.NifFormat.NiPhysXTransformDest.node" class="py-name" href="#" onclick="return doclink('link-65', 'node', 'link-32');">node</a></tt><tt class="py-op">,</tt> <tt class="py-name">editor</tt><tt class="py-op">)</tt> </tt>
+<a name="L141"></a><tt class="py-lineno">141</tt>  <tt class="py-line">        <tt class="py-comment"># return the editor</tt> </tt>
+<a name="L142"></a><tt class="py-lineno">142</tt>  <tt class="py-line">        <tt class="py-keyword">return</tt> <tt class="py-name">editor</tt> </tt>
+</div><a name="L143"></a><tt class="py-lineno">143</tt>  <tt class="py-line"> </tt>
+<a name="DetailDelegate.setEditorData"></a><div id="DetailDelegate.setEditorData-def"><a name="L144"></a><tt class="py-lineno">144</tt> <a class="py-toggle" href="#" id="DetailDelegate.setEditorData-toggle" onclick="return toggle('DetailDelegate.setEditorData');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="pyffi.qskope.detail_delegate.DetailDelegate-class.html#setEditorData">setEditorData</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">,</tt> <tt class="py-param">editor</tt><tt class="py-op">,</tt> <tt class="py-param">index</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="DetailDelegate.setEditorData-collapsed" style="display:none;" pad="+++" indent="++++++++"></div><div id="DetailDelegate.setEditorData-expanded"><a name="L145"></a><tt class="py-lineno">145</tt>  <tt class="py-line">        <tt class="py-docstring">"""Provides the widget with data to manipulate."""</tt> </tt>
+<a name="L146"></a><tt class="py-lineno">146</tt>  <tt class="py-line">        <tt class="py-comment"># check if index is valid</tt> </tt>
+<a name="L147"></a><tt class="py-lineno">147</tt>  <tt class="py-line">        <tt class="py-keyword">if</tt> <tt class="py-keyword">not</tt> <tt id="link-66" class="py-name"><a title="pyffi.formats.kfm.KfmFormat._Animation.index
+pyffi.formats.nif.NifFormat.SemanticData.index
+pyffi.formats.nif.NifFormat.SkinWeight.index
+pyffi.object_models.array_type.UniformSimpleArray.index
+pyffi.qskope.detail_model.DetailModel.index
+pyffi.qskope.global_model.GlobalModel.index" class="py-name" href="#" onclick="return doclink('link-66', 'index', 'link-31');">index</a></tt><tt class="py-op">.</tt><tt class="py-name">isValid</tt><tt class="py-op">(</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+<a name="L148"></a><tt class="py-lineno">148</tt>  <tt class="py-line">            <tt class="py-keyword">return</tt> <tt class="py-name">None</tt> </tt>
+<a name="L149"></a><tt class="py-lineno">149</tt>  <tt class="py-line">        <tt class="py-comment"># determine the data and its value</tt> </tt>
+<a name="L150"></a><tt class="py-lineno">150</tt>  <tt class="py-line">        <tt id="link-67" class="py-name"><a title="pyffi.formats.nif.NifFormat.NiPhysXTransformDest.node" class="py-name" href="#" onclick="return doclink('link-67', 'node', 'link-32');">node</a></tt> <tt class="py-op">=</tt> <tt id="link-68" class="py-name"><a title="pyffi.formats.kfm.KfmFormat._Animation.index
+pyffi.formats.nif.NifFormat.SemanticData.index
+pyffi.formats.nif.NifFormat.SkinWeight.index
+pyffi.object_models.array_type.UniformSimpleArray.index
+pyffi.qskope.detail_model.DetailModel.index
+pyffi.qskope.global_model.GlobalModel.index" class="py-name" href="#" onclick="return doclink('link-68', 'index', 'link-31');">index</a></tt><tt class="py-op">.</tt><tt class="py-name">internalPointer</tt><tt class="py-op">(</tt><tt class="py-op">)</tt><tt class="py-op">.</tt><tt id="link-69" class="py-name"><a title="pyffi.formats.cgf.CgfFormat.PhysicsDataType0.data
+pyffi.formats.nif.NifFormat.AdditionalDataBlock.data
+pyffi.formats.nif.NifFormat.BSMultiBound.data
+pyffi.formats.nif.NifFormat.BSPSysMultiTargetEmitterCtlr.data
+pyffi.formats.nif.NifFormat.BSPackedAdditionalDataBlock.data
+pyffi.formats.nif.NifFormat.BSTreadTransfInfo.data
+pyffi.formats.nif.NifFormat.NiAlphaController.data
+pyffi.formats.nif.NifFormat.NiBinaryVoxelExtraData.data
+pyffi.formats.nif.NifFormat.NiBoolData.data
+pyffi.formats.nif.NifFormat.NiBoolInterpolator.data
+pyffi.formats.nif.NifFormat.NiColorData.data
+pyffi.formats.nif.NifFormat.NiColorExtraData.data
+pyffi.formats.nif.NifFormat.NiDataStream.data
+pyffi.formats.nif.NifFormat.NiFloatData.data
+pyffi.formats.nif.NifFormat.NiFloatInterpolator.data
+pyffi.formats.nif.NifFormat.NiFloatsExtraData.data
+pyffi.formats.nif.NifFormat.NiGeomMorpherController.data
+pyffi.formats.nif.NifFormat.NiIntegersExtraData.data
+pyffi.formats.nif.NifFormat.NiKeyframeController.data
+pyffi.formats.nif.NifFormat.NiMorpherController.data
+pyffi.formats.nif.NifFormat.NiPSysColorModifier.data
+pyffi.formats.nif.NifFormat.NiPSysEmitterCtlr.data
+pyffi.formats.nif.NifFormat.NiPSysModifierActiveCtlr.data
+pyffi.formats.nif.NifFormat.NiPSysModifierFloatCtlr.data
+pyffi.formats.nif.NifFormat.NiPoint3InterpController.data
+pyffi.formats.nif.NifFormat.NiPoint3Interpolator.data
+pyffi.formats.nif.NifFormat.NiPosData.data
+pyffi.formats.nif.NifFormat.NiRollController.data
+pyffi.formats.nif.NifFormat.NiSkinInstance.data
+pyffi.formats.nif.NifFormat.NiStringsExtraData.data
+pyffi.formats.nif.NifFormat.NiTextureTransformController.data
+pyffi.formats.nif.NifFormat.NiUVController.data
+pyffi.formats.nif.NifFormat.NiVisController.data
+pyffi.formats.nif.NifFormat._NiGeometry.data
+pyffi.formats.nif.NifFormat._NiTransformInterpolator.data
+pyffi.formats.nif.NifFormat._bhkPackedNiTriStripsShape.data
+pyffi.formats.tga.TgaFormat.ColorMapEntry.data
+pyffi.formats.tga.TgaFormat.Pixel.data
+pyffi.qskope.detail_model.DetailModel.data
+pyffi.qskope.global_model.GlobalModel.data
+pyffi.spells.Spell.data" class="py-name" href="#" onclick="return doclink('link-69', 'data', 'link-20');">data</a></tt><tt class="py-op">.</tt><tt id="link-70" class="py-name"><a title="pyffi.formats.nif.NifFormat.NiPhysXTransformDest.node" class="py-name" href="#" onclick="return doclink('link-70', 'node', 'link-32');">node</a></tt> </tt>
+<a name="L151"></a><tt class="py-lineno">151</tt>  <tt class="py-line">        <tt class="py-name">editorvalue</tt> <tt class="py-op">=</tt> <tt id="link-71" class="py-name"><a title="pyffi.formats.nif.NifFormat.NiPhysXTransformDest.node" class="py-name" href="#" onclick="return doclink('link-71', 'node', 'link-32');">node</a></tt><tt class="py-op">.</tt><tt id="link-72" class="py-name" targets="Method pyffi.object_models.editable.EditableBase.get_editor_value()=pyffi.object_models.editable.EditableBase-class.html#get_editor_value,Method pyffi.object_models.editable.EditableBoolComboBox.get_editor_value()=pyffi.object_models.editable.EditableBoolComboBox-class.html#get_editor_value,Method pyffi.object_models.editable.EditableSpinBox.get_editor_value()=pyffi.object_models.editable.EditableSpinBox-class.html#get_editor_value,Method pyffi.object_models.xml.basic.BasicBase.get_editor_value()=pyffi.object_models.xml.basic.BasicBase-class.html#get_editor_value,Method pyffi.object_models.xml.bit_struct.Bits.get_editor_value()=pyffi.object_models.xml.bit_struct.Bits-class.html#get_editor_value,Method pyffi.object_models.xml.enum.EnumBase.get_editor_value()=pyffi.object_models.xml.enum.EnumBase-class.html#get_editor_value"><a title="pyffi.object_models.editable.EditableBase.get_editor_value
+pyffi.object_models.editable.EditableBoolComboBox.get_editor_value
+pyffi.object_models.editable.EditableSpinBox.get_editor_value
+pyffi.object_models.xml.basic.BasicBase.get_editor_value
+pyffi.object_models.xml.bit_struct.Bits.get_editor_value
+pyffi.object_models.xml.enum.EnumBase.get_editor_value" class="py-name" href="#" onclick="return doclink('link-72', 'get_editor_value', 'link-72');">get_editor_value</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+<a name="L152"></a><tt class="py-lineno">152</tt>  <tt class="py-line">        <tt class="py-comment"># check validity of editor</tt> </tt>
+<a name="L153"></a><tt class="py-lineno">153</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-73" class="py-name"><a title="pyffi.qskope.detail_delegate.DetailDelegate._checkValidEditor" class="py-name" href="#" onclick="return doclink('link-73', '_checkValidEditor', 'link-64');">_checkValidEditor</a></tt><tt class="py-op">(</tt><tt id="link-74" class="py-name"><a title="pyffi.formats.nif.NifFormat.NiPhysXTransformDest.node" class="py-name" href="#" onclick="return doclink('link-74', 'node', 'link-32');">node</a></tt><tt class="py-op">,</tt> <tt class="py-name">editor</tt><tt class="py-op">)</tt> </tt>
+<a name="L154"></a><tt class="py-lineno">154</tt>  <tt class="py-line">        <tt class="py-comment"># set editor node</tt> </tt>
+<a name="L155"></a><tt class="py-lineno">155</tt>  <tt class="py-line">        <tt class="py-comment"># (see _checkValidEditor for the correct delegate preference order)</tt> </tt>
+<a name="L156"></a><tt class="py-lineno">156</tt>  <tt class="py-line">        <tt class="py-keyword">if</tt> <tt class="py-name">isinstance</tt><tt class="py-op">(</tt><tt id="link-75" class="py-name"><a title="pyffi.formats.nif.NifFormat.NiPhysXTransformDest.node" class="py-name" href="#" onclick="return doclink('link-75', 'node', 'link-32');">node</a></tt><tt class="py-op">,</tt> <tt id="link-76" class="py-name"><a title="pyffi.object_models.editable.EditableComboBox" class="py-name" href="#" onclick="return doclink('link-76', 'EditableComboBox', 'link-3');">EditableComboBox</a></tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+<a name="L157"></a><tt class="py-lineno">157</tt>  <tt class="py-line">            <tt class="py-comment"># a combo box: set the index</tt> </tt>
+<a name="L158"></a><tt class="py-lineno">158</tt>  <tt class="py-line">            <tt class="py-name">editor</tt><tt class="py-op">.</tt><tt class="py-name">setCurrentIndex</tt><tt class="py-op">(</tt><tt class="py-name">editorvalue</tt><tt class="py-op">)</tt> </tt>
+<a name="L159"></a><tt class="py-lineno">159</tt>  <tt class="py-line">        <tt class="py-keyword">elif</tt> <tt class="py-name">isinstance</tt><tt class="py-op">(</tt><tt id="link-77" class="py-name"><a title="pyffi.formats.nif.NifFormat.NiPhysXTransformDest.node" class="py-name" href="#" onclick="return doclink('link-77', 'node', 'link-32');">node</a></tt><tt class="py-op">,</tt> <tt id="link-78" class="py-name"><a title="pyffi.object_models.editable.EditableSpinBox" class="py-name" href="#" onclick="return doclink('link-78', 'EditableSpinBox', 'link-11');">EditableSpinBox</a></tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+<a name="L160"></a><tt class="py-lineno">160</tt>  <tt class="py-line">            <tt class="py-comment"># a (possibly float) spinbox: simply set the value</tt> </tt>
+<a name="L161"></a><tt class="py-lineno">161</tt>  <tt class="py-line">            <tt class="py-name">editor</tt><tt class="py-op">.</tt><tt class="py-name">setValue</tt><tt class="py-op">(</tt><tt class="py-name">editorvalue</tt><tt class="py-op">)</tt> </tt>
+<a name="L162"></a><tt class="py-lineno">162</tt>  <tt class="py-line">        <tt class="py-keyword">elif</tt> <tt class="py-name">isinstance</tt><tt class="py-op">(</tt><tt id="link-79" class="py-name"><a title="pyffi.formats.nif.NifFormat.NiPhysXTransformDest.node" class="py-name" href="#" onclick="return doclink('link-79', 'node', 'link-32');">node</a></tt><tt class="py-op">,</tt> <tt id="link-80" class="py-name"><a title="pyffi.object_models.editable.EditableLineEdit" class="py-name" href="#" onclick="return doclink('link-80', 'EditableLineEdit', 'link-19');">EditableLineEdit</a></tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+<a name="L163"></a><tt class="py-lineno">163</tt>  <tt class="py-line">            <tt class="py-comment"># a text editor: set the text</tt> </tt>
+<a name="L164"></a><tt class="py-lineno">164</tt>  <tt class="py-line">            <tt class="py-name">editor</tt><tt class="py-op">.</tt><tt class="py-name">setText</tt><tt class="py-op">(</tt><tt class="py-name">editorvalue</tt><tt class="py-op">)</tt> </tt>
+</div><a name="L165"></a><tt class="py-lineno">165</tt>  <tt class="py-line"> </tt>
+<a name="DetailDelegate.updateEditorGeometry"></a><div id="DetailDelegate.updateEditorGeometry-def"><a name="L166"></a><tt class="py-lineno">166</tt> <a class="py-toggle" href="#" id="DetailDelegate.updateEditorGeometry-toggle" onclick="return toggle('DetailDelegate.updateEditorGeometry');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="pyffi.qskope.detail_delegate.DetailDelegate-class.html#updateEditorGeometry">updateEditorGeometry</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">,</tt> <tt class="py-param">editor</tt><tt class="py-op">,</tt> <tt class="py-param">option</tt><tt class="py-op">,</tt> <tt class="py-param">index</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="DetailDelegate.updateEditorGeometry-collapsed" style="display:none;" pad="+++" indent="++++++++"></div><div id="DetailDelegate.updateEditorGeometry-expanded"><a name="L167"></a><tt class="py-lineno">167</tt>  <tt class="py-line">        <tt class="py-docstring">"""Ensures that the editor is displayed correctly with respect to the</tt> </tt>
+<a name="L168"></a><tt class="py-lineno">168</tt>  <tt class="py-line"><tt class="py-docstring">        item view."""</tt> </tt>
+<a name="L169"></a><tt class="py-lineno">169</tt>  <tt class="py-line">        <tt class="py-name">editor</tt><tt class="py-op">.</tt><tt class="py-name">setGeometry</tt><tt class="py-op">(</tt><tt class="py-name">option</tt><tt class="py-op">.</tt><tt class="py-name">rect</tt><tt class="py-op">)</tt> </tt>
+</div><a name="L170"></a><tt class="py-lineno">170</tt>  <tt class="py-line"> </tt>
+<a name="DetailDelegate.setModelData"></a><div id="DetailDelegate.setModelData-def"><a name="L171"></a><tt class="py-lineno">171</tt> <a class="py-toggle" href="#" id="DetailDelegate.setModelData-toggle" onclick="return toggle('DetailDelegate.setModelData');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="pyffi.qskope.detail_delegate.DetailDelegate-class.html#setModelData">setModelData</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">,</tt> <tt class="py-param">editor</tt><tt class="py-op">,</tt> <tt class="py-param">model</tt><tt class="py-op">,</tt> <tt class="py-param">index</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="DetailDelegate.setModelData-collapsed" style="display:none;" pad="+++" indent="++++++++"></div><div id="DetailDelegate.setModelData-expanded"><a name="L172"></a><tt class="py-lineno">172</tt>  <tt class="py-line">        <tt class="py-docstring">"""Returns updated data to the model."""</tt> </tt>
+<a name="L173"></a><tt class="py-lineno">173</tt>  <tt class="py-line">        <tt class="py-comment"># check if index is valid</tt> </tt>
+<a name="L174"></a><tt class="py-lineno">174</tt>  <tt class="py-line">        <tt class="py-keyword">if</tt> <tt class="py-keyword">not</tt> <tt id="link-81" class="py-name"><a title="pyffi.formats.kfm.KfmFormat._Animation.index
+pyffi.formats.nif.NifFormat.SemanticData.index
+pyffi.formats.nif.NifFormat.SkinWeight.index
+pyffi.object_models.array_type.UniformSimpleArray.index
+pyffi.qskope.detail_model.DetailModel.index
+pyffi.qskope.global_model.GlobalModel.index" class="py-name" href="#" onclick="return doclink('link-81', 'index', 'link-31');">index</a></tt><tt class="py-op">.</tt><tt class="py-name">isValid</tt><tt class="py-op">(</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+<a name="L175"></a><tt class="py-lineno">175</tt>  <tt class="py-line">            <tt class="py-keyword">return</tt> <tt class="py-name">None</tt> </tt>
+<a name="L176"></a><tt class="py-lineno">176</tt>  <tt class="py-line">        <tt class="py-comment"># get the data</tt> </tt>
+<a name="L177"></a><tt class="py-lineno">177</tt>  <tt class="py-line">        <tt id="link-82" class="py-name"><a title="pyffi.formats.nif.NifFormat.NiPhysXTransformDest.node" class="py-name" href="#" onclick="return doclink('link-82', 'node', 'link-32');">node</a></tt> <tt class="py-op">=</tt> <tt id="link-83" class="py-name"><a title="pyffi.formats.kfm.KfmFormat._Animation.index
+pyffi.formats.nif.NifFormat.SemanticData.index
+pyffi.formats.nif.NifFormat.SkinWeight.index
+pyffi.object_models.array_type.UniformSimpleArray.index
+pyffi.qskope.detail_model.DetailModel.index
+pyffi.qskope.global_model.GlobalModel.index" class="py-name" href="#" onclick="return doclink('link-83', 'index', 'link-31');">index</a></tt><tt class="py-op">.</tt><tt class="py-name">internalPointer</tt><tt class="py-op">(</tt><tt class="py-op">)</tt><tt class="py-op">.</tt><tt id="link-84" class="py-name"><a title="pyffi.formats.cgf.CgfFormat.PhysicsDataType0.data
+pyffi.formats.nif.NifFormat.AdditionalDataBlock.data
+pyffi.formats.nif.NifFormat.BSMultiBound.data
+pyffi.formats.nif.NifFormat.BSPSysMultiTargetEmitterCtlr.data
+pyffi.formats.nif.NifFormat.BSPackedAdditionalDataBlock.data
+pyffi.formats.nif.NifFormat.BSTreadTransfInfo.data
+pyffi.formats.nif.NifFormat.NiAlphaController.data
+pyffi.formats.nif.NifFormat.NiBinaryVoxelExtraData.data
+pyffi.formats.nif.NifFormat.NiBoolData.data
+pyffi.formats.nif.NifFormat.NiBoolInterpolator.data
+pyffi.formats.nif.NifFormat.NiColorData.data
+pyffi.formats.nif.NifFormat.NiColorExtraData.data
+pyffi.formats.nif.NifFormat.NiDataStream.data
+pyffi.formats.nif.NifFormat.NiFloatData.data
+pyffi.formats.nif.NifFormat.NiFloatInterpolator.data
+pyffi.formats.nif.NifFormat.NiFloatsExtraData.data
+pyffi.formats.nif.NifFormat.NiGeomMorpherController.data
+pyffi.formats.nif.NifFormat.NiIntegersExtraData.data
+pyffi.formats.nif.NifFormat.NiKeyframeController.data
+pyffi.formats.nif.NifFormat.NiMorpherController.data
+pyffi.formats.nif.NifFormat.NiPSysColorModifier.data
+pyffi.formats.nif.NifFormat.NiPSysEmitterCtlr.data
+pyffi.formats.nif.NifFormat.NiPSysModifierActiveCtlr.data
+pyffi.formats.nif.NifFormat.NiPSysModifierFloatCtlr.data
+pyffi.formats.nif.NifFormat.NiPoint3InterpController.data
+pyffi.formats.nif.NifFormat.NiPoint3Interpolator.data
+pyffi.formats.nif.NifFormat.NiPosData.data
+pyffi.formats.nif.NifFormat.NiRollController.data
+pyffi.formats.nif.NifFormat.NiSkinInstance.data
+pyffi.formats.nif.NifFormat.NiStringsExtraData.data
+pyffi.formats.nif.NifFormat.NiTextureTransformController.data
+pyffi.formats.nif.NifFormat.NiUVController.data
+pyffi.formats.nif.NifFormat.NiVisController.data
+pyffi.formats.nif.NifFormat._NiGeometry.data
+pyffi.formats.nif.NifFormat._NiTransformInterpolator.data
+pyffi.formats.nif.NifFormat._bhkPackedNiTriStripsShape.data
+pyffi.formats.tga.TgaFormat.ColorMapEntry.data
+pyffi.formats.tga.TgaFormat.Pixel.data
+pyffi.qskope.detail_model.DetailModel.data
+pyffi.qskope.global_model.GlobalModel.data
+pyffi.spells.Spell.data" class="py-name" href="#" onclick="return doclink('link-84', 'data', 'link-20');">data</a></tt><tt class="py-op">.</tt><tt id="link-85" class="py-name"><a title="pyffi.formats.nif.NifFormat.NiPhysXTransformDest.node" class="py-name" href="#" onclick="return doclink('link-85', 'node', 'link-32');">node</a></tt> </tt>
+<a name="L178"></a><tt class="py-lineno">178</tt>  <tt class="py-line">        <tt class="py-comment"># check validity of editor</tt> </tt>
+<a name="L179"></a><tt class="py-lineno">179</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-86" class="py-name"><a title="pyffi.qskope.detail_delegate.DetailDelegate._checkValidEditor" class="py-name" href="#" onclick="return doclink('link-86', '_checkValidEditor', 'link-64');">_checkValidEditor</a></tt><tt class="py-op">(</tt><tt id="link-87" class="py-name"><a title="pyffi.formats.nif.NifFormat.NiPhysXTransformDest.node" class="py-name" href="#" onclick="return doclink('link-87', 'node', 'link-32');">node</a></tt><tt class="py-op">,</tt> <tt class="py-name">editor</tt><tt class="py-op">)</tt> </tt>
+<a name="L180"></a><tt class="py-lineno">180</tt>  <tt class="py-line">        <tt class="py-comment"># set model data from editor value</tt> </tt>
+<a name="L181"></a><tt class="py-lineno">181</tt>  <tt class="py-line">        <tt class="py-comment"># (see _checkValidEditor for the correct delegate preference order)</tt> </tt>
+<a name="L182"></a><tt class="py-lineno">182</tt>  <tt class="py-line">        <tt class="py-keyword">if</tt> <tt class="py-name">isinstance</tt><tt class="py-op">(</tt><tt id="link-88" class="py-name"><a title="pyffi.formats.nif.NifFormat.NiPhysXTransformDest.node" class="py-name" href="#" onclick="return doclink('link-88', 'node', 'link-32');">node</a></tt><tt class="py-op">,</tt> <tt id="link-89" class="py-name"><a title="pyffi.object_models.editable.EditableComboBox" class="py-name" href="#" onclick="return doclink('link-89', 'EditableComboBox', 'link-3');">EditableComboBox</a></tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+<a name="L183"></a><tt class="py-lineno">183</tt>  <tt class="py-line">            <tt class="py-comment"># a combo box: get the value from the current index</tt> </tt>
+<a name="L184"></a><tt class="py-lineno">184</tt>  <tt class="py-line">            <tt class="py-name">editorvalue</tt> <tt class="py-op">=</tt> <tt class="py-name">editor</tt><tt class="py-op">.</tt><tt class="py-name">currentIndex</tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+<a name="L185"></a><tt class="py-lineno">185</tt>  <tt class="py-line">        <tt class="py-keyword">elif</tt> <tt class="py-name">isinstance</tt><tt class="py-op">(</tt><tt id="link-90" class="py-name"><a title="pyffi.formats.nif.NifFormat.NiPhysXTransformDest.node" class="py-name" href="#" onclick="return doclink('link-90', 'node', 'link-32');">node</a></tt><tt class="py-op">,</tt> <tt id="link-91" class="py-name"><a title="pyffi.object_models.editable.EditableSpinBox" class="py-name" href="#" onclick="return doclink('link-91', 'EditableSpinBox', 'link-11');">EditableSpinBox</a></tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+<a name="L186"></a><tt class="py-lineno">186</tt>  <tt class="py-line">            <tt class="py-comment"># a regular (float) spin box</tt> </tt>
+<a name="L187"></a><tt class="py-lineno">187</tt>  <tt class="py-line">            <tt class="py-name">editorvalue</tt> <tt class="py-op">=</tt> <tt class="py-name">editor</tt><tt class="py-op">.</tt><tt id="link-92" class="py-name" targets="Variable pyffi.formats.nif.NifFormat.BSValueNode.value=pyffi.formats.nif.NifFormat.BSValueNode-class.html#value,Variable pyffi.formats.nif.NifFormat.Key.value=pyffi.formats.nif.NifFormat.Key-class.html#value,Variable pyffi.formats.nif.NifFormat.QuatKey.value=pyffi.formats.nif.NifFormat.QuatKey-class.html#value,Variable pyffi.object_models.binary_type.BinarySimpleType.value=pyffi.object_models.binary_type.BinarySimpleType-class.html#value,Variable pyffi.object_models.binary_type.BoolType.value=pyffi.object_models.binary_type.BoolType-class.html#value,Variable pyffi.object_models.binary_type.ByteType.value=pyffi.object_models.binary_type.ByteType-class.html#value,Variable pyffi.object_models.binary_type.CharType.value=pyffi.object_models.binary_type.CharType-class.html#value,Variable pyffi.object_models.binary_type.FixedString.value=pyffi.object_models.binary_type.FixedString-class.html#value,Variable pyffi.object_models.binary_type.Float.value=pyffi.object_models.binary_type.Float-class.html#value,Variable pyffi.object_models.binary_type.IntType.value=pyffi.object_models.binary_type.IntType-class.html#value,Variable pyffi.object_models.binary_type.ShortType.value=pyffi.object_models.binary_type.ShortType-class.html#value,Variable pyffi.object_models.binary_type.SizedString.value=pyffi.object_models.binary_type.SizedString-class.html#value,Variable pyffi.object_models.binary_type.UByteType.value=pyffi.object_models.binary_type.UByteType-class.html#value,Variable pyffi.object_models.binary_type.UIntType.value=pyffi.object_models.binary_type.UIntType-class.html#value,Variable pyffi.object_models.binary_type.UShortType.value=pyffi.object_models.binary_type.UShortType-class.html#value,Variable pyffi.object_models.binary_type.UndecodedData.value=pyffi.object_models.binary_type.UndecodedData-class.html#value,Variable pyffi.object_models.binary_type.ZString.value=pyffi.object_models.binary_type.ZString-class.html#value,Variable pyffi.object_models.simple_type.SimpleType.value=pyffi.object_models.simple_type.SimpleType-class.html#value"><a title="pyffi.formats.nif.NifFormat.BSValueNode.value
+pyffi.formats.nif.NifFormat.Key.value
+pyffi.formats.nif.NifFormat.QuatKey.value
+pyffi.object_models.binary_type.BinarySimpleType.value
+pyffi.object_models.binary_type.BoolType.value
+pyffi.object_models.binary_type.ByteType.value
+pyffi.object_models.binary_type.CharType.value
+pyffi.object_models.binary_type.FixedString.value
+pyffi.object_models.binary_type.Float.value
+pyffi.object_models.binary_type.IntType.value
+pyffi.object_models.binary_type.ShortType.value
+pyffi.object_models.binary_type.SizedString.value
+pyffi.object_models.binary_type.UByteType.value
+pyffi.object_models.binary_type.UIntType.value
+pyffi.object_models.binary_type.UShortType.value
+pyffi.object_models.binary_type.UndecodedData.value
+pyffi.object_models.binary_type.ZString.value
+pyffi.object_models.simple_type.SimpleType.value" class="py-name" href="#" onclick="return doclink('link-92', 'value', 'link-92');">value</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+<a name="L188"></a><tt class="py-lineno">188</tt>  <tt class="py-line">        <tt class="py-keyword">elif</tt> <tt class="py-name">isinstance</tt><tt class="py-op">(</tt><tt id="link-93" class="py-name"><a title="pyffi.formats.nif.NifFormat.NiPhysXTransformDest.node" class="py-name" href="#" onclick="return doclink('link-93', 'node', 'link-32');">node</a></tt><tt class="py-op">,</tt> <tt id="link-94" class="py-name"><a title="pyffi.object_models.editable.EditableLineEdit" class="py-name" href="#" onclick="return doclink('link-94', 'EditableLineEdit', 'link-19');">EditableLineEdit</a></tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+<a name="L189"></a><tt class="py-lineno">189</tt>  <tt class="py-line">            <tt class="py-comment"># a text editor</tt> </tt>
+<a name="L190"></a><tt class="py-lineno">190</tt>  <tt class="py-line">            <tt class="py-name">editorvalue</tt> <tt class="py-op">=</tt> <tt class="py-name">editor</tt><tt class="py-op">.</tt><tt class="py-name">text</tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+<a name="L191"></a><tt class="py-lineno">191</tt>  <tt class="py-line">        <tt class="py-keyword">else</tt><tt class="py-op">:</tt> </tt>
+<a name="L192"></a><tt class="py-lineno">192</tt>  <tt class="py-line">            <tt class="py-comment"># should not happen: no editor</tt> </tt>
+<a name="L193"></a><tt class="py-lineno">193</tt>  <tt class="py-line">            <tt class="py-keyword">print</tt><tt class="py-op">(</tt><tt class="py-string">"WARNING: cannot set model data for type %s"</tt> </tt>
+<a name="L194"></a><tt class="py-lineno">194</tt>  <tt class="py-line">                  <tt class="py-op">%</tt> <tt id="link-95" class="py-name"><a title="pyffi.formats.nif.NifFormat.NiPhysXTransformDest.node" class="py-name" href="#" onclick="return doclink('link-95', 'node', 'link-32');">node</a></tt><tt class="py-op">.</tt><tt class="py-name">__class__</tt><tt class="py-op">.</tt><tt class="py-name">__name__</tt><tt class="py-op">)</tt> </tt>
+<a name="L195"></a><tt class="py-lineno">195</tt>  <tt class="py-line">            <tt class="py-keyword">return</tt> </tt>
+<a name="L196"></a><tt class="py-lineno">196</tt>  <tt class="py-line">        <tt class="py-comment"># set the model data</tt> </tt>
+<a name="L197"></a><tt class="py-lineno">197</tt>  <tt class="py-line">        <tt class="py-comment"># EditRole ensures that setData uses set_editor_value to set the data</tt> </tt>
+<a name="L198"></a><tt class="py-lineno">198</tt>  <tt class="py-line">        <tt class="py-name">model</tt><tt class="py-op">.</tt><tt id="link-96" class="py-name" targets="Method pyffi.qskope.detail_model.DetailModel.setData()=pyffi.qskope.detail_model.DetailModel-class.html#setData"><a title="pyffi.qskope.detail_model.DetailModel.setData" class="py-name" href="#" onclick="return doclink('link-96', 'setData', 'link-96');">setData</a></tt><tt class="py-op">(</tt><tt id="link-97" class="py-name"><a title="pyffi.formats.kfm.KfmFormat._Animation.index
+pyffi.formats.nif.NifFormat.SemanticData.index
+pyffi.formats.nif.NifFormat.SkinWeight.index
+pyffi.object_models.array_type.UniformSimpleArray.index
+pyffi.qskope.detail_model.DetailModel.index
+pyffi.qskope.global_model.GlobalModel.index" class="py-name" href="#" onclick="return doclink('link-97', 'index', 'link-31');">index</a></tt><tt class="py-op">,</tt> <tt class="py-name">QtCore</tt><tt class="py-op">.</tt><tt class="py-name">QVariant</tt><tt class="py-op">(</tt><tt class="py-name">editorvalue</tt><tt class="py-op">)</tt><tt class="py-op">,</tt> <tt class="py-name">QtCore</tt><tt class="py-op">.</tt><tt class="py-name">Qt</tt><tt class="py-op">.</tt><tt class="py-name">EditRole</tt><tt class="py-op">)</tt> </tt>
+</div></div><a name="L199"></a><tt class="py-lineno">199</tt>  <tt class="py-line"> </tt><script type="text/javascript">
+<!--
+expandto(location.href);
+// -->
+</script>
+</pre>
+<br />
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+  <!-- Home link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="pyffi-module.html">Home</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Project homepage -->
+      <th class="navbar" align="right" width="100%">
+        <table border="0" cellpadding="0" cellspacing="0">
+          <tr><th class="navbar" align="center"
+            >&nbsp;&nbsp;&nbsp;<a class="navbar" target="_top" href="http://pyffi.sourceforge.net/">Python File Format Interface</a>&nbsp;&nbsp;&nbsp;</th><th class="navbar" align="center">&nbsp;&nbsp;&nbsp;<a class="navbar" target="_top" href="http://sourceforge.net"><img src="http://sflogo.sourceforge.net/sflogo.php?group_id=199269" width="88" height="31" border="0" alt="SourceForge.net Logo" /></a>&nbsp;&nbsp;&nbsp;</th>
+          </tr></table></th>
+  </tr>
+</table>
+<table border="0" cellpadding="0" cellspacing="0" width="100%%">
+  <tr>
+    <td align="left" class="footer">
+    Generated by Epydoc 3.0.1 on Sat Nov 26 08:35:25 2011
+    </td>
+    <td align="right" class="footer">
+      <a target="mainFrame" href="http://epydoc.sourceforge.net"
+        >http://epydoc.sourceforge.net</a>
+    </td>
+  </tr>
+</table>
+
+<script type="text/javascript">
+  <!--
+  // Private objects are initially displayed (because if
+  // javascript is turned off then we want them to be
+  // visible); but by default, we want to hide them.  So hide
+  // them unless we have a cookie that says to show them.
+  checkCookie();
+  // -->
+</script>
+</body>
+</html>

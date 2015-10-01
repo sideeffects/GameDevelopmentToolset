@@ -1,0 +1,173 @@
+Doctests for the opt_collisionbox
+=================================
+
+General check
+-------------
+
+>>> from pyffi.formats.nif import NifFormat
+>>> import pyffi.spells.nif.optimize
+>>> data = NifFormat.Data()
+>>> stream = open("tests/nif/test_opt_collision_to_boxshape.nif", "rb")
+>>> data.read(stream)
+>>> # check initial data
+>>> data.roots[0].collision_object.body.shape.sub_shapes[0].num_vertices
+8
+>>> data.roots[0].collision_object.body.shape.data.num_vertices
+8
+>>> data.roots[0].collision_object.body.shape.sub_shapes[0].material
+0
+>>> # run the spell that optimizes this
+>>> spell = pyffi.spells.nif.optimize.SpellOptimizeCollisionBox(data=data)
+>>> spell.recurse()
+pyffi.toaster:INFO:--- opt_collisionbox ---
+pyffi.toaster:INFO:  ~~~ NiNode [Scene Root] ~~~
+pyffi.toaster:INFO:    ~~~ bhkCollisionObject [] ~~~
+pyffi.toaster:INFO:      ~~~ bhkRigidBodyT [] ~~~
+pyffi.toaster:INFO:        optimized box collision
+pyffi.toaster:INFO:    ~~~ NiNode [Door] ~~~
+pyffi.toaster:INFO:      ~~~ NiTriStrips [Door] ~~~
+pyffi.toaster:INFO:      ~~~ NiTriStrips [Door] ~~~
+pyffi.toaster:INFO:    ~~~ NiNode [WoodBeam01] ~~~
+pyffi.toaster:INFO:      ~~~ NiTriStrips [WoodBeam01] ~~~
+pyffi.toaster:INFO:    ~~~ NiNode [WoodBeam02] ~~~
+pyffi.toaster:INFO:      ~~~ NiTriStrips [WoodBeam02] ~~~
+pyffi.toaster:INFO:    ~~~ NiNode [WoodBeam03] ~~~
+pyffi.toaster:INFO:      ~~~ NiTriStrips [WoodBeam03] ~~~
+pyffi.toaster:INFO:    ~~~ NiNode [Rusty Metal Bottom] ~~~
+pyffi.toaster:INFO:      ~~~ NiTriStrips [Rusty Metal Bottom] ~~~
+pyffi.toaster:INFO:    ~~~ NiNode [Rusty Metal Top] ~~~
+pyffi.toaster:INFO:      ~~~ NiTriStrips [Rusty Metal Top] ~~~
+>>> # check optimized data
+>>> data.roots[0].collision_object.body.shape.material
+0
+>>> isinstance(data.roots[0].collision_object.body.shape, NifFormat.bhkBoxShape)
+True
+
+Box conversion from unpacked collision
+--------------------------------------
+
+>>> from pyffi.formats.nif import NifFormat
+>>> import pyffi.spells.nif.optimize
+>>> data = NifFormat.Data()
+>>> stream = open("tests/nif/test_opt_collision_unpacked.nif", "rb")
+>>> data.read(stream)
+>>> # check initial data
+>>> data.roots[0].collision_object.body.shape.strips_data[0].num_vertices
+24
+>>> data.roots[0].collision_object.body.shape.strips_data[0].num_vertices
+24
+>>> data.roots[0].collision_object.body.shape.material
+9
+>>> # run the spell that optimizes this
+>>> spell = pyffi.spells.nif.optimize.SpellOptimizeCollisionBox(data=data)
+>>> spell.recurse()
+pyffi.toaster:INFO:--- opt_collisionbox ---
+pyffi.toaster:INFO:  ~~~ NiNode [TestBhkNiTriStripsShape] ~~~
+pyffi.toaster:INFO:    ~~~ bhkCollisionObject [] ~~~
+pyffi.toaster:INFO:      ~~~ bhkRigidBodyT [] ~~~
+pyffi.toaster:INFO:        optimized box collision
+pyffi.toaster:INFO:    ~~~ NiTriShape [Stuff] ~~~
+>>> # check optimized data
+>>> data.roots[0].collision_object.body.shape.material
+9
+>>> data.roots[0].collision_object.body.shape.shape.material
+9
+>>> isinstance(data.roots[0].collision_object.body.shape, NifFormat.bhkConvexTransformShape)
+True
+>>> isinstance(data.roots[0].collision_object.body.shape.shape, NifFormat.bhkBoxShape)
+True
+
+Box conversion from packed collision
+------------------------------------
+
+>>> from pyffi.formats.nif import NifFormat
+>>> import pyffi.spells.nif.optimize
+>>> data = NifFormat.Data()
+>>> stream = open("tests/nif/test_opt_collision_packed.nif", "rb")
+>>> data.read(stream)
+>>> # check initial data
+>>> data.roots[0].collision_object.body.shape.sub_shapes[0].num_vertices
+24
+>>> data.roots[0].collision_object.body.shape.data.num_vertices
+24
+>>> data.roots[0].collision_object.body.shape.sub_shapes[0].material
+9
+>>> # run the spell that optimizes this
+>>> spell = pyffi.spells.nif.optimize.SpellOptimizeCollisionBox(data=data)
+>>> spell.recurse()
+pyffi.toaster:INFO:--- opt_collisionbox ---
+pyffi.toaster:INFO:  ~~~ NiNode [TestBhkPackedNiTriStripsShape] ~~~
+pyffi.toaster:INFO:    ~~~ bhkCollisionObject [] ~~~
+pyffi.toaster:INFO:      ~~~ bhkRigidBodyT [] ~~~
+pyffi.toaster:INFO:        optimized box collision
+pyffi.toaster:INFO:    ~~~ NiTriShape [Stuff] ~~~
+>>> # check optimized data
+>>> data.roots[0].collision_object.body.shape.material
+9
+>>> data.roots[0].collision_object.body.shape.shape.material
+9
+>>> isinstance(data.roots[0].collision_object.body.shape, NifFormat.bhkConvexTransformShape)
+True
+>>> isinstance(data.roots[0].collision_object.body.shape.shape, NifFormat.bhkBoxShape)
+True
+
+Box conversion from mopp collision
+----------------------------------
+
+>>> from pyffi.formats.nif import NifFormat
+>>> import pyffi.spells.nif.optimize
+>>> data = NifFormat.Data()
+>>> stream = open("tests/nif/test_opt_collision_mopp.nif", "rb")
+>>> data.read(stream)
+>>> # check initial data
+>>> data.roots[0].collision_object.body.shape.shape.sub_shapes[0].num_vertices
+24
+>>> data.roots[0].collision_object.body.shape.shape.data.num_vertices
+24
+>>> data.roots[0].collision_object.body.shape.shape.sub_shapes[0].material
+9
+>>> # run the spell that optimizes this
+>>> spell = pyffi.spells.nif.optimize.SpellOptimizeCollisionBox(data=data)
+>>> spell.recurse()
+pyffi.toaster:INFO:--- opt_collisionbox ---
+pyffi.toaster:INFO:  ~~~ NiNode [TestBhkMoppBvTreeShape] ~~~
+pyffi.toaster:INFO:    ~~~ bhkCollisionObject [] ~~~
+pyffi.toaster:INFO:      ~~~ bhkRigidBodyT [] ~~~
+pyffi.toaster:INFO:        ~~~ bhkMoppBvTreeShape [] ~~~
+pyffi.toaster:INFO:          optimized box collision
+pyffi.toaster:INFO:    ~~~ NiTriShape [Stuff] ~~~
+>>> # check optimized data
+>>> data.roots[0].collision_object.body.shape.material
+9
+>>> data.roots[0].collision_object.body.shape.shape.material
+9
+>>> isinstance(data.roots[0].collision_object.body.shape, NifFormat.bhkConvexTransformShape)
+True
+>>> isinstance(data.roots[0].collision_object.body.shape.shape, NifFormat.bhkBoxShape)
+True
+
+Another regression test
+-----------------------
+
+Check that a collision mesh which is not a box, but whose vertices
+form a box, is not converted to a box.
+
+>>> from pyffi.formats.nif import NifFormat
+>>> import pyffi.spells.nif.optimize
+>>> data = NifFormat.Data()
+>>> stream = open("tests/nif/test_opt_collision_to_boxshape_notabox.nif", "rb")
+>>> data.read(stream)
+>>> # check initial data
+>>> data.roots[0].collision_object.body.shape.__class__.__name__
+'bhkMoppBvTreeShape'
+>>> # run the box spell
+>>> spell = pyffi.spells.nif.optimize.SpellOptimizeCollisionBox(data=data)
+>>> spell.recurse()
+pyffi.toaster:INFO:--- opt_collisionbox ---
+pyffi.toaster:INFO:  ~~~ NiNode [no_box_opt_test] ~~~
+pyffi.toaster:INFO:    ~~~ bhkCollisionObject [] ~~~
+pyffi.toaster:INFO:      ~~~ bhkRigidBodyT [] ~~~
+pyffi.toaster:INFO:        ~~~ bhkMoppBvTreeShape [] ~~~
+>>> # check that we still have a mopp collision, and not a box collision
+>>> data.roots[0].collision_object.body.shape.__class__.__name__
+'bhkMoppBvTreeShape'

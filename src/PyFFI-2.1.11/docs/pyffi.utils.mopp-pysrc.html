@@ -1,0 +1,800 @@
+<?xml version="1.0" encoding="ascii"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+          "DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>pyffi.utils.mopp</title>
+  <link rel="stylesheet" href="epydoc.css" type="text/css" />
+  <script type="text/javascript" src="epydoc.js"></script>
+</head>
+
+<body bgcolor="white" text="black" link="blue" vlink="#204080"
+      alink="#204080">
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+  <!-- Home link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="pyffi-module.html">Home</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Project homepage -->
+      <th class="navbar" align="right" width="100%">
+        <table border="0" cellpadding="0" cellspacing="0">
+          <tr><th class="navbar" align="center"
+            >&nbsp;&nbsp;&nbsp;<a class="navbar" target="_top" href="http://pyffi.sourceforge.net/">Python File Format Interface</a>&nbsp;&nbsp;&nbsp;</th><th class="navbar" align="center">&nbsp;&nbsp;&nbsp;<a class="navbar" target="_top" href="http://sourceforge.net"><img src="http://sflogo.sourceforge.net/sflogo.php?group_id=199269" width="88" height="31" border="0" alt="SourceForge.net Logo" /></a>&nbsp;&nbsp;&nbsp;</th>
+          </tr></table></th>
+  </tr>
+</table>
+<table width="100%" cellpadding="0" cellspacing="0">
+  <tr valign="top">
+    <td width="100%">
+      <span class="breadcrumbs">
+        <a href="pyffi-module.html">Package&nbsp;pyffi</a> ::
+        <a href="pyffi.utils-module.html">Package&nbsp;utils</a> ::
+        Module&nbsp;mopp
+      </span>
+    </td>
+    <td>
+      <table cellpadding="0" cellspacing="0">
+        <!-- hide/show private -->
+        <tr><td align="right"><span class="options">[<a href="javascript:void(0);" class="privatelink"
+    onclick="toggle_private();">hide&nbsp;private</a>]</span></td></tr>
+        <tr><td align="right"><span class="options"
+            >[<a href="frames.html" target="_top">frames</a
+            >]&nbsp;|&nbsp;<a href="pyffi.utils.mopp-pysrc.html"
+            target="_top">no&nbsp;frames</a>]</span></td></tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<h1 class="epydoc">Source Code for <a href="pyffi.utils.mopp-module.html">Module pyffi.utils.mopp</a></h1>
+<pre class="py-src">
+<a name="L1"></a><tt class="py-lineno">  1</tt>  <tt class="py-line"><tt class="py-docstring">"""Create mopps using mopper.exe"""</tt> </tt>
+<a name="L2"></a><tt class="py-lineno">  2</tt>  <tt class="py-line"> </tt>
+<a name="L3"></a><tt class="py-lineno">  3</tt>  <tt class="py-line"><tt class="py-comment"># ***** BEGIN LICENSE BLOCK *****</tt> </tt>
+<a name="L4"></a><tt class="py-lineno">  4</tt>  <tt class="py-line"><tt class="py-comment">#</tt> </tt>
+<a name="L5"></a><tt class="py-lineno">  5</tt>  <tt class="py-line"><tt class="py-comment"># Copyright (c) 2007-2011, Python File Format Interface</tt> </tt>
+<a name="L6"></a><tt class="py-lineno">  6</tt>  <tt class="py-line"><tt class="py-comment"># All rights reserved.</tt> </tt>
+<a name="L7"></a><tt class="py-lineno">  7</tt>  <tt class="py-line"><tt class="py-comment">#</tt> </tt>
+<a name="L8"></a><tt class="py-lineno">  8</tt>  <tt class="py-line"><tt class="py-comment"># Redistribution and use in source and binary forms, with or without</tt> </tt>
+<a name="L9"></a><tt class="py-lineno">  9</tt>  <tt class="py-line"><tt class="py-comment"># modification, are permitted provided that the following conditions</tt> </tt>
+<a name="L10"></a><tt class="py-lineno"> 10</tt>  <tt class="py-line"><tt class="py-comment"># are met:</tt> </tt>
+<a name="L11"></a><tt class="py-lineno"> 11</tt>  <tt class="py-line"><tt class="py-comment">#</tt> </tt>
+<a name="L12"></a><tt class="py-lineno"> 12</tt>  <tt class="py-line"><tt class="py-comment">#    * Redistributions of source code must retain the above copyright</tt> </tt>
+<a name="L13"></a><tt class="py-lineno"> 13</tt>  <tt class="py-line"><tt class="py-comment">#      notice, this list of conditions and the following disclaimer.</tt> </tt>
+<a name="L14"></a><tt class="py-lineno"> 14</tt>  <tt class="py-line"><tt class="py-comment">#</tt> </tt>
+<a name="L15"></a><tt class="py-lineno"> 15</tt>  <tt class="py-line"><tt class="py-comment">#    * Redistributions in binary form must reproduce the above</tt> </tt>
+<a name="L16"></a><tt class="py-lineno"> 16</tt>  <tt class="py-line"><tt class="py-comment">#      copyright notice, this list of conditions and the following</tt> </tt>
+<a name="L17"></a><tt class="py-lineno"> 17</tt>  <tt class="py-line"><tt class="py-comment">#      disclaimer in the documentation and/or other materials provided</tt> </tt>
+<a name="L18"></a><tt class="py-lineno"> 18</tt>  <tt class="py-line"><tt class="py-comment">#      with the distribution.</tt> </tt>
+<a name="L19"></a><tt class="py-lineno"> 19</tt>  <tt class="py-line"><tt class="py-comment">#</tt> </tt>
+<a name="L20"></a><tt class="py-lineno"> 20</tt>  <tt class="py-line"><tt class="py-comment">#    * Neither the name of the Python File Format Interface</tt> </tt>
+<a name="L21"></a><tt class="py-lineno"> 21</tt>  <tt class="py-line"><tt class="py-comment">#      project nor the names of its contributors may be used to endorse</tt> </tt>
+<a name="L22"></a><tt class="py-lineno"> 22</tt>  <tt class="py-line"><tt class="py-comment">#      or promote products derived from this software without specific</tt> </tt>
+<a name="L23"></a><tt class="py-lineno"> 23</tt>  <tt class="py-line"><tt class="py-comment">#      prior written permission.</tt> </tt>
+<a name="L24"></a><tt class="py-lineno"> 24</tt>  <tt class="py-line"><tt class="py-comment">#</tt> </tt>
+<a name="L25"></a><tt class="py-lineno"> 25</tt>  <tt class="py-line"><tt class="py-comment"># THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS</tt> </tt>
+<a name="L26"></a><tt class="py-lineno"> 26</tt>  <tt class="py-line"><tt class="py-comment"># "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT</tt> </tt>
+<a name="L27"></a><tt class="py-lineno"> 27</tt>  <tt class="py-line"><tt class="py-comment"># LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS</tt> </tt>
+<a name="L28"></a><tt class="py-lineno"> 28</tt>  <tt class="py-line"><tt class="py-comment"># FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE</tt> </tt>
+<a name="L29"></a><tt class="py-lineno"> 29</tt>  <tt class="py-line"><tt class="py-comment"># COPYRIGHT OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT,</tt> </tt>
+<a name="L30"></a><tt class="py-lineno"> 30</tt>  <tt class="py-line"><tt class="py-comment"># INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING,</tt> </tt>
+<a name="L31"></a><tt class="py-lineno"> 31</tt>  <tt class="py-line"><tt class="py-comment"># BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES;</tt> </tt>
+<a name="L32"></a><tt class="py-lineno"> 32</tt>  <tt class="py-line"><tt class="py-comment"># LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER</tt> </tt>
+<a name="L33"></a><tt class="py-lineno"> 33</tt>  <tt class="py-line"><tt class="py-comment"># CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT</tt> </tt>
+<a name="L34"></a><tt class="py-lineno"> 34</tt>  <tt class="py-line"><tt class="py-comment"># LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN</tt> </tt>
+<a name="L35"></a><tt class="py-lineno"> 35</tt>  <tt class="py-line"><tt class="py-comment"># ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE</tt> </tt>
+<a name="L36"></a><tt class="py-lineno"> 36</tt>  <tt class="py-line"><tt class="py-comment"># POSSIBILITY OF SUCH DAMAGE.</tt> </tt>
+<a name="L37"></a><tt class="py-lineno"> 37</tt>  <tt class="py-line"><tt class="py-comment">#</tt> </tt>
+<a name="L38"></a><tt class="py-lineno"> 38</tt>  <tt class="py-line"><tt class="py-comment"># ***** END LICENSE BLOCK *****</tt> </tt>
+<a name="L39"></a><tt class="py-lineno"> 39</tt>  <tt class="py-line"> </tt>
+<a name="L40"></a><tt class="py-lineno"> 40</tt>  <tt class="py-line"><tt class="py-keyword">import</tt> <tt class="py-name">os</tt><tt class="py-op">.</tt><tt class="py-name">path</tt> </tt>
+<a name="L41"></a><tt class="py-lineno"> 41</tt>  <tt class="py-line"><tt class="py-keyword">import</tt> <tt class="py-name">tempfile</tt> </tt>
+<a name="L42"></a><tt class="py-lineno"> 42</tt>  <tt class="py-line"><tt class="py-keyword">import</tt> <tt class="py-name">subprocess</tt> </tt>
+<a name="L43"></a><tt class="py-lineno"> 43</tt>  <tt class="py-line"><tt class="py-keyword">import</tt> <tt class="py-name">sys</tt> </tt>
+<a name="L44"></a><tt class="py-lineno"> 44</tt>  <tt class="py-line"> </tt>
+<a name="_skip_terminal_chars"></a><div id="_skip_terminal_chars-def"><a name="L45"></a><tt class="py-lineno"> 45</tt> <a class="py-toggle" href="#" id="_skip_terminal_chars-toggle" onclick="return toggle('_skip_terminal_chars');">-</a><tt class="py-line"><tt class="py-keyword">def</tt> <a class="py-def-name" href="pyffi.utils.mopp-module.html#_skip_terminal_chars">_skip_terminal_chars</a><tt class="py-op">(</tt><tt class="py-param">stream</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="_skip_terminal_chars-collapsed" style="display:none;" pad="+++" indent="++++"></div><div id="_skip_terminal_chars-expanded"><a name="L46"></a><tt class="py-lineno"> 46</tt>  <tt class="py-line">    <tt class="py-docstring">"""Skip initial terminal characters (happens when mopper runs via wine)."""</tt> </tt>
+<a name="L47"></a><tt class="py-lineno"> 47</tt>  <tt class="py-line">    <tt class="py-name">firstline</tt> <tt class="py-op">=</tt> <tt id="link-0" class="py-name" targets="Variable pyffi.formats.nif.NifFormat.MeshData.stream=pyffi.formats.nif.NifFormat.MeshData-class.html#stream,Variable pyffi.object_models.ArchiveMember.stream=pyffi.object_models.ArchiveMember-class.html#stream,Variable pyffi.spells.Spell.stream=pyffi.spells.Spell-class.html#stream"><a title="pyffi.formats.nif.NifFormat.MeshData.stream
+pyffi.object_models.ArchiveMember.stream
+pyffi.spells.Spell.stream" class="py-name" href="#" onclick="return doclink('link-0', 'stream', 'link-0');">stream</a></tt><tt class="py-op">.</tt><tt class="py-name">readline</tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+<a name="L48"></a><tt class="py-lineno"> 48</tt>  <tt class="py-line">    <tt class="py-keyword">if</tt> <tt class="py-string">'\x1b'</tt> <tt class="py-keyword">in</tt> <tt class="py-name">firstline</tt><tt class="py-op">:</tt> </tt>
+<a name="L49"></a><tt class="py-lineno"> 49</tt>  <tt class="py-line">        <tt id="link-1" class="py-name"><a title="pyffi.formats.nif.NifFormat.MeshData.stream
+pyffi.object_models.ArchiveMember.stream
+pyffi.spells.Spell.stream" class="py-name" href="#" onclick="return doclink('link-1', 'stream', 'link-0');">stream</a></tt><tt class="py-op">.</tt><tt class="py-name">seek</tt><tt class="py-op">(</tt><tt class="py-name">firstline</tt><tt class="py-op">.</tt><tt class="py-name">rfind</tt><tt class="py-op">(</tt><tt class="py-string">'\x1b'</tt><tt class="py-op">)</tt> <tt class="py-op">+</tt> <tt class="py-number">2</tt><tt class="py-op">)</tt> </tt>
+<a name="L50"></a><tt class="py-lineno"> 50</tt>  <tt class="py-line">    <tt class="py-keyword">else</tt><tt class="py-op">:</tt> </tt>
+<a name="L51"></a><tt class="py-lineno"> 51</tt>  <tt class="py-line">        <tt id="link-2" class="py-name"><a title="pyffi.formats.nif.NifFormat.MeshData.stream
+pyffi.object_models.ArchiveMember.stream
+pyffi.spells.Spell.stream" class="py-name" href="#" onclick="return doclink('link-2', 'stream', 'link-0');">stream</a></tt><tt class="py-op">.</tt><tt class="py-name">seek</tt><tt class="py-op">(</tt><tt class="py-number">0</tt><tt class="py-op">)</tt> </tt>
+</div><a name="L52"></a><tt class="py-lineno"> 52</tt>  <tt class="py-line"> </tt>
+<a name="getMopperPath"></a><div id="getMopperPath-def"><a name="L53"></a><tt class="py-lineno"> 53</tt> <a class="py-toggle" href="#" id="getMopperPath-toggle" onclick="return toggle('getMopperPath');">-</a><tt class="py-line"><tt class="py-keyword">def</tt> <a class="py-def-name" href="pyffi.utils.mopp-module.html#getMopperPath">getMopperPath</a><tt class="py-op">(</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="getMopperPath-collapsed" style="display:none;" pad="+++" indent="++++"></div><div id="getMopperPath-expanded"><a name="L54"></a><tt class="py-lineno"> 54</tt>  <tt class="py-line">    <tt class="py-docstring">"""Get path to the mopper.</tt> </tt>
+<a name="L55"></a><tt class="py-lineno"> 55</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
+<a name="L56"></a><tt class="py-lineno"> 56</tt>  <tt class="py-line"><tt class="py-docstring">    &gt;&gt;&gt; path = getMopperPath()</tt> </tt>
+<a name="L57"></a><tt class="py-lineno"> 57</tt>  <tt class="py-line"><tt class="py-docstring">    &gt;&gt;&gt; path.endswith("mopper.exe")</tt> </tt>
+<a name="L58"></a><tt class="py-lineno"> 58</tt>  <tt class="py-line"><tt class="py-docstring">    True</tt> </tt>
+<a name="L59"></a><tt class="py-lineno"> 59</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
+<a name="L60"></a><tt class="py-lineno"> 60</tt>  <tt class="py-line"><tt class="py-docstring">    :raise ``OSError``: If mopper.exe is not found.</tt> </tt>
+<a name="L61"></a><tt class="py-lineno"> 61</tt>  <tt class="py-line"><tt class="py-docstring">    :return: Path to mopper.exe.</tt> </tt>
+<a name="L62"></a><tt class="py-lineno"> 62</tt>  <tt class="py-line"><tt class="py-docstring">    :rtype: ``str``</tt> </tt>
+<a name="L63"></a><tt class="py-lineno"> 63</tt>  <tt class="py-line"><tt class="py-docstring">    """</tt> </tt>
+<a name="L64"></a><tt class="py-lineno"> 64</tt>  <tt class="py-line">    <tt class="py-name">mopper</tt> <tt class="py-op">=</tt> <tt class="py-name">os</tt><tt class="py-op">.</tt><tt class="py-name">path</tt><tt class="py-op">.</tt><tt class="py-name">join</tt><tt class="py-op">(</tt><tt class="py-name">os</tt><tt class="py-op">.</tt><tt class="py-name">path</tt><tt class="py-op">.</tt><tt class="py-name">dirname</tt><tt class="py-op">(</tt><tt class="py-name">__file__</tt><tt class="py-op">)</tt><tt class="py-op">,</tt> <tt class="py-string">"mopper.exe"</tt><tt class="py-op">)</tt> </tt>
+<a name="L65"></a><tt class="py-lineno"> 65</tt>  <tt class="py-line">    <tt class="py-keyword">if</tt> <tt class="py-keyword">not</tt> <tt class="py-name">os</tt><tt class="py-op">.</tt><tt class="py-name">path</tt><tt class="py-op">.</tt><tt class="py-name">exists</tt><tt class="py-op">(</tt><tt class="py-name">mopper</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+<a name="L66"></a><tt class="py-lineno"> 66</tt>  <tt class="py-line">        <tt class="py-keyword">raise</tt> <tt class="py-name">OSError</tt><tt class="py-op">(</tt><tt class="py-string">"mopper.exe not found at %s"</tt> <tt class="py-op">%</tt> <tt class="py-name">mopper</tt><tt class="py-op">)</tt> </tt>
+<a name="L67"></a><tt class="py-lineno"> 67</tt>  <tt class="py-line">    <tt class="py-keyword">return</tt> <tt class="py-name">mopper</tt> </tt>
+</div><a name="L68"></a><tt class="py-lineno"> 68</tt>  <tt class="py-line"> </tt>
+<a name="getMopperCredits"></a><div id="getMopperCredits-def"><a name="L69"></a><tt class="py-lineno"> 69</tt> <a class="py-toggle" href="#" id="getMopperCredits-toggle" onclick="return toggle('getMopperCredits');">-</a><tt class="py-line"><tt class="py-keyword">def</tt> <a class="py-def-name" href="pyffi.utils.mopp-module.html#getMopperCredits">getMopperCredits</a><tt class="py-op">(</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="getMopperCredits-collapsed" style="display:none;" pad="+++" indent="++++"></div><div id="getMopperCredits-expanded"><a name="L70"></a><tt class="py-lineno"> 70</tt>  <tt class="py-line">    <tt class="py-docstring">"""Get info about mopper, and credit havok.</tt> </tt>
+<a name="L71"></a><tt class="py-lineno"> 71</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
+<a name="L72"></a><tt class="py-lineno"> 72</tt>  <tt class="py-line"><tt class="py-docstring">    &gt;&gt;&gt; print(getMopperCredits())</tt> </tt>
+<a name="L73"></a><tt class="py-lineno"> 73</tt>  <tt class="py-line"><tt class="py-docstring">    Mopper. Copyright (c) 2008, NIF File Format Library and Tools.</tt> </tt>
+<a name="L74"></a><tt class="py-lineno"> 74</tt>  <tt class="py-line"><tt class="py-docstring">    All rights reserved.</tt> </tt>
+<a name="L75"></a><tt class="py-lineno"> 75</tt>  <tt class="py-line"><tt class="py-docstring">    &lt;BLANKLINE&gt;</tt> </tt>
+<a name="L76"></a><tt class="py-lineno"> 76</tt>  <tt class="py-line"><tt class="py-docstring">    Options:</tt> </tt>
+<a name="L77"></a><tt class="py-lineno"> 77</tt>  <tt class="py-line"><tt class="py-docstring">      --help      for usage help</tt> </tt>
+<a name="L78"></a><tt class="py-lineno"> 78</tt>  <tt class="py-line"><tt class="py-docstring">      --license   for licensing details</tt> </tt>
+<a name="L79"></a><tt class="py-lineno"> 79</tt>  <tt class="py-line"><tt class="py-docstring">    &lt;BLANKLINE&gt;</tt> </tt>
+<a name="L80"></a><tt class="py-lineno"> 80</tt>  <tt class="py-line"><tt class="py-docstring">    Mopper uses havok. Copyright 1999-2008 Havok.com Inc. (and its Licensors).</tt> </tt>
+<a name="L81"></a><tt class="py-lineno"> 81</tt>  <tt class="py-line"><tt class="py-docstring">    All Rights Reserved. See www.havok.com for details.</tt> </tt>
+<a name="L82"></a><tt class="py-lineno"> 82</tt>  <tt class="py-line"><tt class="py-docstring">    &lt;BLANKLINE&gt;</tt> </tt>
+<a name="L83"></a><tt class="py-lineno"> 83</tt>  <tt class="py-line"><tt class="py-docstring">    &lt;BLANKLINE&gt;</tt> </tt>
+<a name="L84"></a><tt class="py-lineno"> 84</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
+<a name="L85"></a><tt class="py-lineno"> 85</tt>  <tt class="py-line"><tt class="py-docstring">    :raise ``OSError``: If mopper.exe is not found or cannot run.</tt> </tt>
+<a name="L86"></a><tt class="py-lineno"> 86</tt>  <tt class="py-line"><tt class="py-docstring">    :return: Credits string.</tt> </tt>
+<a name="L87"></a><tt class="py-lineno"> 87</tt>  <tt class="py-line"><tt class="py-docstring">    :rtype: ``str``</tt> </tt>
+<a name="L88"></a><tt class="py-lineno"> 88</tt>  <tt class="py-line"><tt class="py-docstring">    """</tt> </tt>
+<a name="L89"></a><tt class="py-lineno"> 89</tt>  <tt class="py-line">    <tt class="py-name">mopper</tt> <tt class="py-op">=</tt> <tt id="link-3" class="py-name" targets="Function pyffi.utils.mopp.getMopperPath()=pyffi.utils.mopp-module.html#getMopperPath"><a title="pyffi.utils.mopp.getMopperPath" class="py-name" href="#" onclick="return doclink('link-3', 'getMopperPath', 'link-3');">getMopperPath</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+<a name="L90"></a><tt class="py-lineno"> 90</tt>  <tt class="py-line">    <tt class="py-name">outfile</tt> <tt class="py-op">=</tt> <tt class="py-name">tempfile</tt><tt class="py-op">.</tt><tt class="py-name">TemporaryFile</tt><tt class="py-op">(</tt><tt class="py-string">"w+"</tt><tt class="py-op">)</tt> <tt class="py-comment"># not binary</tt> </tt>
+<a name="L91"></a><tt class="py-lineno"> 91</tt>  <tt class="py-line">    <tt class="py-keyword">try</tt><tt class="py-op">:</tt> </tt>
+<a name="L92"></a><tt class="py-lineno"> 92</tt>  <tt class="py-line">        <tt class="py-comment"># get license info, credit havok (raises OSError on failure)</tt> </tt>
+<a name="L93"></a><tt class="py-lineno"> 93</tt>  <tt class="py-line">        <tt class="py-keyword">if</tt> <tt class="py-name">sys</tt><tt class="py-op">.</tt><tt class="py-name">platform</tt> <tt class="py-op">==</tt> <tt class="py-string">"win32"</tt><tt class="py-op">:</tt> </tt>
+<a name="L94"></a><tt class="py-lineno"> 94</tt>  <tt class="py-line">            <tt class="py-name">subprocess</tt><tt class="py-op">.</tt><tt class="py-name">call</tt><tt class="py-op">(</tt><tt class="py-op">[</tt><tt class="py-name">mopper</tt><tt class="py-op">]</tt><tt class="py-op">,</tt> <tt class="py-name">stdout</tt><tt class="py-op">=</tt><tt class="py-name">outfile</tt><tt class="py-op">)</tt> </tt>
+<a name="L95"></a><tt class="py-lineno"> 95</tt>  <tt class="py-line">        <tt class="py-keyword">else</tt><tt class="py-op">:</tt> </tt>
+<a name="L96"></a><tt class="py-lineno"> 96</tt>  <tt class="py-line">            <tt class="py-name">subprocess</tt><tt class="py-op">.</tt><tt class="py-name">call</tt><tt class="py-op">(</tt><tt class="py-op">[</tt><tt class="py-string">"wine"</tt><tt class="py-op">,</tt> <tt class="py-name">mopper</tt><tt class="py-op">]</tt><tt class="py-op">,</tt> <tt class="py-name">stdout</tt><tt class="py-op">=</tt><tt class="py-name">outfile</tt><tt class="py-op">)</tt> </tt>
+<a name="L97"></a><tt class="py-lineno"> 97</tt>  <tt class="py-line">        <tt class="py-name">outfile</tt><tt class="py-op">.</tt><tt class="py-name">seek</tt><tt class="py-op">(</tt><tt class="py-number">0</tt><tt class="py-op">)</tt> </tt>
+<a name="L98"></a><tt class="py-lineno"> 98</tt>  <tt class="py-line">        <tt id="link-4" class="py-name" targets="Function pyffi.utils.mopp._skip_terminal_chars()=pyffi.utils.mopp-module.html#_skip_terminal_chars"><a title="pyffi.utils.mopp._skip_terminal_chars" class="py-name" href="#" onclick="return doclink('link-4', '_skip_terminal_chars', 'link-4');">_skip_terminal_chars</a></tt><tt class="py-op">(</tt><tt class="py-name">outfile</tt><tt class="py-op">)</tt> </tt>
+<a name="L99"></a><tt class="py-lineno"> 99</tt>  <tt class="py-line">        <tt class="py-name">creditstr</tt> <tt class="py-op">=</tt> <tt class="py-name">outfile</tt><tt class="py-op">.</tt><tt id="link-5" class="py-name" targets="Method pyffi.formats.bsa.BsaFormat.BZString.read()=pyffi.formats.bsa.BsaFormat.BZString-class.html#read,Method pyffi.formats.bsa.BsaFormat.FileVersion.read()=pyffi.formats.bsa.BsaFormat.FileVersion-class.html#read,Method pyffi.formats.bsa.BsaFormat.Header.read()=pyffi.formats.bsa.BsaFormat.Header-class.html#read,Method pyffi.formats.cgf.CgfFormat.Data.read()=pyffi.formats.cgf.CgfFormat.Data-class.html#read,Method pyffi.formats.cgf.CgfFormat.FileSignature.read()=pyffi.formats.cgf.CgfFormat.FileSignature-class.html#read,Method pyffi.formats.cgf.CgfFormat.Ref.read()=pyffi.formats.cgf.CgfFormat.Ref-class.html#read,Method pyffi.formats.dds.DdsFormat.Data.read()=pyffi.formats.dds.DdsFormat.Data-class.html#read,Method pyffi.formats.dds.DdsFormat.HeaderString.read()=pyffi.formats.dds.DdsFormat.HeaderString-class.html#read,Method pyffi.formats.egm.EgmFormat.Data.read()=pyffi.formats.egm.EgmFormat.Data-class.html#read,Method pyffi.formats.egm.EgmFormat.FileSignature.read()=pyffi.formats.egm.EgmFormat.FileSignature-class.html#read,Method pyffi.formats.egm.EgmFormat.FileVersion.read()=pyffi.formats.egm.EgmFormat.FileVersion-class.html#read,Method pyffi.formats.egt.EgtFormat.FileSignature.read()=pyffi.formats.egt.EgtFormat.FileSignature-class.html#read,Method pyffi.formats.egt.EgtFormat.FileVersion.read()=pyffi.formats.egt.EgtFormat.FileVersion-class.html#read,Method pyffi.formats.egt.EgtFormat.Header.read()=pyffi.formats.egt.EgtFormat.Header-class.html#read,Method pyffi.formats.esp.EspFormat.Data.read()=pyffi.formats.esp.EspFormat.Data-class.html#read,Method pyffi.formats.esp.EspFormat.GRUP.read()=pyffi.formats.esp.EspFormat.GRUP-class.html#read,Method pyffi.formats.esp.EspFormat.Record.read()=pyffi.formats.esp.EspFormat.Record-class.html#read,Method pyffi.formats.kfm.KfmFormat.Header.read()=pyffi.formats.kfm.KfmFormat.Header-class.html#read,Method pyffi.formats.kfm.KfmFormat.HeaderString.read()=pyffi.formats.kfm.KfmFormat.HeaderString-class.html#read,Method pyffi.formats.nif.NifFormat.ByteArray.read()=pyffi.formats.nif.NifFormat.ByteArray-class.html#read,Method pyffi.formats.nif.NifFormat.ByteMatrix.read()=pyffi.formats.nif.NifFormat.ByteMatrix-class.html#read,Method pyffi.formats.nif.NifFormat.Data.read()=pyffi.formats.nif.NifFormat.Data-class.html#read,Method pyffi.formats.nif.NifFormat.FileVersion.read()=pyffi.formats.nif.NifFormat.FileVersion-class.html#read,Method pyffi.formats.nif.NifFormat.Footer.read()=pyffi.formats.nif.NifFormat.Footer-class.html#read,Method pyffi.formats.nif.NifFormat.HeaderString.read()=pyffi.formats.nif.NifFormat.HeaderString-class.html#read,Method pyffi.formats.nif.NifFormat.LineString.read()=pyffi.formats.nif.NifFormat.LineString-class.html#read,Method pyffi.formats.nif.NifFormat.Ref.read()=pyffi.formats.nif.NifFormat.Ref-class.html#read,Method pyffi.formats.nif.NifFormat.ShortString.read()=pyffi.formats.nif.NifFormat.ShortString-class.html#read,Method pyffi.formats.nif.NifFormat.bool.read()=pyffi.formats.nif.NifFormat.bool-class.html#read,Method pyffi.formats.nif.NifFormat.string.read()=pyffi.formats.nif.NifFormat.string-class.html#read,Method pyffi.formats.rockstar.dir_.DirFormat.Data.read()=pyffi.formats.rockstar.dir_.DirFormat.Data-class.html#read,Method pyffi.formats.tga.TgaFormat.Data.read()=pyffi.formats.tga.TgaFormat.Data-class.html#read,Method pyffi.formats.tga.TgaFormat.FooterString.read()=pyffi.formats.tga.TgaFormat.FooterString-class.html#read,Method pyffi.formats.tga.TgaFormat.Image.read()=pyffi.formats.tga.TgaFormat.Image-class.html#read,Method pyffi.formats.tri.TriFormat.FileSignature.read()=pyffi.formats.tri.TriFormat.FileSignature-class.html#read,Method pyffi.formats.tri.TriFormat.FileVersion.read()=pyffi.formats.tri.TriFormat.FileVersion-class.html#read,Method pyffi.formats.tri.TriFormat.Header.read()=pyffi.formats.tri.TriFormat.Header-class.html#read,Method pyffi.formats.tri.TriFormat.SizedStringZ.read()=pyffi.formats.tri.TriFormat.SizedStringZ-class.html#read,Method pyffi.object_models.ArchiveFileFormat.Data.read()=pyffi.object_models.ArchiveFileFormat.Data-class.html#read,Method pyffi.object_models.FileFormat.Data.read()=pyffi.object_models.FileFormat.Data-class.html#read,Method pyffi.object_models.any_type.AnyType.read()=pyffi.object_models.any_type.AnyType-class.html#read,Method pyffi.object_models.binary_type.CharType.read()=pyffi.object_models.binary_type.CharType-class.html#read,Method pyffi.object_models.binary_type.FixedString.read()=pyffi.object_models.binary_type.FixedString-class.html#read,Method pyffi.object_models.binary_type.Float.read()=pyffi.object_models.binary_type.Float-class.html#read,Method pyffi.object_models.binary_type.IntType.read()=pyffi.object_models.binary_type.IntType-class.html#read,Method pyffi.object_models.binary_type.SizedString.read()=pyffi.object_models.binary_type.SizedString-class.html#read,Method pyffi.object_models.binary_type.UndecodedData.read()=pyffi.object_models.binary_type.UndecodedData-class.html#read,Method pyffi.object_models.binary_type.ZString.read()=pyffi.object_models.binary_type.ZString-class.html#read,Method pyffi.object_models.common.Char.read()=pyffi.object_models.common.Char-class.html#read,Method pyffi.object_models.common.FixedString.read()=pyffi.object_models.common.FixedString-class.html#read,Method pyffi.object_models.common.Float.read()=pyffi.object_models.common.Float-class.html#read,Method pyffi.object_models.common.Int.read()=pyffi.object_models.common.Int-class.html#read,Method pyffi.object_models.common.SizedString.read()=pyffi.object_models.common.SizedString-class.html#read,Method pyffi.object_models.common.ULittle32.read()=pyffi.object_models.common.ULittle32-class.html#read,Method pyffi.object_models.common.UndecodedData.read()=pyffi.object_models.common.UndecodedData-class.html#read,Method pyffi.object_models.common.ZString.read()=pyffi.object_models.common.ZString-class.html#read,Method pyffi.object_models.xml.array.Array.read()=pyffi.object_models.xml.array.Array-class.html#read,Method pyffi.object_models.xml.basic.BasicBase.read()=pyffi.object_models.xml.basic.BasicBase-class.html#read,Method pyffi.object_models.xml.bit_struct.BitStructBase.read()=pyffi.object_models.xml.bit_struct.BitStructBase-class.html#read,Method pyffi.object_models.xml.enum.EnumBase.read()=pyffi.object_models.xml.enum.EnumBase-class.html#read,Method pyffi.object_models.xml.struct_.StructBase.read()=pyffi.object_models.xml.struct_.StructBase-class.html#read"><a title="pyffi.formats.bsa.BsaFormat.BZString.read
+pyffi.formats.bsa.BsaFormat.FileVersion.read
+pyffi.formats.bsa.BsaFormat.Header.read
+pyffi.formats.cgf.CgfFormat.Data.read
+pyffi.formats.cgf.CgfFormat.FileSignature.read
+pyffi.formats.cgf.CgfFormat.Ref.read
+pyffi.formats.dds.DdsFormat.Data.read
+pyffi.formats.dds.DdsFormat.HeaderString.read
+pyffi.formats.egm.EgmFormat.Data.read
+pyffi.formats.egm.EgmFormat.FileSignature.read
+pyffi.formats.egm.EgmFormat.FileVersion.read
+pyffi.formats.egt.EgtFormat.FileSignature.read
+pyffi.formats.egt.EgtFormat.FileVersion.read
+pyffi.formats.egt.EgtFormat.Header.read
+pyffi.formats.esp.EspFormat.Data.read
+pyffi.formats.esp.EspFormat.GRUP.read
+pyffi.formats.esp.EspFormat.Record.read
+pyffi.formats.kfm.KfmFormat.Header.read
+pyffi.formats.kfm.KfmFormat.HeaderString.read
+pyffi.formats.nif.NifFormat.ByteArray.read
+pyffi.formats.nif.NifFormat.ByteMatrix.read
+pyffi.formats.nif.NifFormat.Data.read
+pyffi.formats.nif.NifFormat.FileVersion.read
+pyffi.formats.nif.NifFormat.Footer.read
+pyffi.formats.nif.NifFormat.HeaderString.read
+pyffi.formats.nif.NifFormat.LineString.read
+pyffi.formats.nif.NifFormat.Ref.read
+pyffi.formats.nif.NifFormat.ShortString.read
+pyffi.formats.nif.NifFormat.bool.read
+pyffi.formats.nif.NifFormat.string.read
+pyffi.formats.rockstar.dir_.DirFormat.Data.read
+pyffi.formats.tga.TgaFormat.Data.read
+pyffi.formats.tga.TgaFormat.FooterString.read
+pyffi.formats.tga.TgaFormat.Image.read
+pyffi.formats.tri.TriFormat.FileSignature.read
+pyffi.formats.tri.TriFormat.FileVersion.read
+pyffi.formats.tri.TriFormat.Header.read
+pyffi.formats.tri.TriFormat.SizedStringZ.read
+pyffi.object_models.ArchiveFileFormat.Data.read
+pyffi.object_models.FileFormat.Data.read
+pyffi.object_models.any_type.AnyType.read
+pyffi.object_models.binary_type.CharType.read
+pyffi.object_models.binary_type.FixedString.read
+pyffi.object_models.binary_type.Float.read
+pyffi.object_models.binary_type.IntType.read
+pyffi.object_models.binary_type.SizedString.read
+pyffi.object_models.binary_type.UndecodedData.read
+pyffi.object_models.binary_type.ZString.read
+pyffi.object_models.common.Char.read
+pyffi.object_models.common.FixedString.read
+pyffi.object_models.common.Float.read
+pyffi.object_models.common.Int.read
+pyffi.object_models.common.SizedString.read
+pyffi.object_models.common.ULittle32.read
+pyffi.object_models.common.UndecodedData.read
+pyffi.object_models.common.ZString.read
+pyffi.object_models.xml.array.Array.read
+pyffi.object_models.xml.basic.BasicBase.read
+pyffi.object_models.xml.bit_struct.BitStructBase.read
+pyffi.object_models.xml.enum.EnumBase.read
+pyffi.object_models.xml.struct_.StructBase.read" class="py-name" href="#" onclick="return doclink('link-5', 'read', 'link-5');">read</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt><tt class="py-op">.</tt><tt class="py-name">replace</tt><tt class="py-op">(</tt><tt class="py-string">"\r\n"</tt><tt class="py-op">,</tt> <tt class="py-string">"\n"</tt><tt class="py-op">)</tt> </tt>
+<a name="L100"></a><tt class="py-lineno">100</tt>  <tt class="py-line">    <tt class="py-keyword">finally</tt><tt class="py-op">:</tt> </tt>
+<a name="L101"></a><tt class="py-lineno">101</tt>  <tt class="py-line">        <tt class="py-name">outfile</tt><tt class="py-op">.</tt><tt id="link-6" class="py-name" targets="Method pyffi.object_models.ArchiveFileFormat.Data.close()=pyffi.object_models.ArchiveFileFormat.Data-class.html#close"><a title="pyffi.object_models.ArchiveFileFormat.Data.close" class="py-name" href="#" onclick="return doclink('link-6', 'close', 'link-6');">close</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+<a name="L102"></a><tt class="py-lineno">102</tt>  <tt class="py-line">    <tt class="py-keyword">return</tt> <tt class="py-name">creditstr</tt> </tt>
+</div><a name="L103"></a><tt class="py-lineno">103</tt>  <tt class="py-line"> </tt>
+<a name="getMopperOriginScaleCodeWelding"></a><div id="getMopperOriginScaleCodeWelding-def"><a name="L104"></a><tt class="py-lineno">104</tt> <a class="py-toggle" href="#" id="getMopperOriginScaleCodeWelding-toggle" onclick="return toggle('getMopperOriginScaleCodeWelding');">-</a><tt class="py-line"><tt class="py-keyword">def</tt> <a class="py-def-name" href="pyffi.utils.mopp-module.html#getMopperOriginScaleCodeWelding">getMopperOriginScaleCodeWelding</a><tt class="py-op">(</tt><tt class="py-param">vertices</tt><tt class="py-op">,</tt> <tt class="py-param">triangles</tt><tt class="py-op">,</tt> <tt class="py-param">material_indices</tt><tt class="py-op">=</tt><tt class="py-name">None</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="getMopperOriginScaleCodeWelding-collapsed" style="display:none;" pad="+++" indent="++++"></div><div id="getMopperOriginScaleCodeWelding-expanded"><a name="L105"></a><tt class="py-lineno">105</tt>  <tt class="py-line">    <tt class="py-docstring">"""Generate mopp code and welding info for given geometry. Raises</tt> </tt>
+<a name="L106"></a><tt class="py-lineno">106</tt>  <tt class="py-line"><tt class="py-docstring">    RuntimeError if something goes wrong (e.g. if mopp generator fails, or if</tt> </tt>
+<a name="L107"></a><tt class="py-lineno">107</tt>  <tt class="py-line"><tt class="py-docstring">    mopper.exe cannot be run on the current platform).</tt> </tt>
+<a name="L108"></a><tt class="py-lineno">108</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
+<a name="L109"></a><tt class="py-lineno">109</tt>  <tt class="py-line"><tt class="py-docstring">    Call L{getMopperCredits} before calling this function if you need to credit</tt> </tt>
+<a name="L110"></a><tt class="py-lineno">110</tt>  <tt class="py-line"><tt class="py-docstring">    havok in a console application that uses this function.</tt> </tt>
+<a name="L111"></a><tt class="py-lineno">111</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
+<a name="L112"></a><tt class="py-lineno">112</tt>  <tt class="py-line"><tt class="py-docstring">    For example, creating a mopp for the standard cube:</tt> </tt>
+<a name="L113"></a><tt class="py-lineno">113</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
+<a name="L114"></a><tt class="py-lineno">114</tt>  <tt class="py-line"><tt class="py-docstring">    &gt;&gt;&gt; expected_moppcode = [</tt> </tt>
+<a name="L115"></a><tt class="py-lineno">115</tt>  <tt class="py-line"><tt class="py-docstring">    ...     40, 0, 255, 39, 0, 255, 38, 0, 255, 19, 129, 125, 41, 22, 130,</tt> </tt>
+<a name="L116"></a><tt class="py-lineno">116</tt>  <tt class="py-line"><tt class="py-docstring">    ...     125, 12, 24, 130, 125, 4, 38, 0, 5, 51, 39, 0, 5, 50, 24, 130,</tt> </tt>
+<a name="L117"></a><tt class="py-lineno">117</tt>  <tt class="py-line"><tt class="py-docstring">    ...     125, 4, 40, 0, 5, 59, 16, 255, 249, 12, 20, 130, 125, 4, 39,</tt> </tt>
+<a name="L118"></a><tt class="py-lineno">118</tt>  <tt class="py-line"><tt class="py-docstring">    ...     0, 5, 53, 40, 0, 5, 49, 54, 22, 130, 125, 25, 24, 130, 125, 17,</tt> </tt>
+<a name="L119"></a><tt class="py-lineno">119</tt>  <tt class="py-line"><tt class="py-docstring">    ...     17, 255, 249, 12, 21, 129, 125, 4, 38, 0, 5, 57, 40, 249, 255,</tt> </tt>
+<a name="L120"></a><tt class="py-lineno">120</tt>  <tt class="py-line"><tt class="py-docstring">    ...     58, 56, 40, 249, 255, 52, 24, 130, 125, 4, 39, 249, 255, 55, 38,</tt> </tt>
+<a name="L121"></a><tt class="py-lineno">121</tt>  <tt class="py-line"><tt class="py-docstring">    ...     249, 255, 48]</tt> </tt>
+<a name="L122"></a><tt class="py-lineno">122</tt>  <tt class="py-line"><tt class="py-docstring">    &gt;&gt;&gt; orig, scale, moppcode, welding_info = getMopperOriginScaleCodeWelding(</tt> </tt>
+<a name="L123"></a><tt class="py-lineno">123</tt>  <tt class="py-line"><tt class="py-docstring">    ...     [(1, 1, 1), (0, 0, 0), (0, 0, 1), (0, 1, 0),</tt> </tt>
+<a name="L124"></a><tt class="py-lineno">124</tt>  <tt class="py-line"><tt class="py-docstring">    ...      (1, 0, 1), (0, 1, 1), (1, 1, 0), (1, 0, 0)],</tt> </tt>
+<a name="L125"></a><tt class="py-lineno">125</tt>  <tt class="py-line"><tt class="py-docstring">    ...     [(0, 4, 6), (1, 6, 7), (2, 1, 4), (3, 1, 2),</tt> </tt>
+<a name="L126"></a><tt class="py-lineno">126</tt>  <tt class="py-line"><tt class="py-docstring">    ...      (0, 2, 4), (4, 1, 7), (6, 4, 7), (3, 0, 6),</tt> </tt>
+<a name="L127"></a><tt class="py-lineno">127</tt>  <tt class="py-line"><tt class="py-docstring">    ...      (0, 3, 5), (3, 2, 5), (2, 0, 5), (1, 3, 6)])</tt> </tt>
+<a name="L128"></a><tt class="py-lineno">128</tt>  <tt class="py-line"><tt class="py-docstring">    &gt;&gt;&gt; scale</tt> </tt>
+<a name="L129"></a><tt class="py-lineno">129</tt>  <tt class="py-line"><tt class="py-docstring">    16319749.0</tt> </tt>
+<a name="L130"></a><tt class="py-lineno">130</tt>  <tt class="py-line"><tt class="py-docstring">    &gt;&gt;&gt; ["%6.3f" % value for value in orig]</tt> </tt>
+<a name="L131"></a><tt class="py-lineno">131</tt>  <tt class="py-line"><tt class="py-docstring">    ['-0.010', '-0.010', '-0.010']</tt> </tt>
+<a name="L132"></a><tt class="py-lineno">132</tt>  <tt class="py-line"><tt class="py-docstring">    &gt;&gt;&gt; moppcode == expected_moppcode</tt> </tt>
+<a name="L133"></a><tt class="py-lineno">133</tt>  <tt class="py-line"><tt class="py-docstring">    True</tt> </tt>
+<a name="L134"></a><tt class="py-lineno">134</tt>  <tt class="py-line"><tt class="py-docstring">    &gt;&gt;&gt; welding_info</tt> </tt>
+<a name="L135"></a><tt class="py-lineno">135</tt>  <tt class="py-line"><tt class="py-docstring">    [23030, 23247, 23030, 16086, 23247, 23247, 23247, 23247, 23247, 23247, 23247, 16086]</tt> </tt>
+<a name="L136"></a><tt class="py-lineno">136</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
+<a name="L137"></a><tt class="py-lineno">137</tt>  <tt class="py-line"><tt class="py-docstring">    :raise ``RuntimeError``: If the mopper has bad output.</tt> </tt>
+<a name="L138"></a><tt class="py-lineno">138</tt>  <tt class="py-line"><tt class="py-docstring">    :raise ``OSError``: If the mopper is not found or cannot run.</tt> </tt>
+<a name="L139"></a><tt class="py-lineno">139</tt>  <tt class="py-line"><tt class="py-docstring">    :param vertices: List of vertices.</tt> </tt>
+<a name="L140"></a><tt class="py-lineno">140</tt>  <tt class="py-line"><tt class="py-docstring">    :type vertices: list of tuples of floats</tt> </tt>
+<a name="L141"></a><tt class="py-lineno">141</tt>  <tt class="py-line"><tt class="py-docstring">    :param triangles: List of triangles (indices referring back to vertex list).</tt> </tt>
+<a name="L142"></a><tt class="py-lineno">142</tt>  <tt class="py-line"><tt class="py-docstring">    :type triangles: list of tuples of ints</tt> </tt>
+<a name="L143"></a><tt class="py-lineno">143</tt>  <tt class="py-line"><tt class="py-docstring">    :param material_indices: List of material indices (optional).</tt> </tt>
+<a name="L144"></a><tt class="py-lineno">144</tt>  <tt class="py-line"><tt class="py-docstring">    :type material_indices: list of ints</tt> </tt>
+<a name="L145"></a><tt class="py-lineno">145</tt>  <tt class="py-line"><tt class="py-docstring">    :return: The origin as a tuple of floats, the mopp scale as a float,</tt> </tt>
+<a name="L146"></a><tt class="py-lineno">146</tt>  <tt class="py-line"><tt class="py-docstring">        the mopp code as a list of ints, and the welding info as a list of</tt> </tt>
+<a name="L147"></a><tt class="py-lineno">147</tt>  <tt class="py-line"><tt class="py-docstring">        ints.</tt> </tt>
+<a name="L148"></a><tt class="py-lineno">148</tt>  <tt class="py-line"><tt class="py-docstring">    :rtype: ``tuple`` of ``float``\ s, ``float``, ``list`` of ``int``\ s, and ``list``</tt> </tt>
+<a name="L149"></a><tt class="py-lineno">149</tt>  <tt class="py-line"><tt class="py-docstring">        of ``int``\ s</tt> </tt>
+<a name="L150"></a><tt class="py-lineno">150</tt>  <tt class="py-line"><tt class="py-docstring">    """</tt> </tt>
+<a name="L151"></a><tt class="py-lineno">151</tt>  <tt class="py-line"> </tt>
+<a name="L152"></a><tt class="py-lineno">152</tt>  <tt class="py-line">    <tt class="py-keyword">if</tt> <tt class="py-name">material_indices</tt> <tt class="py-keyword">is</tt> <tt class="py-name">None</tt><tt class="py-op">:</tt> </tt>
+<a name="L153"></a><tt class="py-lineno">153</tt>  <tt class="py-line">        <tt class="py-name">material_indices</tt> <tt class="py-op">=</tt> <tt class="py-op">[</tt><tt class="py-op">]</tt> </tt>
+<a name="L154"></a><tt class="py-lineno">154</tt>  <tt class="py-line"> </tt>
+<a name="L155"></a><tt class="py-lineno">155</tt>  <tt class="py-line">    <tt class="py-name">mopper</tt> <tt class="py-op">=</tt> <tt id="link-7" class="py-name"><a title="pyffi.utils.mopp.getMopperPath" class="py-name" href="#" onclick="return doclink('link-7', 'getMopperPath', 'link-3');">getMopperPath</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+<a name="L156"></a><tt class="py-lineno">156</tt>  <tt class="py-line">    <tt class="py-name">infile</tt> <tt class="py-op">=</tt> <tt class="py-name">tempfile</tt><tt class="py-op">.</tt><tt class="py-name">TemporaryFile</tt><tt class="py-op">(</tt><tt class="py-string">"w+"</tt><tt class="py-op">)</tt> <tt class="py-comment"># not binary</tt> </tt>
+<a name="L157"></a><tt class="py-lineno">157</tt>  <tt class="py-line">    <tt class="py-name">outfile</tt> <tt class="py-op">=</tt> <tt class="py-name">tempfile</tt><tt class="py-op">.</tt><tt class="py-name">TemporaryFile</tt><tt class="py-op">(</tt><tt class="py-string">"w+"</tt><tt class="py-op">)</tt> <tt class="py-comment"># not binary</tt> </tt>
+<a name="L158"></a><tt class="py-lineno">158</tt>  <tt class="py-line">    <tt class="py-keyword">try</tt><tt class="py-op">:</tt> </tt>
+<a name="L159"></a><tt class="py-lineno">159</tt>  <tt class="py-line">        <tt class="py-comment"># set up input</tt> </tt>
+<a name="L160"></a><tt class="py-lineno">160</tt>  <tt class="py-line">        <tt class="py-name">infile</tt><tt class="py-op">.</tt><tt id="link-8" class="py-name" targets="Method pyffi.formats.bsa.BsaFormat.BZString.write()=pyffi.formats.bsa.BsaFormat.BZString-class.html#write,Method pyffi.formats.bsa.BsaFormat.FileVersion.write()=pyffi.formats.bsa.BsaFormat.FileVersion-class.html#write,Method pyffi.formats.bsa.BsaFormat.Header.write()=pyffi.formats.bsa.BsaFormat.Header-class.html#write,Method pyffi.formats.cgf.CgfFormat.Data.write()=pyffi.formats.cgf.CgfFormat.Data-class.html#write,Method pyffi.formats.cgf.CgfFormat.FileSignature.write()=pyffi.formats.cgf.CgfFormat.FileSignature-class.html#write,Method pyffi.formats.cgf.CgfFormat.Ref.write()=pyffi.formats.cgf.CgfFormat.Ref-class.html#write,Method pyffi.formats.dds.DdsFormat.Data.write()=pyffi.formats.dds.DdsFormat.Data-class.html#write,Method pyffi.formats.dds.DdsFormat.HeaderString.write()=pyffi.formats.dds.DdsFormat.HeaderString-class.html#write,Method pyffi.formats.egm.EgmFormat.Data.write()=pyffi.formats.egm.EgmFormat.Data-class.html#write,Method pyffi.formats.egm.EgmFormat.FileSignature.write()=pyffi.formats.egm.EgmFormat.FileSignature-class.html#write,Method pyffi.formats.egm.EgmFormat.FileVersion.write()=pyffi.formats.egm.EgmFormat.FileVersion-class.html#write,Method pyffi.formats.egt.EgtFormat.FileSignature.write()=pyffi.formats.egt.EgtFormat.FileSignature-class.html#write,Method pyffi.formats.egt.EgtFormat.FileVersion.write()=pyffi.formats.egt.EgtFormat.FileVersion-class.html#write,Method pyffi.formats.egt.EgtFormat.Header.write()=pyffi.formats.egt.EgtFormat.Header-class.html#write,Method pyffi.formats.esp.EspFormat.Data.write()=pyffi.formats.esp.EspFormat.Data-class.html#write,Method pyffi.formats.esp.EspFormat.GRUP.write()=pyffi.formats.esp.EspFormat.GRUP-class.html#write,Method pyffi.formats.esp.EspFormat.Record.write()=pyffi.formats.esp.EspFormat.Record-class.html#write,Method pyffi.formats.kfm.KfmFormat.Header.write()=pyffi.formats.kfm.KfmFormat.Header-class.html#write,Method pyffi.formats.kfm.KfmFormat.HeaderString.write()=pyffi.formats.kfm.KfmFormat.HeaderString-class.html#write,Method pyffi.formats.nif.NifFormat.ByteArray.write()=pyffi.formats.nif.NifFormat.ByteArray-class.html#write,Method pyffi.formats.nif.NifFormat.ByteMatrix.write()=pyffi.formats.nif.NifFormat.ByteMatrix-class.html#write,Method pyffi.formats.nif.NifFormat.Data.write()=pyffi.formats.nif.NifFormat.Data-class.html#write,Method pyffi.formats.nif.NifFormat.FileVersion.write()=pyffi.formats.nif.NifFormat.FileVersion-class.html#write,Method pyffi.formats.nif.NifFormat.Footer.write()=pyffi.formats.nif.NifFormat.Footer-class.html#write,Method pyffi.formats.nif.NifFormat.HeaderString.write()=pyffi.formats.nif.NifFormat.HeaderString-class.html#write,Method pyffi.formats.nif.NifFormat.LineString.write()=pyffi.formats.nif.NifFormat.LineString-class.html#write,Method pyffi.formats.nif.NifFormat.Ref.write()=pyffi.formats.nif.NifFormat.Ref-class.html#write,Method pyffi.formats.nif.NifFormat.ShortString.write()=pyffi.formats.nif.NifFormat.ShortString-class.html#write,Method pyffi.formats.nif.NifFormat.bool.write()=pyffi.formats.nif.NifFormat.bool-class.html#write,Method pyffi.formats.nif.NifFormat.string.write()=pyffi.formats.nif.NifFormat.string-class.html#write,Method pyffi.formats.rockstar.dir_.DirFormat.Data.write()=pyffi.formats.rockstar.dir_.DirFormat.Data-class.html#write,Method pyffi.formats.tga.TgaFormat.Data.write()=pyffi.formats.tga.TgaFormat.Data-class.html#write,Method pyffi.formats.tga.TgaFormat.FooterString.write()=pyffi.formats.tga.TgaFormat.FooterString-class.html#write,Method pyffi.formats.tga.TgaFormat.Image.write()=pyffi.formats.tga.TgaFormat.Image-class.html#write,Method pyffi.formats.tri.TriFormat.FileSignature.write()=pyffi.formats.tri.TriFormat.FileSignature-class.html#write,Method pyffi.formats.tri.TriFormat.FileVersion.write()=pyffi.formats.tri.TriFormat.FileVersion-class.html#write,Method pyffi.formats.tri.TriFormat.Header.write()=pyffi.formats.tri.TriFormat.Header-class.html#write,Method pyffi.formats.tri.TriFormat.SizedStringZ.write()=pyffi.formats.tri.TriFormat.SizedStringZ-class.html#write,Method pyffi.object_models.ArchiveFileFormat.Data.write()=pyffi.object_models.ArchiveFileFormat.Data-class.html#write,Method pyffi.object_models.FileFormat.Data.write()=pyffi.object_models.FileFormat.Data-class.html#write,Method pyffi.object_models.any_type.AnyType.write()=pyffi.object_models.any_type.AnyType-class.html#write,Method pyffi.object_models.binary_type.CharType.write()=pyffi.object_models.binary_type.CharType-class.html#write,Method pyffi.object_models.binary_type.FixedString.write()=pyffi.object_models.binary_type.FixedString-class.html#write,Method pyffi.object_models.binary_type.Float.write()=pyffi.object_models.binary_type.Float-class.html#write,Method pyffi.object_models.binary_type.IntType.write()=pyffi.object_models.binary_type.IntType-class.html#write,Method pyffi.object_models.binary_type.SizedString.write()=pyffi.object_models.binary_type.SizedString-class.html#write,Method pyffi.object_models.binary_type.UndecodedData.write()=pyffi.object_models.binary_type.UndecodedData-class.html#write,Method pyffi.object_models.binary_type.ZString.write()=pyffi.object_models.binary_type.ZString-class.html#write,Method pyffi.object_models.common.Char.write()=pyffi.object_models.common.Char-class.html#write,Method pyffi.object_models.common.FixedString.write()=pyffi.object_models.common.FixedString-class.html#write,Method pyffi.object_models.common.Float.write()=pyffi.object_models.common.Float-class.html#write,Method pyffi.object_models.common.Int.write()=pyffi.object_models.common.Int-class.html#write,Method pyffi.object_models.common.SizedString.write()=pyffi.object_models.common.SizedString-class.html#write,Method pyffi.object_models.common.ULittle32.write()=pyffi.object_models.common.ULittle32-class.html#write,Method pyffi.object_models.common.UndecodedData.write()=pyffi.object_models.common.UndecodedData-class.html#write,Method pyffi.object_models.common.ZString.write()=pyffi.object_models.common.ZString-class.html#write,Method pyffi.object_models.xml.array.Array.write()=pyffi.object_models.xml.array.Array-class.html#write,Method pyffi.object_models.xml.basic.BasicBase.write()=pyffi.object_models.xml.basic.BasicBase-class.html#write,Method pyffi.object_models.xml.bit_struct.BitStructBase.write()=pyffi.object_models.xml.bit_struct.BitStructBase-class.html#write,Method pyffi.object_models.xml.enum.EnumBase.write()=pyffi.object_models.xml.enum.EnumBase-class.html#write,Method pyffi.object_models.xml.struct_.StructBase.write()=pyffi.object_models.xml.struct_.StructBase-class.html#write,Method pyffi.spells.Toaster.write()=pyffi.spells.Toaster-class.html#write"><a title="pyffi.formats.bsa.BsaFormat.BZString.write
+pyffi.formats.bsa.BsaFormat.FileVersion.write
+pyffi.formats.bsa.BsaFormat.Header.write
+pyffi.formats.cgf.CgfFormat.Data.write
+pyffi.formats.cgf.CgfFormat.FileSignature.write
+pyffi.formats.cgf.CgfFormat.Ref.write
+pyffi.formats.dds.DdsFormat.Data.write
+pyffi.formats.dds.DdsFormat.HeaderString.write
+pyffi.formats.egm.EgmFormat.Data.write
+pyffi.formats.egm.EgmFormat.FileSignature.write
+pyffi.formats.egm.EgmFormat.FileVersion.write
+pyffi.formats.egt.EgtFormat.FileSignature.write
+pyffi.formats.egt.EgtFormat.FileVersion.write
+pyffi.formats.egt.EgtFormat.Header.write
+pyffi.formats.esp.EspFormat.Data.write
+pyffi.formats.esp.EspFormat.GRUP.write
+pyffi.formats.esp.EspFormat.Record.write
+pyffi.formats.kfm.KfmFormat.Header.write
+pyffi.formats.kfm.KfmFormat.HeaderString.write
+pyffi.formats.nif.NifFormat.ByteArray.write
+pyffi.formats.nif.NifFormat.ByteMatrix.write
+pyffi.formats.nif.NifFormat.Data.write
+pyffi.formats.nif.NifFormat.FileVersion.write
+pyffi.formats.nif.NifFormat.Footer.write
+pyffi.formats.nif.NifFormat.HeaderString.write
+pyffi.formats.nif.NifFormat.LineString.write
+pyffi.formats.nif.NifFormat.Ref.write
+pyffi.formats.nif.NifFormat.ShortString.write
+pyffi.formats.nif.NifFormat.bool.write
+pyffi.formats.nif.NifFormat.string.write
+pyffi.formats.rockstar.dir_.DirFormat.Data.write
+pyffi.formats.tga.TgaFormat.Data.write
+pyffi.formats.tga.TgaFormat.FooterString.write
+pyffi.formats.tga.TgaFormat.Image.write
+pyffi.formats.tri.TriFormat.FileSignature.write
+pyffi.formats.tri.TriFormat.FileVersion.write
+pyffi.formats.tri.TriFormat.Header.write
+pyffi.formats.tri.TriFormat.SizedStringZ.write
+pyffi.object_models.ArchiveFileFormat.Data.write
+pyffi.object_models.FileFormat.Data.write
+pyffi.object_models.any_type.AnyType.write
+pyffi.object_models.binary_type.CharType.write
+pyffi.object_models.binary_type.FixedString.write
+pyffi.object_models.binary_type.Float.write
+pyffi.object_models.binary_type.IntType.write
+pyffi.object_models.binary_type.SizedString.write
+pyffi.object_models.binary_type.UndecodedData.write
+pyffi.object_models.binary_type.ZString.write
+pyffi.object_models.common.Char.write
+pyffi.object_models.common.FixedString.write
+pyffi.object_models.common.Float.write
+pyffi.object_models.common.Int.write
+pyffi.object_models.common.SizedString.write
+pyffi.object_models.common.ULittle32.write
+pyffi.object_models.common.UndecodedData.write
+pyffi.object_models.common.ZString.write
+pyffi.object_models.xml.array.Array.write
+pyffi.object_models.xml.basic.BasicBase.write
+pyffi.object_models.xml.bit_struct.BitStructBase.write
+pyffi.object_models.xml.enum.EnumBase.write
+pyffi.object_models.xml.struct_.StructBase.write
+pyffi.spells.Toaster.write" class="py-name" href="#" onclick="return doclink('link-8', 'write', 'link-8');">write</a></tt><tt class="py-op">(</tt><tt class="py-string">"%i\n"</tt> <tt class="py-op">%</tt> <tt class="py-name">len</tt><tt class="py-op">(</tt><tt id="link-9" class="py-name" targets="Variable pyffi.formats.cgf.CgfFormat.PhysicsPolyhedron.vertices=pyffi.formats.cgf.CgfFormat.PhysicsPolyhedron-class.html#vertices,Variable pyffi.formats.cgf.CgfFormat._DataStreamChunk.vertices=pyffi.formats.cgf.CgfFormat._DataStreamChunk-class.html#vertices,Variable pyffi.formats.cgf.CgfFormat._MeshChunk.vertices=pyffi.formats.cgf.CgfFormat._MeshChunk-class.html#vertices,Variable pyffi.formats.egm.EgmFormat._MorphRecord.vertices=pyffi.formats.egm.EgmFormat._MorphRecord-class.html#vertices,Variable pyffi.formats.nif.NifFormat.NiPhysXMeshDesc.vertices=pyffi.formats.nif.NifFormat.NiPhysXMeshDesc-class.html#vertices,Variable pyffi.formats.nif.NifFormat.NiPortal.vertices=pyffi.formats.nif.NifFormat.NiPortal-class.html#vertices,Variable pyffi.formats.nif.NifFormat._NiGeometryData.vertices=pyffi.formats.nif.NifFormat._NiGeometryData-class.html#vertices,Variable pyffi.formats.nif.NifFormat._bhkConvexVerticesShape.vertices=pyffi.formats.nif.NifFormat._bhkConvexVerticesShape-class.html#vertices,Variable pyffi.formats.nif.NifFormat._hkPackedNiTriStripsData.vertices=pyffi.formats.nif.NifFormat._hkPackedNiTriStripsData-class.html#vertices,Variable pyffi.formats.tri.TriFormat._Header.vertices=pyffi.formats.tri.TriFormat._Header-class.html#vertices,Variable pyffi.formats.tri.TriFormat._MorphRecord.vertices=pyffi.formats.tri.TriFormat._MorphRecord-class.html#vertices"><a title="pyffi.formats.cgf.CgfFormat.PhysicsPolyhedron.vertices
+pyffi.formats.cgf.CgfFormat._DataStreamChunk.vertices
+pyffi.formats.cgf.CgfFormat._MeshChunk.vertices
+pyffi.formats.egm.EgmFormat._MorphRecord.vertices
+pyffi.formats.nif.NifFormat.NiPhysXMeshDesc.vertices
+pyffi.formats.nif.NifFormat.NiPortal.vertices
+pyffi.formats.nif.NifFormat._NiGeometryData.vertices
+pyffi.formats.nif.NifFormat._bhkConvexVerticesShape.vertices
+pyffi.formats.nif.NifFormat._hkPackedNiTriStripsData.vertices
+pyffi.formats.tri.TriFormat._Header.vertices
+pyffi.formats.tri.TriFormat._MorphRecord.vertices" class="py-name" href="#" onclick="return doclink('link-9', 'vertices', 'link-9');">vertices</a></tt><tt class="py-op">)</tt><tt class="py-op">)</tt> </tt>
+<a name="L161"></a><tt class="py-lineno">161</tt>  <tt class="py-line">        <tt class="py-keyword">for</tt> <tt class="py-name">vert</tt> <tt class="py-keyword">in</tt> <tt id="link-10" class="py-name"><a title="pyffi.formats.cgf.CgfFormat.PhysicsPolyhedron.vertices
+pyffi.formats.cgf.CgfFormat._DataStreamChunk.vertices
+pyffi.formats.cgf.CgfFormat._MeshChunk.vertices
+pyffi.formats.egm.EgmFormat._MorphRecord.vertices
+pyffi.formats.nif.NifFormat.NiPhysXMeshDesc.vertices
+pyffi.formats.nif.NifFormat.NiPortal.vertices
+pyffi.formats.nif.NifFormat._NiGeometryData.vertices
+pyffi.formats.nif.NifFormat._bhkConvexVerticesShape.vertices
+pyffi.formats.nif.NifFormat._hkPackedNiTriStripsData.vertices
+pyffi.formats.tri.TriFormat._Header.vertices
+pyffi.formats.tri.TriFormat._MorphRecord.vertices" class="py-name" href="#" onclick="return doclink('link-10', 'vertices', 'link-9');">vertices</a></tt><tt class="py-op">:</tt> </tt>
+<a name="L162"></a><tt class="py-lineno">162</tt>  <tt class="py-line">            <tt class="py-name">infile</tt><tt class="py-op">.</tt><tt id="link-11" class="py-name"><a title="pyffi.formats.bsa.BsaFormat.BZString.write
+pyffi.formats.bsa.BsaFormat.FileVersion.write
+pyffi.formats.bsa.BsaFormat.Header.write
+pyffi.formats.cgf.CgfFormat.Data.write
+pyffi.formats.cgf.CgfFormat.FileSignature.write
+pyffi.formats.cgf.CgfFormat.Ref.write
+pyffi.formats.dds.DdsFormat.Data.write
+pyffi.formats.dds.DdsFormat.HeaderString.write
+pyffi.formats.egm.EgmFormat.Data.write
+pyffi.formats.egm.EgmFormat.FileSignature.write
+pyffi.formats.egm.EgmFormat.FileVersion.write
+pyffi.formats.egt.EgtFormat.FileSignature.write
+pyffi.formats.egt.EgtFormat.FileVersion.write
+pyffi.formats.egt.EgtFormat.Header.write
+pyffi.formats.esp.EspFormat.Data.write
+pyffi.formats.esp.EspFormat.GRUP.write
+pyffi.formats.esp.EspFormat.Record.write
+pyffi.formats.kfm.KfmFormat.Header.write
+pyffi.formats.kfm.KfmFormat.HeaderString.write
+pyffi.formats.nif.NifFormat.ByteArray.write
+pyffi.formats.nif.NifFormat.ByteMatrix.write
+pyffi.formats.nif.NifFormat.Data.write
+pyffi.formats.nif.NifFormat.FileVersion.write
+pyffi.formats.nif.NifFormat.Footer.write
+pyffi.formats.nif.NifFormat.HeaderString.write
+pyffi.formats.nif.NifFormat.LineString.write
+pyffi.formats.nif.NifFormat.Ref.write
+pyffi.formats.nif.NifFormat.ShortString.write
+pyffi.formats.nif.NifFormat.bool.write
+pyffi.formats.nif.NifFormat.string.write
+pyffi.formats.rockstar.dir_.DirFormat.Data.write
+pyffi.formats.tga.TgaFormat.Data.write
+pyffi.formats.tga.TgaFormat.FooterString.write
+pyffi.formats.tga.TgaFormat.Image.write
+pyffi.formats.tri.TriFormat.FileSignature.write
+pyffi.formats.tri.TriFormat.FileVersion.write
+pyffi.formats.tri.TriFormat.Header.write
+pyffi.formats.tri.TriFormat.SizedStringZ.write
+pyffi.object_models.ArchiveFileFormat.Data.write
+pyffi.object_models.FileFormat.Data.write
+pyffi.object_models.any_type.AnyType.write
+pyffi.object_models.binary_type.CharType.write
+pyffi.object_models.binary_type.FixedString.write
+pyffi.object_models.binary_type.Float.write
+pyffi.object_models.binary_type.IntType.write
+pyffi.object_models.binary_type.SizedString.write
+pyffi.object_models.binary_type.UndecodedData.write
+pyffi.object_models.binary_type.ZString.write
+pyffi.object_models.common.Char.write
+pyffi.object_models.common.FixedString.write
+pyffi.object_models.common.Float.write
+pyffi.object_models.common.Int.write
+pyffi.object_models.common.SizedString.write
+pyffi.object_models.common.ULittle32.write
+pyffi.object_models.common.UndecodedData.write
+pyffi.object_models.common.ZString.write
+pyffi.object_models.xml.array.Array.write
+pyffi.object_models.xml.basic.BasicBase.write
+pyffi.object_models.xml.bit_struct.BitStructBase.write
+pyffi.object_models.xml.enum.EnumBase.write
+pyffi.object_models.xml.struct_.StructBase.write
+pyffi.spells.Toaster.write" class="py-name" href="#" onclick="return doclink('link-11', 'write', 'link-8');">write</a></tt><tt class="py-op">(</tt><tt class="py-string">"%f %f %f\n"</tt> <tt class="py-op">%</tt> <tt class="py-name">vert</tt><tt class="py-op">)</tt> </tt>
+<a name="L163"></a><tt class="py-lineno">163</tt>  <tt class="py-line">        <tt class="py-name">infile</tt><tt class="py-op">.</tt><tt id="link-12" class="py-name"><a title="pyffi.formats.bsa.BsaFormat.BZString.write
+pyffi.formats.bsa.BsaFormat.FileVersion.write
+pyffi.formats.bsa.BsaFormat.Header.write
+pyffi.formats.cgf.CgfFormat.Data.write
+pyffi.formats.cgf.CgfFormat.FileSignature.write
+pyffi.formats.cgf.CgfFormat.Ref.write
+pyffi.formats.dds.DdsFormat.Data.write
+pyffi.formats.dds.DdsFormat.HeaderString.write
+pyffi.formats.egm.EgmFormat.Data.write
+pyffi.formats.egm.EgmFormat.FileSignature.write
+pyffi.formats.egm.EgmFormat.FileVersion.write
+pyffi.formats.egt.EgtFormat.FileSignature.write
+pyffi.formats.egt.EgtFormat.FileVersion.write
+pyffi.formats.egt.EgtFormat.Header.write
+pyffi.formats.esp.EspFormat.Data.write
+pyffi.formats.esp.EspFormat.GRUP.write
+pyffi.formats.esp.EspFormat.Record.write
+pyffi.formats.kfm.KfmFormat.Header.write
+pyffi.formats.kfm.KfmFormat.HeaderString.write
+pyffi.formats.nif.NifFormat.ByteArray.write
+pyffi.formats.nif.NifFormat.ByteMatrix.write
+pyffi.formats.nif.NifFormat.Data.write
+pyffi.formats.nif.NifFormat.FileVersion.write
+pyffi.formats.nif.NifFormat.Footer.write
+pyffi.formats.nif.NifFormat.HeaderString.write
+pyffi.formats.nif.NifFormat.LineString.write
+pyffi.formats.nif.NifFormat.Ref.write
+pyffi.formats.nif.NifFormat.ShortString.write
+pyffi.formats.nif.NifFormat.bool.write
+pyffi.formats.nif.NifFormat.string.write
+pyffi.formats.rockstar.dir_.DirFormat.Data.write
+pyffi.formats.tga.TgaFormat.Data.write
+pyffi.formats.tga.TgaFormat.FooterString.write
+pyffi.formats.tga.TgaFormat.Image.write
+pyffi.formats.tri.TriFormat.FileSignature.write
+pyffi.formats.tri.TriFormat.FileVersion.write
+pyffi.formats.tri.TriFormat.Header.write
+pyffi.formats.tri.TriFormat.SizedStringZ.write
+pyffi.object_models.ArchiveFileFormat.Data.write
+pyffi.object_models.FileFormat.Data.write
+pyffi.object_models.any_type.AnyType.write
+pyffi.object_models.binary_type.CharType.write
+pyffi.object_models.binary_type.FixedString.write
+pyffi.object_models.binary_type.Float.write
+pyffi.object_models.binary_type.IntType.write
+pyffi.object_models.binary_type.SizedString.write
+pyffi.object_models.binary_type.UndecodedData.write
+pyffi.object_models.binary_type.ZString.write
+pyffi.object_models.common.Char.write
+pyffi.object_models.common.FixedString.write
+pyffi.object_models.common.Float.write
+pyffi.object_models.common.Int.write
+pyffi.object_models.common.SizedString.write
+pyffi.object_models.common.ULittle32.write
+pyffi.object_models.common.UndecodedData.write
+pyffi.object_models.common.ZString.write
+pyffi.object_models.xml.array.Array.write
+pyffi.object_models.xml.basic.BasicBase.write
+pyffi.object_models.xml.bit_struct.BitStructBase.write
+pyffi.object_models.xml.enum.EnumBase.write
+pyffi.object_models.xml.struct_.StructBase.write
+pyffi.spells.Toaster.write" class="py-name" href="#" onclick="return doclink('link-12', 'write', 'link-8');">write</a></tt><tt class="py-op">(</tt><tt class="py-string">"\n%i\n"</tt> <tt class="py-op">%</tt> <tt class="py-name">len</tt><tt class="py-op">(</tt><tt id="link-13" class="py-name" targets="Variable pyffi.formats.cgf.CgfFormat.PhysicsPolyhedron.triangles=pyffi.formats.cgf.CgfFormat.PhysicsPolyhedron-class.html#triangles,Variable pyffi.formats.nif.NifFormat._NiTriShapeData.triangles=pyffi.formats.nif.NifFormat._NiTriShapeData-class.html#triangles,Variable pyffi.formats.nif.NifFormat._SkinPartition.triangles=pyffi.formats.nif.NifFormat._SkinPartition-class.html#triangles,Variable pyffi.formats.nif.NifFormat._hkPackedNiTriStripsData.triangles=pyffi.formats.nif.NifFormat._hkPackedNiTriStripsData-class.html#triangles"><a title="pyffi.formats.cgf.CgfFormat.PhysicsPolyhedron.triangles
+pyffi.formats.nif.NifFormat._NiTriShapeData.triangles
+pyffi.formats.nif.NifFormat._SkinPartition.triangles
+pyffi.formats.nif.NifFormat._hkPackedNiTriStripsData.triangles" class="py-name" href="#" onclick="return doclink('link-13', 'triangles', 'link-13');">triangles</a></tt><tt class="py-op">)</tt><tt class="py-op">)</tt> </tt>
+<a name="L164"></a><tt class="py-lineno">164</tt>  <tt class="py-line">        <tt class="py-keyword">for</tt> <tt id="link-14" class="py-name" targets="Package pyffi.formats.tri=pyffi.formats.tri-module.html"><a title="pyffi.formats.tri" class="py-name" href="#" onclick="return doclink('link-14', 'tri', 'link-14');">tri</a></tt> <tt class="py-keyword">in</tt> <tt id="link-15" class="py-name"><a title="pyffi.formats.cgf.CgfFormat.PhysicsPolyhedron.triangles
+pyffi.formats.nif.NifFormat._NiTriShapeData.triangles
+pyffi.formats.nif.NifFormat._SkinPartition.triangles
+pyffi.formats.nif.NifFormat._hkPackedNiTriStripsData.triangles" class="py-name" href="#" onclick="return doclink('link-15', 'triangles', 'link-13');">triangles</a></tt><tt class="py-op">:</tt> </tt>
+<a name="L165"></a><tt class="py-lineno">165</tt>  <tt class="py-line">            <tt class="py-name">infile</tt><tt class="py-op">.</tt><tt id="link-16" class="py-name"><a title="pyffi.formats.bsa.BsaFormat.BZString.write
+pyffi.formats.bsa.BsaFormat.FileVersion.write
+pyffi.formats.bsa.BsaFormat.Header.write
+pyffi.formats.cgf.CgfFormat.Data.write
+pyffi.formats.cgf.CgfFormat.FileSignature.write
+pyffi.formats.cgf.CgfFormat.Ref.write
+pyffi.formats.dds.DdsFormat.Data.write
+pyffi.formats.dds.DdsFormat.HeaderString.write
+pyffi.formats.egm.EgmFormat.Data.write
+pyffi.formats.egm.EgmFormat.FileSignature.write
+pyffi.formats.egm.EgmFormat.FileVersion.write
+pyffi.formats.egt.EgtFormat.FileSignature.write
+pyffi.formats.egt.EgtFormat.FileVersion.write
+pyffi.formats.egt.EgtFormat.Header.write
+pyffi.formats.esp.EspFormat.Data.write
+pyffi.formats.esp.EspFormat.GRUP.write
+pyffi.formats.esp.EspFormat.Record.write
+pyffi.formats.kfm.KfmFormat.Header.write
+pyffi.formats.kfm.KfmFormat.HeaderString.write
+pyffi.formats.nif.NifFormat.ByteArray.write
+pyffi.formats.nif.NifFormat.ByteMatrix.write
+pyffi.formats.nif.NifFormat.Data.write
+pyffi.formats.nif.NifFormat.FileVersion.write
+pyffi.formats.nif.NifFormat.Footer.write
+pyffi.formats.nif.NifFormat.HeaderString.write
+pyffi.formats.nif.NifFormat.LineString.write
+pyffi.formats.nif.NifFormat.Ref.write
+pyffi.formats.nif.NifFormat.ShortString.write
+pyffi.formats.nif.NifFormat.bool.write
+pyffi.formats.nif.NifFormat.string.write
+pyffi.formats.rockstar.dir_.DirFormat.Data.write
+pyffi.formats.tga.TgaFormat.Data.write
+pyffi.formats.tga.TgaFormat.FooterString.write
+pyffi.formats.tga.TgaFormat.Image.write
+pyffi.formats.tri.TriFormat.FileSignature.write
+pyffi.formats.tri.TriFormat.FileVersion.write
+pyffi.formats.tri.TriFormat.Header.write
+pyffi.formats.tri.TriFormat.SizedStringZ.write
+pyffi.object_models.ArchiveFileFormat.Data.write
+pyffi.object_models.FileFormat.Data.write
+pyffi.object_models.any_type.AnyType.write
+pyffi.object_models.binary_type.CharType.write
+pyffi.object_models.binary_type.FixedString.write
+pyffi.object_models.binary_type.Float.write
+pyffi.object_models.binary_type.IntType.write
+pyffi.object_models.binary_type.SizedString.write
+pyffi.object_models.binary_type.UndecodedData.write
+pyffi.object_models.binary_type.ZString.write
+pyffi.object_models.common.Char.write
+pyffi.object_models.common.FixedString.write
+pyffi.object_models.common.Float.write
+pyffi.object_models.common.Int.write
+pyffi.object_models.common.SizedString.write
+pyffi.object_models.common.ULittle32.write
+pyffi.object_models.common.UndecodedData.write
+pyffi.object_models.common.ZString.write
+pyffi.object_models.xml.array.Array.write
+pyffi.object_models.xml.basic.BasicBase.write
+pyffi.object_models.xml.bit_struct.BitStructBase.write
+pyffi.object_models.xml.enum.EnumBase.write
+pyffi.object_models.xml.struct_.StructBase.write
+pyffi.spells.Toaster.write" class="py-name" href="#" onclick="return doclink('link-16', 'write', 'link-8');">write</a></tt><tt class="py-op">(</tt><tt class="py-string">"%i %i %i\n"</tt> <tt class="py-op">%</tt> <tt id="link-17" class="py-name"><a title="pyffi.formats.tri" class="py-name" href="#" onclick="return doclink('link-17', 'tri', 'link-14');">tri</a></tt><tt class="py-op">)</tt> </tt>
+<a name="L166"></a><tt class="py-lineno">166</tt>  <tt class="py-line">        <tt class="py-name">infile</tt><tt class="py-op">.</tt><tt id="link-18" class="py-name"><a title="pyffi.formats.bsa.BsaFormat.BZString.write
+pyffi.formats.bsa.BsaFormat.FileVersion.write
+pyffi.formats.bsa.BsaFormat.Header.write
+pyffi.formats.cgf.CgfFormat.Data.write
+pyffi.formats.cgf.CgfFormat.FileSignature.write
+pyffi.formats.cgf.CgfFormat.Ref.write
+pyffi.formats.dds.DdsFormat.Data.write
+pyffi.formats.dds.DdsFormat.HeaderString.write
+pyffi.formats.egm.EgmFormat.Data.write
+pyffi.formats.egm.EgmFormat.FileSignature.write
+pyffi.formats.egm.EgmFormat.FileVersion.write
+pyffi.formats.egt.EgtFormat.FileSignature.write
+pyffi.formats.egt.EgtFormat.FileVersion.write
+pyffi.formats.egt.EgtFormat.Header.write
+pyffi.formats.esp.EspFormat.Data.write
+pyffi.formats.esp.EspFormat.GRUP.write
+pyffi.formats.esp.EspFormat.Record.write
+pyffi.formats.kfm.KfmFormat.Header.write
+pyffi.formats.kfm.KfmFormat.HeaderString.write
+pyffi.formats.nif.NifFormat.ByteArray.write
+pyffi.formats.nif.NifFormat.ByteMatrix.write
+pyffi.formats.nif.NifFormat.Data.write
+pyffi.formats.nif.NifFormat.FileVersion.write
+pyffi.formats.nif.NifFormat.Footer.write
+pyffi.formats.nif.NifFormat.HeaderString.write
+pyffi.formats.nif.NifFormat.LineString.write
+pyffi.formats.nif.NifFormat.Ref.write
+pyffi.formats.nif.NifFormat.ShortString.write
+pyffi.formats.nif.NifFormat.bool.write
+pyffi.formats.nif.NifFormat.string.write
+pyffi.formats.rockstar.dir_.DirFormat.Data.write
+pyffi.formats.tga.TgaFormat.Data.write
+pyffi.formats.tga.TgaFormat.FooterString.write
+pyffi.formats.tga.TgaFormat.Image.write
+pyffi.formats.tri.TriFormat.FileSignature.write
+pyffi.formats.tri.TriFormat.FileVersion.write
+pyffi.formats.tri.TriFormat.Header.write
+pyffi.formats.tri.TriFormat.SizedStringZ.write
+pyffi.object_models.ArchiveFileFormat.Data.write
+pyffi.object_models.FileFormat.Data.write
+pyffi.object_models.any_type.AnyType.write
+pyffi.object_models.binary_type.CharType.write
+pyffi.object_models.binary_type.FixedString.write
+pyffi.object_models.binary_type.Float.write
+pyffi.object_models.binary_type.IntType.write
+pyffi.object_models.binary_type.SizedString.write
+pyffi.object_models.binary_type.UndecodedData.write
+pyffi.object_models.binary_type.ZString.write
+pyffi.object_models.common.Char.write
+pyffi.object_models.common.FixedString.write
+pyffi.object_models.common.Float.write
+pyffi.object_models.common.Int.write
+pyffi.object_models.common.SizedString.write
+pyffi.object_models.common.ULittle32.write
+pyffi.object_models.common.UndecodedData.write
+pyffi.object_models.common.ZString.write
+pyffi.object_models.xml.array.Array.write
+pyffi.object_models.xml.basic.BasicBase.write
+pyffi.object_models.xml.bit_struct.BitStructBase.write
+pyffi.object_models.xml.enum.EnumBase.write
+pyffi.object_models.xml.struct_.StructBase.write
+pyffi.spells.Toaster.write" class="py-name" href="#" onclick="return doclink('link-18', 'write', 'link-8');">write</a></tt><tt class="py-op">(</tt><tt class="py-string">"\n%i\n"</tt> <tt class="py-op">%</tt> <tt class="py-name">len</tt><tt class="py-op">(</tt><tt class="py-name">material_indices</tt><tt class="py-op">)</tt><tt class="py-op">)</tt> </tt>
+<a name="L167"></a><tt class="py-lineno">167</tt>  <tt class="py-line">        <tt class="py-keyword">for</tt> <tt class="py-name">matindex</tt> <tt class="py-keyword">in</tt> <tt class="py-name">material_indices</tt><tt class="py-op">:</tt> </tt>
+<a name="L168"></a><tt class="py-lineno">168</tt>  <tt class="py-line">            <tt class="py-name">infile</tt><tt class="py-op">.</tt><tt id="link-19" class="py-name"><a title="pyffi.formats.bsa.BsaFormat.BZString.write
+pyffi.formats.bsa.BsaFormat.FileVersion.write
+pyffi.formats.bsa.BsaFormat.Header.write
+pyffi.formats.cgf.CgfFormat.Data.write
+pyffi.formats.cgf.CgfFormat.FileSignature.write
+pyffi.formats.cgf.CgfFormat.Ref.write
+pyffi.formats.dds.DdsFormat.Data.write
+pyffi.formats.dds.DdsFormat.HeaderString.write
+pyffi.formats.egm.EgmFormat.Data.write
+pyffi.formats.egm.EgmFormat.FileSignature.write
+pyffi.formats.egm.EgmFormat.FileVersion.write
+pyffi.formats.egt.EgtFormat.FileSignature.write
+pyffi.formats.egt.EgtFormat.FileVersion.write
+pyffi.formats.egt.EgtFormat.Header.write
+pyffi.formats.esp.EspFormat.Data.write
+pyffi.formats.esp.EspFormat.GRUP.write
+pyffi.formats.esp.EspFormat.Record.write
+pyffi.formats.kfm.KfmFormat.Header.write
+pyffi.formats.kfm.KfmFormat.HeaderString.write
+pyffi.formats.nif.NifFormat.ByteArray.write
+pyffi.formats.nif.NifFormat.ByteMatrix.write
+pyffi.formats.nif.NifFormat.Data.write
+pyffi.formats.nif.NifFormat.FileVersion.write
+pyffi.formats.nif.NifFormat.Footer.write
+pyffi.formats.nif.NifFormat.HeaderString.write
+pyffi.formats.nif.NifFormat.LineString.write
+pyffi.formats.nif.NifFormat.Ref.write
+pyffi.formats.nif.NifFormat.ShortString.write
+pyffi.formats.nif.NifFormat.bool.write
+pyffi.formats.nif.NifFormat.string.write
+pyffi.formats.rockstar.dir_.DirFormat.Data.write
+pyffi.formats.tga.TgaFormat.Data.write
+pyffi.formats.tga.TgaFormat.FooterString.write
+pyffi.formats.tga.TgaFormat.Image.write
+pyffi.formats.tri.TriFormat.FileSignature.write
+pyffi.formats.tri.TriFormat.FileVersion.write
+pyffi.formats.tri.TriFormat.Header.write
+pyffi.formats.tri.TriFormat.SizedStringZ.write
+pyffi.object_models.ArchiveFileFormat.Data.write
+pyffi.object_models.FileFormat.Data.write
+pyffi.object_models.any_type.AnyType.write
+pyffi.object_models.binary_type.CharType.write
+pyffi.object_models.binary_type.FixedString.write
+pyffi.object_models.binary_type.Float.write
+pyffi.object_models.binary_type.IntType.write
+pyffi.object_models.binary_type.SizedString.write
+pyffi.object_models.binary_type.UndecodedData.write
+pyffi.object_models.binary_type.ZString.write
+pyffi.object_models.common.Char.write
+pyffi.object_models.common.FixedString.write
+pyffi.object_models.common.Float.write
+pyffi.object_models.common.Int.write
+pyffi.object_models.common.SizedString.write
+pyffi.object_models.common.ULittle32.write
+pyffi.object_models.common.UndecodedData.write
+pyffi.object_models.common.ZString.write
+pyffi.object_models.xml.array.Array.write
+pyffi.object_models.xml.basic.BasicBase.write
+pyffi.object_models.xml.bit_struct.BitStructBase.write
+pyffi.object_models.xml.enum.EnumBase.write
+pyffi.object_models.xml.struct_.StructBase.write
+pyffi.spells.Toaster.write" class="py-name" href="#" onclick="return doclink('link-19', 'write', 'link-8');">write</a></tt><tt class="py-op">(</tt><tt class="py-string">"%i\n"</tt> <tt class="py-op">%</tt> <tt class="py-name">matindex</tt><tt class="py-op">)</tt> </tt>
+<a name="L169"></a><tt class="py-lineno">169</tt>  <tt class="py-line">        <tt class="py-name">infile</tt><tt class="py-op">.</tt><tt class="py-name">seek</tt><tt class="py-op">(</tt><tt class="py-number">0</tt><tt class="py-op">)</tt> </tt>
+<a name="L170"></a><tt class="py-lineno">170</tt>  <tt class="py-line">        <tt class="py-comment"># call mopper (raises OSError on failure)</tt> </tt>
+<a name="L171"></a><tt class="py-lineno">171</tt>  <tt class="py-line">        <tt class="py-keyword">if</tt> <tt class="py-name">sys</tt><tt class="py-op">.</tt><tt class="py-name">platform</tt> <tt class="py-op">==</tt> <tt class="py-string">"win32"</tt><tt class="py-op">:</tt> </tt>
+<a name="L172"></a><tt class="py-lineno">172</tt>  <tt class="py-line">            <tt class="py-name">subprocess</tt><tt class="py-op">.</tt><tt class="py-name">call</tt><tt class="py-op">(</tt><tt class="py-op">[</tt><tt class="py-name">mopper</tt><tt class="py-op">,</tt> <tt class="py-string">"--"</tt><tt class="py-op">]</tt><tt class="py-op">,</tt> <tt class="py-name">stdin</tt><tt class="py-op">=</tt><tt class="py-name">infile</tt><tt class="py-op">,</tt> <tt class="py-name">stdout</tt><tt class="py-op">=</tt><tt class="py-name">outfile</tt><tt class="py-op">)</tt> </tt>
+<a name="L173"></a><tt class="py-lineno">173</tt>  <tt class="py-line">        <tt class="py-keyword">else</tt><tt class="py-op">:</tt> </tt>
+<a name="L174"></a><tt class="py-lineno">174</tt>  <tt class="py-line">            <tt class="py-name">subprocess</tt><tt class="py-op">.</tt><tt class="py-name">call</tt><tt class="py-op">(</tt><tt class="py-op">[</tt><tt class="py-string">"wine"</tt><tt class="py-op">,</tt> <tt class="py-name">mopper</tt><tt class="py-op">,</tt> <tt class="py-string">"--"</tt><tt class="py-op">]</tt><tt class="py-op">,</tt> <tt class="py-name">stdin</tt><tt class="py-op">=</tt><tt class="py-name">infile</tt><tt class="py-op">,</tt> <tt class="py-name">stdout</tt><tt class="py-op">=</tt><tt class="py-name">outfile</tt><tt class="py-op">)</tt> </tt>
+<a name="L175"></a><tt class="py-lineno">175</tt>  <tt class="py-line">        <tt class="py-comment"># process output</tt> </tt>
+<a name="L176"></a><tt class="py-lineno">176</tt>  <tt class="py-line">        <tt class="py-name">outfile</tt><tt class="py-op">.</tt><tt class="py-name">seek</tt><tt class="py-op">(</tt><tt class="py-number">0</tt><tt class="py-op">)</tt> </tt>
+<a name="L177"></a><tt class="py-lineno">177</tt>  <tt class="py-line">        <tt id="link-20" class="py-name"><a title="pyffi.utils.mopp._skip_terminal_chars" class="py-name" href="#" onclick="return doclink('link-20', '_skip_terminal_chars', 'link-4');">_skip_terminal_chars</a></tt><tt class="py-op">(</tt><tt class="py-name">outfile</tt><tt class="py-op">)</tt> </tt>
+<a name="L178"></a><tt class="py-lineno">178</tt>  <tt class="py-line">        <tt class="py-keyword">try</tt><tt class="py-op">:</tt> </tt>
+<a name="L179"></a><tt class="py-lineno">179</tt>  <tt class="py-line">            <tt id="link-21" class="py-name" targets="Variable pyffi.formats.nif.NifFormat.CapsuleBV.origin=pyffi.formats.nif.NifFormat.CapsuleBV-class.html#origin,Variable pyffi.formats.nif.NifFormat._bhkMoppBvTreeShape.origin=pyffi.formats.nif.NifFormat._bhkMoppBvTreeShape-class.html#origin"><a title="pyffi.formats.nif.NifFormat.CapsuleBV.origin
+pyffi.formats.nif.NifFormat._bhkMoppBvTreeShape.origin" class="py-name" href="#" onclick="return doclink('link-21', 'origin', 'link-21');">origin</a></tt> <tt class="py-op">=</tt> <tt class="py-name">tuple</tt><tt class="py-op">(</tt><tt class="py-name">float</tt><tt class="py-op">(</tt><tt class="py-name">outfile</tt><tt class="py-op">.</tt><tt class="py-name">readline</tt><tt class="py-op">(</tt><tt class="py-op">)</tt><tt class="py-op">)</tt> <tt class="py-keyword">for</tt> <tt class="py-name">i</tt> <tt class="py-keyword">in</tt> <tt class="py-name">xrange</tt><tt class="py-op">(</tt><tt class="py-number">3</tt><tt class="py-op">)</tt><tt class="py-op">)</tt> </tt>
+<a name="L180"></a><tt class="py-lineno">180</tt>  <tt class="py-line">            <tt id="link-22" class="py-name" targets="Variable pyffi.formats.egm.EgmFormat._MorphRecord.scale=pyffi.formats.egm.EgmFormat._MorphRecord-class.html#scale,Variable pyffi.formats.nif.NifFormat.NiLookAtInterpolator.scale=pyffi.formats.nif.NifFormat.NiLookAtInterpolator-class.html#scale,Variable pyffi.formats.nif.NifFormat.SkinTransform.scale=pyffi.formats.nif.NifFormat.SkinTransform-class.html#scale,Variable pyffi.formats.nif.NifFormat._NiAVObject.scale=pyffi.formats.nif.NifFormat._NiAVObject-class.html#scale,Variable pyffi.formats.nif.NifFormat._NiBSplineTransformInterpolator.scale=pyffi.formats.nif.NifFormat._NiBSplineTransformInterpolator-class.html#scale,Variable pyffi.formats.nif.NifFormat._NiSkinData.scale=pyffi.formats.nif.NifFormat._NiSkinData-class.html#scale,Variable pyffi.formats.nif.NifFormat._NiTransformInterpolator.scale=pyffi.formats.nif.NifFormat._NiTransformInterpolator-class.html#scale,Variable pyffi.formats.nif.NifFormat._SkinData.scale=pyffi.formats.nif.NifFormat._SkinData-class.html#scale,Variable pyffi.formats.nif.NifFormat._bhkMoppBvTreeShape.scale=pyffi.formats.nif.NifFormat._bhkMoppBvTreeShape-class.html#scale,Variable pyffi.formats.nif.NifFormat._bhkNiTriStripsShape.scale=pyffi.formats.nif.NifFormat._bhkNiTriStripsShape-class.html#scale,Variable pyffi.formats.nif.NifFormat._bhkPackedNiTriStripsShape.scale=pyffi.formats.nif.NifFormat._bhkPackedNiTriStripsShape-class.html#scale,Variable pyffi.formats.tri.TriFormat._MorphRecord.scale=pyffi.formats.tri.TriFormat._MorphRecord-class.html#scale"><a title="pyffi.formats.egm.EgmFormat._MorphRecord.scale
+pyffi.formats.nif.NifFormat.NiLookAtInterpolator.scale
+pyffi.formats.nif.NifFormat.SkinTransform.scale
+pyffi.formats.nif.NifFormat._NiAVObject.scale
+pyffi.formats.nif.NifFormat._NiBSplineTransformInterpolator.scale
+pyffi.formats.nif.NifFormat._NiSkinData.scale
+pyffi.formats.nif.NifFormat._NiTransformInterpolator.scale
+pyffi.formats.nif.NifFormat._SkinData.scale
+pyffi.formats.nif.NifFormat._bhkMoppBvTreeShape.scale
+pyffi.formats.nif.NifFormat._bhkNiTriStripsShape.scale
+pyffi.formats.nif.NifFormat._bhkPackedNiTriStripsShape.scale
+pyffi.formats.tri.TriFormat._MorphRecord.scale" class="py-name" href="#" onclick="return doclink('link-22', 'scale', 'link-22');">scale</a></tt> <tt class="py-op">=</tt> <tt class="py-name">float</tt><tt class="py-op">(</tt><tt class="py-name">outfile</tt><tt class="py-op">.</tt><tt class="py-name">readline</tt><tt class="py-op">(</tt><tt class="py-op">)</tt><tt class="py-op">)</tt> </tt>
+<a name="L181"></a><tt class="py-lineno">181</tt>  <tt class="py-line">            <tt class="py-name">moppcodelen</tt> <tt class="py-op">=</tt> <tt class="py-name">int</tt><tt class="py-op">(</tt><tt class="py-name">outfile</tt><tt class="py-op">.</tt><tt class="py-name">readline</tt><tt class="py-op">(</tt><tt class="py-op">)</tt><tt class="py-op">)</tt> </tt>
+<a name="L182"></a><tt class="py-lineno">182</tt>  <tt class="py-line">            <tt class="py-name">moppcode</tt> <tt class="py-op">=</tt> <tt class="py-op">[</tt><tt class="py-name">int</tt><tt class="py-op">(</tt><tt class="py-name">outfile</tt><tt class="py-op">.</tt><tt class="py-name">readline</tt><tt class="py-op">(</tt><tt class="py-op">)</tt><tt class="py-op">)</tt> <tt class="py-keyword">for</tt> <tt class="py-name">i</tt> <tt class="py-keyword">in</tt> <tt class="py-name">xrange</tt><tt class="py-op">(</tt><tt class="py-name">moppcodelen</tt><tt class="py-op">)</tt><tt class="py-op">]</tt> </tt>
+<a name="L183"></a><tt class="py-lineno">183</tt>  <tt class="py-line">            <tt class="py-name">welding_info_len</tt> <tt class="py-op">=</tt> <tt class="py-name">int</tt><tt class="py-op">(</tt><tt class="py-name">outfile</tt><tt class="py-op">.</tt><tt class="py-name">readline</tt><tt class="py-op">(</tt><tt class="py-op">)</tt><tt class="py-op">)</tt> </tt>
+<a name="L184"></a><tt class="py-lineno">184</tt>  <tt class="py-line">            <tt id="link-23" class="py-name" targets="Variable pyffi.formats.nif.NifFormat.hkTriangle.welding_info=pyffi.formats.nif.NifFormat.hkTriangle-class.html#welding_info"><a title="pyffi.formats.nif.NifFormat.hkTriangle.welding_info" class="py-name" href="#" onclick="return doclink('link-23', 'welding_info', 'link-23');">welding_info</a></tt> <tt class="py-op">=</tt> <tt class="py-op">[</tt><tt class="py-name">int</tt><tt class="py-op">(</tt><tt class="py-name">outfile</tt><tt class="py-op">.</tt><tt class="py-name">readline</tt><tt class="py-op">(</tt><tt class="py-op">)</tt><tt class="py-op">)</tt> </tt>
+<a name="L185"></a><tt class="py-lineno">185</tt>  <tt class="py-line">                            <tt class="py-keyword">for</tt> <tt class="py-name">i</tt> <tt class="py-keyword">in</tt> <tt class="py-name">xrange</tt><tt class="py-op">(</tt><tt class="py-name">welding_info_len</tt><tt class="py-op">)</tt><tt class="py-op">]</tt> </tt>
+<a name="L186"></a><tt class="py-lineno">186</tt>  <tt class="py-line">        <tt class="py-keyword">except</tt> <tt class="py-name">ValueError</tt><tt class="py-op">:</tt> </tt>
+<a name="L187"></a><tt class="py-lineno">187</tt>  <tt class="py-line">            <tt class="py-comment"># conversion failed</tt> </tt>
+<a name="L188"></a><tt class="py-lineno">188</tt>  <tt class="py-line">            <tt class="py-keyword">raise</tt> <tt class="py-name">RuntimeError</tt><tt class="py-op">(</tt><tt class="py-string">"invalid mopper output (mopper failed?)"</tt><tt class="py-op">)</tt> </tt>
+<a name="L189"></a><tt class="py-lineno">189</tt>  <tt class="py-line">    <tt class="py-keyword">finally</tt><tt class="py-op">:</tt> </tt>
+<a name="L190"></a><tt class="py-lineno">190</tt>  <tt class="py-line">        <tt class="py-name">infile</tt><tt class="py-op">.</tt><tt id="link-24" class="py-name"><a title="pyffi.object_models.ArchiveFileFormat.Data.close" class="py-name" href="#" onclick="return doclink('link-24', 'close', 'link-6');">close</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+<a name="L191"></a><tt class="py-lineno">191</tt>  <tt class="py-line">        <tt class="py-name">outfile</tt><tt class="py-op">.</tt><tt id="link-25" class="py-name"><a title="pyffi.object_models.ArchiveFileFormat.Data.close" class="py-name" href="#" onclick="return doclink('link-25', 'close', 'link-6');">close</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+<a name="L192"></a><tt class="py-lineno">192</tt>  <tt class="py-line">    <tt class="py-keyword">return</tt> <tt id="link-26" class="py-name"><a title="pyffi.formats.nif.NifFormat.CapsuleBV.origin
+pyffi.formats.nif.NifFormat._bhkMoppBvTreeShape.origin" class="py-name" href="#" onclick="return doclink('link-26', 'origin', 'link-21');">origin</a></tt><tt class="py-op">,</tt> <tt id="link-27" class="py-name"><a title="pyffi.formats.egm.EgmFormat._MorphRecord.scale
+pyffi.formats.nif.NifFormat.NiLookAtInterpolator.scale
+pyffi.formats.nif.NifFormat.SkinTransform.scale
+pyffi.formats.nif.NifFormat._NiAVObject.scale
+pyffi.formats.nif.NifFormat._NiBSplineTransformInterpolator.scale
+pyffi.formats.nif.NifFormat._NiSkinData.scale
+pyffi.formats.nif.NifFormat._NiTransformInterpolator.scale
+pyffi.formats.nif.NifFormat._SkinData.scale
+pyffi.formats.nif.NifFormat._bhkMoppBvTreeShape.scale
+pyffi.formats.nif.NifFormat._bhkNiTriStripsShape.scale
+pyffi.formats.nif.NifFormat._bhkPackedNiTriStripsShape.scale
+pyffi.formats.tri.TriFormat._MorphRecord.scale" class="py-name" href="#" onclick="return doclink('link-27', 'scale', 'link-22');">scale</a></tt><tt class="py-op">,</tt> <tt class="py-name">moppcode</tt><tt class="py-op">,</tt> <tt id="link-28" class="py-name"><a title="pyffi.formats.nif.NifFormat.hkTriangle.welding_info" class="py-name" href="#" onclick="return doclink('link-28', 'welding_info', 'link-23');">welding_info</a></tt> </tt>
+</div><a name="L193"></a><tt class="py-lineno">193</tt>  <tt class="py-line"> </tt>
+<a name="L194"></a><tt class="py-lineno">194</tt>  <tt class="py-line"><tt class="py-keyword">if</tt> <tt class="py-name">__name__</tt> <tt class="py-op">==</tt> <tt class="py-string">"__main__"</tt><tt class="py-op">:</tt> </tt>
+<a name="L195"></a><tt class="py-lineno">195</tt>  <tt class="py-line">    <tt class="py-keyword">import</tt> <tt class="py-name">doctest</tt> </tt>
+<a name="L196"></a><tt class="py-lineno">196</tt>  <tt class="py-line">    <tt class="py-name">doctest</tt><tt class="py-op">.</tt><tt class="py-name">testmod</tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+<a name="L197"></a><tt class="py-lineno">197</tt>  <tt class="py-line"> </tt><script type="text/javascript">
+<!--
+expandto(location.href);
+// -->
+</script>
+</pre>
+<br />
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+  <!-- Home link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="pyffi-module.html">Home</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Project homepage -->
+      <th class="navbar" align="right" width="100%">
+        <table border="0" cellpadding="0" cellspacing="0">
+          <tr><th class="navbar" align="center"
+            >&nbsp;&nbsp;&nbsp;<a class="navbar" target="_top" href="http://pyffi.sourceforge.net/">Python File Format Interface</a>&nbsp;&nbsp;&nbsp;</th><th class="navbar" align="center">&nbsp;&nbsp;&nbsp;<a class="navbar" target="_top" href="http://sourceforge.net"><img src="http://sflogo.sourceforge.net/sflogo.php?group_id=199269" width="88" height="31" border="0" alt="SourceForge.net Logo" /></a>&nbsp;&nbsp;&nbsp;</th>
+          </tr></table></th>
+  </tr>
+</table>
+<table border="0" cellpadding="0" cellspacing="0" width="100%%">
+  <tr>
+    <td align="left" class="footer">
+    Generated by Epydoc 3.0.1 on Sat Nov 26 08:35:30 2011
+    </td>
+    <td align="right" class="footer">
+      <a target="mainFrame" href="http://epydoc.sourceforge.net"
+        >http://epydoc.sourceforge.net</a>
+    </td>
+  </tr>
+</table>
+
+<script type="text/javascript">
+  <!--
+  // Private objects are initially displayed (because if
+  // javascript is turned off then we want them to be
+  // visible); but by default, we want to hide them.  So hide
+  // them unless we have a cookie that says to show them.
+  checkCookie();
+  // -->
+</script>
+</body>
+</html>

@@ -1,0 +1,1212 @@
+<?xml version="1.0" encoding="ascii"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+          "DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>pyffi.qskope.detail_model</title>
+  <link rel="stylesheet" href="epydoc.css" type="text/css" />
+  <script type="text/javascript" src="epydoc.js"></script>
+</head>
+
+<body bgcolor="white" text="black" link="blue" vlink="#204080"
+      alink="#204080">
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+  <!-- Home link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="pyffi-module.html">Home</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Project homepage -->
+      <th class="navbar" align="right" width="100%">
+        <table border="0" cellpadding="0" cellspacing="0">
+          <tr><th class="navbar" align="center"
+            >&nbsp;&nbsp;&nbsp;<a class="navbar" target="_top" href="http://pyffi.sourceforge.net/">Python File Format Interface</a>&nbsp;&nbsp;&nbsp;</th><th class="navbar" align="center">&nbsp;&nbsp;&nbsp;<a class="navbar" target="_top" href="http://sourceforge.net"><img src="http://sflogo.sourceforge.net/sflogo.php?group_id=199269" width="88" height="31" border="0" alt="SourceForge.net Logo" /></a>&nbsp;&nbsp;&nbsp;</th>
+          </tr></table></th>
+  </tr>
+</table>
+<table width="100%" cellpadding="0" cellspacing="0">
+  <tr valign="top">
+    <td width="100%">
+      <span class="breadcrumbs">
+        <a href="pyffi-module.html">Package&nbsp;pyffi</a> ::
+        <a href="pyffi.qskope-module.html">Package&nbsp;qskope</a> ::
+        Module&nbsp;detail_model
+      </span>
+    </td>
+    <td>
+      <table cellpadding="0" cellspacing="0">
+        <!-- hide/show private -->
+        <tr><td align="right"><span class="options">[<a href="javascript:void(0);" class="privatelink"
+    onclick="toggle_private();">hide&nbsp;private</a>]</span></td></tr>
+        <tr><td align="right"><span class="options"
+            >[<a href="frames.html" target="_top">frames</a
+            >]&nbsp;|&nbsp;<a href="pyffi.qskope.detail_model-pysrc.html"
+            target="_top">no&nbsp;frames</a>]</span></td></tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<h1 class="epydoc">Source Code for <a href="pyffi.qskope.detail_model-module.html">Module pyffi.qskope.detail_model</a></h1>
+<pre class="py-src">
+<a name="L1"></a><tt class="py-lineno">  1</tt>  <tt class="py-line"><tt class="py-docstring">"""The DetailModel module defines a model to display the details of</tt> </tt>
+<a name="L2"></a><tt class="py-lineno">  2</tt>  <tt class="py-line"><tt class="py-docstring">StructBase, Array, and BasicBase instances."""</tt> </tt>
+<a name="L3"></a><tt class="py-lineno">  3</tt>  <tt class="py-line"> </tt>
+<a name="L4"></a><tt class="py-lineno">  4</tt>  <tt class="py-line"><tt class="py-comment"># ***** BEGIN LICENSE BLOCK *****</tt> </tt>
+<a name="L5"></a><tt class="py-lineno">  5</tt>  <tt class="py-line"><tt class="py-comment">#</tt> </tt>
+<a name="L6"></a><tt class="py-lineno">  6</tt>  <tt class="py-line"><tt class="py-comment"># Copyright (c) 2007-2011, Python File Format Interface</tt> </tt>
+<a name="L7"></a><tt class="py-lineno">  7</tt>  <tt class="py-line"><tt class="py-comment"># All rights reserved.</tt> </tt>
+<a name="L8"></a><tt class="py-lineno">  8</tt>  <tt class="py-line"><tt class="py-comment">#</tt> </tt>
+<a name="L9"></a><tt class="py-lineno">  9</tt>  <tt class="py-line"><tt class="py-comment"># Redistribution and use in source and binary forms, with or without</tt> </tt>
+<a name="L10"></a><tt class="py-lineno"> 10</tt>  <tt class="py-line"><tt class="py-comment"># modification, are permitted provided that the following conditions</tt> </tt>
+<a name="L11"></a><tt class="py-lineno"> 11</tt>  <tt class="py-line"><tt class="py-comment"># are met:</tt> </tt>
+<a name="L12"></a><tt class="py-lineno"> 12</tt>  <tt class="py-line"><tt class="py-comment">#</tt> </tt>
+<a name="L13"></a><tt class="py-lineno"> 13</tt>  <tt class="py-line"><tt class="py-comment">#    * Redistributions of source code must retain the above copyright</tt> </tt>
+<a name="L14"></a><tt class="py-lineno"> 14</tt>  <tt class="py-line"><tt class="py-comment">#      notice, this list of conditions and the following disclaimer.</tt> </tt>
+<a name="L15"></a><tt class="py-lineno"> 15</tt>  <tt class="py-line"><tt class="py-comment">#</tt> </tt>
+<a name="L16"></a><tt class="py-lineno"> 16</tt>  <tt class="py-line"><tt class="py-comment">#    * Redistributions in binary form must reproduce the above</tt> </tt>
+<a name="L17"></a><tt class="py-lineno"> 17</tt>  <tt class="py-line"><tt class="py-comment">#      copyright notice, this list of conditions and the following</tt> </tt>
+<a name="L18"></a><tt class="py-lineno"> 18</tt>  <tt class="py-line"><tt class="py-comment">#      disclaimer in the documentation and/or other materials provided</tt> </tt>
+<a name="L19"></a><tt class="py-lineno"> 19</tt>  <tt class="py-line"><tt class="py-comment">#      with the distribution.</tt> </tt>
+<a name="L20"></a><tt class="py-lineno"> 20</tt>  <tt class="py-line"><tt class="py-comment">#</tt> </tt>
+<a name="L21"></a><tt class="py-lineno"> 21</tt>  <tt class="py-line"><tt class="py-comment">#    * Neither the name of the Python File Format Interface</tt> </tt>
+<a name="L22"></a><tt class="py-lineno"> 22</tt>  <tt class="py-line"><tt class="py-comment">#      project nor the names of its contributors may be used to endorse</tt> </tt>
+<a name="L23"></a><tt class="py-lineno"> 23</tt>  <tt class="py-line"><tt class="py-comment">#      or promote products derived from this software without specific</tt> </tt>
+<a name="L24"></a><tt class="py-lineno"> 24</tt>  <tt class="py-line"><tt class="py-comment">#      prior written permission.</tt> </tt>
+<a name="L25"></a><tt class="py-lineno"> 25</tt>  <tt class="py-line"><tt class="py-comment">#</tt> </tt>
+<a name="L26"></a><tt class="py-lineno"> 26</tt>  <tt class="py-line"><tt class="py-comment"># THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS</tt> </tt>
+<a name="L27"></a><tt class="py-lineno"> 27</tt>  <tt class="py-line"><tt class="py-comment"># "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT</tt> </tt>
+<a name="L28"></a><tt class="py-lineno"> 28</tt>  <tt class="py-line"><tt class="py-comment"># LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS</tt> </tt>
+<a name="L29"></a><tt class="py-lineno"> 29</tt>  <tt class="py-line"><tt class="py-comment"># FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE</tt> </tt>
+<a name="L30"></a><tt class="py-lineno"> 30</tt>  <tt class="py-line"><tt class="py-comment"># COPYRIGHT OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT,</tt> </tt>
+<a name="L31"></a><tt class="py-lineno"> 31</tt>  <tt class="py-line"><tt class="py-comment"># INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING,</tt> </tt>
+<a name="L32"></a><tt class="py-lineno"> 32</tt>  <tt class="py-line"><tt class="py-comment"># BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES;</tt> </tt>
+<a name="L33"></a><tt class="py-lineno"> 33</tt>  <tt class="py-line"><tt class="py-comment"># LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER</tt> </tt>
+<a name="L34"></a><tt class="py-lineno"> 34</tt>  <tt class="py-line"><tt class="py-comment"># CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT</tt> </tt>
+<a name="L35"></a><tt class="py-lineno"> 35</tt>  <tt class="py-line"><tt class="py-comment"># LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN</tt> </tt>
+<a name="L36"></a><tt class="py-lineno"> 36</tt>  <tt class="py-line"><tt class="py-comment"># ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE</tt> </tt>
+<a name="L37"></a><tt class="py-lineno"> 37</tt>  <tt class="py-line"><tt class="py-comment"># POSSIBILITY OF SUCH DAMAGE.</tt> </tt>
+<a name="L38"></a><tt class="py-lineno"> 38</tt>  <tt class="py-line"><tt class="py-comment">#</tt> </tt>
+<a name="L39"></a><tt class="py-lineno"> 39</tt>  <tt class="py-line"><tt class="py-comment"># ***** END LICENSE BLOCK *****</tt> </tt>
+<a name="L40"></a><tt class="py-lineno"> 40</tt>  <tt class="py-line"> </tt>
+<a name="L41"></a><tt class="py-lineno"> 41</tt>  <tt class="py-line"><tt class="py-keyword">from</tt> <tt class="py-name">PyQt4</tt> <tt class="py-keyword">import</tt> <tt class="py-name">QtCore</tt> </tt>
+<a name="L42"></a><tt class="py-lineno"> 42</tt>  <tt class="py-line"> </tt>
+<a name="L43"></a><tt class="py-lineno"> 43</tt>  <tt class="py-line"><tt class="py-keyword">from</tt> <tt id="link-0" class="py-name" targets="Package pyffi=pyffi-module.html"><a title="pyffi" class="py-name" href="#" onclick="return doclink('link-0', 'pyffi', 'link-0');">pyffi</a></tt><tt class="py-op">.</tt><tt id="link-1" class="py-name" targets="Package pyffi.utils=pyffi.utils-module.html"><a title="pyffi.utils" class="py-name" href="#" onclick="return doclink('link-1', 'utils', 'link-1');">utils</a></tt><tt class="py-op">.</tt><tt id="link-2" class="py-name" targets="Module pyffi.utils.graph=pyffi.utils.graph-module.html"><a title="pyffi.utils.graph" class="py-name" href="#" onclick="return doclink('link-2', 'graph', 'link-2');">graph</a></tt> <tt class="py-keyword">import</tt> <tt id="link-3" class="py-name" targets="Class pyffi.utils.graph.EdgeFilter=pyffi.utils.graph.EdgeFilter-class.html"><a title="pyffi.utils.graph.EdgeFilter" class="py-name" href="#" onclick="return doclink('link-3', 'EdgeFilter', 'link-3');">EdgeFilter</a></tt><tt class="py-op">,</tt> <tt id="link-4" class="py-name" targets="Class pyffi.utils.graph.GlobalNode=pyffi.utils.graph.GlobalNode-class.html"><a title="pyffi.utils.graph.GlobalNode" class="py-name" href="#" onclick="return doclink('link-4', 'GlobalNode', 'link-4');">GlobalNode</a></tt> </tt>
+<a name="L44"></a><tt class="py-lineno"> 44</tt>  <tt class="py-line"><tt class="py-keyword">from</tt> <tt id="link-5" class="py-name"><a title="pyffi" class="py-name" href="#" onclick="return doclink('link-5', 'pyffi', 'link-0');">pyffi</a></tt><tt class="py-op">.</tt><tt id="link-6" class="py-name" targets="Package pyffi.qskope=pyffi.qskope-module.html"><a title="pyffi.qskope" class="py-name" href="#" onclick="return doclink('link-6', 'qskope', 'link-6');">qskope</a></tt><tt class="py-op">.</tt><tt id="link-7" class="py-name" targets="Module pyffi.qskope.detail_tree=pyffi.qskope.detail_tree-module.html"><a title="pyffi.qskope.detail_tree" class="py-name" href="#" onclick="return doclink('link-7', 'detail_tree', 'link-7');">detail_tree</a></tt> <tt class="py-keyword">import</tt> <tt id="link-8" class="py-name" targets="Class pyffi.qskope.detail_tree.DetailTreeItem=pyffi.qskope.detail_tree.DetailTreeItem-class.html"><a title="pyffi.qskope.detail_tree.DetailTreeItem" class="py-name" href="#" onclick="return doclink('link-8', 'DetailTreeItem', 'link-8');">DetailTreeItem</a></tt><tt class="py-op">,</tt> <tt id="link-9" class="py-name" targets="Class pyffi.qskope.detail_tree.DetailTreeItemData=pyffi.qskope.detail_tree.DetailTreeItemData-class.html"><a title="pyffi.qskope.detail_tree.DetailTreeItemData" class="py-name" href="#" onclick="return doclink('link-9', 'DetailTreeItemData', 'link-9');">DetailTreeItemData</a></tt> </tt>
+<a name="L45"></a><tt class="py-lineno"> 45</tt>  <tt class="py-line"> </tt>
+<a name="L46"></a><tt class="py-lineno"> 46</tt>  <tt class="py-line"><tt class="py-comment"># implementation references:</tt> </tt>
+<a name="L47"></a><tt class="py-lineno"> 47</tt>  <tt class="py-line"><tt class="py-comment"># http://doc.trolltech.com/4.3/model-view-programming.html</tt> </tt>
+<a name="L48"></a><tt class="py-lineno"> 48</tt>  <tt class="py-line"><tt class="py-comment"># http://doc.trolltech.com/4.3/model-view-model-subclassing.html</tt> </tt>
+<a name="DetailModel"></a><div id="DetailModel-def"><a name="L49"></a><tt class="py-lineno"> 49</tt> <a class="py-toggle" href="#" id="DetailModel-toggle" onclick="return toggle('DetailModel');">-</a><tt class="py-line"><tt class="py-keyword">class</tt> <a class="py-def-name" href="pyffi.qskope.detail_model.DetailModel-class.html">DetailModel</a><tt class="py-op">(</tt><tt class="py-base-class">QtCore</tt><tt class="py-op">.</tt><tt class="py-base-class">QAbstractItemModel</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="DetailModel-collapsed" style="display:none;" pad="+++" indent="++++"></div><div id="DetailModel-expanded"><a name="L50"></a><tt class="py-lineno"> 50</tt>  <tt class="py-line">    <tt class="py-docstring">"""General purpose model for QModelIndexed access to pyffi data structures</tt> </tt>
+<a name="L51"></a><tt class="py-lineno"> 51</tt>  <tt class="py-line"><tt class="py-docstring">    such as StructBase, Array, and BasicBase instances."""</tt> </tt>
+<a name="L52"></a><tt class="py-lineno"> 52</tt>  <tt class="py-line">    <tt class="py-comment"># column definitions</tt> </tt>
+<a name="L53"></a><tt class="py-lineno"> 53</tt>  <tt class="py-line">    <tt id="link-10" class="py-name" targets="Variable pyffi.qskope.detail_model.DetailModel.NUM_COLUMNS=pyffi.qskope.detail_model.DetailModel-class.html#NUM_COLUMNS,Variable pyffi.qskope.global_model.GlobalModel.NUM_COLUMNS=pyffi.qskope.global_model.GlobalModel-class.html#NUM_COLUMNS"><a title="pyffi.qskope.detail_model.DetailModel.NUM_COLUMNS
+pyffi.qskope.global_model.GlobalModel.NUM_COLUMNS" class="py-name" href="#" onclick="return doclink('link-10', 'NUM_COLUMNS', 'link-10');">NUM_COLUMNS</a></tt> <tt class="py-op">=</tt> <tt class="py-number">3</tt> </tt>
+<a name="L54"></a><tt class="py-lineno"> 54</tt>  <tt class="py-line">    <tt id="link-11" class="py-name" targets="Variable pyffi.qskope.detail_model.DetailModel.COL_NAME=pyffi.qskope.detail_model.DetailModel-class.html#COL_NAME,Variable pyffi.qskope.global_model.GlobalModel.COL_NAME=pyffi.qskope.global_model.GlobalModel-class.html#COL_NAME"><a title="pyffi.qskope.detail_model.DetailModel.COL_NAME
+pyffi.qskope.global_model.GlobalModel.COL_NAME" class="py-name" href="#" onclick="return doclink('link-11', 'COL_NAME', 'link-11');">COL_NAME</a></tt>  <tt class="py-op">=</tt> <tt class="py-number">0</tt> </tt>
+<a name="L55"></a><tt class="py-lineno"> 55</tt>  <tt class="py-line">    <tt id="link-12" class="py-name" targets="Variable pyffi.qskope.detail_model.DetailModel.COL_TYPE=pyffi.qskope.detail_model.DetailModel-class.html#COL_TYPE,Variable pyffi.qskope.global_model.GlobalModel.COL_TYPE=pyffi.qskope.global_model.GlobalModel-class.html#COL_TYPE"><a title="pyffi.qskope.detail_model.DetailModel.COL_TYPE
+pyffi.qskope.global_model.GlobalModel.COL_TYPE" class="py-name" href="#" onclick="return doclink('link-12', 'COL_TYPE', 'link-12');">COL_TYPE</a></tt>  <tt class="py-op">=</tt> <tt class="py-number">1</tt> </tt>
+<a name="L56"></a><tt class="py-lineno"> 56</tt>  <tt class="py-line">    <tt id="link-13" class="py-name" targets="Variable pyffi.qskope.detail_model.DetailModel.COL_VALUE=pyffi.qskope.detail_model.DetailModel-class.html#COL_VALUE"><a title="pyffi.qskope.detail_model.DetailModel.COL_VALUE" class="py-name" href="#" onclick="return doclink('link-13', 'COL_VALUE', 'link-13');">COL_VALUE</a></tt> <tt class="py-op">=</tt> <tt class="py-number">2</tt> </tt>
+<a name="L57"></a><tt class="py-lineno"> 57</tt>  <tt class="py-line"> </tt>
+<a name="L58"></a><tt class="py-lineno"> 58</tt>  <tt class="py-line"><tt class="py-comment">#    def __init__(self, parent = None, block = None, refnumber_dict = None):</tt> </tt>
+<a name="L59"></a><tt class="py-lineno"> 59</tt>  <tt class="py-line"><tt class="py-comment">#        """Initialize the model to display the given block. The refnumber_dict</tt> </tt>
+<a name="L60"></a><tt class="py-lineno"> 60</tt>  <tt class="py-line"><tt class="py-comment">#        dictionary is used to handle references in the block."""</tt> </tt>
+<a name="L61"></a><tt class="py-lineno"> 61</tt>  <tt class="py-line"><tt class="py-comment">#        QtCore.QAbstractItemModel.__init__(self, parent)</tt> </tt>
+<a name="L62"></a><tt class="py-lineno"> 62</tt>  <tt class="py-line"><tt class="py-comment">#        # this list stores the blocks in the view</tt> </tt>
+<a name="L63"></a><tt class="py-lineno"> 63</tt>  <tt class="py-line"><tt class="py-comment">#        # is a list of NiObjects for the nif format, and a list of Chunks for</tt> </tt>
+<a name="L64"></a><tt class="py-lineno"> 64</tt>  <tt class="py-line"><tt class="py-comment">#        # the cgf format</tt> </tt>
+<a name="L65"></a><tt class="py-lineno"> 65</tt>  <tt class="py-line"><tt class="py-comment">#        self.block = block</tt> </tt>
+<a name="L66"></a><tt class="py-lineno"> 66</tt>  <tt class="py-line"><tt class="py-comment">#        self.refNumber = refnumber_dict if not refnumber_dict is None else {}</tt> </tt>
+<a name="L67"></a><tt class="py-lineno"> 67</tt>  <tt class="py-line"> </tt>
+<a name="DetailModel.__init__"></a><div id="DetailModel.__init__-def"><a name="L68"></a><tt class="py-lineno"> 68</tt> <a class="py-toggle" href="#" id="DetailModel.__init__-toggle" onclick="return toggle('DetailModel.__init__');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="pyffi.qskope.detail_model.DetailModel-class.html#__init__">__init__</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">,</tt> <tt class="py-param">parent</tt><tt class="py-op">=</tt><tt class="py-name">None</tt><tt class="py-op">,</tt> <tt class="py-param">globalnode</tt><tt class="py-op">=</tt><tt class="py-name">None</tt><tt class="py-op">,</tt> <tt class="py-param">globalmodel</tt><tt class="py-op">=</tt><tt class="py-name">None</tt><tt class="py-op">,</tt> </tt>
+<a name="L69"></a><tt class="py-lineno"> 69</tt>  <tt class="py-line">                 <tt class="py-param">edge_filter</tt><tt class="py-op">=</tt><tt id="link-14" class="py-name"><a title="pyffi.utils.graph.EdgeFilter" class="py-name" href="#" onclick="return doclink('link-14', 'EdgeFilter', 'link-3');">EdgeFilter</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="DetailModel.__init__-collapsed" style="display:none;" pad="+++" indent="++++++++"></div><div id="DetailModel.__init__-expanded"><a name="L70"></a><tt class="py-lineno"> 70</tt>  <tt class="py-line">        <tt class="py-docstring">"""Initialize the model to display the given global node in the</tt> </tt>
+<a name="L71"></a><tt class="py-lineno"> 71</tt>  <tt class="py-line"><tt class="py-docstring">        detail tree. We also need a reference to the global model to</tt> </tt>
+<a name="L72"></a><tt class="py-lineno"> 72</tt>  <tt class="py-line"><tt class="py-docstring">        resolve node references.</tt> </tt>
+<a name="L73"></a><tt class="py-lineno"> 73</tt>  <tt class="py-line"><tt class="py-docstring">        """</tt> </tt>
+<a name="L74"></a><tt class="py-lineno"> 74</tt>  <tt class="py-line">        <tt class="py-name">QtCore</tt><tt class="py-op">.</tt><tt class="py-name">QAbstractItemModel</tt><tt class="py-op">.</tt><tt id="link-15" class="py-name" targets="Method pyffi.formats.bsa.BsaFormat.FileVersion.__init__()=pyffi.formats.bsa.BsaFormat.FileVersion-class.html#__init__,Method pyffi.formats.cgf.CgfFormat.Data.__init__()=pyffi.formats.cgf.CgfFormat.Data-class.html#__init__,Method pyffi.formats.cgf.CgfFormat.FileSignature.__init__()=pyffi.formats.cgf.CgfFormat.FileSignature-class.html#__init__,Method pyffi.formats.cgf.CgfFormat.Ref.__init__()=pyffi.formats.cgf.CgfFormat.Ref-class.html#__init__,Method pyffi.formats.cgf._MetaCgfFormat.__init__()=pyffi.formats.cgf._MetaCgfFormat-class.html#__init__,Method pyffi.formats.dds.DdsFormat.Data.__init__()=pyffi.formats.dds.DdsFormat.Data-class.html#__init__,Method pyffi.formats.dds.DdsFormat.HeaderString.__init__()=pyffi.formats.dds.DdsFormat.HeaderString-class.html#__init__,Method pyffi.formats.egm.EgmFormat.Data.__init__()=pyffi.formats.egm.EgmFormat.Data-class.html#__init__,Method pyffi.formats.egm.EgmFormat.FileSignature.__init__()=pyffi.formats.egm.EgmFormat.FileSignature-class.html#__init__,Method pyffi.formats.egt.EgtFormat.FileSignature.__init__()=pyffi.formats.egt.EgtFormat.FileSignature-class.html#__init__,Method pyffi.formats.esp.EspFormat.Data.__init__()=pyffi.formats.esp.EspFormat.Data-class.html#__init__,Method pyffi.formats.esp.EspFormat.GRUP.__init__()=pyffi.formats.esp.EspFormat.GRUP-class.html#__init__,Method pyffi.formats.esp.EspFormat.Record.__init__()=pyffi.formats.esp.EspFormat.Record-class.html#__init__,Method pyffi.formats.kfm.KfmFormat.HeaderString.__init__()=pyffi.formats.kfm.KfmFormat.HeaderString-class.html#__init__,Method pyffi.formats.nif.NifFormat.ByteArray.__init__()=pyffi.formats.nif.NifFormat.ByteArray-class.html#__init__,Method pyffi.formats.nif.NifFormat.ByteMatrix.__init__()=pyffi.formats.nif.NifFormat.ByteMatrix-class.html#__init__,Method pyffi.formats.nif.NifFormat.Data.__init__()=pyffi.formats.nif.NifFormat.Data-class.html#__init__,Method pyffi.formats.nif.NifFormat.LineString.__init__()=pyffi.formats.nif.NifFormat.LineString-class.html#__init__,Method pyffi.formats.nif.NifFormat.Ref.__init__()=pyffi.formats.nif.NifFormat.Ref-class.html#__init__,Method pyffi.formats.nif.NifFormat.ShortString.__init__()=pyffi.formats.nif.NifFormat.ShortString-class.html#__init__,Method pyffi.formats.nif.NifFormat.StringOffset.__init__()=pyffi.formats.nif.NifFormat.StringOffset-class.html#__init__,Method pyffi.formats.nif.NifFormat.bool.__init__()=pyffi.formats.nif.NifFormat.bool-class.html#__init__,Method pyffi.formats.rockstar.dir_.DirFormat.Data.__init__()=pyffi.formats.rockstar.dir_.DirFormat.Data-class.html#__init__,Method pyffi.formats.tga.TgaFormat.Data.__init__()=pyffi.formats.tga.TgaFormat.Data-class.html#__init__,Method pyffi.formats.tga.TgaFormat.Image.__init__()=pyffi.formats.tga.TgaFormat.Image-class.html#__init__,Method pyffi.formats.tri.TriFormat.FileSignature.__init__()=pyffi.formats.tri.TriFormat.FileSignature-class.html#__init__,Method pyffi.object_models.ArchiveFileFormat.Data.__init__()=pyffi.object_models.ArchiveFileFormat.Data-class.html#__init__,Method pyffi.object_models.array_type.MetaUniformArray.__init__()=pyffi.object_models.array_type.MetaUniformArray-class.html#__init__,Method pyffi.object_models.array_type.MetaUniformSimpleArray.__init__()=pyffi.object_models.array_type.MetaUniformSimpleArray-class.html#__init__,Method pyffi.object_models.array_type.ValidatedList.__init__()=pyffi.object_models.array_type.ValidatedList-class.html#__init__,Method pyffi.object_models.binary_type.CharType.__init__()=pyffi.object_models.binary_type.CharType-class.html#__init__,Method pyffi.object_models.binary_type.FixedString.__init__()=pyffi.object_models.binary_type.FixedString-class.html#__init__,Method pyffi.object_models.binary_type.Float.__init__()=pyffi.object_models.binary_type.Float-class.html#__init__,Method pyffi.object_models.binary_type.IntType.__init__()=pyffi.object_models.binary_type.IntType-class.html#__init__,Method pyffi.object_models.binary_type.SizedString.__init__()=pyffi.object_models.binary_type.SizedString-class.html#__init__,Method pyffi.object_models.binary_type.UndecodedData.__init__()=pyffi.object_models.binary_type.UndecodedData-class.html#__init__,Method pyffi.object_models.binary_type.ZString.__init__()=pyffi.object_models.binary_type.ZString-class.html#__init__,Method pyffi.object_models.common.Char.__init__()=pyffi.object_models.common.Char-class.html#__init__,Method pyffi.object_models.common.FixedString.__init__()=pyffi.object_models.common.FixedString-class.html#__init__,Method pyffi.object_models.common.Float.__init__()=pyffi.object_models.common.Float-class.html#__init__,Method pyffi.object_models.common.Int.__init__()=pyffi.object_models.common.Int-class.html#__init__,Method pyffi.object_models.common.SizedString.__init__()=pyffi.object_models.common.SizedString-class.html#__init__,Method pyffi.object_models.common.UndecodedData.__init__()=pyffi.object_models.common.UndecodedData-class.html#__init__,Method pyffi.object_models.common.ZString.__init__()=pyffi.object_models.common.ZString-class.html#__init__,Method pyffi.object_models.simple_type._MetaSimpleType.__init__()=pyffi.object_models.simple_type._MetaSimpleType-class.html#__init__,Method pyffi.object_models.xml.BitStructAttribute.__init__()=pyffi.object_models.xml.BitStructAttribute-class.html#__init__,Method pyffi.object_models.xml.MetaFileFormat.__init__()=pyffi.object_models.xml.MetaFileFormat-class.html#__init__,Method pyffi.object_models.xml.StructAttribute.__init__()=pyffi.object_models.xml.StructAttribute-class.html#__init__,Method pyffi.object_models.xml.XmlSaxHandler.__init__()=pyffi.object_models.xml.XmlSaxHandler-class.html#__init__,Method pyffi.object_models.xml.array.Array.__init__()=pyffi.object_models.xml.array.Array-class.html#__init__,Method pyffi.object_models.xml.array._ListWrap.__init__()=pyffi.object_models.xml.array._ListWrap-class.html#__init__,Method pyffi.object_models.xml.basic.BasicBase.__init__()=pyffi.object_models.xml.basic.BasicBase-class.html#__init__,Method pyffi.object_models.xml.bit_struct.BitStructBase.__init__()=pyffi.object_models.xml.bit_struct.BitStructBase-class.html#__init__,Method pyffi.object_models.xml.bit_struct.Bits.__init__()=pyffi.object_models.xml.bit_struct.Bits-class.html#__init__,Method pyffi.object_models.xml.bit_struct._MetaBitStructBase.__init__()=pyffi.object_models.xml.bit_struct._MetaBitStructBase-class.html#__init__,Method pyffi.object_models.xml.enum.EnumBase.__init__()=pyffi.object_models.xml.enum.EnumBase-class.html#__init__,Method pyffi.object_models.xml.enum._MetaEnumBase.__init__()=pyffi.object_models.xml.enum._MetaEnumBase-class.html#__init__,Method pyffi.object_models.xml.expression.Expression.__init__()=pyffi.object_models.xml.expression.Expression-class.html#__init__,Method pyffi.object_models.xml.struct_.StructBase.__init__()=pyffi.object_models.xml.struct_.StructBase-class.html#__init__,Method pyffi.object_models.xml.struct_._MetaStructBase.__init__()=pyffi.object_models.xml.struct_._MetaStructBase-class.html#__init__,Method pyffi.qskope.QSkope.__init__()=pyffi.qskope.QSkope-class.html#__init__,Method pyffi.qskope.detail_model.DetailModel.__init__()=pyffi.qskope.detail_model.DetailModel-class.html#__init__,Method pyffi.qskope.detail_tree.DetailTreeItem.__init__()=pyffi.qskope.detail_tree.DetailTreeItem-class.html#__init__,Method pyffi.qskope.detail_tree.DetailTreeItemData.__init__()=pyffi.qskope.detail_tree.DetailTreeItemData-class.html#__init__,Method pyffi.qskope.global_model.GlobalModel.IndexDict.__init__()=pyffi.qskope.global_model.GlobalModel.IndexDict-class.html#__init__,Method pyffi.qskope.global_model.GlobalModel.__init__()=pyffi.qskope.global_model.GlobalModel-class.html#__init__,Method pyffi.qskope.global_tree.GlobalTreeItem.__init__()=pyffi.qskope.global_tree.GlobalTreeItem-class.html#__init__,Method pyffi.qskope.global_tree.GlobalTreeItemData.__init__()=pyffi.qskope.global_tree.GlobalTreeItemData-class.html#__init__,Method pyffi.spells.Spell.__init__()=pyffi.spells.Spell-class.html#__init__,Method pyffi.spells.SpellGroupBase.__init__()=pyffi.spells.SpellGroupBase-class.html#__init__,Method pyffi.spells.Toaster.__init__()=pyffi.spells.Toaster-class.html#__init__,Method pyffi.spells.nif.dump.SpellExportPixelData.__init__()=pyffi.spells.nif.dump.SpellExportPixelData-class.html#__init__,Method pyffi.spells.nif.fix.SpellDetachHavokTriStripsData.__init__()=pyffi.spells.nif.fix.SpellDetachHavokTriStripsData-class.html#__init__,Method pyffi.spells.nif.optimize.SpellMergeDuplicates.__init__()=pyffi.spells.nif.optimize.SpellMergeDuplicates-class.html#__init__,Method pyffi.spells.nif.optimize.SpellOptimizeCollisionBox.__init__()=pyffi.spells.nif.optimize.SpellOptimizeCollisionBox-class.html#__init__,Method pyffi.spells.nif.optimize.SpellOptimizeCollisionGeometry.__init__()=pyffi.spells.nif.optimize.SpellOptimizeCollisionGeometry-class.html#__init__,Method pyffi.spells.nif.optimize.SpellOptimizeGeometry.__init__()=pyffi.spells.nif.optimize.SpellOptimizeGeometry-class.html#__init__,Method pyffi.spells.nif.optimize.SpellSplitGeometry.__init__()=pyffi.spells.nif.optimize.SpellSplitGeometry-class.html#__init__,Method pyffi.utils.trianglemesh.Edge.__init__()=pyffi.utils.trianglemesh.Edge-class.html#__init__,Method pyffi.utils.trianglemesh.Face.__init__()=pyffi.utils.trianglemesh.Face-class.html#__init__,Method pyffi.utils.trianglemesh.Mesh.__init__()=pyffi.utils.trianglemesh.Mesh-class.html#__init__,Method pyffi.utils.trianglestripifier.Experiment.__init__()=pyffi.utils.trianglestripifier.Experiment-class.html#__init__,Method pyffi.utils.trianglestripifier.ExperimentSelector.__init__()=pyffi.utils.trianglestripifier.ExperimentSelector-class.html#__init__,Method pyffi.utils.trianglestripifier.TriangleStrip.__init__()=pyffi.utils.trianglestripifier.TriangleStrip-class.html#__init__,Method pyffi.utils.trianglestripifier.TriangleStripifier.__init__()=pyffi.utils.trianglestripifier.TriangleStripifier-class.html#__init__,Method pyffi.utils.tristrip.OrientedStrip.__init__()=pyffi.utils.tristrip.OrientedStrip-class.html#__init__,Method pyffi.utils.vertex_cache.Mesh.__init__()=pyffi.utils.vertex_cache.Mesh-class.html#__init__,Method pyffi.utils.vertex_cache.TriangleInfo.__init__()=pyffi.utils.vertex_cache.TriangleInfo-class.html#__init__,Method pyffi.utils.vertex_cache.VertexInfo.__init__()=pyffi.utils.vertex_cache.VertexInfo-class.html#__init__,Method pyffi.utils.vertex_cache.VertexScore.__init__()=pyffi.utils.vertex_cache.VertexScore-class.html#__init__"><a title="pyffi.formats.bsa.BsaFormat.FileVersion.__init__
+pyffi.formats.cgf.CgfFormat.Data.__init__
+pyffi.formats.cgf.CgfFormat.FileSignature.__init__
+pyffi.formats.cgf.CgfFormat.Ref.__init__
+pyffi.formats.cgf._MetaCgfFormat.__init__
+pyffi.formats.dds.DdsFormat.Data.__init__
+pyffi.formats.dds.DdsFormat.HeaderString.__init__
+pyffi.formats.egm.EgmFormat.Data.__init__
+pyffi.formats.egm.EgmFormat.FileSignature.__init__
+pyffi.formats.egt.EgtFormat.FileSignature.__init__
+pyffi.formats.esp.EspFormat.Data.__init__
+pyffi.formats.esp.EspFormat.GRUP.__init__
+pyffi.formats.esp.EspFormat.Record.__init__
+pyffi.formats.kfm.KfmFormat.HeaderString.__init__
+pyffi.formats.nif.NifFormat.ByteArray.__init__
+pyffi.formats.nif.NifFormat.ByteMatrix.__init__
+pyffi.formats.nif.NifFormat.Data.__init__
+pyffi.formats.nif.NifFormat.LineString.__init__
+pyffi.formats.nif.NifFormat.Ref.__init__
+pyffi.formats.nif.NifFormat.ShortString.__init__
+pyffi.formats.nif.NifFormat.StringOffset.__init__
+pyffi.formats.nif.NifFormat.bool.__init__
+pyffi.formats.rockstar.dir_.DirFormat.Data.__init__
+pyffi.formats.tga.TgaFormat.Data.__init__
+pyffi.formats.tga.TgaFormat.Image.__init__
+pyffi.formats.tri.TriFormat.FileSignature.__init__
+pyffi.object_models.ArchiveFileFormat.Data.__init__
+pyffi.object_models.array_type.MetaUniformArray.__init__
+pyffi.object_models.array_type.MetaUniformSimpleArray.__init__
+pyffi.object_models.array_type.ValidatedList.__init__
+pyffi.object_models.binary_type.CharType.__init__
+pyffi.object_models.binary_type.FixedString.__init__
+pyffi.object_models.binary_type.Float.__init__
+pyffi.object_models.binary_type.IntType.__init__
+pyffi.object_models.binary_type.SizedString.__init__
+pyffi.object_models.binary_type.UndecodedData.__init__
+pyffi.object_models.binary_type.ZString.__init__
+pyffi.object_models.common.Char.__init__
+pyffi.object_models.common.FixedString.__init__
+pyffi.object_models.common.Float.__init__
+pyffi.object_models.common.Int.__init__
+pyffi.object_models.common.SizedString.__init__
+pyffi.object_models.common.UndecodedData.__init__
+pyffi.object_models.common.ZString.__init__
+pyffi.object_models.simple_type._MetaSimpleType.__init__
+pyffi.object_models.xml.BitStructAttribute.__init__
+pyffi.object_models.xml.MetaFileFormat.__init__
+pyffi.object_models.xml.StructAttribute.__init__
+pyffi.object_models.xml.XmlSaxHandler.__init__
+pyffi.object_models.xml.array.Array.__init__
+pyffi.object_models.xml.array._ListWrap.__init__
+pyffi.object_models.xml.basic.BasicBase.__init__
+pyffi.object_models.xml.bit_struct.BitStructBase.__init__
+pyffi.object_models.xml.bit_struct.Bits.__init__
+pyffi.object_models.xml.bit_struct._MetaBitStructBase.__init__
+pyffi.object_models.xml.enum.EnumBase.__init__
+pyffi.object_models.xml.enum._MetaEnumBase.__init__
+pyffi.object_models.xml.expression.Expression.__init__
+pyffi.object_models.xml.struct_.StructBase.__init__
+pyffi.object_models.xml.struct_._MetaStructBase.__init__
+pyffi.qskope.QSkope.__init__
+pyffi.qskope.detail_model.DetailModel.__init__
+pyffi.qskope.detail_tree.DetailTreeItem.__init__
+pyffi.qskope.detail_tree.DetailTreeItemData.__init__
+pyffi.qskope.global_model.GlobalModel.IndexDict.__init__
+pyffi.qskope.global_model.GlobalModel.__init__
+pyffi.qskope.global_tree.GlobalTreeItem.__init__
+pyffi.qskope.global_tree.GlobalTreeItemData.__init__
+pyffi.spells.Spell.__init__
+pyffi.spells.SpellGroupBase.__init__
+pyffi.spells.Toaster.__init__
+pyffi.spells.nif.dump.SpellExportPixelData.__init__
+pyffi.spells.nif.fix.SpellDetachHavokTriStripsData.__init__
+pyffi.spells.nif.optimize.SpellMergeDuplicates.__init__
+pyffi.spells.nif.optimize.SpellOptimizeCollisionBox.__init__
+pyffi.spells.nif.optimize.SpellOptimizeCollisionGeometry.__init__
+pyffi.spells.nif.optimize.SpellOptimizeGeometry.__init__
+pyffi.spells.nif.optimize.SpellSplitGeometry.__init__
+pyffi.utils.trianglemesh.Edge.__init__
+pyffi.utils.trianglemesh.Face.__init__
+pyffi.utils.trianglemesh.Mesh.__init__
+pyffi.utils.trianglestripifier.Experiment.__init__
+pyffi.utils.trianglestripifier.ExperimentSelector.__init__
+pyffi.utils.trianglestripifier.TriangleStrip.__init__
+pyffi.utils.trianglestripifier.TriangleStripifier.__init__
+pyffi.utils.tristrip.OrientedStrip.__init__
+pyffi.utils.vertex_cache.Mesh.__init__
+pyffi.utils.vertex_cache.TriangleInfo.__init__
+pyffi.utils.vertex_cache.VertexInfo.__init__
+pyffi.utils.vertex_cache.VertexScore.__init__" class="py-name" href="#" onclick="return doclink('link-15', '__init__', 'link-15');">__init__</a></tt><tt class="py-op">(</tt><tt class="py-name">self</tt><tt class="py-op">,</tt> <tt id="link-16" class="py-name" targets="Variable pyffi.formats.cgf.CgfFormat._NodeChunk.parent=pyffi.formats.cgf.CgfFormat._NodeChunk-class.html#parent,Variable pyffi.formats.nif.NifFormat.Ni3dsAlphaAnimator.parent=pyffi.formats.nif.NifFormat.Ni3dsAlphaAnimator-class.html#parent,Variable pyffi.formats.nif.NifFormat.NiPSysCollider.parent=pyffi.formats.nif.NifFormat.NiPSysCollider-class.html#parent,Variable pyffi.formats.nif.NifFormat.NiPSysDragModifier.parent=pyffi.formats.nif.NifFormat.NiPSysDragModifier-class.html#parent,Method pyffi.qskope.detail_model.DetailModel.parent()=pyffi.qskope.detail_model.DetailModel-class.html#parent,Method pyffi.qskope.global_model.GlobalModel.parent()=pyffi.qskope.global_model.GlobalModel-class.html#parent"><a title="pyffi.formats.cgf.CgfFormat._NodeChunk.parent
+pyffi.formats.nif.NifFormat.Ni3dsAlphaAnimator.parent
+pyffi.formats.nif.NifFormat.NiPSysCollider.parent
+pyffi.formats.nif.NifFormat.NiPSysDragModifier.parent
+pyffi.qskope.detail_model.DetailModel.parent
+pyffi.qskope.global_model.GlobalModel.parent" class="py-name" href="#" onclick="return doclink('link-16', 'parent', 'link-16');">parent</a></tt><tt class="py-op">)</tt> </tt>
+<a name="L75"></a><tt class="py-lineno"> 75</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">root_item</tt> <tt class="py-op">=</tt> <tt id="link-17" class="py-name"><a title="pyffi.qskope.detail_tree.DetailTreeItem" class="py-name" href="#" onclick="return doclink('link-17', 'DetailTreeItem', 'link-8');">DetailTreeItem</a></tt><tt class="py-op">(</tt> </tt>
+<a name="L76"></a><tt class="py-lineno"> 76</tt>  <tt class="py-line">            <tt id="link-18" class="py-name" targets="Variable pyffi.formats.cgf.CgfFormat.PhysicsDataType0.data=pyffi.formats.cgf.CgfFormat.PhysicsDataType0-class.html#data,Variable pyffi.formats.nif.NifFormat.AdditionalDataBlock.data=pyffi.formats.nif.NifFormat.AdditionalDataBlock-class.html#data,Variable pyffi.formats.nif.NifFormat.BSMultiBound.data=pyffi.formats.nif.NifFormat.BSMultiBound-class.html#data,Variable pyffi.formats.nif.NifFormat.BSPSysMultiTargetEmitterCtlr.data=pyffi.formats.nif.NifFormat.BSPSysMultiTargetEmitterCtlr-class.html#data,Variable pyffi.formats.nif.NifFormat.BSPackedAdditionalDataBlock.data=pyffi.formats.nif.NifFormat.BSPackedAdditionalDataBlock-class.html#data,Variable pyffi.formats.nif.NifFormat.BSTreadTransfInfo.data=pyffi.formats.nif.NifFormat.BSTreadTransfInfo-class.html#data,Variable pyffi.formats.nif.NifFormat.NiAlphaController.data=pyffi.formats.nif.NifFormat.NiAlphaController-class.html#data,Variable pyffi.formats.nif.NifFormat.NiBinaryVoxelExtraData.data=pyffi.formats.nif.NifFormat.NiBinaryVoxelExtraData-class.html#data,Variable pyffi.formats.nif.NifFormat.NiBoolData.data=pyffi.formats.nif.NifFormat.NiBoolData-class.html#data,Variable pyffi.formats.nif.NifFormat.NiBoolInterpolator.data=pyffi.formats.nif.NifFormat.NiBoolInterpolator-class.html#data,Variable pyffi.formats.nif.NifFormat.NiColorData.data=pyffi.formats.nif.NifFormat.NiColorData-class.html#data,Variable pyffi.formats.nif.NifFormat.NiColorExtraData.data=pyffi.formats.nif.NifFormat.NiColorExtraData-class.html#data,Variable pyffi.formats.nif.NifFormat.NiDataStream.data=pyffi.formats.nif.NifFormat.NiDataStream-class.html#data,Variable pyffi.formats.nif.NifFormat.NiFloatData.data=pyffi.formats.nif.NifFormat.NiFloatData-class.html#data,Variable pyffi.formats.nif.NifFormat.NiFloatInterpolator.data=pyffi.formats.nif.NifFormat.NiFloatInterpolator-class.html#data,Variable pyffi.formats.nif.NifFormat.NiFloatsExtraData.data=pyffi.formats.nif.NifFormat.NiFloatsExtraData-class.html#data,Variable pyffi.formats.nif.NifFormat.NiGeomMorpherController.data=pyffi.formats.nif.NifFormat.NiGeomMorpherController-class.html#data,Variable pyffi.formats.nif.NifFormat.NiIntegersExtraData.data=pyffi.formats.nif.NifFormat.NiIntegersExtraData-class.html#data,Variable pyffi.formats.nif.NifFormat.NiKeyframeController.data=pyffi.formats.nif.NifFormat.NiKeyframeController-class.html#data,Variable pyffi.formats.nif.NifFormat.NiMorpherController.data=pyffi.formats.nif.NifFormat.NiMorpherController-class.html#data,Variable pyffi.formats.nif.NifFormat.NiPSysColorModifier.data=pyffi.formats.nif.NifFormat.NiPSysColorModifier-class.html#data,Variable pyffi.formats.nif.NifFormat.NiPSysEmitterCtlr.data=pyffi.formats.nif.NifFormat.NiPSysEmitterCtlr-class.html#data,Variable pyffi.formats.nif.NifFormat.NiPSysModifierActiveCtlr.data=pyffi.formats.nif.NifFormat.NiPSysModifierActiveCtlr-class.html#data,Variable pyffi.formats.nif.NifFormat.NiPSysModifierFloatCtlr.data=pyffi.formats.nif.NifFormat.NiPSysModifierFloatCtlr-class.html#data,Variable pyffi.formats.nif.NifFormat.NiPoint3InterpController.data=pyffi.formats.nif.NifFormat.NiPoint3InterpController-class.html#data,Variable pyffi.formats.nif.NifFormat.NiPoint3Interpolator.data=pyffi.formats.nif.NifFormat.NiPoint3Interpolator-class.html#data,Variable pyffi.formats.nif.NifFormat.NiPosData.data=pyffi.formats.nif.NifFormat.NiPosData-class.html#data,Variable pyffi.formats.nif.NifFormat.NiRollController.data=pyffi.formats.nif.NifFormat.NiRollController-class.html#data,Variable pyffi.formats.nif.NifFormat.NiSkinInstance.data=pyffi.formats.nif.NifFormat.NiSkinInstance-class.html#data,Variable pyffi.formats.nif.NifFormat.NiStringsExtraData.data=pyffi.formats.nif.NifFormat.NiStringsExtraData-class.html#data,Variable pyffi.formats.nif.NifFormat.NiTextureTransformController.data=pyffi.formats.nif.NifFormat.NiTextureTransformController-class.html#data,Variable pyffi.formats.nif.NifFormat.NiUVController.data=pyffi.formats.nif.NifFormat.NiUVController-class.html#data,Variable pyffi.formats.nif.NifFormat.NiVisController.data=pyffi.formats.nif.NifFormat.NiVisController-class.html#data,Variable pyffi.formats.nif.NifFormat._NiGeometry.data=pyffi.formats.nif.NifFormat._NiGeometry-class.html#data,Variable pyffi.formats.nif.NifFormat._NiTransformInterpolator.data=pyffi.formats.nif.NifFormat._NiTransformInterpolator-class.html#data,Variable pyffi.formats.nif.NifFormat._bhkPackedNiTriStripsShape.data=pyffi.formats.nif.NifFormat._bhkPackedNiTriStripsShape-class.html#data,Variable pyffi.formats.tga.TgaFormat.ColorMapEntry.data=pyffi.formats.tga.TgaFormat.ColorMapEntry-class.html#data,Variable pyffi.formats.tga.TgaFormat.Pixel.data=pyffi.formats.tga.TgaFormat.Pixel-class.html#data,Method pyffi.qskope.detail_model.DetailModel.data()=pyffi.qskope.detail_model.DetailModel-class.html#data,Method pyffi.qskope.global_model.GlobalModel.data()=pyffi.qskope.global_model.GlobalModel-class.html#data,Variable pyffi.spells.Spell.data=pyffi.spells.Spell-class.html#data"><a title="pyffi.formats.cgf.CgfFormat.PhysicsDataType0.data
+pyffi.formats.nif.NifFormat.AdditionalDataBlock.data
+pyffi.formats.nif.NifFormat.BSMultiBound.data
+pyffi.formats.nif.NifFormat.BSPSysMultiTargetEmitterCtlr.data
+pyffi.formats.nif.NifFormat.BSPackedAdditionalDataBlock.data
+pyffi.formats.nif.NifFormat.BSTreadTransfInfo.data
+pyffi.formats.nif.NifFormat.NiAlphaController.data
+pyffi.formats.nif.NifFormat.NiBinaryVoxelExtraData.data
+pyffi.formats.nif.NifFormat.NiBoolData.data
+pyffi.formats.nif.NifFormat.NiBoolInterpolator.data
+pyffi.formats.nif.NifFormat.NiColorData.data
+pyffi.formats.nif.NifFormat.NiColorExtraData.data
+pyffi.formats.nif.NifFormat.NiDataStream.data
+pyffi.formats.nif.NifFormat.NiFloatData.data
+pyffi.formats.nif.NifFormat.NiFloatInterpolator.data
+pyffi.formats.nif.NifFormat.NiFloatsExtraData.data
+pyffi.formats.nif.NifFormat.NiGeomMorpherController.data
+pyffi.formats.nif.NifFormat.NiIntegersExtraData.data
+pyffi.formats.nif.NifFormat.NiKeyframeController.data
+pyffi.formats.nif.NifFormat.NiMorpherController.data
+pyffi.formats.nif.NifFormat.NiPSysColorModifier.data
+pyffi.formats.nif.NifFormat.NiPSysEmitterCtlr.data
+pyffi.formats.nif.NifFormat.NiPSysModifierActiveCtlr.data
+pyffi.formats.nif.NifFormat.NiPSysModifierFloatCtlr.data
+pyffi.formats.nif.NifFormat.NiPoint3InterpController.data
+pyffi.formats.nif.NifFormat.NiPoint3Interpolator.data
+pyffi.formats.nif.NifFormat.NiPosData.data
+pyffi.formats.nif.NifFormat.NiRollController.data
+pyffi.formats.nif.NifFormat.NiSkinInstance.data
+pyffi.formats.nif.NifFormat.NiStringsExtraData.data
+pyffi.formats.nif.NifFormat.NiTextureTransformController.data
+pyffi.formats.nif.NifFormat.NiUVController.data
+pyffi.formats.nif.NifFormat.NiVisController.data
+pyffi.formats.nif.NifFormat._NiGeometry.data
+pyffi.formats.nif.NifFormat._NiTransformInterpolator.data
+pyffi.formats.nif.NifFormat._bhkPackedNiTriStripsShape.data
+pyffi.formats.tga.TgaFormat.ColorMapEntry.data
+pyffi.formats.tga.TgaFormat.Pixel.data
+pyffi.qskope.detail_model.DetailModel.data
+pyffi.qskope.global_model.GlobalModel.data
+pyffi.spells.Spell.data" class="py-name" href="#" onclick="return doclink('link-18', 'data', 'link-18');">data</a></tt><tt class="py-op">=</tt><tt id="link-19" class="py-name"><a title="pyffi.qskope.detail_tree.DetailTreeItemData" class="py-name" href="#" onclick="return doclink('link-19', 'DetailTreeItemData', 'link-9');">DetailTreeItemData</a></tt><tt class="py-op">(</tt><tt id="link-20" class="py-name" targets="Variable pyffi.formats.nif.NifFormat.NiPhysXTransformDest.node=pyffi.formats.nif.NifFormat.NiPhysXTransformDest-class.html#node"><a title="pyffi.formats.nif.NifFormat.NiPhysXTransformDest.node" class="py-name" href="#" onclick="return doclink('link-20', 'node', 'link-20');">node</a></tt><tt class="py-op">=</tt><tt class="py-name">globalnode</tt><tt class="py-op">)</tt><tt class="py-op">,</tt> </tt>
+<a name="L77"></a><tt class="py-lineno"> 77</tt>  <tt class="py-line">            <tt class="py-name">edge_filter</tt><tt class="py-op">=</tt><tt id="link-21" class="py-name"><a title="pyffi.utils.graph.EdgeFilter" class="py-name" href="#" onclick="return doclink('link-21', 'EdgeFilter', 'link-3');">EdgeFilter</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt><tt class="py-op">)</tt> </tt>
+<a name="L78"></a><tt class="py-lineno"> 78</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">globalmodel</tt> <tt class="py-op">=</tt> <tt class="py-name">globalmodel</tt> </tt>
+</div><a name="L79"></a><tt class="py-lineno"> 79</tt>  <tt class="py-line"> </tt>
+<a name="DetailModel.flags"></a><div id="DetailModel.flags-def"><a name="L80"></a><tt class="py-lineno"> 80</tt> <a class="py-toggle" href="#" id="DetailModel.flags-toggle" onclick="return toggle('DetailModel.flags');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="pyffi.qskope.detail_model.DetailModel-class.html#flags">flags</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">,</tt> <tt class="py-param">index</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="DetailModel.flags-collapsed" style="display:none;" pad="+++" indent="++++++++"></div><div id="DetailModel.flags-expanded"><a name="L81"></a><tt class="py-lineno"> 81</tt>  <tt class="py-line">        <tt class="py-docstring">"""Return flags for the given index: all indices are enabled and</tt> </tt>
+<a name="L82"></a><tt class="py-lineno"> 82</tt>  <tt class="py-line"><tt class="py-docstring">        selectable."""</tt> </tt>
+<a name="L83"></a><tt class="py-lineno"> 83</tt>  <tt class="py-line">        <tt class="py-keyword">if</tt> <tt class="py-keyword">not</tt> <tt id="link-22" class="py-name" targets="Variable pyffi.formats.kfm.KfmFormat._Animation.index=pyffi.formats.kfm.KfmFormat._Animation-class.html#index,Variable pyffi.formats.nif.NifFormat.SemanticData.index=pyffi.formats.nif.NifFormat.SemanticData-class.html#index,Variable pyffi.formats.nif.NifFormat.SkinWeight.index=pyffi.formats.nif.NifFormat.SkinWeight-class.html#index,Method pyffi.object_models.array_type.UniformSimpleArray.index()=pyffi.object_models.array_type.UniformSimpleArray-class.html#index,Method pyffi.qskope.detail_model.DetailModel.index()=pyffi.qskope.detail_model.DetailModel-class.html#index,Method pyffi.qskope.global_model.GlobalModel.index()=pyffi.qskope.global_model.GlobalModel-class.html#index"><a title="pyffi.formats.kfm.KfmFormat._Animation.index
+pyffi.formats.nif.NifFormat.SemanticData.index
+pyffi.formats.nif.NifFormat.SkinWeight.index
+pyffi.object_models.array_type.UniformSimpleArray.index
+pyffi.qskope.detail_model.DetailModel.index
+pyffi.qskope.global_model.GlobalModel.index" class="py-name" href="#" onclick="return doclink('link-22', 'index', 'link-22');">index</a></tt><tt class="py-op">.</tt><tt class="py-name">isValid</tt><tt class="py-op">(</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+<a name="L84"></a><tt class="py-lineno"> 84</tt>  <tt class="py-line">            <tt class="py-keyword">return</tt> <tt class="py-name">QtCore</tt><tt class="py-op">.</tt><tt class="py-name">Qt</tt><tt class="py-op">.</tt><tt class="py-name">ItemFlags</tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+<a name="L85"></a><tt class="py-lineno"> 85</tt>  <tt class="py-line">        <tt class="py-comment"># all items are enabled and selectable</tt> </tt>
+<a name="L86"></a><tt class="py-lineno"> 86</tt>  <tt class="py-line">        <tt id="link-23" class="py-name" targets="Variable pyffi.formats.cgf.CgfFormat.BonePhysics.flags=pyffi.formats.cgf.CgfFormat.BonePhysics-class.html#flags,Variable pyffi.formats.cgf.CgfFormat.ControllerChunk.flags=pyffi.formats.cgf.CgfFormat.ControllerChunk-class.html#flags,Variable pyffi.formats.cgf.CgfFormat.ExportFlagsChunk.flags=pyffi.formats.cgf.CgfFormat.ExportFlagsChunk-class.html#flags,Variable pyffi.formats.cgf.CgfFormat.MeshPhysicsDataChunk.flags=pyffi.formats.cgf.CgfFormat.MeshPhysicsDataChunk-class.html#flags,Variable pyffi.formats.cgf.CgfFormat.TextureMap.flags=pyffi.formats.cgf.CgfFormat.TextureMap-class.html#flags,Variable pyffi.formats.cgf.CgfFormat._DataStreamChunk.flags=pyffi.formats.cgf.CgfFormat._DataStreamChunk-class.html#flags,Variable pyffi.formats.cgf.CgfFormat._MeshSubsetsChunk.flags=pyffi.formats.cgf.CgfFormat._MeshSubsetsChunk-class.html#flags,Variable pyffi.formats.cgf.CgfFormat._MtlChunk.flags=pyffi.formats.cgf.CgfFormat._MtlChunk-class.html#flags,Variable pyffi.formats.dds.DdsFormat.Header.flags=pyffi.formats.dds.DdsFormat.Header-class.html#flags,Variable pyffi.formats.dds.DdsFormat.PixelFormat.flags=pyffi.formats.dds.DdsFormat.PixelFormat-class.html#flags,Variable pyffi.formats.egt.EgtFormat.Texture.flags=pyffi.formats.egt.EgtFormat.Texture-class.html#flags,Variable pyffi.formats.esp.EspFormat.CELL_DATA.flags=pyffi.formats.esp.EspFormat.CELL_DATA-class.html#flags,Variable pyffi.formats.esp.EspFormat._Record.flags=pyffi.formats.esp.EspFormat._Record-class.html#flags,Variable pyffi.formats.nif.NifFormat.BSShaderProperty.flags=pyffi.formats.nif.NifFormat.BSShaderProperty-class.html#flags,Variable pyffi.formats.nif.NifFormat.NiAlphaProperty.flags=pyffi.formats.nif.NifFormat.NiAlphaProperty-class.html#flags,Variable pyffi.formats.nif.NifFormat.NiDitherProperty.flags=pyffi.formats.nif.NifFormat.NiDitherProperty-class.html#flags,Variable pyffi.formats.nif.NifFormat.NiFogProperty.flags=pyffi.formats.nif.NifFormat.NiFogProperty-class.html#flags,Variable pyffi.formats.nif.NifFormat.NiMorphMeshModifier.flags=pyffi.formats.nif.NifFormat.NiMorphMeshModifier-class.html#flags,Variable pyffi.formats.nif.NifFormat.NiMultiTextureProperty.flags=pyffi.formats.nif.NifFormat.NiMultiTextureProperty-class.html#flags,Variable pyffi.formats.nif.NifFormat.NiShadeProperty.flags=pyffi.formats.nif.NifFormat.NiShadeProperty-class.html#flags,Variable pyffi.formats.nif.NifFormat.NiSkinningMeshModifier.flags=pyffi.formats.nif.NifFormat.NiSkinningMeshModifier-class.html#flags,Variable pyffi.formats.nif.NifFormat.NiSpecularProperty.flags=pyffi.formats.nif.NifFormat.NiSpecularProperty-class.html#flags,Variable pyffi.formats.nif.NifFormat.NiStencilProperty.flags=pyffi.formats.nif.NifFormat.NiStencilProperty-class.html#flags,Variable pyffi.formats.nif.NifFormat.NiTextureProperty.flags=pyffi.formats.nif.NifFormat.NiTextureProperty-class.html#flags,Variable pyffi.formats.nif.NifFormat.NiTexturingProperty.flags=pyffi.formats.nif.NifFormat.NiTexturingProperty-class.html#flags,Variable pyffi.formats.nif.NifFormat.NiTimeController.flags=pyffi.formats.nif.NifFormat.NiTimeController-class.html#flags,Variable pyffi.formats.nif.NifFormat.NiVertexColorProperty.flags=pyffi.formats.nif.NifFormat.NiVertexColorProperty-class.html#flags,Variable pyffi.formats.nif.NifFormat.NiWireframeProperty.flags=pyffi.formats.nif.NifFormat.NiWireframeProperty-class.html#flags,Variable pyffi.formats.nif.NifFormat.NiZBufferProperty.flags=pyffi.formats.nif.NifFormat.NiZBufferProperty-class.html#flags,Variable pyffi.formats.nif.NifFormat.TexDesc.flags=pyffi.formats.nif.NifFormat.TexDesc-class.html#flags,Variable pyffi.formats.nif.NifFormat._ATextureRenderData.flags=pyffi.formats.nif.NifFormat._ATextureRenderData-class.html#flags,Variable pyffi.formats.nif.NifFormat._NiAVObject.flags=pyffi.formats.nif.NifFormat._NiAVObject-class.html#flags,Variable pyffi.formats.nif.NifFormat._NiMaterialProperty.flags=pyffi.formats.nif.NifFormat._NiMaterialProperty-class.html#flags,Variable pyffi.formats.nif.NifFormat.bhkNiCollisionObject.flags=pyffi.formats.nif.NifFormat.bhkNiCollisionObject-class.html#flags,Variable pyffi.formats.tga.TgaFormat.Header.flags=pyffi.formats.tga.TgaFormat.Header-class.html#flags,Method pyffi.qskope.detail_model.DetailModel.flags()=pyffi.qskope.detail_model.DetailModel-class.html#flags,Method pyffi.qskope.global_model.GlobalModel.flags()=pyffi.qskope.global_model.GlobalModel-class.html#flags"><a title="pyffi.formats.cgf.CgfFormat.BonePhysics.flags
+pyffi.formats.cgf.CgfFormat.ControllerChunk.flags
+pyffi.formats.cgf.CgfFormat.ExportFlagsChunk.flags
+pyffi.formats.cgf.CgfFormat.MeshPhysicsDataChunk.flags
+pyffi.formats.cgf.CgfFormat.TextureMap.flags
+pyffi.formats.cgf.CgfFormat._DataStreamChunk.flags
+pyffi.formats.cgf.CgfFormat._MeshSubsetsChunk.flags
+pyffi.formats.cgf.CgfFormat._MtlChunk.flags
+pyffi.formats.dds.DdsFormat.Header.flags
+pyffi.formats.dds.DdsFormat.PixelFormat.flags
+pyffi.formats.egt.EgtFormat.Texture.flags
+pyffi.formats.esp.EspFormat.CELL_DATA.flags
+pyffi.formats.esp.EspFormat._Record.flags
+pyffi.formats.nif.NifFormat.BSShaderProperty.flags
+pyffi.formats.nif.NifFormat.NiAlphaProperty.flags
+pyffi.formats.nif.NifFormat.NiDitherProperty.flags
+pyffi.formats.nif.NifFormat.NiFogProperty.flags
+pyffi.formats.nif.NifFormat.NiMorphMeshModifier.flags
+pyffi.formats.nif.NifFormat.NiMultiTextureProperty.flags
+pyffi.formats.nif.NifFormat.NiShadeProperty.flags
+pyffi.formats.nif.NifFormat.NiSkinningMeshModifier.flags
+pyffi.formats.nif.NifFormat.NiSpecularProperty.flags
+pyffi.formats.nif.NifFormat.NiStencilProperty.flags
+pyffi.formats.nif.NifFormat.NiTextureProperty.flags
+pyffi.formats.nif.NifFormat.NiTexturingProperty.flags
+pyffi.formats.nif.NifFormat.NiTimeController.flags
+pyffi.formats.nif.NifFormat.NiVertexColorProperty.flags
+pyffi.formats.nif.NifFormat.NiWireframeProperty.flags
+pyffi.formats.nif.NifFormat.NiZBufferProperty.flags
+pyffi.formats.nif.NifFormat.TexDesc.flags
+pyffi.formats.nif.NifFormat._ATextureRenderData.flags
+pyffi.formats.nif.NifFormat._NiAVObject.flags
+pyffi.formats.nif.NifFormat._NiMaterialProperty.flags
+pyffi.formats.nif.NifFormat.bhkNiCollisionObject.flags
+pyffi.formats.tga.TgaFormat.Header.flags
+pyffi.qskope.detail_model.DetailModel.flags
+pyffi.qskope.global_model.GlobalModel.flags" class="py-name" href="#" onclick="return doclink('link-23', 'flags', 'link-23');">flags</a></tt> <tt class="py-op">=</tt> <tt class="py-name">QtCore</tt><tt class="py-op">.</tt><tt class="py-name">Qt</tt><tt class="py-op">.</tt><tt class="py-name">ItemIsEnabled</tt> <tt class="py-op">|</tt> <tt class="py-name">QtCore</tt><tt class="py-op">.</tt><tt class="py-name">Qt</tt><tt class="py-op">.</tt><tt class="py-name">ItemIsSelectable</tt> </tt>
+<a name="L87"></a><tt class="py-lineno"> 87</tt>  <tt class="py-line">        <tt class="py-comment"># determine whether item value can be set</tt> </tt>
+<a name="L88"></a><tt class="py-lineno"> 88</tt>  <tt class="py-line">        <tt class="py-keyword">if</tt> <tt id="link-24" class="py-name"><a title="pyffi.formats.kfm.KfmFormat._Animation.index
+pyffi.formats.nif.NifFormat.SemanticData.index
+pyffi.formats.nif.NifFormat.SkinWeight.index
+pyffi.object_models.array_type.UniformSimpleArray.index
+pyffi.qskope.detail_model.DetailModel.index
+pyffi.qskope.global_model.GlobalModel.index" class="py-name" href="#" onclick="return doclink('link-24', 'index', 'link-22');">index</a></tt><tt class="py-op">.</tt><tt class="py-name">column</tt><tt class="py-op">(</tt><tt class="py-op">)</tt> <tt class="py-op">==</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-25" class="py-name"><a title="pyffi.qskope.detail_model.DetailModel.COL_VALUE" class="py-name" href="#" onclick="return doclink('link-25', 'COL_VALUE', 'link-13');">COL_VALUE</a></tt><tt class="py-op">:</tt> </tt>
+<a name="L89"></a><tt class="py-lineno"> 89</tt>  <tt class="py-line">            <tt class="py-keyword">try</tt><tt class="py-op">:</tt> </tt>
+<a name="L90"></a><tt class="py-lineno"> 90</tt>  <tt class="py-line">                <tt id="link-26" class="py-name"><a title="pyffi.formats.kfm.KfmFormat._Animation.index
+pyffi.formats.nif.NifFormat.SemanticData.index
+pyffi.formats.nif.NifFormat.SkinWeight.index
+pyffi.object_models.array_type.UniformSimpleArray.index
+pyffi.qskope.detail_model.DetailModel.index
+pyffi.qskope.global_model.GlobalModel.index" class="py-name" href="#" onclick="return doclink('link-26', 'index', 'link-22');">index</a></tt><tt class="py-op">.</tt><tt class="py-name">internalPointer</tt><tt class="py-op">(</tt><tt class="py-op">)</tt><tt class="py-op">.</tt><tt id="link-27" class="py-name"><a title="pyffi.formats.cgf.CgfFormat.PhysicsDataType0.data
+pyffi.formats.nif.NifFormat.AdditionalDataBlock.data
+pyffi.formats.nif.NifFormat.BSMultiBound.data
+pyffi.formats.nif.NifFormat.BSPSysMultiTargetEmitterCtlr.data
+pyffi.formats.nif.NifFormat.BSPackedAdditionalDataBlock.data
+pyffi.formats.nif.NifFormat.BSTreadTransfInfo.data
+pyffi.formats.nif.NifFormat.NiAlphaController.data
+pyffi.formats.nif.NifFormat.NiBinaryVoxelExtraData.data
+pyffi.formats.nif.NifFormat.NiBoolData.data
+pyffi.formats.nif.NifFormat.NiBoolInterpolator.data
+pyffi.formats.nif.NifFormat.NiColorData.data
+pyffi.formats.nif.NifFormat.NiColorExtraData.data
+pyffi.formats.nif.NifFormat.NiDataStream.data
+pyffi.formats.nif.NifFormat.NiFloatData.data
+pyffi.formats.nif.NifFormat.NiFloatInterpolator.data
+pyffi.formats.nif.NifFormat.NiFloatsExtraData.data
+pyffi.formats.nif.NifFormat.NiGeomMorpherController.data
+pyffi.formats.nif.NifFormat.NiIntegersExtraData.data
+pyffi.formats.nif.NifFormat.NiKeyframeController.data
+pyffi.formats.nif.NifFormat.NiMorpherController.data
+pyffi.formats.nif.NifFormat.NiPSysColorModifier.data
+pyffi.formats.nif.NifFormat.NiPSysEmitterCtlr.data
+pyffi.formats.nif.NifFormat.NiPSysModifierActiveCtlr.data
+pyffi.formats.nif.NifFormat.NiPSysModifierFloatCtlr.data
+pyffi.formats.nif.NifFormat.NiPoint3InterpController.data
+pyffi.formats.nif.NifFormat.NiPoint3Interpolator.data
+pyffi.formats.nif.NifFormat.NiPosData.data
+pyffi.formats.nif.NifFormat.NiRollController.data
+pyffi.formats.nif.NifFormat.NiSkinInstance.data
+pyffi.formats.nif.NifFormat.NiStringsExtraData.data
+pyffi.formats.nif.NifFormat.NiTextureTransformController.data
+pyffi.formats.nif.NifFormat.NiUVController.data
+pyffi.formats.nif.NifFormat.NiVisController.data
+pyffi.formats.nif.NifFormat._NiGeometry.data
+pyffi.formats.nif.NifFormat._NiTransformInterpolator.data
+pyffi.formats.nif.NifFormat._bhkPackedNiTriStripsShape.data
+pyffi.formats.tga.TgaFormat.ColorMapEntry.data
+pyffi.formats.tga.TgaFormat.Pixel.data
+pyffi.qskope.detail_model.DetailModel.data
+pyffi.qskope.global_model.GlobalModel.data
+pyffi.spells.Spell.data" class="py-name" href="#" onclick="return doclink('link-27', 'data', 'link-18');">data</a></tt><tt class="py-op">.</tt><tt id="link-28" class="py-name"><a title="pyffi.formats.nif.NifFormat.NiPhysXTransformDest.node" class="py-name" href="#" onclick="return doclink('link-28', 'node', 'link-20');">node</a></tt><tt class="py-op">.</tt><tt id="link-29" class="py-name" targets="Method pyffi.formats.cgf.CgfFormat.FileSignature.get_value()=pyffi.formats.cgf.CgfFormat.FileSignature-class.html#get_value,Method pyffi.formats.cgf.CgfFormat.Ref.get_value()=pyffi.formats.cgf.CgfFormat.Ref-class.html#get_value,Method pyffi.formats.egm.EgmFormat.FileVersion.get_value()=pyffi.formats.egm.EgmFormat.FileVersion-class.html#get_value,Method pyffi.formats.egt.EgtFormat.FileVersion.get_value()=pyffi.formats.egt.EgtFormat.FileVersion-class.html#get_value,Method pyffi.formats.nif.NifFormat.ByteArray.get_value()=pyffi.formats.nif.NifFormat.ByteArray-class.html#get_value,Method pyffi.formats.nif.NifFormat.ByteMatrix.get_value()=pyffi.formats.nif.NifFormat.ByteMatrix-class.html#get_value,Method pyffi.formats.nif.NifFormat.FileVersion.get_value()=pyffi.formats.nif.NifFormat.FileVersion-class.html#get_value,Method pyffi.formats.nif.NifFormat.LineString.get_value()=pyffi.formats.nif.NifFormat.LineString-class.html#get_value,Method pyffi.formats.nif.NifFormat.Ptr.get_value()=pyffi.formats.nif.NifFormat.Ptr-class.html#get_value,Method pyffi.formats.nif.NifFormat.Ref.get_value()=pyffi.formats.nif.NifFormat.Ref-class.html#get_value,Method pyffi.formats.nif.NifFormat.ShortString.get_value()=pyffi.formats.nif.NifFormat.ShortString-class.html#get_value,Method pyffi.formats.nif.NifFormat.bool.get_value()=pyffi.formats.nif.NifFormat.bool-class.html#get_value,Method pyffi.formats.tga.TgaFormat.FooterString.get_value()=pyffi.formats.tga.TgaFormat.FooterString-class.html#get_value,Method pyffi.formats.tri.TriFormat.FileVersion.get_value()=pyffi.formats.tri.TriFormat.FileVersion-class.html#get_value,Method pyffi.object_models.binary_type.BoolType.get_value()=pyffi.object_models.binary_type.BoolType-class.html#get_value,Method pyffi.object_models.binary_type.FixedString.get_value()=pyffi.object_models.binary_type.FixedString-class.html#get_value,Method pyffi.object_models.binary_type.SizedString.get_value()=pyffi.object_models.binary_type.SizedString-class.html#get_value,Method pyffi.object_models.binary_type.UndecodedData.get_value()=pyffi.object_models.binary_type.UndecodedData-class.html#get_value,Method pyffi.object_models.common.Bool.get_value()=pyffi.object_models.common.Bool-class.html#get_value,Method pyffi.object_models.common.Char.get_value()=pyffi.object_models.common.Char-class.html#get_value,Method pyffi.object_models.common.FixedString.get_value()=pyffi.object_models.common.FixedString-class.html#get_value,Method pyffi.object_models.common.Float.get_value()=pyffi.object_models.common.Float-class.html#get_value,Method pyffi.object_models.common.Int.get_value()=pyffi.object_models.common.Int-class.html#get_value,Method pyffi.object_models.common.SizedString.get_value()=pyffi.object_models.common.SizedString-class.html#get_value,Method pyffi.object_models.common.UndecodedData.get_value()=pyffi.object_models.common.UndecodedData-class.html#get_value,Method pyffi.object_models.common.ZString.get_value()=pyffi.object_models.common.ZString-class.html#get_value,Method pyffi.object_models.simple_type.SimpleType.get_value()=pyffi.object_models.simple_type.SimpleType-class.html#get_value,Method pyffi.object_models.xml.basic.BasicBase.get_value()=pyffi.object_models.xml.basic.BasicBase-class.html#get_value,Method pyffi.object_models.xml.bit_struct.Bits.get_value()=pyffi.object_models.xml.bit_struct.Bits-class.html#get_value,Method pyffi.object_models.xml.enum.EnumBase.get_value()=pyffi.object_models.xml.enum.EnumBase-class.html#get_value"><a title="pyffi.formats.cgf.CgfFormat.FileSignature.get_value
+pyffi.formats.cgf.CgfFormat.Ref.get_value
+pyffi.formats.egm.EgmFormat.FileVersion.get_value
+pyffi.formats.egt.EgtFormat.FileVersion.get_value
+pyffi.formats.nif.NifFormat.ByteArray.get_value
+pyffi.formats.nif.NifFormat.ByteMatrix.get_value
+pyffi.formats.nif.NifFormat.FileVersion.get_value
+pyffi.formats.nif.NifFormat.LineString.get_value
+pyffi.formats.nif.NifFormat.Ptr.get_value
+pyffi.formats.nif.NifFormat.Ref.get_value
+pyffi.formats.nif.NifFormat.ShortString.get_value
+pyffi.formats.nif.NifFormat.bool.get_value
+pyffi.formats.tga.TgaFormat.FooterString.get_value
+pyffi.formats.tri.TriFormat.FileVersion.get_value
+pyffi.object_models.binary_type.BoolType.get_value
+pyffi.object_models.binary_type.FixedString.get_value
+pyffi.object_models.binary_type.SizedString.get_value
+pyffi.object_models.binary_type.UndecodedData.get_value
+pyffi.object_models.common.Bool.get_value
+pyffi.object_models.common.Char.get_value
+pyffi.object_models.common.FixedString.get_value
+pyffi.object_models.common.Float.get_value
+pyffi.object_models.common.Int.get_value
+pyffi.object_models.common.SizedString.get_value
+pyffi.object_models.common.UndecodedData.get_value
+pyffi.object_models.common.ZString.get_value
+pyffi.object_models.simple_type.SimpleType.get_value
+pyffi.object_models.xml.basic.BasicBase.get_value
+pyffi.object_models.xml.bit_struct.Bits.get_value
+pyffi.object_models.xml.enum.EnumBase.get_value" class="py-name" href="#" onclick="return doclink('link-29', 'get_value', 'link-29');">get_value</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+<a name="L91"></a><tt class="py-lineno"> 91</tt>  <tt class="py-line">                <tt class="py-comment"># TODO: find more clever system</tt> </tt>
+<a name="L92"></a><tt class="py-lineno"> 92</tt>  <tt class="py-line">            <tt class="py-keyword">except</tt> <tt class="py-name">AttributeError</tt><tt class="py-op">:</tt> </tt>
+<a name="L93"></a><tt class="py-lineno"> 93</tt>  <tt class="py-line">                <tt class="py-keyword">pass</tt> </tt>
+<a name="L94"></a><tt class="py-lineno"> 94</tt>  <tt class="py-line">            <tt class="py-keyword">except</tt> <tt class="py-name">NotImplementedError</tt><tt class="py-op">:</tt> </tt>
+<a name="L95"></a><tt class="py-lineno"> 95</tt>  <tt class="py-line">                <tt class="py-keyword">pass</tt> </tt>
+<a name="L96"></a><tt class="py-lineno"> 96</tt>  <tt class="py-line">            <tt class="py-keyword">else</tt><tt class="py-op">:</tt> </tt>
+<a name="L97"></a><tt class="py-lineno"> 97</tt>  <tt class="py-line">                <tt id="link-30" class="py-name"><a title="pyffi.formats.cgf.CgfFormat.BonePhysics.flags
+pyffi.formats.cgf.CgfFormat.ControllerChunk.flags
+pyffi.formats.cgf.CgfFormat.ExportFlagsChunk.flags
+pyffi.formats.cgf.CgfFormat.MeshPhysicsDataChunk.flags
+pyffi.formats.cgf.CgfFormat.TextureMap.flags
+pyffi.formats.cgf.CgfFormat._DataStreamChunk.flags
+pyffi.formats.cgf.CgfFormat._MeshSubsetsChunk.flags
+pyffi.formats.cgf.CgfFormat._MtlChunk.flags
+pyffi.formats.dds.DdsFormat.Header.flags
+pyffi.formats.dds.DdsFormat.PixelFormat.flags
+pyffi.formats.egt.EgtFormat.Texture.flags
+pyffi.formats.esp.EspFormat.CELL_DATA.flags
+pyffi.formats.esp.EspFormat._Record.flags
+pyffi.formats.nif.NifFormat.BSShaderProperty.flags
+pyffi.formats.nif.NifFormat.NiAlphaProperty.flags
+pyffi.formats.nif.NifFormat.NiDitherProperty.flags
+pyffi.formats.nif.NifFormat.NiFogProperty.flags
+pyffi.formats.nif.NifFormat.NiMorphMeshModifier.flags
+pyffi.formats.nif.NifFormat.NiMultiTextureProperty.flags
+pyffi.formats.nif.NifFormat.NiShadeProperty.flags
+pyffi.formats.nif.NifFormat.NiSkinningMeshModifier.flags
+pyffi.formats.nif.NifFormat.NiSpecularProperty.flags
+pyffi.formats.nif.NifFormat.NiStencilProperty.flags
+pyffi.formats.nif.NifFormat.NiTextureProperty.flags
+pyffi.formats.nif.NifFormat.NiTexturingProperty.flags
+pyffi.formats.nif.NifFormat.NiTimeController.flags
+pyffi.formats.nif.NifFormat.NiVertexColorProperty.flags
+pyffi.formats.nif.NifFormat.NiWireframeProperty.flags
+pyffi.formats.nif.NifFormat.NiZBufferProperty.flags
+pyffi.formats.nif.NifFormat.TexDesc.flags
+pyffi.formats.nif.NifFormat._ATextureRenderData.flags
+pyffi.formats.nif.NifFormat._NiAVObject.flags
+pyffi.formats.nif.NifFormat._NiMaterialProperty.flags
+pyffi.formats.nif.NifFormat.bhkNiCollisionObject.flags
+pyffi.formats.tga.TgaFormat.Header.flags
+pyffi.qskope.detail_model.DetailModel.flags
+pyffi.qskope.global_model.GlobalModel.flags" class="py-name" href="#" onclick="return doclink('link-30', 'flags', 'link-23');">flags</a></tt> <tt class="py-op">|=</tt> <tt class="py-name">QtCore</tt><tt class="py-op">.</tt><tt class="py-name">Qt</tt><tt class="py-op">.</tt><tt class="py-name">ItemIsEditable</tt> </tt>
+<a name="L98"></a><tt class="py-lineno"> 98</tt>  <tt class="py-line">        <tt class="py-keyword">return</tt> <tt class="py-name">QtCore</tt><tt class="py-op">.</tt><tt class="py-name">Qt</tt><tt class="py-op">.</tt><tt class="py-name">ItemFlags</tt><tt class="py-op">(</tt><tt id="link-31" class="py-name"><a title="pyffi.formats.cgf.CgfFormat.BonePhysics.flags
+pyffi.formats.cgf.CgfFormat.ControllerChunk.flags
+pyffi.formats.cgf.CgfFormat.ExportFlagsChunk.flags
+pyffi.formats.cgf.CgfFormat.MeshPhysicsDataChunk.flags
+pyffi.formats.cgf.CgfFormat.TextureMap.flags
+pyffi.formats.cgf.CgfFormat._DataStreamChunk.flags
+pyffi.formats.cgf.CgfFormat._MeshSubsetsChunk.flags
+pyffi.formats.cgf.CgfFormat._MtlChunk.flags
+pyffi.formats.dds.DdsFormat.Header.flags
+pyffi.formats.dds.DdsFormat.PixelFormat.flags
+pyffi.formats.egt.EgtFormat.Texture.flags
+pyffi.formats.esp.EspFormat.CELL_DATA.flags
+pyffi.formats.esp.EspFormat._Record.flags
+pyffi.formats.nif.NifFormat.BSShaderProperty.flags
+pyffi.formats.nif.NifFormat.NiAlphaProperty.flags
+pyffi.formats.nif.NifFormat.NiDitherProperty.flags
+pyffi.formats.nif.NifFormat.NiFogProperty.flags
+pyffi.formats.nif.NifFormat.NiMorphMeshModifier.flags
+pyffi.formats.nif.NifFormat.NiMultiTextureProperty.flags
+pyffi.formats.nif.NifFormat.NiShadeProperty.flags
+pyffi.formats.nif.NifFormat.NiSkinningMeshModifier.flags
+pyffi.formats.nif.NifFormat.NiSpecularProperty.flags
+pyffi.formats.nif.NifFormat.NiStencilProperty.flags
+pyffi.formats.nif.NifFormat.NiTextureProperty.flags
+pyffi.formats.nif.NifFormat.NiTexturingProperty.flags
+pyffi.formats.nif.NifFormat.NiTimeController.flags
+pyffi.formats.nif.NifFormat.NiVertexColorProperty.flags
+pyffi.formats.nif.NifFormat.NiWireframeProperty.flags
+pyffi.formats.nif.NifFormat.NiZBufferProperty.flags
+pyffi.formats.nif.NifFormat.TexDesc.flags
+pyffi.formats.nif.NifFormat._ATextureRenderData.flags
+pyffi.formats.nif.NifFormat._NiAVObject.flags
+pyffi.formats.nif.NifFormat._NiMaterialProperty.flags
+pyffi.formats.nif.NifFormat.bhkNiCollisionObject.flags
+pyffi.formats.tga.TgaFormat.Header.flags
+pyffi.qskope.detail_model.DetailModel.flags
+pyffi.qskope.global_model.GlobalModel.flags" class="py-name" href="#" onclick="return doclink('link-31', 'flags', 'link-23');">flags</a></tt><tt class="py-op">)</tt> </tt>
+</div><a name="L99"></a><tt class="py-lineno"> 99</tt>  <tt class="py-line"> </tt>
+<a name="DetailModel.data"></a><div id="DetailModel.data-def"><a name="L100"></a><tt class="py-lineno">100</tt> <a class="py-toggle" href="#" id="DetailModel.data-toggle" onclick="return toggle('DetailModel.data');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="pyffi.qskope.detail_model.DetailModel-class.html#data">data</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">,</tt> <tt class="py-param">index</tt><tt class="py-op">,</tt> <tt class="py-param">role</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="DetailModel.data-collapsed" style="display:none;" pad="+++" indent="++++++++"></div><div id="DetailModel.data-expanded"><a name="L101"></a><tt class="py-lineno">101</tt>  <tt class="py-line">        <tt class="py-docstring">"""Return the data of model index in a particular role. Only</tt> </tt>
+<a name="L102"></a><tt class="py-lineno">102</tt>  <tt class="py-line"><tt class="py-docstring">        QtCore.Qt.DisplayRole is implemented.</tt> </tt>
+<a name="L103"></a><tt class="py-lineno">103</tt>  <tt class="py-line"><tt class="py-docstring">        """</tt> </tt>
+<a name="L104"></a><tt class="py-lineno">104</tt>  <tt class="py-line">        <tt class="py-comment"># check if the index is valid</tt> </tt>
+<a name="L105"></a><tt class="py-lineno">105</tt>  <tt class="py-line">        <tt class="py-comment"># check if the role is supported</tt> </tt>
+<a name="L106"></a><tt class="py-lineno">106</tt>  <tt class="py-line">        <tt class="py-keyword">if</tt> <tt class="py-keyword">not</tt> <tt id="link-32" class="py-name"><a title="pyffi.formats.kfm.KfmFormat._Animation.index
+pyffi.formats.nif.NifFormat.SemanticData.index
+pyffi.formats.nif.NifFormat.SkinWeight.index
+pyffi.object_models.array_type.UniformSimpleArray.index
+pyffi.qskope.detail_model.DetailModel.index
+pyffi.qskope.global_model.GlobalModel.index" class="py-name" href="#" onclick="return doclink('link-32', 'index', 'link-22');">index</a></tt><tt class="py-op">.</tt><tt class="py-name">isValid</tt><tt class="py-op">(</tt><tt class="py-op">)</tt> <tt class="py-keyword">or</tt> <tt class="py-name">role</tt> <tt class="py-op">!=</tt> <tt class="py-name">QtCore</tt><tt class="py-op">.</tt><tt class="py-name">Qt</tt><tt class="py-op">.</tt><tt class="py-name">DisplayRole</tt><tt class="py-op">:</tt> </tt>
+<a name="L107"></a><tt class="py-lineno">107</tt>  <tt class="py-line">            <tt class="py-keyword">return</tt> <tt class="py-name">QtCore</tt><tt class="py-op">.</tt><tt class="py-name">QVariant</tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+<a name="L108"></a><tt class="py-lineno">108</tt>  <tt class="py-line">        <tt class="py-comment"># get the data for display</tt> </tt>
+<a name="L109"></a><tt class="py-lineno">109</tt>  <tt class="py-line">        <tt class="py-name">item</tt> <tt class="py-op">=</tt> <tt id="link-33" class="py-name"><a title="pyffi.formats.kfm.KfmFormat._Animation.index
+pyffi.formats.nif.NifFormat.SemanticData.index
+pyffi.formats.nif.NifFormat.SkinWeight.index
+pyffi.object_models.array_type.UniformSimpleArray.index
+pyffi.qskope.detail_model.DetailModel.index
+pyffi.qskope.global_model.GlobalModel.index" class="py-name" href="#" onclick="return doclink('link-33', 'index', 'link-22');">index</a></tt><tt class="py-op">.</tt><tt class="py-name">internalPointer</tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+<a name="L110"></a><tt class="py-lineno">110</tt>  <tt class="py-line"> </tt>
+<a name="L111"></a><tt class="py-lineno">111</tt>  <tt class="py-line">        <tt class="py-comment"># the name column</tt> </tt>
+<a name="L112"></a><tt class="py-lineno">112</tt>  <tt class="py-line">        <tt class="py-keyword">if</tt> <tt id="link-34" class="py-name"><a title="pyffi.formats.kfm.KfmFormat._Animation.index
+pyffi.formats.nif.NifFormat.SemanticData.index
+pyffi.formats.nif.NifFormat.SkinWeight.index
+pyffi.object_models.array_type.UniformSimpleArray.index
+pyffi.qskope.detail_model.DetailModel.index
+pyffi.qskope.global_model.GlobalModel.index" class="py-name" href="#" onclick="return doclink('link-34', 'index', 'link-22');">index</a></tt><tt class="py-op">.</tt><tt class="py-name">column</tt><tt class="py-op">(</tt><tt class="py-op">)</tt> <tt class="py-op">==</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-35" class="py-name"><a title="pyffi.qskope.detail_model.DetailModel.COL_NAME
+pyffi.qskope.global_model.GlobalModel.COL_NAME" class="py-name" href="#" onclick="return doclink('link-35', 'COL_NAME', 'link-11');">COL_NAME</a></tt><tt class="py-op">:</tt> </tt>
+<a name="L113"></a><tt class="py-lineno">113</tt>  <tt class="py-line">            <tt class="py-keyword">return</tt> <tt class="py-name">QtCore</tt><tt class="py-op">.</tt><tt class="py-name">QVariant</tt><tt class="py-op">(</tt><tt class="py-name">item</tt><tt class="py-op">.</tt><tt id="link-36" class="py-name"><a title="pyffi.formats.cgf.CgfFormat.PhysicsDataType0.data
+pyffi.formats.nif.NifFormat.AdditionalDataBlock.data
+pyffi.formats.nif.NifFormat.BSMultiBound.data
+pyffi.formats.nif.NifFormat.BSPSysMultiTargetEmitterCtlr.data
+pyffi.formats.nif.NifFormat.BSPackedAdditionalDataBlock.data
+pyffi.formats.nif.NifFormat.BSTreadTransfInfo.data
+pyffi.formats.nif.NifFormat.NiAlphaController.data
+pyffi.formats.nif.NifFormat.NiBinaryVoxelExtraData.data
+pyffi.formats.nif.NifFormat.NiBoolData.data
+pyffi.formats.nif.NifFormat.NiBoolInterpolator.data
+pyffi.formats.nif.NifFormat.NiColorData.data
+pyffi.formats.nif.NifFormat.NiColorExtraData.data
+pyffi.formats.nif.NifFormat.NiDataStream.data
+pyffi.formats.nif.NifFormat.NiFloatData.data
+pyffi.formats.nif.NifFormat.NiFloatInterpolator.data
+pyffi.formats.nif.NifFormat.NiFloatsExtraData.data
+pyffi.formats.nif.NifFormat.NiGeomMorpherController.data
+pyffi.formats.nif.NifFormat.NiIntegersExtraData.data
+pyffi.formats.nif.NifFormat.NiKeyframeController.data
+pyffi.formats.nif.NifFormat.NiMorpherController.data
+pyffi.formats.nif.NifFormat.NiPSysColorModifier.data
+pyffi.formats.nif.NifFormat.NiPSysEmitterCtlr.data
+pyffi.formats.nif.NifFormat.NiPSysModifierActiveCtlr.data
+pyffi.formats.nif.NifFormat.NiPSysModifierFloatCtlr.data
+pyffi.formats.nif.NifFormat.NiPoint3InterpController.data
+pyffi.formats.nif.NifFormat.NiPoint3Interpolator.data
+pyffi.formats.nif.NifFormat.NiPosData.data
+pyffi.formats.nif.NifFormat.NiRollController.data
+pyffi.formats.nif.NifFormat.NiSkinInstance.data
+pyffi.formats.nif.NifFormat.NiStringsExtraData.data
+pyffi.formats.nif.NifFormat.NiTextureTransformController.data
+pyffi.formats.nif.NifFormat.NiUVController.data
+pyffi.formats.nif.NifFormat.NiVisController.data
+pyffi.formats.nif.NifFormat._NiGeometry.data
+pyffi.formats.nif.NifFormat._NiTransformInterpolator.data
+pyffi.formats.nif.NifFormat._bhkPackedNiTriStripsShape.data
+pyffi.formats.tga.TgaFormat.ColorMapEntry.data
+pyffi.formats.tga.TgaFormat.Pixel.data
+pyffi.qskope.detail_model.DetailModel.data
+pyffi.qskope.global_model.GlobalModel.data
+pyffi.spells.Spell.data" class="py-name" href="#" onclick="return doclink('link-36', 'data', 'link-18');">data</a></tt><tt class="py-op">.</tt><tt id="link-37" class="py-name" targets="Variable pyffi.formats.bsa.BsaFormat.File.name=pyffi.formats.bsa.BsaFormat.File-class.html#name,Variable pyffi.formats.bsa.BsaFormat.Folder.name=pyffi.formats.bsa.BsaFormat.Folder-class.html#name,Variable pyffi.formats.bsa.BsaFormat.OldFile.name=pyffi.formats.bsa.BsaFormat.OldFile-class.html#name,Variable pyffi.formats.cgf.CgfFormat.HelperChunk.name=pyffi.formats.cgf.CgfFormat.HelperChunk-class.html#name,Variable pyffi.formats.cgf.CgfFormat.LightChunk.name=pyffi.formats.cgf.CgfFormat.LightChunk-class.html#name,Variable pyffi.formats.cgf.CgfFormat.MtlNameChunk.name=pyffi.formats.cgf.CgfFormat.MtlNameChunk-class.html#name,Variable pyffi.formats.cgf.CgfFormat.RangeEntity.name=pyffi.formats.cgf.CgfFormat.RangeEntity-class.html#name,Variable pyffi.formats.cgf.CgfFormat.TextureMap.name=pyffi.formats.cgf.CgfFormat.TextureMap-class.html#name,Variable pyffi.formats.cgf.CgfFormat._MtlChunk.name=pyffi.formats.cgf.CgfFormat._MtlChunk-class.html#name,Variable pyffi.formats.cgf.CgfFormat._NodeChunk.name=pyffi.formats.cgf.CgfFormat._NodeChunk-class.html#name,Variable pyffi.formats.esp.EspFormat.CELL_FULL.name=pyffi.formats.esp.EspFormat.CELL_FULL-class.html#name,Variable pyffi.formats.kfm.KfmFormat._Animation.name=pyffi.formats.kfm.KfmFormat._Animation-class.html#name,Variable pyffi.formats.nif.NifFormat.AVObject.name=pyffi.formats.nif.NifFormat.AVObject-class.html#name,Variable pyffi.formats.nif.NifFormat.Ni3dsAnimationNode.name=pyffi.formats.nif.NifFormat.Ni3dsAnimationNode-class.html#name,Variable pyffi.formats.nif.NifFormat.NiExtraData.name=pyffi.formats.nif.NifFormat.NiExtraData-class.html#name,Variable pyffi.formats.nif.NifFormat.NiPSBombForce.name=pyffi.formats.nif.NifFormat.NiPSBombForce-class.html#name,Variable pyffi.formats.nif.NifFormat.NiPSBoxEmitter.name=pyffi.formats.nif.NifFormat.NiPSBoxEmitter-class.html#name,Variable pyffi.formats.nif.NifFormat.NiPSMeshEmitter.name=pyffi.formats.nif.NifFormat.NiPSMeshEmitter-class.html#name,Variable pyffi.formats.nif.NifFormat.NiPSPlanarCollider.name=pyffi.formats.nif.NifFormat.NiPSPlanarCollider-class.html#name,Variable pyffi.formats.nif.NifFormat.NiPSSphereEmitter.name=pyffi.formats.nif.NifFormat.NiPSSphereEmitter-class.html#name,Variable pyffi.formats.nif.NifFormat.NiPSysModifier.name=pyffi.formats.nif.NifFormat.NiPSysModifier-class.html#name,Variable pyffi.formats.nif.NifFormat.NiSequence.name=pyffi.formats.nif.NifFormat.NiSequence-class.html#name,Variable pyffi.formats.nif.NifFormat.NiShadowGenerator.name=pyffi.formats.nif.NifFormat.NiShadowGenerator-class.html#name,Variable pyffi.formats.nif.NifFormat.SemanticData.name=pyffi.formats.nif.NifFormat.SemanticData-class.html#name,Variable pyffi.formats.nif.NifFormat._NiObjectNET.name=pyffi.formats.nif.NifFormat._NiObjectNET-class.html#name,Variable pyffi.formats.rockstar.dir_.DirFormat.File.name=pyffi.formats.rockstar.dir_.DirFormat.File-class.html#name,Variable pyffi.formats.tri.TriFormat.ModifierRecord.name=pyffi.formats.tri.TriFormat.ModifierRecord-class.html#name,Variable pyffi.formats.tri.TriFormat._MorphRecord.name=pyffi.formats.tri.TriFormat._MorphRecord-class.html#name,Variable pyffi.object_models.ArchiveMember.name=pyffi.object_models.ArchiveMember-class.html#name,Variable pyffi.object_models.xml.StructAttribute.name=pyffi.object_models.xml.StructAttribute-class.html#name"><a title="pyffi.formats.bsa.BsaFormat.File.name
+pyffi.formats.bsa.BsaFormat.Folder.name
+pyffi.formats.bsa.BsaFormat.OldFile.name
+pyffi.formats.cgf.CgfFormat.HelperChunk.name
+pyffi.formats.cgf.CgfFormat.LightChunk.name
+pyffi.formats.cgf.CgfFormat.MtlNameChunk.name
+pyffi.formats.cgf.CgfFormat.RangeEntity.name
+pyffi.formats.cgf.CgfFormat.TextureMap.name
+pyffi.formats.cgf.CgfFormat._MtlChunk.name
+pyffi.formats.cgf.CgfFormat._NodeChunk.name
+pyffi.formats.esp.EspFormat.CELL_FULL.name
+pyffi.formats.kfm.KfmFormat._Animation.name
+pyffi.formats.nif.NifFormat.AVObject.name
+pyffi.formats.nif.NifFormat.Ni3dsAnimationNode.name
+pyffi.formats.nif.NifFormat.NiExtraData.name
+pyffi.formats.nif.NifFormat.NiPSBombForce.name
+pyffi.formats.nif.NifFormat.NiPSBoxEmitter.name
+pyffi.formats.nif.NifFormat.NiPSMeshEmitter.name
+pyffi.formats.nif.NifFormat.NiPSPlanarCollider.name
+pyffi.formats.nif.NifFormat.NiPSSphereEmitter.name
+pyffi.formats.nif.NifFormat.NiPSysModifier.name
+pyffi.formats.nif.NifFormat.NiSequence.name
+pyffi.formats.nif.NifFormat.NiShadowGenerator.name
+pyffi.formats.nif.NifFormat.SemanticData.name
+pyffi.formats.nif.NifFormat._NiObjectNET.name
+pyffi.formats.rockstar.dir_.DirFormat.File.name
+pyffi.formats.tri.TriFormat.ModifierRecord.name
+pyffi.formats.tri.TriFormat._MorphRecord.name
+pyffi.object_models.ArchiveMember.name
+pyffi.object_models.xml.StructAttribute.name" class="py-name" href="#" onclick="return doclink('link-37', 'name', 'link-37');">name</a></tt><tt class="py-op">)</tt> </tt>
+<a name="L114"></a><tt class="py-lineno">114</tt>  <tt class="py-line"> </tt>
+<a name="L115"></a><tt class="py-lineno">115</tt>  <tt class="py-line">        <tt class="py-comment"># the type column</tt> </tt>
+<a name="L116"></a><tt class="py-lineno">116</tt>  <tt class="py-line">        <tt class="py-keyword">elif</tt> <tt id="link-38" class="py-name"><a title="pyffi.formats.kfm.KfmFormat._Animation.index
+pyffi.formats.nif.NifFormat.SemanticData.index
+pyffi.formats.nif.NifFormat.SkinWeight.index
+pyffi.object_models.array_type.UniformSimpleArray.index
+pyffi.qskope.detail_model.DetailModel.index
+pyffi.qskope.global_model.GlobalModel.index" class="py-name" href="#" onclick="return doclink('link-38', 'index', 'link-22');">index</a></tt><tt class="py-op">.</tt><tt class="py-name">column</tt><tt class="py-op">(</tt><tt class="py-op">)</tt> <tt class="py-op">==</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-39" class="py-name"><a title="pyffi.qskope.detail_model.DetailModel.COL_TYPE
+pyffi.qskope.global_model.GlobalModel.COL_TYPE" class="py-name" href="#" onclick="return doclink('link-39', 'COL_TYPE', 'link-12');">COL_TYPE</a></tt><tt class="py-op">:</tt> </tt>
+<a name="L117"></a><tt class="py-lineno">117</tt>  <tt class="py-line">            <tt class="py-keyword">return</tt> <tt class="py-name">QtCore</tt><tt class="py-op">.</tt><tt class="py-name">QVariant</tt><tt class="py-op">(</tt><tt class="py-name">item</tt><tt class="py-op">.</tt><tt id="link-40" class="py-name"><a title="pyffi.formats.cgf.CgfFormat.PhysicsDataType0.data
+pyffi.formats.nif.NifFormat.AdditionalDataBlock.data
+pyffi.formats.nif.NifFormat.BSMultiBound.data
+pyffi.formats.nif.NifFormat.BSPSysMultiTargetEmitterCtlr.data
+pyffi.formats.nif.NifFormat.BSPackedAdditionalDataBlock.data
+pyffi.formats.nif.NifFormat.BSTreadTransfInfo.data
+pyffi.formats.nif.NifFormat.NiAlphaController.data
+pyffi.formats.nif.NifFormat.NiBinaryVoxelExtraData.data
+pyffi.formats.nif.NifFormat.NiBoolData.data
+pyffi.formats.nif.NifFormat.NiBoolInterpolator.data
+pyffi.formats.nif.NifFormat.NiColorData.data
+pyffi.formats.nif.NifFormat.NiColorExtraData.data
+pyffi.formats.nif.NifFormat.NiDataStream.data
+pyffi.formats.nif.NifFormat.NiFloatData.data
+pyffi.formats.nif.NifFormat.NiFloatInterpolator.data
+pyffi.formats.nif.NifFormat.NiFloatsExtraData.data
+pyffi.formats.nif.NifFormat.NiGeomMorpherController.data
+pyffi.formats.nif.NifFormat.NiIntegersExtraData.data
+pyffi.formats.nif.NifFormat.NiKeyframeController.data
+pyffi.formats.nif.NifFormat.NiMorpherController.data
+pyffi.formats.nif.NifFormat.NiPSysColorModifier.data
+pyffi.formats.nif.NifFormat.NiPSysEmitterCtlr.data
+pyffi.formats.nif.NifFormat.NiPSysModifierActiveCtlr.data
+pyffi.formats.nif.NifFormat.NiPSysModifierFloatCtlr.data
+pyffi.formats.nif.NifFormat.NiPoint3InterpController.data
+pyffi.formats.nif.NifFormat.NiPoint3Interpolator.data
+pyffi.formats.nif.NifFormat.NiPosData.data
+pyffi.formats.nif.NifFormat.NiRollController.data
+pyffi.formats.nif.NifFormat.NiSkinInstance.data
+pyffi.formats.nif.NifFormat.NiStringsExtraData.data
+pyffi.formats.nif.NifFormat.NiTextureTransformController.data
+pyffi.formats.nif.NifFormat.NiUVController.data
+pyffi.formats.nif.NifFormat.NiVisController.data
+pyffi.formats.nif.NifFormat._NiGeometry.data
+pyffi.formats.nif.NifFormat._NiTransformInterpolator.data
+pyffi.formats.nif.NifFormat._bhkPackedNiTriStripsShape.data
+pyffi.formats.tga.TgaFormat.ColorMapEntry.data
+pyffi.formats.tga.TgaFormat.Pixel.data
+pyffi.qskope.detail_model.DetailModel.data
+pyffi.qskope.global_model.GlobalModel.data
+pyffi.spells.Spell.data" class="py-name" href="#" onclick="return doclink('link-40', 'data', 'link-18');">data</a></tt><tt class="py-op">.</tt><tt id="link-41" class="py-name" targets="Variable pyffi.qskope.detail_tree.DetailTreeItemData.typename=pyffi.qskope.detail_tree.DetailTreeItemData-class.html#typename,Variable pyffi.qskope.global_tree.GlobalTreeItemData.typename=pyffi.qskope.global_tree.GlobalTreeItemData-class.html#typename"><a title="pyffi.qskope.detail_tree.DetailTreeItemData.typename
+pyffi.qskope.global_tree.GlobalTreeItemData.typename" class="py-name" href="#" onclick="return doclink('link-41', 'typename', 'link-41');">typename</a></tt><tt class="py-op">)</tt> </tt>
+<a name="L118"></a><tt class="py-lineno">118</tt>  <tt class="py-line"> </tt>
+<a name="L119"></a><tt class="py-lineno">119</tt>  <tt class="py-line">        <tt class="py-comment"># the value column</tt> </tt>
+<a name="L120"></a><tt class="py-lineno">120</tt>  <tt class="py-line">        <tt class="py-keyword">elif</tt> <tt id="link-42" class="py-name"><a title="pyffi.formats.kfm.KfmFormat._Animation.index
+pyffi.formats.nif.NifFormat.SemanticData.index
+pyffi.formats.nif.NifFormat.SkinWeight.index
+pyffi.object_models.array_type.UniformSimpleArray.index
+pyffi.qskope.detail_model.DetailModel.index
+pyffi.qskope.global_model.GlobalModel.index" class="py-name" href="#" onclick="return doclink('link-42', 'index', 'link-22');">index</a></tt><tt class="py-op">.</tt><tt class="py-name">column</tt><tt class="py-op">(</tt><tt class="py-op">)</tt> <tt class="py-op">==</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-43" class="py-name"><a title="pyffi.qskope.detail_model.DetailModel.COL_VALUE" class="py-name" href="#" onclick="return doclink('link-43', 'COL_VALUE', 'link-13');">COL_VALUE</a></tt><tt class="py-op">:</tt> </tt>
+<a name="L121"></a><tt class="py-lineno">121</tt>  <tt class="py-line">            <tt class="py-comment"># get display element</tt> </tt>
+<a name="L122"></a><tt class="py-lineno">122</tt>  <tt class="py-line">            <tt id="link-44" class="py-name" targets="Variable pyffi.qskope.detail_tree.DetailTreeItemData.display=pyffi.qskope.detail_tree.DetailTreeItemData-class.html#display,Variable pyffi.qskope.global_tree.GlobalTreeItemData.display=pyffi.qskope.global_tree.GlobalTreeItemData-class.html#display"><a title="pyffi.qskope.detail_tree.DetailTreeItemData.display
+pyffi.qskope.global_tree.GlobalTreeItemData.display" class="py-name" href="#" onclick="return doclink('link-44', 'display', 'link-44');">display</a></tt> <tt class="py-op">=</tt> <tt class="py-name">item</tt><tt class="py-op">.</tt><tt id="link-45" class="py-name"><a title="pyffi.formats.cgf.CgfFormat.PhysicsDataType0.data
+pyffi.formats.nif.NifFormat.AdditionalDataBlock.data
+pyffi.formats.nif.NifFormat.BSMultiBound.data
+pyffi.formats.nif.NifFormat.BSPSysMultiTargetEmitterCtlr.data
+pyffi.formats.nif.NifFormat.BSPackedAdditionalDataBlock.data
+pyffi.formats.nif.NifFormat.BSTreadTransfInfo.data
+pyffi.formats.nif.NifFormat.NiAlphaController.data
+pyffi.formats.nif.NifFormat.NiBinaryVoxelExtraData.data
+pyffi.formats.nif.NifFormat.NiBoolData.data
+pyffi.formats.nif.NifFormat.NiBoolInterpolator.data
+pyffi.formats.nif.NifFormat.NiColorData.data
+pyffi.formats.nif.NifFormat.NiColorExtraData.data
+pyffi.formats.nif.NifFormat.NiDataStream.data
+pyffi.formats.nif.NifFormat.NiFloatData.data
+pyffi.formats.nif.NifFormat.NiFloatInterpolator.data
+pyffi.formats.nif.NifFormat.NiFloatsExtraData.data
+pyffi.formats.nif.NifFormat.NiGeomMorpherController.data
+pyffi.formats.nif.NifFormat.NiIntegersExtraData.data
+pyffi.formats.nif.NifFormat.NiKeyframeController.data
+pyffi.formats.nif.NifFormat.NiMorpherController.data
+pyffi.formats.nif.NifFormat.NiPSysColorModifier.data
+pyffi.formats.nif.NifFormat.NiPSysEmitterCtlr.data
+pyffi.formats.nif.NifFormat.NiPSysModifierActiveCtlr.data
+pyffi.formats.nif.NifFormat.NiPSysModifierFloatCtlr.data
+pyffi.formats.nif.NifFormat.NiPoint3InterpController.data
+pyffi.formats.nif.NifFormat.NiPoint3Interpolator.data
+pyffi.formats.nif.NifFormat.NiPosData.data
+pyffi.formats.nif.NifFormat.NiRollController.data
+pyffi.formats.nif.NifFormat.NiSkinInstance.data
+pyffi.formats.nif.NifFormat.NiStringsExtraData.data
+pyffi.formats.nif.NifFormat.NiTextureTransformController.data
+pyffi.formats.nif.NifFormat.NiUVController.data
+pyffi.formats.nif.NifFormat.NiVisController.data
+pyffi.formats.nif.NifFormat._NiGeometry.data
+pyffi.formats.nif.NifFormat._NiTransformInterpolator.data
+pyffi.formats.nif.NifFormat._bhkPackedNiTriStripsShape.data
+pyffi.formats.tga.TgaFormat.ColorMapEntry.data
+pyffi.formats.tga.TgaFormat.Pixel.data
+pyffi.qskope.detail_model.DetailModel.data
+pyffi.qskope.global_model.GlobalModel.data
+pyffi.spells.Spell.data" class="py-name" href="#" onclick="return doclink('link-45', 'data', 'link-18');">data</a></tt><tt class="py-op">.</tt><tt id="link-46" class="py-name"><a title="pyffi.qskope.detail_tree.DetailTreeItemData.display
+pyffi.qskope.global_tree.GlobalTreeItemData.display" class="py-name" href="#" onclick="return doclink('link-46', 'display', 'link-44');">display</a></tt> </tt>
+<a name="L123"></a><tt class="py-lineno">123</tt>  <tt class="py-line">            <tt class="py-keyword">if</tt> <tt class="py-name">isinstance</tt><tt class="py-op">(</tt><tt id="link-47" class="py-name"><a title="pyffi.qskope.detail_tree.DetailTreeItemData.display
+pyffi.qskope.global_tree.GlobalTreeItemData.display" class="py-name" href="#" onclick="return doclink('link-47', 'display', 'link-44');">display</a></tt><tt class="py-op">,</tt> <tt id="link-48" class="py-name"><a title="pyffi.utils.graph.GlobalNode" class="py-name" href="#" onclick="return doclink('link-48', 'GlobalNode', 'link-4');">GlobalNode</a></tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+<a name="L124"></a><tt class="py-lineno">124</tt>  <tt class="py-line">                <tt class="py-comment"># reference</tt> </tt>
+<a name="L125"></a><tt class="py-lineno">125</tt>  <tt class="py-line">                <tt class="py-name">blocknum</tt> <tt class="py-op">=</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">globalmodel</tt><tt class="py-op">.</tt><tt class="py-name">index_dict</tt><tt class="py-op">[</tt><tt id="link-49" class="py-name"><a title="pyffi.qskope.detail_tree.DetailTreeItemData.display
+pyffi.qskope.global_tree.GlobalTreeItemData.display" class="py-name" href="#" onclick="return doclink('link-49', 'display', 'link-44');">display</a></tt><tt class="py-op">]</tt> </tt>
+<a name="L126"></a><tt class="py-lineno">126</tt>  <tt class="py-line">                <tt class="py-keyword">if</tt> <tt class="py-op">(</tt><tt class="py-keyword">not</tt> <tt class="py-name">hasattr</tt><tt class="py-op">(</tt><tt id="link-50" class="py-name"><a title="pyffi.qskope.detail_tree.DetailTreeItemData.display
+pyffi.qskope.global_tree.GlobalTreeItemData.display" class="py-name" href="#" onclick="return doclink('link-50', 'display', 'link-44');">display</a></tt><tt class="py-op">,</tt> <tt class="py-string">"name"</tt><tt class="py-op">)</tt> <tt class="py-keyword">or</tt> <tt class="py-keyword">not</tt> <tt id="link-51" class="py-name"><a title="pyffi.qskope.detail_tree.DetailTreeItemData.display
+pyffi.qskope.global_tree.GlobalTreeItemData.display" class="py-name" href="#" onclick="return doclink('link-51', 'display', 'link-44');">display</a></tt><tt class="py-op">.</tt><tt id="link-52" class="py-name"><a title="pyffi.formats.bsa.BsaFormat.File.name
+pyffi.formats.bsa.BsaFormat.Folder.name
+pyffi.formats.bsa.BsaFormat.OldFile.name
+pyffi.formats.cgf.CgfFormat.HelperChunk.name
+pyffi.formats.cgf.CgfFormat.LightChunk.name
+pyffi.formats.cgf.CgfFormat.MtlNameChunk.name
+pyffi.formats.cgf.CgfFormat.RangeEntity.name
+pyffi.formats.cgf.CgfFormat.TextureMap.name
+pyffi.formats.cgf.CgfFormat._MtlChunk.name
+pyffi.formats.cgf.CgfFormat._NodeChunk.name
+pyffi.formats.esp.EspFormat.CELL_FULL.name
+pyffi.formats.kfm.KfmFormat._Animation.name
+pyffi.formats.nif.NifFormat.AVObject.name
+pyffi.formats.nif.NifFormat.Ni3dsAnimationNode.name
+pyffi.formats.nif.NifFormat.NiExtraData.name
+pyffi.formats.nif.NifFormat.NiPSBombForce.name
+pyffi.formats.nif.NifFormat.NiPSBoxEmitter.name
+pyffi.formats.nif.NifFormat.NiPSMeshEmitter.name
+pyffi.formats.nif.NifFormat.NiPSPlanarCollider.name
+pyffi.formats.nif.NifFormat.NiPSSphereEmitter.name
+pyffi.formats.nif.NifFormat.NiPSysModifier.name
+pyffi.formats.nif.NifFormat.NiSequence.name
+pyffi.formats.nif.NifFormat.NiShadowGenerator.name
+pyffi.formats.nif.NifFormat.SemanticData.name
+pyffi.formats.nif.NifFormat._NiObjectNET.name
+pyffi.formats.rockstar.dir_.DirFormat.File.name
+pyffi.formats.tri.TriFormat.ModifierRecord.name
+pyffi.formats.tri.TriFormat._MorphRecord.name
+pyffi.object_models.ArchiveMember.name
+pyffi.object_models.xml.StructAttribute.name" class="py-name" href="#" onclick="return doclink('link-52', 'name', 'link-37');">name</a></tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+<a name="L127"></a><tt class="py-lineno">127</tt>  <tt class="py-line">                    <tt class="py-keyword">return</tt> <tt class="py-name">QtCore</tt><tt class="py-op">.</tt><tt class="py-name">QVariant</tt><tt class="py-op">(</tt> </tt>
+<a name="L128"></a><tt class="py-lineno">128</tt>  <tt class="py-line">                        <tt class="py-string">"%i [%s]"</tt> <tt class="py-op">%</tt> <tt class="py-op">(</tt><tt class="py-name">blocknum</tt><tt class="py-op">,</tt> <tt id="link-53" class="py-name"><a title="pyffi.qskope.detail_tree.DetailTreeItemData.display
+pyffi.qskope.global_tree.GlobalTreeItemData.display" class="py-name" href="#" onclick="return doclink('link-53', 'display', 'link-44');">display</a></tt><tt class="py-op">.</tt><tt class="py-name">__class__</tt><tt class="py-op">.</tt><tt class="py-name">__name__</tt><tt class="py-op">)</tt><tt class="py-op">)</tt> </tt>
+<a name="L129"></a><tt class="py-lineno">129</tt>  <tt class="py-line">                <tt class="py-keyword">else</tt><tt class="py-op">:</tt> </tt>
+<a name="L130"></a><tt class="py-lineno">130</tt>  <tt class="py-line">                    <tt class="py-keyword">return</tt> <tt class="py-name">QtCore</tt><tt class="py-op">.</tt><tt class="py-name">QVariant</tt><tt class="py-op">(</tt> </tt>
+<a name="L131"></a><tt class="py-lineno">131</tt>  <tt class="py-line">                        <tt class="py-string">"%i (%s)"</tt> <tt class="py-op">%</tt> <tt class="py-op">(</tt><tt class="py-name">blocknum</tt><tt class="py-op">,</tt> <tt id="link-54" class="py-name"><a title="pyffi.qskope.detail_tree.DetailTreeItemData.display
+pyffi.qskope.global_tree.GlobalTreeItemData.display" class="py-name" href="#" onclick="return doclink('link-54', 'display', 'link-44');">display</a></tt><tt class="py-op">.</tt><tt id="link-55" class="py-name"><a title="pyffi.formats.bsa.BsaFormat.File.name
+pyffi.formats.bsa.BsaFormat.Folder.name
+pyffi.formats.bsa.BsaFormat.OldFile.name
+pyffi.formats.cgf.CgfFormat.HelperChunk.name
+pyffi.formats.cgf.CgfFormat.LightChunk.name
+pyffi.formats.cgf.CgfFormat.MtlNameChunk.name
+pyffi.formats.cgf.CgfFormat.RangeEntity.name
+pyffi.formats.cgf.CgfFormat.TextureMap.name
+pyffi.formats.cgf.CgfFormat._MtlChunk.name
+pyffi.formats.cgf.CgfFormat._NodeChunk.name
+pyffi.formats.esp.EspFormat.CELL_FULL.name
+pyffi.formats.kfm.KfmFormat._Animation.name
+pyffi.formats.nif.NifFormat.AVObject.name
+pyffi.formats.nif.NifFormat.Ni3dsAnimationNode.name
+pyffi.formats.nif.NifFormat.NiExtraData.name
+pyffi.formats.nif.NifFormat.NiPSBombForce.name
+pyffi.formats.nif.NifFormat.NiPSBoxEmitter.name
+pyffi.formats.nif.NifFormat.NiPSMeshEmitter.name
+pyffi.formats.nif.NifFormat.NiPSPlanarCollider.name
+pyffi.formats.nif.NifFormat.NiPSSphereEmitter.name
+pyffi.formats.nif.NifFormat.NiPSysModifier.name
+pyffi.formats.nif.NifFormat.NiSequence.name
+pyffi.formats.nif.NifFormat.NiShadowGenerator.name
+pyffi.formats.nif.NifFormat.SemanticData.name
+pyffi.formats.nif.NifFormat._NiObjectNET.name
+pyffi.formats.rockstar.dir_.DirFormat.File.name
+pyffi.formats.tri.TriFormat.ModifierRecord.name
+pyffi.formats.tri.TriFormat._MorphRecord.name
+pyffi.object_models.ArchiveMember.name
+pyffi.object_models.xml.StructAttribute.name" class="py-name" href="#" onclick="return doclink('link-55', 'name', 'link-37');">name</a></tt><tt class="py-op">)</tt><tt class="py-op">)</tt> </tt>
+<a name="L132"></a><tt class="py-lineno">132</tt>  <tt class="py-line">            <tt class="py-keyword">elif</tt> <tt class="py-name">isinstance</tt><tt class="py-op">(</tt><tt id="link-56" class="py-name"><a title="pyffi.qskope.detail_tree.DetailTreeItemData.display
+pyffi.qskope.global_tree.GlobalTreeItemData.display" class="py-name" href="#" onclick="return doclink('link-56', 'display', 'link-44');">display</a></tt><tt class="py-op">,</tt> <tt class="py-name">basestring</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+<a name="L133"></a><tt class="py-lineno">133</tt>  <tt class="py-line">                <tt class="py-comment"># regular string</tt> </tt>
+<a name="L134"></a><tt class="py-lineno">134</tt>  <tt class="py-line">                <tt class="py-keyword">if</tt> <tt class="py-name">len</tt><tt class="py-op">(</tt><tt id="link-57" class="py-name"><a title="pyffi.qskope.detail_tree.DetailTreeItemData.display
+pyffi.qskope.global_tree.GlobalTreeItemData.display" class="py-name" href="#" onclick="return doclink('link-57', 'display', 'link-44');">display</a></tt><tt class="py-op">)</tt> <tt class="py-op">&gt;</tt> <tt class="py-number">32</tt><tt class="py-op">:</tt> </tt>
+<a name="L135"></a><tt class="py-lineno">135</tt>  <tt class="py-line">                    <tt id="link-58" class="py-name"><a title="pyffi.qskope.detail_tree.DetailTreeItemData.display
+pyffi.qskope.global_tree.GlobalTreeItemData.display" class="py-name" href="#" onclick="return doclink('link-58', 'display', 'link-44');">display</a></tt> <tt class="py-op">=</tt> <tt id="link-59" class="py-name"><a title="pyffi.qskope.detail_tree.DetailTreeItemData.display
+pyffi.qskope.global_tree.GlobalTreeItemData.display" class="py-name" href="#" onclick="return doclink('link-59', 'display', 'link-44');">display</a></tt><tt class="py-op">[</tt><tt class="py-op">:</tt><tt class="py-number">32</tt><tt class="py-op">]</tt> <tt class="py-op">+</tt> <tt class="py-string">"..."</tt> </tt>
+<a name="L136"></a><tt class="py-lineno">136</tt>  <tt class="py-line">                <tt class="py-keyword">return</tt> <tt class="py-name">QtCore</tt><tt class="py-op">.</tt><tt class="py-name">QVariant</tt><tt class="py-op">(</tt> </tt>
+<a name="L137"></a><tt class="py-lineno">137</tt>  <tt class="py-line">                    <tt id="link-60" class="py-name"><a title="pyffi.qskope.detail_tree.DetailTreeItemData.display
+pyffi.qskope.global_tree.GlobalTreeItemData.display" class="py-name" href="#" onclick="return doclink('link-60', 'display', 'link-44');">display</a></tt><tt class="py-op">.</tt><tt class="py-name">replace</tt><tt class="py-op">(</tt><tt class="py-string">"\n"</tt><tt class="py-op">,</tt> <tt class="py-string">" "</tt><tt class="py-op">)</tt><tt class="py-op">.</tt><tt class="py-name">replace</tt><tt class="py-op">(</tt><tt class="py-string">"\r"</tt><tt class="py-op">,</tt> <tt class="py-string">" "</tt><tt class="py-op">)</tt><tt class="py-op">)</tt> </tt>
+<a name="L138"></a><tt class="py-lineno">138</tt>  <tt class="py-line">            <tt class="py-keyword">else</tt><tt class="py-op">:</tt> </tt>
+<a name="L139"></a><tt class="py-lineno">139</tt>  <tt class="py-line">                <tt class="py-keyword">raise</tt> <tt class="py-name">TypeError</tt><tt class="py-op">(</tt><tt class="py-string">"%s: do not know how to display %s"</tt> </tt>
+<a name="L140"></a><tt class="py-lineno">140</tt>  <tt class="py-line">                                <tt class="py-op">%</tt> <tt class="py-op">(</tt><tt class="py-name">item</tt><tt class="py-op">.</tt><tt id="link-61" class="py-name"><a title="pyffi.formats.cgf.CgfFormat.PhysicsDataType0.data
+pyffi.formats.nif.NifFormat.AdditionalDataBlock.data
+pyffi.formats.nif.NifFormat.BSMultiBound.data
+pyffi.formats.nif.NifFormat.BSPSysMultiTargetEmitterCtlr.data
+pyffi.formats.nif.NifFormat.BSPackedAdditionalDataBlock.data
+pyffi.formats.nif.NifFormat.BSTreadTransfInfo.data
+pyffi.formats.nif.NifFormat.NiAlphaController.data
+pyffi.formats.nif.NifFormat.NiBinaryVoxelExtraData.data
+pyffi.formats.nif.NifFormat.NiBoolData.data
+pyffi.formats.nif.NifFormat.NiBoolInterpolator.data
+pyffi.formats.nif.NifFormat.NiColorData.data
+pyffi.formats.nif.NifFormat.NiColorExtraData.data
+pyffi.formats.nif.NifFormat.NiDataStream.data
+pyffi.formats.nif.NifFormat.NiFloatData.data
+pyffi.formats.nif.NifFormat.NiFloatInterpolator.data
+pyffi.formats.nif.NifFormat.NiFloatsExtraData.data
+pyffi.formats.nif.NifFormat.NiGeomMorpherController.data
+pyffi.formats.nif.NifFormat.NiIntegersExtraData.data
+pyffi.formats.nif.NifFormat.NiKeyframeController.data
+pyffi.formats.nif.NifFormat.NiMorpherController.data
+pyffi.formats.nif.NifFormat.NiPSysColorModifier.data
+pyffi.formats.nif.NifFormat.NiPSysEmitterCtlr.data
+pyffi.formats.nif.NifFormat.NiPSysModifierActiveCtlr.data
+pyffi.formats.nif.NifFormat.NiPSysModifierFloatCtlr.data
+pyffi.formats.nif.NifFormat.NiPoint3InterpController.data
+pyffi.formats.nif.NifFormat.NiPoint3Interpolator.data
+pyffi.formats.nif.NifFormat.NiPosData.data
+pyffi.formats.nif.NifFormat.NiRollController.data
+pyffi.formats.nif.NifFormat.NiSkinInstance.data
+pyffi.formats.nif.NifFormat.NiStringsExtraData.data
+pyffi.formats.nif.NifFormat.NiTextureTransformController.data
+pyffi.formats.nif.NifFormat.NiUVController.data
+pyffi.formats.nif.NifFormat.NiVisController.data
+pyffi.formats.nif.NifFormat._NiGeometry.data
+pyffi.formats.nif.NifFormat._NiTransformInterpolator.data
+pyffi.formats.nif.NifFormat._bhkPackedNiTriStripsShape.data
+pyffi.formats.tga.TgaFormat.ColorMapEntry.data
+pyffi.formats.tga.TgaFormat.Pixel.data
+pyffi.qskope.detail_model.DetailModel.data
+pyffi.qskope.global_model.GlobalModel.data
+pyffi.spells.Spell.data" class="py-name" href="#" onclick="return doclink('link-61', 'data', 'link-18');">data</a></tt><tt class="py-op">.</tt><tt id="link-62" class="py-name"><a title="pyffi.formats.bsa.BsaFormat.File.name
+pyffi.formats.bsa.BsaFormat.Folder.name
+pyffi.formats.bsa.BsaFormat.OldFile.name
+pyffi.formats.cgf.CgfFormat.HelperChunk.name
+pyffi.formats.cgf.CgfFormat.LightChunk.name
+pyffi.formats.cgf.CgfFormat.MtlNameChunk.name
+pyffi.formats.cgf.CgfFormat.RangeEntity.name
+pyffi.formats.cgf.CgfFormat.TextureMap.name
+pyffi.formats.cgf.CgfFormat._MtlChunk.name
+pyffi.formats.cgf.CgfFormat._NodeChunk.name
+pyffi.formats.esp.EspFormat.CELL_FULL.name
+pyffi.formats.kfm.KfmFormat._Animation.name
+pyffi.formats.nif.NifFormat.AVObject.name
+pyffi.formats.nif.NifFormat.Ni3dsAnimationNode.name
+pyffi.formats.nif.NifFormat.NiExtraData.name
+pyffi.formats.nif.NifFormat.NiPSBombForce.name
+pyffi.formats.nif.NifFormat.NiPSBoxEmitter.name
+pyffi.formats.nif.NifFormat.NiPSMeshEmitter.name
+pyffi.formats.nif.NifFormat.NiPSPlanarCollider.name
+pyffi.formats.nif.NifFormat.NiPSSphereEmitter.name
+pyffi.formats.nif.NifFormat.NiPSysModifier.name
+pyffi.formats.nif.NifFormat.NiSequence.name
+pyffi.formats.nif.NifFormat.NiShadowGenerator.name
+pyffi.formats.nif.NifFormat.SemanticData.name
+pyffi.formats.nif.NifFormat._NiObjectNET.name
+pyffi.formats.rockstar.dir_.DirFormat.File.name
+pyffi.formats.tri.TriFormat.ModifierRecord.name
+pyffi.formats.tri.TriFormat._MorphRecord.name
+pyffi.object_models.ArchiveMember.name
+pyffi.object_models.xml.StructAttribute.name" class="py-name" href="#" onclick="return doclink('link-62', 'name', 'link-37');">name</a></tt><tt class="py-op">,</tt> <tt id="link-63" class="py-name"><a title="pyffi.qskope.detail_tree.DetailTreeItemData.display
+pyffi.qskope.global_tree.GlobalTreeItemData.display" class="py-name" href="#" onclick="return doclink('link-63', 'display', 'link-44');">display</a></tt><tt class="py-op">.</tt><tt class="py-name">__class__</tt><tt class="py-op">.</tt><tt class="py-name">__name__</tt><tt class="py-op">)</tt><tt class="py-op">)</tt> </tt>
+<a name="L141"></a><tt class="py-lineno">141</tt>  <tt class="py-line"> </tt>
+<a name="L142"></a><tt class="py-lineno">142</tt>  <tt class="py-line">        <tt class="py-comment"># other colums: invalid</tt> </tt>
+<a name="L143"></a><tt class="py-lineno">143</tt>  <tt class="py-line">        <tt class="py-keyword">else</tt><tt class="py-op">:</tt> </tt>
+<a name="L144"></a><tt class="py-lineno">144</tt>  <tt class="py-line">            <tt class="py-keyword">return</tt> <tt class="py-name">QtCore</tt><tt class="py-op">.</tt><tt class="py-name">QVariant</tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+</div><a name="L145"></a><tt class="py-lineno">145</tt>  <tt class="py-line"> </tt>
+<a name="DetailModel.headerData"></a><div id="DetailModel.headerData-def"><a name="L146"></a><tt class="py-lineno">146</tt> <a class="py-toggle" href="#" id="DetailModel.headerData-toggle" onclick="return toggle('DetailModel.headerData');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="pyffi.qskope.detail_model.DetailModel-class.html#headerData">headerData</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">,</tt> <tt class="py-param">section</tt><tt class="py-op">,</tt> <tt class="py-param">orientation</tt><tt class="py-op">,</tt> <tt class="py-param">role</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="DetailModel.headerData-collapsed" style="display:none;" pad="+++" indent="++++++++"></div><div id="DetailModel.headerData-expanded"><a name="L147"></a><tt class="py-lineno">147</tt>  <tt class="py-line">        <tt class="py-docstring">"""Return header data."""</tt> </tt>
+<a name="L148"></a><tt class="py-lineno">148</tt>  <tt class="py-line">        <tt class="py-keyword">if</tt> <tt class="py-op">(</tt><tt id="link-64" class="py-name" targets="Variable pyffi.formats.nif.NifFormat.FurniturePosition.orientation=pyffi.formats.nif.NifFormat.FurniturePosition-class.html#orientation"><a title="pyffi.formats.nif.NifFormat.FurniturePosition.orientation" class="py-name" href="#" onclick="return doclink('link-64', 'orientation', 'link-64');">orientation</a></tt> <tt class="py-op">==</tt> <tt class="py-name">QtCore</tt><tt class="py-op">.</tt><tt class="py-name">Qt</tt><tt class="py-op">.</tt><tt class="py-name">Horizontal</tt> </tt>
+<a name="L149"></a><tt class="py-lineno">149</tt>  <tt class="py-line">            <tt class="py-keyword">and</tt> <tt class="py-name">role</tt> <tt class="py-op">==</tt> <tt class="py-name">QtCore</tt><tt class="py-op">.</tt><tt class="py-name">Qt</tt><tt class="py-op">.</tt><tt class="py-name">DisplayRole</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+<a name="L150"></a><tt class="py-lineno">150</tt>  <tt class="py-line">            <tt class="py-keyword">if</tt> <tt class="py-name">section</tt> <tt class="py-op">==</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-65" class="py-name"><a title="pyffi.qskope.detail_model.DetailModel.COL_TYPE
+pyffi.qskope.global_model.GlobalModel.COL_TYPE" class="py-name" href="#" onclick="return doclink('link-65', 'COL_TYPE', 'link-12');">COL_TYPE</a></tt><tt class="py-op">:</tt> </tt>
+<a name="L151"></a><tt class="py-lineno">151</tt>  <tt class="py-line">                <tt class="py-keyword">return</tt> <tt class="py-name">QtCore</tt><tt class="py-op">.</tt><tt class="py-name">QVariant</tt><tt class="py-op">(</tt><tt class="py-string">"Type"</tt><tt class="py-op">)</tt> </tt>
+<a name="L152"></a><tt class="py-lineno">152</tt>  <tt class="py-line">            <tt class="py-keyword">elif</tt> <tt class="py-name">section</tt> <tt class="py-op">==</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-66" class="py-name"><a title="pyffi.qskope.detail_model.DetailModel.COL_NAME
+pyffi.qskope.global_model.GlobalModel.COL_NAME" class="py-name" href="#" onclick="return doclink('link-66', 'COL_NAME', 'link-11');">COL_NAME</a></tt><tt class="py-op">:</tt> </tt>
+<a name="L153"></a><tt class="py-lineno">153</tt>  <tt class="py-line">                <tt class="py-keyword">return</tt> <tt class="py-name">QtCore</tt><tt class="py-op">.</tt><tt class="py-name">QVariant</tt><tt class="py-op">(</tt><tt class="py-string">"Name"</tt><tt class="py-op">)</tt> </tt>
+<a name="L154"></a><tt class="py-lineno">154</tt>  <tt class="py-line">            <tt class="py-keyword">elif</tt> <tt class="py-name">section</tt> <tt class="py-op">==</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-67" class="py-name"><a title="pyffi.qskope.detail_model.DetailModel.COL_VALUE" class="py-name" href="#" onclick="return doclink('link-67', 'COL_VALUE', 'link-13');">COL_VALUE</a></tt><tt class="py-op">:</tt> </tt>
+<a name="L155"></a><tt class="py-lineno">155</tt>  <tt class="py-line">                <tt class="py-keyword">return</tt> <tt class="py-name">QtCore</tt><tt class="py-op">.</tt><tt class="py-name">QVariant</tt><tt class="py-op">(</tt><tt class="py-string">"Value"</tt><tt class="py-op">)</tt> </tt>
+<a name="L156"></a><tt class="py-lineno">156</tt>  <tt class="py-line">        <tt class="py-keyword">return</tt> <tt class="py-name">QtCore</tt><tt class="py-op">.</tt><tt class="py-name">QVariant</tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+</div><a name="L157"></a><tt class="py-lineno">157</tt>  <tt class="py-line"> </tt>
+<a name="DetailModel.rowCount"></a><div id="DetailModel.rowCount-def"><a name="L158"></a><tt class="py-lineno">158</tt> <a class="py-toggle" href="#" id="DetailModel.rowCount-toggle" onclick="return toggle('DetailModel.rowCount');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="pyffi.qskope.detail_model.DetailModel-class.html#rowCount">rowCount</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">,</tt> <tt class="py-param">parent</tt><tt class="py-op">=</tt><tt class="py-name">QtCore</tt><tt class="py-op">.</tt><tt class="py-name">QModelIndex</tt><tt class="py-op">(</tt><tt class="py-op">)</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="DetailModel.rowCount-collapsed" style="display:none;" pad="+++" indent="++++++++"></div><div id="DetailModel.rowCount-expanded"><a name="L159"></a><tt class="py-lineno">159</tt>  <tt class="py-line">        <tt class="py-docstring">"""Calculate a row count for the given parent index."""</tt> </tt>
+<a name="L160"></a><tt class="py-lineno">160</tt>  <tt class="py-line">        <tt class="py-keyword">if</tt> <tt class="py-keyword">not</tt> <tt id="link-68" class="py-name"><a title="pyffi.formats.cgf.CgfFormat._NodeChunk.parent
+pyffi.formats.nif.NifFormat.Ni3dsAlphaAnimator.parent
+pyffi.formats.nif.NifFormat.NiPSysCollider.parent
+pyffi.formats.nif.NifFormat.NiPSysDragModifier.parent
+pyffi.qskope.detail_model.DetailModel.parent
+pyffi.qskope.global_model.GlobalModel.parent" class="py-name" href="#" onclick="return doclink('link-68', 'parent', 'link-16');">parent</a></tt><tt class="py-op">.</tt><tt class="py-name">isValid</tt><tt class="py-op">(</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+<a name="L161"></a><tt class="py-lineno">161</tt>  <tt class="py-line">            <tt class="py-comment"># top level: one row for each attribute</tt> </tt>
+<a name="L162"></a><tt class="py-lineno">162</tt>  <tt class="py-line">            <tt class="py-keyword">return</tt> <tt class="py-name">len</tt><tt class="py-op">(</tt><tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">root_item</tt><tt class="py-op">.</tt><tt id="link-69" class="py-name" targets="Variable pyffi.formats.cgf.CgfFormat.MtlNameChunk.children=pyffi.formats.cgf.CgfFormat.MtlNameChunk-class.html#children,Variable pyffi.formats.cgf.CgfFormat._MtlChunk.children=pyffi.formats.cgf.CgfFormat._MtlChunk-class.html#children,Variable pyffi.formats.cgf.CgfFormat._NodeChunk.children=pyffi.formats.cgf.CgfFormat._NodeChunk-class.html#children,Variable pyffi.formats.nif.NifFormat.NiEnvMappedTriShape.children=pyffi.formats.nif.NifFormat.NiEnvMappedTriShape-class.html#children,Variable pyffi.formats.nif.NifFormat._NiNode.children=pyffi.formats.nif.NifFormat._NiNode-class.html#children"><a title="pyffi.formats.cgf.CgfFormat.MtlNameChunk.children
+pyffi.formats.cgf.CgfFormat._MtlChunk.children
+pyffi.formats.cgf.CgfFormat._NodeChunk.children
+pyffi.formats.nif.NifFormat.NiEnvMappedTriShape.children
+pyffi.formats.nif.NifFormat._NiNode.children" class="py-name" href="#" onclick="return doclink('link-69', 'children', 'link-69');">children</a></tt><tt class="py-op">)</tt> </tt>
+<a name="L163"></a><tt class="py-lineno">163</tt>  <tt class="py-line">        <tt class="py-keyword">else</tt><tt class="py-op">:</tt> </tt>
+<a name="L164"></a><tt class="py-lineno">164</tt>  <tt class="py-line">            <tt class="py-comment"># get the parent child count</tt> </tt>
+<a name="L165"></a><tt class="py-lineno">165</tt>  <tt class="py-line">            <tt class="py-keyword">return</tt> <tt class="py-name">len</tt><tt class="py-op">(</tt><tt id="link-70" class="py-name"><a title="pyffi.formats.cgf.CgfFormat._NodeChunk.parent
+pyffi.formats.nif.NifFormat.Ni3dsAlphaAnimator.parent
+pyffi.formats.nif.NifFormat.NiPSysCollider.parent
+pyffi.formats.nif.NifFormat.NiPSysDragModifier.parent
+pyffi.qskope.detail_model.DetailModel.parent
+pyffi.qskope.global_model.GlobalModel.parent" class="py-name" href="#" onclick="return doclink('link-70', 'parent', 'link-16');">parent</a></tt><tt class="py-op">.</tt><tt class="py-name">internalPointer</tt><tt class="py-op">(</tt><tt class="py-op">)</tt><tt class="py-op">.</tt><tt id="link-71" class="py-name"><a title="pyffi.formats.cgf.CgfFormat.MtlNameChunk.children
+pyffi.formats.cgf.CgfFormat._MtlChunk.children
+pyffi.formats.cgf.CgfFormat._NodeChunk.children
+pyffi.formats.nif.NifFormat.NiEnvMappedTriShape.children
+pyffi.formats.nif.NifFormat._NiNode.children" class="py-name" href="#" onclick="return doclink('link-71', 'children', 'link-69');">children</a></tt><tt class="py-op">)</tt> </tt>
+</div><a name="L166"></a><tt class="py-lineno">166</tt>  <tt class="py-line"> </tt>
+<a name="DetailModel.columnCount"></a><div id="DetailModel.columnCount-def"><a name="L167"></a><tt class="py-lineno">167</tt> <a class="py-toggle" href="#" id="DetailModel.columnCount-toggle" onclick="return toggle('DetailModel.columnCount');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="pyffi.qskope.detail_model.DetailModel-class.html#columnCount">columnCount</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">,</tt> <tt class="py-param">parent</tt><tt class="py-op">=</tt><tt class="py-name">QtCore</tt><tt class="py-op">.</tt><tt class="py-name">QModelIndex</tt><tt class="py-op">(</tt><tt class="py-op">)</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="DetailModel.columnCount-collapsed" style="display:none;" pad="+++" indent="++++++++"></div><div id="DetailModel.columnCount-expanded"><a name="L168"></a><tt class="py-lineno">168</tt>  <tt class="py-line">        <tt class="py-docstring">"""Return column count."""</tt> </tt>
+<a name="L169"></a><tt class="py-lineno">169</tt>  <tt class="py-line">        <tt class="py-comment"># column count is constant everywhere</tt> </tt>
+<a name="L170"></a><tt class="py-lineno">170</tt>  <tt class="py-line">        <tt class="py-keyword">return</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-72" class="py-name"><a title="pyffi.qskope.detail_model.DetailModel.NUM_COLUMNS
+pyffi.qskope.global_model.GlobalModel.NUM_COLUMNS" class="py-name" href="#" onclick="return doclink('link-72', 'NUM_COLUMNS', 'link-10');">NUM_COLUMNS</a></tt> </tt>
+</div><a name="L171"></a><tt class="py-lineno">171</tt>  <tt class="py-line"> </tt>
+<a name="DetailModel.index"></a><div id="DetailModel.index-def"><a name="L172"></a><tt class="py-lineno">172</tt> <a class="py-toggle" href="#" id="DetailModel.index-toggle" onclick="return toggle('DetailModel.index');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="pyffi.qskope.detail_model.DetailModel-class.html#index">index</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">,</tt> <tt class="py-param">row</tt><tt class="py-op">,</tt> <tt class="py-param">column</tt><tt class="py-op">,</tt> <tt class="py-param">parent</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="DetailModel.index-collapsed" style="display:none;" pad="+++" indent="++++++++"></div><div id="DetailModel.index-expanded"><a name="L173"></a><tt class="py-lineno">173</tt>  <tt class="py-line">        <tt class="py-docstring">"""Create an index to item (row, column) of object parent."""</tt> </tt>
+<a name="L174"></a><tt class="py-lineno">174</tt>  <tt class="py-line">        <tt class="py-comment"># check if the parent is valid</tt> </tt>
+<a name="L175"></a><tt class="py-lineno">175</tt>  <tt class="py-line">        <tt class="py-keyword">if</tt> <tt class="py-keyword">not</tt> <tt id="link-73" class="py-name"><a title="pyffi.formats.cgf.CgfFormat._NodeChunk.parent
+pyffi.formats.nif.NifFormat.Ni3dsAlphaAnimator.parent
+pyffi.formats.nif.NifFormat.NiPSysCollider.parent
+pyffi.formats.nif.NifFormat.NiPSysDragModifier.parent
+pyffi.qskope.detail_model.DetailModel.parent
+pyffi.qskope.global_model.GlobalModel.parent" class="py-name" href="#" onclick="return doclink('link-73', 'parent', 'link-16');">parent</a></tt><tt class="py-op">.</tt><tt class="py-name">isValid</tt><tt class="py-op">(</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+<a name="L176"></a><tt class="py-lineno">176</tt>  <tt class="py-line">            <tt class="py-comment"># parent is not valid, so we need a top-level object</tt> </tt>
+<a name="L177"></a><tt class="py-lineno">177</tt>  <tt class="py-line">            <tt class="py-comment"># return the row'th attribute</tt> </tt>
+<a name="L178"></a><tt class="py-lineno">178</tt>  <tt class="py-line">            <tt class="py-name">item</tt> <tt class="py-op">=</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">root_item</tt><tt class="py-op">.</tt><tt id="link-74" class="py-name"><a title="pyffi.formats.cgf.CgfFormat.MtlNameChunk.children
+pyffi.formats.cgf.CgfFormat._MtlChunk.children
+pyffi.formats.cgf.CgfFormat._NodeChunk.children
+pyffi.formats.nif.NifFormat.NiEnvMappedTriShape.children
+pyffi.formats.nif.NifFormat._NiNode.children" class="py-name" href="#" onclick="return doclink('link-74', 'children', 'link-69');">children</a></tt><tt class="py-op">[</tt><tt class="py-name">row</tt><tt class="py-op">]</tt> </tt>
+<a name="L179"></a><tt class="py-lineno">179</tt>  <tt class="py-line">        <tt class="py-keyword">else</tt><tt class="py-op">:</tt> </tt>
+<a name="L180"></a><tt class="py-lineno">180</tt>  <tt class="py-line">            <tt class="py-comment"># parent is valid, so we need to go get the row'th attribute</tt> </tt>
+<a name="L181"></a><tt class="py-lineno">181</tt>  <tt class="py-line">            <tt class="py-comment"># get the parent pointer</tt> </tt>
+<a name="L182"></a><tt class="py-lineno">182</tt>  <tt class="py-line">            <tt class="py-name">item</tt> <tt class="py-op">=</tt> <tt id="link-75" class="py-name"><a title="pyffi.formats.cgf.CgfFormat._NodeChunk.parent
+pyffi.formats.nif.NifFormat.Ni3dsAlphaAnimator.parent
+pyffi.formats.nif.NifFormat.NiPSysCollider.parent
+pyffi.formats.nif.NifFormat.NiPSysDragModifier.parent
+pyffi.qskope.detail_model.DetailModel.parent
+pyffi.qskope.global_model.GlobalModel.parent" class="py-name" href="#" onclick="return doclink('link-75', 'parent', 'link-16');">parent</a></tt><tt class="py-op">.</tt><tt class="py-name">internalPointer</tt><tt class="py-op">(</tt><tt class="py-op">)</tt><tt class="py-op">.</tt><tt id="link-76" class="py-name"><a title="pyffi.formats.cgf.CgfFormat.MtlNameChunk.children
+pyffi.formats.cgf.CgfFormat._MtlChunk.children
+pyffi.formats.cgf.CgfFormat._NodeChunk.children
+pyffi.formats.nif.NifFormat.NiEnvMappedTriShape.children
+pyffi.formats.nif.NifFormat._NiNode.children" class="py-name" href="#" onclick="return doclink('link-76', 'children', 'link-69');">children</a></tt><tt class="py-op">[</tt><tt class="py-name">row</tt><tt class="py-op">]</tt> </tt>
+<a name="L183"></a><tt class="py-lineno">183</tt>  <tt class="py-line">        <tt class="py-keyword">return</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">createIndex</tt><tt class="py-op">(</tt><tt class="py-name">row</tt><tt class="py-op">,</tt> <tt class="py-name">column</tt><tt class="py-op">,</tt> <tt class="py-name">item</tt><tt class="py-op">)</tt> </tt>
+</div><a name="L184"></a><tt class="py-lineno">184</tt>  <tt class="py-line"> </tt>
+<a name="DetailModel.parent"></a><div id="DetailModel.parent-def"><a name="L185"></a><tt class="py-lineno">185</tt> <a class="py-toggle" href="#" id="DetailModel.parent-toggle" onclick="return toggle('DetailModel.parent');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="pyffi.qskope.detail_model.DetailModel-class.html#parent">parent</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">,</tt> <tt class="py-param">index</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="DetailModel.parent-collapsed" style="display:none;" pad="+++" indent="++++++++"></div><div id="DetailModel.parent-expanded"><a name="L186"></a><tt class="py-lineno">186</tt>  <tt class="py-line">        <tt class="py-docstring">"""Calculate parent of a given index."""</tt> </tt>
+<a name="L187"></a><tt class="py-lineno">187</tt>  <tt class="py-line">        <tt class="py-comment"># get parent structure</tt> </tt>
+<a name="L188"></a><tt class="py-lineno">188</tt>  <tt class="py-line">        <tt class="py-name">parent_item</tt> <tt class="py-op">=</tt> <tt id="link-77" class="py-name"><a title="pyffi.formats.kfm.KfmFormat._Animation.index
+pyffi.formats.nif.NifFormat.SemanticData.index
+pyffi.formats.nif.NifFormat.SkinWeight.index
+pyffi.object_models.array_type.UniformSimpleArray.index
+pyffi.qskope.detail_model.DetailModel.index
+pyffi.qskope.global_model.GlobalModel.index" class="py-name" href="#" onclick="return doclink('link-77', 'index', 'link-22');">index</a></tt><tt class="py-op">.</tt><tt class="py-name">internalPointer</tt><tt class="py-op">(</tt><tt class="py-op">)</tt><tt class="py-op">.</tt><tt id="link-78" class="py-name"><a title="pyffi.formats.cgf.CgfFormat._NodeChunk.parent
+pyffi.formats.nif.NifFormat.Ni3dsAlphaAnimator.parent
+pyffi.formats.nif.NifFormat.NiPSysCollider.parent
+pyffi.formats.nif.NifFormat.NiPSysDragModifier.parent
+pyffi.qskope.detail_model.DetailModel.parent
+pyffi.qskope.global_model.GlobalModel.parent" class="py-name" href="#" onclick="return doclink('link-78', 'parent', 'link-16');">parent</a></tt> </tt>
+<a name="L189"></a><tt class="py-lineno">189</tt>  <tt class="py-line">        <tt class="py-comment"># if parent's parent is None, then index must be a top</tt> </tt>
+<a name="L190"></a><tt class="py-lineno">190</tt>  <tt class="py-line">        <tt class="py-comment"># level object, so return invalid index</tt> </tt>
+<a name="L191"></a><tt class="py-lineno">191</tt>  <tt class="py-line">        <tt class="py-keyword">if</tt> <tt class="py-name">parent_item</tt><tt class="py-op">.</tt><tt id="link-79" class="py-name"><a title="pyffi.formats.cgf.CgfFormat._NodeChunk.parent
+pyffi.formats.nif.NifFormat.Ni3dsAlphaAnimator.parent
+pyffi.formats.nif.NifFormat.NiPSysCollider.parent
+pyffi.formats.nif.NifFormat.NiPSysDragModifier.parent
+pyffi.qskope.detail_model.DetailModel.parent
+pyffi.qskope.global_model.GlobalModel.parent" class="py-name" href="#" onclick="return doclink('link-79', 'parent', 'link-16');">parent</a></tt> <tt class="py-keyword">is</tt> <tt class="py-name">None</tt><tt class="py-op">:</tt> </tt>
+<a name="L192"></a><tt class="py-lineno">192</tt>  <tt class="py-line">            <tt class="py-keyword">return</tt> <tt class="py-name">QtCore</tt><tt class="py-op">.</tt><tt class="py-name">QModelIndex</tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+<a name="L193"></a><tt class="py-lineno">193</tt>  <tt class="py-line">        <tt class="py-comment"># if parent's parent is not None, then it must be member of</tt> </tt>
+<a name="L194"></a><tt class="py-lineno">194</tt>  <tt class="py-line">        <tt class="py-comment"># some deeper nested structure, so calculate the row as usual</tt> </tt>
+<a name="L195"></a><tt class="py-lineno">195</tt>  <tt class="py-line">        <tt class="py-keyword">else</tt><tt class="py-op">:</tt> </tt>
+<a name="L196"></a><tt class="py-lineno">196</tt>  <tt class="py-line">            <tt class="py-keyword">return</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">createIndex</tt><tt class="py-op">(</tt><tt class="py-name">parent_item</tt><tt class="py-op">.</tt><tt class="py-name">row</tt><tt class="py-op">,</tt> <tt class="py-number">0</tt><tt class="py-op">,</tt> <tt class="py-name">parent_item</tt><tt class="py-op">)</tt> </tt>
+</div><a name="L197"></a><tt class="py-lineno">197</tt>  <tt class="py-line"> </tt>
+<a name="DetailModel.setData"></a><div id="DetailModel.setData-def"><a name="L198"></a><tt class="py-lineno">198</tt> <a class="py-toggle" href="#" id="DetailModel.setData-toggle" onclick="return toggle('DetailModel.setData');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="pyffi.qskope.detail_model.DetailModel-class.html#setData">setData</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">,</tt> <tt class="py-param">index</tt><tt class="py-op">,</tt> <tt class="py-param">value</tt><tt class="py-op">,</tt> <tt class="py-param">role</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="DetailModel.setData-collapsed" style="display:none;" pad="+++" indent="++++++++"></div><div id="DetailModel.setData-expanded"><a name="L199"></a><tt class="py-lineno">199</tt>  <tt class="py-line">        <tt class="py-docstring">"""Set data of a given index from given QVariant value. Only</tt> </tt>
+<a name="L200"></a><tt class="py-lineno">200</tt>  <tt class="py-line"><tt class="py-docstring">        QtCore.Qt.EditRole is implemented.</tt> </tt>
+<a name="L201"></a><tt class="py-lineno">201</tt>  <tt class="py-line"><tt class="py-docstring">        """</tt> </tt>
+<a name="L202"></a><tt class="py-lineno">202</tt>  <tt class="py-line">        <tt class="py-keyword">if</tt> <tt class="py-name">role</tt> <tt class="py-op">==</tt> <tt class="py-name">QtCore</tt><tt class="py-op">.</tt><tt class="py-name">Qt</tt><tt class="py-op">.</tt><tt class="py-name">EditRole</tt><tt class="py-op">:</tt> </tt>
+<a name="L203"></a><tt class="py-lineno">203</tt>  <tt class="py-line">            <tt class="py-comment"># fetch the current data, as a regular Python type</tt> </tt>
+<a name="L204"></a><tt class="py-lineno">204</tt>  <tt class="py-line">            <tt id="link-80" class="py-name"><a title="pyffi.formats.nif.NifFormat.NiPhysXTransformDest.node" class="py-name" href="#" onclick="return doclink('link-80', 'node', 'link-20');">node</a></tt> <tt class="py-op">=</tt> <tt id="link-81" class="py-name"><a title="pyffi.formats.kfm.KfmFormat._Animation.index
+pyffi.formats.nif.NifFormat.SemanticData.index
+pyffi.formats.nif.NifFormat.SkinWeight.index
+pyffi.object_models.array_type.UniformSimpleArray.index
+pyffi.qskope.detail_model.DetailModel.index
+pyffi.qskope.global_model.GlobalModel.index" class="py-name" href="#" onclick="return doclink('link-81', 'index', 'link-22');">index</a></tt><tt class="py-op">.</tt><tt class="py-name">internalPointer</tt><tt class="py-op">(</tt><tt class="py-op">)</tt><tt class="py-op">.</tt><tt id="link-82" class="py-name"><a title="pyffi.formats.cgf.CgfFormat.PhysicsDataType0.data
+pyffi.formats.nif.NifFormat.AdditionalDataBlock.data
+pyffi.formats.nif.NifFormat.BSMultiBound.data
+pyffi.formats.nif.NifFormat.BSPSysMultiTargetEmitterCtlr.data
+pyffi.formats.nif.NifFormat.BSPackedAdditionalDataBlock.data
+pyffi.formats.nif.NifFormat.BSTreadTransfInfo.data
+pyffi.formats.nif.NifFormat.NiAlphaController.data
+pyffi.formats.nif.NifFormat.NiBinaryVoxelExtraData.data
+pyffi.formats.nif.NifFormat.NiBoolData.data
+pyffi.formats.nif.NifFormat.NiBoolInterpolator.data
+pyffi.formats.nif.NifFormat.NiColorData.data
+pyffi.formats.nif.NifFormat.NiColorExtraData.data
+pyffi.formats.nif.NifFormat.NiDataStream.data
+pyffi.formats.nif.NifFormat.NiFloatData.data
+pyffi.formats.nif.NifFormat.NiFloatInterpolator.data
+pyffi.formats.nif.NifFormat.NiFloatsExtraData.data
+pyffi.formats.nif.NifFormat.NiGeomMorpherController.data
+pyffi.formats.nif.NifFormat.NiIntegersExtraData.data
+pyffi.formats.nif.NifFormat.NiKeyframeController.data
+pyffi.formats.nif.NifFormat.NiMorpherController.data
+pyffi.formats.nif.NifFormat.NiPSysColorModifier.data
+pyffi.formats.nif.NifFormat.NiPSysEmitterCtlr.data
+pyffi.formats.nif.NifFormat.NiPSysModifierActiveCtlr.data
+pyffi.formats.nif.NifFormat.NiPSysModifierFloatCtlr.data
+pyffi.formats.nif.NifFormat.NiPoint3InterpController.data
+pyffi.formats.nif.NifFormat.NiPoint3Interpolator.data
+pyffi.formats.nif.NifFormat.NiPosData.data
+pyffi.formats.nif.NifFormat.NiRollController.data
+pyffi.formats.nif.NifFormat.NiSkinInstance.data
+pyffi.formats.nif.NifFormat.NiStringsExtraData.data
+pyffi.formats.nif.NifFormat.NiTextureTransformController.data
+pyffi.formats.nif.NifFormat.NiUVController.data
+pyffi.formats.nif.NifFormat.NiVisController.data
+pyffi.formats.nif.NifFormat._NiGeometry.data
+pyffi.formats.nif.NifFormat._NiTransformInterpolator.data
+pyffi.formats.nif.NifFormat._bhkPackedNiTriStripsShape.data
+pyffi.formats.tga.TgaFormat.ColorMapEntry.data
+pyffi.formats.tga.TgaFormat.Pixel.data
+pyffi.qskope.detail_model.DetailModel.data
+pyffi.qskope.global_model.GlobalModel.data
+pyffi.spells.Spell.data" class="py-name" href="#" onclick="return doclink('link-82', 'data', 'link-18');">data</a></tt><tt class="py-op">.</tt><tt id="link-83" class="py-name"><a title="pyffi.formats.nif.NifFormat.NiPhysXTransformDest.node" class="py-name" href="#" onclick="return doclink('link-83', 'node', 'link-20');">node</a></tt> </tt>
+<a name="L205"></a><tt class="py-lineno">205</tt>  <tt class="py-line">            <tt class="py-name">currentvalue</tt> <tt class="py-op">=</tt> <tt id="link-84" class="py-name"><a title="pyffi.formats.nif.NifFormat.NiPhysXTransformDest.node" class="py-name" href="#" onclick="return doclink('link-84', 'node', 'link-20');">node</a></tt><tt class="py-op">.</tt><tt id="link-85" class="py-name"><a title="pyffi.formats.cgf.CgfFormat.FileSignature.get_value
+pyffi.formats.cgf.CgfFormat.Ref.get_value
+pyffi.formats.egm.EgmFormat.FileVersion.get_value
+pyffi.formats.egt.EgtFormat.FileVersion.get_value
+pyffi.formats.nif.NifFormat.ByteArray.get_value
+pyffi.formats.nif.NifFormat.ByteMatrix.get_value
+pyffi.formats.nif.NifFormat.FileVersion.get_value
+pyffi.formats.nif.NifFormat.LineString.get_value
+pyffi.formats.nif.NifFormat.Ptr.get_value
+pyffi.formats.nif.NifFormat.Ref.get_value
+pyffi.formats.nif.NifFormat.ShortString.get_value
+pyffi.formats.nif.NifFormat.bool.get_value
+pyffi.formats.tga.TgaFormat.FooterString.get_value
+pyffi.formats.tri.TriFormat.FileVersion.get_value
+pyffi.object_models.binary_type.BoolType.get_value
+pyffi.object_models.binary_type.FixedString.get_value
+pyffi.object_models.binary_type.SizedString.get_value
+pyffi.object_models.binary_type.UndecodedData.get_value
+pyffi.object_models.common.Bool.get_value
+pyffi.object_models.common.Char.get_value
+pyffi.object_models.common.FixedString.get_value
+pyffi.object_models.common.Float.get_value
+pyffi.object_models.common.Int.get_value
+pyffi.object_models.common.SizedString.get_value
+pyffi.object_models.common.UndecodedData.get_value
+pyffi.object_models.common.ZString.get_value
+pyffi.object_models.simple_type.SimpleType.get_value
+pyffi.object_models.xml.basic.BasicBase.get_value
+pyffi.object_models.xml.bit_struct.Bits.get_value
+pyffi.object_models.xml.enum.EnumBase.get_value" class="py-name" href="#" onclick="return doclink('link-85', 'get_value', 'link-29');">get_value</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+<a name="L206"></a><tt class="py-lineno">206</tt>  <tt class="py-line">            <tt class="py-comment"># transform the QVariant value into the right class</tt> </tt>
+<a name="L207"></a><tt class="py-lineno">207</tt>  <tt class="py-line">            <tt class="py-keyword">if</tt> <tt class="py-name">isinstance</tt><tt class="py-op">(</tt><tt class="py-name">currentvalue</tt><tt class="py-op">,</tt> <tt class="py-op">(</tt><tt class="py-name">int</tt><tt class="py-op">,</tt> <tt class="py-name">long</tt><tt class="py-op">)</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+<a name="L208"></a><tt class="py-lineno">208</tt>  <tt class="py-line">                <tt class="py-comment"># use long type to work around QVariant(0xffffffff).toInt() bug</tt> </tt>
+<a name="L209"></a><tt class="py-lineno">209</tt>  <tt class="py-line">                <tt class="py-name">pyvalue</tt><tt class="py-op">,</tt> <tt class="py-name">ok</tt> <tt class="py-op">=</tt> <tt id="link-86" class="py-name" targets="Variable pyffi.formats.nif.NifFormat.BSValueNode.value=pyffi.formats.nif.NifFormat.BSValueNode-class.html#value,Variable pyffi.formats.nif.NifFormat.Key.value=pyffi.formats.nif.NifFormat.Key-class.html#value,Variable pyffi.formats.nif.NifFormat.QuatKey.value=pyffi.formats.nif.NifFormat.QuatKey-class.html#value,Variable pyffi.object_models.binary_type.BinarySimpleType.value=pyffi.object_models.binary_type.BinarySimpleType-class.html#value,Variable pyffi.object_models.binary_type.BoolType.value=pyffi.object_models.binary_type.BoolType-class.html#value,Variable pyffi.object_models.binary_type.ByteType.value=pyffi.object_models.binary_type.ByteType-class.html#value,Variable pyffi.object_models.binary_type.CharType.value=pyffi.object_models.binary_type.CharType-class.html#value,Variable pyffi.object_models.binary_type.FixedString.value=pyffi.object_models.binary_type.FixedString-class.html#value,Variable pyffi.object_models.binary_type.Float.value=pyffi.object_models.binary_type.Float-class.html#value,Variable pyffi.object_models.binary_type.IntType.value=pyffi.object_models.binary_type.IntType-class.html#value,Variable pyffi.object_models.binary_type.ShortType.value=pyffi.object_models.binary_type.ShortType-class.html#value,Variable pyffi.object_models.binary_type.SizedString.value=pyffi.object_models.binary_type.SizedString-class.html#value,Variable pyffi.object_models.binary_type.UByteType.value=pyffi.object_models.binary_type.UByteType-class.html#value,Variable pyffi.object_models.binary_type.UIntType.value=pyffi.object_models.binary_type.UIntType-class.html#value,Variable pyffi.object_models.binary_type.UShortType.value=pyffi.object_models.binary_type.UShortType-class.html#value,Variable pyffi.object_models.binary_type.UndecodedData.value=pyffi.object_models.binary_type.UndecodedData-class.html#value,Variable pyffi.object_models.binary_type.ZString.value=pyffi.object_models.binary_type.ZString-class.html#value,Variable pyffi.object_models.simple_type.SimpleType.value=pyffi.object_models.simple_type.SimpleType-class.html#value"><a title="pyffi.formats.nif.NifFormat.BSValueNode.value
+pyffi.formats.nif.NifFormat.Key.value
+pyffi.formats.nif.NifFormat.QuatKey.value
+pyffi.object_models.binary_type.BinarySimpleType.value
+pyffi.object_models.binary_type.BoolType.value
+pyffi.object_models.binary_type.ByteType.value
+pyffi.object_models.binary_type.CharType.value
+pyffi.object_models.binary_type.FixedString.value
+pyffi.object_models.binary_type.Float.value
+pyffi.object_models.binary_type.IntType.value
+pyffi.object_models.binary_type.ShortType.value
+pyffi.object_models.binary_type.SizedString.value
+pyffi.object_models.binary_type.UByteType.value
+pyffi.object_models.binary_type.UIntType.value
+pyffi.object_models.binary_type.UShortType.value
+pyffi.object_models.binary_type.UndecodedData.value
+pyffi.object_models.binary_type.ZString.value
+pyffi.object_models.simple_type.SimpleType.value" class="py-name" href="#" onclick="return doclink('link-86', 'value', 'link-86');">value</a></tt><tt class="py-op">.</tt><tt class="py-name">toLongLong</tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+<a name="L210"></a><tt class="py-lineno">210</tt>  <tt class="py-line">            <tt class="py-keyword">elif</tt> <tt class="py-name">isinstance</tt><tt class="py-op">(</tt><tt class="py-name">currentvalue</tt><tt class="py-op">,</tt> <tt class="py-name">float</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+<a name="L211"></a><tt class="py-lineno">211</tt>  <tt class="py-line">                <tt class="py-name">pyvalue</tt><tt class="py-op">,</tt> <tt class="py-name">ok</tt> <tt class="py-op">=</tt> <tt id="link-87" class="py-name"><a title="pyffi.formats.nif.NifFormat.BSValueNode.value
+pyffi.formats.nif.NifFormat.Key.value
+pyffi.formats.nif.NifFormat.QuatKey.value
+pyffi.object_models.binary_type.BinarySimpleType.value
+pyffi.object_models.binary_type.BoolType.value
+pyffi.object_models.binary_type.ByteType.value
+pyffi.object_models.binary_type.CharType.value
+pyffi.object_models.binary_type.FixedString.value
+pyffi.object_models.binary_type.Float.value
+pyffi.object_models.binary_type.IntType.value
+pyffi.object_models.binary_type.ShortType.value
+pyffi.object_models.binary_type.SizedString.value
+pyffi.object_models.binary_type.UByteType.value
+pyffi.object_models.binary_type.UIntType.value
+pyffi.object_models.binary_type.UShortType.value
+pyffi.object_models.binary_type.UndecodedData.value
+pyffi.object_models.binary_type.ZString.value
+pyffi.object_models.simple_type.SimpleType.value" class="py-name" href="#" onclick="return doclink('link-87', 'value', 'link-86');">value</a></tt><tt class="py-op">.</tt><tt class="py-name">toDouble</tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+<a name="L212"></a><tt class="py-lineno">212</tt>  <tt class="py-line">            <tt class="py-keyword">elif</tt> <tt class="py-name">isinstance</tt><tt class="py-op">(</tt><tt class="py-name">currentvalue</tt><tt class="py-op">,</tt> <tt class="py-name">basestring</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+<a name="L213"></a><tt class="py-lineno">213</tt>  <tt class="py-line">                <tt class="py-name">pyvalue</tt> <tt class="py-op">=</tt> <tt id="link-88" class="py-name" targets="Class str=str-class.html"><a title="str" class="py-name" href="#" onclick="return doclink('link-88', 'str', 'link-88');">str</a></tt><tt class="py-op">(</tt><tt id="link-89" class="py-name"><a title="pyffi.formats.nif.NifFormat.BSValueNode.value
+pyffi.formats.nif.NifFormat.Key.value
+pyffi.formats.nif.NifFormat.QuatKey.value
+pyffi.object_models.binary_type.BinarySimpleType.value
+pyffi.object_models.binary_type.BoolType.value
+pyffi.object_models.binary_type.ByteType.value
+pyffi.object_models.binary_type.CharType.value
+pyffi.object_models.binary_type.FixedString.value
+pyffi.object_models.binary_type.Float.value
+pyffi.object_models.binary_type.IntType.value
+pyffi.object_models.binary_type.ShortType.value
+pyffi.object_models.binary_type.SizedString.value
+pyffi.object_models.binary_type.UByteType.value
+pyffi.object_models.binary_type.UIntType.value
+pyffi.object_models.binary_type.UShortType.value
+pyffi.object_models.binary_type.UndecodedData.value
+pyffi.object_models.binary_type.ZString.value
+pyffi.object_models.simple_type.SimpleType.value" class="py-name" href="#" onclick="return doclink('link-89', 'value', 'link-86');">value</a></tt><tt class="py-op">.</tt><tt class="py-name">toString</tt><tt class="py-op">(</tt><tt class="py-op">)</tt><tt class="py-op">)</tt> </tt>
+<a name="L214"></a><tt class="py-lineno">214</tt>  <tt class="py-line">                <tt class="py-name">ok</tt> <tt class="py-op">=</tt> <tt class="py-name">True</tt> </tt>
+<a name="L215"></a><tt class="py-lineno">215</tt>  <tt class="py-line">            <tt class="py-keyword">elif</tt> <tt class="py-name">isinstance</tt><tt class="py-op">(</tt><tt class="py-name">currentvalue</tt><tt class="py-op">,</tt> <tt id="link-90" class="py-name" targets="Class pyffi.formats.dds.DdsFormat.bool=pyffi.formats.dds.DdsFormat.bool-class.html,Class pyffi.formats.nif.NifFormat.bool=pyffi.formats.nif.NifFormat.bool-class.html,Class pyffi.formats.tga.TgaFormat.bool=pyffi.formats.tga.TgaFormat.bool-class.html"><a title="pyffi.formats.dds.DdsFormat.bool
+pyffi.formats.nif.NifFormat.bool
+pyffi.formats.tga.TgaFormat.bool" class="py-name" href="#" onclick="return doclink('link-90', 'bool', 'link-90');">bool</a></tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+<a name="L216"></a><tt class="py-lineno">216</tt>  <tt class="py-line">                <tt class="py-name">pyvalue</tt><tt class="py-op">,</tt> <tt class="py-name">ok</tt> <tt class="py-op">=</tt> <tt id="link-91" class="py-name"><a title="pyffi.formats.nif.NifFormat.BSValueNode.value
+pyffi.formats.nif.NifFormat.Key.value
+pyffi.formats.nif.NifFormat.QuatKey.value
+pyffi.object_models.binary_type.BinarySimpleType.value
+pyffi.object_models.binary_type.BoolType.value
+pyffi.object_models.binary_type.ByteType.value
+pyffi.object_models.binary_type.CharType.value
+pyffi.object_models.binary_type.FixedString.value
+pyffi.object_models.binary_type.Float.value
+pyffi.object_models.binary_type.IntType.value
+pyffi.object_models.binary_type.ShortType.value
+pyffi.object_models.binary_type.SizedString.value
+pyffi.object_models.binary_type.UByteType.value
+pyffi.object_models.binary_type.UIntType.value
+pyffi.object_models.binary_type.UShortType.value
+pyffi.object_models.binary_type.UndecodedData.value
+pyffi.object_models.binary_type.ZString.value
+pyffi.object_models.simple_type.SimpleType.value" class="py-name" href="#" onclick="return doclink('link-91', 'value', 'link-86');">value</a></tt><tt class="py-op">.</tt><tt class="py-name">toBool</tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+<a name="L217"></a><tt class="py-lineno">217</tt>  <tt class="py-line">            <tt class="py-keyword">else</tt><tt class="py-op">:</tt> </tt>
+<a name="L218"></a><tt class="py-lineno">218</tt>  <tt class="py-line">                <tt class="py-comment"># type not supported</tt> </tt>
+<a name="L219"></a><tt class="py-lineno">219</tt>  <tt class="py-line">                <tt class="py-keyword">return</tt> <tt class="py-name">False</tt> </tt>
+<a name="L220"></a><tt class="py-lineno">220</tt>  <tt class="py-line">            <tt class="py-comment"># check if conversion worked</tt> </tt>
+<a name="L221"></a><tt class="py-lineno">221</tt>  <tt class="py-line">            <tt class="py-keyword">if</tt> <tt class="py-keyword">not</tt> <tt class="py-name">ok</tt><tt class="py-op">:</tt> </tt>
+<a name="L222"></a><tt class="py-lineno">222</tt>  <tt class="py-line">                <tt class="py-keyword">return</tt> <tt class="py-name">False</tt> </tt>
+<a name="L223"></a><tt class="py-lineno">223</tt>  <tt class="py-line">            <tt class="py-comment"># set the value (EditRole, so use set_editor_value, not set_value)</tt> </tt>
+<a name="L224"></a><tt class="py-lineno">224</tt>  <tt class="py-line">            <tt id="link-92" class="py-name"><a title="pyffi.formats.nif.NifFormat.NiPhysXTransformDest.node" class="py-name" href="#" onclick="return doclink('link-92', 'node', 'link-20');">node</a></tt><tt class="py-op">.</tt><tt id="link-93" class="py-name" targets="Method pyffi.object_models.editable.EditableBase.set_editor_value()=pyffi.object_models.editable.EditableBase-class.html#set_editor_value,Method pyffi.object_models.editable.EditableBoolComboBox.set_editor_value()=pyffi.object_models.editable.EditableBoolComboBox-class.html#set_editor_value,Method pyffi.object_models.editable.EditableSpinBox.set_editor_value()=pyffi.object_models.editable.EditableSpinBox-class.html#set_editor_value,Method pyffi.object_models.xml.basic.BasicBase.set_editor_value()=pyffi.object_models.xml.basic.BasicBase-class.html#set_editor_value,Method pyffi.object_models.xml.bit_struct.Bits.set_editor_value()=pyffi.object_models.xml.bit_struct.Bits-class.html#set_editor_value,Method pyffi.object_models.xml.enum.EnumBase.set_editor_value()=pyffi.object_models.xml.enum.EnumBase-class.html#set_editor_value"><a title="pyffi.object_models.editable.EditableBase.set_editor_value
+pyffi.object_models.editable.EditableBoolComboBox.set_editor_value
+pyffi.object_models.editable.EditableSpinBox.set_editor_value
+pyffi.object_models.xml.basic.BasicBase.set_editor_value
+pyffi.object_models.xml.bit_struct.Bits.set_editor_value
+pyffi.object_models.xml.enum.EnumBase.set_editor_value" class="py-name" href="#" onclick="return doclink('link-93', 'set_editor_value', 'link-93');">set_editor_value</a></tt><tt class="py-op">(</tt><tt class="py-name">pyvalue</tt><tt class="py-op">)</tt> </tt>
+<a name="L225"></a><tt class="py-lineno">225</tt>  <tt class="py-line">            <tt class="py-comment"># tell everyone that the data has changed</tt> </tt>
+<a name="L226"></a><tt class="py-lineno">226</tt>  <tt class="py-line">            <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">emit</tt><tt class="py-op">(</tt><tt class="py-name">QtCore</tt><tt class="py-op">.</tt><tt class="py-name">SIGNAL</tt><tt class="py-op">(</tt><tt class="py-string">'dataChanged(QModelIndex, QModelIndex)'</tt><tt class="py-op">)</tt><tt class="py-op">,</tt> </tt>
+<a name="L227"></a><tt class="py-lineno">227</tt>  <tt class="py-line">                                    <tt id="link-94" class="py-name"><a title="pyffi.formats.kfm.KfmFormat._Animation.index
+pyffi.formats.nif.NifFormat.SemanticData.index
+pyffi.formats.nif.NifFormat.SkinWeight.index
+pyffi.object_models.array_type.UniformSimpleArray.index
+pyffi.qskope.detail_model.DetailModel.index
+pyffi.qskope.global_model.GlobalModel.index" class="py-name" href="#" onclick="return doclink('link-94', 'index', 'link-22');">index</a></tt><tt class="py-op">,</tt> <tt id="link-95" class="py-name"><a title="pyffi.formats.kfm.KfmFormat._Animation.index
+pyffi.formats.nif.NifFormat.SemanticData.index
+pyffi.formats.nif.NifFormat.SkinWeight.index
+pyffi.object_models.array_type.UniformSimpleArray.index
+pyffi.qskope.detail_model.DetailModel.index
+pyffi.qskope.global_model.GlobalModel.index" class="py-name" href="#" onclick="return doclink('link-95', 'index', 'link-22');">index</a></tt><tt class="py-op">)</tt> </tt>
+<a name="L228"></a><tt class="py-lineno">228</tt>  <tt class="py-line">            <tt class="py-keyword">return</tt> <tt class="py-name">True</tt> </tt>
+<a name="L229"></a><tt class="py-lineno">229</tt>  <tt class="py-line">        <tt class="py-comment"># all other cases: failed</tt> </tt>
+<a name="L230"></a><tt class="py-lineno">230</tt>  <tt class="py-line">        <tt class="py-keyword">return</tt> <tt class="py-name">False</tt> </tt>
+</div></div><a name="L231"></a><tt class="py-lineno">231</tt>  <tt class="py-line"> </tt><script type="text/javascript">
+<!--
+expandto(location.href);
+// -->
+</script>
+</pre>
+<br />
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+  <!-- Home link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="pyffi-module.html">Home</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Project homepage -->
+      <th class="navbar" align="right" width="100%">
+        <table border="0" cellpadding="0" cellspacing="0">
+          <tr><th class="navbar" align="center"
+            >&nbsp;&nbsp;&nbsp;<a class="navbar" target="_top" href="http://pyffi.sourceforge.net/">Python File Format Interface</a>&nbsp;&nbsp;&nbsp;</th><th class="navbar" align="center">&nbsp;&nbsp;&nbsp;<a class="navbar" target="_top" href="http://sourceforge.net"><img src="http://sflogo.sourceforge.net/sflogo.php?group_id=199269" width="88" height="31" border="0" alt="SourceForge.net Logo" /></a>&nbsp;&nbsp;&nbsp;</th>
+          </tr></table></th>
+  </tr>
+</table>
+<table border="0" cellpadding="0" cellspacing="0" width="100%%">
+  <tr>
+    <td align="left" class="footer">
+    Generated by Epydoc 3.0.1 on Sat Nov 26 08:35:24 2011
+    </td>
+    <td align="right" class="footer">
+      <a target="mainFrame" href="http://epydoc.sourceforge.net"
+        >http://epydoc.sourceforge.net</a>
+    </td>
+  </tr>
+</table>
+
+<script type="text/javascript">
+  <!--
+  // Private objects are initially displayed (because if
+  // javascript is turned off then we want them to be
+  // visible); but by default, we want to hide them.  So hide
+  // them unless we have a cookie that says to show them.
+  checkCookie();
+  // -->
+</script>
+</body>
+</html>

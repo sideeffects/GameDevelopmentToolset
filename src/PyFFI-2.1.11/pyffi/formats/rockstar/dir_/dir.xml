@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE fileformat>
+<fileformat>
+
+    <!--
+    *******************
+    *** basic types ***
+    *******************
+    -->
+
+    <basic name="UInt">
+        An unsigned 32-bit integer.
+    </basic>
+
+   <basic name="String">
+       A null terminated string occupying 24 bytes.
+   </basic>
+
+    <!--
+    *******************
+    *** alias types ***
+    *******************
+    -->
+
+    <!--
+    ******************
+    *** enum types ***
+    ******************
+    -->
+
+    <!--
+    ******************
+    *** bitstructs ***
+    ******************
+    -->
+
+    <!--
+    ***************
+    *** structs ***
+    ***************
+    -->
+
+   <struct name="File">
+       <add name="Offset" type="UInt">
+           Offset of the file data in the .img file, divided by 2048.
+       </add>
+       <add name="Size" type="UInt">
+           Size of the file data in the .img file, divided by
+           2048. Note that files whose size is not a multiple of 2048
+           are padded by zeros.
+       </add>
+       <add name="Name" type="String">
+           File name.
+       </add>
+   </struct>
+
+</fileformat>

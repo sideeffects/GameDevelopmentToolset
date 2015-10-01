@@ -1,0 +1,627 @@
+<?xml version="1.0" encoding="ascii"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+          "DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>pyffi.object_models.simple_type</title>
+  <link rel="stylesheet" href="epydoc.css" type="text/css" />
+  <script type="text/javascript" src="epydoc.js"></script>
+</head>
+
+<body bgcolor="white" text="black" link="blue" vlink="#204080"
+      alink="#204080">
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+  <!-- Home link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="pyffi-module.html">Home</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Project homepage -->
+      <th class="navbar" align="right" width="100%">
+        <table border="0" cellpadding="0" cellspacing="0">
+          <tr><th class="navbar" align="center"
+            >&nbsp;&nbsp;&nbsp;<a class="navbar" target="_top" href="http://pyffi.sourceforge.net/">Python File Format Interface</a>&nbsp;&nbsp;&nbsp;</th><th class="navbar" align="center">&nbsp;&nbsp;&nbsp;<a class="navbar" target="_top" href="http://sourceforge.net"><img src="http://sflogo.sourceforge.net/sflogo.php?group_id=199269" width="88" height="31" border="0" alt="SourceForge.net Logo" /></a>&nbsp;&nbsp;&nbsp;</th>
+          </tr></table></th>
+  </tr>
+</table>
+<table width="100%" cellpadding="0" cellspacing="0">
+  <tr valign="top">
+    <td width="100%">
+      <span class="breadcrumbs">
+        <a href="pyffi-module.html">Package&nbsp;pyffi</a> ::
+        <a href="pyffi.object_models-module.html">Package&nbsp;object_models</a> ::
+        Module&nbsp;simple_type
+      </span>
+    </td>
+    <td>
+      <table cellpadding="0" cellspacing="0">
+        <!-- hide/show private -->
+        <tr><td align="right"><span class="options">[<a href="javascript:void(0);" class="privatelink"
+    onclick="toggle_private();">hide&nbsp;private</a>]</span></td></tr>
+        <tr><td align="right"><span class="options"
+            >[<a href="frames.html" target="_top">frames</a
+            >]&nbsp;|&nbsp;<a href="pyffi.object_models.simple_type-pysrc.html"
+            target="_top">no&nbsp;frames</a>]</span></td></tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<h1 class="epydoc">Source Code for <a href="pyffi.object_models.simple_type-module.html">Module pyffi.object_models.simple_type</a></h1>
+<pre class="py-src">
+<a name="L1"></a><tt class="py-lineno">  1</tt>  <tt class="py-line"><tt class="py-docstring">"""Defines the base class for simple types."""</tt> </tt>
+<a name="L2"></a><tt class="py-lineno">  2</tt>  <tt class="py-line"> </tt>
+<a name="L3"></a><tt class="py-lineno">  3</tt>  <tt class="py-line"><tt class="py-comment"># --------------------------------------------------------------------------</tt> </tt>
+<a name="L4"></a><tt class="py-lineno">  4</tt>  <tt class="py-line"><tt class="py-comment"># ***** BEGIN LICENSE BLOCK *****</tt> </tt>
+<a name="L5"></a><tt class="py-lineno">  5</tt>  <tt class="py-line"><tt class="py-comment">#</tt> </tt>
+<a name="L6"></a><tt class="py-lineno">  6</tt>  <tt class="py-line"><tt class="py-comment"># Copyright (c) 2007-2011, Python File Format Interface</tt> </tt>
+<a name="L7"></a><tt class="py-lineno">  7</tt>  <tt class="py-line"><tt class="py-comment"># All rights reserved.</tt> </tt>
+<a name="L8"></a><tt class="py-lineno">  8</tt>  <tt class="py-line"><tt class="py-comment">#</tt> </tt>
+<a name="L9"></a><tt class="py-lineno">  9</tt>  <tt class="py-line"><tt class="py-comment"># Redistribution and use in source and binary forms, with or without</tt> </tt>
+<a name="L10"></a><tt class="py-lineno"> 10</tt>  <tt class="py-line"><tt class="py-comment"># modification, are permitted provided that the following conditions</tt> </tt>
+<a name="L11"></a><tt class="py-lineno"> 11</tt>  <tt class="py-line"><tt class="py-comment"># are met:</tt> </tt>
+<a name="L12"></a><tt class="py-lineno"> 12</tt>  <tt class="py-line"><tt class="py-comment">#</tt> </tt>
+<a name="L13"></a><tt class="py-lineno"> 13</tt>  <tt class="py-line"><tt class="py-comment">#    * Redistributions of source code must retain the above copyright</tt> </tt>
+<a name="L14"></a><tt class="py-lineno"> 14</tt>  <tt class="py-line"><tt class="py-comment">#      notice, this list of conditions and the following disclaimer.</tt> </tt>
+<a name="L15"></a><tt class="py-lineno"> 15</tt>  <tt class="py-line"><tt class="py-comment">#</tt> </tt>
+<a name="L16"></a><tt class="py-lineno"> 16</tt>  <tt class="py-line"><tt class="py-comment">#    * Redistributions in binary form must reproduce the above</tt> </tt>
+<a name="L17"></a><tt class="py-lineno"> 17</tt>  <tt class="py-line"><tt class="py-comment">#      copyright notice, this list of conditions and the following</tt> </tt>
+<a name="L18"></a><tt class="py-lineno"> 18</tt>  <tt class="py-line"><tt class="py-comment">#      disclaimer in the documentation and/or other materials provided</tt> </tt>
+<a name="L19"></a><tt class="py-lineno"> 19</tt>  <tt class="py-line"><tt class="py-comment">#      with the distribution.</tt> </tt>
+<a name="L20"></a><tt class="py-lineno"> 20</tt>  <tt class="py-line"><tt class="py-comment">#</tt> </tt>
+<a name="L21"></a><tt class="py-lineno"> 21</tt>  <tt class="py-line"><tt class="py-comment">#    * Neither the name of the Python File Format Interface</tt> </tt>
+<a name="L22"></a><tt class="py-lineno"> 22</tt>  <tt class="py-line"><tt class="py-comment">#      project nor the names of its contributors may be used to endorse</tt> </tt>
+<a name="L23"></a><tt class="py-lineno"> 23</tt>  <tt class="py-line"><tt class="py-comment">#      or promote products derived from this software without specific</tt> </tt>
+<a name="L24"></a><tt class="py-lineno"> 24</tt>  <tt class="py-line"><tt class="py-comment">#      prior written permission.</tt> </tt>
+<a name="L25"></a><tt class="py-lineno"> 25</tt>  <tt class="py-line"><tt class="py-comment">#</tt> </tt>
+<a name="L26"></a><tt class="py-lineno"> 26</tt>  <tt class="py-line"><tt class="py-comment"># THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS</tt> </tt>
+<a name="L27"></a><tt class="py-lineno"> 27</tt>  <tt class="py-line"><tt class="py-comment"># "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT</tt> </tt>
+<a name="L28"></a><tt class="py-lineno"> 28</tt>  <tt class="py-line"><tt class="py-comment"># LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS</tt> </tt>
+<a name="L29"></a><tt class="py-lineno"> 29</tt>  <tt class="py-line"><tt class="py-comment"># FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE</tt> </tt>
+<a name="L30"></a><tt class="py-lineno"> 30</tt>  <tt class="py-line"><tt class="py-comment"># COPYRIGHT OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT,</tt> </tt>
+<a name="L31"></a><tt class="py-lineno"> 31</tt>  <tt class="py-line"><tt class="py-comment"># INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING,</tt> </tt>
+<a name="L32"></a><tt class="py-lineno"> 32</tt>  <tt class="py-line"><tt class="py-comment"># BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES;</tt> </tt>
+<a name="L33"></a><tt class="py-lineno"> 33</tt>  <tt class="py-line"><tt class="py-comment"># LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER</tt> </tt>
+<a name="L34"></a><tt class="py-lineno"> 34</tt>  <tt class="py-line"><tt class="py-comment"># CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT</tt> </tt>
+<a name="L35"></a><tt class="py-lineno"> 35</tt>  <tt class="py-line"><tt class="py-comment"># LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN</tt> </tt>
+<a name="L36"></a><tt class="py-lineno"> 36</tt>  <tt class="py-line"><tt class="py-comment"># ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE</tt> </tt>
+<a name="L37"></a><tt class="py-lineno"> 37</tt>  <tt class="py-line"><tt class="py-comment"># POSSIBILITY OF SUCH DAMAGE.</tt> </tt>
+<a name="L38"></a><tt class="py-lineno"> 38</tt>  <tt class="py-line"><tt class="py-comment">#</tt> </tt>
+<a name="L39"></a><tt class="py-lineno"> 39</tt>  <tt class="py-line"><tt class="py-comment"># ***** END LICENSE BLOCK *****</tt> </tt>
+<a name="L40"></a><tt class="py-lineno"> 40</tt>  <tt class="py-line"><tt class="py-comment"># --------------------------------------------------------------------------</tt> </tt>
+<a name="L41"></a><tt class="py-lineno"> 41</tt>  <tt class="py-line"> </tt>
+<a name="L42"></a><tt class="py-lineno"> 42</tt>  <tt class="py-line"><tt class="py-keyword">from</tt> <tt id="link-0" class="py-name" targets="Package pyffi=pyffi-module.html"><a title="pyffi" class="py-name" href="#" onclick="return doclink('link-0', 'pyffi', 'link-0');">pyffi</a></tt><tt class="py-op">.</tt><tt id="link-1" class="py-name" targets="Package pyffi.object_models=pyffi.object_models-module.html"><a title="pyffi.object_models" class="py-name" href="#" onclick="return doclink('link-1', 'object_models', 'link-1');">object_models</a></tt><tt class="py-op">.</tt><tt id="link-2" class="py-name" targets="Module pyffi.object_models.any_type=pyffi.object_models.any_type-module.html"><a title="pyffi.object_models.any_type" class="py-name" href="#" onclick="return doclink('link-2', 'any_type', 'link-2');">any_type</a></tt> <tt class="py-keyword">import</tt> <tt id="link-3" class="py-name" targets="Class pyffi.object_models.any_type.AnyType=pyffi.object_models.any_type.AnyType-class.html"><a title="pyffi.object_models.any_type.AnyType" class="py-name" href="#" onclick="return doclink('link-3', 'AnyType', 'link-3');">AnyType</a></tt> </tt>
+<a name="_MetaSimpleType"></a><div id="_MetaSimpleType-def"><a name="L43"></a><tt class="py-lineno"> 43</tt>  <tt class="py-line"> </tt>
+<a name="L44"></a><tt class="py-lineno"> 44</tt> <a class="py-toggle" href="#" id="_MetaSimpleType-toggle" onclick="return toggle('_MetaSimpleType');">-</a><tt class="py-line"><tt class="py-keyword">class</tt> <a class="py-def-name" href="pyffi.object_models.simple_type._MetaSimpleType-class.html">_MetaSimpleType</a><tt class="py-op">(</tt><tt class="py-base-class">type</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="_MetaSimpleType-collapsed" style="display:none;" pad="+++" indent="++++"></div><div id="_MetaSimpleType-expanded"><a name="L45"></a><tt class="py-lineno"> 45</tt>  <tt class="py-line">    <tt class="py-docstring">"""This metaclass binds the get_value and set_value methods to the</tt> </tt>
+<a name="L46"></a><tt class="py-lineno"> 46</tt>  <tt class="py-line"><tt class="py-docstring">    value property. We need a metaclass for this because properties are</tt> </tt>
+<a name="L47"></a><tt class="py-lineno"> 47</tt>  <tt class="py-line"><tt class="py-docstring">    non-polymorphic. Further reading:</tt> </tt>
+<a name="L48"></a><tt class="py-lineno"> 48</tt>  <tt class="py-line"><tt class="py-docstring">    http://stackoverflow.com/questions/237432/python-properties-and-inheritance</tt> </tt>
+<a name="L49"></a><tt class="py-lineno"> 49</tt>  <tt class="py-line"><tt class="py-docstring">    http://requires-thinking.blogspot.com/2006/03/note-to-self-python-properties-are-non.html</tt> </tt>
+<a name="L50"></a><tt class="py-lineno"> 50</tt>  <tt class="py-line"><tt class="py-docstring">    """</tt> </tt>
+<a name="_MetaSimpleType.__init__"></a><div id="_MetaSimpleType.__init__-def"><a name="L51"></a><tt class="py-lineno"> 51</tt> <a class="py-toggle" href="#" id="_MetaSimpleType.__init__-toggle" onclick="return toggle('_MetaSimpleType.__init__');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="pyffi.object_models.simple_type._MetaSimpleType-class.html#__init__">__init__</a><tt class="py-op">(</tt><tt class="py-param">cls</tt><tt class="py-op">,</tt> <tt class="py-param">name</tt><tt class="py-op">,</tt> <tt class="py-param">bases</tt><tt class="py-op">,</tt> <tt class="py-param">dct</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="_MetaSimpleType.__init__-collapsed" style="display:none;" pad="+++" indent="++++++++"></div><div id="_MetaSimpleType.__init__-expanded"><a name="L52"></a><tt class="py-lineno"> 52</tt>  <tt class="py-line">        <tt class="py-comment"># call base class constructor</tt> </tt>
+<a name="L53"></a><tt class="py-lineno"> 53</tt>  <tt class="py-line">        <tt class="py-name">super</tt><tt class="py-op">(</tt><tt id="link-4" class="py-name" targets="Class pyffi.object_models.simple_type._MetaSimpleType=pyffi.object_models.simple_type._MetaSimpleType-class.html"><a title="pyffi.object_models.simple_type._MetaSimpleType" class="py-name" href="#" onclick="return doclink('link-4', '_MetaSimpleType', 'link-4');">_MetaSimpleType</a></tt><tt class="py-op">,</tt> <tt class="py-name">cls</tt><tt class="py-op">)</tt><tt class="py-op">.</tt><tt id="link-5" class="py-name" targets="Method pyffi.formats.bsa.BsaFormat.FileVersion.__init__()=pyffi.formats.bsa.BsaFormat.FileVersion-class.html#__init__,Method pyffi.formats.cgf.CgfFormat.Data.__init__()=pyffi.formats.cgf.CgfFormat.Data-class.html#__init__,Method pyffi.formats.cgf.CgfFormat.FileSignature.__init__()=pyffi.formats.cgf.CgfFormat.FileSignature-class.html#__init__,Method pyffi.formats.cgf.CgfFormat.Ref.__init__()=pyffi.formats.cgf.CgfFormat.Ref-class.html#__init__,Method pyffi.formats.cgf._MetaCgfFormat.__init__()=pyffi.formats.cgf._MetaCgfFormat-class.html#__init__,Method pyffi.formats.dds.DdsFormat.Data.__init__()=pyffi.formats.dds.DdsFormat.Data-class.html#__init__,Method pyffi.formats.dds.DdsFormat.HeaderString.__init__()=pyffi.formats.dds.DdsFormat.HeaderString-class.html#__init__,Method pyffi.formats.egm.EgmFormat.Data.__init__()=pyffi.formats.egm.EgmFormat.Data-class.html#__init__,Method pyffi.formats.egm.EgmFormat.FileSignature.__init__()=pyffi.formats.egm.EgmFormat.FileSignature-class.html#__init__,Method pyffi.formats.egt.EgtFormat.FileSignature.__init__()=pyffi.formats.egt.EgtFormat.FileSignature-class.html#__init__,Method pyffi.formats.esp.EspFormat.Data.__init__()=pyffi.formats.esp.EspFormat.Data-class.html#__init__,Method pyffi.formats.esp.EspFormat.GRUP.__init__()=pyffi.formats.esp.EspFormat.GRUP-class.html#__init__,Method pyffi.formats.esp.EspFormat.Record.__init__()=pyffi.formats.esp.EspFormat.Record-class.html#__init__,Method pyffi.formats.kfm.KfmFormat.HeaderString.__init__()=pyffi.formats.kfm.KfmFormat.HeaderString-class.html#__init__,Method pyffi.formats.nif.NifFormat.ByteArray.__init__()=pyffi.formats.nif.NifFormat.ByteArray-class.html#__init__,Method pyffi.formats.nif.NifFormat.ByteMatrix.__init__()=pyffi.formats.nif.NifFormat.ByteMatrix-class.html#__init__,Method pyffi.formats.nif.NifFormat.Data.__init__()=pyffi.formats.nif.NifFormat.Data-class.html#__init__,Method pyffi.formats.nif.NifFormat.LineString.__init__()=pyffi.formats.nif.NifFormat.LineString-class.html#__init__,Method pyffi.formats.nif.NifFormat.Ref.__init__()=pyffi.formats.nif.NifFormat.Ref-class.html#__init__,Method pyffi.formats.nif.NifFormat.ShortString.__init__()=pyffi.formats.nif.NifFormat.ShortString-class.html#__init__,Method pyffi.formats.nif.NifFormat.StringOffset.__init__()=pyffi.formats.nif.NifFormat.StringOffset-class.html#__init__,Method pyffi.formats.nif.NifFormat.bool.__init__()=pyffi.formats.nif.NifFormat.bool-class.html#__init__,Method pyffi.formats.rockstar.dir_.DirFormat.Data.__init__()=pyffi.formats.rockstar.dir_.DirFormat.Data-class.html#__init__,Method pyffi.formats.tga.TgaFormat.Data.__init__()=pyffi.formats.tga.TgaFormat.Data-class.html#__init__,Method pyffi.formats.tga.TgaFormat.Image.__init__()=pyffi.formats.tga.TgaFormat.Image-class.html#__init__,Method pyffi.formats.tri.TriFormat.FileSignature.__init__()=pyffi.formats.tri.TriFormat.FileSignature-class.html#__init__,Method pyffi.object_models.ArchiveFileFormat.Data.__init__()=pyffi.object_models.ArchiveFileFormat.Data-class.html#__init__,Method pyffi.object_models.array_type.MetaUniformArray.__init__()=pyffi.object_models.array_type.MetaUniformArray-class.html#__init__,Method pyffi.object_models.array_type.MetaUniformSimpleArray.__init__()=pyffi.object_models.array_type.MetaUniformSimpleArray-class.html#__init__,Method pyffi.object_models.array_type.ValidatedList.__init__()=pyffi.object_models.array_type.ValidatedList-class.html#__init__,Method pyffi.object_models.binary_type.CharType.__init__()=pyffi.object_models.binary_type.CharType-class.html#__init__,Method pyffi.object_models.binary_type.FixedString.__init__()=pyffi.object_models.binary_type.FixedString-class.html#__init__,Method pyffi.object_models.binary_type.Float.__init__()=pyffi.object_models.binary_type.Float-class.html#__init__,Method pyffi.object_models.binary_type.IntType.__init__()=pyffi.object_models.binary_type.IntType-class.html#__init__,Method pyffi.object_models.binary_type.SizedString.__init__()=pyffi.object_models.binary_type.SizedString-class.html#__init__,Method pyffi.object_models.binary_type.UndecodedData.__init__()=pyffi.object_models.binary_type.UndecodedData-class.html#__init__,Method pyffi.object_models.binary_type.ZString.__init__()=pyffi.object_models.binary_type.ZString-class.html#__init__,Method pyffi.object_models.common.Char.__init__()=pyffi.object_models.common.Char-class.html#__init__,Method pyffi.object_models.common.FixedString.__init__()=pyffi.object_models.common.FixedString-class.html#__init__,Method pyffi.object_models.common.Float.__init__()=pyffi.object_models.common.Float-class.html#__init__,Method pyffi.object_models.common.Int.__init__()=pyffi.object_models.common.Int-class.html#__init__,Method pyffi.object_models.common.SizedString.__init__()=pyffi.object_models.common.SizedString-class.html#__init__,Method pyffi.object_models.common.UndecodedData.__init__()=pyffi.object_models.common.UndecodedData-class.html#__init__,Method pyffi.object_models.common.ZString.__init__()=pyffi.object_models.common.ZString-class.html#__init__,Method pyffi.object_models.simple_type._MetaSimpleType.__init__()=pyffi.object_models.simple_type._MetaSimpleType-class.html#__init__,Method pyffi.object_models.xml.BitStructAttribute.__init__()=pyffi.object_models.xml.BitStructAttribute-class.html#__init__,Method pyffi.object_models.xml.MetaFileFormat.__init__()=pyffi.object_models.xml.MetaFileFormat-class.html#__init__,Method pyffi.object_models.xml.StructAttribute.__init__()=pyffi.object_models.xml.StructAttribute-class.html#__init__,Method pyffi.object_models.xml.XmlSaxHandler.__init__()=pyffi.object_models.xml.XmlSaxHandler-class.html#__init__,Method pyffi.object_models.xml.array.Array.__init__()=pyffi.object_models.xml.array.Array-class.html#__init__,Method pyffi.object_models.xml.array._ListWrap.__init__()=pyffi.object_models.xml.array._ListWrap-class.html#__init__,Method pyffi.object_models.xml.basic.BasicBase.__init__()=pyffi.object_models.xml.basic.BasicBase-class.html#__init__,Method pyffi.object_models.xml.bit_struct.BitStructBase.__init__()=pyffi.object_models.xml.bit_struct.BitStructBase-class.html#__init__,Method pyffi.object_models.xml.bit_struct.Bits.__init__()=pyffi.object_models.xml.bit_struct.Bits-class.html#__init__,Method pyffi.object_models.xml.bit_struct._MetaBitStructBase.__init__()=pyffi.object_models.xml.bit_struct._MetaBitStructBase-class.html#__init__,Method pyffi.object_models.xml.enum.EnumBase.__init__()=pyffi.object_models.xml.enum.EnumBase-class.html#__init__,Method pyffi.object_models.xml.enum._MetaEnumBase.__init__()=pyffi.object_models.xml.enum._MetaEnumBase-class.html#__init__,Method pyffi.object_models.xml.expression.Expression.__init__()=pyffi.object_models.xml.expression.Expression-class.html#__init__,Method pyffi.object_models.xml.struct_.StructBase.__init__()=pyffi.object_models.xml.struct_.StructBase-class.html#__init__,Method pyffi.object_models.xml.struct_._MetaStructBase.__init__()=pyffi.object_models.xml.struct_._MetaStructBase-class.html#__init__,Method pyffi.qskope.QSkope.__init__()=pyffi.qskope.QSkope-class.html#__init__,Method pyffi.qskope.detail_model.DetailModel.__init__()=pyffi.qskope.detail_model.DetailModel-class.html#__init__,Method pyffi.qskope.detail_tree.DetailTreeItem.__init__()=pyffi.qskope.detail_tree.DetailTreeItem-class.html#__init__,Method pyffi.qskope.detail_tree.DetailTreeItemData.__init__()=pyffi.qskope.detail_tree.DetailTreeItemData-class.html#__init__,Method pyffi.qskope.global_model.GlobalModel.IndexDict.__init__()=pyffi.qskope.global_model.GlobalModel.IndexDict-class.html#__init__,Method pyffi.qskope.global_model.GlobalModel.__init__()=pyffi.qskope.global_model.GlobalModel-class.html#__init__,Method pyffi.qskope.global_tree.GlobalTreeItem.__init__()=pyffi.qskope.global_tree.GlobalTreeItem-class.html#__init__,Method pyffi.qskope.global_tree.GlobalTreeItemData.__init__()=pyffi.qskope.global_tree.GlobalTreeItemData-class.html#__init__,Method pyffi.spells.Spell.__init__()=pyffi.spells.Spell-class.html#__init__,Method pyffi.spells.SpellGroupBase.__init__()=pyffi.spells.SpellGroupBase-class.html#__init__,Method pyffi.spells.Toaster.__init__()=pyffi.spells.Toaster-class.html#__init__,Method pyffi.spells.nif.dump.SpellExportPixelData.__init__()=pyffi.spells.nif.dump.SpellExportPixelData-class.html#__init__,Method pyffi.spells.nif.fix.SpellDetachHavokTriStripsData.__init__()=pyffi.spells.nif.fix.SpellDetachHavokTriStripsData-class.html#__init__,Method pyffi.spells.nif.optimize.SpellMergeDuplicates.__init__()=pyffi.spells.nif.optimize.SpellMergeDuplicates-class.html#__init__,Method pyffi.spells.nif.optimize.SpellOptimizeCollisionBox.__init__()=pyffi.spells.nif.optimize.SpellOptimizeCollisionBox-class.html#__init__,Method pyffi.spells.nif.optimize.SpellOptimizeCollisionGeometry.__init__()=pyffi.spells.nif.optimize.SpellOptimizeCollisionGeometry-class.html#__init__,Method pyffi.spells.nif.optimize.SpellOptimizeGeometry.__init__()=pyffi.spells.nif.optimize.SpellOptimizeGeometry-class.html#__init__,Method pyffi.spells.nif.optimize.SpellSplitGeometry.__init__()=pyffi.spells.nif.optimize.SpellSplitGeometry-class.html#__init__,Method pyffi.utils.trianglemesh.Edge.__init__()=pyffi.utils.trianglemesh.Edge-class.html#__init__,Method pyffi.utils.trianglemesh.Face.__init__()=pyffi.utils.trianglemesh.Face-class.html#__init__,Method pyffi.utils.trianglemesh.Mesh.__init__()=pyffi.utils.trianglemesh.Mesh-class.html#__init__,Method pyffi.utils.trianglestripifier.Experiment.__init__()=pyffi.utils.trianglestripifier.Experiment-class.html#__init__,Method pyffi.utils.trianglestripifier.ExperimentSelector.__init__()=pyffi.utils.trianglestripifier.ExperimentSelector-class.html#__init__,Method pyffi.utils.trianglestripifier.TriangleStrip.__init__()=pyffi.utils.trianglestripifier.TriangleStrip-class.html#__init__,Method pyffi.utils.trianglestripifier.TriangleStripifier.__init__()=pyffi.utils.trianglestripifier.TriangleStripifier-class.html#__init__,Method pyffi.utils.tristrip.OrientedStrip.__init__()=pyffi.utils.tristrip.OrientedStrip-class.html#__init__,Method pyffi.utils.vertex_cache.Mesh.__init__()=pyffi.utils.vertex_cache.Mesh-class.html#__init__,Method pyffi.utils.vertex_cache.TriangleInfo.__init__()=pyffi.utils.vertex_cache.TriangleInfo-class.html#__init__,Method pyffi.utils.vertex_cache.VertexInfo.__init__()=pyffi.utils.vertex_cache.VertexInfo-class.html#__init__,Method pyffi.utils.vertex_cache.VertexScore.__init__()=pyffi.utils.vertex_cache.VertexScore-class.html#__init__"><a title="pyffi.formats.bsa.BsaFormat.FileVersion.__init__
+pyffi.formats.cgf.CgfFormat.Data.__init__
+pyffi.formats.cgf.CgfFormat.FileSignature.__init__
+pyffi.formats.cgf.CgfFormat.Ref.__init__
+pyffi.formats.cgf._MetaCgfFormat.__init__
+pyffi.formats.dds.DdsFormat.Data.__init__
+pyffi.formats.dds.DdsFormat.HeaderString.__init__
+pyffi.formats.egm.EgmFormat.Data.__init__
+pyffi.formats.egm.EgmFormat.FileSignature.__init__
+pyffi.formats.egt.EgtFormat.FileSignature.__init__
+pyffi.formats.esp.EspFormat.Data.__init__
+pyffi.formats.esp.EspFormat.GRUP.__init__
+pyffi.formats.esp.EspFormat.Record.__init__
+pyffi.formats.kfm.KfmFormat.HeaderString.__init__
+pyffi.formats.nif.NifFormat.ByteArray.__init__
+pyffi.formats.nif.NifFormat.ByteMatrix.__init__
+pyffi.formats.nif.NifFormat.Data.__init__
+pyffi.formats.nif.NifFormat.LineString.__init__
+pyffi.formats.nif.NifFormat.Ref.__init__
+pyffi.formats.nif.NifFormat.ShortString.__init__
+pyffi.formats.nif.NifFormat.StringOffset.__init__
+pyffi.formats.nif.NifFormat.bool.__init__
+pyffi.formats.rockstar.dir_.DirFormat.Data.__init__
+pyffi.formats.tga.TgaFormat.Data.__init__
+pyffi.formats.tga.TgaFormat.Image.__init__
+pyffi.formats.tri.TriFormat.FileSignature.__init__
+pyffi.object_models.ArchiveFileFormat.Data.__init__
+pyffi.object_models.array_type.MetaUniformArray.__init__
+pyffi.object_models.array_type.MetaUniformSimpleArray.__init__
+pyffi.object_models.array_type.ValidatedList.__init__
+pyffi.object_models.binary_type.CharType.__init__
+pyffi.object_models.binary_type.FixedString.__init__
+pyffi.object_models.binary_type.Float.__init__
+pyffi.object_models.binary_type.IntType.__init__
+pyffi.object_models.binary_type.SizedString.__init__
+pyffi.object_models.binary_type.UndecodedData.__init__
+pyffi.object_models.binary_type.ZString.__init__
+pyffi.object_models.common.Char.__init__
+pyffi.object_models.common.FixedString.__init__
+pyffi.object_models.common.Float.__init__
+pyffi.object_models.common.Int.__init__
+pyffi.object_models.common.SizedString.__init__
+pyffi.object_models.common.UndecodedData.__init__
+pyffi.object_models.common.ZString.__init__
+pyffi.object_models.simple_type._MetaSimpleType.__init__
+pyffi.object_models.xml.BitStructAttribute.__init__
+pyffi.object_models.xml.MetaFileFormat.__init__
+pyffi.object_models.xml.StructAttribute.__init__
+pyffi.object_models.xml.XmlSaxHandler.__init__
+pyffi.object_models.xml.array.Array.__init__
+pyffi.object_models.xml.array._ListWrap.__init__
+pyffi.object_models.xml.basic.BasicBase.__init__
+pyffi.object_models.xml.bit_struct.BitStructBase.__init__
+pyffi.object_models.xml.bit_struct.Bits.__init__
+pyffi.object_models.xml.bit_struct._MetaBitStructBase.__init__
+pyffi.object_models.xml.enum.EnumBase.__init__
+pyffi.object_models.xml.enum._MetaEnumBase.__init__
+pyffi.object_models.xml.expression.Expression.__init__
+pyffi.object_models.xml.struct_.StructBase.__init__
+pyffi.object_models.xml.struct_._MetaStructBase.__init__
+pyffi.qskope.QSkope.__init__
+pyffi.qskope.detail_model.DetailModel.__init__
+pyffi.qskope.detail_tree.DetailTreeItem.__init__
+pyffi.qskope.detail_tree.DetailTreeItemData.__init__
+pyffi.qskope.global_model.GlobalModel.IndexDict.__init__
+pyffi.qskope.global_model.GlobalModel.__init__
+pyffi.qskope.global_tree.GlobalTreeItem.__init__
+pyffi.qskope.global_tree.GlobalTreeItemData.__init__
+pyffi.spells.Spell.__init__
+pyffi.spells.SpellGroupBase.__init__
+pyffi.spells.Toaster.__init__
+pyffi.spells.nif.dump.SpellExportPixelData.__init__
+pyffi.spells.nif.fix.SpellDetachHavokTriStripsData.__init__
+pyffi.spells.nif.optimize.SpellMergeDuplicates.__init__
+pyffi.spells.nif.optimize.SpellOptimizeCollisionBox.__init__
+pyffi.spells.nif.optimize.SpellOptimizeCollisionGeometry.__init__
+pyffi.spells.nif.optimize.SpellOptimizeGeometry.__init__
+pyffi.spells.nif.optimize.SpellSplitGeometry.__init__
+pyffi.utils.trianglemesh.Edge.__init__
+pyffi.utils.trianglemesh.Face.__init__
+pyffi.utils.trianglemesh.Mesh.__init__
+pyffi.utils.trianglestripifier.Experiment.__init__
+pyffi.utils.trianglestripifier.ExperimentSelector.__init__
+pyffi.utils.trianglestripifier.TriangleStrip.__init__
+pyffi.utils.trianglestripifier.TriangleStripifier.__init__
+pyffi.utils.tristrip.OrientedStrip.__init__
+pyffi.utils.vertex_cache.Mesh.__init__
+pyffi.utils.vertex_cache.TriangleInfo.__init__
+pyffi.utils.vertex_cache.VertexInfo.__init__
+pyffi.utils.vertex_cache.VertexScore.__init__" class="py-name" href="#" onclick="return doclink('link-5', '__init__', 'link-5');">__init__</a></tt><tt class="py-op">(</tt><tt id="link-6" class="py-name" targets="Variable pyffi.formats.bsa.BsaFormat.File.name=pyffi.formats.bsa.BsaFormat.File-class.html#name,Variable pyffi.formats.bsa.BsaFormat.Folder.name=pyffi.formats.bsa.BsaFormat.Folder-class.html#name,Variable pyffi.formats.bsa.BsaFormat.OldFile.name=pyffi.formats.bsa.BsaFormat.OldFile-class.html#name,Variable pyffi.formats.cgf.CgfFormat.HelperChunk.name=pyffi.formats.cgf.CgfFormat.HelperChunk-class.html#name,Variable pyffi.formats.cgf.CgfFormat.LightChunk.name=pyffi.formats.cgf.CgfFormat.LightChunk-class.html#name,Variable pyffi.formats.cgf.CgfFormat.MtlNameChunk.name=pyffi.formats.cgf.CgfFormat.MtlNameChunk-class.html#name,Variable pyffi.formats.cgf.CgfFormat.RangeEntity.name=pyffi.formats.cgf.CgfFormat.RangeEntity-class.html#name,Variable pyffi.formats.cgf.CgfFormat.TextureMap.name=pyffi.formats.cgf.CgfFormat.TextureMap-class.html#name,Variable pyffi.formats.cgf.CgfFormat._MtlChunk.name=pyffi.formats.cgf.CgfFormat._MtlChunk-class.html#name,Variable pyffi.formats.cgf.CgfFormat._NodeChunk.name=pyffi.formats.cgf.CgfFormat._NodeChunk-class.html#name,Variable pyffi.formats.esp.EspFormat.CELL_FULL.name=pyffi.formats.esp.EspFormat.CELL_FULL-class.html#name,Variable pyffi.formats.kfm.KfmFormat._Animation.name=pyffi.formats.kfm.KfmFormat._Animation-class.html#name,Variable pyffi.formats.nif.NifFormat.AVObject.name=pyffi.formats.nif.NifFormat.AVObject-class.html#name,Variable pyffi.formats.nif.NifFormat.Ni3dsAnimationNode.name=pyffi.formats.nif.NifFormat.Ni3dsAnimationNode-class.html#name,Variable pyffi.formats.nif.NifFormat.NiExtraData.name=pyffi.formats.nif.NifFormat.NiExtraData-class.html#name,Variable pyffi.formats.nif.NifFormat.NiPSBombForce.name=pyffi.formats.nif.NifFormat.NiPSBombForce-class.html#name,Variable pyffi.formats.nif.NifFormat.NiPSBoxEmitter.name=pyffi.formats.nif.NifFormat.NiPSBoxEmitter-class.html#name,Variable pyffi.formats.nif.NifFormat.NiPSMeshEmitter.name=pyffi.formats.nif.NifFormat.NiPSMeshEmitter-class.html#name,Variable pyffi.formats.nif.NifFormat.NiPSPlanarCollider.name=pyffi.formats.nif.NifFormat.NiPSPlanarCollider-class.html#name,Variable pyffi.formats.nif.NifFormat.NiPSSphereEmitter.name=pyffi.formats.nif.NifFormat.NiPSSphereEmitter-class.html#name,Variable pyffi.formats.nif.NifFormat.NiPSysModifier.name=pyffi.formats.nif.NifFormat.NiPSysModifier-class.html#name,Variable pyffi.formats.nif.NifFormat.NiSequence.name=pyffi.formats.nif.NifFormat.NiSequence-class.html#name,Variable pyffi.formats.nif.NifFormat.NiShadowGenerator.name=pyffi.formats.nif.NifFormat.NiShadowGenerator-class.html#name,Variable pyffi.formats.nif.NifFormat.SemanticData.name=pyffi.formats.nif.NifFormat.SemanticData-class.html#name,Variable pyffi.formats.nif.NifFormat._NiObjectNET.name=pyffi.formats.nif.NifFormat._NiObjectNET-class.html#name,Variable pyffi.formats.rockstar.dir_.DirFormat.File.name=pyffi.formats.rockstar.dir_.DirFormat.File-class.html#name,Variable pyffi.formats.tri.TriFormat.ModifierRecord.name=pyffi.formats.tri.TriFormat.ModifierRecord-class.html#name,Variable pyffi.formats.tri.TriFormat._MorphRecord.name=pyffi.formats.tri.TriFormat._MorphRecord-class.html#name,Variable pyffi.object_models.ArchiveMember.name=pyffi.object_models.ArchiveMember-class.html#name,Variable pyffi.object_models.xml.StructAttribute.name=pyffi.object_models.xml.StructAttribute-class.html#name"><a title="pyffi.formats.bsa.BsaFormat.File.name
+pyffi.formats.bsa.BsaFormat.Folder.name
+pyffi.formats.bsa.BsaFormat.OldFile.name
+pyffi.formats.cgf.CgfFormat.HelperChunk.name
+pyffi.formats.cgf.CgfFormat.LightChunk.name
+pyffi.formats.cgf.CgfFormat.MtlNameChunk.name
+pyffi.formats.cgf.CgfFormat.RangeEntity.name
+pyffi.formats.cgf.CgfFormat.TextureMap.name
+pyffi.formats.cgf.CgfFormat._MtlChunk.name
+pyffi.formats.cgf.CgfFormat._NodeChunk.name
+pyffi.formats.esp.EspFormat.CELL_FULL.name
+pyffi.formats.kfm.KfmFormat._Animation.name
+pyffi.formats.nif.NifFormat.AVObject.name
+pyffi.formats.nif.NifFormat.Ni3dsAnimationNode.name
+pyffi.formats.nif.NifFormat.NiExtraData.name
+pyffi.formats.nif.NifFormat.NiPSBombForce.name
+pyffi.formats.nif.NifFormat.NiPSBoxEmitter.name
+pyffi.formats.nif.NifFormat.NiPSMeshEmitter.name
+pyffi.formats.nif.NifFormat.NiPSPlanarCollider.name
+pyffi.formats.nif.NifFormat.NiPSSphereEmitter.name
+pyffi.formats.nif.NifFormat.NiPSysModifier.name
+pyffi.formats.nif.NifFormat.NiSequence.name
+pyffi.formats.nif.NifFormat.NiShadowGenerator.name
+pyffi.formats.nif.NifFormat.SemanticData.name
+pyffi.formats.nif.NifFormat._NiObjectNET.name
+pyffi.formats.rockstar.dir_.DirFormat.File.name
+pyffi.formats.tri.TriFormat.ModifierRecord.name
+pyffi.formats.tri.TriFormat._MorphRecord.name
+pyffi.object_models.ArchiveMember.name
+pyffi.object_models.xml.StructAttribute.name" class="py-name" href="#" onclick="return doclink('link-6', 'name', 'link-6');">name</a></tt><tt class="py-op">,</tt> <tt class="py-name">bases</tt><tt class="py-op">,</tt> <tt class="py-name">dct</tt><tt class="py-op">)</tt> </tt>
+<a name="L54"></a><tt class="py-lineno"> 54</tt>  <tt class="py-line">        <tt class="py-comment"># add value property</tt> </tt>
+<a name="L55"></a><tt class="py-lineno"> 55</tt>  <tt class="py-line">        <tt class="py-name">cls</tt><tt class="py-op">.</tt><tt id="link-7" class="py-name" targets="Variable pyffi.formats.nif.NifFormat.BSValueNode.value=pyffi.formats.nif.NifFormat.BSValueNode-class.html#value,Variable pyffi.formats.nif.NifFormat.Key.value=pyffi.formats.nif.NifFormat.Key-class.html#value,Variable pyffi.formats.nif.NifFormat.QuatKey.value=pyffi.formats.nif.NifFormat.QuatKey-class.html#value,Variable pyffi.object_models.binary_type.BinarySimpleType.value=pyffi.object_models.binary_type.BinarySimpleType-class.html#value,Variable pyffi.object_models.binary_type.BoolType.value=pyffi.object_models.binary_type.BoolType-class.html#value,Variable pyffi.object_models.binary_type.ByteType.value=pyffi.object_models.binary_type.ByteType-class.html#value,Variable pyffi.object_models.binary_type.CharType.value=pyffi.object_models.binary_type.CharType-class.html#value,Variable pyffi.object_models.binary_type.FixedString.value=pyffi.object_models.binary_type.FixedString-class.html#value,Variable pyffi.object_models.binary_type.Float.value=pyffi.object_models.binary_type.Float-class.html#value,Variable pyffi.object_models.binary_type.IntType.value=pyffi.object_models.binary_type.IntType-class.html#value,Variable pyffi.object_models.binary_type.ShortType.value=pyffi.object_models.binary_type.ShortType-class.html#value,Variable pyffi.object_models.binary_type.SizedString.value=pyffi.object_models.binary_type.SizedString-class.html#value,Variable pyffi.object_models.binary_type.UByteType.value=pyffi.object_models.binary_type.UByteType-class.html#value,Variable pyffi.object_models.binary_type.UIntType.value=pyffi.object_models.binary_type.UIntType-class.html#value,Variable pyffi.object_models.binary_type.UShortType.value=pyffi.object_models.binary_type.UShortType-class.html#value,Variable pyffi.object_models.binary_type.UndecodedData.value=pyffi.object_models.binary_type.UndecodedData-class.html#value,Variable pyffi.object_models.binary_type.ZString.value=pyffi.object_models.binary_type.ZString-class.html#value,Variable pyffi.object_models.simple_type.SimpleType.value=pyffi.object_models.simple_type.SimpleType-class.html#value"><a title="pyffi.formats.nif.NifFormat.BSValueNode.value
+pyffi.formats.nif.NifFormat.Key.value
+pyffi.formats.nif.NifFormat.QuatKey.value
+pyffi.object_models.binary_type.BinarySimpleType.value
+pyffi.object_models.binary_type.BoolType.value
+pyffi.object_models.binary_type.ByteType.value
+pyffi.object_models.binary_type.CharType.value
+pyffi.object_models.binary_type.FixedString.value
+pyffi.object_models.binary_type.Float.value
+pyffi.object_models.binary_type.IntType.value
+pyffi.object_models.binary_type.ShortType.value
+pyffi.object_models.binary_type.SizedString.value
+pyffi.object_models.binary_type.UByteType.value
+pyffi.object_models.binary_type.UIntType.value
+pyffi.object_models.binary_type.UShortType.value
+pyffi.object_models.binary_type.UndecodedData.value
+pyffi.object_models.binary_type.ZString.value
+pyffi.object_models.simple_type.SimpleType.value" class="py-name" href="#" onclick="return doclink('link-7', 'value', 'link-7');">value</a></tt> <tt class="py-op">=</tt> <tt class="py-name">property</tt><tt class="py-op">(</tt><tt class="py-name">cls</tt><tt class="py-op">.</tt><tt id="link-8" class="py-name" targets="Method pyffi.formats.cgf.CgfFormat.FileSignature.get_value()=pyffi.formats.cgf.CgfFormat.FileSignature-class.html#get_value,Method pyffi.formats.cgf.CgfFormat.Ref.get_value()=pyffi.formats.cgf.CgfFormat.Ref-class.html#get_value,Method pyffi.formats.egm.EgmFormat.FileVersion.get_value()=pyffi.formats.egm.EgmFormat.FileVersion-class.html#get_value,Method pyffi.formats.egt.EgtFormat.FileVersion.get_value()=pyffi.formats.egt.EgtFormat.FileVersion-class.html#get_value,Method pyffi.formats.nif.NifFormat.ByteArray.get_value()=pyffi.formats.nif.NifFormat.ByteArray-class.html#get_value,Method pyffi.formats.nif.NifFormat.ByteMatrix.get_value()=pyffi.formats.nif.NifFormat.ByteMatrix-class.html#get_value,Method pyffi.formats.nif.NifFormat.FileVersion.get_value()=pyffi.formats.nif.NifFormat.FileVersion-class.html#get_value,Method pyffi.formats.nif.NifFormat.LineString.get_value()=pyffi.formats.nif.NifFormat.LineString-class.html#get_value,Method pyffi.formats.nif.NifFormat.Ptr.get_value()=pyffi.formats.nif.NifFormat.Ptr-class.html#get_value,Method pyffi.formats.nif.NifFormat.Ref.get_value()=pyffi.formats.nif.NifFormat.Ref-class.html#get_value,Method pyffi.formats.nif.NifFormat.ShortString.get_value()=pyffi.formats.nif.NifFormat.ShortString-class.html#get_value,Method pyffi.formats.nif.NifFormat.bool.get_value()=pyffi.formats.nif.NifFormat.bool-class.html#get_value,Method pyffi.formats.tga.TgaFormat.FooterString.get_value()=pyffi.formats.tga.TgaFormat.FooterString-class.html#get_value,Method pyffi.formats.tri.TriFormat.FileVersion.get_value()=pyffi.formats.tri.TriFormat.FileVersion-class.html#get_value,Method pyffi.object_models.binary_type.BoolType.get_value()=pyffi.object_models.binary_type.BoolType-class.html#get_value,Method pyffi.object_models.binary_type.FixedString.get_value()=pyffi.object_models.binary_type.FixedString-class.html#get_value,Method pyffi.object_models.binary_type.SizedString.get_value()=pyffi.object_models.binary_type.SizedString-class.html#get_value,Method pyffi.object_models.binary_type.UndecodedData.get_value()=pyffi.object_models.binary_type.UndecodedData-class.html#get_value,Method pyffi.object_models.common.Bool.get_value()=pyffi.object_models.common.Bool-class.html#get_value,Method pyffi.object_models.common.Char.get_value()=pyffi.object_models.common.Char-class.html#get_value,Method pyffi.object_models.common.FixedString.get_value()=pyffi.object_models.common.FixedString-class.html#get_value,Method pyffi.object_models.common.Float.get_value()=pyffi.object_models.common.Float-class.html#get_value,Method pyffi.object_models.common.Int.get_value()=pyffi.object_models.common.Int-class.html#get_value,Method pyffi.object_models.common.SizedString.get_value()=pyffi.object_models.common.SizedString-class.html#get_value,Method pyffi.object_models.common.UndecodedData.get_value()=pyffi.object_models.common.UndecodedData-class.html#get_value,Method pyffi.object_models.common.ZString.get_value()=pyffi.object_models.common.ZString-class.html#get_value,Method pyffi.object_models.simple_type.SimpleType.get_value()=pyffi.object_models.simple_type.SimpleType-class.html#get_value,Method pyffi.object_models.xml.basic.BasicBase.get_value()=pyffi.object_models.xml.basic.BasicBase-class.html#get_value,Method pyffi.object_models.xml.bit_struct.Bits.get_value()=pyffi.object_models.xml.bit_struct.Bits-class.html#get_value,Method pyffi.object_models.xml.enum.EnumBase.get_value()=pyffi.object_models.xml.enum.EnumBase-class.html#get_value"><a title="pyffi.formats.cgf.CgfFormat.FileSignature.get_value
+pyffi.formats.cgf.CgfFormat.Ref.get_value
+pyffi.formats.egm.EgmFormat.FileVersion.get_value
+pyffi.formats.egt.EgtFormat.FileVersion.get_value
+pyffi.formats.nif.NifFormat.ByteArray.get_value
+pyffi.formats.nif.NifFormat.ByteMatrix.get_value
+pyffi.formats.nif.NifFormat.FileVersion.get_value
+pyffi.formats.nif.NifFormat.LineString.get_value
+pyffi.formats.nif.NifFormat.Ptr.get_value
+pyffi.formats.nif.NifFormat.Ref.get_value
+pyffi.formats.nif.NifFormat.ShortString.get_value
+pyffi.formats.nif.NifFormat.bool.get_value
+pyffi.formats.tga.TgaFormat.FooterString.get_value
+pyffi.formats.tri.TriFormat.FileVersion.get_value
+pyffi.object_models.binary_type.BoolType.get_value
+pyffi.object_models.binary_type.FixedString.get_value
+pyffi.object_models.binary_type.SizedString.get_value
+pyffi.object_models.binary_type.UndecodedData.get_value
+pyffi.object_models.common.Bool.get_value
+pyffi.object_models.common.Char.get_value
+pyffi.object_models.common.FixedString.get_value
+pyffi.object_models.common.Float.get_value
+pyffi.object_models.common.Int.get_value
+pyffi.object_models.common.SizedString.get_value
+pyffi.object_models.common.UndecodedData.get_value
+pyffi.object_models.common.ZString.get_value
+pyffi.object_models.simple_type.SimpleType.get_value
+pyffi.object_models.xml.basic.BasicBase.get_value
+pyffi.object_models.xml.bit_struct.Bits.get_value
+pyffi.object_models.xml.enum.EnumBase.get_value" class="py-name" href="#" onclick="return doclink('link-8', 'get_value', 'link-8');">get_value</a></tt><tt class="py-op">,</tt> <tt class="py-name">cls</tt><tt class="py-op">.</tt><tt id="link-9" class="py-name" targets="Method pyffi.formats.cgf.CgfFormat.FileSignature.set_value()=pyffi.formats.cgf.CgfFormat.FileSignature-class.html#set_value,Method pyffi.formats.cgf.CgfFormat.Ref.set_value()=pyffi.formats.cgf.CgfFormat.Ref-class.html#set_value,Method pyffi.formats.egm.EgmFormat.FileVersion.set_value()=pyffi.formats.egm.EgmFormat.FileVersion-class.html#set_value,Method pyffi.formats.egt.EgtFormat.FileVersion.set_value()=pyffi.formats.egt.EgtFormat.FileVersion-class.html#set_value,Method pyffi.formats.nif.NifFormat.ByteArray.set_value()=pyffi.formats.nif.NifFormat.ByteArray-class.html#set_value,Method pyffi.formats.nif.NifFormat.ByteMatrix.set_value()=pyffi.formats.nif.NifFormat.ByteMatrix-class.html#set_value,Method pyffi.formats.nif.NifFormat.Data.VersionUInt.set_value()=pyffi.formats.nif.NifFormat.Data.VersionUInt-class.html#set_value,Method pyffi.formats.nif.NifFormat.FileVersion.set_value()=pyffi.formats.nif.NifFormat.FileVersion-class.html#set_value,Method pyffi.formats.nif.NifFormat.LineString.set_value()=pyffi.formats.nif.NifFormat.LineString-class.html#set_value,Method pyffi.formats.nif.NifFormat.Ptr.set_value()=pyffi.formats.nif.NifFormat.Ptr-class.html#set_value,Method pyffi.formats.nif.NifFormat.Ref.set_value()=pyffi.formats.nif.NifFormat.Ref-class.html#set_value,Method pyffi.formats.nif.NifFormat.ShortString.set_value()=pyffi.formats.nif.NifFormat.ShortString-class.html#set_value,Method pyffi.formats.nif.NifFormat.bool.set_value()=pyffi.formats.nif.NifFormat.bool-class.html#set_value,Method pyffi.formats.tga.TgaFormat.FooterString.set_value()=pyffi.formats.tga.TgaFormat.FooterString-class.html#set_value,Method pyffi.formats.tri.TriFormat.FileVersion.set_value()=pyffi.formats.tri.TriFormat.FileVersion-class.html#set_value,Method pyffi.object_models.binary_type.BoolType.set_value()=pyffi.object_models.binary_type.BoolType-class.html#set_value,Method pyffi.object_models.binary_type.CharType.set_value()=pyffi.object_models.binary_type.CharType-class.html#set_value,Method pyffi.object_models.binary_type.FixedString.set_value()=pyffi.object_models.binary_type.FixedString-class.html#set_value,Method pyffi.object_models.binary_type.Float.set_value()=pyffi.object_models.binary_type.Float-class.html#set_value,Method pyffi.object_models.binary_type.IntType.set_value()=pyffi.object_models.binary_type.IntType-class.html#set_value,Method pyffi.object_models.binary_type.SizedString.set_value()=pyffi.object_models.binary_type.SizedString-class.html#set_value,Method pyffi.object_models.binary_type.UndecodedData.set_value()=pyffi.object_models.binary_type.UndecodedData-class.html#set_value,Method pyffi.object_models.binary_type.ZString.set_value()=pyffi.object_models.binary_type.ZString-class.html#set_value,Method pyffi.object_models.common.Bool.set_value()=pyffi.object_models.common.Bool-class.html#set_value,Method pyffi.object_models.common.Char.set_value()=pyffi.object_models.common.Char-class.html#set_value,Method pyffi.object_models.common.FixedString.set_value()=pyffi.object_models.common.FixedString-class.html#set_value,Method pyffi.object_models.common.Float.set_value()=pyffi.object_models.common.Float-class.html#set_value,Method pyffi.object_models.common.Int.set_value()=pyffi.object_models.common.Int-class.html#set_value,Method pyffi.object_models.common.SizedString.set_value()=pyffi.object_models.common.SizedString-class.html#set_value,Method pyffi.object_models.common.UndecodedData.set_value()=pyffi.object_models.common.UndecodedData-class.html#set_value,Method pyffi.object_models.common.ZString.set_value()=pyffi.object_models.common.ZString-class.html#set_value,Method pyffi.object_models.simple_type.SimpleType.set_value()=pyffi.object_models.simple_type.SimpleType-class.html#set_value,Method pyffi.object_models.xml.basic.BasicBase.set_value()=pyffi.object_models.xml.basic.BasicBase-class.html#set_value,Method pyffi.object_models.xml.bit_struct.Bits.set_value()=pyffi.object_models.xml.bit_struct.Bits-class.html#set_value,Method pyffi.object_models.xml.enum.EnumBase.set_value()=pyffi.object_models.xml.enum.EnumBase-class.html#set_value"><a title="pyffi.formats.cgf.CgfFormat.FileSignature.set_value
+pyffi.formats.cgf.CgfFormat.Ref.set_value
+pyffi.formats.egm.EgmFormat.FileVersion.set_value
+pyffi.formats.egt.EgtFormat.FileVersion.set_value
+pyffi.formats.nif.NifFormat.ByteArray.set_value
+pyffi.formats.nif.NifFormat.ByteMatrix.set_value
+pyffi.formats.nif.NifFormat.Data.VersionUInt.set_value
+pyffi.formats.nif.NifFormat.FileVersion.set_value
+pyffi.formats.nif.NifFormat.LineString.set_value
+pyffi.formats.nif.NifFormat.Ptr.set_value
+pyffi.formats.nif.NifFormat.Ref.set_value
+pyffi.formats.nif.NifFormat.ShortString.set_value
+pyffi.formats.nif.NifFormat.bool.set_value
+pyffi.formats.tga.TgaFormat.FooterString.set_value
+pyffi.formats.tri.TriFormat.FileVersion.set_value
+pyffi.object_models.binary_type.BoolType.set_value
+pyffi.object_models.binary_type.CharType.set_value
+pyffi.object_models.binary_type.FixedString.set_value
+pyffi.object_models.binary_type.Float.set_value
+pyffi.object_models.binary_type.IntType.set_value
+pyffi.object_models.binary_type.SizedString.set_value
+pyffi.object_models.binary_type.UndecodedData.set_value
+pyffi.object_models.binary_type.ZString.set_value
+pyffi.object_models.common.Bool.set_value
+pyffi.object_models.common.Char.set_value
+pyffi.object_models.common.FixedString.set_value
+pyffi.object_models.common.Float.set_value
+pyffi.object_models.common.Int.set_value
+pyffi.object_models.common.SizedString.set_value
+pyffi.object_models.common.UndecodedData.set_value
+pyffi.object_models.common.ZString.set_value
+pyffi.object_models.simple_type.SimpleType.set_value
+pyffi.object_models.xml.basic.BasicBase.set_value
+pyffi.object_models.xml.bit_struct.Bits.set_value
+pyffi.object_models.xml.enum.EnumBase.set_value" class="py-name" href="#" onclick="return doclink('link-9', 'set_value', 'link-9');">set_value</a></tt><tt class="py-op">,</tt> </tt>
+<a name="L56"></a><tt class="py-lineno"> 56</tt>  <tt class="py-line">                             <tt class="py-name">None</tt><tt class="py-op">,</tt> <tt class="py-name">cls</tt><tt class="py-op">.</tt><tt id="link-10" class="py-name"><a title="pyffi.formats.nif.NifFormat.BSValueNode.value
+pyffi.formats.nif.NifFormat.Key.value
+pyffi.formats.nif.NifFormat.QuatKey.value
+pyffi.object_models.binary_type.BinarySimpleType.value
+pyffi.object_models.binary_type.BoolType.value
+pyffi.object_models.binary_type.ByteType.value
+pyffi.object_models.binary_type.CharType.value
+pyffi.object_models.binary_type.FixedString.value
+pyffi.object_models.binary_type.Float.value
+pyffi.object_models.binary_type.IntType.value
+pyffi.object_models.binary_type.ShortType.value
+pyffi.object_models.binary_type.SizedString.value
+pyffi.object_models.binary_type.UByteType.value
+pyffi.object_models.binary_type.UIntType.value
+pyffi.object_models.binary_type.UShortType.value
+pyffi.object_models.binary_type.UndecodedData.value
+pyffi.object_models.binary_type.ZString.value
+pyffi.object_models.simple_type.SimpleType.value" class="py-name" href="#" onclick="return doclink('link-10', 'value', 'link-7');">value</a></tt><tt class="py-op">.</tt><tt class="py-name">__doc__</tt><tt class="py-op">)</tt> </tt>
+</div></div><a name="L57"></a><tt class="py-lineno"> 57</tt>  <tt class="py-line"> </tt>
+<a name="SimpleType"></a><div id="SimpleType-def"><a name="L58"></a><tt class="py-lineno"> 58</tt> <a class="py-toggle" href="#" id="SimpleType-toggle" onclick="return toggle('SimpleType');">-</a><tt class="py-line"><tt class="py-keyword">class</tt> <a class="py-def-name" href="pyffi.object_models.simple_type.SimpleType-class.html">SimpleType</a><tt class="py-op">(</tt><tt class="py-base-class">AnyType</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="SimpleType-collapsed" style="display:none;" pad="+++" indent="++++"></div><div id="SimpleType-expanded"><a name="L59"></a><tt class="py-lineno"> 59</tt>  <tt class="py-line">    <tt class="py-docstring">"""Base class from which all simple types are derived. Simple</tt> </tt>
+<a name="L60"></a><tt class="py-lineno"> 60</tt>  <tt class="py-line"><tt class="py-docstring">    types contain data which is not divided further into smaller pieces,</tt> </tt>
+<a name="L61"></a><tt class="py-lineno"> 61</tt>  <tt class="py-line"><tt class="py-docstring">    and that can represented efficiently by a (usually native) Python type,</tt> </tt>
+<a name="L62"></a><tt class="py-lineno"> 62</tt>  <tt class="py-line"><tt class="py-docstring">    typically ``int``, ``float``, or ``str``.</tt> </tt>
+<a name="L63"></a><tt class="py-lineno"> 63</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
+<a name="L64"></a><tt class="py-lineno"> 64</tt>  <tt class="py-line"><tt class="py-docstring">    A brief example of usage:</tt> </tt>
+<a name="L65"></a><tt class="py-lineno"> 65</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
+<a name="L66"></a><tt class="py-lineno"> 66</tt>  <tt class="py-line"><tt class="py-docstring">    &gt;&gt;&gt; class Short(SimpleType):</tt> </tt>
+<a name="L67"></a><tt class="py-lineno"> 67</tt>  <tt class="py-line"><tt class="py-docstring">    ...     def __init__(self):</tt> </tt>
+<a name="L68"></a><tt class="py-lineno"> 68</tt>  <tt class="py-line"><tt class="py-docstring">    ...         # for fun, let default value be 3</tt> </tt>
+<a name="L69"></a><tt class="py-lineno"> 69</tt>  <tt class="py-line"><tt class="py-docstring">    ...         self._value = 3</tt> </tt>
+<a name="L70"></a><tt class="py-lineno"> 70</tt>  <tt class="py-line"><tt class="py-docstring">    ...     def set_value(self, value):</tt> </tt>
+<a name="L71"></a><tt class="py-lineno"> 71</tt>  <tt class="py-line"><tt class="py-docstring">    ...         # check type</tt> </tt>
+<a name="L72"></a><tt class="py-lineno"> 72</tt>  <tt class="py-line"><tt class="py-docstring">    ...         if not isinstance(value, int):</tt> </tt>
+<a name="L73"></a><tt class="py-lineno"> 73</tt>  <tt class="py-line"><tt class="py-docstring">    ...             raise TypeError("Expected int but got %s."</tt> </tt>
+<a name="L74"></a><tt class="py-lineno"> 74</tt>  <tt class="py-line"><tt class="py-docstring">    ...                             % value.__class__.__name__)</tt> </tt>
+<a name="L75"></a><tt class="py-lineno"> 75</tt>  <tt class="py-line"><tt class="py-docstring">    ...         # check range</tt> </tt>
+<a name="L76"></a><tt class="py-lineno"> 76</tt>  <tt class="py-line"><tt class="py-docstring">    ...         if value &lt; -0x8000 or value &gt; 0x7fff:</tt> </tt>
+<a name="L77"></a><tt class="py-lineno"> 77</tt>  <tt class="py-line"><tt class="py-docstring">    ...             raise ValueError("Value %i out of range." % value)</tt> </tt>
+<a name="L78"></a><tt class="py-lineno"> 78</tt>  <tt class="py-line"><tt class="py-docstring">    ...         self._value = value</tt> </tt>
+<a name="L79"></a><tt class="py-lineno"> 79</tt>  <tt class="py-line"><tt class="py-docstring">    &gt;&gt;&gt; test = Short()</tt> </tt>
+<a name="L80"></a><tt class="py-lineno"> 80</tt>  <tt class="py-line"><tt class="py-docstring">    &gt;&gt;&gt; print(test)</tt> </tt>
+<a name="L81"></a><tt class="py-lineno"> 81</tt>  <tt class="py-line"><tt class="py-docstring">    3</tt> </tt>
+<a name="L82"></a><tt class="py-lineno"> 82</tt>  <tt class="py-line"><tt class="py-docstring">    &gt;&gt;&gt; test.value = 255</tt> </tt>
+<a name="L83"></a><tt class="py-lineno"> 83</tt>  <tt class="py-line"><tt class="py-docstring">    &gt;&gt;&gt; print(test)</tt> </tt>
+<a name="L84"></a><tt class="py-lineno"> 84</tt>  <tt class="py-line"><tt class="py-docstring">    255</tt> </tt>
+<a name="L85"></a><tt class="py-lineno"> 85</tt>  <tt class="py-line"><tt class="py-docstring">    &gt;&gt;&gt; test.value = 100000 # doctest: +ELLIPSIS</tt> </tt>
+<a name="L86"></a><tt class="py-lineno"> 86</tt>  <tt class="py-line"><tt class="py-docstring">    Traceback (most recent call last):</tt> </tt>
+<a name="L87"></a><tt class="py-lineno"> 87</tt>  <tt class="py-line"><tt class="py-docstring">        ...</tt> </tt>
+<a name="L88"></a><tt class="py-lineno"> 88</tt>  <tt class="py-line"><tt class="py-docstring">    ValueError: ...</tt> </tt>
+<a name="L89"></a><tt class="py-lineno"> 89</tt>  <tt class="py-line"><tt class="py-docstring">    &gt;&gt;&gt; test.value = "hello world" # doctest: +ELLIPSIS</tt> </tt>
+<a name="L90"></a><tt class="py-lineno"> 90</tt>  <tt class="py-line"><tt class="py-docstring">    Traceback (most recent call last):</tt> </tt>
+<a name="L91"></a><tt class="py-lineno"> 91</tt>  <tt class="py-line"><tt class="py-docstring">        ...</tt> </tt>
+<a name="L92"></a><tt class="py-lineno"> 92</tt>  <tt class="py-line"><tt class="py-docstring">    TypeError: ...</tt> </tt>
+<a name="L93"></a><tt class="py-lineno"> 93</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
+<a name="L94"></a><tt class="py-lineno"> 94</tt>  <tt class="py-line"><tt class="py-docstring">    Also override :meth:`read` and :meth:`write` if you wish to read and write data</tt> </tt>
+<a name="L95"></a><tt class="py-lineno"> 95</tt>  <tt class="py-line"><tt class="py-docstring">    of this type, and :meth:`is_interchangeable` if you wish to declare data as</tt> </tt>
+<a name="L96"></a><tt class="py-lineno"> 96</tt>  <tt class="py-line"><tt class="py-docstring">    equivalent.</tt> </tt>
+<a name="L97"></a><tt class="py-lineno"> 97</tt>  <tt class="py-line"><tt class="py-docstring">    """</tt> </tt>
+<a name="L98"></a><tt class="py-lineno"> 98</tt>  <tt class="py-line"> </tt>
+<a name="L99"></a><tt class="py-lineno"> 99</tt>  <tt class="py-line">    <tt class="py-name">__metaclass__</tt> <tt class="py-op">=</tt> <tt id="link-11" class="py-name"><a title="pyffi.object_models.simple_type._MetaSimpleType" class="py-name" href="#" onclick="return doclink('link-11', '_MetaSimpleType', 'link-4');">_MetaSimpleType</a></tt> </tt>
+<a name="L100"></a><tt class="py-lineno">100</tt>  <tt class="py-line"> </tt>
+<a name="L101"></a><tt class="py-lineno">101</tt>  <tt class="py-line">    <tt class="py-comment"># added here for documentation purposes - actually set in</tt> </tt>
+<a name="L102"></a><tt class="py-lineno">102</tt>  <tt class="py-line">    <tt class="py-comment"># metaclass</tt> </tt>
+<a name="L103"></a><tt class="py-lineno">103</tt>  <tt class="py-line">    <tt class="py-decorator">@</tt><tt class="py-decorator">property</tt> </tt>
+<a name="SimpleType.value"></a><div id="SimpleType.value-def"><a name="L104"></a><tt class="py-lineno">104</tt> <a class="py-toggle" href="#" id="SimpleType.value-toggle" onclick="return toggle('SimpleType.value');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="pyffi.object_models.simple_type.SimpleType-class.html#value">value</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="SimpleType.value-collapsed" style="display:none;" pad="+++" indent="++++++++"></div><div id="SimpleType.value-expanded"><a name="L105"></a><tt class="py-lineno">105</tt>  <tt class="py-line">        <tt class="py-docstring">"""A property which wraps the actual data. This property</tt> </tt>
+<a name="L106"></a><tt class="py-lineno">106</tt>  <tt class="py-line"><tt class="py-docstring">        always calls :meth:`set_value` to assign the value, and ensures</tt> </tt>
+<a name="L107"></a><tt class="py-lineno">107</tt>  <tt class="py-line"><tt class="py-docstring">        that the value is valid (type, range, ...). Unless you know</tt> </tt>
+<a name="L108"></a><tt class="py-lineno">108</tt>  <tt class="py-line"><tt class="py-docstring">        what you are doing, always use the `value` property to change</tt> </tt>
+<a name="L109"></a><tt class="py-lineno">109</tt>  <tt class="py-line"><tt class="py-docstring">        the data.</tt> </tt>
+<a name="L110"></a><tt class="py-lineno">110</tt>  <tt class="py-line"><tt class="py-docstring">        """</tt> </tt>
+<a name="L111"></a><tt class="py-lineno">111</tt>  <tt class="py-line">        <tt class="py-keyword">return</tt> <tt class="py-name">None</tt> </tt>
+</div><a name="L112"></a><tt class="py-lineno">112</tt>  <tt class="py-line"> </tt>
+<a name="L113"></a><tt class="py-lineno">113</tt>  <tt class="py-line">    <tt id="link-12" class="py-name" targets="Variable pyffi.formats.egt.EgtFormat.FileVersion._value=pyffi.formats.egt.EgtFormat.FileVersion-class.html#_value,Variable pyffi.formats.tri.TriFormat.FileVersion._value=pyffi.formats.tri.TriFormat.FileVersion-class.html#_value,Variable pyffi.object_models.simple_type.SimpleType._value=pyffi.object_models.simple_type.SimpleType-class.html#_value"><a title="pyffi.formats.egt.EgtFormat.FileVersion._value
+pyffi.formats.tri.TriFormat.FileVersion._value
+pyffi.object_models.simple_type.SimpleType._value" class="py-name" href="#" onclick="return doclink('link-12', '_value', 'link-12');">_value</a></tt> <tt class="py-op">=</tt> <tt class="py-name">None</tt> </tt>
+<a name="L114"></a><tt class="py-lineno">114</tt>  <tt class="py-line">    <tt class="py-string">"""The data."""</tt> </tt>
+<a name="L115"></a><tt class="py-lineno">115</tt>  <tt class="py-line"> </tt>
+<a name="SimpleType.__str__"></a><div id="SimpleType.__str__-def"><a name="L116"></a><tt class="py-lineno">116</tt> <a class="py-toggle" href="#" id="SimpleType.__str__-toggle" onclick="return toggle('SimpleType.__str__');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="pyffi.object_models.simple_type.SimpleType-class.html#__str__">__str__</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="SimpleType.__str__-collapsed" style="display:none;" pad="+++" indent="++++++++"></div><div id="SimpleType.__str__-expanded"><a name="L117"></a><tt class="py-lineno">117</tt>  <tt class="py-line">        <tt class="py-docstring">"""String representation. This implementation is simply a wrapper</tt> </tt>
+<a name="L118"></a><tt class="py-lineno">118</tt>  <tt class="py-line"><tt class="py-docstring">        around ``str`` on :attr:`_value`.</tt> </tt>
+<a name="L119"></a><tt class="py-lineno">119</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
+<a name="L120"></a><tt class="py-lineno">120</tt>  <tt class="py-line"><tt class="py-docstring">        :return: String representation.</tt> </tt>
+<a name="L121"></a><tt class="py-lineno">121</tt>  <tt class="py-line"><tt class="py-docstring">        :rtype: ``str``</tt> </tt>
+<a name="L122"></a><tt class="py-lineno">122</tt>  <tt class="py-line"><tt class="py-docstring">        """</tt> </tt>
+<a name="L123"></a><tt class="py-lineno">123</tt>  <tt class="py-line">        <tt class="py-keyword">return</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-13" class="py-name"><a title="pyffi.formats.egt.EgtFormat.FileVersion._value
+pyffi.formats.tri.TriFormat.FileVersion._value
+pyffi.object_models.simple_type.SimpleType._value" class="py-name" href="#" onclick="return doclink('link-13', '_value', 'link-12');">_value</a></tt><tt class="py-op">.</tt><tt id="link-14" class="py-name" targets="Method pyffi.formats.bsa.BsaFormat.Hash.__str__()=pyffi.formats.bsa.BsaFormat.Hash-class.html#__str__,Method pyffi.formats.cgf.CgfFormat.FileSignature.__str__()=pyffi.formats.cgf.CgfFormat.FileSignature-class.html#__str__,Method pyffi.formats.cgf.CgfFormat.Matrix33.__str__()=pyffi.formats.cgf.CgfFormat.Matrix33-class.html#__str__,Method pyffi.formats.cgf.CgfFormat.Matrix44.__str__()=pyffi.formats.cgf.CgfFormat.Matrix44-class.html#__str__,Method pyffi.formats.cgf.CgfFormat.Ptr.__str__()=pyffi.formats.cgf.CgfFormat.Ptr-class.html#__str__,Method pyffi.formats.cgf.CgfFormat.Ref.__str__()=pyffi.formats.cgf.CgfFormat.Ref-class.html#__str__,Method pyffi.formats.cgf.CgfFormat.Vector3.__str__()=pyffi.formats.cgf.CgfFormat.Vector3-class.html#__str__,Method pyffi.formats.dds.DdsFormat.HeaderString.__str__()=pyffi.formats.dds.DdsFormat.HeaderString-class.html#__str__,Method pyffi.formats.egm.EgmFormat.FileSignature.__str__()=pyffi.formats.egm.EgmFormat.FileSignature-class.html#__str__,Method pyffi.formats.egm.EgmFormat.FileVersion.__str__()=pyffi.formats.egm.EgmFormat.FileVersion-class.html#__str__,Method pyffi.formats.egt.EgtFormat.FileSignature.__str__()=pyffi.formats.egt.EgtFormat.FileSignature-class.html#__str__,Method pyffi.formats.egt.EgtFormat.FileVersion.__str__()=pyffi.formats.egt.EgtFormat.FileVersion-class.html#__str__,Method pyffi.formats.kfm.KfmFormat.HeaderString.__str__()=pyffi.formats.kfm.KfmFormat.HeaderString-class.html#__str__,Method pyffi.formats.nif.NifFormat.ByteArray.__str__()=pyffi.formats.nif.NifFormat.ByteArray-class.html#__str__,Method pyffi.formats.nif.NifFormat.ByteMatrix.__str__()=pyffi.formats.nif.NifFormat.ByteMatrix-class.html#__str__,Method pyffi.formats.nif.NifFormat.Data.VersionUInt.__str__()=pyffi.formats.nif.NifFormat.Data.VersionUInt-class.html#__str__,Method pyffi.formats.nif.NifFormat.FileVersion.__str__()=pyffi.formats.nif.NifFormat.FileVersion-class.html#__str__,Method pyffi.formats.nif.NifFormat.Flags.__str__()=pyffi.formats.nif.NifFormat.Flags-class.html#__str__,Method pyffi.formats.nif.NifFormat.HeaderString.__str__()=pyffi.formats.nif.NifFormat.HeaderString-class.html#__str__,Method pyffi.formats.nif.NifFormat.InertiaMatrix.__str__()=pyffi.formats.nif.NifFormat.InertiaMatrix-class.html#__str__,Method pyffi.formats.nif.NifFormat.LineString.__str__()=pyffi.formats.nif.NifFormat.LineString-class.html#__str__,Method pyffi.formats.nif.NifFormat.Matrix33.__str__()=pyffi.formats.nif.NifFormat.Matrix33-class.html#__str__,Method pyffi.formats.nif.NifFormat.Matrix44.__str__()=pyffi.formats.nif.NifFormat.Matrix44-class.html#__str__,Method pyffi.formats.nif.NifFormat.Ptr.__str__()=pyffi.formats.nif.NifFormat.Ptr-class.html#__str__,Method pyffi.formats.nif.NifFormat.ShortString.__str__()=pyffi.formats.nif.NifFormat.ShortString-class.html#__str__,Method pyffi.formats.nif.NifFormat.TexCoord.__str__()=pyffi.formats.nif.NifFormat.TexCoord-class.html#__str__,Method pyffi.formats.nif.NifFormat.Vector3.__str__()=pyffi.formats.nif.NifFormat.Vector3-class.html#__str__,Method pyffi.formats.nif.NifFormat.Vector4.__str__()=pyffi.formats.nif.NifFormat.Vector4-class.html#__str__,Method pyffi.formats.tga.TgaFormat.FooterString.__str__()=pyffi.formats.tga.TgaFormat.FooterString-class.html#__str__,Method pyffi.formats.tri.TriFormat.FileSignature.__str__()=pyffi.formats.tri.TriFormat.FileSignature-class.html#__str__,Method pyffi.formats.tri.TriFormat.FileVersion.__str__()=pyffi.formats.tri.TriFormat.FileVersion-class.html#__str__,Method pyffi.object_models.array_type.AnyArray.__str__()=pyffi.object_models.array_type.AnyArray-class.html#__str__,Method pyffi.object_models.binary_type.CharType.__str__()=pyffi.object_models.binary_type.CharType-class.html#__str__,Method pyffi.object_models.binary_type.FixedString.__str__()=pyffi.object_models.binary_type.FixedString-class.html#__str__,Method pyffi.object_models.binary_type.SizedString.__str__()=pyffi.object_models.binary_type.SizedString-class.html#__str__,Method pyffi.object_models.binary_type.UndecodedData.__str__()=pyffi.object_models.binary_type.UndecodedData-class.html#__str__,Method pyffi.object_models.binary_type.ZString.__str__()=pyffi.object_models.binary_type.ZString-class.html#__str__,Method pyffi.object_models.common.Char.__str__()=pyffi.object_models.common.Char-class.html#__str__,Method pyffi.object_models.common.FixedString.__str__()=pyffi.object_models.common.FixedString-class.html#__str__,Method pyffi.object_models.common.Int.__str__()=pyffi.object_models.common.Int-class.html#__str__,Method pyffi.object_models.common.SizedString.__str__()=pyffi.object_models.common.SizedString-class.html#__str__,Method pyffi.object_models.common.UndecodedData.__str__()=pyffi.object_models.common.UndecodedData-class.html#__str__,Method pyffi.object_models.common.ZString.__str__()=pyffi.object_models.common.ZString-class.html#__str__,Method pyffi.object_models.simple_type.SimpleType.__str__()=pyffi.object_models.simple_type.SimpleType-class.html#__str__,Method pyffi.object_models.xml.array.Array.__str__()=pyffi.object_models.xml.array.Array-class.html#__str__,Method pyffi.object_models.xml.basic.BasicBase.__str__()=pyffi.object_models.xml.basic.BasicBase-class.html#__str__,Method pyffi.object_models.xml.bit_struct.BitStructBase.__str__()=pyffi.object_models.xml.bit_struct.BitStructBase-class.html#__str__,Method pyffi.object_models.xml.bit_struct.Bits.__str__()=pyffi.object_models.xml.bit_struct.Bits-class.html#__str__,Method pyffi.object_models.xml.enum.EnumBase.__str__()=pyffi.object_models.xml.enum.EnumBase-class.html#__str__,Method pyffi.object_models.xml.expression.Expression.__str__()=pyffi.object_models.xml.expression.Expression-class.html#__str__,Method pyffi.object_models.xml.struct_.StructBase.__str__()=pyffi.object_models.xml.struct_.StructBase-class.html#__str__,Method pyffi.utils.tristrip.OrientedStrip.__str__()=pyffi.utils.tristrip.OrientedStrip-class.html#__str__"><a title="pyffi.formats.bsa.BsaFormat.Hash.__str__
+pyffi.formats.cgf.CgfFormat.FileSignature.__str__
+pyffi.formats.cgf.CgfFormat.Matrix33.__str__
+pyffi.formats.cgf.CgfFormat.Matrix44.__str__
+pyffi.formats.cgf.CgfFormat.Ptr.__str__
+pyffi.formats.cgf.CgfFormat.Ref.__str__
+pyffi.formats.cgf.CgfFormat.Vector3.__str__
+pyffi.formats.dds.DdsFormat.HeaderString.__str__
+pyffi.formats.egm.EgmFormat.FileSignature.__str__
+pyffi.formats.egm.EgmFormat.FileVersion.__str__
+pyffi.formats.egt.EgtFormat.FileSignature.__str__
+pyffi.formats.egt.EgtFormat.FileVersion.__str__
+pyffi.formats.kfm.KfmFormat.HeaderString.__str__
+pyffi.formats.nif.NifFormat.ByteArray.__str__
+pyffi.formats.nif.NifFormat.ByteMatrix.__str__
+pyffi.formats.nif.NifFormat.Data.VersionUInt.__str__
+pyffi.formats.nif.NifFormat.FileVersion.__str__
+pyffi.formats.nif.NifFormat.Flags.__str__
+pyffi.formats.nif.NifFormat.HeaderString.__str__
+pyffi.formats.nif.NifFormat.InertiaMatrix.__str__
+pyffi.formats.nif.NifFormat.LineString.__str__
+pyffi.formats.nif.NifFormat.Matrix33.__str__
+pyffi.formats.nif.NifFormat.Matrix44.__str__
+pyffi.formats.nif.NifFormat.Ptr.__str__
+pyffi.formats.nif.NifFormat.ShortString.__str__
+pyffi.formats.nif.NifFormat.TexCoord.__str__
+pyffi.formats.nif.NifFormat.Vector3.__str__
+pyffi.formats.nif.NifFormat.Vector4.__str__
+pyffi.formats.tga.TgaFormat.FooterString.__str__
+pyffi.formats.tri.TriFormat.FileSignature.__str__
+pyffi.formats.tri.TriFormat.FileVersion.__str__
+pyffi.object_models.array_type.AnyArray.__str__
+pyffi.object_models.binary_type.CharType.__str__
+pyffi.object_models.binary_type.FixedString.__str__
+pyffi.object_models.binary_type.SizedString.__str__
+pyffi.object_models.binary_type.UndecodedData.__str__
+pyffi.object_models.binary_type.ZString.__str__
+pyffi.object_models.common.Char.__str__
+pyffi.object_models.common.FixedString.__str__
+pyffi.object_models.common.Int.__str__
+pyffi.object_models.common.SizedString.__str__
+pyffi.object_models.common.UndecodedData.__str__
+pyffi.object_models.common.ZString.__str__
+pyffi.object_models.simple_type.SimpleType.__str__
+pyffi.object_models.xml.array.Array.__str__
+pyffi.object_models.xml.basic.BasicBase.__str__
+pyffi.object_models.xml.bit_struct.BitStructBase.__str__
+pyffi.object_models.xml.bit_struct.Bits.__str__
+pyffi.object_models.xml.enum.EnumBase.__str__
+pyffi.object_models.xml.expression.Expression.__str__
+pyffi.object_models.xml.struct_.StructBase.__str__
+pyffi.utils.tristrip.OrientedStrip.__str__" class="py-name" href="#" onclick="return doclink('link-14', '__str__', 'link-14');">__str__</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+</div><a name="L124"></a><tt class="py-lineno">124</tt>  <tt class="py-line"> </tt>
+<a name="SimpleType.get_value"></a><div id="SimpleType.get_value-def"><a name="L125"></a><tt class="py-lineno">125</tt> <a class="py-toggle" href="#" id="SimpleType.get_value-toggle" onclick="return toggle('SimpleType.get_value');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="pyffi.object_models.simple_type.SimpleType-class.html#get_value">get_value</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="SimpleType.get_value-collapsed" style="display:none;" pad="+++" indent="++++++++"></div><div id="SimpleType.get_value-expanded"><a name="L126"></a><tt class="py-lineno">126</tt>  <tt class="py-line">        <tt class="py-docstring">"""Return the stored value.</tt> </tt>
+<a name="L127"></a><tt class="py-lineno">127</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
+<a name="L128"></a><tt class="py-lineno">128</tt>  <tt class="py-line"><tt class="py-docstring">        :return: The stored value.</tt> </tt>
+<a name="L129"></a><tt class="py-lineno">129</tt>  <tt class="py-line"><tt class="py-docstring">        :rtype: Whatever is appropriate.</tt> </tt>
+<a name="L130"></a><tt class="py-lineno">130</tt>  <tt class="py-line"><tt class="py-docstring">        """</tt> </tt>
+<a name="L131"></a><tt class="py-lineno">131</tt>  <tt class="py-line">        <tt class="py-keyword">return</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-15" class="py-name"><a title="pyffi.formats.egt.EgtFormat.FileVersion._value
+pyffi.formats.tri.TriFormat.FileVersion._value
+pyffi.object_models.simple_type.SimpleType._value" class="py-name" href="#" onclick="return doclink('link-15', '_value', 'link-12');">_value</a></tt> </tt>
+</div><a name="L132"></a><tt class="py-lineno">132</tt>  <tt class="py-line"> </tt>
+<a name="SimpleType.set_value"></a><div id="SimpleType.set_value-def"><a name="L133"></a><tt class="py-lineno">133</tt> <a class="py-toggle" href="#" id="SimpleType.set_value-toggle" onclick="return toggle('SimpleType.set_value');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="pyffi.object_models.simple_type.SimpleType-class.html#set_value">set_value</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">,</tt> <tt class="py-param">value</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="SimpleType.set_value-collapsed" style="display:none;" pad="+++" indent="++++++++"></div><div id="SimpleType.set_value-expanded"><a name="L134"></a><tt class="py-lineno">134</tt>  <tt class="py-line">        <tt class="py-docstring">"""Set stored value. Override this method to enable validation</tt> </tt>
+<a name="L135"></a><tt class="py-lineno">135</tt>  <tt class="py-line"><tt class="py-docstring">        (type checking, range checking, and so on).</tt> </tt>
+<a name="L136"></a><tt class="py-lineno">136</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
+<a name="L137"></a><tt class="py-lineno">137</tt>  <tt class="py-line"><tt class="py-docstring">        :param value: The value to store.</tt> </tt>
+<a name="L138"></a><tt class="py-lineno">138</tt>  <tt class="py-line"><tt class="py-docstring">        :type value: Whatever is appropriate.</tt> </tt>
+<a name="L139"></a><tt class="py-lineno">139</tt>  <tt class="py-line"><tt class="py-docstring">        """</tt> </tt>
+<a name="L140"></a><tt class="py-lineno">140</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-16" class="py-name"><a title="pyffi.formats.egt.EgtFormat.FileVersion._value
+pyffi.formats.tri.TriFormat.FileVersion._value
+pyffi.object_models.simple_type.SimpleType._value" class="py-name" href="#" onclick="return doclink('link-16', '_value', 'link-12');">_value</a></tt> <tt class="py-op">=</tt> <tt id="link-17" class="py-name"><a title="pyffi.formats.nif.NifFormat.BSValueNode.value
+pyffi.formats.nif.NifFormat.Key.value
+pyffi.formats.nif.NifFormat.QuatKey.value
+pyffi.object_models.binary_type.BinarySimpleType.value
+pyffi.object_models.binary_type.BoolType.value
+pyffi.object_models.binary_type.ByteType.value
+pyffi.object_models.binary_type.CharType.value
+pyffi.object_models.binary_type.FixedString.value
+pyffi.object_models.binary_type.Float.value
+pyffi.object_models.binary_type.IntType.value
+pyffi.object_models.binary_type.ShortType.value
+pyffi.object_models.binary_type.SizedString.value
+pyffi.object_models.binary_type.UByteType.value
+pyffi.object_models.binary_type.UIntType.value
+pyffi.object_models.binary_type.UShortType.value
+pyffi.object_models.binary_type.UndecodedData.value
+pyffi.object_models.binary_type.ZString.value
+pyffi.object_models.simple_type.SimpleType.value" class="py-name" href="#" onclick="return doclink('link-17', 'value', 'link-7');">value</a></tt> </tt>
+</div><a name="L141"></a><tt class="py-lineno">141</tt>  <tt class="py-line"> </tt>
+<a name="L142"></a><tt class="py-lineno">142</tt>  <tt class="py-line">    <tt class="py-comment"># AnyType</tt> </tt>
+<a name="L143"></a><tt class="py-lineno">143</tt>  <tt class="py-line"> </tt>
+<a name="SimpleType.is_interchangeable"></a><div id="SimpleType.is_interchangeable-def"><a name="L144"></a><tt class="py-lineno">144</tt> <a class="py-toggle" href="#" id="SimpleType.is_interchangeable-toggle" onclick="return toggle('SimpleType.is_interchangeable');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="pyffi.object_models.simple_type.SimpleType-class.html#is_interchangeable">is_interchangeable</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">,</tt> <tt class="py-param">other</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="SimpleType.is_interchangeable-collapsed" style="display:none;" pad="+++" indent="++++++++"></div><div id="SimpleType.is_interchangeable-expanded"><a name="L145"></a><tt class="py-lineno">145</tt>  <tt class="py-line">        <tt class="py-docstring">"""This checks for object identity of the value."""</tt> </tt>
+<a name="L146"></a><tt class="py-lineno">146</tt>  <tt class="py-line">        <tt class="py-keyword">return</tt> <tt class="py-name">isinstance</tt><tt class="py-op">(</tt><tt class="py-name">other</tt><tt class="py-op">,</tt> <tt id="link-18" class="py-name" targets="Class pyffi.object_models.simple_type.SimpleType=pyffi.object_models.simple_type.SimpleType-class.html"><a title="pyffi.object_models.simple_type.SimpleType" class="py-name" href="#" onclick="return doclink('link-18', 'SimpleType', 'link-18');">SimpleType</a></tt><tt class="py-op">)</tt> <tt class="py-keyword">and</tt> <tt class="py-op">(</tt><tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-19" class="py-name"><a title="pyffi.formats.egt.EgtFormat.FileVersion._value
+pyffi.formats.tri.TriFormat.FileVersion._value
+pyffi.object_models.simple_type.SimpleType._value" class="py-name" href="#" onclick="return doclink('link-19', '_value', 'link-12');">_value</a></tt> <tt class="py-keyword">is</tt> <tt class="py-name">other</tt><tt class="py-op">.</tt><tt id="link-20" class="py-name"><a title="pyffi.formats.egt.EgtFormat.FileVersion._value
+pyffi.formats.tri.TriFormat.FileVersion._value
+pyffi.object_models.simple_type.SimpleType._value" class="py-name" href="#" onclick="return doclink('link-20', '_value', 'link-12');">_value</a></tt><tt class="py-op">)</tt> </tt>
+</div><a name="L147"></a><tt class="py-lineno">147</tt>  <tt class="py-line"> </tt>
+<a name="L148"></a><tt class="py-lineno">148</tt>  <tt class="py-line">    <tt class="py-comment"># DetailNode</tt> </tt>
+<a name="L149"></a><tt class="py-lineno">149</tt>  <tt class="py-line"> </tt>
+<a name="SimpleType.get_detail_display"></a><div id="SimpleType.get_detail_display-def"><a name="L150"></a><tt class="py-lineno">150</tt> <a class="py-toggle" href="#" id="SimpleType.get_detail_display-toggle" onclick="return toggle('SimpleType.get_detail_display');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="pyffi.object_models.simple_type.SimpleType-class.html#get_detail_display">get_detail_display</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="SimpleType.get_detail_display-collapsed" style="display:none;" pad="+++" indent="++++++++"></div><div id="SimpleType.get_detail_display-expanded"><a name="L151"></a><tt class="py-lineno">151</tt>  <tt class="py-line">        <tt class="py-docstring">"""Display string for the detail tree. This implementation is simply</tt> </tt>
+<a name="L152"></a><tt class="py-lineno">152</tt>  <tt class="py-line"><tt class="py-docstring">        a wrapper around C{self.:attr:`_value`.__str__()}.</tt> </tt>
+<a name="L153"></a><tt class="py-lineno">153</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
+<a name="L154"></a><tt class="py-lineno">154</tt>  <tt class="py-line"><tt class="py-docstring">        :return: String representation.</tt> </tt>
+<a name="L155"></a><tt class="py-lineno">155</tt>  <tt class="py-line"><tt class="py-docstring">        :rtype: ``str``</tt> </tt>
+<a name="L156"></a><tt class="py-lineno">156</tt>  <tt class="py-line"><tt class="py-docstring">        """</tt> </tt>
+<a name="L157"></a><tt class="py-lineno">157</tt>  <tt class="py-line">        <tt class="py-keyword">return</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-21" class="py-name"><a title="pyffi.formats.egt.EgtFormat.FileVersion._value
+pyffi.formats.tri.TriFormat.FileVersion._value
+pyffi.object_models.simple_type.SimpleType._value" class="py-name" href="#" onclick="return doclink('link-21', '_value', 'link-12');">_value</a></tt><tt class="py-op">.</tt><tt id="link-22" class="py-name"><a title="pyffi.formats.bsa.BsaFormat.Hash.__str__
+pyffi.formats.cgf.CgfFormat.FileSignature.__str__
+pyffi.formats.cgf.CgfFormat.Matrix33.__str__
+pyffi.formats.cgf.CgfFormat.Matrix44.__str__
+pyffi.formats.cgf.CgfFormat.Ptr.__str__
+pyffi.formats.cgf.CgfFormat.Ref.__str__
+pyffi.formats.cgf.CgfFormat.Vector3.__str__
+pyffi.formats.dds.DdsFormat.HeaderString.__str__
+pyffi.formats.egm.EgmFormat.FileSignature.__str__
+pyffi.formats.egm.EgmFormat.FileVersion.__str__
+pyffi.formats.egt.EgtFormat.FileSignature.__str__
+pyffi.formats.egt.EgtFormat.FileVersion.__str__
+pyffi.formats.kfm.KfmFormat.HeaderString.__str__
+pyffi.formats.nif.NifFormat.ByteArray.__str__
+pyffi.formats.nif.NifFormat.ByteMatrix.__str__
+pyffi.formats.nif.NifFormat.Data.VersionUInt.__str__
+pyffi.formats.nif.NifFormat.FileVersion.__str__
+pyffi.formats.nif.NifFormat.Flags.__str__
+pyffi.formats.nif.NifFormat.HeaderString.__str__
+pyffi.formats.nif.NifFormat.InertiaMatrix.__str__
+pyffi.formats.nif.NifFormat.LineString.__str__
+pyffi.formats.nif.NifFormat.Matrix33.__str__
+pyffi.formats.nif.NifFormat.Matrix44.__str__
+pyffi.formats.nif.NifFormat.Ptr.__str__
+pyffi.formats.nif.NifFormat.ShortString.__str__
+pyffi.formats.nif.NifFormat.TexCoord.__str__
+pyffi.formats.nif.NifFormat.Vector3.__str__
+pyffi.formats.nif.NifFormat.Vector4.__str__
+pyffi.formats.tga.TgaFormat.FooterString.__str__
+pyffi.formats.tri.TriFormat.FileSignature.__str__
+pyffi.formats.tri.TriFormat.FileVersion.__str__
+pyffi.object_models.array_type.AnyArray.__str__
+pyffi.object_models.binary_type.CharType.__str__
+pyffi.object_models.binary_type.FixedString.__str__
+pyffi.object_models.binary_type.SizedString.__str__
+pyffi.object_models.binary_type.UndecodedData.__str__
+pyffi.object_models.binary_type.ZString.__str__
+pyffi.object_models.common.Char.__str__
+pyffi.object_models.common.FixedString.__str__
+pyffi.object_models.common.Int.__str__
+pyffi.object_models.common.SizedString.__str__
+pyffi.object_models.common.UndecodedData.__str__
+pyffi.object_models.common.ZString.__str__
+pyffi.object_models.simple_type.SimpleType.__str__
+pyffi.object_models.xml.array.Array.__str__
+pyffi.object_models.xml.basic.BasicBase.__str__
+pyffi.object_models.xml.bit_struct.BitStructBase.__str__
+pyffi.object_models.xml.bit_struct.Bits.__str__
+pyffi.object_models.xml.enum.EnumBase.__str__
+pyffi.object_models.xml.expression.Expression.__str__
+pyffi.object_models.xml.struct_.StructBase.__str__
+pyffi.utils.tristrip.OrientedStrip.__str__" class="py-name" href="#" onclick="return doclink('link-22', '__str__', 'link-14');">__str__</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+</div></div><a name="L158"></a><tt class="py-lineno">158</tt>  <tt class="py-line"> </tt><script type="text/javascript">
+<!--
+expandto(location.href);
+// -->
+</script>
+</pre>
+<br />
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+  <!-- Home link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="pyffi-module.html">Home</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Project homepage -->
+      <th class="navbar" align="right" width="100%">
+        <table border="0" cellpadding="0" cellspacing="0">
+          <tr><th class="navbar" align="center"
+            >&nbsp;&nbsp;&nbsp;<a class="navbar" target="_top" href="http://pyffi.sourceforge.net/">Python File Format Interface</a>&nbsp;&nbsp;&nbsp;</th><th class="navbar" align="center">&nbsp;&nbsp;&nbsp;<a class="navbar" target="_top" href="http://sourceforge.net"><img src="http://sflogo.sourceforge.net/sflogo.php?group_id=199269" width="88" height="31" border="0" alt="SourceForge.net Logo" /></a>&nbsp;&nbsp;&nbsp;</th>
+          </tr></table></th>
+  </tr>
+</table>
+<table border="0" cellpadding="0" cellspacing="0" width="100%%">
+  <tr>
+    <td align="left" class="footer">
+    Generated by Epydoc 3.0.1 on Sat Nov 26 08:35:25 2011
+    </td>
+    <td align="right" class="footer">
+      <a target="mainFrame" href="http://epydoc.sourceforge.net"
+        >http://epydoc.sourceforge.net</a>
+    </td>
+  </tr>
+</table>
+
+<script type="text/javascript">
+  <!--
+  // Private objects are initially displayed (because if
+  // javascript is turned off then we want them to be
+  // visible); but by default, we want to hide them.  So hide
+  // them unless we have a cookie that says to show them.
+  checkCookie();
+  // -->
+</script>
+</body>
+</html>

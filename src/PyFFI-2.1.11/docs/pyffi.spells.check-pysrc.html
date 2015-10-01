@@ -1,0 +1,592 @@
+<?xml version="1.0" encoding="ascii"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+          "DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>pyffi.spells.check</title>
+  <link rel="stylesheet" href="epydoc.css" type="text/css" />
+  <script type="text/javascript" src="epydoc.js"></script>
+</head>
+
+<body bgcolor="white" text="black" link="blue" vlink="#204080"
+      alink="#204080">
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+  <!-- Home link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="pyffi-module.html">Home</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Project homepage -->
+      <th class="navbar" align="right" width="100%">
+        <table border="0" cellpadding="0" cellspacing="0">
+          <tr><th class="navbar" align="center"
+            >&nbsp;&nbsp;&nbsp;<a class="navbar" target="_top" href="http://pyffi.sourceforge.net/">Python File Format Interface</a>&nbsp;&nbsp;&nbsp;</th><th class="navbar" align="center">&nbsp;&nbsp;&nbsp;<a class="navbar" target="_top" href="http://sourceforge.net"><img src="http://sflogo.sourceforge.net/sflogo.php?group_id=199269" width="88" height="31" border="0" alt="SourceForge.net Logo" /></a>&nbsp;&nbsp;&nbsp;</th>
+          </tr></table></th>
+  </tr>
+</table>
+<table width="100%" cellpadding="0" cellspacing="0">
+  <tr valign="top">
+    <td width="100%">
+      <span class="breadcrumbs">
+        <a href="pyffi-module.html">Package&nbsp;pyffi</a> ::
+        <a href="pyffi.spells-module.html">Package&nbsp;spells</a> ::
+        Module&nbsp;check
+      </span>
+    </td>
+    <td>
+      <table cellpadding="0" cellspacing="0">
+        <!-- hide/show private -->
+        <tr><td align="right"><span class="options">[<a href="javascript:void(0);" class="privatelink"
+    onclick="toggle_private();">hide&nbsp;private</a>]</span></td></tr>
+        <tr><td align="right"><span class="options"
+            >[<a href="frames.html" target="_top">frames</a
+            >]&nbsp;|&nbsp;<a href="pyffi.spells.check-pysrc.html"
+            target="_top">no&nbsp;frames</a>]</span></td></tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<h1 class="epydoc">Source Code for <a href="pyffi.spells.check-module.html">Module pyffi.spells.check</a></h1>
+<pre class="py-src">
+<a name="L1"></a><tt class="py-lineno"> 1</tt>  <tt class="py-line"><tt class="py-docstring">"""Module which contains all spells that check something in a file</tt> </tt>
+<a name="L2"></a><tt class="py-lineno"> 2</tt>  <tt class="py-line"><tt class="py-docstring">(format-independently)."""</tt> </tt>
+<a name="L3"></a><tt class="py-lineno"> 3</tt>  <tt class="py-line"> </tt>
+<a name="L4"></a><tt class="py-lineno"> 4</tt>  <tt class="py-line"><tt class="py-comment"># --------------------------------------------------------------------------</tt> </tt>
+<a name="L5"></a><tt class="py-lineno"> 5</tt>  <tt class="py-line"><tt class="py-comment"># ***** BEGIN LICENSE BLOCK *****</tt> </tt>
+<a name="L6"></a><tt class="py-lineno"> 6</tt>  <tt class="py-line"><tt class="py-comment">#</tt> </tt>
+<a name="L7"></a><tt class="py-lineno"> 7</tt>  <tt class="py-line"><tt class="py-comment"># Copyright (c) 2007-2011, Python File Format Interface</tt> </tt>
+<a name="L8"></a><tt class="py-lineno"> 8</tt>  <tt class="py-line"><tt class="py-comment"># All rights reserved.</tt> </tt>
+<a name="L9"></a><tt class="py-lineno"> 9</tt>  <tt class="py-line"><tt class="py-comment">#</tt> </tt>
+<a name="L10"></a><tt class="py-lineno">10</tt>  <tt class="py-line"><tt class="py-comment"># Redistribution and use in source and binary forms, with or without</tt> </tt>
+<a name="L11"></a><tt class="py-lineno">11</tt>  <tt class="py-line"><tt class="py-comment"># modification, are permitted provided that the following conditions</tt> </tt>
+<a name="L12"></a><tt class="py-lineno">12</tt>  <tt class="py-line"><tt class="py-comment"># are met:</tt> </tt>
+<a name="L13"></a><tt class="py-lineno">13</tt>  <tt class="py-line"><tt class="py-comment">#</tt> </tt>
+<a name="L14"></a><tt class="py-lineno">14</tt>  <tt class="py-line"><tt class="py-comment">#    * Redistributions of source code must retain the above copyright</tt> </tt>
+<a name="L15"></a><tt class="py-lineno">15</tt>  <tt class="py-line"><tt class="py-comment">#      notice, this list of conditions and the following disclaimer.</tt> </tt>
+<a name="L16"></a><tt class="py-lineno">16</tt>  <tt class="py-line"><tt class="py-comment">#</tt> </tt>
+<a name="L17"></a><tt class="py-lineno">17</tt>  <tt class="py-line"><tt class="py-comment">#    * Redistributions in binary form must reproduce the above</tt> </tt>
+<a name="L18"></a><tt class="py-lineno">18</tt>  <tt class="py-line"><tt class="py-comment">#      copyright notice, this list of conditions and the following</tt> </tt>
+<a name="L19"></a><tt class="py-lineno">19</tt>  <tt class="py-line"><tt class="py-comment">#      disclaimer in the documentation and/or other materials provided</tt> </tt>
+<a name="L20"></a><tt class="py-lineno">20</tt>  <tt class="py-line"><tt class="py-comment">#      with the distribution.</tt> </tt>
+<a name="L21"></a><tt class="py-lineno">21</tt>  <tt class="py-line"><tt class="py-comment">#</tt> </tt>
+<a name="L22"></a><tt class="py-lineno">22</tt>  <tt class="py-line"><tt class="py-comment">#    * Neither the name of the Python File Format Interface</tt> </tt>
+<a name="L23"></a><tt class="py-lineno">23</tt>  <tt class="py-line"><tt class="py-comment">#      project nor the names of its contributors may be used to endorse</tt> </tt>
+<a name="L24"></a><tt class="py-lineno">24</tt>  <tt class="py-line"><tt class="py-comment">#      or promote products derived from this software without specific</tt> </tt>
+<a name="L25"></a><tt class="py-lineno">25</tt>  <tt class="py-line"><tt class="py-comment">#      prior written permission.</tt> </tt>
+<a name="L26"></a><tt class="py-lineno">26</tt>  <tt class="py-line"><tt class="py-comment">#</tt> </tt>
+<a name="L27"></a><tt class="py-lineno">27</tt>  <tt class="py-line"><tt class="py-comment"># THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS</tt> </tt>
+<a name="L28"></a><tt class="py-lineno">28</tt>  <tt class="py-line"><tt class="py-comment"># "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT</tt> </tt>
+<a name="L29"></a><tt class="py-lineno">29</tt>  <tt class="py-line"><tt class="py-comment"># LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS</tt> </tt>
+<a name="L30"></a><tt class="py-lineno">30</tt>  <tt class="py-line"><tt class="py-comment"># FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE</tt> </tt>
+<a name="L31"></a><tt class="py-lineno">31</tt>  <tt class="py-line"><tt class="py-comment"># COPYRIGHT OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT,</tt> </tt>
+<a name="L32"></a><tt class="py-lineno">32</tt>  <tt class="py-line"><tt class="py-comment"># INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING,</tt> </tt>
+<a name="L33"></a><tt class="py-lineno">33</tt>  <tt class="py-line"><tt class="py-comment"># BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES;</tt> </tt>
+<a name="L34"></a><tt class="py-lineno">34</tt>  <tt class="py-line"><tt class="py-comment"># LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER</tt> </tt>
+<a name="L35"></a><tt class="py-lineno">35</tt>  <tt class="py-line"><tt class="py-comment"># CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT</tt> </tt>
+<a name="L36"></a><tt class="py-lineno">36</tt>  <tt class="py-line"><tt class="py-comment"># LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN</tt> </tt>
+<a name="L37"></a><tt class="py-lineno">37</tt>  <tt class="py-line"><tt class="py-comment"># ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE</tt> </tt>
+<a name="L38"></a><tt class="py-lineno">38</tt>  <tt class="py-line"><tt class="py-comment"># POSSIBILITY OF SUCH DAMAGE.</tt> </tt>
+<a name="L39"></a><tt class="py-lineno">39</tt>  <tt class="py-line"><tt class="py-comment">#</tt> </tt>
+<a name="L40"></a><tt class="py-lineno">40</tt>  <tt class="py-line"><tt class="py-comment"># ***** END LICENSE BLOCK *****</tt> </tt>
+<a name="L41"></a><tt class="py-lineno">41</tt>  <tt class="py-line"><tt class="py-comment"># --------------------------------------------------------------------------</tt> </tt>
+<a name="L42"></a><tt class="py-lineno">42</tt>  <tt class="py-line"> </tt>
+<a name="L43"></a><tt class="py-lineno">43</tt>  <tt class="py-line"><tt class="py-keyword">from</tt> <tt id="link-0" class="py-name" targets="Package pyffi=pyffi-module.html"><a title="pyffi" class="py-name" href="#" onclick="return doclink('link-0', 'pyffi', 'link-0');">pyffi</a></tt><tt class="py-op">.</tt><tt id="link-1" class="py-name" targets="Package pyffi.spells=pyffi.spells-module.html,Variable pyffi.spells.SpellGroupBase.spells=pyffi.spells.SpellGroupBase-class.html#spells"><a title="pyffi.spells
+pyffi.spells.SpellGroupBase.spells" class="py-name" href="#" onclick="return doclink('link-1', 'spells', 'link-1');">spells</a></tt> <tt class="py-keyword">import</tt> <tt id="link-2" class="py-name" targets="Class pyffi.spells.Spell=pyffi.spells.Spell-class.html"><a title="pyffi.spells.Spell" class="py-name" href="#" onclick="return doclink('link-2', 'Spell', 'link-2');">Spell</a></tt> </tt>
+<a name="SpellNop"></a><div id="SpellNop-def"><a name="L44"></a><tt class="py-lineno">44</tt>  <tt class="py-line"> </tt>
+<a name="L45"></a><tt class="py-lineno">45</tt> <a class="py-toggle" href="#" id="SpellNop-toggle" onclick="return toggle('SpellNop');">-</a><tt class="py-line"><tt class="py-keyword">class</tt> <a class="py-def-name" href="pyffi.spells.check.SpellNop-class.html">SpellNop</a><tt class="py-op">(</tt><tt class="py-base-class">Spell</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="SpellNop-collapsed" style="display:none;" pad="++" indent="++++"></div><div id="SpellNop-expanded"><a name="L46"></a><tt class="py-lineno">46</tt>  <tt class="py-line">    <tt class="py-docstring">"""A spell which really does nothing. For testing."""</tt> </tt>
+<a name="L47"></a><tt class="py-lineno">47</tt>  <tt class="py-line"> </tt>
+<a name="L48"></a><tt class="py-lineno">48</tt>  <tt class="py-line">    <tt id="link-3" class="py-name" targets="Variable pyffi.spells.Spell.SPELLNAME=pyffi.spells.Spell-class.html#SPELLNAME,Variable pyffi.spells.SpellApplyPatch.SPELLNAME=pyffi.spells.SpellApplyPatch-class.html#SPELLNAME,Variable pyffi.spells.cgf.check.SpellCheckHasVertexColors.SPELLNAME=pyffi.spells.cgf.check.SpellCheckHasVertexColors-class.html#SPELLNAME,Variable pyffi.spells.cgf.check.SpellCheckTangentSpace.SPELLNAME=pyffi.spells.cgf.check.SpellCheckTangentSpace-class.html#SPELLNAME,Variable pyffi.spells.cgf.check.SpellReadWrite.SPELLNAME=pyffi.spells.cgf.check.SpellReadWrite-class.html#SPELLNAME,Variable pyffi.spells.cgf.dump.SpellDumpAll.SPELLNAME=pyffi.spells.cgf.dump.SpellDumpAll-class.html#SPELLNAME,Variable pyffi.spells.check.SpellNop.SPELLNAME=pyffi.spells.check.SpellNop-class.html#SPELLNAME,Variable pyffi.spells.check.SpellRead.SPELLNAME=pyffi.spells.check.SpellRead-class.html#SPELLNAME,Variable pyffi.spells.check.SpellReadWrite.SPELLNAME=pyffi.spells.check.SpellReadWrite-class.html#SPELLNAME,Variable pyffi.spells.kfm.SpellDumpAll.SPELLNAME=pyffi.spells.kfm.SpellDumpAll-class.html#SPELLNAME,Variable pyffi.spells.nif.check.SpellCheckBhkBodyCenter.SPELLNAME=pyffi.spells.nif.check.SpellCheckBhkBodyCenter-class.html#SPELLNAME,Variable pyffi.spells.nif.check.SpellCheckCenterRadius.SPELLNAME=pyffi.spells.nif.check.SpellCheckCenterRadius-class.html#SPELLNAME,Variable pyffi.spells.nif.check.SpellCheckConvexVerticesShape.SPELLNAME=pyffi.spells.nif.check.SpellCheckConvexVerticesShape-class.html#SPELLNAME,Variable pyffi.spells.nif.check.SpellCheckMaterialEmissiveValue.SPELLNAME=pyffi.spells.nif.check.SpellCheckMaterialEmissiveValue-class.html#SPELLNAME,Variable pyffi.spells.nif.check.SpellCheckMopp.SPELLNAME=pyffi.spells.nif.check.SpellCheckMopp-class.html#SPELLNAME,Variable pyffi.spells.nif.check.SpellCheckSkinCenterRadius.SPELLNAME=pyffi.spells.nif.check.SpellCheckSkinCenterRadius-class.html#SPELLNAME,Variable pyffi.spells.nif.check.SpellCheckTangentSpace.SPELLNAME=pyffi.spells.nif.check.SpellCheckTangentSpace-class.html#SPELLNAME,Variable pyffi.spells.nif.check.SpellCheckTriStrip.SPELLNAME=pyffi.spells.nif.check.SpellCheckTriStrip-class.html#SPELLNAME,Variable pyffi.spells.nif.check.SpellCheckTriangles.SPELLNAME=pyffi.spells.nif.check.SpellCheckTriangles-class.html#SPELLNAME,Variable pyffi.spells.nif.check.SpellCheckTrianglesATVR.SPELLNAME=pyffi.spells.nif.check.SpellCheckTrianglesATVR-class.html#SPELLNAME,Variable pyffi.spells.nif.check.SpellCheckVersion.SPELLNAME=pyffi.spells.nif.check.SpellCheckVersion-class.html#SPELLNAME,Variable pyffi.spells.nif.check.SpellCompareSkinData.SPELLNAME=pyffi.spells.nif.check.SpellCompareSkinData-class.html#SPELLNAME,Variable pyffi.spells.nif.check.SpellNodeNamesByFlag.SPELLNAME=pyffi.spells.nif.check.SpellNodeNamesByFlag-class.html#SPELLNAME,Variable pyffi.spells.nif.check.SpellReadWrite.SPELLNAME=pyffi.spells.nif.check.SpellReadWrite-class.html#SPELLNAME,Variable pyffi.spells.nif.dump.SpellDumpAll.SPELLNAME=pyffi.spells.nif.dump.SpellDumpAll-class.html#SPELLNAME,Variable pyffi.spells.nif.dump.SpellDumpTex.SPELLNAME=pyffi.spells.nif.dump.SpellDumpTex-class.html#SPELLNAME,Variable pyffi.spells.nif.dump.SpellExportPixelData.SPELLNAME=pyffi.spells.nif.dump.SpellExportPixelData-class.html#SPELLNAME,Variable pyffi.spells.nif.dump.SpellHtmlReport.SPELLNAME=pyffi.spells.nif.dump.SpellHtmlReport-class.html#SPELLNAME,Variable pyffi.spells.nif.fix.SpellAddTangentSpace.SPELLNAME=pyffi.spells.nif.fix.SpellAddTangentSpace-class.html#SPELLNAME,Variable pyffi.spells.nif.fix.SpellClampMaterialAlpha.SPELLNAME=pyffi.spells.nif.fix.SpellClampMaterialAlpha-class.html#SPELLNAME,Variable pyffi.spells.nif.fix.SpellCleanStringPalette.SPELLNAME=pyffi.spells.nif.fix.SpellCleanStringPalette-class.html#SPELLNAME,Variable pyffi.spells.nif.fix.SpellDelTangentSpace.SPELLNAME=pyffi.spells.nif.fix.SpellDelTangentSpace-class.html#SPELLNAME,Variable pyffi.spells.nif.fix.SpellDelUnusedRoots.SPELLNAME=pyffi.spells.nif.fix.SpellDelUnusedRoots-class.html#SPELLNAME,Variable pyffi.spells.nif.fix.SpellDetachHavokTriStripsData.SPELLNAME=pyffi.spells.nif.fix.SpellDetachHavokTriStripsData-class.html#SPELLNAME,Variable pyffi.spells.nif.fix.SpellFFVT3RSkinPartition.SPELLNAME=pyffi.spells.nif.fix.SpellFFVT3RSkinPartition-class.html#SPELLNAME,Variable pyffi.spells.nif.fix.SpellFixBhkSubShapes.SPELLNAME=pyffi.spells.nif.fix.SpellFixBhkSubShapes-class.html#SPELLNAME,Variable pyffi.spells.nif.fix.SpellFixCenterRadius.SPELLNAME=pyffi.spells.nif.fix.SpellFixCenterRadius-class.html#SPELLNAME,Variable pyffi.spells.nif.fix.SpellFixEmptySkeletonRoots.SPELLNAME=pyffi.spells.nif.fix.SpellFixEmptySkeletonRoots-class.html#SPELLNAME,Variable pyffi.spells.nif.fix.SpellFixMopp.SPELLNAME=pyffi.spells.nif.fix.SpellFixMopp-class.html#SPELLNAME,Variable pyffi.spells.nif.fix.SpellFixSkinCenterRadius.SPELLNAME=pyffi.spells.nif.fix.SpellFixSkinCenterRadius-class.html#SPELLNAME,Variable pyffi.spells.nif.fix.SpellFixTexturePath.SPELLNAME=pyffi.spells.nif.fix.SpellFixTexturePath-class.html#SPELLNAME,Variable pyffi.spells.nif.fix.SpellMergeSkeletonRoots.SPELLNAME=pyffi.spells.nif.fix.SpellMergeSkeletonRoots-class.html#SPELLNAME,Variable pyffi.spells.nif.fix.SpellScale.SPELLNAME=pyffi.spells.nif.fix.SpellScale-class.html#SPELLNAME,Variable pyffi.spells.nif.fix.SpellSendBonesToBindPosition.SPELLNAME=pyffi.spells.nif.fix.SpellSendBonesToBindPosition-class.html#SPELLNAME,Variable pyffi.spells.nif.fix.SpellSendDetachedGeometriesToNodePosition.SPELLNAME=pyffi.spells.nif.fix.SpellSendDetachedGeometriesToNodePosition-class.html#SPELLNAME,Variable pyffi.spells.nif.fix.SpellSendGeometriesToBindPosition.SPELLNAME=pyffi.spells.nif.fix.SpellSendGeometriesToBindPosition-class.html#SPELLNAME,Variable pyffi.spells.nif.modify.SpellAddStencilProperty.SPELLNAME=pyffi.spells.nif.modify.SpellAddStencilProperty-class.html#SPELLNAME,Variable pyffi.spells.nif.modify.SpellChangeAllBonePriorities.SPELLNAME=pyffi.spells.nif.modify.SpellChangeAllBonePriorities-class.html#SPELLNAME,Variable pyffi.spells.nif.modify.SpellChangeBonePriorities.SPELLNAME=pyffi.spells.nif.modify.SpellChangeBonePriorities-class.html#SPELLNAME,Variable pyffi.spells.nif.modify.SpellCleanFarNif.SPELLNAME=pyffi.spells.nif.modify.SpellCleanFarNif-class.html#SPELLNAME,Variable pyffi.spells.nif.modify.SpellCollisionMaterial.SPELLNAME=pyffi.spells.nif.modify.SpellCollisionMaterial-class.html#SPELLNAME,Variable pyffi.spells.nif.modify.SpellCollisionToMopp.SPELLNAME=pyffi.spells.nif.modify.SpellCollisionToMopp-class.html#SPELLNAME,Variable pyffi.spells.nif.modify.SpellCollisionType.SPELLNAME=pyffi.spells.nif.modify.SpellCollisionType-class.html#SPELLNAME,Variable pyffi.spells.nif.modify.SpellDelAlphaProperty.SPELLNAME=pyffi.spells.nif.modify.SpellDelAlphaProperty-class.html#SPELLNAME,Variable pyffi.spells.nif.modify.SpellDelAnimation.SPELLNAME=pyffi.spells.nif.modify.SpellDelAnimation-class.html#SPELLNAME,Variable pyffi.spells.nif.modify.SpellDelBSXFlags.SPELLNAME=pyffi.spells.nif.modify.SpellDelBSXFlags-class.html#SPELLNAME,Variable pyffi.spells.nif.modify.SpellDelBranches.SPELLNAME=pyffi.spells.nif.modify.SpellDelBranches-class.html#SPELLNAME,Variable pyffi.spells.nif.modify.SpellDelCollisionData.SPELLNAME=pyffi.spells.nif.modify.SpellDelCollisionData-class.html#SPELLNAME,Variable pyffi.spells.nif.modify.SpellDelInterpolatorTransformData.SPELLNAME=pyffi.spells.nif.modify.SpellDelInterpolatorTransformData-class.html#SPELLNAME,Variable pyffi.spells.nif.modify.SpellDelSkinShapes.SPELLNAME=pyffi.spells.nif.modify.SpellDelSkinShapes-class.html#SPELLNAME,Variable pyffi.spells.nif.modify.SpellDelSpecularProperty.SPELLNAME=pyffi.spells.nif.modify.SpellDelSpecularProperty-class.html#SPELLNAME,Variable pyffi.spells.nif.modify.SpellDelStringExtraDatas.SPELLNAME=pyffi.spells.nif.modify.SpellDelStringExtraDatas-class.html#SPELLNAME,Variable pyffi.spells.nif.modify.SpellDelVertexColor.SPELLNAME=pyffi.spells.nif.modify.SpellDelVertexColor-class.html#SPELLNAME,Variable pyffi.spells.nif.modify.SpellDelVertexColorProperty.SPELLNAME=pyffi.spells.nif.modify.SpellDelVertexColorProperty-class.html#SPELLNAME,Variable pyffi.spells.nif.modify.SpellDisableParallax.SPELLNAME=pyffi.spells.nif.modify.SpellDisableParallax-class.html#SPELLNAME,Variable pyffi.spells.nif.modify.SpellLowResTexturePath.SPELLNAME=pyffi.spells.nif.modify.SpellLowResTexturePath-class.html#SPELLNAME,Variable pyffi.spells.nif.modify.SpellMakeFarNif.SPELLNAME=pyffi.spells.nif.modify.SpellMakeFarNif-class.html#SPELLNAME,Variable pyffi.spells.nif.modify.SpellMakeSkinlessNif.SPELLNAME=pyffi.spells.nif.modify.SpellMakeSkinlessNif-class.html#SPELLNAME,Variable pyffi.spells.nif.modify.SpellMirrorAnimation.SPELLNAME=pyffi.spells.nif.modify.SpellMirrorAnimation-class.html#SPELLNAME,Variable pyffi.spells.nif.modify.SpellReverseAnimation.SPELLNAME=pyffi.spells.nif.modify.SpellReverseAnimation-class.html#SPELLNAME,Variable pyffi.spells.nif.modify.SpellScaleAnimationTime.SPELLNAME=pyffi.spells.nif.modify.SpellScaleAnimationTime-class.html#SPELLNAME,Variable pyffi.spells.nif.modify.SpellSetInterpolatorTransRotScale.SPELLNAME=pyffi.spells.nif.modify.SpellSetInterpolatorTransRotScale-class.html#SPELLNAME,Variable pyffi.spells.nif.modify.SpellSubstituteStringPalette.SPELLNAME=pyffi.spells.nif.modify.SpellSubstituteStringPalette-class.html#SPELLNAME,Variable pyffi.spells.nif.modify.SpellSubstituteTexturePath.SPELLNAME=pyffi.spells.nif.modify.SpellSubstituteTexturePath-class.html#SPELLNAME,Variable pyffi.spells.nif.modify.SpellTexturePath.SPELLNAME=pyffi.spells.nif.modify.SpellTexturePath-class.html#SPELLNAME,Variable pyffi.spells.nif.optimize.SpellCleanRefLists.SPELLNAME=pyffi.spells.nif.optimize.SpellCleanRefLists-class.html#SPELLNAME,Variable pyffi.spells.nif.optimize.SpellDelUnusedBones.SPELLNAME=pyffi.spells.nif.optimize.SpellDelUnusedBones-class.html#SPELLNAME,Variable pyffi.spells.nif.optimize.SpellDelZeroScale.SPELLNAME=pyffi.spells.nif.optimize.SpellDelZeroScale-class.html#SPELLNAME,Variable pyffi.spells.nif.optimize.SpellMergeDuplicates.SPELLNAME=pyffi.spells.nif.optimize.SpellMergeDuplicates-class.html#SPELLNAME,Variable pyffi.spells.nif.optimize.SpellOptimize.SPELLNAME=pyffi.spells.nif.optimize.SpellOptimize-class.html#SPELLNAME,Variable pyffi.spells.nif.optimize.SpellOptimizeAnimation.SPELLNAME=pyffi.spells.nif.optimize.SpellOptimizeAnimation-class.html#SPELLNAME,Variable pyffi.spells.nif.optimize.SpellOptimizeCollisionBox.SPELLNAME=pyffi.spells.nif.optimize.SpellOptimizeCollisionBox-class.html#SPELLNAME,Variable pyffi.spells.nif.optimize.SpellOptimizeCollisionGeometry.SPELLNAME=pyffi.spells.nif.optimize.SpellOptimizeCollisionGeometry-class.html#SPELLNAME,Variable pyffi.spells.nif.optimize.SpellOptimizeGeometry.SPELLNAME=pyffi.spells.nif.optimize.SpellOptimizeGeometry-class.html#SPELLNAME,Variable pyffi.spells.nif.optimize.SpellReduceGeometry.SPELLNAME=pyffi.spells.nif.optimize.SpellReduceGeometry-class.html#SPELLNAME,Variable pyffi.spells.nif.optimize.SpellSplitGeometry.SPELLNAME=pyffi.spells.nif.optimize.SpellSplitGeometry-class.html#SPELLNAME"><a title="pyffi.spells.Spell.SPELLNAME
+pyffi.spells.SpellApplyPatch.SPELLNAME
+pyffi.spells.cgf.check.SpellCheckHasVertexColors.SPELLNAME
+pyffi.spells.cgf.check.SpellCheckTangentSpace.SPELLNAME
+pyffi.spells.cgf.check.SpellReadWrite.SPELLNAME
+pyffi.spells.cgf.dump.SpellDumpAll.SPELLNAME
+pyffi.spells.check.SpellNop.SPELLNAME
+pyffi.spells.check.SpellRead.SPELLNAME
+pyffi.spells.check.SpellReadWrite.SPELLNAME
+pyffi.spells.kfm.SpellDumpAll.SPELLNAME
+pyffi.spells.nif.check.SpellCheckBhkBodyCenter.SPELLNAME
+pyffi.spells.nif.check.SpellCheckCenterRadius.SPELLNAME
+pyffi.spells.nif.check.SpellCheckConvexVerticesShape.SPELLNAME
+pyffi.spells.nif.check.SpellCheckMaterialEmissiveValue.SPELLNAME
+pyffi.spells.nif.check.SpellCheckMopp.SPELLNAME
+pyffi.spells.nif.check.SpellCheckSkinCenterRadius.SPELLNAME
+pyffi.spells.nif.check.SpellCheckTangentSpace.SPELLNAME
+pyffi.spells.nif.check.SpellCheckTriStrip.SPELLNAME
+pyffi.spells.nif.check.SpellCheckTriangles.SPELLNAME
+pyffi.spells.nif.check.SpellCheckTrianglesATVR.SPELLNAME
+pyffi.spells.nif.check.SpellCheckVersion.SPELLNAME
+pyffi.spells.nif.check.SpellCompareSkinData.SPELLNAME
+pyffi.spells.nif.check.SpellNodeNamesByFlag.SPELLNAME
+pyffi.spells.nif.check.SpellReadWrite.SPELLNAME
+pyffi.spells.nif.dump.SpellDumpAll.SPELLNAME
+pyffi.spells.nif.dump.SpellDumpTex.SPELLNAME
+pyffi.spells.nif.dump.SpellExportPixelData.SPELLNAME
+pyffi.spells.nif.dump.SpellHtmlReport.SPELLNAME
+pyffi.spells.nif.fix.SpellAddTangentSpace.SPELLNAME
+pyffi.spells.nif.fix.SpellClampMaterialAlpha.SPELLNAME
+pyffi.spells.nif.fix.SpellCleanStringPalette.SPELLNAME
+pyffi.spells.nif.fix.SpellDelTangentSpace.SPELLNAME
+pyffi.spells.nif.fix.SpellDelUnusedRoots.SPELLNAME
+pyffi.spells.nif.fix.SpellDetachHavokTriStripsData.SPELLNAME
+pyffi.spells.nif.fix.SpellFFVT3RSkinPartition.SPELLNAME
+pyffi.spells.nif.fix.SpellFixBhkSubShapes.SPELLNAME
+pyffi.spells.nif.fix.SpellFixCenterRadius.SPELLNAME
+pyffi.spells.nif.fix.SpellFixEmptySkeletonRoots.SPELLNAME
+pyffi.spells.nif.fix.SpellFixMopp.SPELLNAME
+pyffi.spells.nif.fix.SpellFixSkinCenterRadius.SPELLNAME
+pyffi.spells.nif.fix.SpellFixTexturePath.SPELLNAME
+pyffi.spells.nif.fix.SpellMergeSkeletonRoots.SPELLNAME
+pyffi.spells.nif.fix.SpellScale.SPELLNAME
+pyffi.spells.nif.fix.SpellSendBonesToBindPosition.SPELLNAME
+pyffi.spells.nif.fix.SpellSendDetachedGeometriesToNodePosition.SPELLNAME
+pyffi.spells.nif.fix.SpellSendGeometriesToBindPosition.SPELLNAME
+pyffi.spells.nif.modify.SpellAddStencilProperty.SPELLNAME
+pyffi.spells.nif.modify.SpellChangeAllBonePriorities.SPELLNAME
+pyffi.spells.nif.modify.SpellChangeBonePriorities.SPELLNAME
+pyffi.spells.nif.modify.SpellCleanFarNif.SPELLNAME
+pyffi.spells.nif.modify.SpellCollisionMaterial.SPELLNAME
+pyffi.spells.nif.modify.SpellCollisionToMopp.SPELLNAME
+pyffi.spells.nif.modify.SpellCollisionType.SPELLNAME
+pyffi.spells.nif.modify.SpellDelAlphaProperty.SPELLNAME
+pyffi.spells.nif.modify.SpellDelAnimation.SPELLNAME
+pyffi.spells.nif.modify.SpellDelBSXFlags.SPELLNAME
+pyffi.spells.nif.modify.SpellDelBranches.SPELLNAME
+pyffi.spells.nif.modify.SpellDelCollisionData.SPELLNAME
+pyffi.spells.nif.modify.SpellDelInterpolatorTransformData.SPELLNAME
+pyffi.spells.nif.modify.SpellDelSkinShapes.SPELLNAME
+pyffi.spells.nif.modify.SpellDelSpecularProperty.SPELLNAME
+pyffi.spells.nif.modify.SpellDelStringExtraDatas.SPELLNAME
+pyffi.spells.nif.modify.SpellDelVertexColor.SPELLNAME
+pyffi.spells.nif.modify.SpellDelVertexColorProperty.SPELLNAME
+pyffi.spells.nif.modify.SpellDisableParallax.SPELLNAME
+pyffi.spells.nif.modify.SpellLowResTexturePath.SPELLNAME
+pyffi.spells.nif.modify.SpellMakeFarNif.SPELLNAME
+pyffi.spells.nif.modify.SpellMakeSkinlessNif.SPELLNAME
+pyffi.spells.nif.modify.SpellMirrorAnimation.SPELLNAME
+pyffi.spells.nif.modify.SpellReverseAnimation.SPELLNAME
+pyffi.spells.nif.modify.SpellScaleAnimationTime.SPELLNAME
+pyffi.spells.nif.modify.SpellSetInterpolatorTransRotScale.SPELLNAME
+pyffi.spells.nif.modify.SpellSubstituteStringPalette.SPELLNAME
+pyffi.spells.nif.modify.SpellSubstituteTexturePath.SPELLNAME
+pyffi.spells.nif.modify.SpellTexturePath.SPELLNAME
+pyffi.spells.nif.optimize.SpellCleanRefLists.SPELLNAME
+pyffi.spells.nif.optimize.SpellDelUnusedBones.SPELLNAME
+pyffi.spells.nif.optimize.SpellDelZeroScale.SPELLNAME
+pyffi.spells.nif.optimize.SpellMergeDuplicates.SPELLNAME
+pyffi.spells.nif.optimize.SpellOptimize.SPELLNAME
+pyffi.spells.nif.optimize.SpellOptimizeAnimation.SPELLNAME
+pyffi.spells.nif.optimize.SpellOptimizeCollisionBox.SPELLNAME
+pyffi.spells.nif.optimize.SpellOptimizeCollisionGeometry.SPELLNAME
+pyffi.spells.nif.optimize.SpellOptimizeGeometry.SPELLNAME
+pyffi.spells.nif.optimize.SpellReduceGeometry.SPELLNAME
+pyffi.spells.nif.optimize.SpellSplitGeometry.SPELLNAME" class="py-name" href="#" onclick="return doclink('link-3', 'SPELLNAME', 'link-3');">SPELLNAME</a></tt> <tt class="py-op">=</tt> <tt class="py-string">"check_nop"</tt> </tt>
+<a name="L49"></a><tt class="py-lineno">49</tt>  <tt class="py-line">    <tt id="link-4" class="py-name" targets="Variable pyffi.spells.Spell.READONLY=pyffi.spells.Spell-class.html#READONLY,Variable pyffi.spells.check.SpellNop.READONLY=pyffi.spells.check.SpellNop-class.html#READONLY,Variable pyffi.spells.check.SpellRead.READONLY=pyffi.spells.check.SpellRead-class.html#READONLY,Variable pyffi.spells.check.SpellReadWrite.READONLY=pyffi.spells.check.SpellReadWrite-class.html#READONLY,Variable pyffi.spells.nif.fix.SpellAddTangentSpace.READONLY=pyffi.spells.nif.fix.SpellAddTangentSpace-class.html#READONLY,Variable pyffi.spells.nif.fix.SpellClampMaterialAlpha.READONLY=pyffi.spells.nif.fix.SpellClampMaterialAlpha-class.html#READONLY,Variable pyffi.spells.nif.fix.SpellCleanStringPalette.READONLY=pyffi.spells.nif.fix.SpellCleanStringPalette-class.html#READONLY,Variable pyffi.spells.nif.fix.SpellDelTangentSpace.READONLY=pyffi.spells.nif.fix.SpellDelTangentSpace-class.html#READONLY,Variable pyffi.spells.nif.fix.SpellDelUnusedRoots.READONLY=pyffi.spells.nif.fix.SpellDelUnusedRoots-class.html#READONLY,Variable pyffi.spells.nif.fix.SpellDetachHavokTriStripsData.READONLY=pyffi.spells.nif.fix.SpellDetachHavokTriStripsData-class.html#READONLY,Variable pyffi.spells.nif.fix.SpellFFVT3RSkinPartition.READONLY=pyffi.spells.nif.fix.SpellFFVT3RSkinPartition-class.html#READONLY,Variable pyffi.spells.nif.fix.SpellFixBhkSubShapes.READONLY=pyffi.spells.nif.fix.SpellFixBhkSubShapes-class.html#READONLY,Variable pyffi.spells.nif.fix.SpellFixCenterRadius.READONLY=pyffi.spells.nif.fix.SpellFixCenterRadius-class.html#READONLY,Variable pyffi.spells.nif.fix.SpellFixEmptySkeletonRoots.READONLY=pyffi.spells.nif.fix.SpellFixEmptySkeletonRoots-class.html#READONLY,Variable pyffi.spells.nif.fix.SpellFixMopp.READONLY=pyffi.spells.nif.fix.SpellFixMopp-class.html#READONLY,Variable pyffi.spells.nif.fix.SpellFixSkinCenterRadius.READONLY=pyffi.spells.nif.fix.SpellFixSkinCenterRadius-class.html#READONLY,Variable pyffi.spells.nif.fix.SpellMergeSkeletonRoots.READONLY=pyffi.spells.nif.fix.SpellMergeSkeletonRoots-class.html#READONLY,Variable pyffi.spells.nif.fix.SpellParseTexturePath.READONLY=pyffi.spells.nif.fix.SpellParseTexturePath-class.html#READONLY,Variable pyffi.spells.nif.fix.SpellScale.READONLY=pyffi.spells.nif.fix.SpellScale-class.html#READONLY,Variable pyffi.spells.nif.fix.SpellSendBonesToBindPosition.READONLY=pyffi.spells.nif.fix.SpellSendBonesToBindPosition-class.html#READONLY,Variable pyffi.spells.nif.fix.SpellSendDetachedGeometriesToNodePosition.READONLY=pyffi.spells.nif.fix.SpellSendDetachedGeometriesToNodePosition-class.html#READONLY,Variable pyffi.spells.nif.fix.SpellSendGeometriesToBindPosition.READONLY=pyffi.spells.nif.fix.SpellSendGeometriesToBindPosition-class.html#READONLY,Variable pyffi.spells.nif.modify.SpellAddStencilProperty.READONLY=pyffi.spells.nif.modify.SpellAddStencilProperty-class.html#READONLY,Variable pyffi.spells.nif.modify.SpellChangeBonePriorities.READONLY=pyffi.spells.nif.modify.SpellChangeBonePriorities-class.html#READONLY,Variable pyffi.spells.nif.modify.SpellCollisionMaterial.READONLY=pyffi.spells.nif.modify.SpellCollisionMaterial-class.html#READONLY,Variable pyffi.spells.nif.modify.SpellCollisionToMopp.READONLY=pyffi.spells.nif.modify.SpellCollisionToMopp-class.html#READONLY,Variable pyffi.spells.nif.modify.SpellCollisionType.READONLY=pyffi.spells.nif.modify.SpellCollisionType-class.html#READONLY,Variable pyffi.spells.nif.modify.SpellDelBranches.READONLY=pyffi.spells.nif.modify.SpellDelBranches-class.html#READONLY,Variable pyffi.spells.nif.modify.SpellDelInterpolatorTransformData.READONLY=pyffi.spells.nif.modify.SpellDelInterpolatorTransformData-class.html#READONLY,Variable pyffi.spells.nif.modify.SpellDisableParallax.READONLY=pyffi.spells.nif.modify.SpellDisableParallax-class.html#READONLY,Variable pyffi.spells.nif.modify.SpellMirrorAnimation.READONLY=pyffi.spells.nif.modify.SpellMirrorAnimation-class.html#READONLY,Variable pyffi.spells.nif.modify.SpellReverseAnimation.READONLY=pyffi.spells.nif.modify.SpellReverseAnimation-class.html#READONLY,Variable pyffi.spells.nif.modify.SpellScaleAnimationTime.READONLY=pyffi.spells.nif.modify.SpellScaleAnimationTime-class.html#READONLY,Variable pyffi.spells.nif.modify.SpellSetInterpolatorTransRotScale.READONLY=pyffi.spells.nif.modify.SpellSetInterpolatorTransRotScale-class.html#READONLY,Variable pyffi.spells.nif.modify.SpellTexturePath.READONLY=pyffi.spells.nif.modify.SpellTexturePath-class.html#READONLY,Variable pyffi.spells.nif.optimize.SpellCleanRefLists.READONLY=pyffi.spells.nif.optimize.SpellCleanRefLists-class.html#READONLY,Variable pyffi.spells.nif.optimize.SpellDelUnusedBones.READONLY=pyffi.spells.nif.optimize.SpellDelUnusedBones-class.html#READONLY,Variable pyffi.spells.nif.optimize.SpellDelZeroScale.READONLY=pyffi.spells.nif.optimize.SpellDelZeroScale-class.html#READONLY,Variable pyffi.spells.nif.optimize.SpellMergeDuplicates.READONLY=pyffi.spells.nif.optimize.SpellMergeDuplicates-class.html#READONLY,Variable pyffi.spells.nif.optimize.SpellOptimizeAnimation.READONLY=pyffi.spells.nif.optimize.SpellOptimizeAnimation-class.html#READONLY,Variable pyffi.spells.nif.optimize.SpellOptimizeCollisionBox.READONLY=pyffi.spells.nif.optimize.SpellOptimizeCollisionBox-class.html#READONLY,Variable pyffi.spells.nif.optimize.SpellOptimizeCollisionGeometry.READONLY=pyffi.spells.nif.optimize.SpellOptimizeCollisionGeometry-class.html#READONLY,Variable pyffi.spells.nif.optimize.SpellOptimizeGeometry.READONLY=pyffi.spells.nif.optimize.SpellOptimizeGeometry-class.html#READONLY,Variable pyffi.spells.nif.optimize.SpellReduceGeometry.READONLY=pyffi.spells.nif.optimize.SpellReduceGeometry-class.html#READONLY,Variable pyffi.spells.nif.optimize.SpellSplitGeometry.READONLY=pyffi.spells.nif.optimize.SpellSplitGeometry-class.html#READONLY"><a title="pyffi.spells.Spell.READONLY
+pyffi.spells.check.SpellNop.READONLY
+pyffi.spells.check.SpellRead.READONLY
+pyffi.spells.check.SpellReadWrite.READONLY
+pyffi.spells.nif.fix.SpellAddTangentSpace.READONLY
+pyffi.spells.nif.fix.SpellClampMaterialAlpha.READONLY
+pyffi.spells.nif.fix.SpellCleanStringPalette.READONLY
+pyffi.spells.nif.fix.SpellDelTangentSpace.READONLY
+pyffi.spells.nif.fix.SpellDelUnusedRoots.READONLY
+pyffi.spells.nif.fix.SpellDetachHavokTriStripsData.READONLY
+pyffi.spells.nif.fix.SpellFFVT3RSkinPartition.READONLY
+pyffi.spells.nif.fix.SpellFixBhkSubShapes.READONLY
+pyffi.spells.nif.fix.SpellFixCenterRadius.READONLY
+pyffi.spells.nif.fix.SpellFixEmptySkeletonRoots.READONLY
+pyffi.spells.nif.fix.SpellFixMopp.READONLY
+pyffi.spells.nif.fix.SpellFixSkinCenterRadius.READONLY
+pyffi.spells.nif.fix.SpellMergeSkeletonRoots.READONLY
+pyffi.spells.nif.fix.SpellParseTexturePath.READONLY
+pyffi.spells.nif.fix.SpellScale.READONLY
+pyffi.spells.nif.fix.SpellSendBonesToBindPosition.READONLY
+pyffi.spells.nif.fix.SpellSendDetachedGeometriesToNodePosition.READONLY
+pyffi.spells.nif.fix.SpellSendGeometriesToBindPosition.READONLY
+pyffi.spells.nif.modify.SpellAddStencilProperty.READONLY
+pyffi.spells.nif.modify.SpellChangeBonePriorities.READONLY
+pyffi.spells.nif.modify.SpellCollisionMaterial.READONLY
+pyffi.spells.nif.modify.SpellCollisionToMopp.READONLY
+pyffi.spells.nif.modify.SpellCollisionType.READONLY
+pyffi.spells.nif.modify.SpellDelBranches.READONLY
+pyffi.spells.nif.modify.SpellDelInterpolatorTransformData.READONLY
+pyffi.spells.nif.modify.SpellDisableParallax.READONLY
+pyffi.spells.nif.modify.SpellMirrorAnimation.READONLY
+pyffi.spells.nif.modify.SpellReverseAnimation.READONLY
+pyffi.spells.nif.modify.SpellScaleAnimationTime.READONLY
+pyffi.spells.nif.modify.SpellSetInterpolatorTransRotScale.READONLY
+pyffi.spells.nif.modify.SpellTexturePath.READONLY
+pyffi.spells.nif.optimize.SpellCleanRefLists.READONLY
+pyffi.spells.nif.optimize.SpellDelUnusedBones.READONLY
+pyffi.spells.nif.optimize.SpellDelZeroScale.READONLY
+pyffi.spells.nif.optimize.SpellMergeDuplicates.READONLY
+pyffi.spells.nif.optimize.SpellOptimizeAnimation.READONLY
+pyffi.spells.nif.optimize.SpellOptimizeCollisionBox.READONLY
+pyffi.spells.nif.optimize.SpellOptimizeCollisionGeometry.READONLY
+pyffi.spells.nif.optimize.SpellOptimizeGeometry.READONLY
+pyffi.spells.nif.optimize.SpellReduceGeometry.READONLY
+pyffi.spells.nif.optimize.SpellSplitGeometry.READONLY" class="py-name" href="#" onclick="return doclink('link-4', 'READONLY', 'link-4');">READONLY</a></tt> <tt class="py-op">=</tt> <tt class="py-name">True</tt> </tt>
+<a name="L50"></a><tt class="py-lineno">50</tt>  <tt class="py-line"> </tt>
+<a name="SpellNop.datainspect"></a><div id="SpellNop.datainspect-def"><a name="L51"></a><tt class="py-lineno">51</tt> <a class="py-toggle" href="#" id="SpellNop.datainspect-toggle" onclick="return toggle('SpellNop.datainspect');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="pyffi.spells.check.SpellNop-class.html#datainspect">datainspect</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="SpellNop.datainspect-collapsed" style="display:none;" pad="++" indent="++++++++"></div><div id="SpellNop.datainspect-expanded"><a name="L52"></a><tt class="py-lineno">52</tt>  <tt class="py-line">        <tt class="py-keyword">return</tt> <tt class="py-name">False</tt> </tt>
+</div></div><a name="L53"></a><tt class="py-lineno">53</tt>  <tt class="py-line"> </tt>
+<a name="SpellRead"></a><div id="SpellRead-def"><a name="L54"></a><tt class="py-lineno">54</tt> <a class="py-toggle" href="#" id="SpellRead-toggle" onclick="return toggle('SpellRead');">-</a><tt class="py-line"><tt class="py-keyword">class</tt> <a class="py-def-name" href="pyffi.spells.check.SpellRead-class.html">SpellRead</a><tt class="py-op">(</tt><tt class="py-base-class">Spell</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="SpellRead-collapsed" style="display:none;" pad="++" indent="++++"></div><div id="SpellRead-expanded"><a name="L55"></a><tt class="py-lineno">55</tt>  <tt class="py-line">    <tt class="py-docstring">"""A spell which does nothing, besides reading the file."""</tt> </tt>
+<a name="L56"></a><tt class="py-lineno">56</tt>  <tt class="py-line"> </tt>
+<a name="L57"></a><tt class="py-lineno">57</tt>  <tt class="py-line">    <tt id="link-5" class="py-name"><a title="pyffi.spells.Spell.SPELLNAME
+pyffi.spells.SpellApplyPatch.SPELLNAME
+pyffi.spells.cgf.check.SpellCheckHasVertexColors.SPELLNAME
+pyffi.spells.cgf.check.SpellCheckTangentSpace.SPELLNAME
+pyffi.spells.cgf.check.SpellReadWrite.SPELLNAME
+pyffi.spells.cgf.dump.SpellDumpAll.SPELLNAME
+pyffi.spells.check.SpellNop.SPELLNAME
+pyffi.spells.check.SpellRead.SPELLNAME
+pyffi.spells.check.SpellReadWrite.SPELLNAME
+pyffi.spells.kfm.SpellDumpAll.SPELLNAME
+pyffi.spells.nif.check.SpellCheckBhkBodyCenter.SPELLNAME
+pyffi.spells.nif.check.SpellCheckCenterRadius.SPELLNAME
+pyffi.spells.nif.check.SpellCheckConvexVerticesShape.SPELLNAME
+pyffi.spells.nif.check.SpellCheckMaterialEmissiveValue.SPELLNAME
+pyffi.spells.nif.check.SpellCheckMopp.SPELLNAME
+pyffi.spells.nif.check.SpellCheckSkinCenterRadius.SPELLNAME
+pyffi.spells.nif.check.SpellCheckTangentSpace.SPELLNAME
+pyffi.spells.nif.check.SpellCheckTriStrip.SPELLNAME
+pyffi.spells.nif.check.SpellCheckTriangles.SPELLNAME
+pyffi.spells.nif.check.SpellCheckTrianglesATVR.SPELLNAME
+pyffi.spells.nif.check.SpellCheckVersion.SPELLNAME
+pyffi.spells.nif.check.SpellCompareSkinData.SPELLNAME
+pyffi.spells.nif.check.SpellNodeNamesByFlag.SPELLNAME
+pyffi.spells.nif.check.SpellReadWrite.SPELLNAME
+pyffi.spells.nif.dump.SpellDumpAll.SPELLNAME
+pyffi.spells.nif.dump.SpellDumpTex.SPELLNAME
+pyffi.spells.nif.dump.SpellExportPixelData.SPELLNAME
+pyffi.spells.nif.dump.SpellHtmlReport.SPELLNAME
+pyffi.spells.nif.fix.SpellAddTangentSpace.SPELLNAME
+pyffi.spells.nif.fix.SpellClampMaterialAlpha.SPELLNAME
+pyffi.spells.nif.fix.SpellCleanStringPalette.SPELLNAME
+pyffi.spells.nif.fix.SpellDelTangentSpace.SPELLNAME
+pyffi.spells.nif.fix.SpellDelUnusedRoots.SPELLNAME
+pyffi.spells.nif.fix.SpellDetachHavokTriStripsData.SPELLNAME
+pyffi.spells.nif.fix.SpellFFVT3RSkinPartition.SPELLNAME
+pyffi.spells.nif.fix.SpellFixBhkSubShapes.SPELLNAME
+pyffi.spells.nif.fix.SpellFixCenterRadius.SPELLNAME
+pyffi.spells.nif.fix.SpellFixEmptySkeletonRoots.SPELLNAME
+pyffi.spells.nif.fix.SpellFixMopp.SPELLNAME
+pyffi.spells.nif.fix.SpellFixSkinCenterRadius.SPELLNAME
+pyffi.spells.nif.fix.SpellFixTexturePath.SPELLNAME
+pyffi.spells.nif.fix.SpellMergeSkeletonRoots.SPELLNAME
+pyffi.spells.nif.fix.SpellScale.SPELLNAME
+pyffi.spells.nif.fix.SpellSendBonesToBindPosition.SPELLNAME
+pyffi.spells.nif.fix.SpellSendDetachedGeometriesToNodePosition.SPELLNAME
+pyffi.spells.nif.fix.SpellSendGeometriesToBindPosition.SPELLNAME
+pyffi.spells.nif.modify.SpellAddStencilProperty.SPELLNAME
+pyffi.spells.nif.modify.SpellChangeAllBonePriorities.SPELLNAME
+pyffi.spells.nif.modify.SpellChangeBonePriorities.SPELLNAME
+pyffi.spells.nif.modify.SpellCleanFarNif.SPELLNAME
+pyffi.spells.nif.modify.SpellCollisionMaterial.SPELLNAME
+pyffi.spells.nif.modify.SpellCollisionToMopp.SPELLNAME
+pyffi.spells.nif.modify.SpellCollisionType.SPELLNAME
+pyffi.spells.nif.modify.SpellDelAlphaProperty.SPELLNAME
+pyffi.spells.nif.modify.SpellDelAnimation.SPELLNAME
+pyffi.spells.nif.modify.SpellDelBSXFlags.SPELLNAME
+pyffi.spells.nif.modify.SpellDelBranches.SPELLNAME
+pyffi.spells.nif.modify.SpellDelCollisionData.SPELLNAME
+pyffi.spells.nif.modify.SpellDelInterpolatorTransformData.SPELLNAME
+pyffi.spells.nif.modify.SpellDelSkinShapes.SPELLNAME
+pyffi.spells.nif.modify.SpellDelSpecularProperty.SPELLNAME
+pyffi.spells.nif.modify.SpellDelStringExtraDatas.SPELLNAME
+pyffi.spells.nif.modify.SpellDelVertexColor.SPELLNAME
+pyffi.spells.nif.modify.SpellDelVertexColorProperty.SPELLNAME
+pyffi.spells.nif.modify.SpellDisableParallax.SPELLNAME
+pyffi.spells.nif.modify.SpellLowResTexturePath.SPELLNAME
+pyffi.spells.nif.modify.SpellMakeFarNif.SPELLNAME
+pyffi.spells.nif.modify.SpellMakeSkinlessNif.SPELLNAME
+pyffi.spells.nif.modify.SpellMirrorAnimation.SPELLNAME
+pyffi.spells.nif.modify.SpellReverseAnimation.SPELLNAME
+pyffi.spells.nif.modify.SpellScaleAnimationTime.SPELLNAME
+pyffi.spells.nif.modify.SpellSetInterpolatorTransRotScale.SPELLNAME
+pyffi.spells.nif.modify.SpellSubstituteStringPalette.SPELLNAME
+pyffi.spells.nif.modify.SpellSubstituteTexturePath.SPELLNAME
+pyffi.spells.nif.modify.SpellTexturePath.SPELLNAME
+pyffi.spells.nif.optimize.SpellCleanRefLists.SPELLNAME
+pyffi.spells.nif.optimize.SpellDelUnusedBones.SPELLNAME
+pyffi.spells.nif.optimize.SpellDelZeroScale.SPELLNAME
+pyffi.spells.nif.optimize.SpellMergeDuplicates.SPELLNAME
+pyffi.spells.nif.optimize.SpellOptimize.SPELLNAME
+pyffi.spells.nif.optimize.SpellOptimizeAnimation.SPELLNAME
+pyffi.spells.nif.optimize.SpellOptimizeCollisionBox.SPELLNAME
+pyffi.spells.nif.optimize.SpellOptimizeCollisionGeometry.SPELLNAME
+pyffi.spells.nif.optimize.SpellOptimizeGeometry.SPELLNAME
+pyffi.spells.nif.optimize.SpellReduceGeometry.SPELLNAME
+pyffi.spells.nif.optimize.SpellSplitGeometry.SPELLNAME" class="py-name" href="#" onclick="return doclink('link-5', 'SPELLNAME', 'link-3');">SPELLNAME</a></tt> <tt class="py-op">=</tt> <tt class="py-string">"check_read"</tt> </tt>
+<a name="L58"></a><tt class="py-lineno">58</tt>  <tt class="py-line">    <tt id="link-6" class="py-name"><a title="pyffi.spells.Spell.READONLY
+pyffi.spells.check.SpellNop.READONLY
+pyffi.spells.check.SpellRead.READONLY
+pyffi.spells.check.SpellReadWrite.READONLY
+pyffi.spells.nif.fix.SpellAddTangentSpace.READONLY
+pyffi.spells.nif.fix.SpellClampMaterialAlpha.READONLY
+pyffi.spells.nif.fix.SpellCleanStringPalette.READONLY
+pyffi.spells.nif.fix.SpellDelTangentSpace.READONLY
+pyffi.spells.nif.fix.SpellDelUnusedRoots.READONLY
+pyffi.spells.nif.fix.SpellDetachHavokTriStripsData.READONLY
+pyffi.spells.nif.fix.SpellFFVT3RSkinPartition.READONLY
+pyffi.spells.nif.fix.SpellFixBhkSubShapes.READONLY
+pyffi.spells.nif.fix.SpellFixCenterRadius.READONLY
+pyffi.spells.nif.fix.SpellFixEmptySkeletonRoots.READONLY
+pyffi.spells.nif.fix.SpellFixMopp.READONLY
+pyffi.spells.nif.fix.SpellFixSkinCenterRadius.READONLY
+pyffi.spells.nif.fix.SpellMergeSkeletonRoots.READONLY
+pyffi.spells.nif.fix.SpellParseTexturePath.READONLY
+pyffi.spells.nif.fix.SpellScale.READONLY
+pyffi.spells.nif.fix.SpellSendBonesToBindPosition.READONLY
+pyffi.spells.nif.fix.SpellSendDetachedGeometriesToNodePosition.READONLY
+pyffi.spells.nif.fix.SpellSendGeometriesToBindPosition.READONLY
+pyffi.spells.nif.modify.SpellAddStencilProperty.READONLY
+pyffi.spells.nif.modify.SpellChangeBonePriorities.READONLY
+pyffi.spells.nif.modify.SpellCollisionMaterial.READONLY
+pyffi.spells.nif.modify.SpellCollisionToMopp.READONLY
+pyffi.spells.nif.modify.SpellCollisionType.READONLY
+pyffi.spells.nif.modify.SpellDelBranches.READONLY
+pyffi.spells.nif.modify.SpellDelInterpolatorTransformData.READONLY
+pyffi.spells.nif.modify.SpellDisableParallax.READONLY
+pyffi.spells.nif.modify.SpellMirrorAnimation.READONLY
+pyffi.spells.nif.modify.SpellReverseAnimation.READONLY
+pyffi.spells.nif.modify.SpellScaleAnimationTime.READONLY
+pyffi.spells.nif.modify.SpellSetInterpolatorTransRotScale.READONLY
+pyffi.spells.nif.modify.SpellTexturePath.READONLY
+pyffi.spells.nif.optimize.SpellCleanRefLists.READONLY
+pyffi.spells.nif.optimize.SpellDelUnusedBones.READONLY
+pyffi.spells.nif.optimize.SpellDelZeroScale.READONLY
+pyffi.spells.nif.optimize.SpellMergeDuplicates.READONLY
+pyffi.spells.nif.optimize.SpellOptimizeAnimation.READONLY
+pyffi.spells.nif.optimize.SpellOptimizeCollisionBox.READONLY
+pyffi.spells.nif.optimize.SpellOptimizeCollisionGeometry.READONLY
+pyffi.spells.nif.optimize.SpellOptimizeGeometry.READONLY
+pyffi.spells.nif.optimize.SpellReduceGeometry.READONLY
+pyffi.spells.nif.optimize.SpellSplitGeometry.READONLY" class="py-name" href="#" onclick="return doclink('link-6', 'READONLY', 'link-4');">READONLY</a></tt> <tt class="py-op">=</tt> <tt class="py-name">True</tt> </tt>
+<a name="L59"></a><tt class="py-lineno">59</tt>  <tt class="py-line"> </tt>
+<a name="SpellRead.dataentry"></a><div id="SpellRead.dataentry-def"><a name="L60"></a><tt class="py-lineno">60</tt> <a class="py-toggle" href="#" id="SpellRead.dataentry-toggle" onclick="return toggle('SpellRead.dataentry');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="pyffi.spells.check.SpellRead-class.html#dataentry">dataentry</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="SpellRead.dataentry-collapsed" style="display:none;" pad="++" indent="++++++++"></div><div id="SpellRead.dataentry-expanded"><a name="L61"></a><tt class="py-lineno">61</tt>  <tt class="py-line">        <tt class="py-comment"># prevent recursing into the tree</tt> </tt>
+<a name="L62"></a><tt class="py-lineno">62</tt>  <tt class="py-line">        <tt class="py-keyword">return</tt> <tt class="py-name">False</tt> </tt>
+</div></div><a name="L63"></a><tt class="py-lineno">63</tt>  <tt class="py-line"> </tt>
+<a name="SpellReadWrite"></a><div id="SpellReadWrite-def"><a name="L64"></a><tt class="py-lineno">64</tt> <a class="py-toggle" href="#" id="SpellReadWrite-toggle" onclick="return toggle('SpellReadWrite');">-</a><tt class="py-line"><tt class="py-keyword">class</tt> <a class="py-def-name" href="pyffi.spells.check.SpellReadWrite-class.html">SpellReadWrite</a><tt class="py-op">(</tt><tt class="py-base-class">SpellRead</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="SpellReadWrite-collapsed" style="display:none;" pad="++" indent="++++"></div><div id="SpellReadWrite-expanded"><a name="L65"></a><tt class="py-lineno">65</tt>  <tt class="py-line">    <tt class="py-docstring">"""A spell which writes the data to a temporary file (essentially,</tt> </tt>
+<a name="L66"></a><tt class="py-lineno">66</tt>  <tt class="py-line"><tt class="py-docstring">    it is like L{SpellRead} but it forces --dry-run and sets READONLY to</tt> </tt>
+<a name="L67"></a><tt class="py-lineno">67</tt>  <tt class="py-line"><tt class="py-docstring">    ``False``.</tt> </tt>
+<a name="L68"></a><tt class="py-lineno">68</tt>  <tt class="py-line"><tt class="py-docstring">    """</tt> </tt>
+<a name="L69"></a><tt class="py-lineno">69</tt>  <tt class="py-line"> </tt>
+<a name="L70"></a><tt class="py-lineno">70</tt>  <tt class="py-line">    <tt id="link-7" class="py-name"><a title="pyffi.spells.Spell.SPELLNAME
+pyffi.spells.SpellApplyPatch.SPELLNAME
+pyffi.spells.cgf.check.SpellCheckHasVertexColors.SPELLNAME
+pyffi.spells.cgf.check.SpellCheckTangentSpace.SPELLNAME
+pyffi.spells.cgf.check.SpellReadWrite.SPELLNAME
+pyffi.spells.cgf.dump.SpellDumpAll.SPELLNAME
+pyffi.spells.check.SpellNop.SPELLNAME
+pyffi.spells.check.SpellRead.SPELLNAME
+pyffi.spells.check.SpellReadWrite.SPELLNAME
+pyffi.spells.kfm.SpellDumpAll.SPELLNAME
+pyffi.spells.nif.check.SpellCheckBhkBodyCenter.SPELLNAME
+pyffi.spells.nif.check.SpellCheckCenterRadius.SPELLNAME
+pyffi.spells.nif.check.SpellCheckConvexVerticesShape.SPELLNAME
+pyffi.spells.nif.check.SpellCheckMaterialEmissiveValue.SPELLNAME
+pyffi.spells.nif.check.SpellCheckMopp.SPELLNAME
+pyffi.spells.nif.check.SpellCheckSkinCenterRadius.SPELLNAME
+pyffi.spells.nif.check.SpellCheckTangentSpace.SPELLNAME
+pyffi.spells.nif.check.SpellCheckTriStrip.SPELLNAME
+pyffi.spells.nif.check.SpellCheckTriangles.SPELLNAME
+pyffi.spells.nif.check.SpellCheckTrianglesATVR.SPELLNAME
+pyffi.spells.nif.check.SpellCheckVersion.SPELLNAME
+pyffi.spells.nif.check.SpellCompareSkinData.SPELLNAME
+pyffi.spells.nif.check.SpellNodeNamesByFlag.SPELLNAME
+pyffi.spells.nif.check.SpellReadWrite.SPELLNAME
+pyffi.spells.nif.dump.SpellDumpAll.SPELLNAME
+pyffi.spells.nif.dump.SpellDumpTex.SPELLNAME
+pyffi.spells.nif.dump.SpellExportPixelData.SPELLNAME
+pyffi.spells.nif.dump.SpellHtmlReport.SPELLNAME
+pyffi.spells.nif.fix.SpellAddTangentSpace.SPELLNAME
+pyffi.spells.nif.fix.SpellClampMaterialAlpha.SPELLNAME
+pyffi.spells.nif.fix.SpellCleanStringPalette.SPELLNAME
+pyffi.spells.nif.fix.SpellDelTangentSpace.SPELLNAME
+pyffi.spells.nif.fix.SpellDelUnusedRoots.SPELLNAME
+pyffi.spells.nif.fix.SpellDetachHavokTriStripsData.SPELLNAME
+pyffi.spells.nif.fix.SpellFFVT3RSkinPartition.SPELLNAME
+pyffi.spells.nif.fix.SpellFixBhkSubShapes.SPELLNAME
+pyffi.spells.nif.fix.SpellFixCenterRadius.SPELLNAME
+pyffi.spells.nif.fix.SpellFixEmptySkeletonRoots.SPELLNAME
+pyffi.spells.nif.fix.SpellFixMopp.SPELLNAME
+pyffi.spells.nif.fix.SpellFixSkinCenterRadius.SPELLNAME
+pyffi.spells.nif.fix.SpellFixTexturePath.SPELLNAME
+pyffi.spells.nif.fix.SpellMergeSkeletonRoots.SPELLNAME
+pyffi.spells.nif.fix.SpellScale.SPELLNAME
+pyffi.spells.nif.fix.SpellSendBonesToBindPosition.SPELLNAME
+pyffi.spells.nif.fix.SpellSendDetachedGeometriesToNodePosition.SPELLNAME
+pyffi.spells.nif.fix.SpellSendGeometriesToBindPosition.SPELLNAME
+pyffi.spells.nif.modify.SpellAddStencilProperty.SPELLNAME
+pyffi.spells.nif.modify.SpellChangeAllBonePriorities.SPELLNAME
+pyffi.spells.nif.modify.SpellChangeBonePriorities.SPELLNAME
+pyffi.spells.nif.modify.SpellCleanFarNif.SPELLNAME
+pyffi.spells.nif.modify.SpellCollisionMaterial.SPELLNAME
+pyffi.spells.nif.modify.SpellCollisionToMopp.SPELLNAME
+pyffi.spells.nif.modify.SpellCollisionType.SPELLNAME
+pyffi.spells.nif.modify.SpellDelAlphaProperty.SPELLNAME
+pyffi.spells.nif.modify.SpellDelAnimation.SPELLNAME
+pyffi.spells.nif.modify.SpellDelBSXFlags.SPELLNAME
+pyffi.spells.nif.modify.SpellDelBranches.SPELLNAME
+pyffi.spells.nif.modify.SpellDelCollisionData.SPELLNAME
+pyffi.spells.nif.modify.SpellDelInterpolatorTransformData.SPELLNAME
+pyffi.spells.nif.modify.SpellDelSkinShapes.SPELLNAME
+pyffi.spells.nif.modify.SpellDelSpecularProperty.SPELLNAME
+pyffi.spells.nif.modify.SpellDelStringExtraDatas.SPELLNAME
+pyffi.spells.nif.modify.SpellDelVertexColor.SPELLNAME
+pyffi.spells.nif.modify.SpellDelVertexColorProperty.SPELLNAME
+pyffi.spells.nif.modify.SpellDisableParallax.SPELLNAME
+pyffi.spells.nif.modify.SpellLowResTexturePath.SPELLNAME
+pyffi.spells.nif.modify.SpellMakeFarNif.SPELLNAME
+pyffi.spells.nif.modify.SpellMakeSkinlessNif.SPELLNAME
+pyffi.spells.nif.modify.SpellMirrorAnimation.SPELLNAME
+pyffi.spells.nif.modify.SpellReverseAnimation.SPELLNAME
+pyffi.spells.nif.modify.SpellScaleAnimationTime.SPELLNAME
+pyffi.spells.nif.modify.SpellSetInterpolatorTransRotScale.SPELLNAME
+pyffi.spells.nif.modify.SpellSubstituteStringPalette.SPELLNAME
+pyffi.spells.nif.modify.SpellSubstituteTexturePath.SPELLNAME
+pyffi.spells.nif.modify.SpellTexturePath.SPELLNAME
+pyffi.spells.nif.optimize.SpellCleanRefLists.SPELLNAME
+pyffi.spells.nif.optimize.SpellDelUnusedBones.SPELLNAME
+pyffi.spells.nif.optimize.SpellDelZeroScale.SPELLNAME
+pyffi.spells.nif.optimize.SpellMergeDuplicates.SPELLNAME
+pyffi.spells.nif.optimize.SpellOptimize.SPELLNAME
+pyffi.spells.nif.optimize.SpellOptimizeAnimation.SPELLNAME
+pyffi.spells.nif.optimize.SpellOptimizeCollisionBox.SPELLNAME
+pyffi.spells.nif.optimize.SpellOptimizeCollisionGeometry.SPELLNAME
+pyffi.spells.nif.optimize.SpellOptimizeGeometry.SPELLNAME
+pyffi.spells.nif.optimize.SpellReduceGeometry.SPELLNAME
+pyffi.spells.nif.optimize.SpellSplitGeometry.SPELLNAME" class="py-name" href="#" onclick="return doclink('link-7', 'SPELLNAME', 'link-3');">SPELLNAME</a></tt> <tt class="py-op">=</tt> <tt class="py-string">"check_readwrite"</tt> </tt>
+<a name="L71"></a><tt class="py-lineno">71</tt>  <tt class="py-line">    <tt id="link-8" class="py-name"><a title="pyffi.spells.Spell.READONLY
+pyffi.spells.check.SpellNop.READONLY
+pyffi.spells.check.SpellRead.READONLY
+pyffi.spells.check.SpellReadWrite.READONLY
+pyffi.spells.nif.fix.SpellAddTangentSpace.READONLY
+pyffi.spells.nif.fix.SpellClampMaterialAlpha.READONLY
+pyffi.spells.nif.fix.SpellCleanStringPalette.READONLY
+pyffi.spells.nif.fix.SpellDelTangentSpace.READONLY
+pyffi.spells.nif.fix.SpellDelUnusedRoots.READONLY
+pyffi.spells.nif.fix.SpellDetachHavokTriStripsData.READONLY
+pyffi.spells.nif.fix.SpellFFVT3RSkinPartition.READONLY
+pyffi.spells.nif.fix.SpellFixBhkSubShapes.READONLY
+pyffi.spells.nif.fix.SpellFixCenterRadius.READONLY
+pyffi.spells.nif.fix.SpellFixEmptySkeletonRoots.READONLY
+pyffi.spells.nif.fix.SpellFixMopp.READONLY
+pyffi.spells.nif.fix.SpellFixSkinCenterRadius.READONLY
+pyffi.spells.nif.fix.SpellMergeSkeletonRoots.READONLY
+pyffi.spells.nif.fix.SpellParseTexturePath.READONLY
+pyffi.spells.nif.fix.SpellScale.READONLY
+pyffi.spells.nif.fix.SpellSendBonesToBindPosition.READONLY
+pyffi.spells.nif.fix.SpellSendDetachedGeometriesToNodePosition.READONLY
+pyffi.spells.nif.fix.SpellSendGeometriesToBindPosition.READONLY
+pyffi.spells.nif.modify.SpellAddStencilProperty.READONLY
+pyffi.spells.nif.modify.SpellChangeBonePriorities.READONLY
+pyffi.spells.nif.modify.SpellCollisionMaterial.READONLY
+pyffi.spells.nif.modify.SpellCollisionToMopp.READONLY
+pyffi.spells.nif.modify.SpellCollisionType.READONLY
+pyffi.spells.nif.modify.SpellDelBranches.READONLY
+pyffi.spells.nif.modify.SpellDelInterpolatorTransformData.READONLY
+pyffi.spells.nif.modify.SpellDisableParallax.READONLY
+pyffi.spells.nif.modify.SpellMirrorAnimation.READONLY
+pyffi.spells.nif.modify.SpellReverseAnimation.READONLY
+pyffi.spells.nif.modify.SpellScaleAnimationTime.READONLY
+pyffi.spells.nif.modify.SpellSetInterpolatorTransRotScale.READONLY
+pyffi.spells.nif.modify.SpellTexturePath.READONLY
+pyffi.spells.nif.optimize.SpellCleanRefLists.READONLY
+pyffi.spells.nif.optimize.SpellDelUnusedBones.READONLY
+pyffi.spells.nif.optimize.SpellDelZeroScale.READONLY
+pyffi.spells.nif.optimize.SpellMergeDuplicates.READONLY
+pyffi.spells.nif.optimize.SpellOptimizeAnimation.READONLY
+pyffi.spells.nif.optimize.SpellOptimizeCollisionBox.READONLY
+pyffi.spells.nif.optimize.SpellOptimizeCollisionGeometry.READONLY
+pyffi.spells.nif.optimize.SpellOptimizeGeometry.READONLY
+pyffi.spells.nif.optimize.SpellReduceGeometry.READONLY
+pyffi.spells.nif.optimize.SpellSplitGeometry.READONLY" class="py-name" href="#" onclick="return doclink('link-8', 'READONLY', 'link-4');">READONLY</a></tt> <tt class="py-op">=</tt> <tt class="py-name">False</tt> </tt>
+<a name="L72"></a><tt class="py-lineno">72</tt>  <tt class="py-line">    <tt id="link-9" class="py-name" targets="Variable pyffi.spells.Spell.changed=pyffi.spells.Spell-class.html#changed,Variable pyffi.spells.SpellGroupParallelBase.changed=pyffi.spells.SpellGroupParallelBase-class.html#changed,Variable pyffi.spells.SpellGroupSeriesBase.changed=pyffi.spells.SpellGroupSeriesBase-class.html#changed,Variable pyffi.spells.check.SpellReadWrite.changed=pyffi.spells.check.SpellReadWrite-class.html#changed"><a title="pyffi.spells.Spell.changed
+pyffi.spells.SpellGroupParallelBase.changed
+pyffi.spells.SpellGroupSeriesBase.changed
+pyffi.spells.check.SpellReadWrite.changed" class="py-name" href="#" onclick="return doclink('link-9', 'changed', 'link-9');">changed</a></tt> <tt class="py-op">=</tt> <tt class="py-name">True</tt> <tt class="py-comment"># we want it to write the file back</tt> </tt>
+<a name="L73"></a><tt class="py-lineno">73</tt>  <tt class="py-line"> </tt>
+<a name="L74"></a><tt class="py-lineno">74</tt>  <tt class="py-line">    <tt class="py-decorator">@</tt><tt class="py-decorator">classmethod</tt> </tt>
+<a name="SpellReadWrite.toastentry"></a><div id="SpellReadWrite.toastentry-def"><a name="L75"></a><tt class="py-lineno">75</tt> <a class="py-toggle" href="#" id="SpellReadWrite.toastentry-toggle" onclick="return toggle('SpellReadWrite.toastentry');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="pyffi.spells.check.SpellReadWrite-class.html#toastentry">toastentry</a><tt class="py-op">(</tt><tt class="py-param">cls</tt><tt class="py-op">,</tt> <tt class="py-param">toaster</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="SpellReadWrite.toastentry-collapsed" style="display:none;" pad="++" indent="++++++++"></div><div id="SpellReadWrite.toastentry-expanded"><a name="L76"></a><tt class="py-lineno">76</tt>  <tt class="py-line">        <tt class="py-comment"># force dry run</tt> </tt>
+<a name="L77"></a><tt class="py-lineno">77</tt>  <tt class="py-line">        <tt id="link-10" class="py-name" targets="Variable pyffi.spells.Spell.toaster=pyffi.spells.Spell-class.html#toaster"><a title="pyffi.spells.Spell.toaster" class="py-name" href="#" onclick="return doclink('link-10', 'toaster', 'link-10');">toaster</a></tt><tt class="py-op">.</tt><tt id="link-11" class="py-name" targets="Variable pyffi.spells.Toaster.options=pyffi.spells.Toaster-class.html#options"><a title="pyffi.spells.Toaster.options" class="py-name" href="#" onclick="return doclink('link-11', 'options', 'link-11');">options</a></tt><tt class="py-op">[</tt><tt class="py-string">"dryrun"</tt><tt class="py-op">]</tt> <tt class="py-op">=</tt> <tt class="py-name">True</tt> </tt>
+<a name="L78"></a><tt class="py-lineno">78</tt>  <tt class="py-line">        <tt class="py-comment"># the spell always acts</tt> </tt>
+<a name="L79"></a><tt class="py-lineno">79</tt>  <tt class="py-line">        <tt class="py-keyword">return</tt> <tt class="py-name">True</tt> </tt>
+</div></div><a name="L80"></a><tt class="py-lineno">80</tt>  <tt class="py-line"> </tt><script type="text/javascript">
+<!--
+expandto(location.href);
+// -->
+</script>
+</pre>
+<br />
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+  <!-- Home link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="pyffi-module.html">Home</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Project homepage -->
+      <th class="navbar" align="right" width="100%">
+        <table border="0" cellpadding="0" cellspacing="0">
+          <tr><th class="navbar" align="center"
+            >&nbsp;&nbsp;&nbsp;<a class="navbar" target="_top" href="http://pyffi.sourceforge.net/">Python File Format Interface</a>&nbsp;&nbsp;&nbsp;</th><th class="navbar" align="center">&nbsp;&nbsp;&nbsp;<a class="navbar" target="_top" href="http://sourceforge.net"><img src="http://sflogo.sourceforge.net/sflogo.php?group_id=199269" width="88" height="31" border="0" alt="SourceForge.net Logo" /></a>&nbsp;&nbsp;&nbsp;</th>
+          </tr></table></th>
+  </tr>
+</table>
+<table border="0" cellpadding="0" cellspacing="0" width="100%%">
+  <tr>
+    <td align="left" class="footer">
+    Generated by Epydoc 3.0.1 on Sat Nov 26 08:35:29 2011
+    </td>
+    <td align="right" class="footer">
+      <a target="mainFrame" href="http://epydoc.sourceforge.net"
+        >http://epydoc.sourceforge.net</a>
+    </td>
+  </tr>
+</table>
+
+<script type="text/javascript">
+  <!--
+  // Private objects are initially displayed (because if
+  // javascript is turned off then we want them to be
+  // visible); but by default, we want to hide them.  So hide
+  // them unless we have a cookie that says to show them.
+  checkCookie();
+  // -->
+</script>
+</body>
+</html>

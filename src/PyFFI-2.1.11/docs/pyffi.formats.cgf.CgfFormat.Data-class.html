@@ -1,0 +1,782 @@
+<?xml version="1.0" encoding="ascii"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+          "DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>pyffi.formats.cgf.CgfFormat.Data</title>
+  <link rel="stylesheet" href="epydoc.css" type="text/css" />
+  <script type="text/javascript" src="epydoc.js"></script>
+</head>
+
+<body bgcolor="white" text="black" link="blue" vlink="#204080"
+      alink="#204080">
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+  <!-- Home link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="pyffi-module.html">Home</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Project homepage -->
+      <th class="navbar" align="right" width="100%">
+        <table border="0" cellpadding="0" cellspacing="0">
+          <tr><th class="navbar" align="center"
+            >&nbsp;&nbsp;&nbsp;<a class="navbar" target="_top" href="http://pyffi.sourceforge.net/">Python File Format Interface</a>&nbsp;&nbsp;&nbsp;</th><th class="navbar" align="center">&nbsp;&nbsp;&nbsp;<a class="navbar" target="_top" href="http://sourceforge.net"><img src="http://sflogo.sourceforge.net/sflogo.php?group_id=199269" width="88" height="31" border="0" alt="SourceForge.net Logo" /></a>&nbsp;&nbsp;&nbsp;</th>
+          </tr></table></th>
+  </tr>
+</table>
+<table width="100%" cellpadding="0" cellspacing="0">
+  <tr valign="top">
+    <td width="100%">
+      <span class="breadcrumbs">
+        <a href="pyffi-module.html">Package&nbsp;pyffi</a> ::
+        <a href="pyffi.formats-module.html">Package&nbsp;formats</a> ::
+        <a href="pyffi.formats.cgf-module.html">Package&nbsp;cgf</a> ::
+        <a href="pyffi.formats.cgf.CgfFormat-class.html">Class&nbsp;CgfFormat</a> ::
+        Class&nbsp;Data
+      </span>
+    </td>
+    <td>
+      <table cellpadding="0" cellspacing="0">
+        <!-- hide/show private -->
+        <tr><td align="right"><span class="options">[<a href="javascript:void(0);" class="privatelink"
+    onclick="toggle_private();">hide&nbsp;private</a>]</span></td></tr>
+        <tr><td align="right"><span class="options"
+            >[<a href="frames.html" target="_top">frames</a
+            >]&nbsp;|&nbsp;<a href="pyffi.formats.cgf.CgfFormat.Data-class.html"
+            target="_top">no&nbsp;frames</a>]</span></td></tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<!-- ==================== CLASS DESCRIPTION ==================== -->
+<h1 class="epydoc">Class Data</h1><p class="nomargin-top"><span class="codelink"><a href="pyffi.formats.cgf-pysrc.html#CgfFormat.Data">source&nbsp;code</a></span></p>
+<pre class="base-tree">
+            object --+            
+                     |            
+<a href="pyffi.utils.graph.DetailNode-class.html">utils.graph.DetailNode</a> --+        
+                         |        
+    <a href="pyffi.utils.graph.GlobalNode-class.html">utils.graph.GlobalNode</a> --+    
+                             |    
+ <a href="pyffi.object_models.FileFormat.Data-class.html">object_models.FileFormat.Data</a> --+
+                                 |
+                                <strong class="uidshort">CgfFormat.Data</strong>
+</pre>
+
+<hr />
+<p>A class to contain the actual cgf data.</p>
+<p>Note that L{versions} and L{chunk_table} are not automatically kept
+in sync with the L{chunks}, but they are
+resynchronized when calling L{write}.</p>
+
+<!-- ==================== INSTANCE METHODS ==================== -->
+<a name="section-InstanceMethods"></a>
+<table class="summary" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Instance Methods</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-InstanceMethods"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="pyffi.formats.cgf.CgfFormat.Data-class.html#__init__" class="summary-sig-name">__init__</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">filetype</span>=<span class="summary-sig-default">4294901760</span>,
+        <span class="summary-sig-arg">game</span>=<span class="summary-sig-default"><code class="variable-quote">'</code><code class="variable-string">Far Cry</code><code class="variable-quote">'</code></span>)</span><br />
+      Initialize cgf data.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="pyffi.formats.cgf-pysrc.html#CgfFormat.Data.__init__">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="pyffi.formats.cgf.CgfFormat.Data-class.html#inspect_version_only" class="summary-sig-name">inspect_version_only</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">stream</span>)</span><br />
+      This function checks the version only, and is faster
+than the usual inspect function (which reads the full
+chunk table).</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="pyffi.formats.cgf-pysrc.html#CgfFormat.Data.inspect_version_only">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="pyffi.formats.cgf.CgfFormat.Data-class.html#get_global_child_nodes" class="summary-sig-name">get_global_child_nodes</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">edge_filter</span>=<span class="summary-sig-default">(True, True)</span>)</span><br />
+      Returns chunks without parent.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="pyffi.formats.cgf-pysrc.html#CgfFormat.Data.get_global_child_nodes">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="pyffi.formats.cgf.CgfFormat.Data-class.html#replace_global_node" class="summary-sig-name">replace_global_node</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">oldbranch</span>,
+        <span class="summary-sig-arg">newbranch</span>,
+        <span class="summary-sig-arg">edge_filter</span>=<span class="summary-sig-default">(True, True)</span>)</span><br />
+      Replace a particular branch in the graph.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="pyffi.formats.cgf-pysrc.html#CgfFormat.Data.replace_global_node">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">generator yielding <a href="pyffi.utils.graph.DetailNode-class.html" class="link">DetailNode</a>s</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="pyffi.formats.cgf.CgfFormat.Data-class.html#get_detail_child_nodes" class="summary-sig-name">get_detail_child_nodes</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">edge_filter</span>=<span class="summary-sig-default">(True, True)</span>)</span><br />
+      Generator which yields all children of this item in the
+detail view (by default, all acyclic and active ones).</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="pyffi.formats.cgf-pysrc.html#CgfFormat.Data.get_detail_child_nodes">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">generator yielding <tt class="rst-docutils literal">str</tt>s</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="pyffi.formats.cgf.CgfFormat.Data-class.html#get_detail_child_names" class="summary-sig-name">get_detail_child_names</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">edge_filter</span>=<span class="summary-sig-default">(True, True)</span>)</span><br />
+      Generator which yields all child names of this item in the detail
+view.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="pyffi.formats.cgf-pysrc.html#CgfFormat.Data.get_detail_child_names">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="pyffi.formats.cgf.CgfFormat.Data-class.html#inspect" class="summary-sig-name">inspect</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">stream</span>)</span><br />
+      Quickly checks whether the stream appears to contain
+cgf data, and read the cgf header and chunk table.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="pyffi.formats.cgf-pysrc.html#CgfFormat.Data.inspect">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="pyffi.formats.cgf.CgfFormat.Data-class.html#read" class="summary-sig-name">read</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">stream</span>)</span><br />
+      Read a cgf file.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="pyffi.formats.cgf-pysrc.html#CgfFormat.Data.read">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="pyffi.formats.cgf.CgfFormat.Data-class.html#write" class="summary-sig-name">write</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">stream</span>)</span><br />
+      Write a cgf file.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="pyffi.formats.cgf-pysrc.html#CgfFormat.Data.write">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="update_versions"></a><span class="summary-sig-name">update_versions</span>(<span class="summary-sig-arg">self</span>)</span><br />
+      Update L{versions} for the given chunks and game.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="pyffi.formats.cgf-pysrc.html#CgfFormat.Data.update_versions">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+  <tr>
+    <td colspan="2" class="summary">
+    <p class="indent-wrapped-lines"><b>Inherited from <code><a href="pyffi.utils.graph.GlobalNode-class.html">utils.graph.GlobalNode</a></code></b>:
+      <code><a href="pyffi.utils.graph.GlobalNode-class.html#get_global_child_edge_types">get_global_child_edge_types</a></code>,
+      <code><a href="pyffi.utils.graph.GlobalNode-class.html#get_global_display">get_global_display</a></code>,
+      <code><a href="pyffi.utils.graph.GlobalNode-class.html#get_global_iterator">get_global_iterator</a></code>
+      </p>
+    <p class="indent-wrapped-lines"><b>Inherited from <code><a href="pyffi.utils.graph.DetailNode-class.html">utils.graph.DetailNode</a></code></b>:
+      <code><a href="pyffi.utils.graph.DetailNode-class.html#get_detail_child_edge_types">get_detail_child_edge_types</a></code>,
+      <code><a href="pyffi.utils.graph.DetailNode-class.html#get_detail_display">get_detail_display</a></code>,
+      <code><a href="pyffi.utils.graph.DetailNode-class.html#get_detail_iterator">get_detail_iterator</a></code>
+      </p>
+    <p class="indent-wrapped-lines"><b>Inherited from <code>object</code></b>:
+      <code>__delattr__</code>,
+      <code>__format__</code>,
+      <code>__getattribute__</code>,
+      <code>__hash__</code>,
+      <code>__new__</code>,
+      <code>__reduce__</code>,
+      <code>__reduce_ex__</code>,
+      <code>__repr__</code>,
+      <code>__setattr__</code>,
+      <code>__sizeof__</code>,
+      <code>__str__</code>,
+      <code>__subclasshook__</code>
+      </p>
+    </td>
+  </tr>
+</table>
+<!-- ==================== CLASS VARIABLES ==================== -->
+<a name="section-ClassVariables"></a>
+<table class="summary" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Class Variables</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-ClassVariables"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+<tr class="private">
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="_link_stack"></a><span class="summary-name">_link_stack</span> = <code title="None">None</code><br />
+      hash(x)
+    </td>
+  </tr>
+<tr class="private">
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="_block_index_dct"></a><span class="summary-name">_block_index_dct</span> = <code title="None">None</code><br />
+      hash(x)
+    </td>
+  </tr>
+<tr class="private">
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="_block_dct"></a><span class="summary-name">_block_dct</span> = <code title="None">None</code><br />
+      hash(x)
+    </td>
+  </tr>
+  <tr>
+    <td colspan="2" class="summary">
+    <p class="indent-wrapped-lines"><b>Inherited from <code><a href="pyffi.object_models.FileFormat.Data-class.html">object_models.FileFormat.Data</a></code></b>:
+      <code><a href="pyffi.object_models.FileFormat.Data-class.html#user_version">user_version</a></code>,
+      <code><a href="pyffi.object_models.FileFormat.Data-class.html#version">version</a></code>
+      </p>
+    <div class="private">    <p class="indent-wrapped-lines"><b>Inherited from <code><a href="pyffi.object_models.FileFormat.Data-class.html">object_models.FileFormat.Data</a></code></b> (private):
+      <code><a href="pyffi.object_models.FileFormat.Data-class.html#_byte_order" onclick="show_private();">_byte_order</a></code>
+      </p></div>
+    </td>
+  </tr>
+</table>
+<!-- ==================== INSTANCE VARIABLES ==================== -->
+<a name="section-InstanceVariables"></a>
+<table class="summary" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Instance Variables</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-InstanceVariables"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type"><tt class="rst-docutils literal">list</tt> of L{CgfFormat.Chunk}</span>
+    </td><td class="summary">
+        <a name="chunks"></a><span class="summary-name">chunks</span><br />
+      List of chunks (the actual data).
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type"><tt class="rst-docutils literal">int</tt></span>
+    </td><td class="summary">
+        <a name="game"></a><span class="summary-name">game</span><br />
+      The cgf game.
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">L{CgfFormat.Header}</span>
+    </td><td class="summary">
+        <a name="header"></a><span class="summary-name">header</span><br />
+      The cgf header.
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type"><tt class="rst-docutils literal">list</tt> of L{int}</span>
+    </td><td class="summary">
+        <a name="versions"></a><span class="summary-name">versions</span><br />
+      List of chunk versions.
+    </td>
+  </tr>
+</table>
+<!-- ==================== PROPERTIES ==================== -->
+<a name="section-Properties"></a>
+<table class="summary" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Properties</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-Properties"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+  <tr>
+    <td colspan="2" class="summary">
+    <p class="indent-wrapped-lines"><b>Inherited from <code>object</code></b>:
+      <code>__class__</code>
+      </p>
+    </td>
+  </tr>
+</table>
+<!-- ==================== METHOD DETAILS ==================== -->
+<a name="section-MethodDetails"></a>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Method Details</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-MethodDetails"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+</table>
+<a name="__init__"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">__init__</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">filetype</span>=<span class="sig-default">4294901760</span>,
+        <span class="sig-arg">game</span>=<span class="sig-default"><code class="variable-quote">'</code><code class="variable-string">Far Cry</code><code class="variable-quote">'</code></span>)</span>
+    <br /><em class="fname">(Constructor)</em>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="pyffi.formats.cgf-pysrc.html#CgfFormat.Data.__init__">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  Initialize cgf data. By default, this creates an empty
+cgf document of the given filetype and game.
+  <dl class="fields">
+    <dt>Parameters:</dt>
+    <dd><ul class="nomargin-top">
+        <li><strong class="pname"><code>filetype</code></strong> (<tt class="rst-docutils literal">int</tt>) - The file type (animation, or geometry).</li>
+        <li><strong class="pname"><code>game</code></strong> (<tt class="rst-docutils literal">str</tt>) - The game.</li>
+    </ul></dd>
+    <dt>Overrides:
+        object.__init__
+    </dt>
+  </dl>
+</td></tr></table>
+</div>
+<a name="inspect_version_only"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">inspect_version_only</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">stream</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="pyffi.formats.cgf-pysrc.html#CgfFormat.Data.inspect_version_only">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>This function checks the version only, and is faster
+than the usual inspect function (which reads the full
+chunk table). Sets the L{header} and L{game} instance
+variables if the stream contains a valid cgf file.</p>
+<p>Call this function if you simply wish to check that a file is
+a cgf file without having to parse even the header.</p>
+  <dl class="fields">
+    <dt>Parameters:</dt>
+    <dd><ul class="nomargin-top">
+        <li><strong class="pname"><code>stream</code></strong> (<tt class="rst-docutils literal">file</tt>) - The stream from which to read.</li>
+    </ul></dd>
+    <dt>Raises:</dt>
+    <dd><ul class="nomargin-top">
+        <li><code><strong class='fraise'>ValueError</strong></code> - If the stream does not contain a cgf file.</li>
+    </ul></dd>
+  </dl>
+</td></tr></table>
+</div>
+<a name="get_global_child_nodes"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">get_global_child_nodes</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">edge_filter</span>=<span class="sig-default">(True, True)</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="pyffi.formats.cgf-pysrc.html#CgfFormat.Data.get_global_child_nodes">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  Returns chunks without parent.
+  <dl class="fields">
+    <dt>Returns:</dt>
+        <dd>Generator for global node children.</dd>
+    <dt>Overrides:
+        <a href="pyffi.utils.graph.GlobalNode-class.html#get_global_child_nodes">utils.graph.GlobalNode.get_global_child_nodes</a>
+    </dt>
+  </dl>
+</td></tr></table>
+</div>
+<a name="replace_global_node"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">replace_global_node</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">oldbranch</span>,
+        <span class="sig-arg">newbranch</span>,
+        <span class="sig-arg">edge_filter</span>=<span class="sig-default">(True, True)</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="pyffi.formats.cgf-pysrc.html#CgfFormat.Data.replace_global_node">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  Replace a particular branch in the graph.
+  <dl class="fields">
+    <dt>Overrides:
+        <a href="pyffi.utils.graph.DetailNode-class.html#replace_global_node">utils.graph.DetailNode.replace_global_node</a>
+        <dd><em class="note">(inherited documentation)</em></dd>
+    </dt>
+  </dl>
+</td></tr></table>
+</div>
+<a name="get_detail_child_nodes"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">get_detail_child_nodes</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">edge_filter</span>=<span class="sig-default">(True, True)</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="pyffi.formats.cgf-pysrc.html#CgfFormat.Data.get_detail_child_nodes">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Generator which yields all children of this item in the
+detail view (by default, all acyclic and active ones).</p>
+<p>Override this method if the node has children.</p>
+  <dl class="fields">
+    <dt>Parameters:</dt>
+    <dd><ul class="nomargin-top">
+        <li><strong class="pname"><code>edge_filter</code></strong> - The edge type to include.</li>
+    </ul></dd>
+    <dt>Returns: generator yielding <a href="pyffi.utils.graph.DetailNode-class.html" class="link">DetailNode</a>s</dt>
+        <dd>Generator for detail tree child nodes.</dd>
+    <dt>Overrides:
+        <a href="pyffi.utils.graph.DetailNode-class.html#get_detail_child_nodes">utils.graph.DetailNode.get_detail_child_nodes</a>
+        <dd><em class="note">(inherited documentation)</em></dd>
+    </dt>
+  </dl>
+</td></tr></table>
+</div>
+<a name="get_detail_child_names"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">get_detail_child_names</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">edge_filter</span>=<span class="sig-default">(True, True)</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="pyffi.formats.cgf-pysrc.html#CgfFormat.Data.get_detail_child_names">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Generator which yields all child names of this item in the detail
+view.</p>
+<p>Override this method if the node has children.</p>
+  <dl class="fields">
+    <dt>Returns: generator yielding <tt class="rst-rst-docutils literal rst-docutils literal">str</tt>s</dt>
+        <dd>Generator for detail tree child names.</dd>
+    <dt>Overrides:
+        <a href="pyffi.utils.graph.DetailNode-class.html#get_detail_child_names">utils.graph.DetailNode.get_detail_child_names</a>
+        <dd><em class="note">(inherited documentation)</em></dd>
+    </dt>
+  </dl>
+</td></tr></table>
+</div>
+<a name="inspect"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">inspect</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">stream</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="pyffi.formats.cgf-pysrc.html#CgfFormat.Data.inspect">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Quickly checks whether the stream appears to contain
+cgf data, and read the cgf header and chunk table. Resets stream to
+original position.</p>
+<p>Call this function if you only need to inspect the header and
+chunk table.</p>
+  <dl class="fields">
+    <dt>Parameters:</dt>
+    <dd><ul class="nomargin-top">
+        <li><strong class="pname"><code>stream</code></strong> (<tt class="rst-docutils literal">file</tt>) - The file to inspect.</li>
+    </ul></dd>
+    <dt>Returns:</dt>
+        <dd><tt class="rst-rst-docutils literal rst-docutils literal">True</tt> if stream is of particular format, <tt class="rst-rst-docutils literal rst-docutils literal">False</tt>
+otherwise.</dd>
+    <dt>Overrides:
+        <a href="pyffi.object_models.FileFormat.Data-class.html#inspect">object_models.FileFormat.Data.inspect</a>
+    </dt>
+  </dl>
+</td></tr></table>
+</div>
+<a name="read"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">read</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">stream</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="pyffi.formats.cgf-pysrc.html#CgfFormat.Data.read">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  Read a cgf file. Does not reset stream position.
+  <dl class="fields">
+    <dt>Parameters:</dt>
+    <dd><ul class="nomargin-top">
+        <li><strong class="pname"><code>stream</code></strong> (<tt class="rst-docutils literal">file</tt>) - The stream from which to read.</li>
+    </ul></dd>
+    <dt>Overrides:
+        <a href="pyffi.object_models.FileFormat.Data-class.html#read">object_models.FileFormat.Data.read</a>
+    </dt>
+  </dl>
+</td></tr></table>
+</div>
+<a name="write"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">write</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">stream</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="pyffi.formats.cgf-pysrc.html#CgfFormat.Data.write">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  Write a cgf file. The L{header} and L{chunk_table} are
+recalculated from L{chunks}. Returns number of padding bytes
+written (this is for debugging purposes only).
+  <dl class="fields">
+    <dt>Parameters:</dt>
+    <dd><ul class="nomargin-top">
+        <li><strong class="pname"><code>stream</code></strong> (file) - The stream to which to write.</li>
+    </ul></dd>
+    <dt>Returns:</dt>
+        <dd>Number of padding bytes written.</dd>
+    <dt>Overrides:
+        <a href="pyffi.object_models.FileFormat.Data-class.html#write">object_models.FileFormat.Data.write</a>
+    </dt>
+  </dl>
+</td></tr></table>
+</div>
+<br />
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+  <!-- Home link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="pyffi-module.html">Home</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Project homepage -->
+      <th class="navbar" align="right" width="100%">
+        <table border="0" cellpadding="0" cellspacing="0">
+          <tr><th class="navbar" align="center"
+            >&nbsp;&nbsp;&nbsp;<a class="navbar" target="_top" href="http://pyffi.sourceforge.net/">Python File Format Interface</a>&nbsp;&nbsp;&nbsp;</th><th class="navbar" align="center">&nbsp;&nbsp;&nbsp;<a class="navbar" target="_top" href="http://sourceforge.net"><img src="http://sflogo.sourceforge.net/sflogo.php?group_id=199269" width="88" height="31" border="0" alt="SourceForge.net Logo" /></a>&nbsp;&nbsp;&nbsp;</th>
+          </tr></table></th>
+  </tr>
+</table>
+<table border="0" cellpadding="0" cellspacing="0" width="100%%">
+  <tr>
+    <td align="left" class="footer">
+    Generated by Epydoc 3.0.1 on Sat Nov 26 08:34:41 2011
+    </td>
+    <td align="right" class="footer">
+      <a target="mainFrame" href="http://epydoc.sourceforge.net"
+        >http://epydoc.sourceforge.net</a>
+    </td>
+  </tr>
+</table>
+
+<script type="text/javascript">
+  <!--
+  // Private objects are initially displayed (because if
+  // javascript is turned off then we want them to be
+  // visible); but by default, we want to hide them.  So hide
+  // them unless we have a cookie that says to show them.
+  checkCookie();
+  // -->
+</script>
+</body>
+</html>

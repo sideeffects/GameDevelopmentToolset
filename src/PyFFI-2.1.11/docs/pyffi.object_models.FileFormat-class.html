@@ -1,0 +1,682 @@
+<?xml version="1.0" encoding="ascii"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+          "DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>pyffi.object_models.FileFormat</title>
+  <link rel="stylesheet" href="epydoc.css" type="text/css" />
+  <script type="text/javascript" src="epydoc.js"></script>
+</head>
+
+<body bgcolor="white" text="black" link="blue" vlink="#204080"
+      alink="#204080">
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+  <!-- Home link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="pyffi-module.html">Home</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Project homepage -->
+      <th class="navbar" align="right" width="100%">
+        <table border="0" cellpadding="0" cellspacing="0">
+          <tr><th class="navbar" align="center"
+            >&nbsp;&nbsp;&nbsp;<a class="navbar" target="_top" href="http://pyffi.sourceforge.net/">Python File Format Interface</a>&nbsp;&nbsp;&nbsp;</th><th class="navbar" align="center">&nbsp;&nbsp;&nbsp;<a class="navbar" target="_top" href="http://sourceforge.net"><img src="http://sflogo.sourceforge.net/sflogo.php?group_id=199269" width="88" height="31" border="0" alt="SourceForge.net Logo" /></a>&nbsp;&nbsp;&nbsp;</th>
+          </tr></table></th>
+  </tr>
+</table>
+<table width="100%" cellpadding="0" cellspacing="0">
+  <tr valign="top">
+    <td width="100%">
+      <span class="breadcrumbs">
+        <a href="pyffi-module.html">Package&nbsp;pyffi</a> ::
+        Module&nbsp;object_models ::
+        Class&nbsp;FileFormat
+      </span>
+    </td>
+    <td>
+      <table cellpadding="0" cellspacing="0">
+        <!-- hide/show private -->
+        <tr><td align="right"><span class="options">[<a href="javascript:void(0);" class="privatelink"
+    onclick="toggle_private();">hide&nbsp;private</a>]</span></td></tr>
+        <tr><td align="right"><span class="options"
+            >[<a href="frames.html" target="_top">frames</a
+            >]&nbsp;|&nbsp;<a href="pyffi.object_models.FileFormat-class.html"
+            target="_top">no&nbsp;frames</a>]</span></td></tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<!-- ==================== CLASS DESCRIPTION ==================== -->
+<h1 class="epydoc">Class FileFormat</h1><p class="nomargin-top"><span class="codelink"><a href="pyffi.object_models-pysrc.html#FileFormat">source&nbsp;code</a></span></p>
+<pre class="base-tree">
+object --+
+         |
+        <strong class="uidshort">FileFormat</strong>
+</pre>
+
+<dl><dt>Known Subclasses:</dt>
+<dd>
+      <ul class="subclass-list">
+<li><a href="pyffi.object_models.xml.FileFormat-class.html">xml.FileFormat</a></li><li>, <a href="pyffi.object_models.ArchiveFileFormat-class.html">ArchiveFileFormat</a></li>  </ul>
+</dd></dl>
+
+<hr />
+This class is the base class for all file formats. It implements
+a number of useful functions such as walking over directory trees
+(<a href="pyffi.object_models.FileFormat-class.html#walkData" class="link">walkData</a>) and a default attribute naming function
+(<a href="pyffi.object_models.FileFormat-class.html#name_attribute" class="link">name_attribute</a>).
+It also implements the base class for representing file data
+(<a href="pyffi.object_models.FileFormat.Data-class.html" class="link">FileFormat.Data</a>).
+
+<!-- ==================== NESTED CLASSES ==================== -->
+<a name="section-NestedClasses"></a>
+<table class="summary" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Nested Classes</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-NestedClasses"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a href="pyffi.object_models.FileFormat.Data-class.html" class="summary-name">Data</a><br />
+      Base class for representing data in a particular format.
+    </td>
+  </tr>
+</table>
+<!-- ==================== INSTANCE METHODS ==================== -->
+<a name="section-InstanceMethods"></a>
+<table class="summary" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Instance Methods</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-InstanceMethods"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+  <tr>
+    <td colspan="2" class="summary">
+    <p class="indent-wrapped-lines"><b>Inherited from <code>object</code></b>:
+      <code>__delattr__</code>,
+      <code>__format__</code>,
+      <code>__getattribute__</code>,
+      <code>__hash__</code>,
+      <code>__init__</code>,
+      <code>__new__</code>,
+      <code>__reduce__</code>,
+      <code>__reduce_ex__</code>,
+      <code>__repr__</code>,
+      <code>__setattr__</code>,
+      <code>__sizeof__</code>,
+      <code>__str__</code>,
+      <code>__subclasshook__</code>
+      </p>
+    </td>
+  </tr>
+</table>
+<!-- ==================== CLASS METHODS ==================== -->
+<a name="section-ClassMethods"></a>
+<table class="summary" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Class Methods</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-ClassMethods"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="pyffi.object_models.FileFormat-class.html#name_parts" class="summary-sig-name">name_parts</a>(<span class="summary-sig-arg">cls</span>,
+        <span class="summary-sig-arg">name</span>)</span><br />
+      Intelligently split a name into parts:</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="pyffi.object_models-pysrc.html#FileFormat.name_parts">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="pyffi.object_models.FileFormat-class.html#name_attribute" class="summary-sig-name">name_attribute</a>(<span class="summary-sig-arg">cls</span>,
+        <span class="summary-sig-arg">name</span>)</span><br />
+      Converts an attribute name, as in the description file,
+into a name usable by python.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="pyffi.object_models-pysrc.html#FileFormat.name_attribute">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="pyffi.object_models.FileFormat-class.html#name_class" class="summary-sig-name">name_class</a>(<span class="summary-sig-arg">cls</span>,
+        <span class="summary-sig-arg">name</span>)</span><br />
+      Converts a class name, as in the xsd file, into a name usable
+by python.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="pyffi.object_models-pysrc.html#FileFormat.name_class">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="pyffi.object_models.FileFormat-class.html#walkData" class="summary-sig-name">walkData</a>(<span class="summary-sig-arg">cls</span>,
+        <span class="summary-sig-arg">top</span>,
+        <span class="summary-sig-arg">topdown</span>=<span class="summary-sig-default">True</span>,
+        <span class="summary-sig-arg">mode</span>=<span class="summary-sig-default"><code class="variable-quote">'</code><code class="variable-string">rb</code><code class="variable-quote">'</code></span>)</span><br />
+      A generator which yields the data of all files in
+directory top whose filename matches the regular expression
+<a href="pyffi.object_models.FileFormat-class.html#RE_FILENAME" class="link">RE_FILENAME</a>.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="pyffi.object_models-pysrc.html#FileFormat.walkData">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="pyffi.object_models.FileFormat-class.html#walk" class="summary-sig-name">walk</a>(<span class="summary-sig-arg">cls</span>,
+        <span class="summary-sig-arg">top</span>,
+        <span class="summary-sig-arg">topdown</span>=<span class="summary-sig-default">True</span>,
+        <span class="summary-sig-arg">mode</span>=<span class="summary-sig-default"><code class="variable-quote">'</code><code class="variable-string">rb</code><code class="variable-quote">'</code></span>)</span><br />
+      A generator which yields all files in
+directory top whose filename matches the regular expression
+<a href="pyffi.object_models.FileFormat-class.html#RE_FILENAME" class="link">RE_FILENAME</a>.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="pyffi.object_models-pysrc.html#FileFormat.walk">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+</table>
+<!-- ==================== STATIC METHODS ==================== -->
+<a name="section-StaticMethods"></a>
+<table class="summary" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Static Methods</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-StaticMethods"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="pyffi.object_models.FileFormat-class.html#version_number" class="summary-sig-name">version_number</a>(<span class="summary-sig-arg">version_str</span>)</span><br />
+      Converts version string into an integer.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="pyffi.object_models-pysrc.html#FileFormat.version_number">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+</table>
+<!-- ==================== CLASS VARIABLES ==================== -->
+<a name="section-ClassVariables"></a>
+<table class="summary" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Class Variables</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-ClassVariables"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="RE_FILENAME"></a><span class="summary-name">RE_FILENAME</span> = <code title="None">None</code><br />
+      Override this with a regular expression (the result of a <tt class="rst-rst-rst-rst-rst-rst-rst-rst-rst-rst-rst-rst-rst-docutils literal rst-rst-rst-rst-rst-rst-rst-rst-rst-rst-rst-rst-docutils literal rst-rst-rst-rst-rst-rst-rst-rst-rst-rst-rst-docutils literal rst-rst-rst-rst-rst-rst-rst-rst-rst-rst-docutils literal rst-rst-rst-rst-rst-rst-rst-rst-rst-docutils literal rst-rst-rst-rst-rst-rst-rst-rst-docutils literal rst-rst-rst-rst-rst-rst-rst-docutils literal rst-rst-rst-rst-rst-rst-docutils literal rst-rst-rst-rst-rst-docutils literal rst-rst-rst-rst-docutils literal rst-rst-rst-docutils literal rst-rst-docutils literal rst-docutils literal">re.compile</tt>
+call) for the file extension of the format you are implementing.
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="ARCHIVE_CLASSES"></a><span class="summary-name">ARCHIVE_CLASSES</span> = <code title="[]"><code class="variable-group">[</code><code class="variable-group">]</code></code><br />
+      Override this with a list of archive formats that may contain
+files of the format.
+    </td>
+  </tr>
+<tr class="private">
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="_RE_NAME_SEP"></a><span class="summary-name">_RE_NAME_SEP</span> = <code title="re.compile(r'[_\W]+')">re.compile(r'<code class="re-group">[</code>_\W<code class="re-group">]</code><code class="re-op">+</code>')</code><br />
+      Matches seperators for splitting names.
+    </td>
+  </tr>
+<tr class="private">
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="_RE_NAME_DIGITS"></a><span class="summary-name">_RE_NAME_DIGITS</span> = <code title="re.compile(r'([0-9]+)|([a-zA-Z]+)')">re.compile(r'<code class="re-group">(</code><code class="re-group">[</code>0<code class="re-op">-</code>9<code class="re-group">]</code><code class="re-op">+</code><code class="re-group">)</code><code class="re-op">|</code><code class="re-group">(</code><code class="re-group">[</code>a<code class="re-op">-</code>zA<code class="re-op">-</code>Z<code class="re-group">]</code><code class="re-op">+</code><code class="re-group">)</code>')</code><br />
+      Matches digits or characters for splitting names.
+    </td>
+  </tr>
+<tr class="private">
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="_RE_NAME_CAMEL"></a><span class="summary-name">_RE_NAME_CAMEL</span> = <code title="re.compile(r'([A-Z][a-z]*)|([a-z]+)')">re.compile(r'<code class="re-group">(</code><code class="re-group">[</code>A<code class="re-op">-</code>Z<code class="re-group">]</code><code class="re-group">[</code>a<code class="re-op">-</code>z<code class="re-group">]</code><code class="re-op">*</code><code class="re-group">)</code><code class="re-op">|</code><code class="re-group">(</code><code class="re-group">[</code>a<code class="re-op">-</code>z<code class="re-group">]</code><code class="re-op">+</code><code class="re-group">)</code>')</code><br />
+      Finds components of camelCase and CamelCase names.
+    </td>
+  </tr>
+<tr class="private">
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="_RE_NAME_LC"></a><span class="summary-name">_RE_NAME_LC</span> = <code title="re.compile(r'[a-z]')">re.compile(r'<code class="re-group">[</code>a<code class="re-op">-</code>z<code class="re-group">]</code>')</code><br />
+      Matches a lower case character.
+    </td>
+  </tr>
+<tr class="private">
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="_RE_NAME_UC"></a><span class="summary-name">_RE_NAME_UC</span> = <code title="re.compile(r'[A-Z]')">re.compile(r'<code class="re-group">[</code>A<code class="re-op">-</code>Z<code class="re-group">]</code>')</code><br />
+      Matches an upper case character.
+    </td>
+  </tr>
+</table>
+<!-- ==================== PROPERTIES ==================== -->
+<a name="section-Properties"></a>
+<table class="summary" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Properties</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-Properties"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+  <tr>
+    <td colspan="2" class="summary">
+    <p class="indent-wrapped-lines"><b>Inherited from <code>object</code></b>:
+      <code>__class__</code>
+      </p>
+    </td>
+  </tr>
+</table>
+<!-- ==================== METHOD DETAILS ==================== -->
+<a name="section-MethodDetails"></a>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Method Details</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-MethodDetails"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+</table>
+<a name="version_number"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">version_number</span>(<span class="sig-arg">version_str</span>)</span>
+    <br /><em class="fname">Static Method</em>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="pyffi.object_models-pysrc.html#FileFormat.version_number">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Converts version string into an integer.
+This default implementation simply returns zero at all times,
+and works for formats that are not versioned.</p>
+<p>Override for versioned formats.</p>
+  <dl class="fields">
+    <dt>Parameters:</dt>
+    <dd><ul class="nomargin-top">
+        <li><strong class="pname"><code>version_str</code></strong> (<tt class="rst-docutils literal">str</tt>) - The version string.</li>
+    </ul></dd>
+    <dt>Returns:</dt>
+        <dd>A version integer.</dd>
+  </dl>
+</td></tr></table>
+</div>
+<a name="name_parts"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">name_parts</span>(<span class="sig-arg">cls</span>,
+        <span class="sig-arg">name</span>)</span>
+    <br /><em class="fname">Class Method</em>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="pyffi.object_models-pysrc.html#FileFormat.name_parts">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Intelligently split a name into parts:</p>
+<ul class="rst-simple">
+<li>first, split at non-alphanumeric characters</li>
+<li>next, seperate digits from characters</li>
+<li>finally, if some part has mixed case, it must be
+camel case so split it further at upper case characters</li>
+</ul>
+<pre class="py-doctest">
+<span class="py-prompt">&gt;&gt;&gt; </span>FileFormat.name_parts(<span class="py-string">&quot;hello_world&quot;</span>)
+<span class="py-output">['hello', 'world']</span>
+<span class="py-output"></span><span class="py-prompt">&gt;&gt;&gt; </span>FileFormat.name_parts(<span class="py-string">&quot;HELLO_WORLD&quot;</span>)
+<span class="py-output">['HELLO', 'WORLD']</span>
+<span class="py-output"></span><span class="py-prompt">&gt;&gt;&gt; </span>FileFormat.name_parts(<span class="py-string">&quot;HelloWorld&quot;</span>)
+<span class="py-output">['Hello', 'World']</span>
+<span class="py-output"></span><span class="py-prompt">&gt;&gt;&gt; </span>FileFormat.name_parts(<span class="py-string">&quot;helloWorld&quot;</span>)
+<span class="py-output">['hello', 'World']</span>
+<span class="py-output"></span><span class="py-prompt">&gt;&gt;&gt; </span>FileFormat.name_parts(<span class="py-string">&quot;xs:NMTOKEN&quot;</span>)
+<span class="py-output">['xs', 'NMTOKEN']</span>
+<span class="py-output"></span><span class="py-prompt">&gt;&gt;&gt; </span>FileFormat.name_parts(<span class="py-string">&quot;xs:NCName&quot;</span>)
+<span class="py-output">['xs', 'N', 'C', 'Name']</span>
+<span class="py-output"></span><span class="py-prompt">&gt;&gt;&gt; </span>FileFormat.name_parts(<span class="py-string">'this IS a sillyNAME'</span>)
+<span class="py-output">['this', 'IS', 'a', 'silly', 'N', 'A', 'M', 'E']</span>
+<span class="py-output"></span><span class="py-prompt">&gt;&gt;&gt; </span>FileFormat.name_parts(<span class="py-string">'tHis is A Silly naME'</span>)
+<span class="py-output">['t', 'His', 'is', 'A', 'Silly', 'na', 'M', 'E']</span></pre>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="name_attribute"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">name_attribute</span>(<span class="sig-arg">cls</span>,
+        <span class="sig-arg">name</span>)</span>
+    <br /><em class="fname">Class Method</em>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="pyffi.object_models-pysrc.html#FileFormat.name_attribute">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Converts an attribute name, as in the description file,
+into a name usable by python.</p>
+<pre class="py-doctest">
+<span class="py-prompt">&gt;&gt;&gt; </span>FileFormat.name_attribute(<span class="py-string">'tHis is A Silly naME'</span>)
+<span class="py-output">'t_his_is_a_silly_na_m_e'</span>
+<span class="py-output"></span><span class="py-prompt">&gt;&gt;&gt; </span>FileFormat.name_attribute(<span class="py-string">'Test:Something'</span>)
+<span class="py-output">'test_something'</span>
+<span class="py-output"></span><span class="py-prompt">&gt;&gt;&gt; </span>FileFormat.name_attribute(<span class="py-string">'unknown?'</span>)
+<span class="py-output">'unknown'</span></pre>
+  <dl class="fields">
+    <dt>Parameters:</dt>
+    <dd><ul class="nomargin-top">
+        <li><strong class="pname"><code>name</code></strong> (<tt class="rst-docutils literal">str</tt>) - The attribute name.</li>
+    </ul></dd>
+    <dt>Returns:</dt>
+        <dd>Reformatted attribute name, useable by python.</dd>
+  </dl>
+</td></tr></table>
+</div>
+<a name="name_class"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">name_class</span>(<span class="sig-arg">cls</span>,
+        <span class="sig-arg">name</span>)</span>
+    <br /><em class="fname">Class Method</em>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="pyffi.object_models-pysrc.html#FileFormat.name_class">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Converts a class name, as in the xsd file, into a name usable
+by python.</p>
+<pre class="py-doctest">
+<span class="py-prompt">&gt;&gt;&gt; </span>FileFormat.name_class(<span class="py-string">'this IS a sillyNAME'</span>)
+<span class="py-output">'ThisIsASillyNAME'</span></pre>
+  <dl class="fields">
+    <dt>Parameters:</dt>
+    <dd><ul class="nomargin-top">
+        <li><strong class="pname"><code>name</code></strong> (str) - The class name.</li>
+    </ul></dd>
+    <dt>Returns:</dt>
+        <dd>Reformatted class name, useable by python.</dd>
+  </dl>
+</td></tr></table>
+</div>
+<a name="walkData"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">walkData</span>(<span class="sig-arg">cls</span>,
+        <span class="sig-arg">top</span>,
+        <span class="sig-arg">topdown</span>=<span class="sig-default">True</span>,
+        <span class="sig-arg">mode</span>=<span class="sig-default"><code class="variable-quote">'</code><code class="variable-string">rb</code><code class="variable-quote">'</code></span>)</span>
+    <br /><em class="fname">Class Method</em>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="pyffi.object_models-pysrc.html#FileFormat.walkData">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>A generator which yields the data of all files in
+directory top whose filename matches the regular expression
+<a href="pyffi.object_models.FileFormat-class.html#RE_FILENAME" class="link">RE_FILENAME</a>. The argument top can also be a file instead of a
+directory. Errors coming from os.walk are ignored.</p>
+<p>Note that the caller is not responsible for closing the stream.</p>
+<p>This function is for instance used by pyffi.spells to implement
+modifying a file after reading and parsing.</p>
+  <dl class="fields">
+    <dt>Parameters:</dt>
+    <dd><ul class="nomargin-top">
+        <li><strong class="pname"><code>top</code></strong> (<tt class="rst-docutils literal">str</tt>) - The top folder.</li>
+        <li><strong class="pname"><code>topdown</code></strong> (<tt class="rst-docutils literal">bool</tt>) - Determines whether subdirectories should be iterated
+over first.</li>
+        <li><strong class="pname"><code>mode</code></strong> (<tt class="rst-docutils literal">str</tt>) - The mode in which to open files.</li>
+    </ul></dd>
+  </dl>
+</td></tr></table>
+</div>
+<a name="walk"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">walk</span>(<span class="sig-arg">cls</span>,
+        <span class="sig-arg">top</span>,
+        <span class="sig-arg">topdown</span>=<span class="sig-default">True</span>,
+        <span class="sig-arg">mode</span>=<span class="sig-default"><code class="variable-quote">'</code><code class="variable-string">rb</code><code class="variable-quote">'</code></span>)</span>
+    <br /><em class="fname">Class Method</em>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="pyffi.object_models-pysrc.html#FileFormat.walk">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>A generator which yields all files in
+directory top whose filename matches the regular expression
+<a href="pyffi.object_models.FileFormat-class.html#RE_FILENAME" class="link">RE_FILENAME</a>. The argument top can also be a file instead of a
+directory. Errors coming from os.walk are ignored.</p>
+<p>Note that the caller is not responsible for closing the stream.</p>
+<p>This function is for instance used by pyffi.spells to implement
+modifying a file after reading and parsing.</p>
+  <dl class="fields">
+    <dt>Parameters:</dt>
+    <dd><ul class="nomargin-top">
+        <li><strong class="pname"><code>top</code></strong> (<tt class="rst-docutils literal">str</tt>) - The top folder.</li>
+        <li><strong class="pname"><code>topdown</code></strong> (<tt class="rst-docutils literal">bool</tt>) - Determines whether subdirectories should be iterated
+over first.</li>
+        <li><strong class="pname"><code>mode</code></strong> (<tt class="rst-docutils literal">str</tt>) - The mode in which to open files.</li>
+    </ul></dd>
+  </dl>
+</td></tr></table>
+</div>
+<br />
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+  <!-- Home link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="pyffi-module.html">Home</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Project homepage -->
+      <th class="navbar" align="right" width="100%">
+        <table border="0" cellpadding="0" cellspacing="0">
+          <tr><th class="navbar" align="center"
+            >&nbsp;&nbsp;&nbsp;<a class="navbar" target="_top" href="http://pyffi.sourceforge.net/">Python File Format Interface</a>&nbsp;&nbsp;&nbsp;</th><th class="navbar" align="center">&nbsp;&nbsp;&nbsp;<a class="navbar" target="_top" href="http://sourceforge.net"><img src="http://sflogo.sourceforge.net/sflogo.php?group_id=199269" width="88" height="31" border="0" alt="SourceForge.net Logo" /></a>&nbsp;&nbsp;&nbsp;</th>
+          </tr></table></th>
+  </tr>
+</table>
+<table border="0" cellpadding="0" cellspacing="0" width="100%%">
+  <tr>
+    <td align="left" class="footer">
+    Generated by Epydoc 3.0.1 on Sat Nov 26 08:35:14 2011
+    </td>
+    <td align="right" class="footer">
+      <a target="mainFrame" href="http://epydoc.sourceforge.net"
+        >http://epydoc.sourceforge.net</a>
+    </td>
+  </tr>
+</table>
+
+<script type="text/javascript">
+  <!--
+  // Private objects are initially displayed (because if
+  // javascript is turned off then we want them to be
+  // visible); but by default, we want to hide them.  So hide
+  // them unless we have a cookie that says to show them.
+  checkCookie();
+  // -->
+</script>
+</body>
+</html>

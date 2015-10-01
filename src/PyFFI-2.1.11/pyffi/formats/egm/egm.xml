@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE fileformat>
+<fileformat>
+
+    <!--
+    *******************
+    *** basic types ***
+    *******************
+    -->
+
+    <basic name="ubyte">
+        An unsigned 8-bit integer.
+    </basic>
+
+    <basic name="byte">
+        A signed 8-bit integer.
+    </basic>
+
+    <basic name="ushort">
+        An unsigned 16-bit integer.
+    </basic>
+
+    <basic name="short">
+        A signed 16-bit integer.
+    </basic>
+
+    <basic name="uint">
+        An unsigned 32-bit integer.
+    </basic>
+
+    <basic name="int">
+        A signed 32-bit integer.
+    </basic>
+
+    <basic name="char">
+        An 8-bit character.
+    </basic>
+
+    <basic name="float">
+        A standard 32-bit floating point number.
+    </basic>
+
+    <basic name="FileSignature">
+        The string "FREGM".
+    </basic>
+
+    <basic name="FileVersion">
+        A version string such as "002".
+    </basic>
+
+    <!--
+    *******************
+    *** alias types ***
+    *******************
+    -->
+
+    <!--
+    ******************
+    *** enum types ***
+    ******************
+    -->
+
+    <!--
+    ******************
+    *** bitstructs ***
+    ******************
+    -->
+
+    <!--
+    ***************
+    *** structs ***
+    ***************
+    -->
+
+   <struct name="ShortRelativeVertex">
+       <add name="x" type="short" />
+       <add name="y" type="short" />
+       <add name="z" type="short" />
+   </struct>
+   
+   <struct name="MorphRecord">
+       Uses the same formula as a morph in a tri file.  Includes
+       morphs for modifier morphs as defined in the tri file. Each set
+       of morphs contain morphs for the base model followed by
+       replacement morphs when a modifier morph is used.
+
+       Please note that the morph lists do not have a 1:1 relationship
+       with the face shape sliders and a single slider may effect
+       several morphs at the same time.
+       <add name="Scale" type="float">
+            All the following relative vertices are multiplied by this scale.
+       </add>
+       <add name="Vertices" type="ShortRelativeVertex" arr1="ARG">
+            <!-- ARG is Num Vertices -->
+            Amount to alter the base model corresponding vertex by.
+       </add>
+   </struct>
+
+   <struct name="Header">
+       <add name="Signature" type="FileSignature">Always FREGM</add>
+       <add name="Version" type="FileVersion">002 for Oblivion</add>
+       <add name="Num Vertices" type="int">
+            Number of vertices in the base model + modifier vertices.
+       </add>
+       <add name="Num Sym Morphs" type="int">
+            Number of symmetrical morphs. Oblivion = 50.
+       </add>
+       <add name="Num Asym Morphs" type="int">
+            Number of asymmetrical morphs. Oblivion = 30.
+       </add>
+       <add name="Time Date Stamp" type="uint" default="2001060901">
+            Time stamp? Always 2001060901 for Oblivon.
+       </add>
+       <add name="Unknown Ints" type="int" arr1="10">
+            Always 0.
+       </add>
+       <!-- XXX reading these is hardcoded in the Data class -->
+       <!--
+       <add name="Sym Morphs" type="MorphRecord" arr1="Num Sym Morphs" arg="Num Vertices"> List of symmetrical morphs. Used by symmetrical face sliders.
+       <add name="Asym Morphs" type="MorphRecord" arr1="Num Asym Morphs" arg="Num Vertices"> List of asymmetrical morphs. Used by asymmetrical face sliders.
+       -->
+   </struct>
+
+</fileformat>

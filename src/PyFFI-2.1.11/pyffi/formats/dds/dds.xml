@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE fileformat>
+<fileformat>
+    <version num="DX9" />
+    <version num="DX10" />
+
+    <!--
+    *******************
+    *** basic types ***
+    *******************
+    -->
+
+    <basic name="ubyte">
+        An unsigned 8-bit integer.
+    </basic>
+
+    <basic name="byte">
+        A signed 8-bit integer.
+    </basic>
+
+    <basic name="ushort">
+        An unsigned 16-bit integer.
+    </basic>
+
+    <basic name="short">
+        A signed 16-bit integer.
+    </basic>
+
+    <basic name="uint">
+        An unsigned 32-bit integer.
+    </basic>
+
+    <basic name="int">
+        A signed 32-bit integer.
+    </basic>
+
+    <basic name="char">
+        An 8-bit character.
+    </basic>
+
+    <basic name="float">
+        A standard 32-bit floating point number.
+    </basic>
+
+    <basic name="HeaderString">
+        The string "DDS ".
+    </basic>
+
+    <!--
+    *******************
+    *** alias types ***
+    *******************
+    -->
+
+    <alias name="bool" type="ubyte" />
+    
+    <!--
+    ******************
+    *** enum types ***
+    ******************
+    -->
+
+    <enum name="FourCC" numbytes="4" default="0x31545844">
+        An unsigned 32-bit integer, describing the compression type.
+        <option value="0x00000000" name="LINEAR" />
+        <option value="0x31545844" name="DXT1" />
+        <option value="0x32545844" name="DXT2" />
+        <option value="0x33545844" name="DXT3" />
+        <option value="0x34545844" name="DXT4" />
+        <option value="0x35545844" name="DXT5" />
+        <option value="0x42475852" name="RXGB" />
+        <option value="0x31495441" name="ATI1" />
+        <option value="0x32495441" name="ATI2" />
+    </enum>
+    
+    <!--
+    ******************
+    *** bitstructs ***
+    ******************
+    -->
+
+    <bitstruct name="HeaderFlags" numbytes="4">
+        <bits name="Caps" numbits="1" default="1">Always 1.</bits>
+        <bits name="Height" numbits="1" />
+        <bits name="Width" numbits="1" />
+        <bits name="Pitch" numbits="1" />
+        <bits name="Reserved 1" numbits="8" />
+        <bits name="Pixel Format" numbits="1" default="1">Always 1.</bits>
+        <bits name="Reserved 2" numbits="4" />
+        <bits name="Mipmap Count" numbits="1" />
+        <bits name="Reserved 3" numbits="1" />
+        <bits name="Linear Size" numbits="1" />
+        <bits name="Reserved 4" numbits="3" />
+        <bits name="Depth" numbits="1" />
+    </bitstruct>
+
+    <bitstruct name="PixelFormatFlags" numbytes="4">
+        <bits name="Alpha Pixels" numbits="1" />
+        <bits name="Alpha" numbits="1" />
+        <bits name="FourCC" numbits="1">Set this option for compressed files. The pixel format FourCC determines the compression type.</bits>
+        <bits name="Palette Indexed 4" numbits="1" />
+        <bits name="Reserved 1" numbits="1" />
+        <bits name="Palette Indexed 8" numbits="1" />
+        <bits name="RGB" numbits="1">Set this option for uncompressed files.</bits>
+        <bits name="Reserved 2" numbits="4" />
+        <bits name="Palette Indexed 1" numbits="1" />
+        <bits name="Palette Indexed 2" numbits="1" />
+        <bits name="Reserved 3" numbits="2" />
+        <bits name="Alpha Premult" numbits="1" />
+        <bits name="Reserved 4" numbits="1" />
+        <bits name="Luminance" numbits="1" />
+        <bits name="Reserved 5" numbits="13" />
+        <bits name="Normal" numbits="1" />
+    </bitstruct>
+
+    <bitstruct name="Caps1" numbytes="4">
+        <bits name="Reserved 1" numbits="3" />
+        <bits name="Complex" numbits="1" />
+        <bits name="Reserved 2" numbits="8" />
+        <bits name="Texture" numbits="1" default="1" />
+        <bits name="Reserved 3" numbits="9" />
+        <bits name="Mipmap" numbits="1" />
+    </bitstruct>
+
+    <bitstruct name="Caps2" numbytes="4" >
+        <bits name="Reserved 1" numbits="9" />
+        <bits name="Cubemap" numbits="1" />
+        <bits name="Cubemap Pos X" numbits="1" />
+        <bits name="Cubemap Neg X" numbits="1" />
+        <bits name="Cubemap Pos Y" numbits="1" />
+        <bits name="Cubemap Neg Y" numbits="1" />
+        <bits name="Cubemap Pos Z" numbits="1" />
+        <bits name="Cubemap Neg Z" numbits="1" />
+        <bits name="Reserved 2" numbits="5" />
+        <bits name="Volume" numbits="1" />
+    </bitstruct>
+
+    <!--
+    ***************
+    *** structs ***
+    ***************
+    -->
+
+    <struct name="PixelFormat">
+        <add name="Size" type="uint" default="32">Always 32.</add>
+        <add name="Flags" type="PixelFormatFlags">Non-zero for DX9, zero for DX10.</add>
+        <add name="FourCC" type="FourCC">Determines compression type. Zero means no compression.</add> 
+        <add name="Bit Count" type="uint">For non-compressed types, this is either 24 or 32 depending on whether there is an alpha channel. For compressed types, this describes the number of bits per block, which can be either 256 or 512.</add>
+        <add name="R Mask" type="uint">For non-compressed types, this determines the red mask. Usually 0x00FF0000. Is zero for compressed textures.</add>
+        <add name="G Mask" type="uint">For non-compressed types, this determines
+ the green mask. Usually 0x0000FF00. Is zero for compressed textures.</add>
+        <add name="B Mask" type="uint">For non-compressed types, this determines
+ the blue mask. Usually 0x00FF0000. Is zero for compressed textures.</add>
+        <add name="A Mask" type="uint">For non-compressed types, this determines
+ the alpha mask. Usually 0x00000000 if there is no alpha channel and 0xFF000000 if there is an alpha channel. Is zero for compressed textures.</add>
+    </struct>
+
+    <struct name="Header">
+        <add name="Header String" type="HeaderString">DDS</add>
+        <add name="Size" type="uint" default="124">124 for DX9 textures, and 144 for DX10 textures.</add>
+        <add name="Flags" type="HeaderFlags" />
+        <add name="Height" type="uint">The texture height.</add>
+        <add name="Width" type="uint">The texture width.</add>
+        <add name="Linear Size" type="uint" />
+        <add name="Depth" type="uint" />
+        <add name="Mipmap Count" type="uint" />
+        <add name="Reserved 1" type="uint" arr1="11" />
+        <add name="Pixel Format" type="PixelFormat" />
+        <add name="Caps 1" type="Caps1" />
+        <add name="Caps 2" type="Caps2" />
+        <add name="Caps 3" type="uint" />
+        <add name="Caps 4" type="uint" />
+        <add name="Unused" type="uint" />
+        <!-- DX10 extensions -->
+        <add name="DXGI Format" type="uint" ver1="DX10" />
+        <add name="Resource Dimension" type="uint" ver1="DX10" />
+        <add name="Misc Flags" type="uint" ver1="DX10" />
+        <add name="Array Size" type="uint" ver1="DX10" />
+        <add name="Reserved 2" type="uint" ver1="DX10" />
+    </struct>
+
+</fileformat>
+

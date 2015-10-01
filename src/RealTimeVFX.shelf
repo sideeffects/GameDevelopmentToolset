@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<shelfDocument>
+  <!-- This file contains definitions of shelves, toolbars, and tools.
+ It should not be hand-edited when it is being used by the application.
+ Note, that two definitions of the same element are not allowed in
+ a single file. -->
+
+  <toolshelf name="Real Time VFX" label="Real Time VFX">
+    <memberTool name="Fracture Rig"/>
+    <memberTool name="Set Parent"/>
+    <memberTool name="fbx_importer_custom"/>
+  </toolshelf>
+
+  <tool name="Fracture Rig" label="Fracture Rig" icon="$HFS/houdini/help/icons/large/DOP/embedhighresobject.png">
+    <script scriptType="python"><![CDATA['''
+Fracture Rig!
+Author: Steven Burrichter
+Company: Side Effects Software
+Last Updated: 05/13/2015
+
+SHELF TOOL: This points to the file externally in the /toolbar/src folder.
+This is so you can use any external editor to modify the files.
+
+IMPORTANT NOTES
+1) Make sure the object you want to fracture is at the origin and has NO
+transform modifications. Feel free to put an xform node at the SOP level, but
+be warned that if you get any weird rotations or jittering, transforms are the
+first culprit.
+
+2) Set up your simulation exactly how you want it. If the transforms are set
+properly, the pieces will be 1:1 with the simulation. THEN press the button.
+This tool is designed to be the very last step in the process.
+
+3) FOR YOUR RBD IMPORT IN THE DOP NETWORK: The script current does not parse
+the default opinputpath. Please set the absolute or relative path.
+
+4) If you run into transform issues in another program, check to make sure the
+frame rates are the same! Houdini exports at 24fps by default!
+
+CHANGES:
+1) No longer need attribcreate in the sop network. It automatically finds
+the correct geometry. If other nodes cause conflicts, add to if statement in
+FindReferenceGeometry().
+
+2) Tool now checks for the creation frame of the RBD Object Import node. You can
+now set a custom start frame and the tool will automatically find the delta of
+the rest attribute in the simulation!'''
+
+import sys
+
+####################
+#Add src directory 
+#to path if it isn't there
+####################
+SOURCE  = hou.expandString('$HOUDINI_USER_PREF_DIR') + "/toolbar/src"
+
+if SOURCE not in sys.path:
+    sys.path.append(SOURCE)
+    
+####################
+#Import FBXImport Script
+####################
+import TOOLFractureRig
+reload(TOOLFractureRig)
+from TOOLFractureRig import FRACTURE_RIG
+
+#################################
+#Class constructor call!
+#################################
+FRACTURE_RIG()]]></script>
+  </tool>
+
+  <tool name="Set Parent" label="Set Parent" icon="PLASMA_App">
+    <script scriptType="python"><![CDATA[class SET_PARENT:
+    nodeParent      = None
+    nodeChildren    = []
+    
+    def PrepareVariables(self):
+        self.nodeParent     = hou.selectedNodes()[0]
+        self.nodeChildren   = self.nodeParent.parent().children()
+        
+    def ProcessNodes(self):
+        for index in range(0,len(self.nodeChildren)):
+            if(str(self.nodeChildren[index]) != str(self.nodeParent) and
+                self.nodeChildren[index].type().name() == "geo"):
+                
+                self.nodeChildren[index].setParms({"keeppos":True})
+                self.nodeChildren[index].setFirstInput(self.nodeParent)
+
+    def __init__(self):
+        self.PrepareVariables()
+        self.ProcessNodes()
+        
+SET_PARENT()]]></script>
+  </tool>
+
+  <tool name="fbx_importer_custom" label="FBX Importer" icon="PLASMA_App">
+    <script scriptType="python"><![CDATA[import sys
+
+####################
+#Add src directory 
+#to path if it isn't there
+####################
+SOURCE = hou.expandString('$HOUDINI_USER_PREF_DIR') + "/toolbar/src"
+
+if SOURCE not in sys.path:
+    sys.path.append(SOURCE)
+    
+####################
+#Import FBXImport Script
+####################
+    
+import FBXImport
+reload(FBXImport)
+from FBXImport import CustomImport
+
+####################
+#Call the class and show the dialog
+####################
+dialog = CustomImport()
+dialog.show()
+]]></script>
+  </tool>
+</shelfDocument>

@@ -1,0 +1,543 @@
+<?xml version="1.0" encoding="ascii"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+          "DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>pyffi.utils.quickhull</title>
+  <link rel="stylesheet" href="epydoc.css" type="text/css" />
+  <script type="text/javascript" src="epydoc.js"></script>
+</head>
+
+<body bgcolor="white" text="black" link="blue" vlink="#204080"
+      alink="#204080">
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+  <!-- Home link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="pyffi-module.html">Home</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Project homepage -->
+      <th class="navbar" align="right" width="100%">
+        <table border="0" cellpadding="0" cellspacing="0">
+          <tr><th class="navbar" align="center"
+            >&nbsp;&nbsp;&nbsp;<a class="navbar" target="_top" href="http://pyffi.sourceforge.net/">Python File Format Interface</a>&nbsp;&nbsp;&nbsp;</th><th class="navbar" align="center">&nbsp;&nbsp;&nbsp;<a class="navbar" target="_top" href="http://sourceforge.net"><img src="http://sflogo.sourceforge.net/sflogo.php?group_id=199269" width="88" height="31" border="0" alt="SourceForge.net Logo" /></a>&nbsp;&nbsp;&nbsp;</th>
+          </tr></table></th>
+  </tr>
+</table>
+<table width="100%" cellpadding="0" cellspacing="0">
+  <tr valign="top">
+    <td width="100%">
+      <span class="breadcrumbs">
+        <a href="pyffi-module.html">Package&nbsp;pyffi</a> ::
+        <a href="pyffi.utils-module.html">Package&nbsp;utils</a> ::
+        Module&nbsp;quickhull
+      </span>
+    </td>
+    <td>
+      <table cellpadding="0" cellspacing="0">
+        <!-- hide/show private -->
+        <tr><td align="right"><span class="options">[<a href="javascript:void(0);" class="privatelink"
+    onclick="toggle_private();">hide&nbsp;private</a>]</span></td></tr>
+        <tr><td align="right"><span class="options"
+            >[<a href="frames.html" target="_top">frames</a
+            >]&nbsp;|&nbsp;<a href="pyffi.utils.quickhull-module.html"
+            target="_top">no&nbsp;frames</a>]</span></td></tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<!-- ==================== MODULE DESCRIPTION ==================== -->
+<h1 class="epydoc">Module quickhull</h1><p class="nomargin-top"><span class="codelink"><a href="pyffi.utils.quickhull-pysrc.html">source&nbsp;code</a></span></p>
+<p>A simple implementation of the quick hull algorithm.</p>
+<p>Usually you should only need the L{qhull3d} function, although the module
+contains some potentially useful helper functions as well.</p>
+<div class="rst-section" id="rst-examples">
+<h1 class="heading">Examples</h1>
+<div class="rst-section" id="rst-tetrahedron">
+<h2 class="heading">Tetrahedron</h2>
+<pre class="py-doctest">
+<span class="py-prompt">&gt;&gt;&gt; </span><span class="py-keyword">import</span> random
+<span class="py-prompt">&gt;&gt;&gt; </span>tetrahedron = [(0,0,0),(1,0,0),(0,1,0),(0,0,1)]
+<span class="py-prompt">&gt;&gt;&gt; </span><span class="py-keyword">for</span> i <span class="py-keyword">in</span> range(200):
+<span class="py-more">... </span>    alpha = random.random()
+<span class="py-more">... </span>    beta = random.random()
+<span class="py-more">... </span>    gamma = 1 - alpha - beta
+<span class="py-more">... </span>    <span class="py-keyword">if</span> gamma &gt;= 0:
+<span class="py-more">... </span>        tetrahedron.append((alpha, beta, gamma))
+<span class="py-prompt">&gt;&gt;&gt; </span>verts, triangles = qhull3d(tetrahedron)
+<span class="py-prompt">&gt;&gt;&gt; </span>(0,0,0) <span class="py-keyword">in</span> verts
+<span class="py-output">True</span>
+<span class="py-output"></span><span class="py-prompt">&gt;&gt;&gt; </span>(1,0,0) <span class="py-keyword">in</span> verts
+<span class="py-output">True</span>
+<span class="py-output"></span><span class="py-prompt">&gt;&gt;&gt; </span>(0,1,0) <span class="py-keyword">in</span> verts
+<span class="py-output">True</span>
+<span class="py-output"></span><span class="py-prompt">&gt;&gt;&gt; </span>(0,0,1) <span class="py-keyword">in</span> verts
+<span class="py-output">True</span>
+<span class="py-output"></span><span class="py-prompt">&gt;&gt;&gt; </span>len(verts)
+<span class="py-output">4</span>
+<span class="py-output"></span><span class="py-prompt">&gt;&gt;&gt; </span>len(triangles)
+<span class="py-output">4</span></pre>
+</div>
+<div class="rst-section" id="rst-a-double-pyramid-polyhedron">
+<h2 class="heading">A double pyramid polyhedron</h2>
+<pre class="py-doctest">
+<span class="py-prompt">&gt;&gt;&gt; </span>poly = [(2,0,0),(0,2,0),(-2,0,0),(0,-2,0),(0,0,2),(0,0,-2)]
+<span class="py-prompt">&gt;&gt;&gt; </span>vertices, triangles = qhull3d(poly)
+<span class="py-prompt">&gt;&gt;&gt; </span>len(vertices)
+<span class="py-output">6</span>
+<span class="py-output"></span><span class="py-prompt">&gt;&gt;&gt; </span>len(triangles)
+<span class="py-output">8</span>
+<span class="py-output"></span><span class="py-prompt">&gt;&gt;&gt; </span><span class="py-keyword">for</span> triangle <span class="py-keyword">in</span> triangles: <span class="py-comment"># check orientation relative to origin</span>
+<span class="py-more">... </span>    verts = [ vertices[i] <span class="py-keyword">for</span> i <span class="py-keyword">in</span> triangle ]
+<span class="py-more">... </span>    assert(vecDotProduct(vecCrossProduct(*verts[:2]), verts[2]) == 8)</pre>
+</div>
+<div class="rst-section" id="rst-a-pyramid">
+<h2 class="heading">A pyramid</h2>
+<pre class="py-doctest">
+<span class="py-prompt">&gt;&gt;&gt; </span>verts, triangles = qhull3d([(0,0,0),(1,0,0),(0,1,0),(1,1,0),(0.5,0.5,1)])
+<span class="py-prompt">&gt;&gt;&gt; </span>(0,0,0) <span class="py-keyword">in</span> verts
+<span class="py-output">True</span>
+<span class="py-output"></span><span class="py-prompt">&gt;&gt;&gt; </span>(1,0,0) <span class="py-keyword">in</span> verts
+<span class="py-output">True</span>
+<span class="py-output"></span><span class="py-prompt">&gt;&gt;&gt; </span>(0,1,0) <span class="py-keyword">in</span> verts
+<span class="py-output">True</span>
+<span class="py-output"></span><span class="py-prompt">&gt;&gt;&gt; </span>(1,1,0) <span class="py-keyword">in</span> verts
+<span class="py-output">True</span>
+<span class="py-output"></span><span class="py-prompt">&gt;&gt;&gt; </span>len(verts)
+<span class="py-output">5</span>
+<span class="py-output"></span><span class="py-prompt">&gt;&gt;&gt; </span>len(triangles)
+<span class="py-output">6</span></pre>
+</div>
+<div class="rst-section" id="rst-the-unit-cube">
+<h2 class="heading">The unit cube</h2>
+<pre class="py-doctest">
+<span class="py-prompt">&gt;&gt;&gt; </span><span class="py-keyword">import</span> random
+<span class="py-prompt">&gt;&gt;&gt; </span>cube = [(0,0,0),(0,0,1),(0,1,0),(1,0,0),(0,1,1),(1,0,1),(1,1,0),(1,1,1)]
+<span class="py-prompt">&gt;&gt;&gt; </span><span class="py-keyword">for</span> i <span class="py-keyword">in</span> range(200):
+<span class="py-more">... </span>    cube.append((random.random(), random.random(), random.random()))
+<span class="py-prompt">&gt;&gt;&gt; </span>verts, triangles = qhull3d(cube)
+<span class="py-prompt">&gt;&gt;&gt; </span>len(triangles) <span class="py-comment"># 6 faces, written as 12 triangles</span>
+<span class="py-output">12</span>
+<span class="py-output"></span><span class="py-prompt">&gt;&gt;&gt; </span>len(verts)
+<span class="py-output">8</span></pre>
+</div>
+<div class="rst-section" id="rst-a-degenerate-shape-the-unit-square">
+<h2 class="heading">A degenerate shape: the unit square</h2>
+<pre class="py-doctest">
+<span class="py-prompt">&gt;&gt;&gt; </span><span class="py-keyword">import</span> random
+<span class="py-prompt">&gt;&gt;&gt; </span>plane = [(0,0,0),(1,0,0),(0,1,0),(1,1,0)]
+<span class="py-prompt">&gt;&gt;&gt; </span><span class="py-keyword">for</span> i <span class="py-keyword">in</span> range(200):
+<span class="py-more">... </span>    plane.append((random.random(), random.random(), 0))
+<span class="py-prompt">&gt;&gt;&gt; </span>verts, triangles = qhull3d(plane)
+<span class="py-prompt">&gt;&gt;&gt; </span>len(verts)
+<span class="py-output">4</span>
+<span class="py-output"></span><span class="py-prompt">&gt;&gt;&gt; </span>len(triangles)
+<span class="py-output">2</span></pre>
+</div>
+<div class="rst-section" id="rst-a-random-shape">
+<h2 class="heading">A random shape</h2>
+<pre class="py-doctest">
+<span class="py-prompt">&gt;&gt;&gt; </span><span class="py-keyword">import</span> random
+<span class="py-prompt">&gt;&gt;&gt; </span>shape = []
+<span class="py-prompt">&gt;&gt;&gt; </span><span class="py-keyword">for</span> i <span class="py-keyword">in</span> range(2000):
+<span class="py-more">... </span>    vert = (random.random(), random.random(), random.random())
+<span class="py-more">... </span>    shape.append(vert)
+<span class="py-prompt">&gt;&gt;&gt; </span>verts, triangles = qhull3d(shape)</pre>
+</div>
+<div class="rst-section" id="rst-precision">
+<h2 class="heading">Precision</h2>
+<pre class="py-doctest">
+<span class="py-prompt">&gt;&gt;&gt; </span>plane = [(0,0,0),(1,0,0),(0,1,0),(1,1,0),(1.001, 0.001, 0)]
+<span class="py-prompt">&gt;&gt;&gt; </span>verts, triangles = qhull3d(plane, precision=0.1)
+<span class="py-prompt">&gt;&gt;&gt; </span>len(verts)
+<span class="py-output">4</span>
+<span class="py-output"></span><span class="py-prompt">&gt;&gt;&gt; </span>len(triangles)
+<span class="py-output">2</span></pre>
+</div>
+</div>
+
+<!-- ==================== FUNCTIONS ==================== -->
+<a name="section-Functions"></a>
+<table class="summary" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Functions</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-Functions"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="pyffi.utils.quickhull-module.html#qdome2d" class="summary-sig-name">qdome2d</a>(<span class="summary-sig-arg">vertices</span>,
+        <span class="summary-sig-arg">base</span>,
+        <span class="summary-sig-arg">normal</span>,
+        <span class="summary-sig-arg">precision</span>=<span class="summary-sig-default">0.0001</span>)</span><br />
+      Build a convex dome from C{vertices} on top of the two C{base} vertices,
+in the plane with normal C{normal}.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="pyffi.utils.quickhull-pysrc.html#qdome2d">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="pyffi.utils.quickhull-module.html#qhull2d" class="summary-sig-name">qhull2d</a>(<span class="summary-sig-arg">vertices</span>,
+        <span class="summary-sig-arg">normal</span>,
+        <span class="summary-sig-arg">precision</span>=<span class="summary-sig-default">0.0001</span>)</span><br />
+      Simple implementation of the 2d quickhull algorithm in 3 dimensions for
+vertices viewed from the direction of C{normal}.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="pyffi.utils.quickhull-pysrc.html#qhull2d">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="pyffi.utils.quickhull-module.html#basesimplex3d" class="summary-sig-name">basesimplex3d</a>(<span class="summary-sig-arg">vertices</span>,
+        <span class="summary-sig-arg">precision</span>=<span class="summary-sig-default">0.0001</span>)</span><br />
+      Find four extreme points, to be used as a starting base for the
+quick hull algorithm L{qhull3d}.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="pyffi.utils.quickhull-pysrc.html#basesimplex3d">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="pyffi.utils.quickhull-module.html#qhull3d" class="summary-sig-name">qhull3d</a>(<span class="summary-sig-arg">vertices</span>,
+        <span class="summary-sig-arg">precision</span>=<span class="summary-sig-default">0.0001</span>,
+        <span class="summary-sig-arg">verbose</span>=<span class="summary-sig-default">False</span>)</span><br />
+      Return the triangles making up the convex hull of C{vertices}.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="pyffi.utils.quickhull-pysrc.html#qhull3d">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+</table>
+<!-- ==================== VARIABLES ==================== -->
+<a name="section-Variables"></a>
+<table class="summary" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Variables</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-Variables"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="__package__"></a><span class="summary-name">__package__</span> = <code title="'pyffi.utils'"><code class="variable-quote">'</code><code class="variable-string">pyffi.utils</code><code class="variable-quote">'</code></code>
+    </td>
+  </tr>
+</table>
+<!-- ==================== FUNCTION DETAILS ==================== -->
+<a name="section-FunctionDetails"></a>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Function Details</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-FunctionDetails"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+</table>
+<a name="qdome2d"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">qdome2d</span>(<span class="sig-arg">vertices</span>,
+        <span class="sig-arg">base</span>,
+        <span class="sig-arg">normal</span>,
+        <span class="sig-arg">precision</span>=<span class="sig-default">0.0001</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="pyffi.utils.quickhull-pysrc.html#qdome2d">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  Build a convex dome from C{vertices} on top of the two C{base} vertices,
+in the plane with normal C{normal}. This is a helper function for
+L{qhull2d}, and should usually not be called directly.
+  <dl class="fields">
+    <dt>Parameters:</dt>
+    <dd><ul class="nomargin-top">
+        <li><strong class="pname"><code>vertices</code></strong> - The vertices to construct the dome from.</li>
+        <li><strong class="pname"><code>base</code></strong> - Two vertices that serve as a base for the dome.</li>
+        <li><strong class="pname"><code>normal</code></strong> - Orientation of the projection plane used for calculating
+distances.</li>
+        <li><strong class="pname"><code>precision</code></strong> - Distance used to decide whether points lie outside of
+the hull or not.</li>
+    </ul></dd>
+    <dt>Returns:</dt>
+        <dd>A list of vertices that make up a fan of the dome.</dd>
+  </dl>
+</td></tr></table>
+</div>
+<a name="qhull2d"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">qhull2d</span>(<span class="sig-arg">vertices</span>,
+        <span class="sig-arg">normal</span>,
+        <span class="sig-arg">precision</span>=<span class="sig-default">0.0001</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="pyffi.utils.quickhull-pysrc.html#qhull2d">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Simple implementation of the 2d quickhull algorithm in 3 dimensions for
+vertices viewed from the direction of C{normal}.
+Returns a fan of vertices that make up the surface. Called by
+L{qhull3d} to convexify coplanar vertices.</p>
+<pre class="py-doctest">
+<span class="py-prompt">&gt;&gt;&gt; </span><span class="py-keyword">import</span> random
+<span class="py-prompt">&gt;&gt;&gt; </span><span class="py-keyword">import</span> math
+<span class="py-prompt">&gt;&gt;&gt; </span>plane = [(0,0,0),(1,0,0),(0,1,0),(1,1,0)]
+<span class="py-prompt">&gt;&gt;&gt; </span><span class="py-keyword">for</span> i <span class="py-keyword">in</span> range(200):
+<span class="py-more">... </span>    plane.append((random.random(), random.random(), 0))
+<span class="py-prompt">&gt;&gt;&gt; </span>verts = qhull2d(plane, (0,0,1))
+<span class="py-prompt">&gt;&gt;&gt; </span>len(verts)
+<span class="py-output">4</span>
+<span class="py-output"></span><span class="py-prompt">&gt;&gt;&gt; </span>disc = []
+<span class="py-prompt">&gt;&gt;&gt; </span><span class="py-keyword">for</span> i <span class="py-keyword">in</span> range(50):
+<span class="py-more">... </span>    theta = (2 * math.pi * i) / 50
+<span class="py-more">... </span>    disc.append((0, math.sin(theta), math.cos(theta)))
+<span class="py-prompt">&gt;&gt;&gt; </span>verts = qhull2d(disc, (1,0,0))
+<span class="py-prompt">&gt;&gt;&gt; </span>len(verts)
+<span class="py-output">50</span>
+<span class="py-output"></span><span class="py-prompt">&gt;&gt;&gt; </span><span class="py-keyword">for</span> i <span class="py-keyword">in</span> range(400):
+<span class="py-more">... </span>    disc.append((0, 1.4 * random.random() - 0.7, 1.4 * random.random() - 0.7))
+<span class="py-prompt">&gt;&gt;&gt; </span>verts = qhull2d(disc, (1,0,0))
+<span class="py-prompt">&gt;&gt;&gt; </span>len(verts)
+<span class="py-output">50</span>
+<span class="py-output"></span><span class="py-prompt">&gt;&gt;&gt; </span>dist = 2 * math.pi / 50
+<span class="py-prompt">&gt;&gt;&gt; </span><span class="py-keyword">for</span> i <span class="py-keyword">in</span> range(len(verts) - 1):
+<span class="py-more">... </span>     assert(abs(vecDistance(verts[i], verts[i+1]) - dist) &lt; 0.001)</pre>
+  <dl class="fields">
+    <dt>Parameters:</dt>
+    <dd><ul class="nomargin-top">
+        <li><strong class="pname"><code>vertices</code></strong> - The vertices to construct the hull from.</li>
+        <li><strong class="pname"><code>normal</code></strong> - Orientation of the projection plane used for calculating
+distances.</li>
+        <li><strong class="pname"><code>precision</code></strong> - Distance used to decide whether points lie outside of
+the hull or not.</li>
+    </ul></dd>
+    <dt>Returns:</dt>
+        <dd>A list of vertices that make up a fan of extreme points.</dd>
+  </dl>
+</td></tr></table>
+</div>
+<a name="basesimplex3d"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">basesimplex3d</span>(<span class="sig-arg">vertices</span>,
+        <span class="sig-arg">precision</span>=<span class="sig-default">0.0001</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="pyffi.utils.quickhull-pysrc.html#basesimplex3d">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Find four extreme points, to be used as a starting base for the
+quick hull algorithm L{qhull3d}.</p>
+<p>The algorithm tries to find four points that are
+as far apart as possible, because that speeds up the quick hull
+algorithm. The vertices are ordered so their signed volume is positive.</p>
+<p>If the volume zero up to C{precision} then only three vertices are
+returned. If the vertices are colinear up to C{precision} then only two
+vertices are returned. Finally, if the vertices are equal up to C{precision}
+then just one vertex is returned.</p>
+<pre class="py-doctest">
+<span class="py-prompt">&gt;&gt;&gt; </span><span class="py-keyword">import</span> random
+<span class="py-prompt">&gt;&gt;&gt; </span>cube = [(0,0,0),(0,0,1),(0,1,0),(1,0,0),(0,1,1),(1,0,1),(1,1,0),(1,1,1)]
+<span class="py-prompt">&gt;&gt;&gt; </span><span class="py-keyword">for</span> i <span class="py-keyword">in</span> range(200):
+<span class="py-more">... </span>    cube.append((random.random(), random.random(), random.random()))
+<span class="py-prompt">&gt;&gt;&gt; </span>base = basesimplex3d(cube)
+<span class="py-prompt">&gt;&gt;&gt; </span>len(base)
+<span class="py-output">4</span>
+<span class="py-output"></span><span class="py-prompt">&gt;&gt;&gt; </span>(0,0,0) <span class="py-keyword">in</span> base
+<span class="py-output">True</span>
+<span class="py-output"></span><span class="py-prompt">&gt;&gt;&gt; </span>(1,1,1) <span class="py-keyword">in</span> base
+<span class="py-output">True</span></pre>
+  <dl class="fields">
+    <dt>Parameters:</dt>
+    <dd><ul class="nomargin-top">
+        <li><strong class="pname"><code>vertices</code></strong> - The vertices to construct extreme points from.</li>
+        <li><strong class="pname"><code>precision</code></strong> - Distance used to decide whether points coincide,
+are colinear, or coplanar.</li>
+    </ul></dd>
+    <dt>Returns:</dt>
+        <dd>A list of one, two, three, or four vertices, depending on the
+the configuration of the vertices.</dd>
+  </dl>
+</td></tr></table>
+</div>
+<a name="qhull3d"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">qhull3d</span>(<span class="sig-arg">vertices</span>,
+        <span class="sig-arg">precision</span>=<span class="sig-default">0.0001</span>,
+        <span class="sig-arg">verbose</span>=<span class="sig-default">False</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="pyffi.utils.quickhull-pysrc.html#qhull3d">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  Return the triangles making up the convex hull of C{vertices}.
+Considers distances less than C{precision} to be zero (useful to simplify
+the hull of a complex mesh, at the expense of exactness of the hull).
+  <dl class="fields">
+    <dt>Parameters:</dt>
+    <dd><ul class="nomargin-top">
+        <li><strong class="pname"><code>vertices</code></strong> - The vertices to find the hull of.</li>
+        <li><strong class="pname"><code>precision</code></strong> - Distance used to decide whether points lie outside of
+the hull or not. Larger numbers mean fewer triangles, but some vertices
+may then end up outside the hull, at a distance of no more than
+C{precision}.</li>
+        <li><strong class="pname"><code>verbose</code></strong> - Print information about what the algorithm is doing. Only
+useful for debugging.</li>
+    </ul></dd>
+    <dt>Returns:</dt>
+        <dd>A list cointaining the extreme points of C{vertices}, and
+a list of triangle indices containing the triangles that connect
+all extreme points.</dd>
+  </dl>
+</td></tr></table>
+</div>
+<br />
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+  <!-- Home link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="pyffi-module.html">Home</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Project homepage -->
+      <th class="navbar" align="right" width="100%">
+        <table border="0" cellpadding="0" cellspacing="0">
+          <tr><th class="navbar" align="center"
+            >&nbsp;&nbsp;&nbsp;<a class="navbar" target="_top" href="http://pyffi.sourceforge.net/">Python File Format Interface</a>&nbsp;&nbsp;&nbsp;</th><th class="navbar" align="center">&nbsp;&nbsp;&nbsp;<a class="navbar" target="_top" href="http://sourceforge.net"><img src="http://sflogo.sourceforge.net/sflogo.php?group_id=199269" width="88" height="31" border="0" alt="SourceForge.net Logo" /></a>&nbsp;&nbsp;&nbsp;</th>
+          </tr></table></th>
+  </tr>
+</table>
+<table border="0" cellpadding="0" cellspacing="0" width="100%%">
+  <tr>
+    <td align="left" class="footer">
+    Generated by Epydoc 3.0.1 on Sat Nov 26 08:34:40 2011
+    </td>
+    <td align="right" class="footer">
+      <a target="mainFrame" href="http://epydoc.sourceforge.net"
+        >http://epydoc.sourceforge.net</a>
+    </td>
+  </tr>
+</table>
+
+<script type="text/javascript">
+  <!--
+  // Private objects are initially displayed (because if
+  // javascript is turned off then we want them to be
+  // visible); but by default, we want to hide them.  So hide
+  // them unless we have a cookie that says to show them.
+  checkCookie();
+  // -->
+</script>
+</body>
+</html>

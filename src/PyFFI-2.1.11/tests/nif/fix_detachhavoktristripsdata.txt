@@ -1,0 +1,50 @@
+Doctests for the fix_detachhavoktristripsdata spell
+===================================================
+
+NifToaster check
+----------------
+
+>>> import sys
+>>> sys.path.append("scripts/nif")
+>>> import niftoaster
+>>> sys.argv = ["niftoaster.py", "fix_detachhavoktristripsdata", "--dry-run", "--noninteractive", "tests/nif/test_fix_detachhavoktristripsdata.nif"]
+>>> niftoaster.NifToaster().cli()
+pyffi.toaster:INFO:=== tests/nif/test_fix_detachhavoktristripsdata.nif ===
+pyffi.toaster:INFO:  --- fix_detachhavoktristripsdata ---
+pyffi.toaster:INFO:    ~~~ NiNode [MiddleWolfRug01] ~~~
+pyffi.toaster:INFO:      ~~~ NiTriStrips [MiddleWolfRug01:0] ~~~
+pyffi.toaster:INFO:        ~~~ bhkCollisionObject [] ~~~
+pyffi.toaster:INFO:          ~~~ bhkRigidBodyT [] ~~~
+pyffi.toaster:INFO:            ~~~ bhkListShape [] ~~~
+pyffi.toaster:INFO:              ~~~ bhkNiTriStripsShape [] ~~~
+pyffi.toaster:INFO:                detaching havok data
+pyffi.toaster:INFO:  writing to temporary file
+pyffi.toaster:INFO:Finished.
+
+Explicit check
+--------------
+
+>>> from pyffi.formats.nif import NifFormat
+>>> from pyffi.spells.nif import fix
+>>> from pyffi.spells import Toaster
+>>> data = NifFormat.Data()
+>>> stream = open("tests/nif/test_fix_detachhavoktristripsdata.nif", "rb")
+>>> data.read(stream)
+>>> # check that data is shared
+>>> data.roots[0].children[0].collision_object.body.shape.sub_shapes[0].strips_data[0] is data.roots[0].children[0].data
+True
+>>> # run the spell that fixes this
+>>> spell = fix.SpellDetachHavokTriStripsData(data=data)
+>>> spell.recurse()
+pyffi.toaster:INFO:--- fix_detachhavoktristripsdata ---
+pyffi.toaster:INFO:  ~~~ NiNode [MiddleWolfRug01] ~~~
+pyffi.toaster:INFO:    ~~~ NiTriStrips [MiddleWolfRug01:0] ~~~
+pyffi.toaster:INFO:      ~~~ bhkCollisionObject [] ~~~
+pyffi.toaster:INFO:        ~~~ bhkRigidBodyT [] ~~~
+pyffi.toaster:INFO:          ~~~ bhkListShape [] ~~~
+pyffi.toaster:INFO:            ~~~ bhkNiTriStripsShape [] ~~~
+pyffi.toaster:INFO:              detaching havok data
+>>> # check that data is no longer shared
+>>> data.roots[0].children[0].collision_object.body.shape.sub_shapes[0].strips_data[0] is data.roots[0].children[0].data
+False
+

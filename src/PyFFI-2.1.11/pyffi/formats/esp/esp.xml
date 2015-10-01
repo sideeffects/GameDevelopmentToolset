@@ -1,0 +1,259 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE fileformat>
+<fileformat>
+    <version num="1.2">Morrowind</version>
+    <version num="0.8">Oblivion</version>
+
+    <!--
+    *******************
+    *** basic types ***
+    *******************
+    -->
+
+    <basic name="ubyte">
+        An unsigned 8-bit integer.
+    </basic>
+
+    <basic name="byte">
+        A signed 8-bit integer.
+    </basic>
+
+    <basic name="ushort">
+        An unsigned 16-bit integer.
+    </basic>
+
+    <basic name="short">
+        A signed 16-bit integer.
+    </basic>
+
+    <basic name="uint">
+        An unsigned 32-bit integer.
+    </basic>
+
+    <basic name="int">
+        A signed 32-bit integer.
+    </basic>
+
+    <basic name="uint64">
+        An unsigned 64-bit integer.
+    </basic>
+
+    <basic name="char">
+        An 8-bit character.
+    </basic>
+
+    <basic name="float">
+        A standard 32-bit floating point number.
+    </basic>
+
+    <basic name="ZString">
+        Null terminated string.
+    </basic>
+
+    <!--
+    *******************
+    *** alias types ***
+    *******************
+    -->
+
+    
+    <!--
+    ******************
+    *** enum types ***
+    ******************
+    -->
+
+
+    <enum name="GroupType" storage="uint">
+        <option name="TOP" value="0" />
+        <option name="WORLD_CHILDREN" value="1" />
+        <option name="INTERIOR_CELL_BLOCK" value="2" />
+        <option name="INTERIOR_CELL_SUB_BLOCK" value="3" />
+        <option name="EXTERIOR_CELL_BLOCK" value="4" />
+        <option name="EXTERIOR_CELL_SUB_BLOCK" value="5" />
+        <option name="CELL_CHILDREN" value="6" />
+        <option name="TOPIC_CHILDREN" value="7" />
+        <option name="CELL_PERSISTENT_CHILDREN" value="8" />
+        <option name="CELL_TEMPORARY_CHILDREN" value="9" />
+        <option name="CELL_VISIBLE_DISTANT_CHILDREN" value="10" />
+    </enum>
+    
+    <enum name="MusicType" storage="ubyte">
+        <option name="DEFAULT" value="0" />
+        <option name="PUBLIC" value="1" />
+        <option name="DUNGEON" value="2" />
+    </enum>
+    
+    <!-- Structs -->
+
+    <struct name="RecordType">
+        A FOURCC representing the type of a record.
+        <add name="Value" type="char" arr1="4"></add>
+    </struct>
+
+    <bitstruct name="RecordFlags" numbytes="4">
+        <bits name="Is Esm" numbits="1" />
+        <bits name="Unknown 1" numbits="1" />
+        <bits name="Unknown 2" numbits="1" />
+        <bits name="Unknown 3" numbits="1" />
+        <bits name="Unknown 4" numbits="1" />
+        <bits name="Is Deleted" numbits="1" /><!-- ? -->
+        <bits name="Unknown 5" numbits="1" />
+        <bits name="Unknown 6" numbits="1" />
+        <bits name="Unknown 7" numbits="1" />
+        <bits name="Casts Shadows" numbits="1" />
+        <bits name="Is Persistent" numbits="1" />
+        <bits name="Initially Disabled" numbits="1" /><!-- ? -->
+        <bits name="Unknown 8" numbits="1" />
+        <bits name="Unknown 9" numbits="1" />
+        <bits name="Unknown 10" numbits="1" />
+        <bits name="Is Visible Distant" numbits="1" />
+        <bits name="Unknown 11" numbits="1" />
+        <bits name="Is Dangerous" numbits="1" />
+        <bits name="Is Compressed" numbits="1" />
+        <bits name="Cannot Wait" numbits="1" /><!-- ? -->
+    </bitstruct>
+
+    <struct name="RecordRevision">
+        <add name="Day" type="ubyte" />
+        <add name="Month" type="ubyte" />
+        <add name="Last User Id" type="ubyte" />
+        <add name="Current User Id" type="ubyte" />
+    </struct>
+
+    <bitstruct name="FormId" numbytes="4">
+        <bits name="Object Index" numbits="24" />
+        <bits name="Mod Index" numbits="8" />
+    </bitstruct>
+
+    <struct name="SubRecord">
+        A subrecord.
+        <add name="Type" type="RecordType">The type of the record.</add>
+        <add name="Data Size" type="ushort">Length of the data.</add>
+    </struct>
+
+    <struct name="Record">
+        A record.
+        <add name="Type" type="RecordType">The type of the record.</add>
+        <add name="Data Size" type="uint">Length of the data.</add>
+        <add name="Flags" type="RecordFlags">Various properties.</add>
+        <add name="Form Id" type="FormId">The record identifier.</add>
+        <add name="Revision" type="RecordRevision">Revision information.</add>
+    </struct>
+
+    <struct name="GRUP">
+        A group of records.
+        <add name="Type" type="RecordType">The type of the record.</add>
+        <add name="Data Size" type="uint">Length of the data (includes header).</add>
+        <add name="Group Label" type="uint">Group label (meaning depends on the group type).</add>
+        <add name="Group Type" type="GroupType">Group type.</add>
+        <add name="Time Stamp" type="uint">Time stamp (MS-DOS format?).</add>
+    </struct>
+
+    <struct name="TES4" inherit="Record" />
+
+    <struct name="TES4_HEDR" inherit="SubRecord">
+         <add name="Version" type="float">Version.</add>
+         <add name="Num Records" type="uint">Number of records and groups (not including TES4 record itself).</add>
+         <add name="Next Object Id" type="uint">Next available object id.</add>
+    </struct>
+
+    <struct name="TES4_CNAM" inherit="SubRecord">
+         <add name="Author" type="ZString">Author information.</add>
+    </struct>
+
+    <struct name="TES4_SNAM" inherit="SubRecord">
+         <add name="Description" type="ZString">Plugin description.</add>
+    </struct>
+
+    <struct name="TES4_MAST" inherit="SubRecord">
+         <add name="Master" type="ZString">Master filename.</add>
+    </struct>
+
+    <struct name="TES4_DATA" inherit="SubRecord">
+         <add name="File Size" type="uint64">Plugin description.</add>
+    </struct>
+
+    <struct name="CELL" inherit="Record" />
+
+    <struct name="CELL_EDID" inherit="SubRecord">
+         <add name="Editor Id" type="ZString" />
+    </struct>
+
+    <struct name="CELL_FULL" inherit="SubRecord">
+         <add name="Name" type="ZString" />
+    </struct>
+
+    <bitstruct name="CellFlags" numbytes="1">
+        <bits name="Cannot Travel From Here" numbits="1" />
+        <bits name="Has Water" numbits="1" />
+        <bits name="Unknown 1" numbits="1" />
+        <bits name="Force Hide Land" numbits="1" />
+        <bits name="Unknown 2" numbits="1" />
+        <bits name="Public Place" numbits="1" />
+        <bits name="Hand Changed" numbits="1" />
+        <bits name="Behave Like Exterior" numbits="1" />
+    </bitstruct>
+
+    <struct name="CELL_DATA" inherit="SubRecord">
+         <add name="Flags" type="CellFlags" />
+    </struct>
+
+    <struct name="CELL_XCLL" inherit="SubRecord">
+         <add name="Unknown 1" type="uint" />
+         <add name="Unknown 2" type="uint" />
+         <add name="Unknown 3" type="uint" />
+         <add name="Unknown 4" type="uint" />
+         <add name="Unknown 5" type="uint" />
+         <add name="Unknown 6" type="uint" />
+         <add name="Unknown 7" type="uint" />
+         <add name="Unknown 8" type="float" />
+         <add name="Unknown 9" type="uint" />
+    </struct>
+
+    <struct name="CELL_XOWN" inherit="SubRecord">
+         <add name="Owner" type="uint">Form Id of the owner (NPC or faction).</add>
+    </struct>
+
+    <struct name="CELL_XCMT" inherit="SubRecord">
+         <add name="Music Type" type="MusicType" />
+    </struct>
+
+    <struct name="REFR" inherit="Record" />
+
+<!--
+    <struct name="SizedString">
+        A string of given length.
+        <add name="Length" type="uint">The string length.</add>
+        <add name="Value" type="char" arr1="Length">The string itself.</add>
+    </struct>
+
+    <struct name="Model">
+        A string of given length.
+        <add name="File Path" type="SizedString">The filepath to the model</add>
+        <add name="Radius" type="float">The model bound radius</add>
+        <add name="Texture" type="uint">The texture file has for the model:
+        B1 B0 0F 69 38 7F FB CA 31 30 0F 69 3D 7F FB CA 64 6F 0D 74 28 7E 48 71 B3 B0 11 6D 41 B8 72 A4 33 30 11 6D 46 B8 72 A4 74 65 17 74 53 95 28 20 B1 B0 09 62 06 F6 27 D8 31 30 09 62 0B F6 27 D8 73 73 1C 74 50 B6 9F 72
+        is an example of one. ????: not sure what type to give this.
+        Is not majorly important; records with this unset do not (seem) to cause any errors.</add>
+    </struct>
+    
+    <struct name="Flags">
+    a something or other format record in the format of 0 or 1 for as many flags as the record has active - maximum of 32; if no flags it will be an empty record.
+    </struct>
+
+    <struct name="Record" abstract="0">
+        Base record class
+        <add name="Editor Id" type="SizedString">The Editor ID</add>
+    </struct>
+    
+    <struct name="ObjectRecord" inherit="Record">
+        In game objects
+        <add name="Name" type="SizedString">The in game name</add>
+        <add name="Model" type="Model">The in game model</add>
+        <add name="Script" type="uint">Link to the script for the object if there is one; such as: LlathasasBustScript [SCPT:00008036]
+        ????: Not sure what type to give this either.</add>
+    </struct>
+-->
+</fileformat>
+

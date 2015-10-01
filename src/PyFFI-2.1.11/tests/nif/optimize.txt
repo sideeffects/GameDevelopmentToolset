@@ -1,0 +1,133 @@
+Doctests for the optimize spell
+===============================
+
+Interactive
+-----------
+
+>>> # this inputfunc hack is very ugly but it allows to simulate user input
+>>> inputlist = ["yes it is", "n", "y"] # list of inputs of this test
+>>> def inputfunc(msg = ""):
+...     result = inputlist.pop(0)
+...     print("%s%s" % (msg, result))
+...     return result
+>>> inputfunc("is the input working? ")
+is the input working? yes it is
+'yes it is'
+>>> import pyffi.spells
+>>> pyffi.spells.Toaster.toast.func_globals['raw_input'] = inputfunc
+>>> # copy file to avoid overwriting
+>>> import shutil
+>>> shutil.copyfile("tests/nif/test.nif", "tests/nif/_test.nif")
+>>> # simulate calling "niftoaster.py optimize --verbose=1 tests/nif/_test.nif"
+>>> import sys
+>>> sys.path.append("scripts/nif")
+>>> import niftoaster
+>>> sys.argv = ["niftoaster.py", "optimize", "--verbose=1", "tests/nif/_test.nif"]
+>>> niftoaster.NifToaster().cli() # doctest: +ELLIPSIS +REPORT_NDIFF
+This script will modify your files, in particular if something goes wrong it
+may destroy them. Make a backup of your files before running this script.
+<BLANKLINE>
+Are you sure that you want to proceed? [n/y] n
+pyffi.toaster:INFO:Script aborted by user.
+pyffi.toaster:INFO:Finished.
+>>> niftoaster.NifToaster().cli() # doctest: +ELLIPSIS +REPORT_NDIFF
+This script will modify your files, in particular if something goes wrong it
+may destroy them. Make a backup of your files before running this script.
+<BLANKLINE>
+Are you sure that you want to proceed? [n/y] y
+pyffi.toaster:INFO:=== tests/nif/_test.nif ===
+pyffi.toaster:INFO:  --- fix_delunusedroots & opt_cleanreflists & fix_detachhavoktristripsdata & fix_texturepath & fix_clampmaterialalpha & fix_bhksubshapes & fix_emptyskeletonroots ---
+pyffi.toaster:INFO:    ~~~ NiNode [test] ~~~
+pyffi.toaster:INFO:      ~~~ NiTriShape [Cube] ~~~
+pyffi.toaster:INFO:  --- opt_geometry ---
+pyffi.toaster:INFO:    ~~~ NiNode [test] ~~~
+pyffi.toaster:INFO:      ~~~ NiTriShape [Cube] ~~~
+pyffi.toaster:INFO:        removing duplicate vertices
+pyffi.toaster:INFO:        (num vertices was 8 and is now 8)
+pyffi.toaster:INFO:        optimizing triangle ordering
+pyffi.toaster:INFO:        (ATVR stable at 1.000)
+pyffi.toaster:INFO:        optimizing vertex ordering
+pyffi.toaster:INFO:  --- opt_mergeduplicates ---
+pyffi.toaster:INFO:    ~~~ NiNode [test] ~~~
+pyffi.toaster:INFO:      ~~~ NiTriShape [Cube] ~~~
+pyffi.toaster:INFO:        ~~~ NiTriShapeData [] ~~~
+pyffi.toaster:INFO:  overwriting tests/nif/_test.nif
+pyffi.toaster:INFO:Finished.
+>>> # clean up
+>>> import os
+>>> os.remove("tests/nif/_test.nif")
+
+Non-interactive
+---------------
+
+>>> # copy file to avoid overwriting
+>>> import shutil
+>>> shutil.copyfile("tests/nif/test.nif", "tests/nif/_test.nif")
+>>> # simulate calling "niftoaster.py optimize --verbose=1 tests/nif/_test.nif"
+>>> import sys
+>>> sys.path.append("scripts/nif")
+>>> import niftoaster
+>>> sys.argv = ["niftoaster.py", "optimize", "--noninteractive", "--verbose=1", "tests/nif/_test.nif"]
+>>> niftoaster.NifToaster().cli() # doctest: +ELLIPSIS +REPORT_NDIFF
+pyffi.toaster:INFO:=== tests/nif/_test.nif ===
+pyffi.toaster:INFO:  --- fix_delunusedroots & opt_cleanreflists & fix_detachhavoktristripsdata & fix_texturepath & fix_clampmaterialalpha & fix_bhksubshapes & fix_emptyskeletonroots ---
+pyffi.toaster:INFO:    ~~~ NiNode [test] ~~~
+pyffi.toaster:INFO:      ~~~ NiTriShape [Cube] ~~~
+pyffi.toaster:INFO:  --- opt_geometry ---
+pyffi.toaster:INFO:    ~~~ NiNode [test] ~~~
+pyffi.toaster:INFO:      ~~~ NiTriShape [Cube] ~~~
+pyffi.toaster:INFO:        removing duplicate vertices
+pyffi.toaster:INFO:        (num vertices was 8 and is now 8)
+pyffi.toaster:INFO:        optimizing triangle ordering
+pyffi.toaster:INFO:        (ATVR stable at 1.000)
+pyffi.toaster:INFO:        optimizing vertex ordering
+pyffi.toaster:INFO:  --- opt_mergeduplicates ---
+pyffi.toaster:INFO:    ~~~ NiNode [test] ~~~
+pyffi.toaster:INFO:      ~~~ NiTriShape [Cube] ~~~
+pyffi.toaster:INFO:        ~~~ NiTriShapeData [] ~~~
+pyffi.toaster:INFO:  overwriting tests/nif/_test.nif
+pyffi.toaster:INFO:Finished.
+>>> # clean up
+>>> import os
+>>> os.remove("tests/nif/_test.nif")
+
+Egm and tri files
+-----------------
+
+>>> import sys
+>>> import os
+>>> sys.path.append("scripts/nif")
+>>> import niftoaster
+>>> sys.argv = ["niftoaster.py", "opt_geometry", "--noninteractive", "--dry-run", "tests/nif/test_opt_dupverts.nif"]
+>>> open("tests/nif/test_opt_dupverts.egm", "w").close()
+>>> niftoaster.NifToaster().cli() # doctest: +ELLIPSIS
+pyffi.toaster:INFO:=== tests/nif/test_opt_dupverts.nif ===
+pyffi.toaster:INFO:Finished.
+>>> os.remove("tests/nif/test_opt_dupverts.egm")
+>>> open("tests/nif/test_opt_dupverts.tri", "w").close()
+>>> niftoaster.NifToaster().cli() # doctest: +ELLIPSIS
+pyffi.toaster:INFO:=== tests/nif/test_opt_dupverts.nif ===
+pyffi.toaster:INFO:Finished.
+>>> os.remove("tests/nif/test_opt_dupverts.tri")
+
+Duplicate vertex check
+----------------------
+
+>>> from pyffi.formats.nif import NifFormat
+>>> import pyffi.spells.nif.optimize
+>>> from pyffi.spells import Toaster
+>>> data = NifFormat.Data()
+>>> stream = open("tests/nif/test_opt_dupverts.nif", "rb")
+>>> data.read(stream)
+>>> spell = pyffi.spells.nif.optimize.SpellOptimizeGeometry(data=data)
+>>> spell.recurse() # doctest: +REPORT_NDIFF
+pyffi.toaster:INFO:--- opt_geometry ---
+pyffi.toaster:INFO:  ~~~ NiNode [Lowerclass Dunmer Cup Type-1] ~~~
+pyffi.toaster:INFO:    ~~~ NiTriStrips [Lowerclass Dunmer Cup Type-1] ~~~
+pyffi.toaster:INFO:      removing duplicate vertices
+pyffi.toaster:INFO:      (num vertices was 303 and is now 169)
+pyffi.toaster:INFO:      optimizing triangle ordering
+pyffi.toaster:INFO:      (ATVR reduced from 1.462 to 1.000)
+pyffi.toaster:INFO:      optimizing vertex ordering
+pyffi.toaster:INFO:      replacing branch by NiTriShape
+pyffi.toaster:INFO:      recalculating tangent space

@@ -1,0 +1,50 @@
+Doctests for the opt_delunusedbones spell
+=========================================
+
+NifToaster check
+----------------
+
+>>> from pyffi.formats.nif import NifFormat
+>>> import pyffi.spells.nif.optimize
+>>> from pyffi.spells import Toaster
+>>> data = NifFormat.Data()
+>>> stream = open("tests/nif/test_opt_delunusedbones.nif", "rb")
+>>> data.read(stream)
+>>> # check dummy bone
+>>> print(data.roots[0].children[0].children[0].name)
+Test
+>>> # run the spell that fixes this
+>>> spell = pyffi.spells.nif.optimize.SpellDelUnusedBones(data=data)
+>>> spell.recurse()
+pyffi.toaster:INFO:--- opt_delunusedbones ---
+pyffi.toaster:INFO:  ~~~ NiNode [Bip01] ~~~
+pyffi.toaster:INFO:    ~~~ NiNode [Bip01 Pelvis] ~~~
+pyffi.toaster:INFO:      ~~~ NiNode [Test] ~~~
+pyffi.toaster:INFO:        removing unreferenced bone
+pyffi.toaster:INFO:      ~~~ NiNode [Dummy] ~~~
+pyffi.toaster:INFO:        ~~~ NiNode [Bip01 Spine] ~~~
+pyffi.toaster:INFO:          ~~~ NiNode [Bip01 Spine1] ~~~
+pyffi.toaster:INFO:            ~~~ NiNode [Bip01 Spine2] ~~~
+pyffi.toaster:INFO:              ~~~ NiNode [Bip01 Neck] ~~~
+pyffi.toaster:INFO:                ~~~ NiNode [Bip01 Head] ~~~
+pyffi.toaster:INFO:                  ~~~ NiNode [Bip01 Brain] ~~~
+pyffi.toaster:INFO:                    removing unreferenced bone
+pyffi.toaster:INFO:                ~~~ NiNode [Bip01 L Clavicle] ~~~
+pyffi.toaster:INFO:                  ~~~ NiNode [Bip01 L UpperArm] ~~~
+pyffi.toaster:INFO:                    ~~~ NiNode [Bip01 L Forearm] ~~~
+pyffi.toaster:INFO:                ~~~ NiNode [Bip01 R Clavicle] ~~~
+pyffi.toaster:INFO:                  ~~~ NiNode [Bip01 R UpperArm] ~~~
+pyffi.toaster:INFO:                    ~~~ NiNode [Bip01 R Forearm] ~~~
+pyffi.toaster:INFO:          ~~~ NiNode [Bip01 L Thigh] ~~~
+pyffi.toaster:INFO:            ~~~ NiNode [Bip01 L Calf] ~~~
+pyffi.toaster:INFO:              ~~~ NiNode [Bip01 L Foot] ~~~
+pyffi.toaster:INFO:                ~~~ NiNode [Bip01 L Toe0] ~~~
+pyffi.toaster:INFO:                ~~~ NiNode [Bip01 L Toe1] ~~~
+pyffi.toaster:INFO:                  removing unreferenced bone
+pyffi.toaster:INFO:          ~~~ NiNode [Bip01 R Thigh] ~~~
+pyffi.toaster:INFO:            ~~~ NiNode [Bip01 R Calf] ~~~
+pyffi.toaster:INFO:              ~~~ NiNode [Bip01 R Foot] ~~~
+pyffi.toaster:INFO:                ~~~ NiNode [Bip01 R Toe0] ~~~
+>>> # check that dummy bone is gone
+>>> print(data.roots[0].children[0].children[0])
+None

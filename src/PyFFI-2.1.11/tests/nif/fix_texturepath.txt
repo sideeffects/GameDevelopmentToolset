@@ -1,0 +1,26 @@
+Doctests for the fix_texturepath spell
+======================================
+
+>>> import sys
+>>> sys.path.append("scripts/nif")
+>>> import niftoaster
+>>> sys.argv = ["niftoaster.py", "fix_texturepath", "--dry-run", "--noninteractive", "tests/nif/test_fix_texturepath.nif"]
+>>> niftoaster.NifToaster().cli()
+pyffi.toaster:INFO:=== tests/nif/test_fix_texturepath.nif ===
+pyffi.toaster:INFO:  --- fix_texturepath ---
+pyffi.toaster:INFO:    ~~~ NiNode [Scene Root] ~~~
+pyffi.toaster:INFO:      ~~~ NiTriStrips [Sphere] ~~~
+pyffi.toaster:INFO:        ~~~ NiTexturingProperty [] ~~~
+pyffi.toaster:INFO:          ~~~ NiSourceTexture [] ~~~
+pyffi.toaster:INFO:            fixed file name 'path\test1.dds'
+pyffi.toaster:INFO:          ~~~ NiSourceTexture [] ~~~
+pyffi.toaster:INFO:            fixed file name 'an\other\path\also\backslashes\test2.dds'
+pyffi.toaster:INFO:          ~~~ NiSourceTexture [] ~~~
+pyffi.toaster:INFO:          ~~~ NiSourceTexture [] ~~~
+pyffi.toaster:INFO:            fixed file name 'evil\rants\IS\not\good\no\no\test4.dds'
+pyffi.toaster:INFO:          ~~~ NiSourceTexture [] ~~~
+pyffi.toaster:INFO:          ~~~ NiSourceTexture [] ~~~
+pyffi.toaster:INFO:            fixed file name 'doubleslash\test6.dds'
+pyffi.toaster:INFO:  writing to temporary file
+pyffi.toaster:INFO:Finished.
+

@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE fileformat>
+<fileformat>
+
+    <!--
+    *******************
+    *** basic types ***
+    *******************
+    -->
+
+    <basic name="ubyte">
+        An unsigned 8-bit integer.
+    </basic>
+
+    <basic name="byte">
+        A signed 8-bit integer.
+    </basic>
+
+    <basic name="ushort">
+        An unsigned 16-bit integer.
+    </basic>
+
+    <basic name="short">
+        A signed 16-bit integer.
+    </basic>
+
+    <basic name="uint">
+        An unsigned 32-bit integer.
+    </basic>
+
+    <basic name="int">
+        A signed 32-bit integer.
+    </basic>
+
+    <basic name="char">
+        An 8-bit character.
+    </basic>
+
+    <basic name="float">
+        A standard 32-bit floating point number.
+    </basic>
+
+    <basic name="FileSignature">
+        Version string.
+    </basic>
+
+    <basic name="FileVersion">
+        Version string.
+    </basic>
+
+    <!--
+    *******************
+    *** alias types ***
+    *******************
+    -->
+
+    <!--
+    ******************
+    *** enum types ***
+    ******************
+    -->
+
+    <!--
+    ******************
+    *** bitstructs ***
+    ******************
+    -->
+
+    <bitstruct name="TextureFlags" numbytes="1">
+        <bits name="Intensity" numbits="2">
+            How much to blend in the colour overlay. Could also be
+            blend mode.
+        </bits>
+        <bits name="Enable" numbits="1">
+            Blending the texture or not.
+        </bits>
+        <bits name="Slot" numbits="3" default="7">
+            Blend to texture no? Always texture 7.
+        </bits>
+        <bits name="Maxed" numbits="1">
+            Overwrite with texture, don't blend in.
+        </bits>
+        <bits name="Invert" numbits="1">
+            Invert texture. Same as negating r, g, b channels.
+        </bits>
+    </bitstruct>
+
+    <!--
+    ***************
+    *** structs ***
+    ***************
+    -->
+
+    <struct name="Texture">
+        <add name="Unknown1" type="ubyte" />
+        <add name="Unknown2" type="ubyte" />
+        <add name="Unknown3" type="ubyte" />
+        <add name="Flags" type="TextureFlags">
+            Texture control flags.
+        </add>
+	<add name="R" type="byte" arr1="ARG" />
+	<add name="G" type="byte" arr1="ARG" />
+	<add name="B" type="byte" arr1="ARG" />
+    </struct>
+
+    <struct name="Header">
+        <add name="Signature" type="FileSignature">FRTRI</add>
+        <add name="Version" type="FileVersion">003 for Oblivion</add>
+        <add name="Width" type="int">
+            Texture width. Always 256 for faces, 32 for bodies/ears.
+        </add>
+        <add name="Height" type="int">
+            Texture height. Always 256 for faces, 32 for bodies/ears.
+        </add>
+        <add name="Num Textures" type="int">
+            Number of textures. Always 50.
+        </add>
+        <add name="Unknown" type="int" arr1="11">
+            Undecoded block.
+        </add>
+        <!-- should pass arg1="Width" arg2="Height" but xml does not
+             allow, hence this hack -->
+        <add name="Textures" type="Texture" arr1="Num Textures" arg="1024" cond="Width == 32">The actual textures.</add>
+        <add name="Textures" type="Texture" arr1="Num Textures" arg="65536" cond="Width == 256">The actual textures.</add>
+     </struct>
+
+</fileformat>

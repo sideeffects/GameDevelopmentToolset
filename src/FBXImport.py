@@ -84,6 +84,7 @@ class CustomImport(QtGui.QWidget):
         self.INDEX = self.INDEX + 1
         return self.INDEX - 1
 
+    #DELETE
     def GenerateRowWidget(self, WidgetArray):
         ROW = QtGui.QHBoxLayout()
 
@@ -99,6 +100,7 @@ class CustomImport(QtGui.QWidget):
         TEMP = hou.ui.selectFile(self.FBX_FILE, "Select FBX File", False, hou.fileType.Any, "*.fbx")
         self.WIDGET_FBX_INPUT.setText(TEMP)
 
+    #DELETE
     def GenerateCommandString(self):
         TEMP = ""
         for key, value in self.FBX_OPTIONS.iteritems():
@@ -128,6 +130,8 @@ class CustomImport(QtGui.QWidget):
     #####################
     #CHECK BOXES
     #####################
+
+    #DELETE
     def GetFBXCheckState(self, STRING_OPTION, BIT_MASK=0b0):
         if STRING_OPTION in '-u': #Unlock nodes?
             temp = self.FBX_UNLOCK_MASK[self.FBX_OPTIONS[STRING_OPTION]]
@@ -143,6 +147,7 @@ class CustomImport(QtGui.QWidget):
         else:
             self.FBX_OPTIONS[STRING_OPTION] = 'on' if CHECK_STATE == QtCore.Qt.Checked else 'off'
 
+    #DELETE
     def GenerateCheckBox(self, STRING_NAME, STRING_FBX_OPTION, BIT_MASK=0b0):
         TEMP = QtGui.QCheckBox(STRING_NAME)
         TEMP.setCheckState(self.GetFBXCheckState(STRING_FBX_OPTION, BIT_MASK))
@@ -163,6 +168,7 @@ class CustomImport(QtGui.QWidget):
         TEMP.currentIndexChanged.connect(lambda: self.SetComboBoxIndex(STRING_FBX_OPTION, TEMP.currentIndex()))
         return TEMP
 
+    #DELETE
     def GetComboBoxIndex(self, STRING_OPTION):
         return 1 if self.FBX_OPTIONS[STRING_OPTION] == 'on' else 0
 
@@ -185,12 +191,12 @@ class CustomImport(QtGui.QWidget):
         TEMP.textEdited.connect(lambda: self.SetLineEditText(STRING_FBX_OPTION, TEMP.text()))
         return TEMP
 
+    #DELETE
     def GetLineEditText(self, STRING_OPTION):
         return self.FBX_OPTIONS[STRING_OPTION]
 
     def SetLineEditText(self, STRING_OPTION, TEXT):
         self.FBX_OPTIONS[STRING_OPTION] = TEXT
-        print self.FBX_OPTIONS[STRING_OPTION]
 
     #####################
     #GENERATE OPTIONS

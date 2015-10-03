@@ -13,14 +13,12 @@ this script generates more through FBXCustomUI.
 import hou
 from PySide import QtCore
 from PySide import QtGui
-import FBXImportUI
-reload(FBXImportUI)
-from FBXImportUI import CustomUI
 
 import FBXPostScript
 reload(FBXPostScript)
 from FBXPostScript import PostScriptAdjust
 from FBXPostScript import CompatUnrealEngine
+from FBXPostScript import CustomUI
 
 class CustomImport(QtGui.QWidget):
     WINDOW_LAYOUT   = QtGui.QBoxLayout(QtGui.QBoxLayout.TopToBottom)

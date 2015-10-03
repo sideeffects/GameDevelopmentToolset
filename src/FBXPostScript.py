@@ -7,6 +7,9 @@ with the cuurect orientation.
 NOTE: As of right now, the developer needs to add the required strings here
 AND in FBXImport.
 
+def CustomUI()
+This tells the main window what to add to the end.
+
 def PostScriptAdjust()
 This is the script that gets called from FBXImport. It adds the required string
 into the second parameter.
@@ -23,6 +26,16 @@ import hou
 import re
 
 from PySide import QtGui
+
+def CustomUI():
+    CUSTOM_WIDGETS = []
+    CUSTOM_WIDGETS.insert(0, QtGui.QLabel("Post Script Options"))
+    CUSTOM_WIDGETS.insert(1, [QtGui.QLabel("Compatibility"),
+                    QtGui.QComboBox()])
+    CUSTOM_WIDGETS[1][1].insertItems(0, ["Unreal Engine 4",
+                                "Maya"])
+
+    return CUSTOM_WIDGETS
 
 def PostScriptAdjust(BASE_WIDGETS=[], CUSTOM_WIDGETS=[]):
     # for index in range (0, len(CUSTOM_WIDGETS)):

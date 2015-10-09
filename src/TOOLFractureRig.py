@@ -2,7 +2,8 @@
 Fracture Rig!
 Author: Steven Burrichter
 Company: Side Effects Software
-Last Updated: 05/13/2015
+Last Updated: 10/1/2015
+Reference Build: H15.0.252
 
 IMPORTANT NOTES
 1) Make sure the object you want to fracture is at the origin and has NO

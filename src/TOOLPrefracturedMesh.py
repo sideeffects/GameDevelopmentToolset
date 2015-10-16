@@ -17,8 +17,6 @@ class PREFRACTURE_EXPORT:
 
     nodeSubnet      =   None
     nodePieces      =   []
-    nodeDisplay     =   None
-    PARMS           =   ["tx", "ty", "tz", "rx", "ry", "rz", "px", "py", "pz"]
 
     ######################################
     #FUNCTIONS
@@ -54,7 +52,6 @@ class PREFRACTURE_EXPORT:
     #################################
     def GrabPieces(self):
         self.node = self.node[0]
-        # self.nodeDisplay = self.FindReferenceGeometry()
         obj_geometry = self.node.geometry()
 
         if obj_geometry.findPointAttrib("name") == None:

@@ -12,7 +12,55 @@
 shelfutils.installOrboltAsset(kwargs, "SideFX::toonsimple", "http://www.orbolt.com/asset/SideFX::toonsimple")]]></script>
   </tool>
 
-  <shelfSetEdit name="shelf_set_1" fileLocation="/Library/Frameworks/Houdini.framework/Versions/Current/Resources/houdini/toolbar/ShelfDefinitions.shelf">
+  <tool name="rtWispySmoke" label="Wispy Smoke" icon="PLASMA_App">
+    <script scriptType="python"><![CDATA[import sys
+
+####################
+#Add src directory 
+#to path if it isn't there
+####################
+SOURCE  = hou.expandString('$HOUDINI_USER_PREF_DIR') + "/toolbar/src/StockShelfTools"
+
+if SOURCE not in sys.path:
+    sys.path.append(SOURCE)
+    
+#Import and refresh module
+import RT_WispySmoke
+reload(RT_WispySmoke)
+
+#################################
+#Class constructor call!
+#################################
+#BillowySmoke()
+
+RT_WispySmoke.wispyRT(kwargs)]]></script>
+  </tool>
+
+  <tool name="rtCandle" label="Candle" icon="PLASMA_App">
+    <script scriptType="python"><![CDATA[import sys
+
+####################
+#Add src directory 
+#to path if it isn't there
+####################
+SOURCE  = hou.expandString('$HOUDINI_USER_PREF_DIR') + "/toolbar/src/StockShelfTools"
+
+if SOURCE not in sys.path:
+    sys.path.append(SOURCE)
+    
+#Import and refresh module
+import RT_Candle
+reload(RT_Candle)
+
+#################################
+#Class constructor call!
+#################################
+#BillowySmoke()
+
+RT_Candle.candleRT(kwargs)]]></script>
+  </tool>
+
+  <shelfSetEdit name="shelf_set_1" fileLocation="/Library/Frameworks/Houdini.framework/Versions/15.0.311/Resources/houdini/toolbar/ShelfDefinitions.shelf">
     <addMemberToolshelf name="rtPyro" inPosition="13"/>
   </shelfSetEdit>
 </shelfDocument>

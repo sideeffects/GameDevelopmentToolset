@@ -250,16 +250,12 @@ PREFRACTURE_EXPORT()]]></script>
 
   <toolshelf name="rtPyro" label="RT Pyro">
     <memberTool name="rtBillowySmoke"/>
+    <memberTool name="rtWispySmoke"/>
+    <memberTool name="rtCandle"/>
   </toolshelf>
 
   <tool name="rtBillowySmoke" label="Billowy Smoke" icon="PLASMA_App">
-    <script scriptType="python"><![CDATA['''
-Fracture Rig!
-Author: Steven Burrichter
-Company: Side Effects Software
-Last Updated: 05/13/2015
-'''
-import sys
+    <script scriptType="python"><![CDATA[import sys
 
 ####################
 #Add src directory 
@@ -270,12 +266,9 @@ SOURCE  = hou.expandString('$HOUDINI_USER_PREF_DIR') + "/toolbar/src/StockShelfT
 if SOURCE not in sys.path:
     sys.path.append(SOURCE)
     
-####################
-#Import FBXImport Script
-####################
+#Import and refresh module
 import RT_BillowySmoke
 reload(RT_BillowySmoke)
-#from RT_BillowySmoke import BillowySmoke
 
 #################################
 #Class constructor call!

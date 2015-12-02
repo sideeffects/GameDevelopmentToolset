@@ -68,15 +68,16 @@ def billowySmokeRT(kwargs, clustering=False):
     diam = diam / 2.0
     divdiam /= 2.0
 
-    #mat = dopsmoketoolutils.createBillowySmokeMaterial()
-    #fieldnode.parent().parm('shop_materialpath').set(mat.path())
+    # Material
+    mat = dopsmoketoolutils.createBillowySmokeMaterial()
+    fieldnode.parent().parm('shop_materialpath').set(mat.path())
 
     # apply preset to smokesolver
     doppyrotoolutils.applyParmSet(pyrosolver, diam,
                 [
                 ('temp_diffusion', 0.4, doppyrotoolutils.op_mult),
                 ('cooling_rate', 0.6, None),
-                ('lift', 4.0, doppyrotoolutils.op_mult),
+                ('lift', 0.0, doppyrotoolutils.op_mult),
                 ('enable_confinement',False,None),
                 ('confinementscale', 4.0, None),
                 ('conf_use_control_field',1,None),
@@ -89,7 +90,7 @@ def billowySmokeRT(kwargs, clustering=False):
                 ('evap', 0.075, None),
                 ('dissipation_control_range2', 2.0, None),
                 ('enable_turbulence', 1, None),
-                ('turbulence_scale', 0.25, None),
+                ('turbulence_scale', 0.18, None),
                 ('turb_swirl_size', 1.5,doppyrotoolutils.op_mult ),
                 ('turb_pulse_length', 0.5, None),
                 ('turb_turb',3,None),
@@ -130,7 +131,7 @@ def billowySmokeRT(kwargs, clustering=False):
     #set divsize
     doppyrotoolutils.applyParmSet(pyronode, diam,
                 [
-                ('divsize',0.15,doppyrotoolutils.op_mult),
+                ('divsize',0.05,doppyrotoolutils.op_mult),
                 ('multifield_rangemax',0.5,None),
                             ('multifield_densityscale',2.0,doppyrotoolutils.op_div),
                             ('multifield_shadowscale',0.25,doppyrotoolutils.op_div),

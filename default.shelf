@@ -12,13 +12,31 @@
 shelfutils.installOrboltAsset(kwargs, "SideFX::toonsimple", "http://www.orbolt.com/asset/SideFX::toonsimple")]]></script>
   </tool>
 
-  <shelfSetEdit name="shelf_set_td" fileLocation="/Library/Frameworks/Houdini.framework/Versions/15.0.303/Resources/houdini/toolbar/ShelfDefinitions.shelf">
-    <addMemberToolshelf name="Real Time VFX" inPosition="14"/>
-    <addMemberToolshelf name="rtPyro" inPosition="15"/>
-  </shelfSetEdit>
+  <tool name="rtFlames" label="Flames" icon="SHELF_fire">
+    <script scriptType="python"><![CDATA[import sys
 
-  <shelfSetEdit name="shelf_set_1" fileLocation="/Library/Frameworks/Houdini.framework/Versions/15.0.303/Resources/houdini/toolbar/ShelfDefinitions.shelf">
-    <addMemberToolshelf name="Real Time VFX" inPosition="13"/>
-    <addMemberToolshelf name="rtPyro" inPosition="14"/>
+####################
+#Add src directory 
+#to path if it isn't there
+####################
+SOURCE  = hou.expandString('$HOUDINI_USER_PREF_DIR') + "/toolbar/src/StockShelfTools"
+
+if SOURCE not in sys.path:
+    sys.path.append(SOURCE)
+    
+#Import and refresh module
+import RT_SmokelessFlames
+reload(RT_SmokelessFlames)
+
+#################################
+#Class constructor call!
+#################################
+#BillowySmoke()
+
+RT_SmokelessFlames.burn(kwargs, True)]]></script>
+  </tool>
+
+  <shelfSetEdit name="shelf_set_1" fileLocation="/Library/Frameworks/Houdini.framework/Versions/15.0.311/Resources/houdini/toolbar/ShelfDefinitions.shelf">
+    <addMemberToolshelf name="rtPyro" inPosition="13"/>
   </shelfSetEdit>
 </shelfDocument>

@@ -249,17 +249,19 @@ PREFRACTURE_EXPORT()]]></script>
   </tool>
 
   <toolshelf name="rtPyro" label="RT Pyro">
+    <memberTool name="rtFlames"/>
+    <memberTool name="rtExplosion"/>
+    <memberTool name="rtFireball"/>
     <memberTool name="rtBillowySmoke"/>
+    <memberTool name="rtWispySmoke"/>
+    <memberTool name="rtCandle"/>
+    <memberTool name="rtSmokelessFlames"/>
+    <memberTool name="rtDryIce"/>
+    <memberTool name="rtVolcano"/>
   </toolshelf>
 
-  <tool name="rtBillowySmoke" label="Billowy Smoke" icon="PLASMA_App">
-    <script scriptType="python"><![CDATA['''
-Fracture Rig!
-Author: Steven Burrichter
-Company: Side Effects Software
-Last Updated: 05/13/2015
-'''
-import sys
+  <tool name="rtBillowySmoke" label="Billowy Smoke" icon="SHELF_smoke_heavy">
+    <script scriptType="python"><![CDATA[import sys
 
 ####################
 #Add src directory 
@@ -270,16 +272,183 @@ SOURCE  = hou.expandString('$HOUDINI_USER_PREF_DIR') + "/toolbar/src/StockShelfT
 if SOURCE not in sys.path:
     sys.path.append(SOURCE)
     
-####################
-#Import FBXImport Script
-####################
+#Import and refresh module
 import RT_BillowySmoke
 reload(RT_BillowySmoke)
-from RT_BillowySmoke import BillowySmoke
 
 #################################
 #Class constructor call!
 #################################
-BillowySmoke()]]></script>
+#BillowySmoke()
+
+RT_BillowySmoke.billowySmokeRT(kwargs)]]></script>
+  </tool>
+
+  <tool name="rtCandle" label="Candle" icon="SHELF_smoke_wispy">
+    <script scriptType="python"><![CDATA[import sys
+
+####################
+#Add src directory 
+#to path if it isn't there
+####################
+SOURCE  = hou.expandString('$HOUDINI_USER_PREF_DIR') + "/toolbar/src/StockShelfTools"
+
+if SOURCE not in sys.path:
+    sys.path.append(SOURCE)
+    
+#Import and refresh module
+import RT_Candle
+reload(RT_Candle)
+
+#################################
+#Class constructor call!
+#################################
+#BillowySmoke()
+
+RT_Candle.candleRT(kwargs)]]></script>
+  </tool>
+
+  <tool name="rtWispySmoke" label="Wispy Smoke" icon="SHELF_smoke_wispy">
+    <script scriptType="python"><![CDATA[import sys
+
+####################
+#Add src directory 
+#to path if it isn't there
+####################
+SOURCE  = hou.expandString('$HOUDINI_USER_PREF_DIR') + "/toolbar/src/StockShelfTools"
+
+if SOURCE not in sys.path:
+    sys.path.append(SOURCE)
+    
+#Import and refresh module
+import RT_WispySmoke
+reload(RT_WispySmoke)
+
+#################################
+#Class constructor call!
+#################################
+#BillowySmoke()
+
+RT_WispySmoke.wispyRT(kwargs)]]></script>
+  </tool>
+
+  <tool name="rtSmokelessFlames" label="Smokeless Flames" icon="SHELF_fire">
+    <script scriptType="python"><![CDATA[import sys
+
+####################
+#Add src directory 
+#to path if it isn't there
+####################
+SOURCE  = hou.expandString('$HOUDINI_USER_PREF_DIR') + "/toolbar/src/StockShelfTools"
+
+if SOURCE not in sys.path:
+    sys.path.append(SOURCE)
+    
+#Import and refresh module
+import RT_SmokelessFlames
+reload(RT_SmokelessFlames)
+
+#################################
+#Class constructor call!
+#################################
+#BillowySmoke()
+
+RT_SmokelessFlames.burn(kwargs, False)]]></script>
+  </tool>
+
+  <tool name="rtExplosion" label="Explosion" icon="SHELF_fireball">
+    <script scriptType="python"><![CDATA[import sys
+
+####################
+#Add src directory 
+#to path if it isn't there
+####################
+SOURCE  = hou.expandString('$HOUDINI_USER_PREF_DIR') + "/toolbar/src/StockShelfTools"
+
+if SOURCE not in sys.path:
+    sys.path.append(SOURCE)
+    
+#Import and refresh module
+import RT_Explosion
+reload(RT_Explosion)
+
+#################################
+#Class constructor call!
+#################################
+#BillowySmoke()
+
+RT_Explosion.explosion(kwargs)]]></script>
+  </tool>
+
+  <tool name="rtFireball" label="Fireball" icon="SHELF_fireball">
+    <script scriptType="python"><![CDATA[import sys
+
+####################
+#Add src directory 
+#to path if it isn't there
+####################
+SOURCE  = hou.expandString('$HOUDINI_USER_PREF_DIR') + "/toolbar/src/StockShelfTools"
+
+if SOURCE not in sys.path:
+    sys.path.append(SOURCE)
+    
+#Import and refresh module
+import RT_Fireball
+reload(RT_Fireball)
+
+#################################
+#Class constructor call!
+#################################
+#BillowySmoke()
+
+RT_Fireball.fireball(kwargs)]]></script>
+  </tool>
+
+  <tool name="rtDryIce" label="Dry Ice" icon="SHELF_dry_ice">
+    <script scriptType="python"><![CDATA[import sys
+
+####################
+#Add src directory 
+#to path if it isn't there
+####################
+SOURCE  = hou.expandString('$HOUDINI_USER_PREF_DIR') + "/toolbar/src/StockShelfTools"
+
+if SOURCE not in sys.path:
+    sys.path.append(SOURCE)
+    
+#Import and refresh module
+import RT_DryIce
+reload(RT_DryIce)
+
+#################################
+#Class constructor call!
+#################################
+#BillowySmoke()
+
+RT_DryIce.dryice(kwargs)]]></script>
+  </tool>
+
+  <tool name="rtVolcano" label="Volcano" icon="SHELF_volcano_smoke">
+    <script scriptType="python"><![CDATA[import sys
+
+####################
+#Add src directory 
+#to path if it isn't there
+####################
+SOURCE  = hou.expandString('$HOUDINI_USER_PREF_DIR') + "/toolbar/src/StockShelfTools"
+
+if SOURCE not in sys.path:
+    sys.path.append(SOURCE)
+    
+#Import and refresh module
+import RT_Volcano
+reload(RT_Volcano)
+
+#################################
+#Class constructor call!
+#################################
+#BillowySmoke()
+
+RT_Volcano.volcano(kwargs)]]></script>
   </tool>
 </shelfDocument>

@@ -78,7 +78,7 @@ def explosion(kwargs):
                ('timescale', 0.65,None),
                ('temp_diffusion', 0.05,doppyrotoolutils.op_mult),
                ('cooling_rate', 0.7,None),
-               ('lift', 2.75,doppyrotoolutils.op_mult),
+               ('lift', 0,doppyrotoolutils.op_mult),
                ('fuelinefficiency', 0.3,None),
                ('heatoutput', 0.3,None),
                ('gasrelease', 100.0,None),

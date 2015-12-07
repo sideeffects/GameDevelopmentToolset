@@ -35,11 +35,22 @@ def explosion(kwargs):
         copy_parm = mat.parm('copy_other1')
         if copy_parm is not None:
             copy_parm.set(pyronode.path())
+    doppyrotoolutils.applyParmSet(mat, diam,
+                [
+                ('s_amp', 15, None),
+                ('fi_amp', 5, None)
+                ])
 
 
     doppyrotoolutils.applyParmSet(pyronode, diam,
                 [
-                ('divsize',0.15,doppyrotoolutils.op_mult),
+                ('divsize',0.1,doppyrotoolutils.op_mult),
+                ('sizex', 15, None),
+                ('sizey', 15, None),
+                ('sizez', 15, None),
+                ('tx', 0, None),
+                ('ty', 0, None),
+                ('tz', 0, None),
                 ('velocity_voxelsample','faces',None),
                 ('closedends', False, None),
                 ('multifield_densityscale',0.3,doppyrotoolutils.op_div),
@@ -161,19 +172,23 @@ def explosion(kwargs):
     # Try to find sourcevolume node (solver) and setup source key frames
     sourcevolume = doptoolutils.findSolverInInput(pyrosolver,'sourcevolume')
     if sourcevolume != None:
-        doppyrotoolutils.applyKeySet(sourcevolume,'scale_source',
-                    [
-                    (0.000000, 1.000000),
-                    (0.166667, 2.000000),
-                    (0.375000, 0.000000),
-                    (2.041667, 0.451193),
-                    (4.125000, 0.750000),
-                    (5.166667, 0.400000),
-                    (6.208333, 0.649445),
-                    (7.250000, 0.250000),
-                    (8.083333, 0.100000),
-                    (8.375000, 0.705150)
-                    ])
+        doppyrotoolutils.applyKeySet(sourcevolume, 'scale_source',[
+                    (0.0,1.0),
+                    (24.0,0.0)
+        ])
+        # doppyrotoolutils.applyKeySet(sourcevolume,'scale_source',
+        #             [
+        #             (0.000000, 1.000000),
+        #             (0.166667, 2.000000),
+        #             (0.375000, 0.000000),
+        #             (2.041667, 0.451193),
+        #             (4.125000, 0.750000),
+        #             (5.166667, 0.400000),
+        #             (6.208333, 0.649445),
+        #             (7.250000, 0.250000),
+        #             (8.083333, 0.100000),
+        #             (8.375000, 0.705150)
+        #             ])
 
     # Try to find resize node (solver) and setup parms
     resizenode = doptoolutils.findSolverInInput(pyrosolver,'gasresizefluiddynamic')

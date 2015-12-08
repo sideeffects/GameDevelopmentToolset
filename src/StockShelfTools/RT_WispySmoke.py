@@ -4,7 +4,7 @@ import doptoolutils
 import dopsmoketoolutils
 import doppyrotoolutils
 
-def wispyRT(kwargs):
+def wispyRT(kwargs, use2D=False):
     """ Selected object becomes an emitter of wispy smoke.
     """
     sceneviewer = toolutils.activePane(kwargs)
@@ -76,14 +76,23 @@ def wispyRT(kwargs):
                 (1,0.15)
                 ])
 
-
-    doppyrotoolutils.applyParmSet(pyronode, diam,
-                [
-                ('divsize',0.2,doppyrotoolutils.op_mult),
-                ('multifield_densityscale',1.0,doppyrotoolutils.op_div),
-                ('multifield_shadowscale',1.0,doppyrotoolutils.op_div),
-                ]
-                )
+    if use2D:
+        doppyrotoolutils.applyParmSet(pyronode, diam,
+                    [
+                    ('divsize',0.01,doppyrotoolutils.op_mult),
+                    ('multifield_densityscale',1.0,doppyrotoolutils.op_div),
+                    ('multifield_shadowscale',1.0,doppyrotoolutils.op_div),
+                    ('twod',1.0,None)
+                    ]
+                    )
+    else:
+        doppyrotoolutils.applyParmSet(pyronode, diam,
+                    [
+                    ('divsize',0.2,doppyrotoolutils.op_mult),
+                    ('multifield_densityscale',1.0,doppyrotoolutils.op_div),
+                    ('multifield_shadowscale',1.0,doppyrotoolutils.op_div),
+                    ]
+                    )
 
     # Make our smokeobject the source
     convertmode = "SOP_Source_%s" % doppyrotoolutils.incominggeotype(sourcegeo)

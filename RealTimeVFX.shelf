@@ -248,7 +248,7 @@ from TOOLPrefracturedMesh import PREFRACTURE_EXPORT
 PREFRACTURE_EXPORT()]]></script>
   </tool>
 
-  <toolshelf name="rtPyro" label="RT Pyro">
+  <toolshelf name="rtPyro" label="3DPyro">
     <memberTool name="rtFlames"/>
     <memberTool name="rtExplosion"/>
     <memberTool name="rtFireball"/>
@@ -450,5 +450,33 @@ reload(RT_Volcano)
 #BillowySmoke()
 
 RT_Volcano.volcano(kwargs)]]></script>
+  </tool>
+
+  <toolshelf name="2DPyro" label="2DPyro">
+    <memberTool name="rt2DWispySmoke"/>
+  </toolshelf>
+
+  <tool name="rt2DWispySmoke" label="Wispy Smoke 2D" icon="SHELF_smoke_wispy">
+    <script scriptType="python"><![CDATA[import sys
+
+####################
+#Add src directory 
+#to path if it isn't there
+####################
+SOURCE  = hou.expandString('$HOUDINI_USER_PREF_DIR') + "/toolbar/src/StockShelfTools"
+
+if SOURCE not in sys.path:
+    sys.path.append(SOURCE)
+    
+#Import and refresh module
+import RT_WispySmoke
+reload(RT_WispySmoke)
+
+#################################
+#Class constructor call!
+#################################
+#BillowySmoke()
+
+RT_WispySmoke.wispyRT(kwargs, True)]]></script>
   </tool>
 </shelfDocument>

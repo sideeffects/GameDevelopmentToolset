@@ -36,8 +36,32 @@ reload(RT_SmokelessFlames)
 RT_SmokelessFlames.burn(kwargs, True)]]></script>
   </tool>
 
-  <shelfSetEdit name="shelf_set_1" fileLocation="/Library/Frameworks/Houdini.framework/Versions/15.0.311/Resources/houdini/toolbar/ShelfDefinitions.shelf">
-    <addMemberToolshelf name="rtPyro" inPosition="13"/>
-    <addMemberToolshelf name="2DPyro" inPosition="14"/>
+  <tool name="rtFlipbookRig" label="Flipbook Rig" icon="PLASMA_App">
+    <script scriptType="python"><![CDATA[import sys
+
+####################
+#Add src directory 
+#to path if it isn't there
+####################
+SOURCE  = hou.expandString('$HOUDINI_USER_PREF_DIR') + "/toolbar/src/StockShelfTools"
+
+if SOURCE not in sys.path:
+    sys.path.append(SOURCE)
+    
+#Import and refresh module
+import RT_FlipbookRig
+reload(RT_FlipbookRig)
+
+#################################
+#Class constructor call!
+#################################
+#BillowySmoke()
+
+RT_FlipbookRig.flipbookRig(kwargs)]]></script>
+  </tool>
+
+  <shelfSetEdit name="shelf_set_1" fileLocation="/Library/Frameworks/Houdini.framework/Versions/15.0.318/Resources/houdini/toolbar/ShelfDefinitions.shelf">
+    <addMemberToolshelf name="rtTools" inPosition="13"/>
+    <addMemberToolshelf name="rtPyro" inPosition="14"/>
   </shelfSetEdit>
 </shelfDocument>

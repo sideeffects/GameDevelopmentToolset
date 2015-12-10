@@ -1,14 +1,23 @@
 import hou
 import objecttoolutils
-import roptoolutils
-import cop2toolutils
-import objecttoolutils
 import realtimetoolutils
-reload(realtimetoolutils)
 
 #TODO:Create $HIP/render folder
 
-def flipbookRig(kwargs):
+def flipbookRig(kwargs, setCamPos = False, camPos = [0,0,0]):
+    '''
+    This function generates a basic flipbook setup. It'll create:
+    -Camera
+    -ROP Network with Mantra node
+    -COP Network with required nodes for flipbooking
+
+    setCamPos: True/False
+    For the preset modules. If False, generate camera at viewport location.
+    If True, explicitly set camera position via python.
+
+    camPos: [x,y,z] coordinates for the camera position. Pipe in if setCamPos = True.
+    '''
+
     realtimetoolutils.createProjectFolder("render")
     realtimetoolutils.createProjectFolder("exports")
 
@@ -17,6 +26,11 @@ def flipbookRig(kwargs):
     fbCam.setParms({'resx':1024,
                     'resy':1024,
                     'projection':0,})
+
+    if setCamPos:
+        fbCam.setParms({'tx':camPos[0],
+                        'ty':camPos[1],
+                        'tz':camPos[2]})
 
     #Generate ROP
     fbROP = hou.node("/obj").createNode("ropnet", "RENDER_NETWORK")

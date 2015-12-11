@@ -482,5 +482,30 @@ RT_WispySmoke.wispyRT(kwargs, True)]]></script>
 
   <toolshelf name="rtTools" label="RTTools">
     <memberTool name="rtFlipbookRig"/>
+    <memberTool name="rtSliceMesh"/>
   </toolshelf>
+
+  <tool name="rtSliceMesh" label="Slice Mesh" icon="PLASMA_App">
+    <script scriptType="python"><![CDATA[import sys
+
+####################
+#Add src directory 
+#to path if it isn't there
+####################
+SOURCE  = hou.expandString('$HOUDINI_USER_PREF_DIR') + "/toolbar/src/StockShelfTools"
+
+if SOURCE not in sys.path:
+    sys.path.append(SOURCE)
+    
+#Import and refresh module
+import realtimetoolutils
+reload(realtimetoolutils)
+
+#################################
+#Class constructor call!
+#################################
+#BillowySmoke()
+
+realtimetoolutils.sliceSourceObject(hou.selectedNodes()[0])]]></script>
+  </tool>
 </shelfDocument>

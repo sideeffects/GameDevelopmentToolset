@@ -3,6 +3,7 @@ import toolutils
 import doptoolutils
 import dopsmoketoolutils
 import doppyrotoolutils
+import realtimetoolutils
 
 def wispyRT(kwargs, use2D=False):
     """ Selected object becomes an emitter of wispy smoke.
@@ -61,7 +62,7 @@ def wispyRT(kwargs, use2D=False):
                 ('dist_target',0,None),
                 ('dist_override_block_size', False, None),
                 ('dist_density_cutoff', 0.1, None),
-                 ('scaled_forces','* ^Gravity',None),
+                ('scaled_forces','* ^Gravity',None),
                 ])
 
     #build dissipation ramp
@@ -82,7 +83,11 @@ def wispyRT(kwargs, use2D=False):
                     ('divsize',0.01,doppyrotoolutils.op_mult),
                     ('multifield_densityscale',1.0,doppyrotoolutils.op_div),
                     ('multifield_shadowscale',1.0,doppyrotoolutils.op_div),
-                    ('twod',1.0,None)
+                    ('twod',1.0,None),
+                    ('sizex',10,None),
+                    ('sizey',10,None),
+                    ('tx',0,None),
+                    ('ty',0,None)
                     ]
                     )
     else:
@@ -91,6 +96,12 @@ def wispyRT(kwargs, use2D=False):
                     ('divsize',0.2,doppyrotoolutils.op_mult),
                     ('multifield_densityscale',1.0,doppyrotoolutils.op_div),
                     ('multifield_shadowscale',1.0,doppyrotoolutils.op_div),
+                    ('sizex',10,None),
+                    ('sizey',10,None),
+                    ('sizez',10,None),
+                    ('tx',0,None),
+                    ('ty',0,None),
+                    ('tz',0,None)
                     ]
                     )
 

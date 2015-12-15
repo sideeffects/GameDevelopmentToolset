@@ -480,11 +480,6 @@ reload(RT_WispySmoke)
 RT_WispySmoke.wispyRT(kwargs, True)]]></script>
   </tool>
 
-  <toolshelf name="rtTools" label="RTTools">
-    <memberTool name="rtFlipbookRig"/>
-    <memberTool name="rtSliceMesh"/>
-  </toolshelf>
-
   <tool name="rtSliceMesh" label="Slice Mesh" icon="PLASMA_App">
     <script scriptType="python"><![CDATA[import sys
 
@@ -508,4 +503,11 @@ reload(realtimetoolutils)
 
 realtimetoolutils.sliceSourceObject(hou.selectedNodes()[0])]]></script>
   </tool>
+
+  <toolshelf name="rtParticleFluids" label="Particle Fluids"/>
+
+  <toolshelf name="rtMiscTools" label="Misc Tools">
+    <memberTool name="rtFlipbookRig"/>
+    <memberTool name="rtSliceMesh"/>
+  </toolshelf>
 </shelfDocument>

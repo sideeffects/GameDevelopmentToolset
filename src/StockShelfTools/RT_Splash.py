@@ -35,23 +35,38 @@ def splash(kwargs):
                                 'spec_angle':10,
                                 })
 
-    nodeInterior = hou.node(sourceMesh.path() + '_fluidinterior')
-    # nodeInterior = hou.node('/obj/sphere_fluidinterior')
-    nodeInterior.setDisplayFlag(False)
-
     #Generate Lights
     nodeLight = realtimetoolutils.createSimpleSpotLight([3.55555, 1.75684, 1.53865],
                                                         [-31.2195, 68.0879, 0],
                                                         10)
 
     #Generate Camera
-    nodeCam = realtimetoolutils.createCamera(   [0,0,5],
+    nodeCam = realtimetoolutils.createCamera(   [0,0,4.5],
                                                 [0,0,0],
                                                 1024)
 
     #Generate Renderer
-    mantraNode = realtimetoolutils.createMantraNode('/obj', nodeCam.path())
-    mantraNode.setParms({   'vm_renderengine':'pbrraytrace',
+    nodeMantra = realtimetoolutils.createMantraNode('/obj', nodeCam.path())
+    nodeMantra.setParms({   'vm_renderengine':'pbrraytrace',
                             'vm_samplesx':12,
                             'vm_samplesy':12,
                             'vm_variance':0.00001778279})
+
+    #Move /shop into /obj/SHOP for organization
+    nodeSHOP = hou.node('/obj').createNode('shopnet', 'SHADERS')
+    nodesToCopy = [hou.node('/shop/basicliquid'), hou.node('/shop/uniformvolume')]
+    hou.copyNodesTo(nodesToCopy, nodeSHOP)
+    liquidShader = nodeSHOP.node('basicliquid')
+    volumeShader = nodeSHOP.node('uniformvolume')
+
+    nodeFluid = hou.node(sourceMesh.path() + '_fluid')
+    nodeFluid.setParms({'shop_materialpath':liquidShader.path()})
+
+    nodeInterior = hou.node(sourceMesh.path() + '_fluidinterior')
+    nodeInterior.setParms({'shop_materialpath':volumeShader.path()})
+    nodeInterior.setDisplayFlag(False)
+
+    nodesToCopy[0].destroy()
+    nodesToCopy[1].destroy()
+
+    hou.node('/obj').layoutChildren()

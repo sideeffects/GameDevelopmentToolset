@@ -1,5 +1,6 @@
 import hou
 import os
+import objecttoolutils
 
 '''Real Time Tool Utilities
 These utilities are designed as helpers for the real-time vfx shelf tools. You
@@ -66,3 +67,71 @@ def sliceSourceObject(objNode):
     toCollapse.append(temp5)
 
     objNode.collapseIntoSubnet(toCollapse, "sliceMesh")
+
+def createSimpleObject(objType="sphere", xform=[0,0,0], rot=[0,0,0], scale=[1,1,1], objNetwork="/obj"):
+    '''
+    Creates a simple object such as the shelf tools do
+    objType: node type to generate
+    xform, rot, scale: defines the object level transform
+    '''
+
+    temp = hou.node(objNetwork).createNode("geo", objType)
+    temp.setParms({ 'tx':xform[0],
+                    'ty':xform[1],
+                    'tz':xform[2],
+                    'rx':rot[0],
+                    'ry':rot[1],
+                    'rz':rot[2],
+                    'sx':scale[0],
+                    'sy':scale[1],
+                    'sz':scale[2]})
+    temp.displayNode().destroy()
+    temp.createNode(objType, objType)
+
+    return temp
+
+def createSimpleSpotLight(xform=[0,0,0], rot=[0,0,0], lightIntensity=1, objNetwork="/obj"):
+    '''
+    Generates a simple spot light.
+    '''
+    nodeLight = hou.node(objNetwork).createNode('hlight::2.0', 'coreSpotLight')
+    nodeLight.setParms({'tx':xform[0],
+                        'ty':xform[1],
+                        'tz':xform[2],
+                        'rx':rot[0],
+                        'ry':rot[1],
+                        'rz':rot[2],
+                        'light_intensity':lightIntensity,
+                        'coneenable':True,})
+    return nodeLight
+
+def createCamera(pos=[0,0,0], rot=[0,0,0], res=1024, objNetwork='/obj'):
+    '''
+    Generate a simple camera based on position, rotation, and resolution.
+    Sets to perspective. Generates based on objNetwork input.
+    '''
+    fbCam = hou.node(objNetwork).createNode('cam', 'RENDER_CAM')
+    fbCam.setParms({'resx':res,
+                    'resy':res,
+                    'projection':0,})
+
+    fbCam.setParms({'tx':pos[0],
+                    'ty':pos[1],
+                    'tz':pos[2],
+                    'rx':rot[0],
+                    'ry':rot[1],
+                    'rz':rot[2]})
+
+    return fbCam
+
+def createMantraNode(objNetwork='/obj', camera='/obj/cam1'):
+    '''
+    Creates a ROP Network with a Mantra node based on the objNetwork input.
+    '''
+
+    ropNode = hou.node(objNetwork).createNode('ropnet', 'RENDER_NETWORK')
+    mantraNode = ropNode.createNode('ifd', 'RENDERER')
+    mantraNode.setParms({   'camera':camera,
+                            'vm_picture':'$HIP/render/SomeImage_$F.exr'})
+
+    return mantraNode

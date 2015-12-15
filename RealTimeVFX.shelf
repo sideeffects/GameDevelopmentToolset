@@ -504,10 +504,36 @@ reload(realtimetoolutils)
 realtimetoolutils.sliceSourceObject(hou.selectedNodes()[0])]]></script>
   </tool>
 
-  <toolshelf name="rtParticleFluids" label="Particle Fluids"/>
+  <toolshelf name="rtParticleFluids" label="Particle Fluids">
+    <memberTool name="rtSplash"/>
+  </toolshelf>
 
   <toolshelf name="rtMiscTools" label="Misc Tools">
     <memberTool name="rtFlipbookRig"/>
     <memberTool name="rtSliceMesh"/>
   </toolshelf>
+
+  <tool name="rtSplash" label="Simple Splash" icon="PLASMA_App">
+    <script scriptType="python"><![CDATA[import sys
+
+####################
+#Add src directory 
+#to path if it isn't there
+####################
+SOURCE  = hou.expandString('$HOUDINI_USER_PREF_DIR') + "/toolbar/src/StockShelfTools"
+
+if SOURCE not in sys.path:
+    sys.path.append(SOURCE)
+    
+#Import and refresh module
+import RT_Splash
+reload(RT_Splash)
+
+#################################
+#Class constructor call!
+#################################
+#BillowySmoke()
+
+RT_Splash.splash(kwargs)]]></script>
+  </tool>
 </shelfDocument>

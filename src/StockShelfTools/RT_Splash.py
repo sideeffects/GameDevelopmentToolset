@@ -70,3 +70,41 @@ def splash(kwargs):
     nodesToCopy[1].destroy()
 
     hou.node('/obj').layoutChildren()
+    hou.setFrame(8)
+
+def targetSplash(kwargs):
+    framesToCollide = 12
+    timeToCollide = framesToCollide/hou.fps()
+    flipDOPNode = None
+    flipObject = None
+    staticObject = None
+    gravityNode = None
+
+    for i in hou.selectedNodes():
+        if i.type().name() == 'staticobject':
+            staticObject = hou.node(i.parm('objpath').unexpandedString())
+        if i.type().name() == 'flipobject':
+            flipDOPNode = i
+            flipObject = hou.node(i.parm('soppath').unexpandedString())
+        if i.type().name() == 'gravity':
+            gravityNode = i
+
+    hou.setFrame(1)
+
+    targetPos = staticObject.worldTransform().extractTranslates()
+    sourcePos = flipObject.worldTransform().extractTranslates()
+    gravityVec = [  gravityNode.parm('forcex').eval(),
+                    gravityNode.parm('forcey').eval(),
+                    gravityNode.parm('forcez').eval()]
+
+    velocityVector = [  -(sourcePos[0]-targetPos[0]+0.5*gravityVec[0]*timeToCollide**2)/timeToCollide,
+                        -(sourcePos[1]-targetPos[1]+0.5*gravityVec[1]*timeToCollide**2)/timeToCollide,
+                        -(sourcePos[2]-targetPos[2]+0.5*gravityVec[2]*timeToCollide**2)/timeToCollide]
+
+    flipDOPNode.setParms({  'velocityx':velocityVector[0],
+                            'velocityy':velocityVector[1],
+                            'velocityz':velocityVector[2]})
+
+    #TODO:temp.simulation().objects()[1].findSubData('Forces').subData()
+    #^^Combine all acting forces
+    #Store equation in initial velocity

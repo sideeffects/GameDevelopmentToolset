@@ -16,6 +16,8 @@ def splash(kwargs):
     doptoolutils.genericTool(kwargs, 'staticobject')
     collisionMesh.setSelected(False)
     collisionMesh.setDisplayFlag(False)
+    collisionMesh.createNode('null', 'RENDER').setRenderFlag(True)
+    collisionMesh.layoutChildren()
 
     sourceMesh = realtimetoolutils.createSimpleObject("sphere", [-2,-2,-2], [0,0,0], [0.25,0.25,0.25])
     sourceMesh.setSelected(True)
@@ -72,6 +74,8 @@ def splash(kwargs):
     hou.node('/obj').layoutChildren()
     hou.setFrame(8)
 
+    sourceMesh.setSelected(True)
+
 def targetSplash(kwargs):
     framesToCollide = 12
     timeToCollide = framesToCollide/hou.fps()
@@ -106,5 +110,6 @@ def targetSplash(kwargs):
                             'velocityz':velocityVector[2]})
 
     #TODO:temp.simulation().objects()[1].findSubData('Forces').subData()
-    #^^Combine all acting forces
-    #Store equation in initial velocity
+    #TODO:^^Combine all acting forces
+    #TODO:Store equation in initial velocity
+    #TODO:Show trajectory via curve

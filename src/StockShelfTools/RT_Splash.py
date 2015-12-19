@@ -13,6 +13,14 @@ def splash(kwargs):
     collisionMesh.displayNode().setParms({  'type':'polymesh',
                                             'rows':50,
                                             'cols':50})
+    collisionMeshMountain = collisionMesh.displayNode().createOutputNode('mountain', 'mountainDeformer')
+    collisionMeshMountain.setParms({'frac_depth':9,
+                                    'rough':0.05,
+                                    'height':0.184,
+                                    'freq1':10,
+                                    'freq2':10,
+                                    'freq3':10})
+    collisionMeshMountain.setDisplayFlag(True)
     doptoolutils.genericTool(kwargs, 'staticobject')
     collisionMesh.setSelected(False)
     collisionMesh.setDisplayFlag(False)

@@ -63,33 +63,4 @@ RT_FlipbookRig.flipbookRig(kwargs)]]></script>
   <shelfSet name="shelf_set_3" label="New Shelf Set">
     <memberToolshelf name="funTools"/>
   </shelfSet>
-
-  <toolshelf name="funTools" label="stevesFunTools">
-    <memberTool name="genFBX"/>
-  </toolshelf>
-
-  <tool name="genFBX" label="generateFBXOutputs" icon="PLASMA_App">
-    <script scriptType="python"><![CDATA[import os
-hipFolder = hou.expandString("$HIP")
-folder = "exports"
-
-if not os.path.exists(hipFolder + "/" + folder):
-    os.makedirs(hipFolder + "/" + folder)
-
-fbxNode = hou.selectedNodes()[0]
-fbxChildren = fbxNode.children()
-fbxNumChildren = len(fbxChildren)
-
-ropNetwork = hou.node('/obj').createNode('ropnet', 'FBXRenderers')
-mergeNode = ropNetwork.createNode('merge', 'RenderAll')
-
-for index, node in enumerate(fbxChildren):
-    temp = mergeNode.createInputNode(index, 'filmboxfbx', node.name())
-    temp.setParms({ 'sopoutput':'$HIP/exports/'+node.name(),
-                    'startnode':node.path(),
-                    'exportkind':False,
-                    'sdkversion':'FBX | FBX201400'})
-                    
-ropNetwork.layoutChildren()]]></script>
-  </tool>
 </shelfDocument>

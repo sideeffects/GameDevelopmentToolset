@@ -14,18 +14,6 @@ first culprit.
 2) Set up your simulation exactly how you want it. If the transforms are set
 properly, the pieces will be 1:1 with the simulation. THEN press the button.
 This tool is designed to be the very last step in the process.
-
-3) FOR YOUR RBD IMPORT IN THE DOP NETWORK: The script current doesn't parse
-the default opinputpath. Please set the absolute or relative path.
-
-CHANGES:
-1) No longer need attribcreate in the sop network. It automatically finds
-the correct geometry. If other nodes cause conflicts, add to if statement in
-FindReferenceGeometry().
-
-2) Tool now checks for the creation frame of the RBD Object Import node. You can
-now set a custom start frame and the tool will automatically find the delta of
-the rest attribute in the simulation!
 '''
 
 import hou
@@ -139,17 +127,6 @@ class FRACTURE_RIG:
             print "ERROR 0: Cannot generate unpack node!"
 
         unpack.setFirstInput(refGeo)
-        #
-        # if(refGeo.parent().node("UNPACK_DELETE")  == None):
-        #     deleteUnpack = refGeo.parent().createNode("delete", "UNPACK_DELETE")
-        # elif (refGeo.parent().node("UNPACK_DELETE")  != None):
-        #     deleteUnpack = refGeo.parent().node("UNPACK_DELETE")
-        # else:
-        #     print "ERROR 0: Cannot generate unpack_delete node!"
-        #
-        # deleteUnpack.setFirstInput(unpack)
-        # deleteUnpack.setParms({'group':'BuildingZNeg',
-        #                         'negate':'keep'})
 
         for index in range(0, self.numberOfPieces):
             proxy   = None

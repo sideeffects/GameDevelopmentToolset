@@ -58,9 +58,9 @@ def splash(kwargs):
     #Generate Renderer
     nodeMantra = realtimetoolutils.createMantraNode('/obj', nodeCam.path())
     nodeMantra.setParms({   'vm_renderengine':'pbrraytrace',
-                            'vm_samplesx':12,
-                            'vm_samplesy':12,
-                            'vm_variance':0.00001778279})
+                            'vm_samplesx':3,
+                            'vm_samplesy':3,
+                            'vm_variance':0.01})
 
     #Move /shop into /obj/SHOP for organization
     nodeSHOP = hou.node('/obj').createNode('shopnet', 'SHADERS')

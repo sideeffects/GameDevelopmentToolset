@@ -590,4 +590,61 @@ ropNetwork.layoutChildren()]]></script>
   <toolshelf name="funTools" label="Modeling Tools">
     <memberTool name="splitFBX"/>
   </toolshelf>
+
+  <shelfSet name="realtimevfx" label="RealTimeVFX">
+    <memberToolshelf name="rtPyro"/>
+    <memberToolshelf name="2DPyro"/>
+    <memberToolshelf name="rtMiscTools"/>
+    <memberToolshelf name="rtParticleFluids"/>
+    <memberToolshelf name="Real Time VFX"/>
+    <memberToolshelf name="funTools"/>
+  </shelfSet>
+
+  <tool name="rtFlames" label="Flames" icon="SHELF_fire">
+    <script scriptType="python"><![CDATA[import sys
+
+####################
+#Add src directory 
+#to path if it isn't there
+####################
+SOURCE  = hou.expandString('$HOUDINI_USER_PREF_DIR') + "/toolbar/src/StockShelfTools"
+
+if SOURCE not in sys.path:
+    sys.path.append(SOURCE)
+    
+#Import and refresh module
+import RT_SmokelessFlames
+reload(RT_SmokelessFlames)
+
+#################################
+#Class constructor call!
+#################################
+#BillowySmoke()
+
+RT_SmokelessFlames.burn(kwargs, True)]]></script>
+  </tool>
+
+  <tool name="rtFlipbookRig" label="Flipbook Rig" icon="PLASMA_App">
+    <script scriptType="python"><![CDATA[import sys
+
+####################
+#Add src directory 
+#to path if it isn't there
+####################
+SOURCE  = hou.expandString('$HOUDINI_USER_PREF_DIR') + "/toolbar/src/StockShelfTools"
+
+if SOURCE not in sys.path:
+    sys.path.append(SOURCE)
+    
+#Import and refresh module
+import RT_FlipbookRig
+reload(RT_FlipbookRig)
+
+#################################
+#Class constructor call!
+#################################
+#BillowySmoke()
+
+RT_FlipbookRig.flipbookRig(kwargs)]]></script>
+  </tool>
 </shelfDocument>

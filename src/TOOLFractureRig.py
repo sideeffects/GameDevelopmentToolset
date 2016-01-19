@@ -2,8 +2,8 @@
 Fracture Rig!
 Author: Steven Burrichter
 Company: Side Effects Software
-Last Updated: 10/1/2015
-Reference Build: H15.0.252
+Last Updated: 1/19/2016
+Reference Build: H15.0.347
 
 IMPORTANT NOTES
 1) Make sure the object you want to fracture is at the origin and has NO
@@ -14,6 +14,8 @@ first culprit.
 2) Set up your simulation exactly how you want it. If the transforms are set
 properly, the pieces will be 1:1 with the simulation. THEN press the button.
 This tool is designed to be the very last step in the process.
+
+3) Will process MULTIPLE Packed Rigid Body nodes!
 '''
 
 import hou
@@ -41,15 +43,12 @@ class FRACTURE_RIG:
         self.nodeGeo = hou.selectedNodes()
 
         if len(self.nodeGeo) > 1:
-            #Multiple assets
-            #TODO: Check all nodes are the same before moving forward
             node_type = self.nodeGeo[0].type()
         elif len(self.nodeGeo) < 1:
             return False
         else:
             node_type = self.nodeGeo[0].type()
 
-        #TODO: Solve for multiple nodes
         if self.nodeGeo[0].parm('soppath') == None:
             print "DOP Node doesn't contain a soppath!"
             return False
@@ -91,9 +90,7 @@ class FRACTURE_RIG:
             self.nodePieces.append([])
 
             for index in range(0, self.numberOfPieces[objectToProcess]):
-                #TODO: Append name to each geo node
                 tempName = self.nodeDisplay[objectToProcess].parent().name()
-                print tempName
 
                 if(hou.node("/obj/FBX_RESULT/" + tempName + "_PIECE" + str(index)) == None):
                     self.nodePieces[objectToProcess].insert(index, self.nodeSubnet.createNode("geo", tempName + "_PIECE" + str(index)))
@@ -156,9 +153,6 @@ class FRACTURE_RIG:
                 delete  = None
                 xform   = None
 
-                print self.nodePieces[objectToProcess][index]
-
-                #TODO: Figure out order of operations
                 #################################
                 #Create the nodes to process the
                 #individual pieces
@@ -202,7 +196,6 @@ class FRACTURE_RIG:
                 xform.setFirstInput(delete)
                 xform.parm('movecentroid').pressButton()
 
-                #TODO: From event. Figure out calculations.
                 creationFrame = self.nodeGeo[objectToProcess].parm('createframe').eval()
                 hou.setFrame(creationFrame)
                 dopxform1 = self.nodeGeo[objectToProcess].simulation().findObject(self.nodeGeo[objectToProcess].name()).geometry().iterPoints()[index].attribValue('rest')
@@ -268,7 +261,7 @@ class FRACTURE_RIG:
 
         for frame in range(RFSTART, RFEND+1):
             hou.setFrame(frame)
-            # print "Processing Frame: " + str(frame)
+            print "Processing Frame: " + str(frame)
 
             for objectToProcess in range(0, len(self.numberOfPieces)):
                 for index in range(0,self.numberOfPieces[objectToProcess]):

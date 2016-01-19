@@ -19,5 +19,5 @@ When you open Houdini, you'll need to add the shelf. If you look up at the curre
 If you’d like to save its location, you’ll need to save the desktop via the Window menu.
 
 Special Thanks:
-Kyle Nikolich for collaborating on this!
+Kyle Nikolich for collaborating on the fracture tools!
 Ryan Dowlingsoka for reminding me I need to be more Pythonic with my basic Python skills :P

@@ -17,3 +17,7 @@ OSX
 When you open Houdini, you'll need to add the shelf. If you look up at the current shelves, there should be a little triangle pointing downwards in the UI. Click that -> Shelf Sets -> RealTimeVFX and the shelf should pop up.
 
 If you’d like to save its location, you’ll need to save the desktop via the Window menu.
+
+Special Thanks:
+Kyle Nikolich for collaborating on this!
+Ryan Dowlingsoka for reminding me I need to be more Pythonic with my basic Python skills :P

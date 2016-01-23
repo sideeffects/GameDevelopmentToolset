@@ -84,7 +84,112 @@ class FRACTURE_RIG:
     #################################
     #Creates the initial geo nodes
     #for the pieces
-    #################################
+    #############################
+    for objectToProcess in range(0, len(self.nodeDisplay)):
+        # refGeo = self.FindReferenceGeometry()
+        refGeo = self.nodeDisplay[objectToProcess]
+        unpack = None
+        deleteUnpack = None
+
+        tempName = self.nodeDisplay[objectToProcess].parent().name()
+
+        if(refGeo.parent().node("UNPACK")  == None):
+            unpack = refGeo.parent().createNode("unpack", "UNPACK")
+        elif (refGeo.parent().node("UNPACK")  != None):
+            unpack = refGeo.parent().node("UNPACK")
+        else:
+            print "ERROR 0: Cannot generate unpack node!"
+
+        unpack.setFirstInput(refGeo)
+
+        for index in range(0, self.numberOfPieces[objectToProcess]):
+            proxy   = None
+            delete  = None
+            xform   = None
+
+            #################################
+            #Create the nodes to process the
+            #individual pieces
+            #################################
+            if(hou.node("/obj/FBX_RESULT/" + tempName + "_PIECE" + str(index) + "/PROXY")  == None):
+                proxy = self.nodePieces[objectToProcess][index].createNode("object_merge", "PROXY")
+            elif (hou.node("/obj/FBX_RESULT/" + tempName + "_PIECE" + str(index) + "/PROXY")  != None):
+                proxy = hou.node("/obj/FBX_RESULT/" + tempName + "_PIECE" + str(index) + "/PROXY")
+            else:
+                print "ERROR 0: Cannot generate proxy node!"
+
+            proxy.setParms({"objpath1":proxy.relativePathTo(unpack),
+                            "xformtype":"object",
+                            "xformpath":"../.."})
+
+            if(hou.node("/obj/FBX_RESULT/" + tempName + "_PIECE" + str(index) + "/DELETE")  == None):
+                delete = self.nodePieces[objectToProcess][index].createNode("delete", "DELETE")
+            elif (hou.node("/obj/FBX_RESULT/" + tempName + "_PIECE" + str(index) + "/DELETE")  != None):
+                delete = hou.node("/obj/FBX_RESULT/" + tempName + "_PIECE" + str(index) + "/DELETE")
+            else:
+                print "ERROR 0: Cannot generate proxy node!"
+
+            delete.setParms({'group':"@name=piece" + str(index),
+                            'negate':'keep'})
+            delete.setFirstInput(proxy)
+
+            if(hou.node("/obj/FBX_RESULT/" + tempName + "_PIECE" + str(index) + "/XFORM")  == None):
+                xform = self.nodePieces[objectToProcess][index].createNode("xform", "XFORM")
+            elif (hou.node("/obj/FBX_RESULT/" + tempName + "_PIECE" + str(index) + "/XFORM")  != None):
+                xform = hou.node("/obj/FBX_RESULT/" + tempName + "_PIECE" + str(index) + "/XFORM")
+            else:
+                print "ERROR 0: Cannot generate proxy node!"
+
+
+            #################################
+            #This is important to grab the correct transform for the pieces.
+            #Otherwise, all transforms will be at [0,0,0] and ruin your day.
+            #The key here is finding the delta of the rest values between the
+            #creation frame and the next frame.
+            #################################
+            xform.setFirstInput(delete)
+            xform.parm('movecentroid').pressButton()
+
+            creationFrame = self.nodeGeo[objectToProcess].parm('createframe').eval()
+            hou.setFrame(creationFrame)
+            dopxform1 = self.nodeGeo[objectToProcess].simulation().findObject(self.nodeGeo[objectToProcess].name()).geometry().iterPoints()[index].attribValue('rest')
+            hou.setFrame(creationFrame+1)
+            dopxform2 = self.nodeGeo[objectToProcess].simulation().findObject(self.nodeGeo[objectToProcess].name()).geometry().iterPoints()[index].attribValue('rest')
+            deltaXFORM = []
+            hou.setFrame(creationFrame)
+
+            for i in range(0,3):
+                deltaXFORM.insert(i, dopxform1[i]-dopxform2[i])
+
+            translates = [xform.parm('tx').eval(), xform.parm('ty').eval(), xform.parm('tz').eval()]
+            result = [translates[0]+deltaXFORM[0], translates[1]+deltaXFORM[1], translates[2]+deltaXFORM[2]]
+            result = []
+            for i in range(0,3):
+                result.insert(i, translates[i]+deltaXFORM[i])
+
+            xform.setParms({'tx':result[0],
+                            'ty':result[1],
+                            'tz':result[2]})
+
+            #################################
+            #File I/O. Saves a temp obj to reset the mesh/transform
+            #################################
+            # if(hou.node("/obj/FBX_RESULT/PIECE" + str(index) + "/FILE")  == None):
+            #     file = self.nodePieces[index].createNode("file", "FILE")
+            # elif (hou.node("/obj/FBX_RESULT/PIECE" + str(index) + "/FILE")  != None):
+            #     file = hou.node("/obj/FBX_RESULT/PIECE" + str(index) + "/FILE")
+            # else:
+            #     print "ERROR 0: Cannot generate file node!"
+            #
+            # file.setParms({'filemode':'auto',
+            #                 'file':'$HIP/tmp/temp_piece_' + str(index) + '.bgeo'})
+            # file.setFirstInput(xform)
+
+            #################################
+            #Delete original file node
+            #################################
+            if(str(hou.node("/obj/FBX_RESULT/" + tempName + "_PIECE" + str(index) + "/file1")) != "None"):
+                hou.node("/obj/FBX_RESULT/" + tempName + "_PIECE" + str(index) + "/file1").destroy()####
     def GenerateGeo(self):
         for objectToProcess in range(0, len(self.nodeDisplay)):
             self.nodePieces.append([])

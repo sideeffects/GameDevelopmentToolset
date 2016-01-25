@@ -83,3 +83,13 @@ def indexAttributeEntries(nodes, attributeString):
             listPieces = objGeometry.findPrimAttrib(attributeString).strings()
         numberOfHits.append(len(listPieces))
     return numberOfHits
+
+def deleteKeyframes(nodes, startFrame, endFrame, step, parameters = ["tx", "ty", "tz", "rx", "ry", "rz", "px", "py", "pz"]):
+    '''
+    For each node, cycle through the frames with a certain step size and
+    delete the listed parameter keyframe.
+    '''
+    for node in nodes:
+        for frame in range(startFrame, endFrame, step):
+            for PARM in parameters:
+                node.parm(PARM).deleteKeyframeAtFrame(frame)

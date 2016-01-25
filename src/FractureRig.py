@@ -143,13 +143,3 @@ def processMesh(nodes, nodePieces, numPieces, frameRate=24):
                     hou_keyed_parm.setKeyframe(hou_keyframe)
 
     print "Processing Complete!"
-
-'''TransferSimTransform
-Requires:
-1) simulatedNodes
-2) targetNodes
-3) numberOfPieces (could be rolled into target nodes?)
-
-for each targetNode: (should be in order)
-    match transform with simulatedNode
-'''

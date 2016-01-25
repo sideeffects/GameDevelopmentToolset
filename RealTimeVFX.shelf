@@ -598,6 +598,7 @@ ropNetwork.layoutChildren()]]></script>
     <memberToolshelf name="rtParticleFluids"/>
     <memberToolshelf name="Real Time VFX"/>
     <memberToolshelf name="funTools"/>
+    <memberToolshelf name="experimental"/>
   </shelfSet>
 
   <tool name="rtFlames" label="Flames" icon="SHELF_fire">
@@ -708,7 +709,12 @@ reload(FractureRig)
 FractureRig.init(hou.selectedNodes())]]></script>
   </tool>
 
-  <tool name="fractureRigExperimental" label="FR Experimental" icon="PLASMA_App">
+  <toolshelf name="experimental" label="Experimental">
+    <memberTool name="experimentalFractureRig"/>
+    <memberTool name="experimentalKeyframeRemover"/>
+  </toolshelf>
+
+  <tool name="experimentalFractureRig" label="FR Experimental" icon="PLASMA_App">
     <script scriptType="python"><![CDATA[import sys
 
 ####################
@@ -732,6 +738,34 @@ from FractureRigUI import FractureRigUI
 #Call the class and show the dialog
 ####################
 dialog = FractureRigUI()
+dialog.show()
+]]></script>
+  </tool>
+
+  <tool name="experimentalKeyframeRemover" label="Keyframe Remover" icon="PLASMA_App">
+    <script scriptType="python"><![CDATA[import sys
+
+####################
+#Add src directory 
+#to path if it isn't there
+####################
+SOURCE = hou.expandString('$HOUDINI_USER_PREF_DIR') + "/toolbar/src"
+
+if SOURCE not in sys.path:
+    sys.path.append(SOURCE)
+    
+####################
+#Import FBXImport Script
+####################
+    
+import keyframeRemoverUI
+reload(keyframeRemoverUI)
+from keyframeRemoverUI import KeyframeRemover
+
+####################
+#Call the class and show the dialog
+####################
+dialog = KeyframeRemover()
 dialog.show()
 ]]></script>
   </tool>

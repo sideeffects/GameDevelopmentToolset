@@ -648,7 +648,7 @@ reload(RT_FlipbookRig)
 RT_FlipbookRig.flipbookRig(kwargs)]]></script>
   </tool>
 
-  <tool name="fractureRigUpdate" label="FR Update" icon="PLASMA_App">
+  <tool name="fractureRigUpdate" label="Fracture Rig" icon="PLASMA_App">
     <script scriptType="python"><![CDATA['''
 Fracture Rig!
 Author: Steven Burrichter
@@ -706,5 +706,33 @@ reload(FractureRig)
 #Class constructor call!
 #################################
 FractureRig.init(hou.selectedNodes())]]></script>
+  </tool>
+
+  <tool name="fractureRigExperimental" label="FR Experimental" icon="PLASMA_App">
+    <script scriptType="python"><![CDATA[import sys
+
+####################
+#Add src directory 
+#to path if it isn't there
+####################
+SOURCE = hou.expandString('$HOUDINI_USER_PREF_DIR') + "/toolbar/src"
+
+if SOURCE not in sys.path:
+    sys.path.append(SOURCE)
+    
+####################
+#Import FBXImport Script
+####################
+    
+import FractureRigUI
+reload(FractureRigUI)
+from FractureRigUI import FractureRigUI
+
+####################
+#Call the class and show the dialog
+####################
+dialog = FractureRigUI()
+dialog.show()
+]]></script>
   </tool>
 </shelfDocument>

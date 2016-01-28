@@ -13,7 +13,29 @@
     <memberToolshelf name="tabRigidBodies"/>
   </shelfSet>
 
-  <tool name="fractureRigUpdate" label="Fracture Rig" icon="PLASMA_App">
+  <tool name="fractureRigUpdate" label="Fracture Rig" icon="DOP_rbdfracturedobject">
+    <helpText><![CDATA[=Fracture Rig=
+"""This tool takes RBD Packed Object nodes, creates a subnet (/obj/FBX_EXPORT) containing all the individual pieces, and then keyframes their positions based on the simulation. Typical usage: baked destruction sequences.""" 
+
+NOTE:
+ This tool assumes you have already set up a fracture pipeline according the the Preflight below and have the correct simulation in mind. This tool should be the very last thing you do before exporting to FBX!
+
+==Preflight==
+There are a couple things that need to be checked before using this tool.
+
+* There are minimal transform modifications to the original geometry. It's common for custom pipelines to have leftover transform modifications which can cause havoc.
+* The timeline is set to the range you intend to export. If your timeline is set to 1-240, this tool will generate 240 keyframes from 1-240.
+
+==If Packing Manually==
+This pertains to custom pipelines where the packing is handled manually.
+
+* If packing the object manually, the @name attribute must be in the following format: piece# (ex. piece0, piece1, piecce2, etc).
+* If using mulitpple packed objects, each packed set should use the above naming starting at 0.
+
+==Using this tool==
+# Select the RBD Packed Object nodes in your DOP Network for processing.
+# Click the tool's button!
+# Export the resulting /obj/FBX_EXPORT subnet (might have a number appended if one exists) to an FBX file]]></helpText>
     <script scriptType="python"><![CDATA['''
 Fracture Rig!
 Author: Steven Burrichter

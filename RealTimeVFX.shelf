@@ -6,11 +6,11 @@
  a single file. -->
 
   <toolshelf name="Real Time VFX" label="Real Time VFX">
-    <memberTool name="Fracture Rig"/>
     <memberTool name="fractureRigClusters"/>
     <memberTool name="Set Parent"/>
     <memberTool name="fbx_importer_custom"/>
     <memberTool name="fbx_exporter_custom"/>
+    <memberTool name="fractureRigUpdate"/>
   </toolshelf>
 
   <tool name="Fracture Rig" label="Fracture Rig" icon="$HFS/houdini/help/icons/large/DOP/embedhighresobject.png">
@@ -654,7 +654,7 @@ RT_FlipbookRig.flipbookRig(kwargs)]]></script>
 Fracture Rig!
 Author: Steven Burrichter
 Company: Side Effects Software
-Last Updated: 05/13/2015
+Last Updated: 01/27/2016
 
 SHELF TOOL: This points to the file externally in the /toolbar/src folder.
 This is so you can use any external editor to modify the files.
@@ -682,7 +682,8 @@ FindReferenceGeometry().
 
 2) Tool now checks for the creation frame of the RBD Object Import node. You can
 now set a custom start frame and the tool will automatically find the delta of
-the rest attribute in the simulation!'''
+the rest attribute in the simulation!
+'''
 
 import sys
 import hou
@@ -701,7 +702,6 @@ if SOURCE not in sys.path:
 ####################
 import FractureRig
 reload(FractureRig)
-#from FractureRig import FRACTURE_RIG
 
 #################################
 #Class constructor call!

@@ -59,6 +59,13 @@ def modifyGeo(nodes, geometryNodes, nodePieces, numPieces, root):
 
         unpack.setFirstInput(refGeo)
 
+        #Locks the unpack node to prevent processing during FBX Export
+        if(unpack.isLocked()):
+            unpack.setHardLocked(False)
+            unpack.setHardLocked(True)
+        else:
+            unpack.setHardLocked(True)
+
         for index in range(0, numPieces[objectToProcess]):
             proxy   = None
             delete  = None
@@ -121,8 +128,9 @@ def processMesh(nodes, nodePieces, numPieces, frameRate=24):
     PARMS   =   ["tx", "ty", "tz", "rx", "ry", "rz", "px", "py", "pz"]
     RFSTART = int(hou.expandString('$RFSTART'))
     RFEND = int(hou.expandString('$RFEND'))
+    frameSkip = int(hou.fps()/frameRate)
 
-    for frame in range(RFSTART, RFEND+1, int(hou.fps()/frameRate)):
+    for frame in range(RFSTART, RFEND+1, frameSkip):
         hou.setFrame(frame)
         print "Processing Frame: " + str(frame)
 

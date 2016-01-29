@@ -1,10 +1,12 @@
+import re
+
 def nodeSelectionValid(nodes = []):
     '''nodeSelectionValid
     Simple check to see if node list is valid.
     return bool
     '''
     if len(nodes) == 0:
-        print "No nodes detected!"
+        print 'No nodes detected!'
         return False
     return True
 
@@ -17,7 +19,7 @@ def nodeSelectionMatchParm(nodes = [], parm = 'soppath'):
         if node.parm(parm):
             continue
         else:
-            print "{} does not contain parameter: {}".format(node, parm)
+            print '{} does not contain parameter: {}'.format(node, parm)
             return False
     return True
 
@@ -29,7 +31,7 @@ def nodeSelectionMatchType(nodes = [], type = 'rbdpackedobject'):
         if node.type().name() == type:
             continue
         else:
-            print "{} does not match the type: {}".format(node, type)
+            print '{} does not match the type: {}'.format(node, type)
             return False
     return True
 
@@ -84,15 +86,45 @@ def indexAttributeEntries(nodes, attributeString):
         numberOfHits.append(len(listPieces))
     return numberOfHits
 
-def deleteKeyframes(nodes, startFrame, endFrame, step, parameters = ["tx", "ty", "tz", "rx", "ry", "rz"]):
+def deleteKeyframes(nodes, startFrame, endFrame, step, parameters = ['tx', 'ty', 'tz', 'rx', 'ry', 'rz']):
     '''
     For each node, cycle through the frames with a certain step size and
     delete the listed parameter keyframe.
     '''
-    print "Processing Start."
+    print 'Processing Start.'
     for node in nodes:
-        print "Processing Node: " + node.name()
+        print 'Processing Node: ' + node.name()
         for frame in range(startFrame, endFrame, step):
             for PARM in parameters:
                 node.parm(PARM).deleteKeyframeAtFrame(frame)
-    print "Processing Complete!"
+    print 'Processing Complete!'
+
+def checkPointAttributeNaming(nodes, attribute):
+    '''checkCountingNamingConvention
+    For each node, search for the attribute, make sure the string is in each
+    entry, and then make sure that the order matches.
+    '''
+
+    for node in nodes:
+        if node.geometry().findPointAttrib(attribute) == None:
+            print 'Error. {} doesn\'t exist as a point attribute!'.format(attribute)
+            return None
+
+        entries = node.geometry().findPointAttrib(attribute).strings()
+        textCheck = ""
+
+        for idx, entry in enumerate(entries):
+            attributeText, attributeNumber, blank = re.split('(\d+)', entry)
+
+            if idx == 0:
+                textCheck = attributeText
+
+            if attributeText != textCheck:
+                print "Error! Name inconsistency with " + entry
+                return None
+
+            if int(attributeNumber) != idx:
+                print "Error! Attribute counting inconsistency at " + entry
+                return None
+
+        return True

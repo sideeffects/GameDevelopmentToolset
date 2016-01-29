@@ -26,6 +26,7 @@ There are a couple things that need to be checked before using this tool.
 * It's assumed the fracture pipeline was geared towards objects that were previously created either in Houdini or imported from another package. For example: the art director would like a wall to break in a level that already exists in-engine.
 * All transform modifications are kept to a minimum. Ideally the transforms in the simulation and at the geometry level are 1:1. Otherwise the tool might result in the fracture pieces not lining up properly. Commonly, the pieces will be rotated in odd ways.
 * The timeline is set to the range you intend to export. If your timeline is set from 1-240, this tool will generate 240 keyframes incrementing from 1-240. This is required to ensure accuracy in the resulting baked animation.
+* Be sure to set the 'startframe' parameter to AnimationStart-1. Otherwise the first frame of the animation will be slightly off.
 
 ==Packing Manually==
 This pertains to custom pipelines where the packing is handled manually.

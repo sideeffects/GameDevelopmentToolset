@@ -55,10 +55,10 @@ def modifyGeo(nodes, geometryNodes, nodePieces, numPieces, root):
 
         tempName = geometryNodes[objectToProcess].parent().name()
 
-        if(refGeo.parent().node("UNPACK")  == None):
-            unpack = refGeo.parent().createNode("unpack", "UNPACK")
-        elif (refGeo.parent().node("UNPACK")  != None):
-            unpack = refGeo.parent().node("UNPACK")
+        if(refGeo.parent().node("UNPACK" + str(objectToProcess))  == None):
+            unpack = refGeo.parent().createNode("unpack", "UNPACK" + str(objectToProcess))
+        elif (refGeo.parent().node("UNPACK" + str(objectToProcess))  != None):
+            unpack = refGeo.parent().node("UNPACK" + str(objectToProcess))
         else:
             print "ERROR 0: Cannot generate unpack node!"
 
@@ -99,6 +99,8 @@ def modifyGeo(nodes, geometryNodes, nodePieces, numPieces, root):
             #creation frame and the next frame.
             #################################
             xform.setFirstInput(delete)
+            xform.setDisplayFlag(True)
+            xform.setRenderFlag(True)
             xform.parm('movecentroid').pressButton()
 
             creationFrame = nodes[objectToProcess].parm('createframe').eval()
@@ -125,9 +127,9 @@ def modifyGeo(nodes, geometryNodes, nodePieces, numPieces, root):
             #################################
             #Delete original file node
             #################################
-            if(str(hou.node(root.path() + "/" + tempName + "_PIECE" + str(index) + "/file1")) != "None"):
-                hou.node(root.path() + "/" + tempName + "_PIECE" + str(index) + "/file1").destroy()
-            hou.node(root.path() + "/" + tempName + "_PIECE" + str(index)).layoutChildren()
+            if(xform.parent().node('file1') != None):
+                xform.parent().node("file1").destroy()
+            xform.parent().layoutChildren()
 
 def processMesh(nodes, nodePieces, numPieces):
     PARMS   =   ["tx", "ty", "tz", "rx", "ry", "rz", "px", "py", "pz"]

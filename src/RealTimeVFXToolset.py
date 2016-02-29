@@ -1,4 +1,5 @@
 import re
+import hou
 
 def nodeSelectionValid(nodes = []):
     '''nodeSelectionValid
@@ -128,3 +129,40 @@ def checkPointAttributeNaming(nodes, attribute):
                 return None
 
         return True
+
+def keyframeReducer(nodes,
+                    parms = [],
+                    startFrame = int(hou.expandString('$RFSTART')),
+                    endFrame = int(hou.expandString('$RFEND')),
+                    tolerance = 0.0001):
+    '''keyframeReducer
+    For each node, look for the specified parameters during the frame range. If the difference between the current and next frame is less than the tolerance, remove the keyframe.
+
+    If the parm list is empty, it will search though ALL parameters for the specified node. This will take a long time if you have a lot of nodes.
+    '''
+
+    print 'Processing Keyframes'
+    originalKeyframes = 0
+    deletedKeyframes = 0
+    modified = False
+
+    for node in nodes:
+        for frame in range(startFrame, endFrame+1):
+            if not parms:
+                temp = node.parms()
+                for parm in temp:
+                    parms.append(parm.name())
+            for parm in parms:
+                if node.parm(parm).keyframesInRange(frame, frame):
+                    originalKeyframes += 1
+                    if abs(node.parm(parm).evalAsFloatAtFrame(frame+1) - node.parm(parm).evalAsFloatAtFrame(frame)) < tolerance:
+                        if not modified:
+                            modified = True
+                        deletedKeyframes += 1
+                        node.parm(parm).deleteKeyframeAtFrame(frame)
+
+    if modified:
+        print 'Initial Frames: {}\nDeleted Frames: {}\nPercent Removed: {}%'.format(originalKeyframes, deletedKeyframes, deletedKeyframes/float(originalKeyframes)*100)
+    else:
+        print 'No Keyframes Removed'
+    print 'Keyframe Processing Complete'

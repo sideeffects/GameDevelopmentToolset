@@ -11,17 +11,18 @@
 
   <shelfSet name="shelfSetGameDevelopment" label="Game Development">
     <memberToolshelf name="tabRigidBodies"/>
+    <memberToolshelf name="rtUtilities"/>
   </shelfSet>
 
   <tool name="fractureRigUpdate" label="Fracture Rig" icon="DOP_rbdfracturedobject">
     <helpText><![CDATA[=Fracture Rig=
-"""This tool takes RBD Packed Object nodes, creates a subnet (/obj/FBX_EXPORT) containing all the individual pieces, and then keyframes their positions based on the simulation. Typical usage: baked destruction sequences.""" 
+"""This tool takes RBD Packed Object nodes, creates a subnet (/obj/FBX_EXPORT) containing all the individual pieces, and then keyframes their positions based on the simulation. Typical usage: baked destruction sequences."""
 
 NOTE:
  This tool was designed to be the very last thing done before exporting to FBX! It was also designed around the idea that the artists have already created the environment and the transforms have no modifications. Before moving forward, please review the Preflight section below.
 
 ==Preflight==
-There are a couple things that need to be checked before using this tool. 
+There are a couple things that need to be checked before using this tool.
 
 * It's assumed the fracture pipeline was geared towards objects that were previously created either in Houdini or imported from another package. For example: the art director would like a wall to break in a level that already exists in-engine.
 * All transform modifications are kept to a minimum. Ideally the transforms in the simulation and at the geometry level are 1:1. Otherwise the tool might result in the fracture pieces not lining up properly. Commonly, the pieces will be rotated in odd ways.
@@ -77,14 +78,14 @@ import sys
 import hou
 
 ####################
-#Add src directory 
+#Add src directory
 #to path if it isn't there
 ####################
 SOURCE  = hou.expandString('$HOUDINI_USER_PREF_DIR') + "/toolbar/src"
 
 if SOURCE not in sys.path:
     sys.path.append(SOURCE)
-    
+
 ####################
 #Import FBXImport Script
 ####################
@@ -96,4 +97,42 @@ reload(FractureRig)
 #################################
 FractureRig.init(hou.selectedNodes())]]></script>
   </tool>
+
+  <tool name="keyframeReducer" label="Keyframe Reducer" icon="SOP_add">
+    <helpText><![CDATA[=Keyframe Reducer=
+"""This tool takes a series of nodes that have too many keyframes and optimizes them."""
+
+NOTE:
+ In its current state, this tool goes through each node for the entire timeline and compares the selected parameters. It compares the current vs the next frame to see if the value has changed. If the difference is less than the tolerance, the keyframe is removed.
+
+==Using this tool==
+# Select the node or nodes you wish to process.
+# Set the tool accordingly.]]></helpText>
+    <script scriptType="python"><![CDATA[import sys
+import hou
+
+####################
+#Add src directory
+#to path if it isn't there
+####################
+SOURCE  = hou.expandString('$HOUDINI_USER_PREF_DIR') + "/toolbar/src"
+
+if SOURCE not in sys.path:
+    sys.path.append(SOURCE)
+
+####################
+#Import FBXImport Script
+####################
+import KeyframeReducer
+reload(KeyframeReducer)
+
+#################################
+#Class constructor call!
+#################################
+KeyframeReducer.init(hou.selectedNodes())]]></script>
+  </tool>
+
+  <toolshelf name="rtUtilities" label="Utilities">
+    <memberTool name="keyframeReducer"/>
+  </toolshelf>
 </shelfDocument>

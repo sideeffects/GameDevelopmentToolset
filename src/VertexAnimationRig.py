@@ -85,15 +85,3 @@ def processMesh(geometryNode, fbxNode):
     deform = capture.createOutputNode('deform', 'Deform')
     deform.setDisplayFlag(True)
     deform.setRenderFlag(True)
-
-def keyframeReducerInit(node):
-    childrenNodes = node.children()
-
-    bones = []
-    for node in childrenNodes:
-        if node.name() == 'root':
-            continue
-        if node.type().name() == 'bone':
-            bones.append(node)
-
-    RealTimeVFXToolset.keyframeReducer(bones, ['tx', 'ty', 'tz'])

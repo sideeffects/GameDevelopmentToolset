@@ -52,10 +52,13 @@ def findNonDOPGeometry(nodes, searchParameter, skipParameter):
     displayNodes = []
 
     for node in nodes:
-        temp = node.parm(searchParameter).unexpandedString()
-        if 'opinputpath' in temp:
-            temp = temp.split('"')[1::2][0]
-        temp = node.node(temp)
+        if searchParameter:
+            temp = node.parm(searchParameter).unexpandedString()
+            if 'opinputpath' in temp:
+                temp = temp.split('"')[1::2][0]
+            temp = node.node(temp)
+        else:
+            temp = node
 
         referenceFound = False
         while(referenceFound == False):

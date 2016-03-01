@@ -6,7 +6,8 @@
  a single file. -->
 
   <toolshelf name="tabRigidBodies" label="Rigid Bodies">
-    <memberTool name="fractureRigUpdate"/>
+    <memberTool name="fractureRigAnimExport"/>
+    <memberTool name="rtPrefractureExport"/>
   </toolshelf>
 
   <shelfSet name="shelfSetGameDevelopment" label="Game Development">
@@ -15,7 +16,90 @@
     <memberToolshelf name="rtUtilities"/>
   </shelfSet>
 
-  <tool name="fractureRigUpdate" label="Fracture Rig" icon="DOP_rbdfracturedobject">
+  <tool name="keyframeReducer" label="Keyframe Reducer" icon="SOP_add">
+    <helpText><![CDATA[=Keyframe Reducer=
+"""This tool takes a series of nodes that have too many keyframes and optimizes them."""
+
+NOTE:
+ In its current state, this tool goes through each node for the entire timeline and compares the selected parameters. It compares the current vs the next frame to see if the value has changed. If the difference is less than the tolerance, the keyframe is removed.
+
+==Using this tool==
+# Select the node or nodes you wish to process.
+# Set the tool accordingly.]]></helpText>
+    <script scriptType="python"><![CDATA[import sys
+import hou
+
+####################
+#Add src directory
+#to path if it isn't there
+####################
+SOURCE  = hou.expandString('$HOUDINI_USER_PREF_DIR') + "/toolbar/src"
+
+if SOURCE not in sys.path:
+    sys.path.append(SOURCE)
+
+####################
+#Import FBXImport Script
+####################
+import KeyframeReducer
+reload(KeyframeReducer)
+
+#################################
+#Class constructor call!
+#################################
+KeyframeReducer.init(hou.selectedNodes())]]></script>
+  </tool>
+
+  <toolshelf name="rtUtilities" label="Utilities">
+    <memberTool name="keyframeReducer"/>
+  </toolshelf>
+
+  <toolshelf name="rtCloth" label="Cloth">
+    <memberTool name="vertexAnimationRig"/>
+  </toolshelf>
+
+  <tool name="vertexAnimationRig" label="Vertex Animation Rig" icon="DOP_clothobject">
+    <helpText><![CDATA[=Vertex Animation Rig=
+"""This tool takes any SOP node, creates a subnet (/obj/FBX_EXPORT) containing a skeleton with a bone generated per point, and then keyframes their positions based on animated geometry. Typical usage: Cloth sequences."""
+
+NOTE:
+ This tool assumes you already have a cloth simulation or a vertex animation in place. This should be the last major tool you use for this particualr pipeline!
+
+==Preflight==
+This tool is quite simple to get going. There are only a couple things you need to know:
+
+* The timeline is set to the range you intend to export. If your timeline is set to 1-240, this tool will generate 240 keyframes from 1-240.
+* The animation is created at the SOP level or imported back into the SOP level (ex. fetched geometry from a DOP simulation).
+
+==Using this tool==
+# Select the SOP node for processing.
+# Click the tool's button!
+# Export the resulting /obj/FBX_EXPORT subnet (might have a number appended if one exists) to an FBX file]]></helpText>
+    <script scriptType="python"><![CDATA[import sys
+import hou
+
+####################
+#Add src directory
+#to path if it isn't there
+####################
+SOURCE  = hou.expandString('$HOUDINI_USER_PREF_DIR') + "/toolbar/src"
+
+if SOURCE not in sys.path:
+    sys.path.append(SOURCE)
+
+####################
+#Import FBXImport Script
+####################
+import VertexAnimationRig
+reload(VertexAnimationRig)
+
+#################################
+#Class constructor call!
+#################################
+VertexAnimationRig.init(hou.selectedNodes())]]></script>
+  </tool>
+
+  <tool name="fractureRigAnimExport" label="Fracture Animation Export" icon="DOP_rbdfracturedobject">
     <helpText><![CDATA[=Fracture Rig=
 """This tool takes RBD Packed Object nodes, creates a subnet (/obj/FBX_EXPORT) containing all the individual pieces, and then keyframes their positions based on the simulation. Typical usage: baked destruction sequences."""
 
@@ -99,17 +183,11 @@ reload(FractureRig)
 FractureRig.init(hou.selectedNodes())]]></script>
   </tool>
 
-  <tool name="keyframeReducer" label="Keyframe Reducer" icon="SOP_add">
-    <helpText><![CDATA[=Keyframe Reducer=
-"""This tool takes a series of nodes that have too many keyframes and optimizes them."""
+  <tool name="rtPrefractureExport" label="Prefracture Export" icon="DOP_rbdfracturedobject">
+    <script scriptType="python"><![CDATA['''
+'''
 
-NOTE:
- In its current state, this tool goes through each node for the entire timeline and compares the selected parameters. It compares the current vs the next frame to see if the value has changed. If the difference is less than the tolerance, the keyframe is removed.
-
-==Using this tool==
-# Select the node or nodes you wish to process.
-# Set the tool accordingly.]]></helpText>
-    <script scriptType="python"><![CDATA[import sys
+import sys
 import hou
 
 ####################
@@ -124,61 +202,12 @@ if SOURCE not in sys.path:
 ####################
 #Import FBXImport Script
 ####################
-import KeyframeReducer
-reload(KeyframeReducer)
+import PrefractureExport
+reload(PrefractureExport)
 
 #################################
 #Class constructor call!
 #################################
-KeyframeReducer.init(hou.selectedNodes())]]></script>
-  </tool>
-
-  <toolshelf name="rtUtilities" label="Utilities">
-    <memberTool name="keyframeReducer"/>
-  </toolshelf>
-
-  <toolshelf name="rtCloth" label="Cloth">
-    <memberTool name="vertexAnimationRig"/>
-  </toolshelf>
-
-  <tool name="vertexAnimationRig" label="Vertex Animation Rig" icon="DOP_clothobject">
-    <helpText><![CDATA[=Vertex Animation Rig=
-"""This tool takes any SOP node, creates a subnet (/obj/FBX_EXPORT) containing a skeleton with a bone generated per point, and then keyframes their positions based on animated geometry. Typical usage: Cloth sequences."""
-
-NOTE:
- This tool assumes you already have a cloth simulation or a vertex animation in place. This should be the last major tool you use for this particualr pipeline!
-
-==Preflight==
-This tool is quite simple to get going. There are only a couple things you need to know:
-
-* The timeline is set to the range you intend to export. If your timeline is set to 1-240, this tool will generate 240 keyframes from 1-240.
-* The animation is created at the SOP level or imported back into the SOP level (ex. fetched geometry from a DOP simulation).
-
-==Using this tool==
-# Select the SOP node for processing.
-# Click the tool's button!
-# Export the resulting /obj/FBX_EXPORT subnet (might have a number appended if one exists) to an FBX file]]></helpText>
-    <script scriptType="python"><![CDATA[import sys
-import hou
-
-####################
-#Add src directory
-#to path if it isn't there
-####################
-SOURCE  = hou.expandString('$HOUDINI_USER_PREF_DIR') + "/toolbar/src"
-
-if SOURCE not in sys.path:
-    sys.path.append(SOURCE)
-
-####################
-#Import FBXImport Script
-####################
-import VertexAnimationRig
-reload(VertexAnimationRig)
-
-#################################
-#Class constructor call!
-#################################
-VertexAnimationRig.init(hou.selectedNodes())]]></script>
+PrefractureExport.init(hou.selectedNodes())]]></script>
   </tool>
 </shelfDocument>

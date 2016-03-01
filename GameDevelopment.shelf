@@ -6,7 +6,7 @@
  a single file. -->
 
   <toolshelf name="tabRigidBodies" label="Rigid Bodies">
-    <memberTool name="fractureRigAnimExport"/>
+    <memberTool name="rtFractureAnimationExport"/>
     <memberTool name="rtPrefractureExport"/>
   </toolshelf>
 
@@ -149,7 +149,7 @@ reload(FractureStaticExport)
 FractureStaticExport.init(hou.selectedNodes())]]></script>
   </tool>
 
-  <tool name="fractureRigAnimExport" label="Fracture Animated Export" icon="DOP_rbdfracturedobject">
+  <tool name="rtFractureAnimationExport" label="Fracture Animation Export" icon="DOP_rbdfracturedobject">
     <helpText><![CDATA[=Fracture Animation Export=
 """This tool takes DOP RBD Packed Object nodes, creates a subnet (/obj/FBX_EXPORT) containing all the individual pieces, and then keyframes their positions based on the simulation. Typical usage: baked destruction sequences."""
 

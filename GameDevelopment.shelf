@@ -184,6 +184,28 @@ FractureRig.init(hou.selectedNodes())]]></script>
   </tool>
 
   <tool name="rtPrefractureExport" label="Prefracture Export" icon="DOP_rbdfracturedobject">
+    <helpText><![CDATA[=Fracture Rig=
+"""This tool takes packed geometry at the SOP level and creates a subnet (/obj/FBX_EXPORT) containing all the individual pieces. Typical usage: prefracturing meshes for APEX Destruction."""
+
+NOTE:
+ This tool was designed to be the very last thing done before exporting to FBX! It was also designed around the idea that the artists have already created the environment and the transforms have no modifications. Before moving forward, please review the Preflight section below.
+
+==Preflight==
+There are a couple things that need to be checked before using this tool.
+
+* It's assumed the fracture pipeline was geared towards objects that were previously created either in Houdini or imported from another package. For example: the art director would like a wall to break in a level that already exists in-engine.
+* All transform modifications are kept to a minimum. Ideally the transforms in the simulation and at the geometry level are 1:1. Otherwise the tool might result in the fracture pieces not lining up properly. Commonly, the pieces will be rotated in odd ways.
+
+==Packing Manually==
+This pertains to custom pipelines where the packing is handled manually.
+
+* If packing the object manually, the @name attribute must be incremental (ex. piece0, piece1, piece2, etc). However, the prefix can be any text as long as it doesn't contain numbers.
+* If using mulitple packed objects, each packed set should use the above naming starting at 0.
+
+==Using this tool==
+# Select the SOP nodes in your SOP Network for processing (after using the assemble SOP to pack the geometry).
+# Click the tool's button!
+# Export the resulting /obj/FBX_EXPORT subnet (might have a number appended if one exists) to an FBX file.]]></helpText>
     <script scriptType="python"><![CDATA['''
 '''
 

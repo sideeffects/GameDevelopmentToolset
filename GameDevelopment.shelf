@@ -99,9 +99,9 @@ reload(VertexAnimationRig)
 VertexAnimationRig.init(hou.selectedNodes())]]></script>
   </tool>
 
-  <tool name="fractureRigAnimExport" label="Fracture Animation Export" icon="DOP_rbdfracturedobject">
+  <tool name="fractureRigAnimExport" label="Fracture Animated Export" icon="DOP_rbdfracturedobject">
     <helpText><![CDATA[=Fracture Rig=
-"""This tool takes RBD Packed Object nodes, creates a subnet (/obj/FBX_EXPORT) containing all the individual pieces, and then keyframes their positions based on the simulation. Typical usage: baked destruction sequences."""
+"""This tool takes DOP RBD Packed Object nodes, creates a subnet (/obj/FBX_EXPORT) containing all the individual pieces, and then keyframes their positions based on the simulation. Typical usage: baked destruction sequences."""
 
 NOTE:
  This tool was designed to be the very last thing done before exporting to FBX! It was also designed around the idea that the artists have already created the environment and the transforms have no modifications. Before moving forward, please review the Preflight section below.
@@ -183,7 +183,7 @@ reload(FractureRig)
 FractureRig.init(hou.selectedNodes())]]></script>
   </tool>
 
-  <tool name="rtPrefractureExport" label="Prefracture Export" icon="DOP_rbdfracturedobject">
+  <tool name="rtPrefractureExport" label="Fracture Static Export" icon="DOP_rbdfracturedobject">
     <helpText><![CDATA[=Fracture Rig=
 """This tool takes packed geometry at the SOP level and creates a subnet (/obj/FBX_EXPORT) containing all the individual pieces. Typical usage: prefracturing meshes for APEX Destruction."""
 

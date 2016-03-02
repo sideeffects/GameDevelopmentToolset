@@ -21,6 +21,11 @@ def init(nodes):
     modifyGeo(nodes, geometryNodes, nodePieces, numberOfPieces, rootNode)
     processMesh(nodes, nodePieces, numberOfPieces)
 
+    for nodes in nodePieces:
+        RealTimeVFXToolset.keyframeReducer(nodes, [ 'tx', 'ty', 'tz',
+                                                    'rx', 'ry', 'rz'])
+
+
 def checkSelections(nodes):
     if RealTimeVFXToolset.nodeSelectionValid(nodes) == None: return False
     if RealTimeVFXToolset.nodeSelectionMatchType(nodes, 'rbdpackedobject') == None: return False

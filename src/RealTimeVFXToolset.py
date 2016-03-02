@@ -1,5 +1,6 @@
 import re
 import hou
+import time
 
 def nodeSelectionValid(nodes = []):
     '''nodeSelectionValid
@@ -144,10 +145,12 @@ def keyframeReducer(nodes,
     If the parm list is empty, it will search though ALL parameters for the specified node. This will take a long time if you have a lot of nodes.
     '''
 
-    print 'Processing Keyframes'
     originalKeyframes = 0
     deletedKeyframes = 0
     modified = False
+    initialTime = time.clock()
+
+    print 'Processing Keyframes'
 
     for node in nodes:
         for frame in range(startFrame, endFrame+1):
@@ -170,4 +173,8 @@ def keyframeReducer(nodes,
         print 'Initial Frames: {}\nDeleted Frames: {}\nPercent Removed: {}%'.format(originalKeyframes, deletedKeyframes, deletedKeyframes/float(originalKeyframes)*100)
     else:
         print 'No Keyframes Removed'
-    print 'Keyframe Processing Complete'
+    seconds = time.clock() - initialTime
+    m, s = divmod(seconds, 60)
+    h, m = divmod(m, 60)
+    print 'Time taken to complete: {}h:{}m:{}s'.format(h,m,s)
+    print 'Processing Complete'

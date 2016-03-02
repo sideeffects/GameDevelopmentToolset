@@ -56,7 +56,7 @@ def modifyGeo(nodes, geometryNodes, nodePieces, numPieces, root):
         tempName = geometryNodes[objectToProcess].parent().name()
 
         stringInput = 'UNPACK{}'.format(objectToProcess)
-        
+
         if(refGeo.parent().node(stringInput)  == None):
             unpack = refGeo.parent().createNode('unpack', stringInput)
         elif (refGeo.parent().node(stringInput)  != None):

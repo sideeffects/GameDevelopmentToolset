@@ -162,7 +162,9 @@ def keyframeReducer(nodes,
                         if not modified:
                             modified = True
                         deletedKeyframes += 1
+                        tempValue = node.parm(parm).eval()
                         node.parm(parm).deleteKeyframeAtFrame(frame)
+                        node.parm(parm).set(tempValue)
 
     if modified:
         print 'Initial Frames: {}\nDeleted Frames: {}\nPercent Removed: {}%'.format(originalKeyframes, deletedKeyframes, deletedKeyframes/float(originalKeyframes)*100)

@@ -72,7 +72,7 @@ def modifyGeo(nodes, geometryNodes, nodePieces, numPieces, root):
         unpack.setFirstInput(refGeo)
 
         #Locks the unpack node to prevent processing during FBX Export
-        if(unpack.isLocked()):
+        if(unpack.isHardLocked()):
             unpack.setHardLocked(False)
             unpack.setHardLocked(True)
         else:

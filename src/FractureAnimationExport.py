@@ -111,12 +111,23 @@ def modifyGeo(nodes, geometryNodes, nodePieces, numPieces, root):
             xform.parm('movecentroid').pressButton()
 
             creationFrame = nodes[objectToProcess].parm('createframe').eval()
-            hou.setFrame(creationFrame)
-            dopxform1 = nodes[objectToProcess].simulation().findObject(nodes[objectToProcess].name()).geometry().iterPoints()[index].attribValue('rest')
-            hou.setFrame(creationFrame+1)
-            dopxform2 = nodes[objectToProcess].simulation().findObject(nodes[objectToProcess].name()).geometry().iterPoints()[index].attribValue('rest')
+            dopxform1 = 0
+            dopxform2 = 0
             deltaXFORM = []
-            hou.setFrame(creationFrame)
+            if nodes[objectToProcess].parent().parm('isplayer').eval():
+                nodes[objectToProcess].parent().setParms({'isplayer':0})
+                hou.setFrame(creationFrame)
+                dopxform1 = nodes[objectToProcess].simulation().findObject(nodes[objectToProcess].name()).geometry().iterPoints()[index].attribValue('rest')
+                hou.setFrame(creationFrame+1)
+                dopxform2 = nodes[objectToProcess].simulation().findObject(nodes[objectToProcess].name()).geometry().iterPoints()[index].attribValue('rest')
+                nodes[objectToProcess].parent().setParms({'isplayer':1})
+                hou.setFrame(creationFrame)
+            else:
+                hou.setFrame(creationFrame)
+                dopxform1 = nodes[objectToProcess].simulation().findObject(nodes[objectToProcess].name()).geometry().iterPoints()[index].attribValue('rest')
+                hou.setFrame(creationFrame+1)
+                dopxform2 = nodes[objectToProcess].simulation().findObject(nodes[objectToProcess].name()).geometry().iterPoints()[index].attribValue('rest')
+                hou.setFrame(creationFrame)
 
             for i in range(0,3):
                 deltaXFORM.insert(i, dopxform1[i]-dopxform2[i])

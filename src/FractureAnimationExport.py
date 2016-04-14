@@ -118,9 +118,9 @@ def modifyGeo(nodes, geometryNodes, nodePieces, numPieces, root):
                 nodes[objectToProcess].parent().setParms({'isplayer':0})
                 hou.setFrame(creationFrame)
                 dopxform1 = nodes[objectToProcess].simulation().findObject(nodes[objectToProcess].name()).geometry().iterPoints()[index].attribValue('rest')
+                nodes[objectToProcess].parent().setParms({'isplayer':1})
                 hou.setFrame(creationFrame+1)
                 dopxform2 = nodes[objectToProcess].simulation().findObject(nodes[objectToProcess].name()).geometry().iterPoints()[index].attribValue('rest')
-                nodes[objectToProcess].parent().setParms({'isplayer':1})
                 hou.setFrame(creationFrame)
             else:
                 hou.setFrame(creationFrame)

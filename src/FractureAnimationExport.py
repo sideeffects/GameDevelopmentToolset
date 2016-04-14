@@ -159,6 +159,9 @@ def processMesh(nodes, nodePieces, numPieces):
         print 'Processing Frame: {}'.format(frame)
 
         for objectToProcess in range(0, len(numPieces)):
+            if frame == nodes[objectToProcess].parm('createframe').eval():
+                continue
+
             for index in range(0,numPieces[objectToProcess]):
                 for index_parm in range(0,3):
                     hou_keyed_parm = nodePieces[objectToProcess][index].parm(PARMS[index_parm])

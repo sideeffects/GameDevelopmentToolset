@@ -1,5 +1,6 @@
 '''
 Updated Fracture Rig tool designed to work with RealTimeVFXToolset.py.
+Takes a Packed Rigid Body DOP, splits the individual pieces out, and keyframes their transforms.
 '''
 
 import hou
@@ -24,7 +25,6 @@ def init(nodes):
     for nodes in nodePieces:
         RealTimeVFXToolset.keyframeReducer(nodes, [ 'tx', 'ty', 'tz',
                                                     'rx', 'ry', 'rz'])
-
 
 def checkSelections(nodes):
     if RealTimeVFXToolset.nodeSelectionValid(nodes) == None: return False
@@ -159,6 +159,7 @@ def processMesh(nodes, nodePieces, numPieces):
         print 'Processing Frame: {}'.format(frame)
 
         for objectToProcess in range(0, len(numPieces)):
+            #If at the creation frame, skip keyframe
             if frame == nodes[objectToProcess].parm('createframe').eval():
                 continue
 

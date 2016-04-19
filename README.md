@@ -2,6 +2,11 @@
 
 This is a series of tools geared towards assisting Houdini users with a variety of tasks for game development. 
 
+The instructions for getting this installed is pretty painless. It's really just a matter of copying the files, activating the shelf, and then saving a desktop so it's easy to access.
+
+##Instructions
+Copy the contents of this folder (/toolbar) into the following folders depending on your operating system:
+
 Windows
 
     C:\Users\[username]\Documents\houdini[ver#]\toolbar

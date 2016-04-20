@@ -1,8 +1,10 @@
-#Game Development Shelf
+#Game Development Toolset
 
-This is a series of tools geared towards assisting Houdini users with a variety of tasks for game development.
+This is a series of tools geared towards assisting Houdini users with a variety of tasks for game development. The older version of this repository focused on just the shelf. Now this is an all-inclusive toolset that spans the shelf, digital assets, and custom desktops.
 
-The instructions for getting this installed is pretty painless. It's really just a matter of copying the files, activating the shelf, and then saving a desktop so it's easy to access.
+If you'd like more information, please check out the [wiki](https://github.com/sideeffects/GameDevelopmentShelf/wiki)!
+
+The instructions for getting this installed is pretty painless. It's really just a matter of copying the files and then switching the desktop.
 
 ##Instructions
 Copy the contents of this folder into the following folders depending on your operating system:
@@ -33,7 +35,7 @@ It's not recommended to modify the layout of any of the GameDev desktops. If you
 02. Desktop
 03. Save Current Desktop
 
-Keep in mind, that will override the "Build" desktop. If you want to create a new desktop, click "Save Current Desktop As...".
+Keep in mind, that will override the "Build" desktop if you changed anything with the default layout. If you want to create a new desktop, click "Save Current Desktop As...".
 
 ##Setting the default desktop (if using a custom desktop)
 01. At the top menu, click Edit -> Preferences -> General User Interface (alternatively: `ctrl+,` or `cmd+,`)

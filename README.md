@@ -4,7 +4,7 @@ This is a series of tools geared towards assisting Houdini users with a variety 
 
 If you'd like more information, please check out the [wiki](https://github.com/sideeffects/GameDevelopmentShelf/wiki)!
 
-The instructions for getting this installed is pretty painless. It's really just a matter of copying the files and then switching the desktop.
+NOTE: This is in-progress. Please file an [Issue](https://github.com/sideeffects/GameDevelopmentShelf/issues) if something doesn't seem quite right! Guidelines can be found [here](https://github.com/sideeffects/GameDevelopmentShelf/wiki/How-to-contribute!).
 
 ##Instructions
 Copy the contents of this folder into the following folders depending on your operating system:

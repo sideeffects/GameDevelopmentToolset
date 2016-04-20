@@ -6,6 +6,8 @@ If you'd like more information, please check out the [wiki](https://github.com/s
 
 NOTE: This is in-progress. Please file an [Issue](https://github.com/sideeffects/GameDevelopmentShelf/issues) if something doesn't seem quite right! Guidelines can be found [here](https://github.com/sideeffects/GameDevelopmentShelf/wiki/How-to-contribute!).
 
+Also, if you forked the respository and suddenly it stopped pulling, that's due to the link changing from [https://github.com/sideeffects/GameDevelopmentShelf/]() to [https://github.com/sideeffects/GameDevelopmentToolset/](). Github appears to forward traffic to the new link, but here's a little FYI just incase.
+
 ##Instructions
 Copy the contents of this folder into the following folders depending on your operating system:
 

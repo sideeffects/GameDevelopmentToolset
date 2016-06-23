@@ -3,7 +3,9 @@
 This tool is designed to take a SOP level vertex animation and prepare a subnet that can be exported as an FBX. The resulting FBX will contain the animated skeleton with skinned geometry. In its current form, it generates 1 bone per point.
 '''
 import hou
+
 import RealTimeVFXToolset
+
 reload(RealTimeVFXToolset)
 
 def init(nodes):

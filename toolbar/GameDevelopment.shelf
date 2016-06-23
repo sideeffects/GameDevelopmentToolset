@@ -30,15 +30,6 @@ NOTE:
 import hou
 
 ####################
-#Add src directory
-#to path if it isn't there
-####################
-SOURCE  = hou.expandString('$HOUDINI_USER_PREF_DIR') + "/toolbar/src"
-
-if SOURCE not in sys.path:
-    sys.path.append(SOURCE)
-
-####################
 #Import FBXImport Script
 ####################
 import KeyframeReducer

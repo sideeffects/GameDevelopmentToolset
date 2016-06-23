@@ -5,7 +5,9 @@ and keyframe their animations according to the timeline.
 '''
 
 import hou
+
 import RealTimeVFXToolset
+
 reload(RealTimeVFXToolset)
 
 def init(nodes):

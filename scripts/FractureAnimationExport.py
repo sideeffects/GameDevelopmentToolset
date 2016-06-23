@@ -4,7 +4,9 @@ Takes a Packed Rigid Body DOP, splits the individual pieces out, and keyframes t
 '''
 
 import hou
+
 import RealTimeVFXToolset
+
 reload(RealTimeVFXToolset)
 
 def init(nodes):
@@ -23,7 +25,7 @@ def init(nodes):
     processMesh(nodes, nodePieces, numberOfPieces)
 
     for nodes in nodePieces:
-        RealTimeVFXToolset.keyframeReducer(nodes, [ 'tx', 'ty', 'tz',
+        RealTimeVFXToolset.keyframeReducer(nodes, ['tx', 'ty', 'tz',
                                                     'rx', 'ry', 'rz'])
 
 def checkSelections(nodes):

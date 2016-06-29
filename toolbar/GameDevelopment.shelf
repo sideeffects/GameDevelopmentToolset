@@ -43,6 +43,7 @@ KeyframeReducer.init(hou.selectedNodes())]]></script>
 
   <toolshelf name="rtUtilities" label="Utilities">
     <memberTool name="keyframeReducer"/>
+    <memberTool name="color_manager_launcher"/>
   </toolshelf>
 
   <toolshelf name="rtCloth" label="Cloth">
@@ -191,4 +192,11 @@ reload(FractureStaticExport)
 #################################
 FractureStaticExport.init(hou.selectedNodes())]]></script>
   </tool>
+  <tool name="color_manager_launcher" label="Color Manager" icon="PLASMA_App">
+    <script scriptType="python"><![CDATA[import hou
+panel = hou.ui.curDesktop().createFloatingPaneTab(hou.paneTabType.PythonPanel)
+color_manager_interface = hou.pypanel.interfaces()["sesi_color_manager"]
+panel.setActiveInterface(color_manager_interface)]]></script>
+  </tool>
+
 </shelfDocument>

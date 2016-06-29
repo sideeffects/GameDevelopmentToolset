@@ -5,16 +5,22 @@
  Note, that two definitions of the same element are not allowed in
  a single file. -->
 
-  <toolshelf name="tabRigidBodies" label="Rigid Bodies">
+  <toolshelf name="gamedev_toolshelf" label="Game Development">
     <memberTool name="rtFractureAnimationExport"/>
     <memberTool name="rtFractureStaticExport"/>
+    <memberTool name="vertexAnimationRig"/>
+    <memberTool name="color_manager_launcher"/>
+  </toolshelf>
+
+  <toolshelf name="gamedev_utilities" label="Game Development Utilities">
+    <memberTool name="keyframeReducer"/>
   </toolshelf>
 
   <shelfSet name="shelfSetGameDevelopment" label="Game Development">
-    <memberToolshelf name="rtCloth"/>
-    <memberToolshelf name="tabRigidBodies"/>
-    <memberToolshelf name="rtUtilities"/>
+    <memberToolshelf name="gamedev_toolshelf"/>
+    <memberToolshelf name="gamedev_utilities"/>
   </shelfSet>
+
 
   <tool name="keyframeReducer" label="Keyframe Reducer" icon="SOP_add">
     <helpText><![CDATA[=Keyframe Reducer=
@@ -40,16 +46,6 @@ reload(KeyframeReducer)
 #################################
 KeyframeReducer.init(hou.selectedNodes())]]></script>
   </tool>
-
-  <toolshelf name="rtUtilities" label="Utilities">
-    <memberTool name="keyframeReducer"/>
-    <memberTool name="color_manager_launcher"/>
-  </toolshelf>
-
-  <toolshelf name="rtCloth" label="Cloth">
-    <memberTool name="vertexAnimationRig"/>
-  </toolshelf>
-
   <tool name="vertexAnimationRig" label="Vertex Animation Rig" icon="DOP_clothobject">
     <helpText><![CDATA[=Vertex Animation Rig=
 """This tool takes any SOP node, creates a subnet (/obj/FBX_EXPORT) containing a skeleton with a bone generated per point, and then keyframes their positions based on animated geometry. Typical usage: Cloth sequences."""
@@ -69,15 +65,6 @@ This tool is quite simple to get going. There are only a couple things you need 
 # Export the resulting /obj/FBX_EXPORT subnet (might have a number appended if one exists) to an FBX file]]></helpText>
     <script scriptType="python"><![CDATA[import sys
 import hou
-
-####################
-#Add src directory
-#to path if it isn't there
-####################
-SOURCE  = hou.expandString('$HOUDINI_USER_PREF_DIR') + "/toolbar/src"
-
-if SOURCE not in sys.path:
-    sys.path.append(SOURCE)
 
 ####################
 #Import FBXImport Script
@@ -123,15 +110,6 @@ import sys
 import hou
 
 ####################
-#Add src directory
-#to path if it isn't there
-####################
-SOURCE  = hou.expandString('$HOUDINI_USER_PREF_DIR') + "/toolbar/src"
-
-if SOURCE not in sys.path:
-    sys.path.append(SOURCE)
-
-####################
 #Import FBXImport Script
 ####################
 import FractureAnimationExport
@@ -143,7 +121,7 @@ reload(FractureAnimationExport)
 FractureAnimationExport.init(hou.selectedNodes())]]></script>
   </tool>
 
-  <tool name="rtFractureStaticExport" label="Fracture Static Export" icon="DOP_rbdfracturedobject">
+  <tool name="rtFractureStaticExport" label="Fracture Static Export" icon="DOP_fracturedsolidobject">
     <helpText><![CDATA[=Fracture Static Export=
 """This tool takes packed geometry at the SOP level and creates a subnet (/obj/FBX_EXPORT) containing all the individual pieces. Typical usage: prefracturing meshes for APEX Destruction."""
 
@@ -173,15 +151,6 @@ import sys
 import hou
 
 ####################
-#Add src directory
-#to path if it isn't there
-####################
-SOURCE  = hou.expandString('$HOUDINI_USER_PREF_DIR') + "/toolbar/src"
-
-if SOURCE not in sys.path:
-    sys.path.append(SOURCE)
-
-####################
 #Import FBXImport Script
 ####################
 import FractureStaticExport
@@ -192,11 +161,11 @@ reload(FractureStaticExport)
 #################################
 FractureStaticExport.init(hou.selectedNodes())]]></script>
   </tool>
-  <tool name="color_manager_launcher" label="Color Manager" icon="PLASMA_App">
+
+  <tool name="color_manager_launcher" label="Color Manager" icon="COP2_colorwheel">
     <script scriptType="python"><![CDATA[import hou
 panel = hou.ui.curDesktop().createFloatingPaneTab(hou.paneTabType.PythonPanel)
 color_manager_interface = hou.pypanel.interfaces()["sesi_color_manager"]
 panel.setActiveInterface(color_manager_interface)]]></script>
   </tool>
-
 </shelfDocument>

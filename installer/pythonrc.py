@@ -19,5 +19,4 @@ hou.putenv("HOUDINI_SCRIPT_PATH", HOUDINI_SCRIPT_PATH + ";" + SCRIPTS_LOCATION)
 
 sys.path.append(PYTHON_SCRIPTS_LOCATION)
 
-
 hou.putenv("HOUDINI_NO_SPLASH", "1")

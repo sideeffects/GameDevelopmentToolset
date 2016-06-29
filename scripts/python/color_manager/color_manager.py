@@ -1,5 +1,5 @@
 """
-    TODO Launch with the colors set
+    TODO: Delete and Duplicate Shelf Buttons
 
 
 """

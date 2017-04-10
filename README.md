@@ -1,6 +1,6 @@
 #Game Development Toolset
 
-This is a series of tools geared towards assisting Houdini users with a variety of tasks for game development. The older version of this repository focused on just the shelf. Now this is an all-inclusive toolset that spans the shelf, digital assets, and custom desktops.
+This is a series of tools geared towards assisting Houdini users with a variety of tasks for game development. The older version of this repository focused on just the shelf. Now this is an all-inclusive toolset that spans the shelf, digital assets, custom desktops and scripts.
 
 If you'd like more information, please check out the [wiki](https://github.com/sideeffects/GameDevelopmentToolset/wiki)!
 

@@ -2,14 +2,16 @@
 
 This is a series of tools geared towards assisting Houdini users with a variety of tasks for game development. The older version of this repository focused on just the shelf. Now this is an all-inclusive toolset that spans the shelf, digital assets, custom desktops and scripts.
 
-If you'd like more information, please check out the [wiki](https://github.com/sideeffects/GameDevelopmentToolset/wiki)!
+If you'd like more information, please check out the [wiki](https://github.com/sideeffects/GameDevelopmentToolset/wiki)! (Also under construction)
 
 NOTE: This is in-progress. Please file an [Issue](https://github.com/sideeffects/GameDevelopmentToolset/issues) if something doesn't seem quite right! Guidelines can be found [here](https://github.com/sideeffects/GameDevelopmentToolset/wiki/How-to-contribute!).
 
 Also, if you forked the respository and suddenly it stopped pulling, that's due to the link changing from [https://github.com/sideeffects/GameDevelopmentShelf/](https://github.com/sideeffects/GameDevelopmentShelf/) to [https://github.com/sideeffects/GameDevelopmentToolset/](https://github.com/sideeffects/GameDevelopmentToolset/). Github appears to forward traffic to the new link, but here's a little FYI just incase.
 
 # What's Changed? Who are these people?
-Hi, my name is Luiz Kruel and I have taken over the github from Steven B. who is now working in production. We haven't done a lot in this Github in a while, but we are changing that. The original thought was that new tools would go straight into the build and the Github would eventually be phased out. 
+Hi, my name is Luiz Kruel and I have taken over the github from Steven B. who is now working in production.
+
+We haven't done a lot in this Github in a while, but we are changing that. The original thought was that new tools would go straight into the build and the Github would eventually be phased out.
 But we saw a lot of value in having this experimental testbed for tools, so we will continue to develop our tools live and as they mature they will move into the main Houdini Build. 
 
 
@@ -25,8 +27,8 @@ All of the HDAs are now using the new expanded format that was introduced in H16
 Instead of tying the examples as HDAs, we will be generating separate hip files that show how the tools should work in context 
 
 
-
-### Instructions - Method 1
+# Installation
+## Instructions - Method 1
 Copy the contents of this folder into the following folders depending on your operating system:
 
 Windows
@@ -39,7 +41,7 @@ OSX
 
 Be sure to merge as needed! If you're copying and not cloning, the files shouldn't overwrite anything that doesn't involve the toolset.
 
-### Instructions - Method 2
+## Instructions - Method 2
 Unzip the contents of this folder into some local directory in your computer 
 
 Edit the houdini.env file found at the topmost directory 

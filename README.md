@@ -1,15 +1,19 @@
-#Game Development Toolset
+# Game Development Toolset
 
-This is a series of tools geared towards assisting Houdini users with a variety of tasks for game development. The older version of this repository focused on just the shelf. Now this is an all-inclusive toolset that spans the shelf, digital assets, and custom desktops.
+This is a series of tools geared towards assisting Houdini users with a variety of tasks for game development. The older version of this repository focused on just the shelf. Now this is an all-inclusive toolset that spans the shelf, digital assets, custom desktops and scripts.
 
-If you'd like more information, please check out the [wiki](https://github.com/sideeffects/GameDevelopmentToolset/wiki)!
+If you'd like more information, please check out the [wiki](https://github.com/sideeffects/GameDevelopmentToolset/wiki)! (Also under construction)
 
 NOTE: This is in-progress. Please file an [Issue](https://github.com/sideeffects/GameDevelopmentToolset/issues) if something doesn't seem quite right! Guidelines can be found [here](https://github.com/sideeffects/GameDevelopmentToolset/wiki/How-to-contribute!).
 
 Also, if you forked the respository and suddenly it stopped pulling, that's due to the link changing from [https://github.com/sideeffects/GameDevelopmentShelf/](https://github.com/sideeffects/GameDevelopmentShelf/) to [https://github.com/sideeffects/GameDevelopmentToolset/](https://github.com/sideeffects/GameDevelopmentToolset/). Github appears to forward traffic to the new link, but here's a little FYI just incase.
 
-##Instructions
-Copy the contents of this folder into the following folders depending on your operating system:
+# Installation
+
+
+
+## Instructions - Method 1
+Download the repository using the green Clone or Download Button and unzip contents into the following folders depending on your operating system:
 
 Windows
 
@@ -21,35 +25,45 @@ OSX
 
 Be sure to merge as needed! If you're copying and not cloning, the files shouldn't overwrite anything that doesn't involve the toolset.
 
-##How to use the included desktops
-01. At the top menu, click Windows -> Desktop
-02. Select any of the GameDev desktops for your role!
+## Instructions - Method 2
+Download the repository using the green Clone or Download Button and unzip contents into the folder of your choosing
 
-It's not recommended to modify the layout of any of the GameDev desktops. If you pull from the SideFX repo, it's possible a conflict will occur. Instead, do a "save as" operation. Alternatively, you can also select one of the other shelves that aren't for game development, activate the shelf, and then save that!
+Edit the houdini.env file found at the topmost directory 
 
-##Activating the Shelf
-01. Looking towards the very right of one of the shelves, click the little triangle pointing downwards
-02. Click Shelf Sets
-03. Click Game Development
+Modify the line HOUDINI_PATH = C:\PATH\TO\YOUR\DIRECTORY;&
 
-##Saving its location
-01. At the top menu, click Windows
-02. Desktop
-03. Save Current Desktop
+Into something like HOUDINI_PATH = C:\Users\Luiz\Documents\GameDevelopmentToolset;&
 
-Keep in mind, that will override the "Build" desktop if you changed anything with the default layout. If you want to create a new desktop, click "Save Current Desktop As...".
+Copy the houdini.env file into the following folders depending on your operating system:
 
-##Setting the default desktop (if using a custom desktop)
-01. At the top menu, click Edit -> Preferences -> General User Interface (alternatively: `ctrl+,` or `cmd+,`)
-02. At the "Startup in Desktop" field, select the desktop you would like to use
-03. Accept!
+Windows
 
-##Having the terminal automatically source Houdini (OS X)
-In your ~/.bash_profile, add the following lines:
+    C:\Users\[username]\Documents\houdini[ver#]
 
-    ##Houdini Environment Setup
-    cd /Library/Frameworks/Houdini.framework/Versions/Current/Resources
-    source houdini_setup
-    cd -
+OSX
 
-That will change the directory to the latest version of Houdini, source the houdini_setup.source file, and then change the directory back to where it was initially.
+    /Users/[username]/Library/Preferences/houdini/[ver#]
+
+# What's Changed?
+Hi, my name is Luiz Kruel and I have taken over the github from Steven B. who is now working in production. A few of the SideFX TAs (TDs) will also be contributing example files and tools.
+
+We haven't done a lot in this Github in a while, but we are changing that. The original thought was that new tools would go straight into the build and the Github would eventually be phased out.
+But we saw a lot of value in having this experimental testbed for tools, so we will continue to develop our tools live and as they mature they will move into the main Houdini Build.
+
+## Live Development
+We're actively working on building up the Houdini 16.0 branch of the toolset to match what's curently in the build.
+Currently we are moving tools over as bugs are indentified and fixed, and are placed here until they get added into the main Houdini build.
+We will also develop new tools moving forward using GitHub as our version control, so in the near future the 16.0 branch will become the default branch
+
+## Expanded HDAs
+All of the HDAs are now using the new expanded format that was introduced in H16. This allows better diffing of the tools so you can see what our changes are doing and choose to integrate them back into your production.
+
+## Example Files
+Instead of tying the examples as HDAs, we will be generating separate hip files that show how the tools should work in context
+
+## Branched Development
+The *Development* branch is where we'll be working from. This is where the latest and greatest will live
+
+Once an HDA is deemed ready, we will move it over to the Houdini XX branch where it will be more easily discovered by the population at large
+
+

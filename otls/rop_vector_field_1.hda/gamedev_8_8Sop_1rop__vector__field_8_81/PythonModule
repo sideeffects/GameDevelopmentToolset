@@ -1,0 +1,34 @@
+def renderFGA():
+    node = hou.pwd()
+    OUT = hou.node("%s/OUT" % node.path())
+    geo = OUT.geometry()
+    fgaFile = node.parm("outputFile").eval()
+
+    velx = geo.prims()[0]
+    vely = geo.prims()[1]
+    velz = geo.prims()[2]
+
+    resolution = velx.resolution()
+    bounds = velx.boundingBox()
+    minvec = bounds.minvec() * 100
+    maxvec = bounds.maxvec() * 100
+
+    fgaText =  "%d,%d,%d,\n" % (resolution[0],resolution[2],resolution[1])
+    fgaText += "%f,%f,%f,\n" % (minvec[0], minvec[2], minvec[1])
+    fgaText += "%f,%f,%f,\n" % (maxvec[0], maxvec[2], maxvec[1])
+
+    voxelValues = ""
+    for y in range(resolution[1]):
+        for z in range(resolution[2]):
+            for x in range(resolution[0]):
+                #print "%d,%d,%d" % (x,y,z)
+                voxelValues += "%f,%f,%f,\n" % (velx.voxel((x,y,z)), velz.voxel((x,y,z)), vely.voxel((x,y,z)))
+                #print "(%f,%f,%f)" % (x,y,z)
+            
+    fgaText += voxelValues
+
+    #print fgaText
+
+    file = open(fgaFile, "w")
+    file.write(fgaText)
+    file.close()

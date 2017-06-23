@@ -31,7 +31,7 @@ Content-Disposition: attachment; filename="hdaroot.def"
 Content-Type: text/plain
 
 comment ""
-position -4.20462 1.12063
+position -3.24706 0.141176
 connectornextid 0
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
@@ -45,8 +45,8 @@ inputs
 }
 stat
 {
-  create 1497628192
-  modify 1497631195
+  create 1498231778
+  modify 1498233747
   author Luiz@Luiz-PC
   access 0777
 }
@@ -2138,7 +2138,7 @@ inputs
 stat
 {
   create 1496776162
-  modify 1497630959
+  modify 1498233254
   author Luiz@Luiz-PC
   access 0777
 }
@@ -3517,20 +3517,6 @@ Content-Disposition: attachment; filename="hdaroot/baketexture.chn"
 Content-Type: text/plain
 
 {
-    channel f1 {
-      lefttype = extend
-      righttype = extend
-      default = 1
-      flags = 0
-      segment { length = 0 value = 1 1 expr = $FSTART }
-    }
-    channel f2 {
-      lefttype = extend
-      righttype = extend
-      default = 240
-      flags = 0
-      segment { length = 0 value = 240 240 expr = $FEND }
-    }
     channel uvresmenu {
       lefttype = extend
       righttype = extend
@@ -3601,20 +3587,6 @@ Content-Type: text/plain
       flags = 0
       segment { length = 0 expr = ch(\"../bake_Ds\") }
     }
-    channel vm_uvunwrapresx {
-      lefttype = extend
-      righttype = extend
-      default = 512
-      flags = 0
-      segment { length = 0 value = 512 512 expr = ch(\"../vm_uvunwrapresx\") }
-    }
-    channel vm_uvunwrapresy {
-      lefttype = extend
-      righttype = extend
-      default = 512
-      flags = 0
-      segment { length = 0 value = 512 512 expr = ch(\"../vm_uvunwrapresy\") }
-    }
   }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -3627,12 +3599,12 @@ execute	[ 0	locks=0 ]	(	0	)
 renderpreview	[ 0	locks=0 ]	(	0	)
 executebackground	[ 0	locks=0 ]	(	0	)
 renderdialog	[ 0	locks=0 ]	(	0	)
-trange	[ 0	locks=0 ]	(	"off"	)
-f	[ 0	locks=0 ]	(	[ f1	1 ] 	[ f2	240 ] 	1	)
+trange	[ 8	locks=0 ]	(	"off"	)
+f	[ 8	locks=0 ]	(	1	10	1	)
 take	[ 0	locks=0 ]	(	_current_	)
 camera	[ 0	locks=0 ]	(	"`opfullpath(\"..\") + \"/objnet/cam1\"`"	)
 vm_uvtype	[ 0	locks=0 ]	(	udim	)
-vm_uvunwrapres	[ 8	locks=0 ]	(	[ vm_uvunwrapresx	2048 ] 	[ vm_uvunwrapresy	2048 ] 	)
+vm_uvunwrapres	[ 8	locks=0 ]	(	256	256	)
 uvresmenu	[ 0	locks=0 ]	(	[ uvresmenu	0 ] 	)
 vm_ptexmapminres	[ 0	locks=0 ]	(	8	8	)
 vm_uvptexminresmenu	[ 0	locks=0 ]	(	0	)
@@ -3699,7 +3671,7 @@ vm_uvobjectenable1	[ 0	locks=0 ]	(	"on"	)
 vm_uvobject1	[ 0	locks=0 ]	(	"`opfullpath(\"..\") + \"/objnet/low\"`"	)
 vm_uvcageobject1	[ 8	locks=0 ]	(	`chsop(\"../vm_uvcageobject1\")`	)
 vm_uvhires1	[ 0	locks=0 ]	(	"`opfullpath(\"..\") + \"/objnet/high\"`"	)
-vm_uvoutputpicture1	[ 0	locks=0 ]	(	E:/work/Sesi/Examples/games_baker/render\\tmp.exr	)
+vm_uvoutputpicture1	[ 0	locks=0 ]	(	C:/Users/Luiz/render\\tmp.exr	)
 images6	[ 0	locks=0 ]	(	4	4	4	4	4	)
 main3	[ 0	locks=0 ]	(	0	0	)
 vm_bake_normalizep	[ 0	locks=0 ]	(	"on"	)
@@ -3713,9 +3685,9 @@ vm_quickplane_Oc	[ 8	locks=0 ]	(	[ vm_quickplane_Oc	0 ] 	)
 vm_quickplane_Cv	[ 0	locks=0 ]	(	"off"	)
 vm_quickplane_Th	[ 8	locks=0 ]	(	[ vm_quickplane_Th	0 ] 	)
 vm_quickplane_Cu	[ 8	locks=0 ]	(	[ vm_quickplane_Cu	0 ] 	)
-vm_quickplane_P	[ 8	locks=0 ]	(	[ vm_quickplane_P	0 ] 	)
+vm_quickplane_P	[ 8	locks=0 ]	(	[ vm_quickplane_P	1 ] 	)
 vm_quickplane_N	[ 8	locks=0 ]	(	[ vm_quickplane_N	0 ] 	)
-vm_quickplane_basecolor	[ 8	locks=0 ]	(	[ vm_quickplane_basecolor	1 ] 	)
+vm_quickplane_basecolor	[ 8	locks=0 ]	(	[ vm_quickplane_basecolor	0 ] 	)
 vm_quickplane_diffcolor	[ 0	locks=0 ]	(	"off"	)
 vm_quickplane_speccolor	[ 0	locks=0 ]	(	"off"	)
 vm_quickplane_emitcolor	[ 0	locks=0 ]	(	"off"	)
@@ -6812,7 +6784,7 @@ Content-Disposition: attachment; filename="hdaroot/pre_bake0.def"
 Content-Type: text/plain
 
 comment ""
-position 3.88421 4.70166
+position 3.88421 3.85959
 connectornextid 2
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
@@ -6830,7 +6802,7 @@ inputs
 stat
 {
   create 1496783377
-  modify 1496962686
+  modify 1498233113
   author Luiz@Luiz-PC
   access 0777
 }
@@ -6844,19 +6816,33 @@ Content-Disposition: attachment; filename="hdaroot/pre_bake0.chn"
 Content-Type: text/plain
 
 {
+    channel trange {
+      lefttype = extend
+      righttype = extend
+      default = 1
+      flags = 0
+      segment { length = 0 value = 1 1 expr = ch(\"../trange\") }
+    }
     channel f1 {
       lefttype = extend
       righttype = extend
       default = 1
       flags = 0
-      segment { length = 0 value = 1 1 expr = $FSTART }
+      segment { length = 0 value = 1 1 expr = ch(\"../f1\") }
     }
     channel f2 {
       lefttype = extend
       righttype = extend
-      default = 240
+      default = 10
       flags = 0
-      segment { length = 0 value = 240 240 expr = $FEND }
+      segment { length = 0 value = 10 10 expr = ch(\"../f2\") }
+    }
+    channel f3 {
+      lefttype = extend
+      righttype = extend
+      default = 1
+      flags = 0
+      segment { length = 0 value = 1 1 expr = ch(\"../f3\") }
     }
   }
 
@@ -6868,24 +6854,24 @@ Content-Type: text/plain
 version 0.8
 execute	[ 0	locks=0 ]	(	0	)
 renderdialog	[ 0	locks=0 ]	(	0	)
-trange	[ 0	locks=0 ]	(	"off"	)
-f	[ 0	locks=0 ]	(	[ f1	1 ] 	[ f2	240 ] 	1	)
+trange	[ 8	locks=0 ]	(	[ trange	1 ] 	)
+f	[ 8	locks=0 ]	(	[ f1	1 ] 	[ f2	50 ] 	[ f3	1 ] 	)
 take	[ 0	locks=0 ]	(	_current_	)
 switcher	[ 0	locks=0 ]	(	1	1	)
 command	[ 0	locks=0 ]	(	""	)
 shellexec	[ 0	locks=0 ]	(	"off"	)
 initsim	[ 0	locks=0 ]	(	"off"	)
-tprerender	[ 0	locks=0 ]	(	"on"	)
-prerender	[ 0	locks=0 ]	(	hou.node('..').hdaModule().pre_bake(hou.node('..'))	)
+tprerender	[ 0	locks=0 ]	(	"off"	)
+prerender	[ 0	locks=0 ]	(	""	)
 lprerender	[ 0	locks=0 ]	(	python	)
-tpreframe	[ 0	locks=0 ]	(	"off"	)
-preframe	[ 0	locks=0 ]	(	""	)
-lpreframe	[ 0	locks=0 ]	(	hscript	)
-tpostframe	[ 0	locks=0 ]	(	"off"	)
-postframe	[ 0	locks=0 ]	(	""	)
-lpostframe	[ 0	locks=0 ]	(	hscript	)
-tpostrender	[ 0	locks=0 ]	(	"on"	)
-postrender	[ 8	locks=0 ]	(	hou.node('..').hdaModule().post_bake(hou.node('..'))	)
+tpreframe	[ 0	locks=0 ]	(	"on"	)
+preframe	[ 0	locks=0 ]	(	hou.node('..').hdaModule().pre_bake(hou.node('..'))	)
+lpreframe	[ 0	locks=0 ]	(	python	)
+tpostframe	[ 0	locks=0 ]	(	"on"	)
+postframe	[ 0	locks=0 ]	(	hou.node('..').hdaModule().post_bake(hou.node('..'))	)
+lpostframe	[ 0	locks=0 ]	(	python	)
+tpostrender	[ 0	locks=0 ]	(	"off"	)
+postrender	[ 8	locks=0 ]	(	""	)
 lpostrender	[ 0	locks=0 ]	(	python	)
 }
 
@@ -6983,7 +6969,7 @@ inputs
 stat
 {
   create 1496798847
-  modify 1497629664
+  modify 1498233336
   author Luiz@Luiz-PC
   access 0777
 }
@@ -7075,7 +7061,7 @@ Content-Disposition: attachment; filename="hdaroot/cop2net1/base_image.cop2"
 Content-Type: text/plain
 
 2
-219
+459
 0
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -8870,7 +8856,7 @@ inputs
 stat
 {
   create 1496798868
-  modify 1497629664
+  modify 1498234318
   author Luiz@Luiz-PC
   access 0777
 }
@@ -8887,17 +8873,17 @@ Content-Type: text/plain
 version 0.8
 execute	[ 0	locks=0 ]	(	0	)
 renderdialog	[ 0	locks=0 ]	(	0	)
-trange	[ 0	locks=0 ]	(	"off"	)
-f	[ 0	locks=0 ]	(	1	1	1	)
+trange	[ 8	locks=0 ]	(	"off"	)
+f	[ 8	locks=0 ]	(	1	1	1	)
 take	[ 0	locks=0 ]	(	_current_	)
 copswitcher	[ 0	locks=0 ]	(	4	4	4	4	4	)
-coppath	[ 0	locks=0 ]	(	../cop2net1/height_normalized	)
+coppath	[ 0	locks=0 ]	(	../cop2net1/base_image	)
 tres	[ 0	locks=0 ]	(	"natural"	)
 res	[ 0	locks=0 ]	(	256	256	)
 resmenu	[ 0	locks=0 ]	(	0	)
-copoutput	[ 0	locks=0 ]	(	C:/Users/Luiz/Downloads/render/water_dev_08_height.tga	)
+copoutput	[ 0	locks=0 ]	(	C:/Users/Luiz/render/untitled_position_50.tga	)
 mkpath	[ 0	locks=0 ]	(	"on"	)
-color	[ 0	locks=0 ]	(	Ds	)
+color	[ 0	locks=0 ]	(	P	)
 alpha	[ 0	locks=0 ]	(	A	)
 scopeplanes	[ 8	locks=0 ]	(	"C A"	)
 convertcolorspace	[ 0	locks=0 ]	(	"off"	)
@@ -9121,7 +9107,7 @@ inputs
 stat
 {
   create 1496776162
-  modify 1497629664
+  modify 1498233257
   author Luiz@Luiz-PC
   access 0777
 }
@@ -10500,39 +10486,11 @@ Content-Disposition: attachment; filename="hdaroot/custom_bake.chn"
 Content-Type: text/plain
 
 {
-    channel f1 {
-      lefttype = extend
-      righttype = extend
-      default = 1
-      flags = 0
-      segment { length = 0 value = 1 1 expr = $FSTART }
-    }
-    channel f2 {
-      lefttype = extend
-      righttype = extend
-      default = 240
-      flags = 0
-      segment { length = 0 value = 240 240 expr = $FEND }
-    }
     channel uvresmenu {
       lefttype = extend
       righttype = extend
       flags = 0
       segment { length = 0 expr = ch(\"../uvresmenu\") }
-    }
-    channel vm_uvunwrapresx {
-      lefttype = extend
-      righttype = extend
-      default = 512
-      flags = 0
-      segment { length = 0 value = 512 512 expr = ch(\"../vm_uvunwrapresx\") }
-    }
-    channel vm_uvunwrapresy {
-      lefttype = extend
-      righttype = extend
-      default = 512
-      flags = 0
-      segment { length = 0 value = 512 512 expr = ch(\"../vm_uvunwrapresy\") }
     }
   }
 
@@ -10546,12 +10504,12 @@ execute	[ 0	locks=0 ]	(	0	)
 renderpreview	[ 0	locks=0 ]	(	0	)
 executebackground	[ 0	locks=0 ]	(	0	)
 renderdialog	[ 0	locks=0 ]	(	0	)
-trange	[ 0	locks=0 ]	(	"off"	)
-f	[ 0	locks=0 ]	(	[ f1	1 ] 	[ f2	240 ] 	1	)
+trange	[ 8	locks=0 ]	(	"off"	)
+f	[ 8	locks=0 ]	(	1	10	1	)
 take	[ 0	locks=0 ]	(	_current_	)
 camera	[ 0	locks=0 ]	(	"`opfullpath(\"..\") + \"/objnet/cam1\"`"	)
 vm_uvtype	[ 0	locks=0 ]	(	udim	)
-vm_uvunwrapres	[ 8	locks=0 ]	(	[ vm_uvunwrapresx	2048 ] 	[ vm_uvunwrapresy	2048 ] 	)
+vm_uvunwrapres	[ 8	locks=0 ]	(	256	256	)
 uvresmenu	[ 0	locks=0 ]	(	[ uvresmenu	0 ] 	)
 vm_ptexmapminres	[ 0	locks=0 ]	(	8	8	)
 vm_uvptexminresmenu	[ 0	locks=0 ]	(	0	)
@@ -10618,7 +10576,7 @@ vm_uvobjectenable1	[ 0	locks=0 ]	(	"on"	)
 vm_uvobject1	[ 0	locks=0 ]	(	"`opfullpath(\"..\") + \"/objnet/low\"`"	)
 vm_uvcageobject1	[ 0	locks=0 ]	(	`chsop(\"../vm_uvcageobject1\")`	)
 vm_uvhires1	[ 0	locks=0 ]	(	"`opfullpath(\"..\") + \"/objnet/custom_export\"`"	)
-vm_uvoutputpicture1	[ 0	locks=0 ]	(	C:/Users/Luiz/Downloads/render\\tmp.exr	)
+vm_uvoutputpicture1	[ 0	locks=0 ]	(	C:/Users/Luiz/render\\tmp.exr	)
 images6	[ 0	locks=0 ]	(	0	0	0	0	0	)
 main3	[ 0	locks=0 ]	(	0	0	)
 vm_bake_normalizep	[ 0	locks=0 ]	(	"on"	)

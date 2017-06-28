@@ -28,10 +28,24 @@
 
 	parm {
 	    name	"override_res"
-	    label	"Override Camera Resolution"
+	    label	"Override Camera Resolution (Based on Atlas Settings Below)"
 	    type	toggle
 	    default	{ "0" }
 	    help	"If this is turned on the camera resolution will match the settings for the final texture atlas."
+	}
+	parm {
+	    name	"image_res"
+	    label	"Camera Resolution"
+	    type	label
+	    default	{ "`ch(\"./GEOMETRY/cam1/resx\")` x `ch(\"./GEOMETRY/cam1/resx\")`" }
+	    hidewhen	"{ override_res == 1 }"
+	}
+	parm {
+	    name	"image_res2"
+	    label	"Override Resolution"
+	    type	label
+	    default	{ "`ch(\"resolutionx\")/sqrt((ch(\"frames2\")-ch(\"frames1\")+1)/ch(\"frames3\"))` x `ch(\"resolutiony\")/sqrt((ch(\"frames2\")-ch(\"frames1\")+1)/ch(\"frames3\"))`" }
+	    hidewhen	"{ override_res == 0 }"
 	}
 	parm {
 	    name	"image_sequence"
@@ -45,6 +59,25 @@
 	    name	"render_sequence"
 	    label	"Render Sequence"
 	    type	button
+	    default	{ "0" }
+	}
+	parm {
+	    name	"export_normal"
+	    label	"Export Normal"
+	    type	toggle
+	    default	{ "1" }
+	    range	{ 0 1 }
+	}
+	parm {
+	    name	"render_rgb_lights"
+	    label	"Render RGB Lights (Normals)"
+	    type	toggle
+	    default	{ "0" }
+	}
+	parm {
+	    name	"render_fire"
+	    label	"Render Emission Layer"
+	    type	toggle
 	    default	{ "0" }
 	}
 	groupsimple {
@@ -71,7 +104,7 @@
 		type	image
 		joinnext
 		default	{ "$HIP/render/${HIPNAME}_normal.tga" }
-		disablewhen	"{ export_normal == 0 }"
+		disablewhen	"{ export_normal == 0 } { pack_map_toggle == 1 }"
 		range	{ 0 1 }
 	    }
 	    parm {
@@ -79,13 +112,38 @@
 		label	"Render Normal Map"
 		type	button
 		default	{ "0" }
+		disablewhen	"{ export_normal == 0 } { pack_map_toggle == 1 }"
 	    }
 	    parm {
-		name	"export_normal"
-		label	"Export Normal"
-		type	toggle
-		default	{ "1" }
+		name	"blend_normal"
+		label	"Blend N and RGB Lights"
+		type	float
+		default	{ "0.5" }
+		disablewhen	"{ render_rgb_lights == 0 }"
 		range	{ 0 1 }
+	    }
+	    parm {
+		name	"pack_map_toggle"
+		label	"Channel Pack Normal, Emission, Alpha"
+		type	toggle
+		default	{ "0" }
+		disablewhen	"{ export_normal == 0 } { render_fire == 0 }"
+	    }
+	    parm {
+		name	"packed_map"
+		label	"Packed Map"
+		type	image
+		joinnext
+		default	{ "$HIP/render/${HIPNAME}_packed.tga" }
+		disablewhen	"{ pack_map_toggle == 0 } { export_normal == 0 } { render_fire == 0 }"
+		range	{ 0 1 }
+	    }
+	    parm {
+		name	"render_packed_map"
+		label	"Render Packed Map"
+		type	button
+		default	{ "0" }
+		disablewhen	"{ pack_map_toggle == 0 } { export_normal == 0 } { render_fire == 0 }"
 	    }
 	}
 

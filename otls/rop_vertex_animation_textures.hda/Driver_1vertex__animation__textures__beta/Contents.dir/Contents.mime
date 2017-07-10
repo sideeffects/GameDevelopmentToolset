@@ -31,7 +31,7 @@ Content-Disposition: attachment; filename="hdaroot.def"
 Content-Type: text/plain
 
 comment ""
-position -6.07357 -0.646016
+position -8.05005 0.292455
 connectornextid 0
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
@@ -46,7 +46,7 @@ inputs
 stat
 {
   create 1499279686
-  modify 1499437063
+  modify 1499728018
   author mikel@mikembp-sesi.local
   access 0777
 }
@@ -88,7 +88,7 @@ Content-Type: text/plain
 }
 {
   create 1480965977
-  modify 1499437061
+  modify 1499724602
   author Luiz@Luiz-PC
   access 0777
 }
@@ -291,7 +291,7 @@ inputs
 stat
 {
   create 1476805668
-  modify 1499292080
+  modify 1499724836
   author Luiz@Luiz-PC
   access 0777
 }
@@ -1012,7 +1012,7 @@ inputs
 stat
 {
   create 1477498323
-  modify 1499288063
+  modify 1499724842
   author Luiz@Luiz-PC
   access 0777
 }
@@ -1386,7 +1386,7 @@ inputs
 stat
 {
   create 1479856537
-  modify 1499289340
+  modify 1499724805
   author Luiz@Luiz-PC
   access 0777
 }
@@ -1917,7 +1917,7 @@ ogl_alpha	[ 0	locks=0 ]	(	1	)
 ogl_cutout	[ 0	locks=0 ]	(	"on"	)
 ogl_amb	[ 0	locks=0 ]	(	1	1	1	)
 sepparm12	[ 0	locks=0 ]	(	)
-ogl_diff	[ 0	locks=0 ]	(	[ ogl_diffr	0 ] 	[ ogl_diffg	0 ] 	[ ogl_diffb	0 ] 	)
+ogl_diff	[ 0	locks=0 ]	(	[ ogl_diffr	1 ] 	[ ogl_diffg	1 ] 	[ ogl_diffb	1 ] 	)
 ogl_numtex	[ 0	locks=0	autoscope=0 ]	(	1	)
 ogl_tex1	[ 0	locks=0	autoscope=0 ]	(	`chs(\"dif_map\")`	)
 ogl_tex_min_filter1	[ 0	locks=0	autoscope=0 ]	(	GL_LINEAR_MIPMAP_LINEAR	)
@@ -5906,7 +5906,7 @@ inputs
 stat
 {
   create 1479856537
-  modify 1499289340
+  modify 1499724805
   author Luiz@Luiz-PC
   access 0777
 }
@@ -15093,7 +15093,7 @@ inputs
 stat
 {
   create 1479856537
-  modify 1499289340
+  modify 1499724805
   author Luiz@Luiz-PC
   access 0777
 }
@@ -22907,7 +22907,7 @@ inputs
 stat
 {
   create 1479856537
-  modify 1499289340
+  modify 1499724805
   author Luiz@Luiz-PC
   access 0777
 }
@@ -26193,7 +26193,7 @@ inputs
 stat
 {
   create 1499279709
-  modify 1499288894
+  modify 1499728084
   author mikel@mikembp-sesi.local
   access 0777
 }
@@ -26257,7 +26257,7 @@ inputs
 stat
 {
   create 1499134361
-  modify 1499287159
+  modify 1499727868
   author mikel@mikembp-sesi.local
   access 0777
 }
@@ -26498,6 +26498,24 @@ Content-Type: text/plain
 	parmtag	{ "parmvop" "1" }
 	parmtag	{ "shaderparmcontexts" "cop2" }
     }
+    parm {
+	name	"Target_Texture_Size"
+	label	"Target_Texture_Size"
+	type	float
+	default	{ "0" }
+	range	{ 0 1 }
+	parmtag	{ "parmvop" "1" }
+	parmtag	{ "shaderparmcontexts" "cop2" }
+    }
+    parm {
+	name	"No_Of_Points"
+	label	"No_Of_Points"
+	type	float
+	default	{ "0" }
+	range	{ 0 1 }
+	parmtag	{ "parmvop" "1" }
+	parmtag	{ "shaderparmcontexts" "cop2" }
+    }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
 Content-Disposition: attachment; filename="hdaroot/posTextureCop/calculate_delta.chn"
@@ -26539,6 +26557,18 @@ Content-Type: text/plain
       righttype = extend
       flags = 0
       segment { length = 0 expr = $NFRAMES }
+    }
+    channel Target_Texture_Size {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = ch(\"../../target_texture_size\") }
+    }
+    channel No_Of_Points {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = npoints(\"../../soft_obj/STATIC_MESH/SIM_GEO\") }
     }
   }
 
@@ -26582,6 +26612,8 @@ posthold	[ 0	locks=0 ]	(	0	)
 stdswitcher5	[ 0	locks=0 ]	(	0	0	0	0	)
 start_frame	[ 0	locks=0 ]	(	op:`opfullpath(\"../../soft_obj/STATIC_MESH/SIM_GEO\")	)
 geo	[ 0	locks=0 ]	(	op:`opfullpath(\"../../soft_obj/TEXTURE_MESH/OUT\")	)
+Target_Texture_Size	[ 0	locks=0 ]	(	[ Target_Texture_Size	1024 ] 	)
+No_Of_Points	[ 0	locks=0 ]	(	[ No_Of_Points	1600 ] 	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -26604,7 +26636,7 @@ Content-Disposition: attachment; filename="hdaroot/posTextureCop/calculate_delta
 Content-Type: text/plain
 
 2
-34
+88
 0
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -26619,7 +26651,7 @@ Content-Disposition: attachment; filename="hdaroot/posTextureCop/calculate_delta
 Content-Type: text/plain
 
 comment ""
-position -7.50691 0.755364
+position -12.0232 0.63817
 connectornextid 26
 flags =  lock off model off template off footprint off xray off bypass off display on render on highlight off unload off savedata off compress on colordefault on exposed on lowdetail off mediumdetail off highdetail on material off
 outputsNamed3
@@ -26660,7 +26692,7 @@ inputs
 stat
 {
   create 1499134361
-  modify 1499135241
+  modify 1499725518
   author mikel@mikembp-sesi.local
   access 0777
 }
@@ -26703,8 +26735,8 @@ Content-Disposition: attachment; filename="hdaroot/posTextureCop/calculate_delta
 Content-Type: text/plain
 
 comment ""
-position 17.8056 -0.337829
-connectornextid 3
+position 18.4243 2.36217
+connectornextid 4
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on lowdetail off mediumdetail off highdetail on material off
 outputsNamed3
 {
@@ -26714,17 +26746,19 @@ inputsNamed3
 0 	vectofloat1 1 1 "R"
 1 	vectofloat1 3 1 "G"
 2 	vectofloat1 2 1 "B"
+3 	"" "" 1 "A"
 }
 inputs
 {
 0 	vectofloat1 0 1
 1 	vectofloat1 2 1
 2 	vectofloat1 1 1
+3 	"" 0 1
 }
 stat
 {
   create 1499134361
-  modify 1499283373
+  modify 1499727870
   author mikel@mikembp-sesi.local
   access 0777
 }
@@ -26767,7 +26801,7 @@ Content-Disposition: attachment; filename="hdaroot/posTextureCop/calculate_delta
 Content-Type: text/plain
 
 comment ""
-position -1.82671 -0.542024
+position -1.69801 -0.542024
 connectornextid 3
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on lowdetail off mediumdetail off highdetail on material off
 outputsNamed3
@@ -26776,18 +26810,18 @@ outputsNamed3
 }
 inputsNamed3
 {
-0 	global1 1 1 "input1"
+0 	divide3 1 1 "input1"
 1 	addconst1 1 1 "input2"
 }
 inputs
 {
-0 	global1 1 1
+0 	divide3 0 1
 1 	addconst1 0 1
 }
 stat
 {
   create 1499134376
-  modify 1499283341
+  modify 1499726958
   author mikel@mikembp-sesi.local
   access 0777
 }
@@ -26827,7 +26861,7 @@ Content-Disposition: attachment; filename="hdaroot/posTextureCop/calculate_delta
 Content-Type: text/plain
 
 comment ""
-position 0.369725 0.850152
+position 0.498423 0.850152
 connectornextid 3
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on lowdetail off mediumdetail off highdetail on material off
 outputsNamed3
@@ -26836,18 +26870,18 @@ outputsNamed3
 }
 inputsNamed3
 {
-1 	global1 0 1 "input1"
+1 	floattoint1 1 1 "input1"
 0 	subtract1 2 1 "input2"
 }
 inputs
 {
-0 	global1 0 1
+0 	floattoint1 0 1
 1 	subtract1 0 1
 }
 stat
 {
   create 1499134392
-  modify 1499283341
+  modify 1499727370
   author mikel@mikembp-sesi.local
   access 0777
 }
@@ -26887,7 +26921,7 @@ Content-Disposition: attachment; filename="hdaroot/posTextureCop/calculate_delta
 Content-Type: text/plain
 
 comment ""
-position 3.74864 -1.61183
+position 3.87734 -1.61183
 connectornextid 3
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on lowdetail off mediumdetail off highdetail on material off
 outputsNamed3
@@ -26896,18 +26930,18 @@ outputsNamed3
 }
 inputsNamed3
 {
-0 	global1 24 1 "input1"
+0 	add2 2 1 "input1"
 1 	multiply1 2 1 "input2"
 }
 inputs
 {
-0 	global1 24 1
+0 	add2 0 1
 1 	multiply1 0 1
 }
 stat
 {
   create 1499134404
-  modify 1499283341
+  modify 1499727370
   author mikel@mikembp-sesi.local
   access 0777
 }
@@ -27213,7 +27247,7 @@ inputsNamed3
 0 	start_frame 0 1 "file"
 1 	"" "" 1 "atype"
 2 	"" "" 1 "attrib"
-3 	global1 24 1 "i1"
+3 	add2 2 1 "i1"
 4 	"" "" 1 "i2"
 5 	"" "" 1 "adefault"
 }
@@ -27222,14 +27256,14 @@ inputs
 0 	start_frame 0 1
 1 	"" 0 1
 2 	"" 0 1
-3 	global1 24 1
+3 	add2 0 1
 4 	"" 0 1
 5 	"" 0 1
 }
 stat
 {
   create 1499134454
-  modify 1499282139
+  modify 1499727326
   author mikel@mikembp-sesi.local
   access 0777
 }
@@ -27276,7 +27310,7 @@ Content-Disposition: attachment; filename="hdaroot/posTextureCop/calculate_delta
 Content-Type: text/plain
 
 comment ""
-position 8.41787 1.48293
+position 8.54657 1.48293
 connectornextid 7
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on lowdetail off mediumdetail off highdetail on material off
 outputsNamed3
@@ -27304,7 +27338,7 @@ inputs
 stat
 {
   create 1499134454
-  modify 1499283340
+  modify 1499727369
   author mikel@mikembp-sesi.local
   access 0777
 }
@@ -27351,7 +27385,7 @@ Content-Disposition: attachment; filename="hdaroot/posTextureCop/calculate_delta
 Content-Type: text/plain
 
 comment ""
-position 11.0856 2.16293
+position 11.2143 2.16293
 connectornextid 3
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on lowdetail off mediumdetail off highdetail on material off
 outputsNamed3
@@ -27371,7 +27405,7 @@ inputs
 stat
 {
   create 1499134491
-  modify 1499283341
+  modify 1499727370
   author mikel@mikembp-sesi.local
   access 0777
 }
@@ -27411,7 +27445,7 @@ Content-Disposition: attachment; filename="hdaroot/posTextureCop/calculate_delta
 Content-Type: text/plain
 
 comment ""
-position 13.5579 2.46294
+position 13.6866 2.46294
 connectornextid 4
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on lowdetail off mediumdetail off highdetail on material off
 outputsNamed3
@@ -27431,7 +27465,7 @@ inputs
 stat
 {
   create 1499134514
-  modify 1499283340
+  modify 1499727369
   author mikel@mikembp-sesi.local
   access 0777
 }
@@ -27480,7 +27514,7 @@ Content-Disposition: attachment; filename="hdaroot/posTextureCop/calculate_delta
 Content-Type: text/plain
 
 comment ""
-position -3.96127 -3.64183
+position -3.85899 -3.08659
 connectornextid 2
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on lowdetail off mediumdetail off highdetail on material off
 outputsNamed3
@@ -27489,16 +27523,16 @@ outputsNamed3
 }
 inputsNamed3
 {
-0 	global1 25 1 "val"
+0 	floor1 1 1 "val"
 }
 inputs
 {
-0 	global1 25 1
+0 	floor1 0 1
 }
 stat
 {
   create 1499135300
-  modify 1499283340
+  modify 1499727249
   author mikel@mikembp-sesi.local
   access 0777
 }
@@ -27513,12 +27547,1017 @@ Content-Type: text/plain
 
 {
 version 0.8
-signature	[ 0	locks=0 ]	(	default	)
+signature	[ 0	locks=0 ]	(	f	)
 addconst	[ 0	locks=0 ]	(	1	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
 Content-Disposition: attachment; filename="hdaroot/posTextureCop/calculate_delta/addconst1.userdata"
+Content-Type: text/plain
+
+{
+	"___Version___":{
+		"type":"string",
+		"value":""
+	}
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/posTextureCop/calculate_delta/target_texture_size.init"
+Content-Type: text/plain
+
+type = parameter
+matchesdef = 0
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/posTextureCop/calculate_delta/target_texture_size.def"
+Content-Type: text/plain
+
+comment ""
+position -9.45506 -8.03068
+connectornextid 1
+flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on lowdetail off mediumdetail off highdetail on material off
+outputsNamed3
+{
+0 "Target_Texture_Size"
+}
+inputsNamed3
+{
+}
+inputs
+{
+}
+stat
+{
+  create 1499725252
+  modify 1499726612
+  author mikel@mikembp-sesi.local
+  access 0777
+}
+color UT_Color RGB 1 1 0.4 
+delscript ""
+exprlanguage hscript
+end
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/posTextureCop/calculate_delta/target_texture_size.parm"
+Content-Type: text/plain
+
+{
+version 0.8
+parmscope	[ 0	locks=0 ]	(	shaderparm	)
+parmaccess	[ 0	locks=0 ]	(	""	)
+parmname	[ 0	locks=0 ]	(	"Target Texture Size"	)
+parmprefix	[ 0	locks=0 ]	(	""	)
+parmpostfix	[ 0	locks=0 ]	(	""	)
+parmlabel	[ 0	locks=0 ]	(	""	)
+showlabel	[ 0	locks=0 ]	(	"on"	)
+parmtype	[ 0	locks=0 ]	(	"float"	)
+parmtypename	[ 0	locks=0 ]	(	""	)
+floatdef	[ 0	locks=0 ]	(	0	)
+intdef	[ 0	locks=0 ]	(	0	)
+toggledef	[ 0	locks=0 ]	(	"off"	)
+angledef	[ 0	locks=0 ]	(	0	)
+logfloatdef	[ 0	locks=0 ]	(	0	)
+float2def	[ 0	locks=0 ]	(	0	0	)
+float3def	[ 0	locks=0 ]	(	0	0	0	)
+vectordef	[ 0	locks=0 ]	(	0	0	0	)
+normaldef	[ 0	locks=0 ]	(	0	0	0	)
+pointdef	[ 0	locks=0 ]	(	0	0	0	)
+directiondef	[ 0	locks=0 ]	(	1	0	0	)
+float4def	[ 0	locks=0 ]	(	0	0	0	0	)
+floatm2def	[ 0	locks=0 ]	(	1	0	0	1	)
+float9def	[ 0	locks=0 ]	(	1	0	0	0	1	0	0	0	1	)
+float16def	[ 0	locks=0 ]	(	1	0	0	0	0	1	0	0	0	0	1	0	0	0	0	1	)
+stringdef	[ 0	locks=0 ]	(	""	)
+filedef	[ 0	locks=0 ]	(	""	)
+imagedef	[ 0	locks=0 ]	(	""	)
+geometrydef	[ 0	locks=0 ]	(	""	)
+colordef	[ 0	locks=0 ]	(	0	0	0	)
+color4def	[ 0	locks=0 ]	(	0	0	0	0	)
+bsdfdef	[ 0	locks=0 ]	(	""	)
+coshaderdef	[ 0	locks=0 ]	(	""	)
+floatadef	[ 0	locks=0 ]	(	)
+intadef	[ 0	locks=0 ]	(	)
+vector2adef	[ 0	locks=0 ]	(	)
+vectoradef	[ 0	locks=0 ]	(	)
+pointadef	[ 0	locks=0 ]	(	)
+normaladef	[ 0	locks=0 ]	(	)
+coloradef	[ 0	locks=0 ]	(	)
+float4adef	[ 0	locks=0 ]	(	)
+floatm2adef	[ 0	locks=0 ]	(	)
+float9adef	[ 0	locks=0 ]	(	)
+float16adef	[ 0	locks=0 ]	(	)
+stringadef	[ 0	locks=0 ]	(	)
+coshaderadef	[ 0	locks=0 ]	(	""	)
+structdef	[ 0	locks=0 ]	(	""	)
+rangeflt	[ 0	locks=0 ]	(	0	1	)
+rangeint	[ 0	locks=0 ]	(	0	10	)
+stringtype	[ 0	locks=0 ]	(	off	)
+opfilter	[ 0	locks=0 ]	(	!!OBJ/LIGHT!!	)
+parmcomment	[ 0	locks=0 ]	(	""	)
+separator1	[ 0	locks=0 ]	(	)
+useasparmdefiner	[ 0	locks=0 ]	(	"off"	)
+useownexportcontext	[ 0	locks=0 ]	(	"off"	)
+parmuniform	[ 0	locks=0 ]	(	"on"	)
+usebound	[ 0	locks=0 ]	(	"off"	)
+hasconnector	[ 0	locks=0 ]	(	"on"	)
+exportparm	[ 0	locks=0 ]	(	"off"	)
+exportcontext	[ 0	locks=0 ]	(	cop2	)
+providemenu	[ 0	locks=0 ]	(	"off"	)
+menuchoices	[ 0	locks=0 ]	(	""	)
+menuscript	[ 0	locks=0 ]	(	""	)
+menuscriptlanguage	[ 0	locks=0 ]	(	"hscript"	)
+separator2	[ 0	locks=0 ]	(	)
+invisible	[ 0	locks=0 ]	(	"off"	)
+joinnext	[ 0	locks=0 ]	(	"off"	)
+disablewhen	[ 0	locks=0 ]	(	""	)
+hidewhen	[ 0	locks=0 ]	(	""	)
+callback	[ 0	locks=0 ]	(	""	)
+tags	[ 0	locks=0 ]	(	""	)
+help	[ 0	locks=0 ]	(	""	)
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/posTextureCop/calculate_delta/target_texture_size.userdata"
+Content-Type: text/plain
+
+{
+	"___Version___":{
+		"type":"string",
+		"value":"16.0.635"
+	}
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/posTextureCop/calculate_delta/npoints.init"
+Content-Type: text/plain
+
+type = parameter
+matchesdef = 0
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/posTextureCop/calculate_delta/npoints.def"
+Content-Type: text/plain
+
+comment ""
+position -9.45506 -6.37068
+connectornextid 1
+flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on lowdetail off mediumdetail off highdetail on material off
+outputsNamed3
+{
+0 "No_Of_Points"
+}
+inputsNamed3
+{
+}
+inputs
+{
+}
+stat
+{
+  create 1499725252
+  modify 1499726611
+  author mikel@mikembp-sesi.local
+  access 0777
+}
+color UT_Color RGB 1 1 0.4 
+delscript ""
+exprlanguage hscript
+end
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/posTextureCop/calculate_delta/npoints.parm"
+Content-Type: text/plain
+
+{
+version 0.8
+parmscope	[ 0	locks=0 ]	(	shaderparm	)
+parmaccess	[ 0	locks=0 ]	(	""	)
+parmname	[ 0	locks=0 ]	(	"No Of Points"	)
+parmprefix	[ 0	locks=0 ]	(	""	)
+parmpostfix	[ 0	locks=0 ]	(	""	)
+parmlabel	[ 0	locks=0 ]	(	""	)
+showlabel	[ 0	locks=0 ]	(	"on"	)
+parmtype	[ 0	locks=0 ]	(	"float"	)
+parmtypename	[ 0	locks=0 ]	(	""	)
+floatdef	[ 0	locks=0 ]	(	0	)
+intdef	[ 0	locks=0 ]	(	0	)
+toggledef	[ 0	locks=0 ]	(	"off"	)
+angledef	[ 0	locks=0 ]	(	0	)
+logfloatdef	[ 0	locks=0 ]	(	0	)
+float2def	[ 0	locks=0 ]	(	0	0	)
+float3def	[ 0	locks=0 ]	(	0	0	0	)
+vectordef	[ 0	locks=0 ]	(	0	0	0	)
+normaldef	[ 0	locks=0 ]	(	0	0	0	)
+pointdef	[ 0	locks=0 ]	(	0	0	0	)
+directiondef	[ 0	locks=0 ]	(	1	0	0	)
+float4def	[ 0	locks=0 ]	(	0	0	0	0	)
+floatm2def	[ 0	locks=0 ]	(	1	0	0	1	)
+float9def	[ 0	locks=0 ]	(	1	0	0	0	1	0	0	0	1	)
+float16def	[ 0	locks=0 ]	(	1	0	0	0	0	1	0	0	0	0	1	0	0	0	0	1	)
+stringdef	[ 0	locks=0 ]	(	""	)
+filedef	[ 0	locks=0 ]	(	""	)
+imagedef	[ 0	locks=0 ]	(	""	)
+geometrydef	[ 0	locks=0 ]	(	""	)
+colordef	[ 0	locks=0 ]	(	0	0	0	)
+color4def	[ 0	locks=0 ]	(	0	0	0	0	)
+bsdfdef	[ 0	locks=0 ]	(	""	)
+coshaderdef	[ 0	locks=0 ]	(	""	)
+floatadef	[ 0	locks=0 ]	(	)
+intadef	[ 0	locks=0 ]	(	)
+vector2adef	[ 0	locks=0 ]	(	)
+vectoradef	[ 0	locks=0 ]	(	)
+pointadef	[ 0	locks=0 ]	(	)
+normaladef	[ 0	locks=0 ]	(	)
+coloradef	[ 0	locks=0 ]	(	)
+float4adef	[ 0	locks=0 ]	(	)
+floatm2adef	[ 0	locks=0 ]	(	)
+float9adef	[ 0	locks=0 ]	(	)
+float16adef	[ 0	locks=0 ]	(	)
+stringadef	[ 0	locks=0 ]	(	)
+coshaderadef	[ 0	locks=0 ]	(	""	)
+structdef	[ 0	locks=0 ]	(	""	)
+rangeflt	[ 0	locks=0 ]	(	0	1	)
+rangeint	[ 0	locks=0 ]	(	0	10	)
+stringtype	[ 0	locks=0 ]	(	off	)
+opfilter	[ 0	locks=0 ]	(	!!OBJ/LIGHT!!	)
+parmcomment	[ 0	locks=0 ]	(	""	)
+separator1	[ 0	locks=0 ]	(	)
+useasparmdefiner	[ 0	locks=0 ]	(	"off"	)
+useownexportcontext	[ 0	locks=0 ]	(	"off"	)
+parmuniform	[ 0	locks=0 ]	(	"on"	)
+usebound	[ 0	locks=0 ]	(	"off"	)
+hasconnector	[ 0	locks=0 ]	(	"on"	)
+exportparm	[ 0	locks=0 ]	(	"off"	)
+exportcontext	[ 0	locks=0 ]	(	cop2	)
+providemenu	[ 0	locks=0 ]	(	"off"	)
+menuchoices	[ 0	locks=0 ]	(	""	)
+menuscript	[ 0	locks=0 ]	(	""	)
+menuscriptlanguage	[ 0	locks=0 ]	(	"hscript"	)
+separator2	[ 0	locks=0 ]	(	)
+invisible	[ 0	locks=0 ]	(	"off"	)
+joinnext	[ 0	locks=0 ]	(	"off"	)
+disablewhen	[ 0	locks=0 ]	(	""	)
+hidewhen	[ 0	locks=0 ]	(	""	)
+callback	[ 0	locks=0 ]	(	""	)
+tags	[ 0	locks=0 ]	(	""	)
+help	[ 0	locks=0 ]	(	""	)
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/posTextureCop/calculate_delta/npoints.userdata"
+Content-Type: text/plain
+
+{
+	"___Version___":{
+		"type":"string",
+		"value":"16.0.635"
+	}
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/posTextureCop/calculate_delta/divide1.init"
+Content-Type: text/plain
+
+type = divide
+matchesdef = 0
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/posTextureCop/calculate_delta/divide1.def"
+Content-Type: text/plain
+
+comment ""
+position -6.68597 -7.05068
+connectornextid 3
+flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on lowdetail off mediumdetail off highdetail on material off
+outputsNamed3
+{
+2 "div"
+}
+inputsNamed3
+{
+1 	npoints 0 1 "input1"
+0 	target_texture_size 0 1 "input2"
+}
+inputs
+{
+0 	npoints 0 1
+1 	target_texture_size 0 1
+}
+stat
+{
+  create 1499725406
+  modify 1499727301
+  author mikel@mikembp-sesi.local
+  access 0777
+}
+color UT_Color RGB 0.8 0.8 0.8 
+delscript ""
+exprlanguage hscript
+end
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/posTextureCop/calculate_delta/divide1.parm"
+Content-Type: text/plain
+
+{
+version 0.8
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/posTextureCop/calculate_delta/divide1.userdata"
+Content-Type: text/plain
+
+{
+	"___Version___":{
+		"type":"string",
+		"value":"16.0.635"
+	}
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/posTextureCop/calculate_delta/ceiling1.init"
+Content-Type: text/plain
+
+type = ceiling
+matchesdef = 0
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/posTextureCop/calculate_delta/ceiling1.def"
+Content-Type: text/plain
+
+comment ""
+position -4.69801 -7.05068
+connectornextid 2
+flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on lowdetail off mediumdetail off highdetail on material off
+outputsNamed3
+{
+1 "ceil"
+}
+inputsNamed3
+{
+0 	divide1 2 1 "val"
+}
+inputs
+{
+0 	divide1 0 1
+}
+stat
+{
+  create 1499725434
+  modify 1499727301
+  author mikel@mikembp-sesi.local
+  access 0777
+}
+color UT_Color RGB 0.8 0.8 0.8 
+delscript ""
+exprlanguage hscript
+end
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/posTextureCop/calculate_delta/ceiling1.parm"
+Content-Type: text/plain
+
+{
+version 0.8
+signature	[ 0	locks=0 ]	(	default	)
+val	[ 0	locks=0 ]	(	1	)
+val_v	[ 0	locks=0 ]	(	1	1	1	)
+val_p	[ 0	locks=0 ]	(	1	1	1	)
+val_n	[ 0	locks=0 ]	(	1	1	1	)
+val_c	[ 0	locks=0 ]	(	1	1	1	)
+val_v4	[ 0	locks=0 ]	(	1	1	1	1	)
+val_uf	[ 0	locks=0 ]	(	1	)
+val_uv	[ 0	locks=0 ]	(	1	1	1	)
+val_up	[ 0	locks=0 ]	(	1	1	1	)
+val_un	[ 0	locks=0 ]	(	1	1	1	)
+val_uc	[ 0	locks=0 ]	(	1	1	1	)
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/posTextureCop/calculate_delta/ceiling1.userdata"
+Content-Type: text/plain
+
+{
+	"___Version___":{
+		"type":"string",
+		"value":""
+	}
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/posTextureCop/calculate_delta/divide2.init"
+Content-Type: text/plain
+
+type = divide
+matchesdef = 0
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/posTextureCop/calculate_delta/divide2.def"
+Content-Type: text/plain
+
+comment ""
+position -2.07983 -6.02134
+connectornextid 3
+flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on lowdetail off mediumdetail off highdetail on material off
+outputsNamed3
+{
+2 "div"
+}
+inputsNamed3
+{
+0 	inttofloat1 1 1 "input1"
+1 	ceiling1 1 1 "input2"
+}
+inputs
+{
+0 	inttofloat1 0 1
+1 	ceiling1 0 1
+}
+stat
+{
+  create 1499725482
+  modify 1499727301
+  author mikel@mikembp-sesi.local
+  access 0777
+}
+color UT_Color RGB 0.8 0.8 0.8 
+delscript ""
+exprlanguage hscript
+end
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/posTextureCop/calculate_delta/divide2.parm"
+Content-Type: text/plain
+
+{
+version 0.8
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/posTextureCop/calculate_delta/divide2.userdata"
+Content-Type: text/plain
+
+{
+	"___Version___":{
+		"type":"string",
+		"value":"16.0.635"
+	}
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/posTextureCop/calculate_delta/inttofloat1.init"
+Content-Type: text/plain
+
+type = inttofloat
+matchesdef = 0
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/posTextureCop/calculate_delta/inttofloat1.def"
+Content-Type: text/plain
+
+comment ""
+position -4.69801 -5.54068
+connectornextid 2
+flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on lowdetail off mediumdetail off highdetail on material off
+outputsNamed3
+{
+1 "fval"
+}
+inputsNamed3
+{
+0 	global1 25 1 "ival"
+}
+inputs
+{
+0 	global1 25 1
+}
+stat
+{
+  create 1499725487
+  modify 1499727301
+  author mikel@mikembp-sesi.local
+  access 0777
+}
+color UT_Color RGB 0.8 0.8 0.8 
+delscript ""
+exprlanguage hscript
+end
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/posTextureCop/calculate_delta/inttofloat1.parm"
+Content-Type: text/plain
+
+{
+version 0.8
+ival	[ 0	locks=0 ]	(	0	)
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/posTextureCop/calculate_delta/inttofloat1.userdata"
+Content-Type: text/plain
+
+{
+	"___Version___":{
+		"type":"string",
+		"value":""
+	}
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/posTextureCop/calculate_delta/floor1.init"
+Content-Type: text/plain
+
+type = floor
+matchesdef = 0
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/posTextureCop/calculate_delta/floor1.def"
+Content-Type: text/plain
+
+comment ""
+position 2.27175 -5.796
+connectornextid 2
+flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on lowdetail off mediumdetail off highdetail on material off
+outputsNamed3
+{
+1 "floor"
+}
+inputsNamed3
+{
+0 	divide2 2 1 "val"
+}
+inputs
+{
+0 	divide2 0 1
+}
+stat
+{
+  create 1499725505
+  modify 1499727301
+  author mikel@mikembp-sesi.local
+  access 0777
+}
+color UT_Color RGB 0.8 0.8 0.8 
+delscript ""
+exprlanguage hscript
+end
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/posTextureCop/calculate_delta/floor1.parm"
+Content-Type: text/plain
+
+{
+version 0.8
+signature	[ 0	locks=0 ]	(	default	)
+val	[ 0	locks=0 ]	(	1	)
+val_v	[ 0	locks=0 ]	(	1	1	1	)
+val_p	[ 0	locks=0 ]	(	1	1	1	)
+val_n	[ 0	locks=0 ]	(	1	1	1	)
+val_c	[ 0	locks=0 ]	(	1	1	1	)
+val_v4	[ 0	locks=0 ]	(	1	1	1	1	)
+val_uf	[ 0	locks=0 ]	(	1	)
+val_uv	[ 0	locks=0 ]	(	1	1	1	)
+val_up	[ 0	locks=0 ]	(	1	1	1	)
+val_un	[ 0	locks=0 ]	(	1	1	1	)
+val_uc	[ 0	locks=0 ]	(	1	1	1	)
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/posTextureCop/calculate_delta/floor1.userdata"
+Content-Type: text/plain
+
+{
+	"___Version___":{
+		"type":"string",
+		"value":""
+	}
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/posTextureCop/calculate_delta/modulo1.init"
+Content-Type: text/plain
+
+type = modulo
+matchesdef = 0
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/posTextureCop/calculate_delta/modulo1.def"
+Content-Type: text/plain
+
+comment ""
+position -1.56317 -7.85093
+connectornextid 3
+flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on lowdetail off mediumdetail off highdetail on material off
+outputsNamed3
+{
+2 "mod"
+}
+inputsNamed3
+{
+0 	inttofloat1 1 1 "input1"
+1 	ceiling1 1 1 "input2"
+}
+inputs
+{
+0 	inttofloat1 0 1
+1 	ceiling1 0 1
+}
+stat
+{
+  create 1499726747
+  modify 1499727301
+  author mikel@mikembp-sesi.local
+  access 0777
+}
+color UT_Color RGB 0.8 0.8 0.8 
+delscript ""
+exprlanguage hscript
+end
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/posTextureCop/calculate_delta/modulo1.parm"
+Content-Type: text/plain
+
+{
+version 0.8
+signature	[ 0	locks=0 ]	(	default	)
+input2	[ 0	locks=0 ]	(	1	)
+input2_i	[ 0	locks=0 ]	(	1	)
+input2_v	[ 0	locks=0 ]	(	1	1	1	)
+input2_p	[ 0	locks=0 ]	(	1	1	1	)
+input2_n	[ 0	locks=0 ]	(	1	1	1	)
+input2_c	[ 0	locks=0 ]	(	1	1	1	)
+input2_v4	[ 0	locks=0 ]	(	1	1	1	1	)
+input2_uf	[ 0	locks=0 ]	(	1	)
+input2_uv	[ 0	locks=0 ]	(	1	1	1	)
+input2_up	[ 0	locks=0 ]	(	1	1	1	)
+input2_un	[ 0	locks=0 ]	(	1	1	1	)
+input2_uc	[ 0	locks=0 ]	(	1	1	1	)
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/posTextureCop/calculate_delta/modulo1.userdata"
+Content-Type: text/plain
+
+{
+	"___Version___":{
+		"type":"string",
+		"value":""
+	}
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/posTextureCop/calculate_delta/multiply2.init"
+Content-Type: text/plain
+
+type = multiply
+matchesdef = 0
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/posTextureCop/calculate_delta/multiply2.def"
+Content-Type: text/plain
+
+comment ""
+position 3.17643 -10.2456
+connectornextid 3
+flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on lowdetail off mediumdetail off highdetail on material off
+outputsNamed3
+{
+2 "product"
+}
+inputsNamed3
+{
+0 	subtract3 2 1 "input1"
+1 	target_texture_size 0 1 "input2"
+}
+inputs
+{
+0 	subtract3 0 1
+1 	target_texture_size 0 1
+}
+stat
+{
+  create 1499726787
+  modify 1499727301
+  author mikel@mikembp-sesi.local
+  access 0777
+}
+color UT_Color RGB 0.8 0.8 0.8 
+delscript ""
+exprlanguage hscript
+end
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/posTextureCop/calculate_delta/multiply2.parm"
+Content-Type: text/plain
+
+{
+version 0.8
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/posTextureCop/calculate_delta/multiply2.userdata"
+Content-Type: text/plain
+
+{
+	"___Version___":{
+		"type":"string",
+		"value":"16.0.635"
+	}
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/posTextureCop/calculate_delta/add2.init"
+Content-Type: text/plain
+
+type = add
+matchesdef = 0
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/posTextureCop/calculate_delta/add2.def"
+Content-Type: text/plain
+
+comment ""
+position -7.55548 -2.65581
+connectornextid 3
+flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on lowdetail off mediumdetail off highdetail on material off
+outputsNamed3
+{
+2 "sum"
+}
+inputsNamed3
+{
+0 	global1 24 1 "input1"
+1 	multiply2 2 1 "input2"
+}
+inputs
+{
+0 	global1 24 1
+1 	multiply2 0 1
+}
+stat
+{
+  create 1499726812
+  modify 1499727301
+  author mikel@mikembp-sesi.local
+  access 0777
+}
+color UT_Color RGB 0.8 0.8 0.8 
+delscript ""
+exprlanguage hscript
+end
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/posTextureCop/calculate_delta/add2.parm"
+Content-Type: text/plain
+
+{
+version 0.8
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/posTextureCop/calculate_delta/add2.userdata"
+Content-Type: text/plain
+
+{
+	"___Version___":{
+		"type":"string",
+		"value":"16.0.635"
+	}
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/posTextureCop/calculate_delta/divide3.init"
+Content-Type: text/plain
+
+type = divide
+matchesdef = 0
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/posTextureCop/calculate_delta/divide3.def"
+Content-Type: text/plain
+
+comment ""
+position -4.49504 -0.712829
+connectornextid 3
+flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on lowdetail off mediumdetail off highdetail on material off
+outputsNamed3
+{
+1 "div"
+}
+inputsNamed3
+{
+0 	global1 1 1 "input1"
+2 	ceiling1 1 1 "input2"
+}
+inputs
+{
+0 	global1 1 1
+1 	ceiling1 0 1
+}
+stat
+{
+  create 1499726944
+  modify 1499727301
+  author mikel@mikembp-sesi.local
+  access 0777
+}
+color UT_Color RGB 0.8 0.8 0.8 
+delscript ""
+exprlanguage hscript
+end
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/posTextureCop/calculate_delta/divide3.parm"
+Content-Type: text/plain
+
+{
+version 0.8
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/posTextureCop/calculate_delta/divide3.userdata"
+Content-Type: text/plain
+
+{
+	"___Version___":{
+		"type":"string",
+		"value":"16.0.635"
+	}
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/posTextureCop/calculate_delta/subconst1.init"
+Content-Type: text/plain
+
+type = subconst
+matchesdef = 0
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/posTextureCop/calculate_delta/subconst1.def"
+Content-Type: text/plain
+
+comment ""
+position -4.09374 -8.99349
+connectornextid 2
+flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on lowdetail off mediumdetail off highdetail on material off
+outputsNamed3
+{
+1 "subed"
+}
+inputsNamed3
+{
+0 	ceiling1 1 1 "val"
+}
+inputs
+{
+0 	ceiling1 0 1
+}
+stat
+{
+  create 1499727037
+  modify 1499727301
+  author mikel@mikembp-sesi.local
+  access 0777
+}
+color UT_Color RGB 0.8 0.8 0.8 
+delscript ""
+exprlanguage hscript
+end
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/posTextureCop/calculate_delta/subconst1.parm"
+Content-Type: text/plain
+
+{
+version 0.8
+signature	[ 0	locks=0 ]	(	f	)
+subconst	[ 0	locks=0 ]	(	1	)
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/posTextureCop/calculate_delta/subconst1.userdata"
+Content-Type: text/plain
+
+{
+	"___Version___":{
+		"type":"string",
+		"value":""
+	}
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/posTextureCop/calculate_delta/subtract3.init"
+Content-Type: text/plain
+
+type = subtract
+matchesdef = 0
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/posTextureCop/calculate_delta/subtract3.def"
+Content-Type: text/plain
+
+comment ""
+position 0.497619 -8.99349
+connectornextid 3
+flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on lowdetail off mediumdetail off highdetail on material off
+outputsNamed3
+{
+2 "diff"
+}
+inputsNamed3
+{
+0 	subconst1 1 1 "input1"
+1 	modulo1 2 1 "input2"
+}
+inputs
+{
+0 	subconst1 0 1
+1 	modulo1 0 1
+}
+stat
+{
+  create 1499727047
+  modify 1499727301
+  author mikel@mikembp-sesi.local
+  access 0777
+}
+color UT_Color RGB 0.8 0.8 0.8 
+delscript ""
+exprlanguage hscript
+end
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/posTextureCop/calculate_delta/subtract3.parm"
+Content-Type: text/plain
+
+{
+version 0.8
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/posTextureCop/calculate_delta/subtract3.userdata"
+Content-Type: text/plain
+
+{
+	"___Version___":{
+		"type":"string",
+		"value":"16.0.635"
+	}
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/posTextureCop/calculate_delta/floattoint1.init"
+Content-Type: text/plain
+
+type = floattoint
+matchesdef = 0
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/posTextureCop/calculate_delta/floattoint1.def"
+Content-Type: text/plain
+
+comment ""
+position -6.72033 2.18222
+connectornextid 2
+flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on lowdetail off mediumdetail off highdetail on material off
+outputsNamed3
+{
+1 "ival"
+}
+inputsNamed3
+{
+0 	npoints 0 1 "fval"
+}
+inputs
+{
+0 	npoints 0 1
+}
+stat
+{
+  create 1499727342
+  modify 1499727458
+  author mikel@mikembp-sesi.local
+  access 0777
+}
+color UT_Color RGB 0.8 0.8 0.8 
+delscript ""
+exprlanguage hscript
+end
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/posTextureCop/calculate_delta/floattoint1.parm"
+Content-Type: text/plain
+
+{
+version 0.8
+fval	[ 0	locks=0 ]	(	0	)
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/posTextureCop/calculate_delta/floattoint1.userdata"
 Content-Type: text/plain
 
 {
@@ -28474,1094 +29513,6 @@ Content-Type: text/plain
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot/posTextureCop/calculate_normal.init"
-Content-Type: text/plain
-
-type = vopcop2gen
-matchesdef = 0
-
---HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot/posTextureCop/calculate_normal.def"
-Content-Type: text/plain
-
-comment ""
-position -4.48 2.33692
-connectornextid 2
-flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress off colordefault off exposed on
-outputsNamed3
-{
-1 "output1"
-}
-inputsNamed3
-{
-0 	color1 0 1 "input1"
-}
-inputs
-{
-0 	color1 0 1
-}
-stat
-{
-  create 1499134361
-  modify 1499291252
-  author mikel@mikembp-sesi.local
-  access 0777
-}
-color UT_Color RGB 0.5 0.7 0.6 
-delscript ""
-exprlanguage hscript
-end
-
---HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot/posTextureCop/calculate_normal.spareparmdef"
-Content-Type: text/plain
-
-    group {
-	name	"stdswitcher5"
-	label	"Compiler"
-
-	parm {
-	    name	"vop_compiler"
-	    baseparm
-	    label	"Compiler"
-	    export	none
-	}
-	parm {
-	    name	"vop_forcecompile"
-	    baseparm
-	    label	"Force Compile"
-	    export	none
-	}
-    }
-
-    group {
-	name	"stdswitcher5_1"
-	label	"Mask"
-
-	parm {
-	    name	"effectamount"
-	    baseparm
-	    label	"Effect Amount"
-	    export	none
-	}
-	parm {
-	    name	"maskplane"
-	    baseparm
-	    label	"Mask Plane"
-	    export	none
-	}
-	parm {
-	    name	"maskresize"
-	    baseparm
-	    label	"Resize Mask to Fit Image"
-	    export	none
-	}
-	parm {
-	    name	"maskinvert"
-	    baseparm
-	    label	"Invert Mask"
-	    export	none
-	}
-    }
-
-    group {
-	name	"stdswitcher5_2"
-	label	"Image"
-
-	parm {
-	    name	"overridesize"
-	    baseparm
-	    label	"Override Global Size"
-	    joinnext
-	    export	none
-	}
-	parm {
-	    name	"size"
-	    baseparm
-	    label	"Override Size"
-	    joinnext
-	    export	none
-	}
-	parm {
-	    name	"sizemenu"
-	    baseparm
-	    label	"Size Menu"
-	    export	none
-	}
-	parm {
-	    name	"overrideaspect"
-	    baseparm
-	    label	"Override Pixel Aspect"
-	    joinnext
-	    export	none
-	}
-	parm {
-	    name	"aspect"
-	    baseparm
-	    label	"Pixel Aspect Ratio"
-	    export	none
-	}
-	parm {
-	    name	"planes"
-	    baseparm
-	    label	"Image Planes"
-	    export	none
-	}
-	parm {
-	    name	"addplanes"
-	    baseparm
-	    label	"Add Plane"
-	    joinnext
-	    export	none
-	}
-	parm {
-	    name	"addplaneop"
-	    baseparm
-	    label	""
-	    export	none
-	}
-	parm {
-	    name	"customplanes"
-	    baseparm
-	    label	"Custom Planes"
-	    export	none
-	}
-	parm {
-	    name	"depth"
-	    baseparm
-	    label	"Raster Depth"
-	    joinnext
-	    export	all
-	}
-	parm {
-	    name	"depthmenu"
-	    baseparm
-	    label	"Depth Menu"
-	    export	all
-	}
-	parm {
-	    name	"depthglobal"
-	    baseparm
-	    label	"Global Depth Setting"
-	    invisible
-	    export	none
-	}
-	parm {
-	    name	"usebwpoints"
-	    baseparm
-	    label	"Use Custom Black/White Points"
-	    joinnext
-	    export	all
-	}
-	parm {
-	    name	"bwpoints"
-	    baseparm
-	    label	"Black/White Points"
-	    export	all
-	}
-	parm {
-	    name	"interlace"
-	    baseparm
-	    label	"Interlacing"
-	    joinnext
-	    export	none
-	}
-	parm {
-	    name	"idominance"
-	    baseparm
-	    label	""
-	    export	none
-	}
-    }
-
-    group {
-	name	"stdswitcher5_3"
-	label	"Sequence"
-
-	parm {
-	    name	"overriderange"
-	    baseparm
-	    label	"Override Global Range"
-	    export	all
-	}
-	parm {
-	    name	"singleimage"
-	    baseparm
-	    label	"Still Image"
-	    export	all
-	}
-	parm {
-	    name	"start"
-	    baseparm
-	    label	"Start Frame"
-	    export	all
-	}
-	parm {
-	    name	"length"
-	    baseparm
-	    label	"Length"
-	    export	all
-	}
-	parm {
-	    name	"preextend"
-	    baseparm
-	    label	"Pre Extend"
-	    export	none
-	}
-	parm {
-	    name	"prehold"
-	    baseparm
-	    label	"Pre Hold"
-	    export	none
-	}
-	parm {
-	    name	"postextend"
-	    baseparm
-	    label	"Post Extend"
-	    export	none
-	}
-	parm {
-	    name	"posthold"
-	    baseparm
-	    label	"Post Hold"
-	    export	none
-	}
-    }
-
-    parm {
-	name	"geo"
-	label	"geo"
-	type	geometry
-	default	{ "" }
-	parmtag	{ "parmvop" "1" }
-	parmtag	{ "shaderparmcontexts" "cop2" }
-    }
-
---HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot/posTextureCop/calculate_normal.chn"
-Content-Type: text/plain
-
-{
-    channel aspect {
-      lefttype = extend
-      righttype = extend
-      flags = 0
-      segment { length = 0 expr = $CPIXA }
-    }
-    channel depthglobal {
-      lefttype = extend
-      righttype = extend
-      flags = 0
-      segment { length = 0 expr = $CDEPTH }
-    }
-    channel bwpoints1 {
-      lefttype = extend
-      righttype = extend
-      flags = 0
-      segment { length = 0 expr = $CBP }
-    }
-    channel bwpoints2 {
-      lefttype = extend
-      righttype = extend
-      flags = 0
-      segment { length = 0 expr = $CWP }
-    }
-    channel start {
-      lefttype = extend
-      righttype = extend
-      flags = 0
-      segment { length = 0 expr = $FSTART }
-    }
-    channel length {
-      lefttype = extend
-      righttype = extend
-      flags = 0
-      segment { length = 0 expr = $NFRAMES }
-    }
-  }
-
---HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot/posTextureCop/calculate_normal.parm"
-Content-Type: text/plain
-
-{
-version 0.8
-stdswitcher	[ 0	locks=0 ]	(	0	0	0	0	)
-vop_compiler	[ 0	locks=0 ]	(	"vcc -q $VOP_INCLUDEPATH -o $VOP_OBJECTFILE -e $VOP_ERRORFILE $VOP_SOURCEFILE"	)
-vop_forcecompile	[ 0	locks=0 ]	(	0	)
-effectamount	[ 0	locks=0 ]	(	1	)
-maskplane	[ 0	locks=0 ]	(	A	)
-maskresize	[ 0	locks=0 ]	(	"off"	)
-maskinvert	[ 0	locks=0 ]	(	"off"	)
-overridesize	[ 0	locks=0 ]	(	"on"	)
-size	[ 0	locks=0 ]	(	8	63	)
-sizemenu	[ 0	locks=0 ]	(	0	)
-overrideaspect	[ 0	locks=0 ]	(	"off"	)
-aspect	[ 0	locks=0 ]	(	[ aspect	1 ] 	)
-planes	[ 0	locks=0 ]	(	"rgba"	)
-addplanes	[ 0	locks=0 ]	(	"m"	)
-addplaneop	[ 0	locks=0 ]	(	"replace"	)
-customplanes	[ 0	locks=0 ]	(	""	)
-depth	[ 0	locks=0 ]	(	"default"	)
-depthmenu	[ 0	locks=0 ]	(	0	)
-depthglobal	[ 0	locks=0 ]	(	[ depthglobal	4 ] 	)
-usebwpoints	[ 0	locks=0 ]	(	"off"	)
-bwpoints	[ 0	locks=0 ]	(	[ bwpoints1	0 ] 	[ bwpoints2	1 ] 	)
-interlace	[ 0	locks=0 ]	(	"none"	)
-idominance	[ 0	locks=0 ]	(	"odd"	)
-overriderange	[ 0	locks=0 ]	(	"off"	)
-singleimage	[ 0	locks=0 ]	(	"off"	)
-start	[ 0	locks=0 ]	(	[ start	1 ] 	)
-length	[ 0	locks=0 ]	(	[ length	300 ] 	)
-preextend	[ 0	locks=0 ]	(	"black"	)
-prehold	[ 0	locks=0 ]	(	0	)
-postextend	[ 0	locks=0 ]	(	"black"	)
-posthold	[ 0	locks=0 ]	(	0	)
-stdswitcher5	[ 0	locks=0 ]	(	0	0	0	0	)
-geo	[ 0	locks=0 ]	(	op:`opfullpath(\"../../soft_obj/TEXTURE_MESH/OUT\")	)
-}
-
---HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot/posTextureCop/calculate_normal.userdata"
-Content-Type: text/plain
-
-{
-	"___Version___":{
-		"type":"string",
-		"value":"16.0.635"
-	}
-}
-
---HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot/posTextureCop/calculate_normal.cop2"
-Content-Type: text/plain
-
-2
-10
-0
-
---HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot/posTextureCop/calculate_normal/global1.init"
-Content-Type: text/plain
-
-type = global
-matchesdef = 0
-
---HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot/posTextureCop/calculate_normal/global1.def"
-Content-Type: text/plain
-
-comment ""
-position -7.50691 0.755364
-connectornextid 26
-flags =  lock off model off template off footprint off xray off bypass off display on render on highlight off unload off savedata off compress on colordefault on exposed on lowdetail off mediumdetail off highdetail on material off
-outputsNamed3
-{
-0 "XRES"
-1 "YRES"
-2 "AR"
-3 "R"
-4 "G"
-5 "B"
-6 "A"
-7 "Cr"
-8 "Cg"
-9 "Cb"
-10 "C4"
-11 "PNAME"
-12 "PL"
-13 "NP"
-14 "PS"
-15 "AI"
-16 "AS"
-17 "I"
-18 "NI"
-19 "H"
-20 "S"
-21 "V"
-22 "X"
-23 "Y"
-24 "IX"
-25 "IY"
-}
-inputsNamed3
-{
-}
-inputs
-{
-}
-stat
-{
-  create 1499134361
-  modify 1499135241
-  author mikel@mikembp-sesi.local
-  access 0777
-}
-color UT_Color RGB 0.8 0.8 0.8 
-delscript ""
-exprlanguage hscript
-end
-
---HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot/posTextureCop/calculate_normal/global1.parm"
-Content-Type: text/plain
-
-{
-version 0.8
-contexttype	[ 0	locks=0 ]	(	cop2	)
-usemenu	[ 0	locks=0 ]	(	"off"	)
-varname	[ 0	locks=0 ]	(	P	)
-}
-
---HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot/posTextureCop/calculate_normal/global1.userdata"
-Content-Type: text/plain
-
-{
-	"___Version___":{
-		"type":"string",
-		"value":"16.0.635"
-	}
-}
-
---HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot/posTextureCop/calculate_normal/output1.init"
-Content-Type: text/plain
-
-type = output
-matchesdef = 0
-
---HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot/posTextureCop/calculate_normal/output1.def"
-Content-Type: text/plain
-
-comment ""
-position 18.0251 -0.786856
-connectornextid 3
-flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on lowdetail off mediumdetail off highdetail on material off
-outputsNamed3
-{
-}
-inputsNamed3
-{
-0 	vectofloat1 1 1 "R"
-1 	vectofloat1 3 1 "G"
-2 	vectofloat1 2 1 "B"
-}
-inputs
-{
-0 	vectofloat1 0 1
-1 	vectofloat1 2 1
-2 	vectofloat1 1 1
-}
-stat
-{
-  create 1499134361
-  modify 1499287062
-  author mikel@mikembp-sesi.local
-  access 0777
-}
-color UT_Color RGB 0.8 0.8 0.8 
-delscript ""
-exprlanguage hscript
-end
-
---HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot/posTextureCop/calculate_normal/output1.parm"
-Content-Type: text/plain
-
-{
-version 0.8
-contexttype	[ 0	locks=0 ]	(	cop2	)
-outputcodelast	[ 0	locks=0 ]	(	"on"	)
-parmorder	[ 0	locks=0 ]	(	""	)
-}
-
---HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot/posTextureCop/calculate_normal/output1.userdata"
-Content-Type: text/plain
-
-{
-	"___Version___":{
-		"type":"string",
-		"value":"16.0.635"
-	}
-}
-
---HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot/posTextureCop/calculate_normal/subtract1.init"
-Content-Type: text/plain
-
-type = subtract
-matchesdef = 0
-
---HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot/posTextureCop/calculate_normal/subtract1.def"
-Content-Type: text/plain
-
-comment ""
-position -1.50691 -2.4649
-connectornextid 3
-flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on lowdetail off mediumdetail off highdetail on material off
-outputsNamed3
-{
-2 "diff"
-}
-inputsNamed3
-{
-0 	global1 1 1 "input1"
-1 	addconst1 1 1 "input2"
-}
-inputs
-{
-0 	global1 1 1
-1 	addconst1 0 1
-}
-stat
-{
-  create 1499134376
-  modify 1499135304
-  author mikel@mikembp-sesi.local
-  access 0777
-}
-color UT_Color RGB 0.8 0.8 0.8 
-delscript ""
-exprlanguage hscript
-end
-
---HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot/posTextureCop/calculate_normal/subtract1.parm"
-Content-Type: text/plain
-
-{
-version 0.8
-}
-
---HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot/posTextureCop/calculate_normal/subtract1.userdata"
-Content-Type: text/plain
-
-{
-	"___Version___":{
-		"type":"string",
-		"value":"16.0.635"
-	}
-}
-
---HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot/posTextureCop/calculate_normal/multiply1.init"
-Content-Type: text/plain
-
-type = multiply
-matchesdef = 0
-
---HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot/posTextureCop/calculate_normal/multiply1.def"
-Content-Type: text/plain
-
-comment ""
-position 1.72371 -1.32037
-connectornextid 3
-flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on lowdetail off mediumdetail off highdetail on material off
-outputsNamed3
-{
-2 "product"
-}
-inputsNamed3
-{
-1 	global1 0 1 "input1"
-0 	subtract1 2 1 "input2"
-}
-inputs
-{
-0 	global1 0 1
-1 	subtract1 0 1
-}
-stat
-{
-  create 1499134392
-  modify 1499287018
-  author mikel@mikembp-sesi.local
-  access 0777
-}
-color UT_Color RGB 0.8 0.8 0.8 
-delscript ""
-exprlanguage hscript
-end
-
---HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot/posTextureCop/calculate_normal/multiply1.parm"
-Content-Type: text/plain
-
-{
-version 0.8
-}
-
---HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot/posTextureCop/calculate_normal/multiply1.userdata"
-Content-Type: text/plain
-
-{
-	"___Version___":{
-		"type":"string",
-		"value":"16.0.635"
-	}
-}
-
---HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot/posTextureCop/calculate_normal/add1.init"
-Content-Type: text/plain
-
-type = add
-matchesdef = 0
-
---HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot/posTextureCop/calculate_normal/add1.def"
-Content-Type: text/plain
-
-comment ""
-position 3.90647 -3.4449
-connectornextid 3
-flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on lowdetail off mediumdetail off highdetail on material off
-outputsNamed3
-{
-2 "sum"
-}
-inputsNamed3
-{
-0 	global1 24 1 "input1"
-1 	multiply1 2 1 "input2"
-}
-inputs
-{
-0 	global1 24 1
-1 	multiply1 0 1
-}
-stat
-{
-  create 1499134404
-  modify 1499287018
-  author mikel@mikembp-sesi.local
-  access 0777
-}
-color UT_Color RGB 0.8 0.8 0.8 
-delscript ""
-exprlanguage hscript
-end
-
---HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot/posTextureCop/calculate_normal/add1.parm"
-Content-Type: text/plain
-
-{
-version 0.8
-}
-
---HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot/posTextureCop/calculate_normal/add1.userdata"
-Content-Type: text/plain
-
-{
-	"___Version___":{
-		"type":"string",
-		"value":"16.0.635"
-	}
-}
-
---HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot/posTextureCop/calculate_normal/geo.init"
-Content-Type: text/plain
-
-type = parameter
-matchesdef = 0
-
---HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot/posTextureCop/calculate_normal/geo.def"
-Content-Type: text/plain
-
-comment ""
-position 4.88482 -0.806143
-connectornextid 1
-flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on lowdetail off mediumdetail off highdetail on material off
-outputsNamed3
-{
-0 "geo"
-}
-inputsNamed3
-{
-}
-inputs
-{
-}
-stat
-{
-  create 1499134421
-  modify 1499286998
-  author mikel@mikembp-sesi.local
-  access 0777
-}
-color UT_Color RGB 1 1 0.4 
-delscript ""
-exprlanguage hscript
-end
-
---HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot/posTextureCop/calculate_normal/geo.parm"
-Content-Type: text/plain
-
-{
-version 0.8
-parmscope	[ 0	locks=0 ]	(	shaderparm	)
-parmaccess	[ 0	locks=0 ]	(	""	)
-parmname	[ 0	locks=0 ]	(	geo	)
-parmprefix	[ 0	locks=0 ]	(	""	)
-parmpostfix	[ 0	locks=0 ]	(	""	)
-parmlabel	[ 0	locks=0 ]	(	""	)
-showlabel	[ 0	locks=0 ]	(	"on"	)
-parmtype	[ 0	locks=0 ]	(	"geometry"	)
-parmtypename	[ 0	locks=0 ]	(	""	)
-floatdef	[ 0	locks=0 ]	(	0	)
-intdef	[ 0	locks=0 ]	(	0	)
-toggledef	[ 0	locks=0 ]	(	"off"	)
-angledef	[ 0	locks=0 ]	(	0	)
-logfloatdef	[ 0	locks=0 ]	(	0	)
-float2def	[ 0	locks=0 ]	(	0	0	)
-float3def	[ 0	locks=0 ]	(	0	0	0	)
-vectordef	[ 0	locks=0 ]	(	0	0	0	)
-normaldef	[ 0	locks=0 ]	(	0	0	0	)
-pointdef	[ 0	locks=0 ]	(	0	0	0	)
-directiondef	[ 0	locks=0 ]	(	1	0	0	)
-float4def	[ 0	locks=0 ]	(	0	0	0	0	)
-floatm2def	[ 0	locks=0 ]	(	1	0	0	1	)
-float9def	[ 0	locks=0 ]	(	1	0	0	0	1	0	0	0	1	)
-float16def	[ 0	locks=0 ]	(	1	0	0	0	0	1	0	0	0	0	1	0	0	0	0	1	)
-stringdef	[ 0	locks=0 ]	(	""	)
-filedef	[ 0	locks=0 ]	(	""	)
-imagedef	[ 0	locks=0 ]	(	""	)
-geometrydef	[ 0	locks=0 ]	(	""	)
-colordef	[ 0	locks=0 ]	(	0	0	0	)
-color4def	[ 0	locks=0 ]	(	0	0	0	0	)
-bsdfdef	[ 0	locks=0 ]	(	""	)
-coshaderdef	[ 0	locks=0 ]	(	""	)
-floatadef	[ 0	locks=0 ]	(	)
-intadef	[ 0	locks=0 ]	(	)
-vector2adef	[ 0	locks=0 ]	(	)
-vectoradef	[ 0	locks=0 ]	(	)
-pointadef	[ 0	locks=0 ]	(	)
-normaladef	[ 0	locks=0 ]	(	)
-coloradef	[ 0	locks=0 ]	(	)
-float4adef	[ 0	locks=0 ]	(	)
-floatm2adef	[ 0	locks=0 ]	(	)
-float9adef	[ 0	locks=0 ]	(	)
-float16adef	[ 0	locks=0 ]	(	)
-stringadef	[ 0	locks=0 ]	(	)
-coshaderadef	[ 0	locks=0 ]	(	""	)
-structdef	[ 0	locks=0 ]	(	""	)
-rangeflt	[ 0	locks=0 ]	(	0	1	)
-rangeint	[ 0	locks=0 ]	(	0	10	)
-stringtype	[ 0	locks=0 ]	(	off	)
-opfilter	[ 0	locks=0 ]	(	!!OBJ/LIGHT!!	)
-parmcomment	[ 0	locks=0 ]	(	""	)
-separator1	[ 0	locks=0 ]	(	)
-useasparmdefiner	[ 0	locks=0 ]	(	"off"	)
-useownexportcontext	[ 0	locks=0 ]	(	"off"	)
-parmuniform	[ 0	locks=0 ]	(	"on"	)
-usebound	[ 0	locks=0 ]	(	"off"	)
-hasconnector	[ 0	locks=0 ]	(	"on"	)
-exportparm	[ 0	locks=0 ]	(	"off"	)
-exportcontext	[ 0	locks=0 ]	(	cop2	)
-providemenu	[ 0	locks=0 ]	(	"off"	)
-menuchoices	[ 0	locks=0 ]	(	""	)
-menuscript	[ 0	locks=0 ]	(	""	)
-menuscriptlanguage	[ 0	locks=0 ]	(	"hscript"	)
-separator2	[ 0	locks=0 ]	(	)
-invisible	[ 0	locks=0 ]	(	"off"	)
-joinnext	[ 0	locks=0 ]	(	"off"	)
-disablewhen	[ 0	locks=0 ]	(	""	)
-hidewhen	[ 0	locks=0 ]	(	""	)
-callback	[ 0	locks=0 ]	(	""	)
-tags	[ 0	locks=0 ]	(	""	)
-help	[ 0	locks=0 ]	(	""	)
-}
-
---HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot/posTextureCop/calculate_normal/geo.userdata"
-Content-Type: text/plain
-
-{
-	"___Version___":{
-		"type":"string",
-		"value":"16.0.635"
-	}
-}
-
---HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot/posTextureCop/calculate_normal/getattrib2.init"
-Content-Type: text/plain
-
-type = getattrib::2.0
-matchesdef = 0
-
---HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot/posTextureCop/calculate_normal/getattrib2.def"
-Content-Type: text/plain
-
-comment ""
-position 8.41787 -1.76686
-connectornextid 7
-flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on lowdetail off mediumdetail off highdetail on material off
-outputsNamed3
-{
-6 "adata"
-}
-inputsNamed3
-{
-0 	geo 0 1 "file"
-1 	"" "" 1 "atype"
-2 	"" "" 1 "attrib"
-3 	add1 2 1 "i1"
-4 	"" "" 1 "i2"
-5 	"" "" 1 "adefault"
-}
-inputs
-{
-0 	geo 0 1
-1 	"" 0 1
-2 	"" 0 1
-3 	add1 0 1
-4 	"" 0 1
-5 	"" 0 1
-}
-stat
-{
-  create 1499134454
-  modify 1499287017
-  author mikel@mikembp-sesi.local
-  access 0777
-}
-color UT_Color RGB 0.8 0.8 0.8 
-delscript ""
-exprlanguage hscript
-end
-
---HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot/posTextureCop/calculate_normal/getattrib2.parm"
-Content-Type: text/plain
-
-{
-version 0.8
-signature	[ 0	locks=0 ]	(	default	)
-opinput	[ 0	locks=0 ]	(	file	)
-file	[ 0	locks=0 ]	(	$HH/geo/defgeo.bgeo	)
-atype	[ 0	locks=0 ]	(	point	)
-attrib	[ 0	locks=0 ]	(	N	)
-i1	[ 0	locks=0 ]	(	0	)
-i2	[ 0	locks=0 ]	(	0	)
-}
-
---HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot/posTextureCop/calculate_normal/getattrib2.userdata"
-Content-Type: text/plain
-
-{
-	"___Version___":{
-		"type":"string",
-		"value":""
-	}
-}
-
---HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot/posTextureCop/calculate_normal/vectofloat1.init"
-Content-Type: text/plain
-
-type = vectofloat
-matchesdef = 0
-
---HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot/posTextureCop/calculate_normal/vectofloat1.def"
-Content-Type: text/plain
-
-comment ""
-position 13.5579 -0.786856
-connectornextid 4
-flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on lowdetail off mediumdetail off highdetail on material off
-outputsNamed3
-{
-1 "fval1"
-2 "fval2"
-3 "fval3"
-}
-inputsNamed3
-{
-0 	maddconst1 1 1 "vec"
-}
-inputs
-{
-0 	maddconst1 0 1
-}
-stat
-{
-  create 1499134514
-  modify 1499287017
-  author mikel@mikembp-sesi.local
-  access 0777
-}
-color UT_Color RGB 0.8 0.8 0.8 
-delscript ""
-exprlanguage hscript
-end
-
---HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot/posTextureCop/calculate_normal/vectofloat1.parm"
-Content-Type: text/plain
-
-{
-version 0.8
-signature	[ 0	locks=0 ]	(	default	)
-vec	[ 0	locks=0 ]	(	0	0	0	)
-vec_p	[ 0	locks=0 ]	(	0	0	0	)
-vec_n	[ 0	locks=0 ]	(	0	0	0	)
-vec_c	[ 0	locks=0 ]	(	0	0	0	)
-vec_uv	[ 0	locks=0 ]	(	0	0	0	)
-vec_up	[ 0	locks=0 ]	(	0	0	0	)
-vec_un	[ 0	locks=0 ]	(	0	0	0	)
-vec_uc	[ 0	locks=0 ]	(	0	0	0	)
-}
-
---HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot/posTextureCop/calculate_normal/vectofloat1.userdata"
-Content-Type: text/plain
-
-{
-	"___Version___":{
-		"type":"string",
-		"value":""
-	}
-}
-
---HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot/posTextureCop/calculate_normal/addconst1.init"
-Content-Type: text/plain
-
-type = addconst
-matchesdef = 0
-
---HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot/posTextureCop/calculate_normal/addconst1.def"
-Content-Type: text/plain
-
-comment ""
-position -4.26441 -4.04464
-connectornextid 2
-flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on lowdetail off mediumdetail off highdetail on material off
-outputsNamed3
-{
-1 "added"
-}
-inputsNamed3
-{
-0 	global1 25 1 "val"
-}
-inputs
-{
-0 	global1 25 1
-}
-stat
-{
-  create 1499135300
-  modify 1499287019
-  author mikel@mikembp-sesi.local
-  access 0777
-}
-color UT_Color RGB 0.8 0.8 0.8 
-delscript ""
-exprlanguage hscript
-end
-
---HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot/posTextureCop/calculate_normal/addconst1.parm"
-Content-Type: text/plain
-
-{
-version 0.8
-signature	[ 0	locks=0 ]	(	default	)
-addconst	[ 0	locks=0 ]	(	1	)
-}
-
---HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot/posTextureCop/calculate_normal/addconst1.userdata"
-Content-Type: text/plain
-
-{
-	"___Version___":{
-		"type":"string",
-		"value":""
-	}
-}
-
---HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot/posTextureCop/calculate_normal/maddconst1.init"
-Content-Type: text/plain
-
-type = maddconst
-matchesdef = 0
-
---HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot/posTextureCop/calculate_normal/maddconst1.def"
-Content-Type: text/plain
-
-comment ""
-position 11.1619 -1.76686
-connectornextid 2
-flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on lowdetail off mediumdetail off highdetail on material off
-outputsNamed3
-{
-1 "scaled"
-}
-inputsNamed3
-{
-0 	getattrib2 6 1 "val"
-}
-inputs
-{
-0 	getattrib2 0 1
-}
-stat
-{
-  create 1499280300
-  modify 1499287017
-  author mikel@mikembp-sesi.local
-  access 0777
-}
-color UT_Color RGB 0.8 0.8 0.8 
-delscript ""
-exprlanguage hscript
-end
-
---HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot/posTextureCop/calculate_normal/maddconst1.parm"
-Content-Type: text/plain
-
-{
-version 0.8
-signature	[ 0	locks=0 ]	(	v	)
-preadd	[ 0	locks=0 ]	(	1	)
-mulconst	[ 0	locks=0 ]	(	0.5	)
-postadd	[ 0	locks=0 ]	(	0	)
-}
-
---HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot/posTextureCop/calculate_normal/maddconst1.userdata"
-Content-Type: text/plain
-
-{
-	"___Version___":{
-		"type":"string",
-		"value":""
-	}
-}
-
---HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
 Content-Disposition: attachment; filename="hdaroot/posTextureCop/vopcop2gen1.init"
 Content-Type: text/plain
 
@@ -29591,7 +29542,7 @@ inputs
 stat
 {
   create 1499280403
-  modify 1499291255
+  modify 1499727993
   author mikel@mikembp-sesi.local
   access 0777
 }
@@ -29657,7 +29608,7 @@ maskplane	[ 0	locks=0 ]	(	A	)
 maskresize	[ 0	locks=0 ]	(	"off"	)
 maskinvert	[ 0	locks=0 ]	(	"off"	)
 overridesize	[ 0	locks=0 ]	(	"on"	)
-size	[ 0	locks=0 ]	(	400	299	)
+size	[ 0	locks=0 ]	(	1024	598	)
 sizemenu	[ 0	locks=0 ]	(	0	)
 overrideaspect	[ 0	locks=0 ]	(	"off"	)
 aspect	[ 0	locks=0 ]	(	[ aspect	1 ] 	)
@@ -29698,7 +29649,7 @@ Content-Disposition: attachment; filename="hdaroot/posTextureCop/vopcop2gen1.cop
 Content-Type: text/plain
 
 2
-3
+4
 0
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -30845,7 +30796,7 @@ inputs
 stat
 {
   create 1499288894
-  modify 1499291890
+  modify 1499724745
   author mikel@mikembp-sesi.local
   access 0777
 }
@@ -31898,6 +31849,2408 @@ Content-Type: text/plain
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/posTextureCop/calculate_normal.init"
+Content-Type: text/plain
+
+type = vopcop2gen
+matchesdef = 0
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/posTextureCop/calculate_normal.def"
+Content-Type: text/plain
+
+comment ""
+position -4.44027 2.33692
+connectornextid 2
+flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress off colordefault off exposed on
+outputsNamed3
+{
+1 "output1"
+}
+inputsNamed3
+{
+0 	color1 0 1 "input1"
+}
+inputs
+{
+0 	color1 0 1
+}
+stat
+{
+  create 1499134361
+  modify 1499728091
+  author mikel@mikembp-sesi.local
+  access 0777
+}
+color UT_Color RGB 0.5 0.7 0.6 
+delscript ""
+exprlanguage hscript
+end
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/posTextureCop/calculate_normal.spareparmdef"
+Content-Type: text/plain
+
+    group {
+	name	"stdswitcher5"
+	label	"Compiler"
+
+	parm {
+	    name	"vop_compiler"
+	    baseparm
+	    label	"Compiler"
+	    export	none
+	}
+	parm {
+	    name	"vop_forcecompile"
+	    baseparm
+	    label	"Force Compile"
+	    export	none
+	}
+    }
+
+    group {
+	name	"stdswitcher5_1"
+	label	"Mask"
+
+	parm {
+	    name	"effectamount"
+	    baseparm
+	    label	"Effect Amount"
+	    export	none
+	}
+	parm {
+	    name	"maskplane"
+	    baseparm
+	    label	"Mask Plane"
+	    export	none
+	}
+	parm {
+	    name	"maskresize"
+	    baseparm
+	    label	"Resize Mask to Fit Image"
+	    export	none
+	}
+	parm {
+	    name	"maskinvert"
+	    baseparm
+	    label	"Invert Mask"
+	    export	none
+	}
+    }
+
+    group {
+	name	"stdswitcher5_2"
+	label	"Image"
+
+	parm {
+	    name	"overridesize"
+	    baseparm
+	    label	"Override Global Size"
+	    joinnext
+	    export	none
+	}
+	parm {
+	    name	"size"
+	    baseparm
+	    label	"Override Size"
+	    joinnext
+	    export	none
+	}
+	parm {
+	    name	"sizemenu"
+	    baseparm
+	    label	"Size Menu"
+	    export	none
+	}
+	parm {
+	    name	"overrideaspect"
+	    baseparm
+	    label	"Override Pixel Aspect"
+	    joinnext
+	    export	none
+	}
+	parm {
+	    name	"aspect"
+	    baseparm
+	    label	"Pixel Aspect Ratio"
+	    export	none
+	}
+	parm {
+	    name	"planes"
+	    baseparm
+	    label	"Image Planes"
+	    export	none
+	}
+	parm {
+	    name	"addplanes"
+	    baseparm
+	    label	"Add Plane"
+	    joinnext
+	    export	none
+	}
+	parm {
+	    name	"addplaneop"
+	    baseparm
+	    label	""
+	    export	none
+	}
+	parm {
+	    name	"customplanes"
+	    baseparm
+	    label	"Custom Planes"
+	    export	none
+	}
+	parm {
+	    name	"depth"
+	    baseparm
+	    label	"Raster Depth"
+	    joinnext
+	    export	all
+	}
+	parm {
+	    name	"depthmenu"
+	    baseparm
+	    label	"Depth Menu"
+	    export	all
+	}
+	parm {
+	    name	"depthglobal"
+	    baseparm
+	    label	"Global Depth Setting"
+	    invisible
+	    export	none
+	}
+	parm {
+	    name	"usebwpoints"
+	    baseparm
+	    label	"Use Custom Black/White Points"
+	    joinnext
+	    export	all
+	}
+	parm {
+	    name	"bwpoints"
+	    baseparm
+	    label	"Black/White Points"
+	    export	all
+	}
+	parm {
+	    name	"interlace"
+	    baseparm
+	    label	"Interlacing"
+	    joinnext
+	    export	none
+	}
+	parm {
+	    name	"idominance"
+	    baseparm
+	    label	""
+	    export	none
+	}
+    }
+
+    group {
+	name	"stdswitcher5_3"
+	label	"Sequence"
+
+	parm {
+	    name	"overriderange"
+	    baseparm
+	    label	"Override Global Range"
+	    export	all
+	}
+	parm {
+	    name	"singleimage"
+	    baseparm
+	    label	"Still Image"
+	    export	all
+	}
+	parm {
+	    name	"start"
+	    baseparm
+	    label	"Start Frame"
+	    export	all
+	}
+	parm {
+	    name	"length"
+	    baseparm
+	    label	"Length"
+	    export	all
+	}
+	parm {
+	    name	"preextend"
+	    baseparm
+	    label	"Pre Extend"
+	    export	none
+	}
+	parm {
+	    name	"prehold"
+	    baseparm
+	    label	"Pre Hold"
+	    export	none
+	}
+	parm {
+	    name	"postextend"
+	    baseparm
+	    label	"Post Extend"
+	    export	none
+	}
+	parm {
+	    name	"posthold"
+	    baseparm
+	    label	"Post Hold"
+	    export	none
+	}
+    }
+
+    parm {
+	name	"start_frame"
+	label	"start_frame"
+	type	geometry
+	default	{ "" }
+	parmtag	{ "parmvop" "1" }
+	parmtag	{ "shaderparmcontexts" "cop2" }
+    }
+    parm {
+	name	"geo"
+	label	"geo"
+	type	geometry
+	default	{ "" }
+	parmtag	{ "parmvop" "1" }
+	parmtag	{ "shaderparmcontexts" "cop2" }
+    }
+    parm {
+	name	"Target_Texture_Size"
+	label	"Target_Texture_Size"
+	type	float
+	default	{ "0" }
+	range	{ 0 1 }
+	parmtag	{ "parmvop" "1" }
+	parmtag	{ "shaderparmcontexts" "cop2" }
+    }
+    parm {
+	name	"No_Of_Points"
+	label	"No_Of_Points"
+	type	float
+	default	{ "0" }
+	range	{ 0 1 }
+	parmtag	{ "parmvop" "1" }
+	parmtag	{ "shaderparmcontexts" "cop2" }
+    }
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/posTextureCop/calculate_normal.chn"
+Content-Type: text/plain
+
+{
+    channel aspect {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = $CPIXA }
+    }
+    channel depthglobal {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = $CDEPTH }
+    }
+    channel bwpoints1 {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = $CBP }
+    }
+    channel bwpoints2 {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = $CWP }
+    }
+    channel start {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = $FSTART }
+    }
+    channel length {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = $NFRAMES }
+    }
+    channel Target_Texture_Size {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = ch(\"../../target_texture_size\") }
+    }
+    channel No_Of_Points {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = npoints(\"../../soft_obj/STATIC_MESH/SIM_GEO\") }
+    }
+  }
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/posTextureCop/calculate_normal.parm"
+Content-Type: text/plain
+
+{
+version 0.8
+stdswitcher	[ 0	locks=0 ]	(	0	0	0	0	)
+vop_compiler	[ 0	locks=0 ]	(	"vcc -q $VOP_INCLUDEPATH -o $VOP_OBJECTFILE -e $VOP_ERRORFILE $VOP_SOURCEFILE"	)
+vop_forcecompile	[ 0	locks=0 ]	(	0	)
+effectamount	[ 0	locks=0 ]	(	1	)
+maskplane	[ 0	locks=0 ]	(	A	)
+maskresize	[ 0	locks=0 ]	(	"off"	)
+maskinvert	[ 0	locks=0 ]	(	"off"	)
+overridesize	[ 0	locks=0 ]	(	"on"	)
+size	[ 0	locks=0 ]	(	8	63	)
+sizemenu	[ 0	locks=0 ]	(	0	)
+overrideaspect	[ 0	locks=0 ]	(	"off"	)
+aspect	[ 0	locks=0 ]	(	[ aspect	1 ] 	)
+planes	[ 0	locks=0 ]	(	"rgba"	)
+addplanes	[ 0	locks=0 ]	(	"m"	)
+addplaneop	[ 0	locks=0 ]	(	"replace"	)
+customplanes	[ 0	locks=0 ]	(	""	)
+depth	[ 0	locks=0 ]	(	"default"	)
+depthmenu	[ 0	locks=0 ]	(	0	)
+depthglobal	[ 0	locks=0 ]	(	[ depthglobal	4 ] 	)
+usebwpoints	[ 0	locks=0 ]	(	"off"	)
+bwpoints	[ 0	locks=0 ]	(	[ bwpoints1	0 ] 	[ bwpoints2	1 ] 	)
+interlace	[ 0	locks=0 ]	(	"none"	)
+idominance	[ 0	locks=0 ]	(	"odd"	)
+overriderange	[ 0	locks=0 ]	(	"off"	)
+singleimage	[ 0	locks=0 ]	(	"off"	)
+start	[ 0	locks=0 ]	(	[ start	1 ] 	)
+length	[ 0	locks=0 ]	(	[ length	300 ] 	)
+preextend	[ 0	locks=0 ]	(	"black"	)
+prehold	[ 0	locks=0 ]	(	0	)
+postextend	[ 0	locks=0 ]	(	"black"	)
+posthold	[ 0	locks=0 ]	(	0	)
+stdswitcher5	[ 0	locks=0 ]	(	0	0	0	0	)
+start_frame	[ 0	locks=0 ]	(	op:`opfullpath(\"../../soft_obj/STATIC_MESH/SIM_GEO\")	)
+geo	[ 0	locks=0 ]	(	op:`opfullpath(\"../../soft_obj/TEXTURE_MESH/OUT\")	)
+Target_Texture_Size	[ 0	locks=0 ]	(	[ Target_Texture_Size	1024 ] 	)
+No_Of_Points	[ 0	locks=0 ]	(	[ No_Of_Points	1600 ] 	)
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/posTextureCop/calculate_normal.userdata"
+Content-Type: text/plain
+
+{
+	"___Version___":{
+		"type":"string",
+		"value":"16.0.635"
+	},
+	"wirestyle":{
+		"type":"string",
+		"value":"rounded"
+	}
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/posTextureCop/calculate_normal.cop2"
+Content-Type: text/plain
+
+2
+89
+0
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/posTextureCop/calculate_normal/global1.init"
+Content-Type: text/plain
+
+type = global
+matchesdef = 0
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/posTextureCop/calculate_normal/global1.def"
+Content-Type: text/plain
+
+comment ""
+position -12.0232 0.63817
+connectornextid 26
+flags =  lock off model off template off footprint off xray off bypass off display on render on highlight off unload off savedata off compress on colordefault on exposed on lowdetail off mediumdetail off highdetail on material off
+outputsNamed3
+{
+0 "XRES"
+1 "YRES"
+2 "AR"
+3 "R"
+4 "G"
+5 "B"
+6 "A"
+7 "Cr"
+8 "Cg"
+9 "Cb"
+10 "C4"
+11 "PNAME"
+12 "PL"
+13 "NP"
+14 "PS"
+15 "AI"
+16 "AS"
+17 "I"
+18 "NI"
+19 "H"
+20 "S"
+21 "V"
+22 "X"
+23 "Y"
+24 "IX"
+25 "IY"
+}
+inputsNamed3
+{
+}
+inputs
+{
+}
+stat
+{
+  create 1499134361
+  modify 1499725518
+  author mikel@mikembp-sesi.local
+  access 0777
+}
+color UT_Color RGB 0.8 0.8 0.8 
+delscript ""
+exprlanguage hscript
+end
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/posTextureCop/calculate_normal/global1.parm"
+Content-Type: text/plain
+
+{
+version 0.8
+contexttype	[ 0	locks=0 ]	(	cop2	)
+usemenu	[ 0	locks=0 ]	(	"off"	)
+varname	[ 0	locks=0 ]	(	P	)
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/posTextureCop/calculate_normal/global1.userdata"
+Content-Type: text/plain
+
+{
+	"___Version___":{
+		"type":"string",
+		"value":"16.0.635"
+	}
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/posTextureCop/calculate_normal/output1.init"
+Content-Type: text/plain
+
+type = output
+matchesdef = 0
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/posTextureCop/calculate_normal/output1.def"
+Content-Type: text/plain
+
+comment ""
+position 18.4243 2.36217
+connectornextid 4
+flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on lowdetail off mediumdetail off highdetail on material off
+outputsNamed3
+{
+}
+inputsNamed3
+{
+0 	vectofloat1 1 1 "R"
+1 	vectofloat1 3 1 "G"
+2 	vectofloat1 2 1 "B"
+3 	"" "" 1 "A"
+}
+inputs
+{
+0 	vectofloat1 0 1
+1 	vectofloat1 2 1
+2 	vectofloat1 1 1
+3 	"" 0 1
+}
+stat
+{
+  create 1499134361
+  modify 1499727979
+  author mikel@mikembp-sesi.local
+  access 0777
+}
+color UT_Color RGB 0.8 0.8 0.8 
+delscript ""
+exprlanguage hscript
+end
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/posTextureCop/calculate_normal/output1.parm"
+Content-Type: text/plain
+
+{
+version 0.8
+contexttype	[ 0	locks=0 ]	(	cop2	)
+outputcodelast	[ 0	locks=0 ]	(	"on"	)
+parmorder	[ 0	locks=0 ]	(	""	)
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/posTextureCop/calculate_normal/output1.userdata"
+Content-Type: text/plain
+
+{
+	"___Version___":{
+		"type":"string",
+		"value":"16.0.635"
+	}
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/posTextureCop/calculate_normal/subtract1.init"
+Content-Type: text/plain
+
+type = subtract
+matchesdef = 0
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/posTextureCop/calculate_normal/subtract1.def"
+Content-Type: text/plain
+
+comment ""
+position -1.69801 -0.542024
+connectornextid 3
+flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on lowdetail off mediumdetail off highdetail on material off
+outputsNamed3
+{
+2 "diff"
+}
+inputsNamed3
+{
+0 	divide3 1 1 "input1"
+1 	addconst1 1 1 "input2"
+}
+inputs
+{
+0 	divide3 0 1
+1 	addconst1 0 1
+}
+stat
+{
+  create 1499134376
+  modify 1499726958
+  author mikel@mikembp-sesi.local
+  access 0777
+}
+color UT_Color RGB 0.8 0.8 0.8 
+delscript ""
+exprlanguage hscript
+end
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/posTextureCop/calculate_normal/subtract1.parm"
+Content-Type: text/plain
+
+{
+version 0.8
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/posTextureCop/calculate_normal/subtract1.userdata"
+Content-Type: text/plain
+
+{
+	"___Version___":{
+		"type":"string",
+		"value":"16.0.635"
+	}
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/posTextureCop/calculate_normal/multiply1.init"
+Content-Type: text/plain
+
+type = multiply
+matchesdef = 0
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/posTextureCop/calculate_normal/multiply1.def"
+Content-Type: text/plain
+
+comment ""
+position 0.498423 0.850152
+connectornextid 3
+flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on lowdetail off mediumdetail off highdetail on material off
+outputsNamed3
+{
+2 "product"
+}
+inputsNamed3
+{
+1 	floattoint1 1 1 "input1"
+0 	subtract1 2 1 "input2"
+}
+inputs
+{
+0 	floattoint1 0 1
+1 	subtract1 0 1
+}
+stat
+{
+  create 1499134392
+  modify 1499727370
+  author mikel@mikembp-sesi.local
+  access 0777
+}
+color UT_Color RGB 0.8 0.8 0.8 
+delscript ""
+exprlanguage hscript
+end
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/posTextureCop/calculate_normal/multiply1.parm"
+Content-Type: text/plain
+
+{
+version 0.8
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/posTextureCop/calculate_normal/multiply1.userdata"
+Content-Type: text/plain
+
+{
+	"___Version___":{
+		"type":"string",
+		"value":"16.0.635"
+	}
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/posTextureCop/calculate_normal/add1.init"
+Content-Type: text/plain
+
+type = add
+matchesdef = 0
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/posTextureCop/calculate_normal/add1.def"
+Content-Type: text/plain
+
+comment ""
+position 3.87734 -1.61183
+connectornextid 3
+flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on lowdetail off mediumdetail off highdetail on material off
+outputsNamed3
+{
+2 "sum"
+}
+inputsNamed3
+{
+0 	add2 2 1 "input1"
+1 	multiply1 2 1 "input2"
+}
+inputs
+{
+0 	add2 0 1
+1 	multiply1 0 1
+}
+stat
+{
+  create 1499134404
+  modify 1499727370
+  author mikel@mikembp-sesi.local
+  access 0777
+}
+color UT_Color RGB 0.8 0.8 0.8 
+delscript ""
+exprlanguage hscript
+end
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/posTextureCop/calculate_normal/add1.parm"
+Content-Type: text/plain
+
+{
+version 0.8
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/posTextureCop/calculate_normal/add1.userdata"
+Content-Type: text/plain
+
+{
+	"___Version___":{
+		"type":"string",
+		"value":"16.0.635"
+	}
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/posTextureCop/calculate_normal/start_frame.init"
+Content-Type: text/plain
+
+type = parameter
+matchesdef = 0
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/posTextureCop/calculate_normal/start_frame.def"
+Content-Type: text/plain
+
+comment ""
+position 5.06844 4.11104
+connectornextid 1
+flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on lowdetail off mediumdetail off highdetail on material off
+outputsNamed3
+{
+0 "start_frame"
+}
+inputsNamed3
+{
+}
+inputs
+{
+}
+stat
+{
+  create 1499134421
+  modify 1499282139
+  author mikel@mikembp-sesi.local
+  access 0777
+}
+color UT_Color RGB 1 1 0.4 
+delscript ""
+exprlanguage hscript
+end
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/posTextureCop/calculate_normal/start_frame.parm"
+Content-Type: text/plain
+
+{
+version 0.8
+parmscope	[ 0	locks=0 ]	(	shaderparm	)
+parmaccess	[ 0	locks=0 ]	(	""	)
+parmname	[ 0	locks=0 ]	(	start_frame	)
+parmprefix	[ 0	locks=0 ]	(	""	)
+parmpostfix	[ 0	locks=0 ]	(	""	)
+parmlabel	[ 0	locks=0 ]	(	""	)
+showlabel	[ 0	locks=0 ]	(	"on"	)
+parmtype	[ 0	locks=0 ]	(	"geometry"	)
+parmtypename	[ 0	locks=0 ]	(	""	)
+floatdef	[ 0	locks=0 ]	(	0	)
+intdef	[ 0	locks=0 ]	(	0	)
+toggledef	[ 0	locks=0 ]	(	"off"	)
+angledef	[ 0	locks=0 ]	(	0	)
+logfloatdef	[ 0	locks=0 ]	(	0	)
+float2def	[ 0	locks=0 ]	(	0	0	)
+float3def	[ 0	locks=0 ]	(	0	0	0	)
+vectordef	[ 0	locks=0 ]	(	0	0	0	)
+normaldef	[ 0	locks=0 ]	(	0	0	0	)
+pointdef	[ 0	locks=0 ]	(	0	0	0	)
+directiondef	[ 0	locks=0 ]	(	1	0	0	)
+float4def	[ 0	locks=0 ]	(	0	0	0	0	)
+floatm2def	[ 0	locks=0 ]	(	1	0	0	1	)
+float9def	[ 0	locks=0 ]	(	1	0	0	0	1	0	0	0	1	)
+float16def	[ 0	locks=0 ]	(	1	0	0	0	0	1	0	0	0	0	1	0	0	0	0	1	)
+stringdef	[ 0	locks=0 ]	(	""	)
+filedef	[ 0	locks=0 ]	(	""	)
+imagedef	[ 0	locks=0 ]	(	""	)
+geometrydef	[ 0	locks=0 ]	(	""	)
+colordef	[ 0	locks=0 ]	(	0	0	0	)
+color4def	[ 0	locks=0 ]	(	0	0	0	0	)
+bsdfdef	[ 0	locks=0 ]	(	""	)
+coshaderdef	[ 0	locks=0 ]	(	""	)
+floatadef	[ 0	locks=0 ]	(	)
+intadef	[ 0	locks=0 ]	(	)
+vector2adef	[ 0	locks=0 ]	(	)
+vectoradef	[ 0	locks=0 ]	(	)
+pointadef	[ 0	locks=0 ]	(	)
+normaladef	[ 0	locks=0 ]	(	)
+coloradef	[ 0	locks=0 ]	(	)
+float4adef	[ 0	locks=0 ]	(	)
+floatm2adef	[ 0	locks=0 ]	(	)
+float9adef	[ 0	locks=0 ]	(	)
+float16adef	[ 0	locks=0 ]	(	)
+stringadef	[ 0	locks=0 ]	(	)
+coshaderadef	[ 0	locks=0 ]	(	""	)
+structdef	[ 0	locks=0 ]	(	""	)
+rangeflt	[ 0	locks=0 ]	(	0	1	)
+rangeint	[ 0	locks=0 ]	(	0	10	)
+stringtype	[ 0	locks=0 ]	(	off	)
+opfilter	[ 0	locks=0 ]	(	!!OBJ/LIGHT!!	)
+parmcomment	[ 0	locks=0 ]	(	""	)
+separator1	[ 0	locks=0 ]	(	)
+useasparmdefiner	[ 0	locks=0 ]	(	"off"	)
+useownexportcontext	[ 0	locks=0 ]	(	"off"	)
+parmuniform	[ 0	locks=0 ]	(	"on"	)
+usebound	[ 0	locks=0 ]	(	"off"	)
+hasconnector	[ 0	locks=0 ]	(	"on"	)
+exportparm	[ 0	locks=0 ]	(	"off"	)
+exportcontext	[ 0	locks=0 ]	(	cop2	)
+providemenu	[ 0	locks=0 ]	(	"off"	)
+menuchoices	[ 0	locks=0 ]	(	""	)
+menuscript	[ 0	locks=0 ]	(	""	)
+menuscriptlanguage	[ 0	locks=0 ]	(	"hscript"	)
+separator2	[ 0	locks=0 ]	(	)
+invisible	[ 0	locks=0 ]	(	"off"	)
+joinnext	[ 0	locks=0 ]	(	"off"	)
+disablewhen	[ 0	locks=0 ]	(	""	)
+hidewhen	[ 0	locks=0 ]	(	""	)
+callback	[ 0	locks=0 ]	(	""	)
+tags	[ 0	locks=0 ]	(	""	)
+help	[ 0	locks=0 ]	(	""	)
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/posTextureCop/calculate_normal/start_frame.userdata"
+Content-Type: text/plain
+
+{
+	"___Version___":{
+		"type":"string",
+		"value":"16.0.635"
+	}
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/posTextureCop/calculate_normal/geo.init"
+Content-Type: text/plain
+
+type = parameter
+matchesdef = 0
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/posTextureCop/calculate_normal/geo.def"
+Content-Type: text/plain
+
+comment ""
+position 4.05063 1.68015
+connectornextid 1
+flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on lowdetail off mediumdetail off highdetail on material off
+outputsNamed3
+{
+0 "geo"
+}
+inputsNamed3
+{
+}
+inputs
+{
+}
+stat
+{
+  create 1499134421
+  modify 1499282139
+  author mikel@mikembp-sesi.local
+  access 0777
+}
+color UT_Color RGB 1 1 0.4 
+delscript ""
+exprlanguage hscript
+end
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/posTextureCop/calculate_normal/geo.parm"
+Content-Type: text/plain
+
+{
+version 0.8
+parmscope	[ 0	locks=0 ]	(	shaderparm	)
+parmaccess	[ 0	locks=0 ]	(	""	)
+parmname	[ 0	locks=0 ]	(	geo	)
+parmprefix	[ 0	locks=0 ]	(	""	)
+parmpostfix	[ 0	locks=0 ]	(	""	)
+parmlabel	[ 0	locks=0 ]	(	""	)
+showlabel	[ 0	locks=0 ]	(	"on"	)
+parmtype	[ 0	locks=0 ]	(	"geometry"	)
+parmtypename	[ 0	locks=0 ]	(	""	)
+floatdef	[ 0	locks=0 ]	(	0	)
+intdef	[ 0	locks=0 ]	(	0	)
+toggledef	[ 0	locks=0 ]	(	"off"	)
+angledef	[ 0	locks=0 ]	(	0	)
+logfloatdef	[ 0	locks=0 ]	(	0	)
+float2def	[ 0	locks=0 ]	(	0	0	)
+float3def	[ 0	locks=0 ]	(	0	0	0	)
+vectordef	[ 0	locks=0 ]	(	0	0	0	)
+normaldef	[ 0	locks=0 ]	(	0	0	0	)
+pointdef	[ 0	locks=0 ]	(	0	0	0	)
+directiondef	[ 0	locks=0 ]	(	1	0	0	)
+float4def	[ 0	locks=0 ]	(	0	0	0	0	)
+floatm2def	[ 0	locks=0 ]	(	1	0	0	1	)
+float9def	[ 0	locks=0 ]	(	1	0	0	0	1	0	0	0	1	)
+float16def	[ 0	locks=0 ]	(	1	0	0	0	0	1	0	0	0	0	1	0	0	0	0	1	)
+stringdef	[ 0	locks=0 ]	(	""	)
+filedef	[ 0	locks=0 ]	(	""	)
+imagedef	[ 0	locks=0 ]	(	""	)
+geometrydef	[ 0	locks=0 ]	(	""	)
+colordef	[ 0	locks=0 ]	(	0	0	0	)
+color4def	[ 0	locks=0 ]	(	0	0	0	0	)
+bsdfdef	[ 0	locks=0 ]	(	""	)
+coshaderdef	[ 0	locks=0 ]	(	""	)
+floatadef	[ 0	locks=0 ]	(	)
+intadef	[ 0	locks=0 ]	(	)
+vector2adef	[ 0	locks=0 ]	(	)
+vectoradef	[ 0	locks=0 ]	(	)
+pointadef	[ 0	locks=0 ]	(	)
+normaladef	[ 0	locks=0 ]	(	)
+coloradef	[ 0	locks=0 ]	(	)
+float4adef	[ 0	locks=0 ]	(	)
+floatm2adef	[ 0	locks=0 ]	(	)
+float9adef	[ 0	locks=0 ]	(	)
+float16adef	[ 0	locks=0 ]	(	)
+stringadef	[ 0	locks=0 ]	(	)
+coshaderadef	[ 0	locks=0 ]	(	""	)
+structdef	[ 0	locks=0 ]	(	""	)
+rangeflt	[ 0	locks=0 ]	(	0	1	)
+rangeint	[ 0	locks=0 ]	(	0	10	)
+stringtype	[ 0	locks=0 ]	(	off	)
+opfilter	[ 0	locks=0 ]	(	!!OBJ/LIGHT!!	)
+parmcomment	[ 0	locks=0 ]	(	""	)
+separator1	[ 0	locks=0 ]	(	)
+useasparmdefiner	[ 0	locks=0 ]	(	"off"	)
+useownexportcontext	[ 0	locks=0 ]	(	"off"	)
+parmuniform	[ 0	locks=0 ]	(	"on"	)
+usebound	[ 0	locks=0 ]	(	"off"	)
+hasconnector	[ 0	locks=0 ]	(	"on"	)
+exportparm	[ 0	locks=0 ]	(	"off"	)
+exportcontext	[ 0	locks=0 ]	(	cop2	)
+providemenu	[ 0	locks=0 ]	(	"off"	)
+menuchoices	[ 0	locks=0 ]	(	""	)
+menuscript	[ 0	locks=0 ]	(	""	)
+menuscriptlanguage	[ 0	locks=0 ]	(	"hscript"	)
+separator2	[ 0	locks=0 ]	(	)
+invisible	[ 0	locks=0 ]	(	"off"	)
+joinnext	[ 0	locks=0 ]	(	"off"	)
+disablewhen	[ 0	locks=0 ]	(	""	)
+hidewhen	[ 0	locks=0 ]	(	""	)
+callback	[ 0	locks=0 ]	(	""	)
+tags	[ 0	locks=0 ]	(	""	)
+help	[ 0	locks=0 ]	(	""	)
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/posTextureCop/calculate_normal/geo.userdata"
+Content-Type: text/plain
+
+{
+	"___Version___":{
+		"type":"string",
+		"value":"16.0.635"
+	}
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/posTextureCop/calculate_normal/getattrib1.init"
+Content-Type: text/plain
+
+type = getattrib::2.0
+matchesdef = 0
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/posTextureCop/calculate_normal/getattrib1.def"
+Content-Type: text/plain
+
+comment ""
+position 8.02889 3.59293
+connectornextid 7
+flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on lowdetail off mediumdetail off highdetail on material off
+outputsNamed3
+{
+6 "adata"
+}
+inputsNamed3
+{
+0 	start_frame 0 1 "file"
+1 	"" "" 1 "atype"
+2 	"" "" 1 "attrib"
+3 	add2 2 1 "i1"
+4 	"" "" 1 "i2"
+5 	"" "" 1 "adefault"
+}
+inputs
+{
+0 	start_frame 0 1
+1 	"" 0 1
+2 	"" 0 1
+3 	add2 0 1
+4 	"" 0 1
+5 	"" 0 1
+}
+stat
+{
+  create 1499134454
+  modify 1499727326
+  author mikel@mikembp-sesi.local
+  access 0777
+}
+color UT_Color RGB 0.8 0.8 0.8 
+delscript ""
+exprlanguage hscript
+end
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/posTextureCop/calculate_normal/getattrib1.parm"
+Content-Type: text/plain
+
+{
+version 0.8
+signature	[ 0	locks=0 ]	(	default	)
+opinput	[ 0	locks=0 ]	(	file	)
+file	[ 0	locks=0 ]	(	$HH/geo/defgeo.bgeo	)
+atype	[ 0	locks=0 ]	(	point	)
+attrib	[ 0	locks=0 ]	(	P	)
+i1	[ 0	locks=0 ]	(	0	)
+i2	[ 0	locks=0 ]	(	0	)
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/posTextureCop/calculate_normal/getattrib1.userdata"
+Content-Type: text/plain
+
+{
+	"___Version___":{
+		"type":"string",
+		"value":""
+	}
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/posTextureCop/calculate_normal/getattrib2.init"
+Content-Type: text/plain
+
+type = getattrib::2.0
+matchesdef = 0
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/posTextureCop/calculate_normal/getattrib2.def"
+Content-Type: text/plain
+
+comment ""
+position 8.54657 1.48293
+connectornextid 7
+flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on lowdetail off mediumdetail off highdetail on material off
+outputsNamed3
+{
+6 "adata"
+}
+inputsNamed3
+{
+0 	geo 0 1 "file"
+1 	"" "" 1 "atype"
+2 	"" "" 1 "attrib"
+3 	add1 2 1 "i1"
+4 	"" "" 1 "i2"
+5 	"" "" 1 "adefault"
+}
+inputs
+{
+0 	geo 0 1
+1 	"" 0 1
+2 	"" 0 1
+3 	add1 0 1
+4 	"" 0 1
+5 	"" 0 1
+}
+stat
+{
+  create 1499134454
+  modify 1499727956
+  author mikel@mikembp-sesi.local
+  access 0777
+}
+color UT_Color RGB 0.8 0.8 0.8 
+delscript ""
+exprlanguage hscript
+end
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/posTextureCop/calculate_normal/getattrib2.parm"
+Content-Type: text/plain
+
+{
+version 0.8
+signature	[ 0	locks=0 ]	(	default	)
+opinput	[ 0	locks=0 ]	(	file	)
+file	[ 0	locks=0 ]	(	$HH/geo/defgeo.bgeo	)
+atype	[ 0	locks=0 ]	(	point	)
+attrib	[ 0	locks=0 ]	(	N	)
+i1	[ 0	locks=0 ]	(	0	)
+i2	[ 0	locks=0 ]	(	0	)
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/posTextureCop/calculate_normal/getattrib2.userdata"
+Content-Type: text/plain
+
+{
+	"___Version___":{
+		"type":"string",
+		"value":""
+	}
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/posTextureCop/calculate_normal/subtract2.init"
+Content-Type: text/plain
+
+type = subtract
+matchesdef = 0
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/posTextureCop/calculate_normal/subtract2.def"
+Content-Type: text/plain
+
+comment ""
+position 11.1539 4.11104
+connectornextid 3
+flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on lowdetail off mediumdetail off highdetail on material off
+outputsNamed3
+{
+2 "diff"
+}
+inputsNamed3
+{
+0 	getattrib2 6 1 "input1"
+1 	getattrib1 6 1 "input2"
+}
+inputs
+{
+0 	getattrib2 0 1
+1 	getattrib1 0 1
+}
+stat
+{
+  create 1499134491
+  modify 1499727980
+  author mikel@mikembp-sesi.local
+  access 0777
+}
+color UT_Color RGB 0.8 0.8 0.8 
+delscript ""
+exprlanguage hscript
+end
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/posTextureCop/calculate_normal/subtract2.parm"
+Content-Type: text/plain
+
+{
+version 0.8
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/posTextureCop/calculate_normal/subtract2.userdata"
+Content-Type: text/plain
+
+{
+	"___Version___":{
+		"type":"string",
+		"value":"16.0.635"
+	}
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/posTextureCop/calculate_normal/vectofloat1.init"
+Content-Type: text/plain
+
+type = vectofloat
+matchesdef = 0
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/posTextureCop/calculate_normal/vectofloat1.def"
+Content-Type: text/plain
+
+comment ""
+position 13.6866 2.46294
+connectornextid 4
+flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on lowdetail off mediumdetail off highdetail on material off
+outputsNamed3
+{
+1 "fval1"
+2 "fval2"
+3 "fval3"
+}
+inputsNamed3
+{
+0 	maddconst1 1 1 "vec"
+}
+inputs
+{
+0 	maddconst1 0 1
+}
+stat
+{
+  create 1499134514
+  modify 1499727979
+  author mikel@mikembp-sesi.local
+  access 0777
+}
+color UT_Color RGB 0.8 0.8 0.8 
+delscript ""
+exprlanguage hscript
+end
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/posTextureCop/calculate_normal/vectofloat1.parm"
+Content-Type: text/plain
+
+{
+version 0.8
+signature	[ 0	locks=0 ]	(	default	)
+vec	[ 0	locks=0 ]	(	0	0	0	)
+vec_p	[ 0	locks=0 ]	(	0	0	0	)
+vec_n	[ 0	locks=0 ]	(	0	0	0	)
+vec_c	[ 0	locks=0 ]	(	0	0	0	)
+vec_uv	[ 0	locks=0 ]	(	0	0	0	)
+vec_up	[ 0	locks=0 ]	(	0	0	0	)
+vec_un	[ 0	locks=0 ]	(	0	0	0	)
+vec_uc	[ 0	locks=0 ]	(	0	0	0	)
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/posTextureCop/calculate_normal/vectofloat1.userdata"
+Content-Type: text/plain
+
+{
+	"___Version___":{
+		"type":"string",
+		"value":""
+	}
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/posTextureCop/calculate_normal/addconst1.init"
+Content-Type: text/plain
+
+type = addconst
+matchesdef = 0
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/posTextureCop/calculate_normal/addconst1.def"
+Content-Type: text/plain
+
+comment ""
+position -3.85899 -3.08659
+connectornextid 2
+flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on lowdetail off mediumdetail off highdetail on material off
+outputsNamed3
+{
+1 "added"
+}
+inputsNamed3
+{
+0 	floor1 1 1 "val"
+}
+inputs
+{
+0 	floor1 0 1
+}
+stat
+{
+  create 1499135300
+  modify 1499727249
+  author mikel@mikembp-sesi.local
+  access 0777
+}
+color UT_Color RGB 0.8 0.8 0.8 
+delscript ""
+exprlanguage hscript
+end
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/posTextureCop/calculate_normal/addconst1.parm"
+Content-Type: text/plain
+
+{
+version 0.8
+signature	[ 0	locks=0 ]	(	f	)
+addconst	[ 0	locks=0 ]	(	1	)
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/posTextureCop/calculate_normal/addconst1.userdata"
+Content-Type: text/plain
+
+{
+	"___Version___":{
+		"type":"string",
+		"value":""
+	}
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/posTextureCop/calculate_normal/target_texture_size.init"
+Content-Type: text/plain
+
+type = parameter
+matchesdef = 0
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/posTextureCop/calculate_normal/target_texture_size.def"
+Content-Type: text/plain
+
+comment ""
+position -9.45506 -8.03068
+connectornextid 1
+flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on lowdetail off mediumdetail off highdetail on material off
+outputsNamed3
+{
+0 "Target_Texture_Size"
+}
+inputsNamed3
+{
+}
+inputs
+{
+}
+stat
+{
+  create 1499725252
+  modify 1499726612
+  author mikel@mikembp-sesi.local
+  access 0777
+}
+color UT_Color RGB 1 1 0.4 
+delscript ""
+exprlanguage hscript
+end
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/posTextureCop/calculate_normal/target_texture_size.parm"
+Content-Type: text/plain
+
+{
+version 0.8
+parmscope	[ 0	locks=0 ]	(	shaderparm	)
+parmaccess	[ 0	locks=0 ]	(	""	)
+parmname	[ 0	locks=0 ]	(	"Target Texture Size"	)
+parmprefix	[ 0	locks=0 ]	(	""	)
+parmpostfix	[ 0	locks=0 ]	(	""	)
+parmlabel	[ 0	locks=0 ]	(	""	)
+showlabel	[ 0	locks=0 ]	(	"on"	)
+parmtype	[ 0	locks=0 ]	(	"float"	)
+parmtypename	[ 0	locks=0 ]	(	""	)
+floatdef	[ 0	locks=0 ]	(	0	)
+intdef	[ 0	locks=0 ]	(	0	)
+toggledef	[ 0	locks=0 ]	(	"off"	)
+angledef	[ 0	locks=0 ]	(	0	)
+logfloatdef	[ 0	locks=0 ]	(	0	)
+float2def	[ 0	locks=0 ]	(	0	0	)
+float3def	[ 0	locks=0 ]	(	0	0	0	)
+vectordef	[ 0	locks=0 ]	(	0	0	0	)
+normaldef	[ 0	locks=0 ]	(	0	0	0	)
+pointdef	[ 0	locks=0 ]	(	0	0	0	)
+directiondef	[ 0	locks=0 ]	(	1	0	0	)
+float4def	[ 0	locks=0 ]	(	0	0	0	0	)
+floatm2def	[ 0	locks=0 ]	(	1	0	0	1	)
+float9def	[ 0	locks=0 ]	(	1	0	0	0	1	0	0	0	1	)
+float16def	[ 0	locks=0 ]	(	1	0	0	0	0	1	0	0	0	0	1	0	0	0	0	1	)
+stringdef	[ 0	locks=0 ]	(	""	)
+filedef	[ 0	locks=0 ]	(	""	)
+imagedef	[ 0	locks=0 ]	(	""	)
+geometrydef	[ 0	locks=0 ]	(	""	)
+colordef	[ 0	locks=0 ]	(	0	0	0	)
+color4def	[ 0	locks=0 ]	(	0	0	0	0	)
+bsdfdef	[ 0	locks=0 ]	(	""	)
+coshaderdef	[ 0	locks=0 ]	(	""	)
+floatadef	[ 0	locks=0 ]	(	)
+intadef	[ 0	locks=0 ]	(	)
+vector2adef	[ 0	locks=0 ]	(	)
+vectoradef	[ 0	locks=0 ]	(	)
+pointadef	[ 0	locks=0 ]	(	)
+normaladef	[ 0	locks=0 ]	(	)
+coloradef	[ 0	locks=0 ]	(	)
+float4adef	[ 0	locks=0 ]	(	)
+floatm2adef	[ 0	locks=0 ]	(	)
+float9adef	[ 0	locks=0 ]	(	)
+float16adef	[ 0	locks=0 ]	(	)
+stringadef	[ 0	locks=0 ]	(	)
+coshaderadef	[ 0	locks=0 ]	(	""	)
+structdef	[ 0	locks=0 ]	(	""	)
+rangeflt	[ 0	locks=0 ]	(	0	1	)
+rangeint	[ 0	locks=0 ]	(	0	10	)
+stringtype	[ 0	locks=0 ]	(	off	)
+opfilter	[ 0	locks=0 ]	(	!!OBJ/LIGHT!!	)
+parmcomment	[ 0	locks=0 ]	(	""	)
+separator1	[ 0	locks=0 ]	(	)
+useasparmdefiner	[ 0	locks=0 ]	(	"off"	)
+useownexportcontext	[ 0	locks=0 ]	(	"off"	)
+parmuniform	[ 0	locks=0 ]	(	"on"	)
+usebound	[ 0	locks=0 ]	(	"off"	)
+hasconnector	[ 0	locks=0 ]	(	"on"	)
+exportparm	[ 0	locks=0 ]	(	"off"	)
+exportcontext	[ 0	locks=0 ]	(	cop2	)
+providemenu	[ 0	locks=0 ]	(	"off"	)
+menuchoices	[ 0	locks=0 ]	(	""	)
+menuscript	[ 0	locks=0 ]	(	""	)
+menuscriptlanguage	[ 0	locks=0 ]	(	"hscript"	)
+separator2	[ 0	locks=0 ]	(	)
+invisible	[ 0	locks=0 ]	(	"off"	)
+joinnext	[ 0	locks=0 ]	(	"off"	)
+disablewhen	[ 0	locks=0 ]	(	""	)
+hidewhen	[ 0	locks=0 ]	(	""	)
+callback	[ 0	locks=0 ]	(	""	)
+tags	[ 0	locks=0 ]	(	""	)
+help	[ 0	locks=0 ]	(	""	)
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/posTextureCop/calculate_normal/target_texture_size.userdata"
+Content-Type: text/plain
+
+{
+	"___Version___":{
+		"type":"string",
+		"value":"16.0.635"
+	}
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/posTextureCop/calculate_normal/npoints.init"
+Content-Type: text/plain
+
+type = parameter
+matchesdef = 0
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/posTextureCop/calculate_normal/npoints.def"
+Content-Type: text/plain
+
+comment ""
+position -9.45506 -6.37068
+connectornextid 1
+flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on lowdetail off mediumdetail off highdetail on material off
+outputsNamed3
+{
+0 "No_Of_Points"
+}
+inputsNamed3
+{
+}
+inputs
+{
+}
+stat
+{
+  create 1499725252
+  modify 1499726611
+  author mikel@mikembp-sesi.local
+  access 0777
+}
+color UT_Color RGB 1 1 0.4 
+delscript ""
+exprlanguage hscript
+end
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/posTextureCop/calculate_normal/npoints.parm"
+Content-Type: text/plain
+
+{
+version 0.8
+parmscope	[ 0	locks=0 ]	(	shaderparm	)
+parmaccess	[ 0	locks=0 ]	(	""	)
+parmname	[ 0	locks=0 ]	(	"No Of Points"	)
+parmprefix	[ 0	locks=0 ]	(	""	)
+parmpostfix	[ 0	locks=0 ]	(	""	)
+parmlabel	[ 0	locks=0 ]	(	""	)
+showlabel	[ 0	locks=0 ]	(	"on"	)
+parmtype	[ 0	locks=0 ]	(	"float"	)
+parmtypename	[ 0	locks=0 ]	(	""	)
+floatdef	[ 0	locks=0 ]	(	0	)
+intdef	[ 0	locks=0 ]	(	0	)
+toggledef	[ 0	locks=0 ]	(	"off"	)
+angledef	[ 0	locks=0 ]	(	0	)
+logfloatdef	[ 0	locks=0 ]	(	0	)
+float2def	[ 0	locks=0 ]	(	0	0	)
+float3def	[ 0	locks=0 ]	(	0	0	0	)
+vectordef	[ 0	locks=0 ]	(	0	0	0	)
+normaldef	[ 0	locks=0 ]	(	0	0	0	)
+pointdef	[ 0	locks=0 ]	(	0	0	0	)
+directiondef	[ 0	locks=0 ]	(	1	0	0	)
+float4def	[ 0	locks=0 ]	(	0	0	0	0	)
+floatm2def	[ 0	locks=0 ]	(	1	0	0	1	)
+float9def	[ 0	locks=0 ]	(	1	0	0	0	1	0	0	0	1	)
+float16def	[ 0	locks=0 ]	(	1	0	0	0	0	1	0	0	0	0	1	0	0	0	0	1	)
+stringdef	[ 0	locks=0 ]	(	""	)
+filedef	[ 0	locks=0 ]	(	""	)
+imagedef	[ 0	locks=0 ]	(	""	)
+geometrydef	[ 0	locks=0 ]	(	""	)
+colordef	[ 0	locks=0 ]	(	0	0	0	)
+color4def	[ 0	locks=0 ]	(	0	0	0	0	)
+bsdfdef	[ 0	locks=0 ]	(	""	)
+coshaderdef	[ 0	locks=0 ]	(	""	)
+floatadef	[ 0	locks=0 ]	(	)
+intadef	[ 0	locks=0 ]	(	)
+vector2adef	[ 0	locks=0 ]	(	)
+vectoradef	[ 0	locks=0 ]	(	)
+pointadef	[ 0	locks=0 ]	(	)
+normaladef	[ 0	locks=0 ]	(	)
+coloradef	[ 0	locks=0 ]	(	)
+float4adef	[ 0	locks=0 ]	(	)
+floatm2adef	[ 0	locks=0 ]	(	)
+float9adef	[ 0	locks=0 ]	(	)
+float16adef	[ 0	locks=0 ]	(	)
+stringadef	[ 0	locks=0 ]	(	)
+coshaderadef	[ 0	locks=0 ]	(	""	)
+structdef	[ 0	locks=0 ]	(	""	)
+rangeflt	[ 0	locks=0 ]	(	0	1	)
+rangeint	[ 0	locks=0 ]	(	0	10	)
+stringtype	[ 0	locks=0 ]	(	off	)
+opfilter	[ 0	locks=0 ]	(	!!OBJ/LIGHT!!	)
+parmcomment	[ 0	locks=0 ]	(	""	)
+separator1	[ 0	locks=0 ]	(	)
+useasparmdefiner	[ 0	locks=0 ]	(	"off"	)
+useownexportcontext	[ 0	locks=0 ]	(	"off"	)
+parmuniform	[ 0	locks=0 ]	(	"on"	)
+usebound	[ 0	locks=0 ]	(	"off"	)
+hasconnector	[ 0	locks=0 ]	(	"on"	)
+exportparm	[ 0	locks=0 ]	(	"off"	)
+exportcontext	[ 0	locks=0 ]	(	cop2	)
+providemenu	[ 0	locks=0 ]	(	"off"	)
+menuchoices	[ 0	locks=0 ]	(	""	)
+menuscript	[ 0	locks=0 ]	(	""	)
+menuscriptlanguage	[ 0	locks=0 ]	(	"hscript"	)
+separator2	[ 0	locks=0 ]	(	)
+invisible	[ 0	locks=0 ]	(	"off"	)
+joinnext	[ 0	locks=0 ]	(	"off"	)
+disablewhen	[ 0	locks=0 ]	(	""	)
+hidewhen	[ 0	locks=0 ]	(	""	)
+callback	[ 0	locks=0 ]	(	""	)
+tags	[ 0	locks=0 ]	(	""	)
+help	[ 0	locks=0 ]	(	""	)
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/posTextureCop/calculate_normal/npoints.userdata"
+Content-Type: text/plain
+
+{
+	"___Version___":{
+		"type":"string",
+		"value":"16.0.635"
+	}
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/posTextureCop/calculate_normal/divide1.init"
+Content-Type: text/plain
+
+type = divide
+matchesdef = 0
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/posTextureCop/calculate_normal/divide1.def"
+Content-Type: text/plain
+
+comment ""
+position -6.68597 -7.05068
+connectornextid 3
+flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on lowdetail off mediumdetail off highdetail on material off
+outputsNamed3
+{
+2 "div"
+}
+inputsNamed3
+{
+1 	npoints 0 1 "input1"
+0 	target_texture_size 0 1 "input2"
+}
+inputs
+{
+0 	npoints 0 1
+1 	target_texture_size 0 1
+}
+stat
+{
+  create 1499725406
+  modify 1499727301
+  author mikel@mikembp-sesi.local
+  access 0777
+}
+color UT_Color RGB 0.8 0.8 0.8 
+delscript ""
+exprlanguage hscript
+end
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/posTextureCop/calculate_normal/divide1.parm"
+Content-Type: text/plain
+
+{
+version 0.8
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/posTextureCop/calculate_normal/divide1.userdata"
+Content-Type: text/plain
+
+{
+	"___Version___":{
+		"type":"string",
+		"value":"16.0.635"
+	}
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/posTextureCop/calculate_normal/ceiling1.init"
+Content-Type: text/plain
+
+type = ceiling
+matchesdef = 0
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/posTextureCop/calculate_normal/ceiling1.def"
+Content-Type: text/plain
+
+comment ""
+position -4.69801 -7.05068
+connectornextid 2
+flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on lowdetail off mediumdetail off highdetail on material off
+outputsNamed3
+{
+1 "ceil"
+}
+inputsNamed3
+{
+0 	divide1 2 1 "val"
+}
+inputs
+{
+0 	divide1 0 1
+}
+stat
+{
+  create 1499725434
+  modify 1499727301
+  author mikel@mikembp-sesi.local
+  access 0777
+}
+color UT_Color RGB 0.8 0.8 0.8 
+delscript ""
+exprlanguage hscript
+end
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/posTextureCop/calculate_normal/ceiling1.parm"
+Content-Type: text/plain
+
+{
+version 0.8
+signature	[ 0	locks=0 ]	(	default	)
+val	[ 0	locks=0 ]	(	1	)
+val_v	[ 0	locks=0 ]	(	1	1	1	)
+val_p	[ 0	locks=0 ]	(	1	1	1	)
+val_n	[ 0	locks=0 ]	(	1	1	1	)
+val_c	[ 0	locks=0 ]	(	1	1	1	)
+val_v4	[ 0	locks=0 ]	(	1	1	1	1	)
+val_uf	[ 0	locks=0 ]	(	1	)
+val_uv	[ 0	locks=0 ]	(	1	1	1	)
+val_up	[ 0	locks=0 ]	(	1	1	1	)
+val_un	[ 0	locks=0 ]	(	1	1	1	)
+val_uc	[ 0	locks=0 ]	(	1	1	1	)
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/posTextureCop/calculate_normal/ceiling1.userdata"
+Content-Type: text/plain
+
+{
+	"___Version___":{
+		"type":"string",
+		"value":""
+	}
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/posTextureCop/calculate_normal/divide2.init"
+Content-Type: text/plain
+
+type = divide
+matchesdef = 0
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/posTextureCop/calculate_normal/divide2.def"
+Content-Type: text/plain
+
+comment ""
+position -2.07983 -6.02134
+connectornextid 3
+flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on lowdetail off mediumdetail off highdetail on material off
+outputsNamed3
+{
+2 "div"
+}
+inputsNamed3
+{
+0 	inttofloat1 1 1 "input1"
+1 	ceiling1 1 1 "input2"
+}
+inputs
+{
+0 	inttofloat1 0 1
+1 	ceiling1 0 1
+}
+stat
+{
+  create 1499725482
+  modify 1499727301
+  author mikel@mikembp-sesi.local
+  access 0777
+}
+color UT_Color RGB 0.8 0.8 0.8 
+delscript ""
+exprlanguage hscript
+end
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/posTextureCop/calculate_normal/divide2.parm"
+Content-Type: text/plain
+
+{
+version 0.8
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/posTextureCop/calculate_normal/divide2.userdata"
+Content-Type: text/plain
+
+{
+	"___Version___":{
+		"type":"string",
+		"value":"16.0.635"
+	}
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/posTextureCop/calculate_normal/inttofloat1.init"
+Content-Type: text/plain
+
+type = inttofloat
+matchesdef = 0
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/posTextureCop/calculate_normal/inttofloat1.def"
+Content-Type: text/plain
+
+comment ""
+position -4.69801 -5.54068
+connectornextid 2
+flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on lowdetail off mediumdetail off highdetail on material off
+outputsNamed3
+{
+1 "fval"
+}
+inputsNamed3
+{
+0 	global1 25 1 "ival"
+}
+inputs
+{
+0 	global1 25 1
+}
+stat
+{
+  create 1499725487
+  modify 1499727301
+  author mikel@mikembp-sesi.local
+  access 0777
+}
+color UT_Color RGB 0.8 0.8 0.8 
+delscript ""
+exprlanguage hscript
+end
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/posTextureCop/calculate_normal/inttofloat1.parm"
+Content-Type: text/plain
+
+{
+version 0.8
+ival	[ 0	locks=0 ]	(	0	)
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/posTextureCop/calculate_normal/inttofloat1.userdata"
+Content-Type: text/plain
+
+{
+	"___Version___":{
+		"type":"string",
+		"value":""
+	}
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/posTextureCop/calculate_normal/floor1.init"
+Content-Type: text/plain
+
+type = floor
+matchesdef = 0
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/posTextureCop/calculate_normal/floor1.def"
+Content-Type: text/plain
+
+comment ""
+position 2.27175 -5.796
+connectornextid 2
+flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on lowdetail off mediumdetail off highdetail on material off
+outputsNamed3
+{
+1 "floor"
+}
+inputsNamed3
+{
+0 	divide2 2 1 "val"
+}
+inputs
+{
+0 	divide2 0 1
+}
+stat
+{
+  create 1499725505
+  modify 1499727301
+  author mikel@mikembp-sesi.local
+  access 0777
+}
+color UT_Color RGB 0.8 0.8 0.8 
+delscript ""
+exprlanguage hscript
+end
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/posTextureCop/calculate_normal/floor1.parm"
+Content-Type: text/plain
+
+{
+version 0.8
+signature	[ 0	locks=0 ]	(	default	)
+val	[ 0	locks=0 ]	(	1	)
+val_v	[ 0	locks=0 ]	(	1	1	1	)
+val_p	[ 0	locks=0 ]	(	1	1	1	)
+val_n	[ 0	locks=0 ]	(	1	1	1	)
+val_c	[ 0	locks=0 ]	(	1	1	1	)
+val_v4	[ 0	locks=0 ]	(	1	1	1	1	)
+val_uf	[ 0	locks=0 ]	(	1	)
+val_uv	[ 0	locks=0 ]	(	1	1	1	)
+val_up	[ 0	locks=0 ]	(	1	1	1	)
+val_un	[ 0	locks=0 ]	(	1	1	1	)
+val_uc	[ 0	locks=0 ]	(	1	1	1	)
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/posTextureCop/calculate_normal/floor1.userdata"
+Content-Type: text/plain
+
+{
+	"___Version___":{
+		"type":"string",
+		"value":""
+	}
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/posTextureCop/calculate_normal/modulo1.init"
+Content-Type: text/plain
+
+type = modulo
+matchesdef = 0
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/posTextureCop/calculate_normal/modulo1.def"
+Content-Type: text/plain
+
+comment ""
+position -1.56317 -7.85093
+connectornextid 3
+flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on lowdetail off mediumdetail off highdetail on material off
+outputsNamed3
+{
+2 "mod"
+}
+inputsNamed3
+{
+0 	inttofloat1 1 1 "input1"
+1 	ceiling1 1 1 "input2"
+}
+inputs
+{
+0 	inttofloat1 0 1
+1 	ceiling1 0 1
+}
+stat
+{
+  create 1499726747
+  modify 1499727301
+  author mikel@mikembp-sesi.local
+  access 0777
+}
+color UT_Color RGB 0.8 0.8 0.8 
+delscript ""
+exprlanguage hscript
+end
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/posTextureCop/calculate_normal/modulo1.parm"
+Content-Type: text/plain
+
+{
+version 0.8
+signature	[ 0	locks=0 ]	(	default	)
+input2	[ 0	locks=0 ]	(	1	)
+input2_i	[ 0	locks=0 ]	(	1	)
+input2_v	[ 0	locks=0 ]	(	1	1	1	)
+input2_p	[ 0	locks=0 ]	(	1	1	1	)
+input2_n	[ 0	locks=0 ]	(	1	1	1	)
+input2_c	[ 0	locks=0 ]	(	1	1	1	)
+input2_v4	[ 0	locks=0 ]	(	1	1	1	1	)
+input2_uf	[ 0	locks=0 ]	(	1	)
+input2_uv	[ 0	locks=0 ]	(	1	1	1	)
+input2_up	[ 0	locks=0 ]	(	1	1	1	)
+input2_un	[ 0	locks=0 ]	(	1	1	1	)
+input2_uc	[ 0	locks=0 ]	(	1	1	1	)
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/posTextureCop/calculate_normal/modulo1.userdata"
+Content-Type: text/plain
+
+{
+	"___Version___":{
+		"type":"string",
+		"value":""
+	}
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/posTextureCop/calculate_normal/multiply2.init"
+Content-Type: text/plain
+
+type = multiply
+matchesdef = 0
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/posTextureCop/calculate_normal/multiply2.def"
+Content-Type: text/plain
+
+comment ""
+position 3.17643 -10.2456
+connectornextid 3
+flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on lowdetail off mediumdetail off highdetail on material off
+outputsNamed3
+{
+2 "product"
+}
+inputsNamed3
+{
+0 	subtract3 2 1 "input1"
+1 	target_texture_size 0 1 "input2"
+}
+inputs
+{
+0 	subtract3 0 1
+1 	target_texture_size 0 1
+}
+stat
+{
+  create 1499726787
+  modify 1499727301
+  author mikel@mikembp-sesi.local
+  access 0777
+}
+color UT_Color RGB 0.8 0.8 0.8 
+delscript ""
+exprlanguage hscript
+end
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/posTextureCop/calculate_normal/multiply2.parm"
+Content-Type: text/plain
+
+{
+version 0.8
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/posTextureCop/calculate_normal/multiply2.userdata"
+Content-Type: text/plain
+
+{
+	"___Version___":{
+		"type":"string",
+		"value":"16.0.635"
+	}
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/posTextureCop/calculate_normal/add2.init"
+Content-Type: text/plain
+
+type = add
+matchesdef = 0
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/posTextureCop/calculate_normal/add2.def"
+Content-Type: text/plain
+
+comment ""
+position -7.55548 -2.65581
+connectornextid 3
+flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on lowdetail off mediumdetail off highdetail on material off
+outputsNamed3
+{
+2 "sum"
+}
+inputsNamed3
+{
+0 	global1 24 1 "input1"
+1 	multiply2 2 1 "input2"
+}
+inputs
+{
+0 	global1 24 1
+1 	multiply2 0 1
+}
+stat
+{
+  create 1499726812
+  modify 1499727301
+  author mikel@mikembp-sesi.local
+  access 0777
+}
+color UT_Color RGB 0.8 0.8 0.8 
+delscript ""
+exprlanguage hscript
+end
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/posTextureCop/calculate_normal/add2.parm"
+Content-Type: text/plain
+
+{
+version 0.8
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/posTextureCop/calculate_normal/add2.userdata"
+Content-Type: text/plain
+
+{
+	"___Version___":{
+		"type":"string",
+		"value":"16.0.635"
+	}
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/posTextureCop/calculate_normal/divide3.init"
+Content-Type: text/plain
+
+type = divide
+matchesdef = 0
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/posTextureCop/calculate_normal/divide3.def"
+Content-Type: text/plain
+
+comment ""
+position -4.49504 -0.712829
+connectornextid 3
+flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on lowdetail off mediumdetail off highdetail on material off
+outputsNamed3
+{
+1 "div"
+}
+inputsNamed3
+{
+0 	global1 1 1 "input1"
+2 	ceiling1 1 1 "input2"
+}
+inputs
+{
+0 	global1 1 1
+1 	ceiling1 0 1
+}
+stat
+{
+  create 1499726944
+  modify 1499727301
+  author mikel@mikembp-sesi.local
+  access 0777
+}
+color UT_Color RGB 0.8 0.8 0.8 
+delscript ""
+exprlanguage hscript
+end
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/posTextureCop/calculate_normal/divide3.parm"
+Content-Type: text/plain
+
+{
+version 0.8
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/posTextureCop/calculate_normal/divide3.userdata"
+Content-Type: text/plain
+
+{
+	"___Version___":{
+		"type":"string",
+		"value":"16.0.635"
+	}
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/posTextureCop/calculate_normal/subconst1.init"
+Content-Type: text/plain
+
+type = subconst
+matchesdef = 0
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/posTextureCop/calculate_normal/subconst1.def"
+Content-Type: text/plain
+
+comment ""
+position -4.09374 -8.99349
+connectornextid 2
+flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on lowdetail off mediumdetail off highdetail on material off
+outputsNamed3
+{
+1 "subed"
+}
+inputsNamed3
+{
+0 	ceiling1 1 1 "val"
+}
+inputs
+{
+0 	ceiling1 0 1
+}
+stat
+{
+  create 1499727037
+  modify 1499727301
+  author mikel@mikembp-sesi.local
+  access 0777
+}
+color UT_Color RGB 0.8 0.8 0.8 
+delscript ""
+exprlanguage hscript
+end
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/posTextureCop/calculate_normal/subconst1.parm"
+Content-Type: text/plain
+
+{
+version 0.8
+signature	[ 0	locks=0 ]	(	f	)
+subconst	[ 0	locks=0 ]	(	1	)
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/posTextureCop/calculate_normal/subconst1.userdata"
+Content-Type: text/plain
+
+{
+	"___Version___":{
+		"type":"string",
+		"value":""
+	}
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/posTextureCop/calculate_normal/subtract3.init"
+Content-Type: text/plain
+
+type = subtract
+matchesdef = 0
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/posTextureCop/calculate_normal/subtract3.def"
+Content-Type: text/plain
+
+comment ""
+position 0.497619 -8.99349
+connectornextid 3
+flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on lowdetail off mediumdetail off highdetail on material off
+outputsNamed3
+{
+2 "diff"
+}
+inputsNamed3
+{
+0 	subconst1 1 1 "input1"
+1 	modulo1 2 1 "input2"
+}
+inputs
+{
+0 	subconst1 0 1
+1 	modulo1 0 1
+}
+stat
+{
+  create 1499727047
+  modify 1499727301
+  author mikel@mikembp-sesi.local
+  access 0777
+}
+color UT_Color RGB 0.8 0.8 0.8 
+delscript ""
+exprlanguage hscript
+end
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/posTextureCop/calculate_normal/subtract3.parm"
+Content-Type: text/plain
+
+{
+version 0.8
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/posTextureCop/calculate_normal/subtract3.userdata"
+Content-Type: text/plain
+
+{
+	"___Version___":{
+		"type":"string",
+		"value":"16.0.635"
+	}
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/posTextureCop/calculate_normal/floattoint1.init"
+Content-Type: text/plain
+
+type = floattoint
+matchesdef = 0
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/posTextureCop/calculate_normal/floattoint1.def"
+Content-Type: text/plain
+
+comment ""
+position -6.72033 2.18222
+connectornextid 2
+flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on lowdetail off mediumdetail off highdetail on material off
+outputsNamed3
+{
+1 "ival"
+}
+inputsNamed3
+{
+0 	npoints 0 1 "fval"
+}
+inputs
+{
+0 	npoints 0 1
+}
+stat
+{
+  create 1499727342
+  modify 1499727458
+  author mikel@mikembp-sesi.local
+  access 0777
+}
+color UT_Color RGB 0.8 0.8 0.8 
+delscript ""
+exprlanguage hscript
+end
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/posTextureCop/calculate_normal/floattoint1.parm"
+Content-Type: text/plain
+
+{
+version 0.8
+fval	[ 0	locks=0 ]	(	0	)
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/posTextureCop/calculate_normal/floattoint1.userdata"
+Content-Type: text/plain
+
+{
+	"___Version___":{
+		"type":"string",
+		"value":""
+	}
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/posTextureCop/calculate_normal/maddconst1.init"
+Content-Type: text/plain
+
+type = maddconst
+matchesdef = 0
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/posTextureCop/calculate_normal/maddconst1.def"
+Content-Type: text/plain
+
+comment ""
+position 11.6349 0.380477
+connectornextid 2
+flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on lowdetail off mediumdetail off highdetail on material off
+outputsNamed3
+{
+1 "scaled"
+}
+inputsNamed3
+{
+0 	getattrib2 6 1 "val"
+}
+inputs
+{
+0 	getattrib2 0 1
+}
+stat
+{
+  create 1499727959
+  modify 1499727999
+  author mikel@mikembp-sesi.local
+  access 0777
+}
+color UT_Color RGB 0.8 0.8 0.8 
+delscript ""
+exprlanguage hscript
+end
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/posTextureCop/calculate_normal/maddconst1.parm"
+Content-Type: text/plain
+
+{
+version 0.8
+signature	[ 0	locks=0 ]	(	v	)
+preadd	[ 0	locks=0 ]	(	1	)
+mulconst	[ 0	locks=0 ]	(	0.5	)
+postadd	[ 0	locks=0 ]	(	0	)
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/posTextureCop/calculate_normal/maddconst1.userdata"
+Content-Type: text/plain
+
+{
+	"___Version___":{
+		"type":"string",
+		"value":""
+	}
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
 Content-Disposition: attachment; filename="hdaroot/soft_obj/STATIC_MESH/object_merge1.init"
 Content-Type: text/plain
 
@@ -31991,7 +34344,7 @@ sopflags sopflags =
 comment ""
 position -2.02448 -3.59964
 connectornextid 2
-flags =  lock off model off template on footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault off exposed on
+flags =  lock off model off template on footprint off xray off bypass off display on render on highlight off unload off savedata off compress on colordefault off exposed on
 outputsNamed3
 {
 1 "output1"
@@ -32007,7 +34360,7 @@ inputs
 stat
 {
   create 1476731832
-  modify 1499292048
+  modify 1499727454
   author Luiz@Luiz-PC
   access 0777
 }
@@ -32232,7 +34585,7 @@ sopflags sopflags =
 comment ""
 position -2.02948 -1.32366
 connectornextid 2
-flags =  lock off model off template off footprint off xray off bypass off display on render on highlight off unload off savedata off compress on colordefault on exposed on
+flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
 {
 1 "output1"
@@ -32248,7 +34601,7 @@ inputs
 stat
 {
   create 1481925608
-  modify 1499292083
+  modify 1499724829
   author Luiz@Luiz-PC
   access 0777
 }
@@ -32501,10 +34854,78 @@ Content-Type: text/plain
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/soft_obj/STATIC_MESH/layer1.init"
+Content-Type: text/plain
+
+type = layer
+matchesdef = 0
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/soft_obj/STATIC_MESH/layer1.def"
+Content-Type: text/plain
+
+sopflags sopflags = 
+comment ""
+position -4.38245 -0.77691
+connectornextid 1
+flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
+outputsNamed3
+{
+}
+inputsNamed3
+{
+0 	build_the_uvs 1 1 "input1"
+}
+inputs
+{
+0 	build_the_uvs 0 1
+}
+stat
+{
+  create 1499724836
+  modify 1499727458
+  author mikel@mikembp-sesi.local
+  access 0777
+}
+color UT_Color RGB 0.8 0.8 0.8 
+delscript ""
+exprlanguage hscript
+end
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/soft_obj/STATIC_MESH/layer1.parm"
+Content-Type: text/plain
+
+{
+version 0.8
+ovrlayer	[ 0	locks=0 ]	(	"on"	)
+layer	[ 0	locks=0 ]	(	2	)
+ovrmaxlayer	[ 0	locks=0 ]	(	"off"	)
+maxlayer	[ 0	locks=0 ]	(	1	)
+ovrmerge	[ 0	locks=0 ]	(	"off"	)
+srcblend	[ 0	locks=0 ]	(	"zero"	)
+dstblend	[ 0	locks=0 ]	(	"one"	)
+chanmask	[ 0	locks=0 ]	(	"all"	)
+custommask	[ 0	locks=0 ]	(	0	)
+preclear	[ 0	locks=0 ]	(	"off"	)
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/soft_obj/STATIC_MESH/layer1.userdata"
+Content-Type: text/plain
+
+{
+	"___Version___":{
+		"type":"string",
+		"value":"16.0.635"
+	}
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
 Content-Disposition: attachment; filename="hdaroot/soft_obj/STATIC_MESH.order"
 Content-Type: text/plain
 
-9
+10
 object_merge1
 SIM_GEO
 timeshift1
@@ -32514,6 +34935,7 @@ transform1
 switch1
 uvunwrap1
 attribpromote2
+layer1
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
 Content-Disposition: attachment; filename="hdaroot/soft_obj/STATIC_MESH.net"
@@ -33802,7 +36224,7 @@ version 0.8
 method	[ 0	locks=0 ]	(	"byframe"	)
 frame	[ 0	locks=0 ]	(	[ frame	299 ] 	)
 integerframe	[ 0	locks=0 ]	(	"on"	)
-time	[ 0	locks=0 ]	(	[ time	0 ] 	)
+time	[ 0	locks=0 ]	(	[ time	4.5333333015441895 ] 	)
 rangeclamp	[ 0	locks=0 ]	(	"none"	)
 frange	[ 0	locks=0 ]	(	[ frange1	1 ] 	[ frange2	300 ] 	)
 trange	[ 0	locks=0 ]	(	[ trange1	0 ] 	[ trange2	9.9666666666666668 ] 	)
@@ -33847,7 +36269,7 @@ inputs
 stat
 {
   create 1499281135
-  modify 1499294086
+  modify 1499728475
   author mikel@mikembp-sesi.local
   access 0777
 }
@@ -34573,7 +36995,7 @@ pickscript	[ 0	locks=0 ]	(	""	)
 caching	[ 0	locks=0 ]	(	"off"	)
 stdswitcher3	[ 0	locks=0 ]	(	2	2	2	2	)
 iconscale	[ 0	locks=0 ]	(	1	)
-res	[ 8	locks=0 ]	(	[ resx	400 ] 	[ resy	1374.324462890625 ] 	)
+res	[ 8	locks=0 ]	(	[ resx	1024 ] 	[ resy	1375.0045166015625 ] 	)
 resMenu	[ 0	locks=0 ]	(	0	)
 aspect	[ 0	locks=0 ]	(	1	)
 projection	[ 0	locks=0 ]	(	"ortho"	)
@@ -68338,7 +70760,7 @@ inputs
 stat
 {
   create 1499279728
-  modify 1499282510
+  modify 1499725085
   author mikel@mikembp-sesi.local
   access 0777
 }
@@ -68357,14 +70779,14 @@ Content-Type: text/plain
       righttype = extend
       default = 1920
       flags = 0
-      segment { length = 0 value = 1920 1920 expr = npoints(\"../../soft_obj/STATIC_MESH/SIM_GEO\") }
+      segment { length = 0 value = 1920 1920 expr = min(npoints(\"../../soft_obj/STATIC_MESH/SIM_GEO\"),ch(\"../../target_texture_size\")) }
     }
     channel size2 {
       lefttype = extend
       righttype = extend
       default = 1080
       flags = 0
-      segment { length = 0 value = 1080 1080 expr = "ch(\"../../fFrame\") - ch(\"../../iFrame\")" }
+      segment { length = 0 value = 1080 1080 expr = "(ch(\"../../fFrame\") - ch(\"../../iFrame\")) * ceil(npoints(\"../../soft_obj/STATIC_MESH/SIM_GEO\")/ch(\"../../target_texture_size\"))" }
     }
     channel aspect {
       lefttype = extend
@@ -68401,7 +70823,7 @@ maskplane	[ 0	locks=0 ]	(	A	)
 maskresize	[ 0	locks=0 ]	(	"off"	)
 maskinvert	[ 0	locks=0 ]	(	"off"	)
 overridesize	[ 0	locks=0 ]	(	"on"	)
-size	[ 0	locks=0 ]	(	[ size1	400 ] 	[ size2	299 ] 	)
+size	[ 8	locks=0 ]	(	[ size1	1024 ] 	[ size2	598 ] 	)
 sizemenu	[ 0	locks=0 ]	(	0	)
 overrideaspect	[ 0	locks=0 ]	(	"off"	)
 aspect	[ 0	locks=0 ]	(	[ aspect	1 ] 	)
@@ -68442,14 +70864,14 @@ Content-Disposition: attachment; filename="hdaroot/posTextureCop/color1.cop2"
 Content-Type: text/plain
 
 2
-0
+2
 0
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
 Content-Disposition: attachment; filename="hdaroot/posTextureCop/calculate_delta.order"
 Content-Type: text/plain
 
-12
+26
 global1
 output1
 subtract1
@@ -68462,6 +70884,20 @@ getattrib2
 subtract2
 vectofloat1
 addconst1
+target_texture_size
+npoints
+divide1
+ceiling1
+divide2
+inttofloat1
+floor1
+modulo1
+multiply2
+add2
+divide3
+subconst1
+subtract3
+floattoint1
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
 Content-Disposition: attachment; filename="hdaroot/posTextureCop/calculate_delta.net"
@@ -69515,7 +71951,7 @@ Content-Disposition: attachment; filename="hdaroot/posTextureCop/switch1.cop2"
 Content-Type: text/plain
 
 2
-0
+2
 0
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -69532,7 +71968,7 @@ Content-Type: text/plain
 comment ""
 position -0.77712 -13.5126
 connectornextid 1
-flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress off colordefault off exposed on
+flags =  lock off model off template off footprint off xray off bypass off display on render off highlight off unload off savedata off compress off colordefault off exposed on
 outputsNamed3
 {
 }
@@ -69547,7 +71983,7 @@ inputs
 stat
 {
   create 1499280242
-  modify 1499280250
+  modify 1499727420
   author mikel@mikembp-sesi.local
   access 0777
 }
@@ -69582,28 +72018,6 @@ Content-Type: text/plain
 2
 0
 0
-
---HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot/posTextureCop/calculate_normal.order"
-Content-Type: text/plain
-
-10
-global1
-output1
-subtract1
-multiply1
-add1
-geo
-getattrib2
-vectofloat1
-addconst1
-maddconst1
-
---HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot/posTextureCop/calculate_normal.net"
-Content-Type: text/plain
-
-1
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
 Content-Disposition: attachment; filename="hdaroot/posTextureCop/vopcop2gen1.order"
@@ -69730,7 +72144,7 @@ inputs
 stat
 {
   create 1499280600
-  modify 1499280618
+  modify 1499727991
   author mikel@mikembp-sesi.local
   access 0777
 }
@@ -69780,7 +72194,7 @@ Content-Type: text/plain
 comment ""
 position -3.99828 -14.0753
 connectornextid 3
-flags =  lock off model off template off footprint off xray off bypass off display on render off highlight off unload off savedata off compress off colordefault on exposed on
+flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress off colordefault on exposed on
 outputsNamed3
 {
 2 "output1"
@@ -69798,7 +72212,7 @@ inputs
 stat
 {
   create 1499280628
-  modify 1499291897
+  modify 1499724972
   author mikel@mikembp-sesi.local
   access 0777
 }
@@ -69953,6 +72367,45 @@ Content-Type: text/plain
 1
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/posTextureCop/calculate_normal.order"
+Content-Type: text/plain
+
+27
+global1
+output1
+subtract1
+multiply1
+add1
+start_frame
+geo
+getattrib1
+getattrib2
+subtract2
+vectofloat1
+addconst1
+target_texture_size
+npoints
+divide1
+ceiling1
+divide2
+inttofloat1
+floor1
+modulo1
+multiply2
+add2
+divide3
+subconst1
+subtract3
+floattoint1
+maddconst1
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/posTextureCop/calculate_normal.net"
+Content-Type: text/plain
+
+1
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
 Content-Disposition: attachment; filename="hdaroot/posTextureCop/__dot1.networkdotinit"
 Content-Type: text/plain
 
@@ -69986,7 +72439,6 @@ multiply1
 vopcop2gen3
 switch1
 POSITION
-calculate_normal
 vopcop2gen1
 PACKED_NORMAL
 NORMAL
@@ -69994,6 +72446,7 @@ channelcopy1
 POSITION_AND_PACKED_NORMAL
 vopcop2filter1
 vopcop2gen4
+calculate_normal
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
 Content-Disposition: attachment; filename="hdaroot/posTextureCop.net"

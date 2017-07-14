@@ -3,7 +3,7 @@
 {
     name	vertex_animation_textures_beta
     script	vertex_animation_textures_beta
-    label	"Vertex Animation Textures"
+    label	"Vertex Animation Textures (Beta)"
 
     help {
 	""
@@ -215,6 +215,24 @@
 	    label	"BBOX MIN"
 	    type	string
 	    default	{ "0" }
+	    range	{ 0 10 }
+	}
+	parm {
+	    name	"max_value2"
+	    label	"BBOX MAX 1"
+	    type	string
+	    joinnext
+	    default	{ "0" }
+	    hidewhen	"{ method != 1 }"
+	    range	{ 0 10 }
+	    parmtag	{ "units" "" }
+	}
+	parm {
+	    name	"min_value2"
+	    label	"BBOX MIN 1"
+	    type	string
+	    default	{ "0" }
+	    hidewhen	"{ method != 1 }"
 	    range	{ 0 10 }
 	}
     }

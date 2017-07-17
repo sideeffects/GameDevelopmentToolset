@@ -24,7 +24,7 @@
     }
     parm {
 	name	"target_mesh"
-	label	"Target Mesh"
+	label	"Target Mesh (LOW)"
 	type	oppath
 	default	{ "" }
 	parmtag	{ "opfilter" "!!SOP!!" }
@@ -32,7 +32,7 @@
     }
     parm {
 	name	"source_mesh"
-	label	"Source Mesh"
+	label	"Source Mesh (HIGH)"
 	type	oppath
 	default	{ "" }
 	parmtag	{ "opfilter" "!!SOP!!" }
@@ -235,7 +235,7 @@
 	    type	float
 	    size	3
 	    default	{ [ "$RFSTART" hscript-expr ] [ "$RFEND" hscript-expr ] "1" }
-	    disablewhen	"{ trange == \"off\" }"
+	    disablewhen	"{ trange == off }"
 	    range	{ 0 10 }
 	    parmtag	{ "autoscope" "0000000000000000" }
 	}

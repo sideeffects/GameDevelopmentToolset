@@ -1,0 +1,25 @@
+# Dialog script for sop_static_fracture_export automatically generated
+
+{
+    name	sop_static_fracture_export
+    script	sop_static_fracture_export
+    label	"Static Fracture Export"
+
+    help {
+	""
+    }
+
+    inputlabel	1	"Sub-Network Input #1"
+    inputlabel	2	"Sub-Network Input #2"
+    inputlabel	3	"Sub-Network Input #3"
+    inputlabel	4	"Sub-Network Input #4"
+
+    parm {
+	name	"generate"
+	label	"Create Container"
+	type	button
+	default	{ "0" }
+	parmtag	{ "script_callback" "hou.pwd().hdaModule().generateGeometry()" }
+	parmtag	{ "script_callback_language" "python" }
+    }
+}

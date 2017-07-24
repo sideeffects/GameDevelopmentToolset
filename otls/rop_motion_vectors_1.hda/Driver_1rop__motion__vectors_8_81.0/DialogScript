@@ -1,0 +1,127 @@
+# Dialog script for rop_motion_vectors::1.0 automatically generated
+
+{
+    name	rop_motion_vectors::1.0
+    script	rop_motion_vectors::1.0
+    label	"Motion Vectors"
+
+    help {
+	""
+    }
+
+    parm {
+	name	"execute"
+	baseparm
+	label	"Render"
+	joinnext
+	export	none
+    }
+    parm {
+	name	"renderdialog"
+	baseparm
+	label	"Controls..."
+	export	none
+    }
+    parm {
+	name	"f"
+	label	"Start/End/Inc"
+	type	float
+	size	3
+	default	{ "$RFSTART" "$RFEND" "1" }
+	range	{ 0 10 }
+	parmtag	{ "autoscope" "0000000000000000" }
+    }
+    parm {
+	name	"export_node"
+	label	"Export Node"
+	type	oppath
+	default	{ "" }
+	parmtag	{ "oprelative" "." }
+    }
+    parm {
+	name	"camera"
+	label	"Camera"
+	type	oppath
+	default	{ "/obj/cam1" }
+	parmtag	{ "autoscope" "0000000000000000" }
+	parmtag	{ "opfilter" "!!OBJ/CAMERA!!" }
+	parmtag	{ "oprelative" "." }
+    }
+    parm {
+	name	"sepparm"
+	label	"Separator"
+	type	separator
+	default	{ "" }
+    }
+    parm {
+	name	"vm_picture"
+	label	"Output Picture"
+	type	file
+	joinnext
+	default	{ "$HIP/render/$HIPNAME.$OS.$F4.exr" }
+	menureplace	{
+	    [ "opmenu -l motion_vector_render vm_picture" ]
+	}
+	range	{ 0 1 }
+	parmtag	{ "autoscope" "1000000000000000" }
+	parmtag	{ "filechooser_mode" "write" }
+    }
+    parm {
+	name	"render_sequence"
+	label	"Render Sequence"
+	type	button
+	default	{ "0" }
+    }
+    parm {
+	name	"motion_vector_map"
+	label	"Motion Vector Map"
+	type	image
+	joinnext
+	default	{ "$HIP/export/$HIPNAME.$OS.exr" }
+    }
+    parm {
+	name	"render_map"
+	label	"Render Atlas"
+	type	button
+	default	{ "0" }
+    }
+    parm {
+	name	"sepparm2"
+	label	"Separator"
+	type	separator
+	default	{ "" }
+    }
+    parm {
+	name	"numperline"
+	label	"Images per Line"
+	type	integer
+	default	{ "8" }
+	range	{ 0 10 }
+    }
+    parm {
+	name	"atlas_res"
+	label	"Atlas Resolution"
+	type	intvector2
+	size	2
+	default	{ "1024" "1024" }
+	range	{ -1 1 }
+    }
+    parm {
+	name	"num_of_frame"
+	label	"No. Of Frames"
+	type	label
+	default	{ "`ch(\"f2\")-ch(\"f1\")+1" }
+    }
+    parm {
+	name	"atlas_layout"
+	label	"Atlas Layout"
+	type	label
+	default	{ "`int(ch(\"numperline\"))` x `ceil((ch(\"f2\")-ch(\"f1\")+1)/ch(\"numperline\"))" }
+    }
+    parm {
+	name	"frameRes"
+	label	"Resolution per Frame"
+	type	label
+	default	{ "`int(ch(\"atlas_resx\")/ch(\"numperline\"))` x `int(ch(\"atlas_resy\")/((ch(\"f2\")-ch(\"f1\")+1)/ch(\"numperline\")))" }
+    }
+}

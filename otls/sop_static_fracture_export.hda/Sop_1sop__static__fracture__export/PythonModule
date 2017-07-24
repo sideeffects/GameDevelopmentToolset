@@ -1,0 +1,19 @@
+def generateGeometry():
+    node = hou.pwd()
+    object = hou.node("%s/FRACTURE_OBJECT" % node.path())
+    geometry = object.geometry()
+    points = geometry.points()
+    
+    obj_context = hou.node("/obj")
+    fracture_container = obj_context.createNode('subnet', node_name="FRACTURE_CONTAINER")
+    
+    
+    for point in points:
+        chunk_name = point.attribValue('name')
+        chunk_number = point.number()
+        geo_container = fracture_container.createNode('geo', run_init_scripts=False, node_name=chunk_name)
+        obj_merge = geo_container.createNode('object_merge')
+        obj_merge.parm('objpath1').set(object.path())
+        obj_merge.parm('group1').set("%s" % chunk_number)
+        
+    fracture_container.layoutChildren()

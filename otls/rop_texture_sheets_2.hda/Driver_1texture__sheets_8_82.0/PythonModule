@@ -38,21 +38,29 @@ def override_camera_resolution():
     import math
     hda = hou.pwd()
     camera = hou.node(hou.pwd().parm("camera_internal").eval())
-    #mantra = hou.node(hou.pwd().parm("mantra").eval())
+    mantra = hou.node(hou.pwd().parm("mantra_external").eval())
     if (hda.parm('override_res').eval() == 1):
-        hda.parm('cam_res_savex').set(camera.parm('resx').eval())
-        hda.parm('cam_res_savey').set(camera.parm('resy').eval())
-        f1 = hda.parm('internal_frames1').eval()
-        f2 = hda.parm('internal_frames2').eval()
-        f3 = hda.parm('internal_frames3').eval()
+        if mantra:
+            mantra.parm('override_camerares').set(1)
+            mantra.parm('res_fraction').set('specific')
+            mantra.parm('res_overridex').setExpression("int(ch(\"../%s/resolutionx\")/ch(\"../%s/numperline\"))" % (hda.name(),hda.name()))
+            mantra.parm('res_overridey').setExpression("int(ch(\"../%s/resolutiony\")/((ch(\"../%s/internal_frames2\")-ch(\"../%s/internal_frames1\")+1)/ch(\"../%s/numperline\")))" % (hda.name(),hda.name(),hda.name(),hda.name()))
+            
+        #hda.parm('cam_res_savex').set(camera.parm('resx').eval())
+        #hda.parm('cam_res_savey').set(camera.parm('resy').eval())
+        #f1 = hda.parm('internal_frames1').eval()
+        #f2 = hda.parm('internal_frames2').eval()
+        #f3 = hda.parm('internal_frames3').eval()
         #`ch("resolutionx")/sqrt((ch("frames2")-ch("frames1")+1)/ch("frames3"))`
-        resx = hda.parm("resolutionx").eval()/math.sqrt(f2-f1+1)/f3
-        resy = hda.parm("resolutiony").eval()/math.sqrt(f2-f1+1)/f3
-        camera.parm('resx').set(int(resx))
-        camera.parm('resy').set(int(resy))
+        #resx = hda.parm("resolutionx").eval()/math.sqrt(f2-f1+1)/f3
+        #resy = hda.parm("resolutiony").eval()/math.sqrt(f2-f1+1)/f3
+        #camera.parm('resx').set(int(resx))
+        #camera.parm('resy').set(int(resy))
     else:
-        camera.parm('resx').set(hda.parm('cam_res_savex').eval())
-        camera.parm('resy').set(hda.parm('cam_res_savey').eval())
+        if mantra:
+            mantra.parm('override_camerares').set(0)
+        #camera.parm('resx').set(hda.parm('cam_res_savex').eval())
+        #camera.parm('resy').set(hda.parm('cam_res_savey').eval())
     
 def add_volume_normal():
     render_node = hou.node(hou.pwd().parm("node_to_render").eval())

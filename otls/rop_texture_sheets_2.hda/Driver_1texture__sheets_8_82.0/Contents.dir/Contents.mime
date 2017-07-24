@@ -31,22 +31,24 @@ Content-Disposition: attachment; filename="hdaroot.def"
 Content-Type: text/plain
 
 comment ""
-position -0.174459 -3.49426
-connectornextid 0
+position -21.6332 -7.14996
+connectornextid 1
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
 {
 }
 inputsNamed3
 {
+0 	fireball_ts_test 0 1 "input1"
 }
 inputs
 {
+0 	fireball_ts_test 0 1
 }
 stat
 {
-  create 1500676372
-  modify 1500678405
+  create 1500393371
+  modify 1500909108
   author mikel@mikembp-sesi.local
   access 0777
 }
@@ -182,7 +184,7 @@ inputs
 stat
 {
   create 1496111784
-  modify 1500678166
+  modify 1500908650
   author mikel@mikembp-sesi.local
   access 0777
 }
@@ -926,7 +928,7 @@ inputs
 stat
 {
   create 1496717079
-  modify 1500678166
+  modify 1500908650
   author mikel@mikembp-sesi.local
   access 0777
 }
@@ -1788,7 +1790,7 @@ inputs
 stat
 {
   create 1496686170
-  modify 1500678166
+  modify 1500908650
   author mikel@mikembp-sesi.local
   access 0777
 }
@@ -2421,7 +2423,7 @@ inputs
 stat
 {
   create 1496718226
-  modify 1500678166
+  modify 1500908650
   author mikel@mikembp-sesi.local
   access 0777
 }
@@ -3593,7 +3595,7 @@ fmenu	[ 0	locks=0 ]	(	"scopeall"	)
 fautoadjust	[ 0	locks=0 ]	(	"on"	)
 currange	[ 0	locks=0 ]	(	9	)
 stdswitcher4	[ 0	locks=0 ]	(	0	0	0	)
-mult	[ 0	locks=0 ]	(	[ mult	0.25 ] 	)
+mult	[ 0	locks=0 ]	(	[ mult	0.34999999999999998 ] 	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -5246,7 +5248,7 @@ inputs
 stat
 {
   create 1498602356
-  modify 1500678166
+  modify 1500908650
   author mikel@mikembp-sesi.local
   access 0777
 }
@@ -5570,7 +5572,7 @@ inputs
 stat
 {
   create 1496111784
-  modify 1500678107
+  modify 1500908030
   author mikel@mikembp-sesi.local
   access 0777
 }
@@ -5618,7 +5620,7 @@ nodename	[ 0	locks=0 ]	(	"userdef"	)
 reload	[ 0	locks=0 ]	(	0	)
 subframes	[ 0	locks=0 ]	(	"off"	)
 overridesize	[ 0	locks=0 ]	(	"natural"	)
-size	[ 0	locks=0 ]	(	256	256	)
+size	[ 0	locks=0 ]	(	512	512	)
 sizemenu	[ 0	locks=0 ]	(	0	)
 filter	[ 0	locks=0 ]	(	box	)
 overrideaspect	[ 0	locks=0 ]	(	"off"	)
@@ -5635,7 +5637,7 @@ detectrange	[ 0	locks=0 ]	(	"on"	)
 manualdetect	[ 0	locks=0 ]	(	0	)
 singleimage	[ 0	locks=0 ]	(	"off"	)
 startframe	[ 0	locks=0 ]	(	1	)
-start	[ 0	locks=0 ]	(	[ start	16 ] 	)
+start	[ 0	locks=0 ]	(	[ start	56 ] 	)
 length	[ 0	locks=0 ]	(	[ length	9 ] 	)
 missingfr	[ 0	locks=0 ]	(	"closest"	)
 warnmissing	[ 0	locks=0 ]	(	"on"	)
@@ -5932,7 +5934,7 @@ Content-Disposition: attachment; filename="hdaroot/COMPOSITING/scale3.def"
 Content-Type: text/plain
 
 comment ""
-position -0.924099 -5.60528
+position 1.08784 -5.60528
 connectornextid 2
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress off colordefault on exposed on
 outputsNamed3
@@ -5950,7 +5952,7 @@ inputs
 stat
 {
   create 1495472367
-  modify 1500659714
+  modify 1500905368
   author mike@mikembp.local
   access 0777
 }
@@ -5988,7 +5990,7 @@ Content-Type: text/plain
 version 0.8
 stdswitcher	[ 0	locks=0 ]	(	0	)
 scaletype	[ 0	locks=0 ]	(	"res"	)
-imageres	[ 8	locks=0 ]	(	[ imageres1	128 ] 	[ imageres2	128 ] 	)
+imageres	[ 8	locks=0 ]	(	[ imageres1	0 ] 	[ imageres2	0 ] 	)
 imagefract	[ 0	locks=0 ]	(	0.5	0.5	)
 imageaspect	[ 0	locks=0 ]	(	1	)
 keepaspect	[ 0	locks=0 ]	(	"off"	)
@@ -6686,7 +6688,7 @@ inputs
 stat
 {
   create 1496111784
-  modify 1500659714
+  modify 1500905043
   author mikel@mikembp-sesi.local
   access 0777
 }
@@ -6704,7 +6706,7 @@ Content-Type: text/plain
       lefttype = extend
       righttype = extend
       flags = 0
-      segment { length = 0 value = 8 8 expr = sqrt(ch(\"imagelimit\")) }
+      segment { length = 0 value = 8 8 expr = ch(\"../../numperline\") }
     }
     channel imagelimit {
       lefttype = extend
@@ -6721,12 +6723,12 @@ Content-Type: text/plain
 {
 version 0.8
 stdswitcher	[ 0	locks=0 ]	(	0	)
-numperline	[ 8	locks=0 ]	(	[ numperline	2 ] 	)
+numperline	[ 8	locks=0 ]	(	[ numperline	8 ] 	)
 stackvert	[ 0	locks=0 ]	(	"ttob"	)
 stackhorz	[ 0	locks=0 ]	(	"ltor"	)
 stackrows	[ 0	locks=0 ]	(	"on"	)
 limitperframe	[ 0	locks=0 ]	(	"on"	)
-imagelimit	[ 8	locks=0 ]	(	[ imagelimit	0 ] 	)
+imagelimit	[ 8	locks=0 ]	(	[ imagelimit	1 ] 	)
 fullsize	[ 0	locks=0 ]	(	"off"	)
 backcolor	[ 0	locks=0 ]	(	0	0	0	0	)
 }
@@ -6779,16 +6781,16 @@ outputsNamed3
 }
 inputsNamed3
 {
-0 	scale3 1 1 "input1"
+0 	scale10 1 1 "input1"
 }
 inputs
 {
-0 	scale3 0 1
+0 	scale10 0 1
 }
 stat
 {
   create 1496111784
-  modify 1500659714
+  modify 1500905365
   author mikel@mikembp-sesi.local
   access 0777
 }
@@ -6806,7 +6808,7 @@ Content-Type: text/plain
       lefttype = extend
       righttype = extend
       flags = 0
-      segment { length = 0 value = 8 8 expr = sqrt(ch(\"imagelimit\")) }
+      segment { length = 0 value = 8 8 expr = ch(\"../../numperline\") }
     }
     channel imagelimit {
       lefttype = extend
@@ -6823,12 +6825,12 @@ Content-Type: text/plain
 {
 version 0.8
 stdswitcher	[ 0	locks=0 ]	(	0	)
-numperline	[ 8	locks=0 ]	(	[ numperline	3 ] 	)
+numperline	[ 8	locks=0 ]	(	[ numperline	8 ] 	)
 stackvert	[ 0	locks=0 ]	(	"ttob"	)
 stackhorz	[ 0	locks=0 ]	(	"ltor"	)
 stackrows	[ 0	locks=0 ]	(	"on"	)
 limitperframe	[ 0	locks=0 ]	(	"on"	)
-imagelimit	[ 8	locks=0 ]	(	[ imagelimit	9 ] 	)
+imagelimit	[ 8	locks=0 ]	(	[ imagelimit	64 ] 	)
 fullsize	[ 0	locks=0 ]	(	"off"	)
 backcolor	[ 0	locks=0 ]	(	0	0	0	0	)
 }
@@ -6921,7 +6923,7 @@ Content-Type: text/plain
 {
 version 0.8
 stdswitcher	[ 0	locks=0 ]	(	0	)
-index	[ 8	locks=0 ]	(	[ index	0 ] 	)
+index	[ 8	locks=0 ]	(	[ index	1 ] 	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -9111,8 +9113,8 @@ detectrange	[ 0	locks=0 ]	(	"on"	)
 manualdetect	[ 0	locks=0 ]	(	0	)
 singleimage	[ 0	locks=0 ]	(	"off"	)
 startframe	[ 0	locks=0 ]	(	1	)
-start	[ 0	locks=0 ]	(	[ start	1 ] 	)
-length	[ 0	locks=0 ]	(	[ length	64 ] 	)
+start	[ 0	locks=0 ]	(	[ start	56 ] 	)
+length	[ 0	locks=0 ]	(	[ length	9 ] 	)
 missingfr	[ 0	locks=0 ]	(	"closest"	)
 warnmissing	[ 0	locks=0 ]	(	"on"	)
 proxyenable	[ 0	locks=0 ]	(	"on"	)
@@ -9394,8 +9396,8 @@ detectrange	[ 0	locks=0 ]	(	"on"	)
 manualdetect	[ 0	locks=0 ]	(	0	)
 singleimage	[ 0	locks=0 ]	(	"off"	)
 startframe	[ 0	locks=0 ]	(	1	)
-start	[ 8	locks=0 ]	(	[ start	1 ] 	)
-length	[ 8	locks=0 ]	(	[ length	64 ] 	)
+start	[ 8	locks=0 ]	(	[ start	0 ] 	)
+length	[ 8	locks=0 ]	(	[ length	1 ] 	)
 missingfr	[ 0	locks=0 ]	(	"closest"	)
 warnmissing	[ 0	locks=0 ]	(	"on"	)
 proxyenable	[ 0	locks=0 ]	(	"on"	)
@@ -9458,7 +9460,7 @@ Content-Disposition: attachment; filename="hdaroot/COMPOSITING/scale6.def"
 Content-Type: text/plain
 
 comment ""
-position -8.62131 -14.656
+position -6.79829 -14.628
 connectornextid 2
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress off colordefault on exposed on
 outputsNamed3
@@ -9476,7 +9478,7 @@ inputs
 stat
 {
   create 1495472367
-  modify 1500659714
+  modify 1500905330
   author mike@mikembp.local
   access 0777
 }
@@ -9514,7 +9516,7 @@ Content-Type: text/plain
 version 0.8
 stdswitcher	[ 0	locks=0 ]	(	0	)
 scaletype	[ 0	locks=0 ]	(	"res"	)
-imageres	[ 8	locks=0 ]	(	[ imageres1	128 ] 	[ imageres2	128 ] 	)
+imageres	[ 8	locks=0 ]	(	[ imageres1	0 ] 	[ imageres2	0 ] 	)
 imagefract	[ 0	locks=0 ]	(	0.5	0.5	)
 imageaspect	[ 0	locks=0 ]	(	1	)
 keepaspect	[ 0	locks=0 ]	(	"off"	)
@@ -9562,16 +9564,16 @@ outputsNamed3
 }
 inputsNamed3
 {
-0 	scale6 1 1 "input1"
+0 	scale9 1 1 "input1"
 }
 inputs
 {
-0 	scale6 0 1
+0 	scale9 0 1
 }
 stat
 {
   create 1496111784
-  modify 1500659714
+  modify 1500905331
   author mikel@mikembp-sesi.local
   access 0777
 }
@@ -9589,7 +9591,7 @@ Content-Type: text/plain
       lefttype = extend
       righttype = extend
       flags = 0
-      segment { length = 0 value = 8 8 expr = sqrt(ch(\"imagelimit\")) }
+      segment { length = 0 value = 8 8 expr = ch(\"../../numperline\") }
     }
     channel imagelimit {
       lefttype = extend
@@ -9606,12 +9608,12 @@ Content-Type: text/plain
 {
 version 0.8
 stdswitcher	[ 0	locks=0 ]	(	0	)
-numperline	[ 8	locks=0 ]	(	[ numperline	3 ] 	)
+numperline	[ 8	locks=0 ]	(	[ numperline	8 ] 	)
 stackvert	[ 0	locks=0 ]	(	"ttob"	)
 stackhorz	[ 0	locks=0 ]	(	"ltor"	)
 stackrows	[ 0	locks=0 ]	(	"on"	)
 limitperframe	[ 0	locks=0 ]	(	"on"	)
-imagelimit	[ 8	locks=0 ]	(	[ imagelimit	9 ] 	)
+imagelimit	[ 8	locks=0 ]	(	[ imagelimit	64 ] 	)
 fullsize	[ 0	locks=0 ]	(	"off"	)
 backcolor	[ 0	locks=0 ]	(	0	0	0	0	)
 }
@@ -9673,7 +9675,7 @@ inputs
 stat
 {
   create 1496111784
-  modify 1500672801
+  modify 1500905018
   author mikel@mikembp-sesi.local
   access 0777
 }
@@ -9691,7 +9693,7 @@ Content-Type: text/plain
       lefttype = extend
       righttype = extend
       flags = 0
-      segment { length = 0 value = 8 8 expr = sqrt(ch(\"imagelimit\")) }
+      segment { length = 0 value = 8 8 expr = ch(\"../../numperline\") }
     }
     channel imagelimit {
       lefttype = extend
@@ -9775,7 +9777,7 @@ inputs
 stat
 {
   create 1495472367
-  modify 1500672100
+  modify 1500905294
   author mike@mikembp.local
   access 0777
 }
@@ -9794,14 +9796,14 @@ Content-Type: text/plain
       righttype = extend
       default = 256
       flags = 0
-      segment { length = 0 value = 256 256 expr = ch(\"../../resolutionx\")/sqrt((ch(\"../../internal_frames2\")-ch(\"../../internal_frames1\")+1)/ch(\"../../internal_frames3\")) }
+      segment { length = 0 value = 256 256 expr = ch(\"../../resolutionx\")/ch(\"../../numperline\") }
     }
     channel imageres2 {
       lefttype = extend
       righttype = extend
       default = 256
       flags = 0
-      segment { length = 0 value = 256 256 expr = ch(\"../../resolutiony\")/sqrt((ch(\"../../internal_frames2\")-ch(\"../../internal_frames1\")+1)/ch(\"../../internal_frames3\")) }
+      segment { length = 0 value = 256 256 expr = "ch(\"../../resolutiony\")/((ch(\"../../internal_frames2\") - (ch(\"../../internal_frames1\") - 1))/ch(\"../../numperline\"))" }
     }
   }
 
@@ -9813,7 +9815,7 @@ Content-Type: text/plain
 version 0.8
 stdswitcher	[ 0	locks=0 ]	(	0	)
 scaletype	[ 0	locks=0 ]	(	"res"	)
-imageres	[ 8	locks=0 ]	(	[ imageres1	128 ] 	[ imageres2	128 ] 	)
+imageres	[ 8	locks=0 ]	(	[ imageres1	341.33333333333331 ] 	[ imageres2	341.33333333333331 ] 	)
 imagefract	[ 0	locks=0 ]	(	0.5	0.5	)
 imageaspect	[ 0	locks=0 ]	(	1	)
 keepaspect	[ 0	locks=0 ]	(	"off"	)
@@ -10098,10 +10100,200 @@ Content-Type: text/plain
 0
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/COMPOSITING/scale9.init"
+Content-Type: text/plain
+
+type = scale
+matchesdef = 0
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/COMPOSITING/scale9.def"
+Content-Type: text/plain
+
+comment ""
+position -8.62131 -14.7546
+connectornextid 2
+flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress off colordefault on exposed on
+outputsNamed3
+{
+1 "output1"
+}
+inputsNamed3
+{
+0 	switch1 2 1 "input1"
+}
+inputs
+{
+0 	switch1 0 1
+}
+stat
+{
+  create 1495472367
+  modify 1500905333
+  author mike@mikembp.local
+  access 0777
+}
+color UT_Color RGB 0.8 0.8 0.8 
+delscript ""
+exprlanguage hscript
+end
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/COMPOSITING/scale9.chn"
+Content-Type: text/plain
+
+{
+    channel imageres1 {
+      lefttype = extend
+      righttype = extend
+      default = 256
+      flags = 0
+      segment { length = 0 value = 256 256 expr = ch(\"../../resolutionx\")/ch(\"../../numperline\") }
+    }
+    channel imageres2 {
+      lefttype = extend
+      righttype = extend
+      default = 256
+      flags = 0
+      segment { length = 0 value = 256 256 expr = "ch(\"../../resolutiony\")/((ch(\"../../internal_frames2\") - (ch(\"../../internal_frames1\") - 1))/ch(\"../../numperline\"))" }
+    }
+  }
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/COMPOSITING/scale9.parm"
+Content-Type: text/plain
+
+{
+version 0.8
+stdswitcher	[ 0	locks=0 ]	(	0	)
+scaletype	[ 0	locks=0 ]	(	"res"	)
+imageres	[ 8	locks=0 ]	(	[ imageres1	341.33333333333331 ] 	[ imageres2	3072 ] 	)
+imagefract	[ 0	locks=0 ]	(	0.5	0.5	)
+imageaspect	[ 0	locks=0 ]	(	1	)
+keepaspect	[ 0	locks=0 ]	(	"off"	)
+downfilter	[ 0	locks=0 ]	(	sinc	)
+upfilter	[ 0	locks=0 ]	(	box	)
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/COMPOSITING/scale9.userdata"
+Content-Type: text/plain
+
+{
+	"___Version___":{
+		"type":"string",
+		"value":"16.0.635"
+	}
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/COMPOSITING/scale9.cop2"
+Content-Type: text/plain
+
+2
+20
+0
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/COMPOSITING/scale10.init"
+Content-Type: text/plain
+
+type = scale
+matchesdef = 0
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/COMPOSITING/scale10.def"
+Content-Type: text/plain
+
+comment ""
+position -1.05583 -5.60528
+connectornextid 2
+flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress off colordefault on exposed on
+outputsNamed3
+{
+1 "output1"
+}
+inputsNamed3
+{
+0 	HIPNAME__F_exr 0 1 "input1"
+}
+inputs
+{
+0 	HIPNAME__F_exr 0 1
+}
+stat
+{
+  create 1495472367
+  modify 1500905369
+  author mike@mikembp.local
+  access 0777
+}
+color UT_Color RGB 0.8 0.8 0.8 
+delscript ""
+exprlanguage hscript
+end
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/COMPOSITING/scale10.chn"
+Content-Type: text/plain
+
+{
+    channel imageres1 {
+      lefttype = extend
+      righttype = extend
+      default = 256
+      flags = 0
+      segment { length = 0 value = 256 256 expr = ch(\"../../resolutionx\")/ch(\"../../numperline\") }
+    }
+    channel imageres2 {
+      lefttype = extend
+      righttype = extend
+      default = 256
+      flags = 0
+      segment { length = 0 value = 256 256 expr = "ch(\"../../resolutiony\")/((ch(\"../../internal_frames2\") - (ch(\"../../internal_frames1\") - 1))/ch(\"../../numperline\"))" }
+    }
+  }
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/COMPOSITING/scale10.parm"
+Content-Type: text/plain
+
+{
+version 0.8
+stdswitcher	[ 0	locks=0 ]	(	0	)
+scaletype	[ 0	locks=0 ]	(	"res"	)
+imageres	[ 8	locks=0 ]	(	[ imageres1	341.33333333333331 ] 	[ imageres2	3072 ] 	)
+imagefract	[ 0	locks=0 ]	(	0.5	0.5	)
+imageaspect	[ 0	locks=0 ]	(	1	)
+keepaspect	[ 0	locks=0 ]	(	"off"	)
+downfilter	[ 0	locks=0 ]	(	sinc	)
+upfilter	[ 0	locks=0 ]	(	box	)
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/COMPOSITING/scale10.userdata"
+Content-Type: text/plain
+
+{
+	"___Version___":{
+		"type":"string",
+		"value":"16.0.635"
+	}
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/COMPOSITING/scale10.cop2"
+Content-Type: text/plain
+
+2
+20
+0
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
 Content-Disposition: attachment; filename="hdaroot/COMPOSITING.order"
 Content-Type: text/plain
 
-55
+57
 vopcop2filter1
 HIPNAME__F_exr
 OUT
@@ -10157,6 +10349,8 @@ scale8
 rename3
 merge1
 channelcopy6
+scale9
+scale10
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
 Content-Disposition: attachment; filename="hdaroot/COMPOSITING.net"
@@ -15784,7 +15978,7 @@ inputs
 stat
 {
   create 1496111784
-  modify 1500678111
+  modify 1500906655
   author mikel@mikembp-sesi.local
   access 0777
 }
@@ -18042,6 +18236,26 @@ Content-Type: text/plain
       flags = 0
       segment { length = 0 expr = "1 - ch(\"../render_fire\")" }
     }
+    channel res_overridex {
+      lefttype = extend
+      righttype = extend
+      default = 1280
+      flags = 0
+      segment { length = 0 value = 1280 1280 expr = int(ch(\"../resolutionx\")/ch(\"../numperline\")) }
+    }
+    channel res_overridey {
+      lefttype = extend
+      righttype = extend
+      default = 720
+      flags = 0
+      segment { length = 0 value = 720 720 expr = int(ch(\"../resolutiony\")/((ch(\"../internal_frames2\")-ch(\"../internal_frames1\")+1)/ch(\"../numperline\"))) }
+    }
+    channel override_camerares {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = ch(\"../override_res\") }
+    }
   }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -18055,12 +18269,12 @@ renderpreview	[ 0	locks=0 ]	(	0	)
 executebackground	[ 0	locks=0 ]	(	0	)
 renderdialog	[ 0	locks=0 ]	(	0	)
 trange	[ 0	locks=0 ]	(	"normal"	)
-f	[ 0	locks=0 ]	(	[ f1	16 ] 	[ f2	24 ] 	[ f3	1 ] 	)
+f	[ 0	locks=0 ]	(	[ f1	1 ] 	[ f2	32 ] 	[ f3	1 ] 	)
 take	[ 0	locks=0 ]	(	_current_	)
 camera	[ 0	locks=0 ]	(	`chsop(\"../camera_internal\")`	)
-override_camerares	[ 0	locks=0 ]	(	"off"	)
-res_fraction	[ 0	locks=0 ]	(	0.5	)
-res_override	[ 0	locks=0 ]	(	1280	720	)
+override_camerares	[ 8	locks=0 ]	(	[ override_camerares	0 ] 	)
+res_fraction	[ 0	locks=0 ]	(	specific	)
+res_override	[ 0	locks=0 ]	(	[ res_overridex	128 ] 	[ res_overridey	256 ] 	)
 res_overrideMenu	[ 0	locks=0 ]	(	0	)
 aspect_override	[ 0	locks=0 ]	(	1	)
 images	[ 0	locks=0 ]	(	0	0	0	0	0	)
@@ -18227,7 +18441,7 @@ vm_tilecallback	[ 0	locks=0 ]	(	[ vm_tilecallback	"" ] 	)
 vm_logcolors	[ 0	locks=0 ]	(	[ vm_logcolors	0 ] 	)
 vm_logtimestamps	[ 0	locks=0 ]	(	[ vm_logtimestamps	1 ] 	)
 vm_binarygeometry	[ 0	locks=0 ]	(	"on"	)
-vm_disable_plane1	[ 8	locks=0 ]	(	[ vm_disable_plane1	0 ] 	)
+vm_disable_plane1	[ 8	locks=0 ]	(	[ vm_disable_plane1	1 ] 	)
 vm_excludedcm_plane1	[ 0	locks=0 ]	(	"off"	)
 vm_variable_plane1	[ 0	locks=0 ]	(	direct_emission	)
 vm_vextype_plane1	[ 0	locks=0 ]	(	vector	)
@@ -18245,7 +18459,7 @@ vm_componentexport1	[ 0	locks=0 ]	(	"off"	)
 vm_lightexport1	[ 0	locks=0 ]	(	0	)
 vm_lightexport_scope1	[ 0	locks=0 ]	(	*	)
 vm_lightexport_select1	[ 0	locks=0 ]	(	*	)
-vm_disable_plane2	[ 0	locks=0	autoscope=0 ]	(	[ vm_disable_plane2	1 ] 	)
+vm_disable_plane2	[ 0	locks=0	autoscope=0 ]	(	[ vm_disable_plane2	0 ] 	)
 vm_excludedcm_plane2	[ 0	locks=0	autoscope=0 ]	(	"off"	)
 vm_variable_plane2	[ 0	locks=0	autoscope=0 ]	(	direct	)
 vm_vextype_plane2	[ 0	locks=0	autoscope=0 ]	(	vector	)
@@ -18312,7 +18526,7 @@ inputs
 stat
 {
   create 1496111784
-  modify 1500678311
+  modify 1500906648
   author mikel@mikembp-sesi.local
   access 0777
 }
@@ -20578,6 +20792,26 @@ Content-Type: text/plain
       flags = 0
       segment { length = 0 expr = ch(\"../export_normal\") }
     }
+    channel res_overridex {
+      lefttype = extend
+      righttype = extend
+      default = 1280
+      flags = 0
+      segment { length = 0 value = 1280 1280 expr = int(ch(\"../resolutionx\")/ch(\"../numperline\")) }
+    }
+    channel res_overridey {
+      lefttype = extend
+      righttype = extend
+      default = 720
+      flags = 0
+      segment { length = 0 value = 720 720 expr = int(ch(\"../resolutiony\")/((ch(\"../internal_frames2\")-ch(\"../internal_frames1\")+1)/ch(\"../numperline\"))) }
+    }
+    channel override_camerares {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = ch(\"../override_res\") }
+    }
   }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -20591,12 +20825,12 @@ renderpreview	[ 0	locks=0 ]	(	0	)
 executebackground	[ 0	locks=0 ]	(	0	)
 renderdialog	[ 0	locks=0 ]	(	0	)
 trange	[ 0	locks=0 ]	(	"on"	)
-f	[ 8	locks=0 ]	(	[ f1	16 ] 	[ f2	24 ] 	[ f3	1 ] 	)
+f	[ 8	locks=0 ]	(	[ f1	1 ] 	[ f2	32 ] 	[ f3	1 ] 	)
 take	[ 0	locks=0 ]	(	_current_	)
 camera	[ 0	locks=0 ]	(	`chsop(\"../camera\")`	)
-override_camerares	[ 0	locks=0 ]	(	"off"	)
-res_fraction	[ 0	locks=0 ]	(	0.5	)
-res_override	[ 0	locks=0 ]	(	1280	720	)
+override_camerares	[ 8	locks=0 ]	(	[ override_camerares	1 ] 	)
+res_fraction	[ 0	locks=0 ]	(	specific	)
+res_override	[ 8	locks=0 ]	(	[ res_overridex	128 ] 	[ res_overridey	256 ] 	)
 res_overrideMenu	[ 0	locks=0 ]	(	0	)
 aspect_override	[ 0	locks=0 ]	(	1	)
 images	[ 0	locks=0 ]	(	0	0	0	0	0	)
@@ -20763,7 +20997,7 @@ vm_tilecallback	[ 0	locks=0 ]	(	[ vm_tilecallback	"" ] 	)
 vm_logcolors	[ 0	locks=0 ]	(	[ vm_logcolors	0 ] 	)
 vm_logtimestamps	[ 0	locks=0 ]	(	[ vm_logtimestamps	1 ] 	)
 vm_binarygeometry	[ 0	locks=0 ]	(	"on"	)
-vm_disable_plane1	[ 8	locks=0 ]	(	[ vm_disable_plane1	0 ] 	)
+vm_disable_plane1	[ 8	locks=0 ]	(	[ vm_disable_plane1	1 ] 	)
 vm_excludedcm_plane1	[ 0	locks=0 ]	(	"off"	)
 vm_variable_plane1	[ 0	locks=0 ]	(	direct_emission	)
 vm_vextype_plane1	[ 0	locks=0 ]	(	vector	)
@@ -20781,7 +21015,7 @@ vm_componentexport1	[ 0	locks=0 ]	(	"off"	)
 vm_lightexport1	[ 0	locks=0 ]	(	0	)
 vm_lightexport_scope1	[ 0	locks=0 ]	(	*	)
 vm_lightexport_select1	[ 0	locks=0 ]	(	*	)
-vm_disable_plane2	[ 0	locks=0	autoscope=0 ]	(	[ vm_disable_plane2	1 ] 	)
+vm_disable_plane2	[ 0	locks=0	autoscope=0 ]	(	[ vm_disable_plane2	0 ] 	)
 vm_excludedcm_plane2	[ 0	locks=0	autoscope=0 ]	(	"off"	)
 vm_variable_plane2	[ 0	locks=0	autoscope=0 ]	(	direct	)
 vm_vextype_plane2	[ 0	locks=0	autoscope=0 ]	(	vector	)
@@ -20852,7 +21086,7 @@ inputs
 stat
 {
   create 1500498256
-  modify 1500677895
+  modify 1500908915
   author mikel@mikembp-sesi.local
   access 0777
 }
@@ -20958,7 +21192,7 @@ Content-Type: text/plain
 version 0.8
 execute	[ 0	locks=0 ]	(	0	)
 renderdialog	[ 0	locks=0 ]	(	0	)
-index	[ 0	locks=0 ]	(	[ index	0 ] 	)
+index	[ 0	locks=0 ]	(	[ index	1 ] 	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY

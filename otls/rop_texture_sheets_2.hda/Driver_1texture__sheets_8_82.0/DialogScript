@@ -34,6 +34,7 @@
 	    type	toggle
 	    default	{ "0" }
 	    help	"If this is turned on the camera resolution will match the settings for the final texture atlas."
+	    disablewhen	"{ camera == \"\" }"
 	    parmtag	{ "script_callback" "hou.pwd().hdaModule().override_camera_resolution()" }
 	    parmtag	{ "script_callback_language" "python" }
 	}
@@ -48,7 +49,7 @@
 	    name	"image_res2"
 	    label	"Override Resolution"
 	    type	label
-	    default	{ "`ch(\"resolutionx\")/sqrt((ch(\"internal_frames2\")-ch(\"internal_frames1\")+1)/ch(\"internal_frames3\"))` x `ch(\"resolutiony\")/sqrt((ch(\"internal_frames2\")-ch(\"internal_frames1\")+1)/ch(\"internal_frames3\"))`" }
+	    default	{ "`int(ch(\"resolutionx\")/ch(\"numperline\"))` x `int(ch(\"resolutiony\")/((ch(\"internal_frames2\")-ch(\"internal_frames1\")+1)/ch(\"numperline\")))" }
 	    hidewhen	"{ override_res == 0 }"
 	}
 	parm {
@@ -365,8 +366,15 @@
 		name	"external_frames_label"
 		label	"Start/End/Inc"
 		type	label
-		default	{ "`ch(strcat(chs(\"mantra\"),\"/f1\"))`  /  `ch(strcat(chs(\"mantra\"),\"/f2\"))`  /  `ch(strcat(chs(\"mantra\"),\"/f3\"))`" }
+		default	{ "`ch(\"external_frames1\")`  /  `ch(\"external_frames2\")`  /  `ch(\"external_frames3\")`" }
 		hidewhen	"{ ninputs == 0 }"
+	    }
+	    parm {
+		name	"numperline"
+		label	"Images per Line"
+		type	integer
+		default	{ "8" }
+		range	{ 0 10 }
 	    }
 	    parm {
 		name	"resolution"
@@ -375,6 +383,24 @@
 		size	2
 		default	{ "1024" "1024" }
 		range	{ -1 1 }
+	    }
+	    parm {
+		name	"no_of_frames"
+		label	"No. Of Frames"
+		type	label
+		default	{ "`ch(\"internal_frames2\")-ch(\"internal_frames1\")+1" }
+	    }
+	    parm {
+		name	"atlas_layout"
+		label	"Atlas Layout"
+		type	label
+		default	{ "`int(ch(\"numperline\"))` x `ceil((ch(\"internal_frames2\")-ch(\"internal_frames1\")+1)/ch(\"numperline\"))" }
+	    }
+	    parm {
+		name	"res_per_frame"
+		label	"Resolution Per Frame"
+		type	label
+		default	{ "`int(ch(\"resolutionx\")/ch(\"numperline\"))` x `int(ch(\"resolutiony\")/((ch(\"internal_frames2\")-ch(\"internal_frames1\")+1)/ch(\"numperline\")))" }
 	    }
 	}
 

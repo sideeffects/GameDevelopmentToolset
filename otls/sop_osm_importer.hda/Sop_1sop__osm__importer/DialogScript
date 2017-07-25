@@ -1,0 +1,30 @@
+# Dialog script for sop_osm_importer automatically generated
+
+{
+    name	sop_osm_importer
+    script	sop_osm_importer
+    label	"OSM Importer"
+
+    help {
+	""
+    }
+
+    inputlabel	1	"Sub-Network Input #1"
+    inputlabel	2	"Sub-Network Input #2"
+    inputlabel	3	"Sub-Network Input #3"
+    inputlabel	4	"Sub-Network Input #4"
+
+    parm {
+	name	"osm_file"
+	label	"OSM File"
+	type	file
+	default	{ "" }
+	parmtag	{ "filechooser_pattern" "*.osm" }
+    }
+    parm {
+	name	"build_nodes"
+	label	"Generate Marker Nodes"
+	type	toggle
+	default	{ "0" }
+    }
+}

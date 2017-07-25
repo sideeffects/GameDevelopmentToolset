@@ -147,7 +147,7 @@
 		label	"Color Map"
 		type	image
 		joinnext
-		default	{ "$HIP/render/${HIPNAME}_color.tga" }
+		default	{ "$HIP/render/${OS}_color.tga" }
 		range	{ 0 1 }
 	    }
 	    parm {
@@ -161,7 +161,7 @@
 		label	"Normal Map"
 		type	image
 		joinnext
-		default	{ "$HIP/render/${HIPNAME}_normal.tga" }
+		default	{ "$HIP/render/${OS}_normal.tga" }
 		disablewhen	"{ export_normal == 0 } { pack_map_toggle == 1 }"
 		range	{ 0 1 }
 	    }
@@ -192,7 +192,7 @@
 		label	"Packed Map"
 		type	image
 		joinnext
-		default	{ "$HIP/render/${HIPNAME}_packed.tga" }
+		default	{ "$HIP/render/${OS}_packed.tga" }
 		disablewhen	"{ pack_map_toggle == 0 } { export_normal == 0 } { render_fire == 0 }"
 		range	{ 0 1 }
 	    }

@@ -37,8 +37,10 @@ def pre_bake(node):
             
             if channel_name in normalized_maps:
                 comp_rop.parm("coppath").set("../cop2net1/normalized")
+                comp_rop.parm("gamma").set(1)
             else:
                 comp_rop.parm("coppath").set("../cop2net1/base_image")
+                comp_rop.parm("gamma").set(2.2)
             
             if channel_name == "Ds":
                 comp_rop.parm("coppath").set("../cop2net1/height_normalized")

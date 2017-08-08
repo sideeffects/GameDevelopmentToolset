@@ -25,13 +25,20 @@ class PackedObject(object):
         self.hou_node = None
         self.prim = None
         self.point = None
+        
 
 class FractureExporter(object):
 
     def __init__(self):
 
         self.geo = None
-
+        
+        self.scale_x = 1 
+        self.scale_y = 1 
+        self.scale_z = 1 
+        self.uniform_scale = 1 
+        
+        
         self.export_objects = []
         self.selected_obj_node = None
         self.selected_sop_node = None
@@ -47,6 +54,7 @@ class FractureExporter(object):
         self.get_time_range()
         self.create_parent_node()
         self.gather_objects()
+        self.gather_parent_scale()
         self.build_individual_nodes()
         self.animate_individual_nodes()
 
@@ -98,18 +106,18 @@ class FractureExporter(object):
 
         self.transform_node.parm('tx').setExpression('ch("../../../tx")')
         self.transform_node.parm('ty').setExpression('ch("../../../ty")')
-        self.transform_node.parm('tz').setExpression('ch("../../../tz")')        
+        self.transform_node.parm('tz').setExpression('ch("../../../tz")')
 
         self.transform_node.parm('rx').setExpression('ch("../../../rx")')
         self.transform_node.parm('ry').setExpression('ch("../../../ry")')
-        self.transform_node.parm('rz').setExpression('ch("../../../rz")')        
+        self.transform_node.parm('rz').setExpression('ch("../../../rz")')
 
         self.transform_node.parm('sx').setExpression('ch("../../../sx")')
         self.transform_node.parm('sy').setExpression('ch("../../../sy")')
         self.transform_node.parm('sz').setExpression('ch("../../../sz")')
-        
+
         self.transform_node.parm('scale').setExpression('ch("../../../scale")')
-        
+
         self.parent_node.moveToGoodPosition()
         self.transform_node.moveToGoodPosition()
 
@@ -139,6 +147,23 @@ class FractureExporter(object):
 
             self.export_objects.append(new_object)
 
+    def accumulate_parent_scales(self, parent):
+        if not parent.parm("sx"):
+            return 
+        self.scale_x *= parent.evalParm("sx")
+        self.scale_y *= parent.evalParm("sy")
+        self.scale_z *= parent.evalParm("sz")
+        self.uniform_scale *= parent.evalParm("scale")
+        
+        if parent.parent():
+            self.accumulate_parent_scales(parent.parent())
+            
+    def gather_parent_scale(self):
+        parent = self.geo.sopNode().parent()
+        if parent: 
+            self.accumulate_parent_scales(parent)
+            
+            
     def build_individual_nodes(self):
 
         for export_object in self.export_objects:
@@ -147,7 +172,7 @@ class FractureExporter(object):
             geo_node = self.transform_node.createNode('geo', node_name=name, run_init_scripts=False)
             geo_node.parm('px').setExpression('-centroid("./timeshift1/", D_X)')
             geo_node.parm('py').setExpression('-centroid("./timeshift1/", D_Y)')
-            geo_node.parm('pz').setExpression('-centroid("./timeshift1/", D_Z)')            
+            geo_node.parm('pz').setExpression('-centroid("./timeshift1/", D_Z)')
             geo_node.moveToGoodPosition()
 
             # Object Merge Node
@@ -170,31 +195,36 @@ class FractureExporter(object):
 
             timeShift.setNextInput(unpack)
             timeShift.moveToGoodPosition()
-            #timeShift.setDisplayFlag(True)
-            #timeShift.setRenderFlag(True)
 
             transformNode = geo_node.createNode('xform', run_init_scripts=False)
-            
+
             transformNode.parm('tx').setExpression('-$CEX')
             transformNode.parm('ty').setExpression('-$CEY')
-            transformNode.parm('tz').setExpression('-$CEZ')            
+            transformNode.parm('tz').setExpression('-$CEZ')
+
+            transformNode.parm('sx').set(self.scale_x)
+            transformNode.parm('sy').set(self.scale_y)
+            transformNode.parm('sz').set(self.scale_z)
+            transformNode.parm('scale').set(self.uniform_scale)
+            
+            
             transformNode.setNextInput(timeShift)
             transformNode.moveToGoodPosition()
 
-            deleteNode = geo_node.createNode('delete', run_init_scripts=False)                
+            deleteNode = geo_node.createNode('delete', run_init_scripts=False)
             deleteNode.parm('group').setExpression('chs("../../../../group")')
             deleteNode.parm('negate').set(1)
 
             deleteNode.setNextInput(transformNode)
             deleteNode.moveToGoodPosition()
-            
-            switchNode = geo_node.createNode('switch', run_init_scripts=False)                
+
+            switchNode = geo_node.createNode('switch', run_init_scripts=False)
             switchNode.parm('input').setExpression('strlen(chs("../../../../group")) == 0')
 
             switchNode.setNextInput(deleteNode)
             switchNode.setNextInput(transformNode)
             switchNode.moveToGoodPosition()
-            
+
             switchNode.setDisplayFlag(True)
             switchNode.setRenderFlag(True)
 
@@ -202,7 +232,7 @@ class FractureExporter(object):
             export_object.hou_node = geo_node
 
     def animate_individual_nodes(self):
-        
+
         for frame in range(self.start_frame, self.end_frame+1):
             hou.setFrame(frame)
 

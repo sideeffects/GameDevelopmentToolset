@@ -20,12 +20,11 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position -1.32353 1.91567
-connectornextid 1
-flags =  lock off model off template on footprint off xray off bypass off display on render on highlight off unload off savedata off compress on colordefault on exposed on
+position -1.65294 1.30971
+connectornextid 0
+flags =  lock off model off template off footprint off xray off bypass off display on render on highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
 {
-0 "output1"
 }
 inputsNamed3
 {
@@ -35,8 +34,8 @@ inputs
 }
 stat
 {
-  create 1500929151
-  modify 1500930209
+  create 1502204067
+  modify 1502204073
   author Luiz@Luiz-PC
   access 0777
 }
@@ -85,7 +84,7 @@ inputs
 stat
 {
   create 1500592402
-  modify 1500930210
+  modify 1502204086
   author Luiz@Luiz-PC
   access 0777
 }
@@ -202,6 +201,12 @@ class OSMParser(object):
         node = hou.pwd()
         geo = node.geometry()
 
+        # add some detail attributes
+        geo.addAttrib(hou.attribType.Global, \"min_lat\", self.min_lat)
+        geo.addAttrib(hou.attribType.Global, \"max_lat\", self.max_lat)
+        geo.addAttrib(hou.attribType.Global, \"min_lon\", self.min_lon)
+        geo.addAttrib(hou.attribType.Global, \"max_lon\", self.max_lon)
+
         for tag in self.tags:
             geo.addAttrib(hou.attribType.Prim, tag, \"\")
 
@@ -250,7 +255,7 @@ class OSMParser(object):
                 poly.setAttribValue(\"hou_node\", 1)
                 for tag in node.tags:
                     try:
-                        clean_value = re.sub('[^a-zA-Z0-9\\n]', '', node.tags[tag])
+                        clean_value = re.sub('[^a-zA-Z0-9.,\\n]', '', node.tags[tag])
                         poly.setAttribValue(tag, clean_value)
                     except:
                         print \"Could not set tag: %s with value: %s\"%(tag,clean_value)

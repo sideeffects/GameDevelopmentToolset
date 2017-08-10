@@ -1,0 +1,40 @@
+import pprint
+def import_meshes():
+    hda = hou.pwd()
+    obj = hou.node("/obj")
+    #print hda.path()
+    point_cloud = hou.node(hda.path() + "/UE4_Importer/POINT_CLOUD")
+    object_merge2 = hou.node(hda.path() + "/UE4_Importer/object_merge2")
+    #print point_cloud.path()
+    pt_cloud_geo = point_cloud.geometry()
+    pt_cloud_pts = pt_cloud_geo.points()
+    files_to_import = []
+    for pt in pt_cloud_pts:
+        source_path = pt.attribValue("unreal_input_source_file")
+        if not source_path in files_to_import:
+            files_to_import.append(source_path)
+            
+    mesh_subnet = hou.node("/obj/MESHES")
+    if mesh_subnet:
+        pass
+    else:
+        mesh_subnet = obj.createNode('subnet', node_name = "MESHES")
+            
+    pprint.pprint(files_to_import)
+    for file_path in files_to_import:
+        abc_file_path = file_path[0:-4] + ".abc"
+        print abc_file_path
+        name = file_path.split("/")[-1]
+        print name
+        name = name[0:-4]
+        print name
+        
+        geo_container = hou.node(mesh_subnet.path() + '/' + name)
+        if geo_container:
+            pass
+        else:
+            geo_container = mesh_subnet.createNode('geo', node_name = name, run_init_scripts=False)
+            alembic_node = geo_container.createNode('alembic', node_name = name)
+            alembic_node.parm('fileName').set(abc_file_path)
+    object_merge2.cook(force=True)        
+        

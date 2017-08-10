@@ -1,0 +1,17 @@
+def export_abc():
+    hda = hou.pwd()
+    MESHES_node = hou.node(hda.path() + "/import_geo/MESHES")
+    geo = MESHES_node.geometry()
+    pts = geo.points()
+    switch = hou.node(hda.path() + "/import_geo/editable_subnet/switch1")
+    alembic_rop = hou.node(hda.path() + "/import_geo/editable_subnet/rop_alembic2")
+    for pt in pts:
+        switch.parm("input").set(pt.number())
+        object_to_export = hou.node(hda.path() + "/import_geo/editable_subnet/ABC_OBJECT")
+        export_geo = object_to_export.geometry()
+        export_point = export_geo.points()[0]
+        source_path = export_point.attribValue("unreal_input_source_abc_file")
+        alembic_rop.parm("filename").set(source_path)
+        print source_path
+        alembic_rop.parm("execute").pressButton()
+    

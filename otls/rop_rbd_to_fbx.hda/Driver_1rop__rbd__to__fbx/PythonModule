@@ -212,14 +212,14 @@ class FractureExporter(object):
             transformNode.moveToGoodPosition()
 
             deleteNode = geo_node.createNode('delete', run_init_scripts=False)
-            deleteNode.parm('group').setExpression('chs("../../../../group")')
+            deleteNode.parm('group').setExpression('chs("../../../../../group")')
             deleteNode.parm('negate').set(1)
 
             deleteNode.setNextInput(transformNode)
             deleteNode.moveToGoodPosition()
 
             switchNode = geo_node.createNode('switch', run_init_scripts=False)
-            switchNode.parm('input').setExpression('strlen(chs("../../../../group")) == 0')
+            switchNode.parm('input').setExpression('strlen(chs("../../../../../group")) == 0')
 
             switchNode.setNextInput(deleteNode)
             switchNode.setNextInput(transformNode)

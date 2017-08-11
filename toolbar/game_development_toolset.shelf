@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<shelfDocument>
+  <!-- This file contains definitions of shelves, toolbars, and tools.
+ It should not be hand-edited when it is being used by the application.
+ Note, that two definitions of the same element are not allowed in
+ a single file. -->
+
+  <toolshelf name="games_development_toolset" label="Game Development Toolset">
+    <memberTool name="update_toolset"/>
+  </toolshelf>
+
+  <tool name="update_toolset" label="Update Toolset" icon="OBJ_fetch">
+    <script scriptType="python"><![CDATA[import os
+import urllib
+import json
+import zipfile
+# import PySide2.QtCore as QtCore
+
+REPO_URL = 'https://api.github.com/repos/lkruel/GameDevelopmentToolset/releases/latest'
+
+def grab_latest_url(branch="Development"):
+    response = urllib.urlopen(REPO_URL)
+    data = response.read()
+    j_data = json.loads(data)
+    for asset in j_data["assets"]:
+        if branch in asset["browser_download_url"]:
+            return asset["browser_download_url"]
+    url = j_data["assets"][0]["browser_download_url"]
+    return url
+
+def download_latest_release(url):
+    filename = os.path.basename(url)
+    download_path = os.path.join(os.getenv("HOUDINI_USER_PREF_DIR"), filename)
+    urllib.urlretrieve (url, download_path)
+    return download_path
+
+def update_tools():
+    url = grab_latest_url()
+    download_path = download_latest_release(url)
+    unzip_file(download_path, os.getenv("HOUDINI_USER_PREF_DIR"))
+
+    # hou.hda.installFile(download_path)
+
+def unzip_file(zip_file, destination_path):
+    zipf = zipfile.ZipFile(zip_file, 'r', zipfile.ZIP_DEFLATED)
+    zipf.extractall(destination_path)
+
+def load_settings():
+    settings = QtCore.QSettings("SideFX", "GameDevelopmentToolset")
+    branch = settings.value("git/branch")
+
+
+print update_tools()]]></script>
+  </tool>
+</shelfDocument>

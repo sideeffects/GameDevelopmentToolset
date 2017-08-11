@@ -1,8 +1,6 @@
-import sys 
-import os 
+import logging
 
-print "Games Toolshelf Initializing"
+logging.info("Games Toolshelf Initializing")
 
-TOOLSHELF_PATH = "C:\Users\Luiz\Documents\GameDevelopmentToolset"
+# THIS IS WHERE YOU CAN ADD CODE THAT WILL RUN DURING HOUDINI STARTUP
 
-print os.getenv("HOUDINI_PATH")

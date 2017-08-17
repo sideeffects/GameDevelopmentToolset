@@ -1,0 +1,69 @@
+# Dialog script for sop_group_edge_ring automatically generated
+
+{
+    name	sop_group_edge_ring
+    script	sop_group_edge_ring
+    label	"Group Edge Ring"
+
+    help {
+	""
+    }
+
+    inputlabel	1	"Sub-Network Input #1"
+    inputlabel	2	"Sub-Network Input #2"
+    inputlabel	3	"Sub-Network Input #3"
+    inputlabel	4	"Sub-Network Input #4"
+
+    parm {
+	name	"group"
+	label	"Group"
+	type	string
+	default	{ "" }
+	menutoggle	{
+	    [ "sopnode = hou.pwd()" ]
+	    [ "# List of tokens/labels to return." ]
+	    [ "menu = []" ]
+	    [ "# Make sure there is an input node before asking for its geometry." ]
+	    [ "if sopnode.inputs():" ]
+	    [ "    # Optionally add in '*' for all groups." ]
+	    [ "    menu.extend((\"*\", \"*\"))" ]
+	    [ "    geo = sopnode.inputs()[0].geometry()" ]
+	    [ "    for group in geo.edgeGroups():" ]
+	    [ "        name = group.name()" ]
+	    [ "        menu.extend((name, name))" ]
+	    [ "" ]
+	    [ "return menu" ]
+	    language	python
+	}
+	parmtag	{ "autoscope" "0000000000000000" }
+	parmtag	{ "script_action" "import soputils\nkwargs['geometrytype'] = (hou.geometryType.Edges,)\nkwargs['inputindex'] = 0\nsoputils.selectGroupParm(kwargs)" }
+	parmtag	{ "script_action_help" "Select geometry from an available viewport.\nShift-click to turn on Select Groups." }
+	parmtag	{ "script_action_icon" "BUTTONS_reselect" }
+    }
+    parm {
+	name	"loop_name"
+	label	"Ring Group Name"
+	type	string
+	default	{ "" }
+	menutoggle	{
+	    [ "sopnode = hou.pwd()" ]
+	    [ "# List of tokens/labels to return." ]
+	    [ "menu = []" ]
+	    [ "# Make sure there is an input node before asking for its geometry." ]
+	    [ "if sopnode.inputs():" ]
+	    [ "    # Optionally add in '*' for all groups." ]
+	    [ "    menu.extend((\"*\", \"*\"))" ]
+	    [ "    geo = sopnode.inputs()[0].geometry()" ]
+	    [ "    for group in geo.edgeGroups():" ]
+	    [ "        name = group.name()" ]
+	    [ "        menu.extend((name, name))" ]
+	    [ "" ]
+	    [ "return menu" ]
+	    language	python
+	}
+	parmtag	{ "autoscope" "0000000000000000" }
+	parmtag	{ "script_action" "import soputils\nkwargs['geometrytype'] = (hou.geometry.Edges,)\nkwargs['inputindex'] = 0\nsoputils.selectGroupParm(kwargs)" }
+	parmtag	{ "script_action_help" "Select geometry from an available viewport.\nShift-click to turn on Select Groups." }
+	parmtag	{ "script_action_icon" "BUTTONS_reselect" }
+    }
+}

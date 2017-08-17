@@ -1,0 +1,80 @@
+"""
+   This node intends to simplify the baking process by handling the baking and extraction itself. 
+   It handles normalization of maps and cleanup of unecessary files. 
+
+"""
+import os 
+
+def pre_bake(node): 
+
+    # gather node references 
+    bake_texture = node.node("baketexture")
+    custom_bake_node = node.node("custom_bake")
+    comp_rop = node.node("comp")
+    comp_file = node.node("cop2net1/base_image")
+    point_wrangle_node = node.node("objnet/custom_export/pointwrangle1")
+    
+    # build the filepath for the exr 
+    file_path = node.parm("base_path").eval()
+    dir_path = os.path.dirname(file_path)
+    exr_path = os.path.join(dir_path, "tmp.exr")
+    
+    if not os.path.exists(dir_path):
+        os.makedirs(dir_path)
+    
+    bake_texture.parm("vm_uvoutputpicture1").set(exr_path)
+    bake_texture.render()
+
+    # Extract Maps  
+    bake_parms = ["bake_basecolor", "bake_Nt", "bake_N", "bake_Oc", "bake_Cu", "bake_P", "bake_Th", "bake_Ds" ]
+    normalized_maps = ["Nt", "N"]
+    for bake_parm in bake_parms:
+        should_bake = node.parm(bake_parm).eval()
+        if should_bake:
+            channel_name = bake_parm.split("_")[-1]
+            comp_rop.parm("color").set(channel_name)
+            suffix = node.parm(channel_name + "_suffix").eval()
+            
+            if channel_name in normalized_maps:
+                comp_rop.parm("coppath").set("../cop2net1/normalized")
+                comp_rop.parm("gamma").set(1)
+            else:
+                comp_rop.parm("coppath").set("../cop2net1/base_image")
+                comp_rop.parm("gamma").set(2.2)
+            
+            if channel_name == "Ds":
+                comp_rop.parm("coppath").set("../cop2net1/height_normalized")
+            
+            new_path = file_path.replace("$(CHANNEL)", suffix)
+            comp_rop.parm("copoutput").set(new_path)
+            comp_file.parm("reload").pressButton()
+            comp_rop.render() 
+            
+    # Render out Custom Bake Nodes
+    custom_bake_node.parm("vm_uvoutputpicture1").set(exr_path)
+    multiparm_count = node.parm("custom_channels").eval()
+    for i in range(multiparm_count):
+        custom_channel = node.parm("custom_attribute_name_" + str(i+1)).eval()
+        point_wrangle_node.parm("channel").set(custom_channel)
+        custom_bake_node.render()
+        
+        suffix = node.parm("custom_attribute_suffix_" + str(i+1)).eval()
+        new_path = file_path.replace("$(CHANNEL)", suffix)
+        
+        # set params
+        comp_rop.parm("color").set("basecolor")
+        comp_rop.parm("coppath").set("../cop2net1/base_image")
+        comp_rop.parm("copoutput").set(new_path)
+        
+        # fire off render 
+        comp_file.parm("reload").pressButton()
+        comp_rop.render() 
+    
+def post_bake(node):
+    # DELETE EXR FILE
+    file_path = node.parm("base_path").eval()
+    dir_path = os.path.dirname(file_path)
+
+    exr_path = os.path.join(dir_path, "tmp.exr")
+    os.remove(exr_path)
+    

@@ -200,11 +200,9 @@ class UpdateDialog(QDialog):
 
 GameDevelopmentUpdater()]]></script>
   </tool>
+
   <tool name="rop_games_baker" label="Games Baker" icon="COMMON_bake">
     <helpURL>operator:Driver/rop_games_baker</helpURL>
-    <toolMenuContext name="network">
-      <contextOpType>Driver/rop_games_baker</contextOpType>
-    </toolMenuContext>
     <script scriptType="python"><![CDATA[import roptoolutils
 roptoolutils.createRenderNode("rop_games_baker")
 ]]></script>
@@ -212,9 +210,6 @@ roptoolutils.createRenderNode("rop_games_baker")
 
   <tool name="rop_texture_sheets0" label="Texture Sheets" icon="COP2_mosaic">
     <helpURL>operator:Driver/rop_texture_sheets</helpURL>
-    <toolMenuContext name="network">
-      <contextOpType>Driver/rop_texture_sheets</contextOpType>
-    </toolMenuContext>
     <script scriptType="python"><![CDATA[import roptoolutils
 roptoolutils.createRenderNode("rop_texture_sheets")
 ]]></script>
@@ -222,9 +217,6 @@ roptoolutils.createRenderNode("rop_texture_sheets")
 
   <tool name="rop_csv_exporter" label="CSV Exporter" icon="BUTTONS_jump_to_line">
     <helpURL>operator:Driver/rop_csv_exporter</helpURL>
-    <toolMenuContext name="network">
-      <contextOpType>Driver/rop_csv_exporter</contextOpType>
-    </toolMenuContext>
     <script scriptType="python"><![CDATA[import roptoolutils
 roptoolutils.createRenderNode("rop_csv_exporter")
 ]]></script>
@@ -232,9 +224,6 @@ roptoolutils.createRenderNode("rop_csv_exporter")
 
   <tool name="rop_motion_vectors::1.0" label="Motion Vectors" icon="SHELF_convert_to_fire">
     <helpURL>operator:Driver/rop_motion_vectors?version=1.0</helpURL>
-    <toolMenuContext name="network">
-      <contextOpType>Driver/rop_motion_vectors::1.0</contextOpType>
-    </toolMenuContext>
     <script scriptType="python"><![CDATA[import roptoolutils
 roptoolutils.createRenderNode("rop_motion_vectors")
 ]]></script>
@@ -242,45 +231,30 @@ roptoolutils.createRenderNode("rop_motion_vectors")
 
   <tool name="sop_static_fracture_export" label="Static Fracture Export" icon="SOP_shatter">
     <helpURL>operator:Sop/sop_static_fracture_export</helpURL>
-    <toolMenuContext name="network">
-      <contextOpType>Sop/sop_static_fracture_export</contextOpType>
-    </toolMenuContext>
     <script scriptType="python"><![CDATA[import soptoolutils
 soptoolutils.genericTool(kwargs, 'sop_static_fracture_export')]]></script>
   </tool>
 
   <tool name="sop_instant_meshes_bridge" label="Instant Meshes Bridge" icon="opdef:/Sop/sop_instant_meshes_bridge?IconImage">
     <helpURL>operator:Sop/sop_instant_meshes_bridge</helpURL>
-    <toolMenuContext name="network">
-      <contextOpType>Sop/sop_instant_meshes_bridge</contextOpType>
-    </toolMenuContext>
     <script scriptType="python"><![CDATA[import soptoolutils
 soptoolutils.genericTool(kwargs, 'sop_instant_meshes_bridge')]]></script>
   </tool>
 
   <tool name="sop_mark_seams" label="Mark Seams" icon="TOOLS_select_mode_add">
     <helpURL>operator:Sop/sop_mark_seams</helpURL>
-    <toolMenuContext name="network">
-      <contextOpType>Sop/sop_mark_seams</contextOpType>
-    </toolMenuContext>
     <script scriptType="python"><![CDATA[import soptoolutils
 soptoolutils.genericTool(kwargs, 'sop_mark_seams')]]></script>
   </tool>
 
   <tool name="sop_osm_importer" label="OSM Importer" icon="opdef:/Sop/sop_osm_importer?IconImage">
     <helpURL>operator:Sop/sop_osm_importer</helpURL>
-    <toolMenuContext name="network">
-      <contextOpType>Sop/sop_osm_importer</contextOpType>
-    </toolMenuContext>
     <script scriptType="python"><![CDATA[import soptoolutils
 soptoolutils.genericTool(kwargs, 'sop_osm_importer')]]></script>
   </tool>
 
   <tool name="rop_vector_field::1" label="Vector Field (FGA)" icon="SOP_volumetrail">
     <helpURL>operator:Sop/rop_vector_field?version=1</helpURL>
-    <toolMenuContext name="network">
-      <contextOpType>Sop/rop_vector_field::1</contextOpType>
-    </toolMenuContext>
     <script scriptType="python"><![CDATA[import roptoolutils
 roptoolutils.createRenderNode("rop_vector_field")
 ]]></script>
@@ -288,63 +262,42 @@ roptoolutils.createRenderNode("rop_vector_field")
 
   <tool name="rop_volume_texture::1" label="Volume Textures" icon="SOP_volumesdf">
     <helpURL>operator:Sop/rop_volume_texture?version=1</helpURL>
-    <toolMenuContext name="network">
-      <contextOpType>Sop/rop_volume_texture::1</contextOpType>
-    </toolMenuContext>
     <script scriptType="python"><![CDATA[import soptoolutils
 soptoolutils.genericTool(kwargs, 'rop_volume_texture')]]></script>
   </tool>
 
   <tool name="sop_create_flowmap0" label="Create FlowMap" icon="VOP_river">
     <helpURL>operator:Sop/sop_create_flowmap</helpURL>
-    <toolMenuContext name="network">
-      <contextOpType>Sop/sop_create_flowmap</contextOpType>
-    </toolMenuContext>
     <script scriptType="python"><![CDATA[import soptoolutils
 soptoolutils.genericTool(kwargs, 'sop_create_flowmap')]]></script>
   </tool>
 
   <tool name="sop_make_loop1" label="Make Loop" icon="SOP_foreach">
     <helpURL>operator:Sop/sop_make_loop</helpURL>
-    <toolMenuContext name="network">
-      <contextOpType>Sop/sop_make_loop</contextOpType>
-    </toolMenuContext>
     <script scriptType="python"><![CDATA[import soptoolutils
 soptoolutils.genericTool(kwargs, 'sop_make_loop')]]></script>
   </tool>
 
   <tool name="sop_make_loop" label="Make Loop" icon="SOP_foreach">
     <helpURL>operator:Sop/sop_make_loop</helpURL>
-    <toolMenuContext name="network">
-      <contextOpType>Sop/sop_make_loop</contextOpType>
-    </toolMenuContext>
     <script scriptType="python"><![CDATA[import soptoolutils
 soptoolutils.genericTool(kwargs, 'sop_make_loop')]]></script>
   </tool>
 
   <tool name="sop_pivotpainter" label="Pivot Painter" icon="opdef:/Sop/sop_pivotpainter?IconSVG">
     <helpURL>operator:Sop/sop_pivotpainter</helpURL>
-    <toolMenuContext name="network">
-      <contextOpType>Sop/sop_pivotpainter</contextOpType>
-    </toolMenuContext>
     <script scriptType="python"><![CDATA[import soptoolutils
 soptoolutils.genericTool(kwargs, 'sop_pivotpainter')]]></script>
   </tool>
 
   <tool name="sop_instant_meshes_bridge0" label="Instant Meshes Bridge" icon="opdef:/Sop/sop_instant_meshes_bridge?IconImage">
     <helpURL>operator:Sop/sop_instant_meshes_bridge</helpURL>
-    <toolMenuContext name="network">
-      <contextOpType>Sop/sop_instant_meshes_bridge</contextOpType>
-    </toolMenuContext>
     <script scriptType="python"><![CDATA[import soptoolutils
 soptoolutils.genericTool(kwargs, 'sop_instant_meshes_bridge')]]></script>
   </tool>
 
   <tool name="rop_rbd_to_fbx1" label="RBD to FBX" icon="ROP_fbx">
     <helpURL>operator:Driver/rop_rbd_to_fbx</helpURL>
-    <toolMenuContext name="network">
-      <contextOpType>Driver/rop_rbd_to_fbx</contextOpType>
-    </toolMenuContext>
     <script scriptType="python"><![CDATA[import roptoolutils
 roptoolutils.createRenderNode("rop_rbd_to_fbx")
 ]]></script>

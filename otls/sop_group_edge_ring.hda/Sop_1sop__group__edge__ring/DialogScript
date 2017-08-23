@@ -41,10 +41,17 @@
 	parmtag	{ "script_action_icon" "BUTTONS_reselect" }
     }
     parm {
+	name	"override_name"
+	label	"Override Name"
+	type	toggle
+	default	{ "0" }
+    }
+    parm {
 	name	"loop_name"
 	label	"Ring Group Name"
 	type	string
-	default	{ "" }
+	default	{ "loop_group" }
+	disablewhen	"{ override_name == 0 }"
 	menutoggle	{
 	    [ "sopnode = hou.pwd()" ]
 	    [ "# List of tokens/labels to return." ]

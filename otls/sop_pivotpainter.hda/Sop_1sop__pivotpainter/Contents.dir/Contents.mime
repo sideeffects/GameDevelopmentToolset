@@ -23,7 +23,7 @@ Sop
 Content-Disposition: attachment; filename="hdaroot.init"
 Content-Type: text/plain
 
-type = paula_PivotPainter
+type = sop_pivotpainter
 matchesdef = 0
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -32,27 +32,26 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position 28.5729 -64.9071
-connectornextid 3
-flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
+position -2.58058 -65.1895
+connectornextid 2
+flags =  lock off model off template on footprint off xray off bypass off display on render on highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
 {
-1 "output1"
 }
 inputsNamed3
 {
-0 	OUT_GENERATETREE_GEO 1 1 "input1"
-2 	OUT_GENERATETREE_PIVOTS 1 1 "input2"
+0 	OUT_360_GEO 1 1 "input1"
+1 	OUT_360_PIVOTS 1 1 "input2"
 }
 inputs
 {
-0 	OUT_GENERATETREE_GEO 0 1
-1 	OUT_GENERATETREE_PIVOTS 0 1
+0 	OUT_360_GEO 0 1
+1 	OUT_360_PIVOTS 0 1
 }
 stat
 {
-  create 1502998956
-  modify 1503084653
+  create 1503592098
+  modify 1503592772
   author admin@DESKTOP-PINH
   access 0777
 }
@@ -68,7 +67,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"1"
+		"value":"1.1"
 	}
 }
 
@@ -90,7 +89,7 @@ Content-Type: text/plain
 }
 {
   create 1502819760
-  modify 1502999010
+  modify 1503592152
   author admin@DESKTOP-PINH
   access 0777
 }
@@ -113,7 +112,7 @@ Content-Type: text/plain
 }
 {
   create 1502819970
-  modify 1502998977
+  modify 1503592119
   author admin@DESKTOP-PINH
   access 0777
 }
@@ -264,7 +263,7 @@ inputs
 stat
 {
   create 1501993647
-  modify 1503084248
+  modify 1503592388
   author paula@DESKTOP-JOVQSE4
   access 0777
 }
@@ -296,7 +295,7 @@ if (matchingPoint == -1) {
 //PROCESSING
 vector PivotPosition = point(1, \"P\", matchingPoint);
 vector UV2 = set(PivotPosition.x, PivotPosition.y,-1);
-vector UV3 = set(PivotPosition.z, rand(PivotPosition.z), -1);
+vector UV3 = set(PivotPosition.z, rand(matchingPoint*1337), -1);
 
 vector  VertColor = normalize(point(1, \"N\", matchingPoint));
 float VertAlpha = len(vector(point(0, \"Cd\", matchingPoint))) > 0.0 ? 1.0 : 0.0;
@@ -726,7 +725,7 @@ sopflags sopflags =
 comment ""
 position 21.8472 0.46105
 connectornextid 3
-flags =  lock off model off template off footprint off xray off bypass off display on render on highlight off unload off savedata off compress on colordefault off exposed on
+flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault off exposed on
 outputsNamed3
 {
 2 "output1"
@@ -744,7 +743,7 @@ inputs
 stat
 {
   create 1502230197
-  modify 1503084445
+  modify 1503592746
   author admin@DESKTOP-PINH
   access 0777
 }
@@ -824,7 +823,7 @@ inputs
 stat
 {
   create 1501993647
-  modify 1503082043
+  modify 1503592680
   author paula@DESKTOP-JOVQSE4
   access 0777
 }
@@ -855,8 +854,8 @@ if (matchingPoint == -1) {
 
 //PROCESSING
 vector PivotPosition = point(1, \"P\", matchingPoint);
-vector UV2 = set(PivotPosition.x, PivotPosition.y,0);
-vector UV3 = set(PivotPosition.z, rand(PivotPosition.z), 0);
+vector UV2 = set(PivotPosition.x, PivotPosition.y,-1);
+vector UV3 = set(PivotPosition.z, rand(matchingPoint*1337), -1);
 
 vector  VertColor = normalize(point(1, \"N\", matchingPoint));
 float VertAlpha = len(vector(point(0, \"Cd\", matchingPoint))) > 0.0 ? 1.0 : 0.0;
@@ -865,11 +864,22 @@ float VertAlpha = len(vector(point(0, \"Cd\", matchingPoint))) > 0.0 ? 1.0 : 0.0
 VertColor = fit11( (VertColor / 2.0) * {1, -1, 1}, {0,0,0}, {1,1,1} );
 
 //ASSIGNING VALUES
-v@uv1 = v@uv; //LIGHTMAP UVs
-v@uv2 = UV2;
-v@uv3 = UV3;
-v@Cd = VertColor;
-f@Alpha = VertAlpha;"	)
+v@uv1 = v@uv;
+
+//Set Pivot Position Attributes
+v@`chs(\"../pivotPos1\")` = UV2.x;
+v@`chs(\"../pivotPos2\")` = UV2.y;
+v@`chs(\"../pivotPos3\")` = UV3.x;
+v@`chs(\"../randomValue\")` = UV3.y;
+
+//Set Forward Axis
+v@`chs(\"../forwardAxis1\")` = VertColor.x;
+v@`chs(\"../forwardAxis2\")` = VertColor.y;
+v@`chs(\"../forwardAxis3\")` = VertColor.z;
+
+//Set Motion Mask
+f@`chs(\"../motionMask\")` = VertAlpha;
+"	)
 exportlist	[ 0	locks=0 ]	(	*	)
 vex_strict	[ 0	locks=0 ]	(	"off"	)
 autobind	[ 0	locks=0 ]	(	"on"	)
@@ -2804,7 +2814,7 @@ sopflags sopflags =
 comment ""
 position -4.70146 -14.9734
 connectornextid 1
-flags =  lock off model off template on footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault off exposed on
+flags =  lock off model off template off footprint off xray off bypass off display on render on highlight off unload off savedata off compress on colordefault off exposed on
 outputsNamed3
 {
 }
@@ -2819,7 +2829,7 @@ inputs
 stat
 {
   create 1502126939
-  modify 1503084445
+  modify 1503592748
   author admin@VENTURA
   access 0777
 }
@@ -3334,7 +3344,7 @@ Content-Type: text/plain
 
 {
 version 0.8
-input	[ 8	locks=0 ]	(	[ input	1 ] 	)
+input	[ 8	locks=0 ]	(	[ input	0 ] 	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -8992,7 +9002,7 @@ r	[ 0	locks=0 ]	(	0	0	0	)
 s	[ 0	locks=0 ]	(	1	1	1	)
 shear	[ 0	locks=0 ]	(	0	0	0	)
 p	[ 0	locks=0 ]	(	0	0	0	)
-scale	[ 8	locks=0 ]	(	[ scale	0.0014272877308050315 ] 	)
+scale	[ 8	locks=0 ]	(	[ scale	0 ] 	)
 movecentroid	[ 0	locks=0 ]	(	0	)
 attribs	[ 0	locks=0 ]	(	*	)
 updatenmls	[ 0	locks=0 ]	(	"off"	)
@@ -9087,7 +9097,7 @@ r	[ 0	locks=0 ]	(	0	0	0	)
 s	[ 0	locks=0 ]	(	1	1	1	)
 shear	[ 0	locks=0 ]	(	0	0	0	)
 p	[ 0	locks=0 ]	(	0	0	0	)
-scale	[ 8	locks=0 ]	(	[ scale	700.62957763671875 ] 	)
+scale	[ 8	locks=0 ]	(	[ scale	0 ] 	)
 movecentroid	[ 0	locks=0 ]	(	0	)
 attribs	[ 0	locks=0 ]	(	*	)
 updatenmls	[ 0	locks=0 ]	(	"off"	)

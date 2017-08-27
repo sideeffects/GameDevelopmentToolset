@@ -1,0 +1,106 @@
+# Dialog script for rop_impostor_texture automatically generated
+
+{
+    name	rop_impostor_texture
+    script	rop_impostor_texture
+    label	"Impostor Texture"
+
+    help {
+	""
+    }
+
+    parm {
+	name	"execute"
+	baseparm
+	label	"Render"
+	joinnext
+	export	none
+    }
+    parm {
+	name	"renderdialog"
+	baseparm
+	label	"Controls..."
+	export	none
+    }
+    parm {
+	name	"imposter_enum"
+	label	"Impostor Type"
+	type	ordinal
+	default	{ "0" }
+	menu	{
+	    "0"	"Full 3D Impostor"
+	    "1"	"Single Rotation Axis"
+	}
+    }
+    parm {
+	name	"source_geo"
+	label	"Source Geometry"
+	type	oppath
+	default	{ "" }
+	parmtag	{ "opfilter" "!!SOP!!" }
+	parmtag	{ "oprelative" "." }
+    }
+    parm {
+	name	"sprite_res"
+	label	"Sprite Resolution"
+	type	vector2
+	size	2
+	default	{ "128" "128" }
+	range	{ -1 1 }
+    }
+    parm {
+	name	"frames"
+	label	"Frames Around Z Rotation"
+	type	integer
+	default	{ "8" }
+	range	{ 0 10 }
+    }
+    parm {
+	name	"output_sequence"
+	label	"Output Picture"
+	type	image
+	default	{ "$HIP/render/$OS.$F4.exr" }
+    }
+    parm {
+	name	"sepparm"
+	label	"Separator"
+	type	separator
+	default	{ "" }
+    }
+    groupsimple {
+	name	"atlas_folder"
+	label	"Atlas"
+
+	parm {
+	    name	"base_color_atlas"
+	    label	"Base Color Atlas"
+	    type	image
+	    default	{ "$HIP/export/${OS}_basecolour.exr" }
+	}
+	parm {
+	    name	"normals_atlas"
+	    label	"Normals Atlas"
+	    type	image
+	    default	{ "$HIP/export/${OS}_N.exr" }
+	}
+    }
+
+    groupsimple {
+	name	"textures_folder"
+	label	"Textures"
+
+	parm {
+	    name	"basecolor"
+	    label	"Base Color"
+	    type	image
+	    default	{ "" }
+	}
+	parm {
+	    name	"normal_map"
+	    label	"Normal Map"
+	    type	image
+	    default	{ "" }
+	}
+    }
+
+}

@@ -9,9 +9,46 @@
 	""
     }
 
-    inputlabel	1	"Sub-Network Input #1"
+    inputlabel	1	Geometry
     inputlabel	2	"Sub-Network Input #2"
     inputlabel	3	"Sub-Network Input #3"
     inputlabel	4	"Sub-Network Input #4"
+    outputlabel	1	"Geo to be processed"
 
+    parm {
+	name	"padding"
+	label	"Padding"
+	type	integer
+	default	{ "10" }
+	range	{ 0! 1000 }
+	parmtag	{ "autoscope" "0000000000000000" }
+    }
+    parm {
+	name	"paddingboundary"
+	label	"Apply Padding to Tile Boundaries"
+	type	toggle
+	default	{ "off" }
+	parmtag	{ "autoscope" "0000000000000000" }
+    }
+    parm {
+	name	"correctareas"
+	label	"Correct Island Area Proportions"
+	type	toggle
+	default	{ "off" }
+	parmtag	{ "autoscope" "0000000000000000" }
+    }
+    parm {
+	name	"axisalignislands"
+	label	"Axis-Align Islands"
+	type	toggle
+	default	{ "on" }
+	parmtag	{ "autoscope" "0000000000000000" }
+    }
+    parm {
+	name	"optimizewastedspace"
+	label	"Optimize Wasted Space"
+	type	toggle
+	default	{ "on" }
+	parmtag	{ "autoscope" "0000000000000000" }
+    }
 }

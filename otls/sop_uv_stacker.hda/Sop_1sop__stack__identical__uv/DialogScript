@@ -16,6 +16,36 @@
     outputlabel	1	"Geo to be processed"
 
     parm {
+	name	"mAreaMethod"
+	label	"Stacking Method"
+	type	ordinal
+	default	{ "0" }
+	menu	{
+	    "0"	"UV Area"
+	    "1"	"Geometry Area"
+	}
+    }
+    parm {
+	name	"bUseThreshold"
+	label	"Combine Similar by Threshold"
+	type	toggle
+	default	{ "0" }
+    }
+    parm {
+	name	"fSimThreshold"
+	label	"Similarity Threshold"
+	type	integer
+	default	{ "10" }
+	disablewhen	"{ bUseThreshold == 0 }"
+	range	{ 0! 10! }
+    }
+    parm {
+	name	"sepparm"
+	label	"Separator"
+	type	separator
+	default	{ "" }
+    }
+    parm {
 	name	"padding"
 	label	"Padding"
 	type	integer

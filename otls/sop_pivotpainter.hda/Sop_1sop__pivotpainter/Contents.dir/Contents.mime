@@ -32,8 +32,8 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position 38.4609 -65.1265
-connectornextid 2
+position 29.5948 -66.193
+connectornextid 3
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
 {
@@ -41,16 +41,18 @@ outputsNamed3
 }
 inputsNamed3
 {
-0 	OUT_TREE_GEO 1 1 "input1"
+0 	OUT_GENERATETREE_GEO 1 1 "input1"
+2 	OUT_GENERATETREE_PIVOTS 1 1 "input2"
 }
 inputs
 {
-0 	OUT_TREE_GEO 0 1
+0 	OUT_GENERATETREE_GEO 0 1
+1 	OUT_GENERATETREE_PIVOTS 0 1
 }
 stat
 {
-  create 1503954156
-  modify 1503955238
+  create 1503963546
+  modify 1504022746
   author admin@DESKTOP-PINH
   access 0777
 }
@@ -66,7 +68,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"2"
+		"value":"2.2"
 	}
 }
 
@@ -88,7 +90,7 @@ Content-Type: text/plain
 }
 {
   create 1502819760
-  modify 1503954539
+  modify 1503963605
   author admin@DESKTOP-PINH
   access 0777
 }
@@ -111,7 +113,7 @@ Content-Type: text/plain
 }
 {
   create 1502819970
-  modify 1503954502
+  modify 1503963568
   author admin@DESKTOP-PINH
   access 0777
 }
@@ -377,7 +379,7 @@ inputs
 stat
 {
   create 1502131990
-  modify 1503948791
+  modify 1503965757
   author admin@VENTURA
   access 0777
 }
@@ -418,10 +420,7 @@ if (matchingPoint == -1) {
 //PROCESSING
 //This is the X-Axis Orientation for the pivot
 vector BranchAngle = point(1, \"N\", matchingPoint);
-float zSign = BranchAngle.z < 0 ? -1 : 1;
-
-BranchAngle = BranchAngle / 2;
-BranchAngle.x = clamp(BranchAngle.x, 0, 1.0);
+BranchAngle = fit11( (BranchAngle / 2.0) * {1, -1, 1}, {0,0,0}, {1,1,1} );
 
 vector BranchPivot = point(1, \"P\", matchingPoint);
 vector BranchPosition = convertWPtoUV((BranchPivot * {1, -1, 1}), shaderWSMultiplier);
@@ -441,7 +440,7 @@ v@`chs(\"../leafPivotPos_H2\")` = 0;
 
 //UV3 XY
 v@`chs(\"../leafPivotPos_H3\")` = 0;
-v@`chs(\"../branchAngle_H2\")` = BranchAngle.y *zSign;
+v@`chs(\"../branchAngle_H2\")` = BranchAngle.y;
 
 //Cd RGB
 v@`chs(\"../branchPivotPos_H1\")` = BranchPosition.x;
@@ -508,7 +507,7 @@ inputs
 stat
 {
   create 1502131990
-  modify 1503948791
+  modify 1503965987
   author admin@VENTURA
   access 0777
 }
@@ -562,10 +561,6 @@ float uv4Green = point(1, \"uv4Green\", matchingPoint);
 
 //PROCESSING
 vector LeafPivot = ceil(PivotPosition * 1.0);
-vector LeafXAxis = clamp(((((normalize(PivotPosition))*0.5)+0.5) * 1.0), 0.078, 0.156);
-LeafPivot.x += LeafPivot.x > 0 ? LeafXAxis.x : -LeafXAxis.x;
-LeafPivot.y += LeafPivot.y > 0 ? LeafXAxis.y : -LeafXAxis.y;
-LeafPivot.z += LeafPivot.z > 0 ? LeafXAxis.z : -LeafXAxis.z;
 
 //ASSIGNING VALUES
 v@uv1 = v@uv;
@@ -643,7 +638,7 @@ inputs
 stat
 {
   create 1502131990
-  modify 1503948791
+  modify 1503965888
   author admin@VENTURA
   access 0777
 }
@@ -679,13 +674,9 @@ vector convertWPtoUV(vector t_pos; float t_shaderWSMultiplier){
 //PROCESSING
 //This is the X-Axis Orientation for the pivot
 vector BranchAngle = point(0, \"N\", @ptnum);
-float zSign = BranchAngle.z < 0 ? -1 : 1;
+BranchAngle = fit11( (BranchAngle / 2.0) * {1, -1, 1}, {0,0,0}, {1,1,1} );
 
-//BranchAngle = fit11( (BranchAngle / 2.0) * {1, -1, 1}, {0,0,0}, {1,1,1} );
-BranchAngle = (BranchAngle) / 2;
-BranchAngle.x = clamp(BranchAngle.x, 0, 1.0);
-
-float uv4Green = BranchAngle.y * zSign;
+float uv4Green = BranchAngle.y;
 
 //Pre-Processed data to be used for leaves
 v@BranchAngle = BranchAngle;
@@ -2498,7 +2489,7 @@ inputs
 stat
 {
   create 1502131990
-  modify 1503949542
+  modify 1503965858
   author admin@VENTURA
   access 0777
 }
@@ -2539,16 +2530,10 @@ if (matchingPoint == -1) {
 //PROCESSING
 //This is the X-Axis Orientation for the pivot
 vector BranchAngle = point(1, \"N\", matchingPoint);
-float zSign = BranchAngle.z < 0 ? -1 : 1;
-
-BranchAngle = BranchAngle / 2;
-BranchAngle.x = clamp(BranchAngle.x, 0, 1.0);
+BranchAngle = fit11( (BranchAngle / 2.0) * {1, -1, 1}, {0,0,0}, {1,1,1} );
 
 vector BranchPivot = point(1, \"P\", matchingPoint);
 vector BranchPosition = convertWPtoUV((BranchPivot * {1, -1, 1}), shaderWSMultiplier);
-
-i@MATCHERINO = matchingPoint+1;
-s@testts = point(1, \"name\", matchingPoint);
 
 //No motion for Trunk
 if (s@name == \"Trunk\"){
@@ -2559,7 +2544,7 @@ if (s@name == \"Trunk\"){
 //ASSIGNING VALUES
 v@uv1 = v@uv;
 v@uv2 = {0, 0, 0};
-v@uv3 = set(0, BranchAngle.y * zSign, 0);
+v@uv3 = set(0, BranchAngle.y, 0);
 v@Cd = BranchPosition;
 f@Alpha = BranchAngle.x;"	)
 exportlist	[ 0	locks=0 ]	(	*	)
@@ -2620,7 +2605,7 @@ inputs
 stat
 {
   create 1502131990
-  modify 1503948791
+  modify 1503965942
   author admin@VENTURA
   access 0777
 }
@@ -2674,10 +2659,6 @@ float uv4Green = point(1, \"uv4Green\", matchingPoint);
 
 //PROCESSING
 vector LeafPivot = ceil(PivotPosition * 1.0);
-vector LeafXAxis = clamp(((((normalize(PivotPosition))*0.5)+0.5) * 1.0), 0.078, 0.156);
-LeafPivot.x += LeafPivot.x > 0 ? LeafXAxis.x : -LeafXAxis.x;
-LeafPivot.y += LeafPivot.y > 0 ? LeafXAxis.y : -LeafXAxis.y;
-LeafPivot.z += LeafPivot.z > 0 ? LeafXAxis.z : -LeafXAxis.z;
 
 //ASSIGNING VALUES
 v@uv1 = v@uv;
@@ -2743,7 +2724,7 @@ inputs
 stat
 {
   create 1502131990
-  modify 1503948791
+  modify 1503965845
   author admin@VENTURA
   access 0777
 }
@@ -2779,13 +2760,9 @@ vector convertWPtoUV(vector t_pos; float t_shaderWSMultiplier){
 //PROCESSING
 //This is the X-Axis Orientation for the pivot
 vector BranchAngle = point(0, \"N\", @ptnum);
-float zSign = BranchAngle.z < 0 ? -1 : 1;
+BranchAngle = fit11( (BranchAngle / 2.0) * {1, -1, 1}, {0,0,0}, {1,1,1} );
 
-//BranchAngle = fit11( (BranchAngle / 2.0) * {1, -1, 1}, {0,0,0}, {1,1,1} );
-BranchAngle = (BranchAngle) / 2;
-BranchAngle.x = clamp(BranchAngle.x, 0, 1.0);
-
-float uv4Green = BranchAngle.y * zSign;
+float uv4Green = BranchAngle.y;
 
 //Pre-Processed data to be used for leaves
 v@BranchAngle = BranchAngle;
@@ -3268,7 +3245,7 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position -4.70146 -15.1254
+position -4.70146 -16.1789
 connectornextid 1
 flags =  lock off model off template on footprint off xray off bypass off display on render on highlight off unload off savedata off compress on colordefault off exposed on
 outputsNamed3
@@ -3285,7 +3262,7 @@ inputs
 stat
 {
   create 1502126939
-  modify 1503949616
+  modify 1504022675
   author admin@VENTURA
   access 0777
 }
@@ -4058,7 +4035,7 @@ inputs
 stat
 {
   create 1502524823
-  modify 1503955330
+  modify 1503966575
   author paula@DESKTOP-JOVQSE4
   access 0777
 }
@@ -6153,7 +6130,7 @@ inputs
 stat
 {
   create 1502524823
-  modify 1503955240
+  modify 1503966465
   author paula@DESKTOP-JOVQSE4
   access 0777
 }
@@ -7666,7 +7643,7 @@ Content-Type: text/plain
 
 {
 version 0.8
-input	[ 8	locks=0 ]	(	[ input	0 ] 	)
+input	[ 8	locks=0 ]	(	[ input	1 ] 	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -7741,7 +7718,7 @@ Content-Type: text/plain
 
 {
 version 0.8
-input	[ 8	locks=0 ]	(	[ input	0 ] 	)
+input	[ 8	locks=0 ]	(	[ input	1 ] 	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -8235,7 +8212,7 @@ inputs
 stat
 {
   create 1502816306
-  modify 1503949762
+  modify 1504023002
   author admin@DESKTOP-PINH
   access 0777
 }
@@ -9165,7 +9142,7 @@ r	[ 0	locks=0 ]	(	0	0	0	)
 s	[ 0	locks=0 ]	(	1	1	1	)
 shear	[ 0	locks=0 ]	(	0	0	0	)
 p	[ 0	locks=0 ]	(	0	0	0	)
-scale	[ 8	locks=0 ]	(	[ scale	0.0011605011971210163 ] 	)
+scale	[ 8	locks=0 ]	(	[ scale	0.002 ] 	)
 movecentroid	[ 0	locks=0 ]	(	0	)
 attribs	[ 0	locks=0 ]	(	*	)
 updatenmls	[ 0	locks=0 ]	(	"off"	)
@@ -9260,7 +9237,7 @@ r	[ 0	locks=0 ]	(	0	0	0	)
 s	[ 0	locks=0 ]	(	1	1	1	)
 shear	[ 0	locks=0 ]	(	0	0	0	)
 p	[ 0	locks=0 ]	(	0	0	0	)
-scale	[ 8	locks=0 ]	(	[ scale	861.6966552734375 ] 	)
+scale	[ 8	locks=0 ]	(	[ scale	500 ] 	)
 movecentroid	[ 0	locks=0 ]	(	0	)
 attribs	[ 0	locks=0 ]	(	*	)
 updatenmls	[ 0	locks=0 ]	(	"off"	)
@@ -9354,7 +9331,7 @@ r	[ 0	locks=0 ]	(	0	0	0	)
 s	[ 0	locks=0 ]	(	1	1	1	)
 shear	[ 0	locks=0 ]	(	0	0	0	)
 p	[ 0	locks=0 ]	(	0	0	0	)
-scale	[ 8	locks=0 ]	(	[ scale	0.0015605260069888401 ] 	)
+scale	[ 8	locks=0 ]	(	[ scale	0.002 ] 	)
 movecentroid	[ 0	locks=0 ]	(	0	)
 attribs	[ 0	locks=0 ]	(	*	)
 updatenmls	[ 0	locks=0 ]	(	"off"	)
@@ -9449,7 +9426,7 @@ r	[ 0	locks=0 ]	(	0	0	0	)
 s	[ 0	locks=0 ]	(	1	1	1	)
 shear	[ 0	locks=0 ]	(	0	0	0	)
 p	[ 0	locks=0 ]	(	0	0	0	)
-scale	[ 8	locks=0 ]	(	[ scale	640.8095703125 ] 	)
+scale	[ 8	locks=0 ]	(	[ scale	500 ] 	)
 movecentroid	[ 0	locks=0 ]	(	0	)
 attribs	[ 0	locks=0 ]	(	*	)
 updatenmls	[ 0	locks=0 ]	(	"off"	)
@@ -9966,7 +9943,7 @@ Content-Type: text/plain
 
 {
 version 0.8
-inname	[ 8	locks=0 ]	(	[ inname	"uv2 uv3 br Cd" ] 	)
+inname	[ 8	locks=0 ]	(	[ inname	"Alpha uv2 uv3 Cd" ] 	)
 inclass	[ 0	locks=0 ]	(	"point"	)
 outclass	[ 0	locks=0 ]	(	"vertex"	)
 method	[ 0	locks=0 ]	(	"mean"	)

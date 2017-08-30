@@ -32,25 +32,25 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position -18.1531 -59.7798
+position 10.1802 -6.8324
 connectornextid 2
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
 {
-1 "output1"
+0 "output1"
 }
 inputsNamed3
 {
-0 	attribpromote11 1 1 "input1"
+1 	transform1 1 1 "input1"
 }
 inputs
 {
-0 	attribpromote11 0 1
+0 	transform1 0 1
 }
 stat
 {
-  create 1504028003
-  modify 1504119220
+  create 1504119737
+  modify 1504125048
   author admin@DESKTOP-PINH
   access 0777
 }
@@ -66,7 +66,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"0.3"
+		"value":"0.4"
 	}
 }
 
@@ -951,7 +951,7 @@ inputs
 stat
 {
   create 1504113923
-  modify 1504118572
+  modify 1504120224
   author admin@DESKTOP-PINH
   access 0777
 }
@@ -976,7 +976,7 @@ snippet	[ 0	locks=0 ]	(	"vector2 A = vertex(0, \"uv\", @primnum, 0);
 vector2 B = vertex(0, \"uv\", @primnum, 1);
 vector2 C = vertex(0, \"uv\", @primnum, 2);
 
-f@area = abs( (A.x * (B.y-C.y) + B.x * (C.y-A.y) + C.x * (A.y-B.y)) / 2);"	)
+f@area = ceil(1000000*abs( (A.x * (B.y-C.y) + B.x * (C.y-A.y) + C.x * (A.y-B.y)) / 2))/1000000;"	)
 exportlist	[ 0	locks=0 ]	(	*	)
 vex_strict	[ 0	locks=0 ]	(	"off"	)
 autobind	[ 0	locks=0 ]	(	"on"	)
@@ -1255,7 +1255,7 @@ inputs
 stat
 {
   create 1503689309
-  modify 1504124362
+  modify 1504125048
   author admin@DESKTOP-PINH
   access 0777
 }
@@ -1447,7 +1447,7 @@ version 0.8
 group	[ 0	locks=0 ]	(	""	)
 packing	[ 0	locks=0 ]	(	"oneframe"	)
 scale	[ 0	locks=0 ]	(	[ scale	0 ] 	)
-padding	[ 0	locks=0 ]	(	[ padding	11 ] 	)
+padding	[ 0	locks=0 ]	(	[ padding	10 ] 	)
 paddingboundary	[ 0	locks=0 ]	(	[ paddingboundary	0 ] 	)
 correctareas	[ 0	locks=0 ]	(	[ correctareas	0 ] 	)
 axisalignislands	[ 0	locks=0 ]	(	[ axisalignislands	1 ] 	)
@@ -2109,7 +2109,7 @@ inputs
 stat
 {
   create 1503704266
-  modify 1504165435
+  modify 1504166442
   author admin@DESKTOP-PINH
   access 0777
 }
@@ -2485,7 +2485,7 @@ inputs
 stat
 {
   create 1503717854
-  modify 1504118752
+  modify 1504125035
   author paula@DESKTOP-JOVQSE4
   access 0777
 }
@@ -2756,7 +2756,7 @@ inputs
 stat
 {
   create 1504113818
-  modify 1504123842
+  modify 1504123879
   author admin@DESKTOP-PINH
   access 0777
 }
@@ -3031,7 +3031,7 @@ inputs
 stat
 {
   create 1504114293
-  modify 1504118735
+  modify 1504120235
   author admin@DESKTOP-PINH
   access 0777
 }

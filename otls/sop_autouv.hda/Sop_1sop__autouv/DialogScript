@@ -43,6 +43,20 @@
 		default	{ "1" }
 		range	{ 0 10 }
 	    }
+	    parm {
+		name	"useBoxSeamSelection"
+		label	"Box Seam Selection"
+		type	toggle
+		default	{ "0" }
+	    }
+	    parm {
+		name	"point_separation"
+		label	"Point Separation"
+		type	float
+		default	{ "0.1" }
+		disablewhen	"{ useBoxSeamSelection == 0 }"
+		range	{ 0 10 }
+	    }
 	}
 
 	groupradio {

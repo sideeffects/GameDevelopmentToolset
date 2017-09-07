@@ -31,7 +31,7 @@ Content-Disposition: attachment; filename="hdaroot.def"
 Content-Type: text/plain
 
 comment ""
-position -3.20606 1.05655
+position 1.28566 3.23701
 connectornextid 0
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
@@ -45,8 +45,8 @@ inputs
 }
 stat
 {
-  create 1504800636
-  modify 1504800918
+  create 1504808585
+  modify 1504808639
   author Luiz@LAPTOP-LKBBB5D4
   access 0777
 }
@@ -65,6 +65,13 @@ Content-Type: text/plain
 		"value":""
 	}
 }
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot.inp"
+Content-Type: text/plain
+
+1
+0 0 6 2 0 __NO_OWNER_NETWORK_BOX__ "FROMOUTPUT"
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
 Content-Disposition: attachment; filename="hdaroot/objnet.init"
@@ -2138,7 +2145,7 @@ inputs
 stat
 {
   create 1496776162
-  modify 1504800688
+  modify 1504808909
   author Luiz@Luiz-PC
   access 0777
 }
@@ -3601,6 +3608,13 @@ Content-Type: text/plain
       flags = 0
       segment { length = 0 value = 4 4 expr = ch(\"../border_padding\") }
     }
+    channel vm_uv_ray_maxdist {
+      lefttype = extend
+      righttype = extend
+      default = 0.10000000000000001
+      flags = 0
+      segment { length = 0 value = 0.10000000000000001 0.10000000000000001 expr = ch(\"../ray_distance\") }
+    }
   }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -3640,7 +3654,7 @@ main	[ 0	locks=0 ]	(	0	0	)
 vm_uv_unwrap_method	[ 0	locks=0 ]	(	1	)
 vm_uvattribute	[ 8	locks=0 ]	(	uv	)
 vm_uv_ray_bias	[ 8	locks=0 ]	(	[ vm_uv_ray_bias	0.01 ] 	)
-vm_uv_ray_maxdist	[ 0	locks=0 ]	(	0.10000000000000001	)
+vm_uv_ray_maxdist	[ 8	locks=0 ]	(	[ vm_uv_ray_maxdist	-1 ] 	)
 vm_uv_flip_normal	[ 0	locks=0 ]	(	"off"	)
 vm_uvpostprocess	[ 0	locks=0 ]	(	borderfill	)
 vm_uvborderpixels	[ 8	locks=0 ]	(	[ vm_uvborderpixels	2 ] 	)
@@ -9459,7 +9473,7 @@ inputs
 stat
 {
   create 1496798868
-  modify 1504800695
+  modify 1504808923
   author Luiz@Luiz-PC
   access 0777
 }
@@ -9482,7 +9496,7 @@ take	[ 0	locks=0 ]	(	_current_	)
 copswitcher	[ 0	locks=0 ]	(	0	0	0	0	0	)
 coppath	[ 0	locks=0 ]	(	../extract_net/normalized	)
 tres	[ 0	locks=0 ]	(	"natural"	)
-res	[ 0	locks=0 ]	(	1024	1024	)
+res	[ 0	locks=0 ]	(	1	1	)
 resmenu	[ 0	locks=0 ]	(	0	)
 copoutput	[ 0	locks=0 ]	(	""	)
 mkpath	[ 0	locks=0 ]	(	"on"	)
@@ -9497,7 +9511,7 @@ batchmode	[ 0	locks=0 ]	(	"off"	)
 batchsize	[ 0	locks=0 ]	(	2	)
 reloadfiles	[ 0	locks=0 ]	(	"on"	)
 outputarea	[ 0	locks=0 ]	(	"frame"	)
-pixelcrop	[ 0	locks=0 ]	(	0	0	1023	1023	)
+pixelcrop	[ 0	locks=0 ]	(	0	0	0	0	)
 uvcrop	[ 0	locks=0 ]	(	0	0	1	1	)
 limitcanvaspixels	[ 0	locks=0 ]	(	"on"	)
 canvaspixels	[ 0	locks=0 ]	(	64	)
@@ -9585,7 +9599,7 @@ inputs
 stat
 {
   create 1496776162
-  modify 1504800682
+  modify 1504808631
   author Luiz@Luiz-PC
   access 0777
 }
@@ -10984,6 +10998,13 @@ Content-Type: text/plain
       flags = 0
       segment { length = 0 value = 0.01 0.01 expr = ch(\"../ray_bias\") }
     }
+    channel vm_uv_ray_maxdist {
+      lefttype = extend
+      righttype = extend
+      default = -1
+      flags = 0
+      segment { length = 0 value = -1 -1 expr = ch(\"../ray_distance\") }
+    }
   }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -11023,7 +11044,7 @@ main	[ 0	locks=0 ]	(	0	0	)
 vm_uv_unwrap_method	[ 0	locks=0 ]	(	1	)
 vm_uvattribute	[ 8	locks=0 ]	(	uv	)
 vm_uv_ray_bias	[ 8	locks=0 ]	(	[ vm_uv_ray_bias	0.01 ] 	)
-vm_uv_ray_maxdist	[ 0	locks=0 ]	(	-1	)
+vm_uv_ray_maxdist	[ 8	locks=0 ]	(	[ vm_uv_ray_maxdist	-1 ] 	)
 vm_uv_flip_normal	[ 0	locks=0 ]	(	"off"	)
 vm_uvpostprocess	[ 0	locks=0 ]	(	borderfill	)
 vm_uvborderpixels	[ 8	locks=0 ]	(	[ vm_uvborderpixels	2 ] 	)
@@ -11069,7 +11090,7 @@ vm_uvobject1	[ 0	locks=0 ]	(	"`opfullpath(\"..\") + \"/objnet/low\"`"	)
 vm_uvcageobject1	[ 0	locks=0 ]	(	`chsop(\"../vm_uvcageobject1\")`	)
 vm_uvhires1	[ 0	locks=0 ]	(	"`opfullpath(\"..\") + \"/objnet/custom_export\"`"	)
 vm_uvoutputpicture1	[ 0	locks=0 ]	(	""	)
-images6	[ 0	locks=0 ]	(	0	0	0	0	0	)
+images6	[ 0	locks=0 ]	(	2	2	2	2	2	)
 main3	[ 0	locks=0 ]	(	0	0	)
 vm_bake_normalizep	[ 0	locks=0 ]	(	"on"	)
 vm_extractimageplanes	[ 0	locks=0 ]	(	"off"	)

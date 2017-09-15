@@ -8,41 +8,45 @@ NOTE: This is in-progress. Please file an [Issue](https://github.com/sideeffects
 
 Also, if you forked the respository and suddenly it stopped pulling, that's due to the link changing from [https://github.com/sideeffects/GameDevelopmentShelf/](https://github.com/sideeffects/GameDevelopmentShelf/) to [https://github.com/sideeffects/GameDevelopmentToolset/](https://github.com/sideeffects/GameDevelopmentToolset/). Github appears to forward traffic to the new link, but here's a little FYI just incase.
 
+
 # Installation
 
+## Instructions - Method 1 (User Preferences)
+
+Download the repository using the green *Clone* or *Download* Button and unzip contents *(otls, scripts, toolbar etc.)* into the following folders depending on your operating system:
+
+    C:\Users\[username]\Documents\houdini[ver#]\          # Windows
+    /Users/[username]/Library/Preferences/houdini/[ver#]/ # OSX
+    /home/<USER>/houdini[ver#]/                           # Linux
+
+Be sure to merge as needed! *If you're copying and not cloning, the files shouldn't overwrite anything that doesn't involve the toolset.*
 
 
-## Instructions - Method 1
-Download the repository using the green Clone or Download Button and unzip contents into the following folders depending on your operating system:
+## Instructions - Method 2 (Custom Directory)
 
-Windows
+1. *Download* or *Clone* the repository and unzip contents into a folder of your choice, e.g.:
+ 
+        C:\Users\<USER>\Documents\houdini[ver#]\<CUSTOM_DIR>          # Windows 
+        /Users/<USER>/Library/Preferences/houdini/[ver#]/<CUSTOM_DIR> # OSX
+        /home/<USER>/houdini[ver#]/<CUSTOM_DIR>                       # Linux
+ 
+1. Open up your [`houdini.env`](http://www.sidefx.com/docs/houdini/basics/config_env#setting-environment-variables) file and add the path of your custom folder to `HOUDINI_PATH` environment variable, please note that even on a Windows machine *forward slashes* are required:
 
-    C:\Users\[username]\Documents\houdini[ver#]
+        HOUDINI_PATH = "C:/Users/<USER>/Documents/houdini[ver#]/<CUSTOM_DIR>;&"           # Windows
+        HOUDINI_PATH = "/Users/<USER>/Library/Preferences/houdini/[ver#]/<CUSTOM_DIR>;&"  # OSX
+        HOUDINI_PATH = "/home/<USER>/houdini[ver#]/<CUSTOM_DIR>;&"                        # Linux
 
-OSX
+   If `HOUDINI_PATH` already has an entry, you can concatenate both paths:
+        
+        HOUDINI_PATH = "PATH/TO/DIRECTORY; PATH/TO/ANOTHER/DIRECTORY; &"
+        
+        
+   In case [`houdini.env`](http://www.sidefx.com/docs/houdini/basics/config_env#setting-environment-variables) file doesn’t already exist, you can copy the provided `houdini.env` file of this repository into the following folders depending on your operating system:
 
-    /Users/[username]/Library/Preferences/houdini/[ver#]
+        C:\Users\[username]\Documents\houdini[ver#]                  # Windows 
+        /Users/[username]/Library/Preferences/houdini/[ver#]         # OSX
+        /home/<USER>/houdini[ver#]                                   # Linux
 
-Be sure to merge as needed! If you're copying and not cloning, the files shouldn't overwrite anything that doesn't involve the toolset.
-
-## Instructions - Method 2
-Download the repository using the green Clone or Download Button and unzip contents into the folder of your choosing
-
-Edit the houdini.env file found at the topmost directory 
-
-Modify the line HOUDINI_PATH = C:\PATH\TO\YOUR\DIRECTORY;&
-
-Into something like HOUDINI_PATH = C:\Users\Luiz\Documents\GameDevelopmentToolset;&
-
-Copy the houdini.env file into the following folders depending on your operating system:
-
-Windows
-
-    C:\Users\[username]\Documents\houdini[ver#]
-
-OSX
-
-    /Users/[username]/Library/Preferences/houdini/[ver#]
 
 # What's Changed?
 Hi, my name is Luiz Kruel and I have taken over the github from Steven B. who is now working in production. A few of the SideFX TAs (TDs) will also be contributing example files and tools.

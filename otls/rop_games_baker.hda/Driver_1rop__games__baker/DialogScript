@@ -3,11 +3,13 @@
 {
     name	rop_games_baker
     script	rop_games_baker
-    label	"Games Baker"
+    label	"GameDev Games Baker"
 
     help {
 	""
     }
+
+    inputlabel	1	"Sub-Network Input #1"
 
     parm {
 	name	"execute"
@@ -22,22 +24,29 @@
 	label	"Controls..."
 	export	none
     }
-    parm {
-	name	"target_mesh"
-	label	"Target Mesh (LOW)"
-	type	oppath
-	default	{ "" }
-	parmtag	{ "opfilter" "!!SOP!!" }
-	parmtag	{ "oprelative" "." }
+    multiparm {
+	name	"meshes"
+	label	"Meshes"
+	parmtag	{ "multistartoffset" "1" }
+
+	parm {
+	    name	"target_mesh_#"
+	    label	"Target Mesh (LOW)"
+	    type	oppath
+	    default	{ "" }
+	    parmtag	{ "opfilter" "!!SOP!!" }
+	    parmtag	{ "oprelative" "." }
+	}
+	parm {
+	    name	"source_mesh_#"
+	    label	"Source Mesh (HIGH)"
+	    type	oppath
+	    default	{ "" }
+	    parmtag	{ "opfilter" "!!SOP!!" }
+	    parmtag	{ "oprelative" "." }
+	}
     }
-    parm {
-	name	"source_mesh"
-	label	"Source Mesh (HIGH)"
-	type	oppath
-	default	{ "" }
-	parmtag	{ "opfilter" "!!SOP!!" }
-	parmtag	{ "oprelative" "." }
-    }
+
     parm {
 	name	"vm_uvunwrapres"
 	label	"Resolution"
@@ -267,6 +276,27 @@
 	    parmtag	{ "opfilter" "!!OBJ/GEOMETRY!!" }
 	    parmtag	{ "opfullpath" "on" }
 	    parmtag	{ "oprelative" "/obj" }
+	}
+	parm {
+	    name	"border_padding"
+	    label	"Border Padding"
+	    type	integer
+	    default	{ "2" }
+	    range	{ 0 10 }
+	}
+	parm {
+	    name	"ray_bias"
+	    label	"Ray Bias"
+	    type	float
+	    default	{ "0.01" }
+	    range	{ 0 10 }
+	}
+	parm {
+	    name	"ray_distance"
+	    label	"Ray Distance"
+	    type	float
+	    default	{ "-1" }
+	    range	{ 0 10 }
 	}
     }
 

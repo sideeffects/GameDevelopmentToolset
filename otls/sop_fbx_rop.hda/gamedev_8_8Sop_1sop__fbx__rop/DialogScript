@@ -1,0 +1,302 @@
+# Dialog script for gamedev::sop_fbx_rop automatically generated
+
+{
+    name	gamedev::sop_fbx_rop
+    script	gamedev::sop_fbx_rop
+    label	"GameDev ROP FX Output"
+
+    help {
+	""
+    }
+
+    inputlabel	1	"Sub-Network Input #1"
+    inputlabel	2	"Sub-Network Input #2"
+    inputlabel	3	"Sub-Network Input #3"
+    inputlabel	4	"Sub-Network Input #4"
+
+    parm {
+	name	"render"
+	label	"Render"
+	type	button
+	default	{ "0" }
+	parmtag	{ "script_callback" "hou.pwd().hdaModule().render(hou.pwd())" }
+	parmtag	{ "script_callback_language" "python" }
+    }
+    parm {
+	name	"trange"
+	label	"Valid Frame Range"
+	type	ordinal
+	default	{ "off" }
+	menu	{
+	    "off"	"Render Current Frame"
+	    "normal"	"Render Frame Range"
+	    "on"	"Render Frame Range Only (Strict)"
+	}
+	parmtag	{ "autoscope" "0000000000000000" }
+    }
+    parm {
+	name	"f"
+	label	"Start/End/Inc"
+	type	float
+	size	3
+	default	{ [ "$FSTART" hscript-expr ] [ "$FEND" hscript-expr ] "1" }
+	range	{ 0 10 }
+	parmtag	{ "autoscope" "0000000000000000" }
+    }
+    parm {
+	name	"take"
+	label	"Render With Take"
+	type	string
+	default	{ "_current_" }
+	menu	{
+	    [ "opmenu -l ropnet/filmboxfbx1 take" ]
+	}
+	parmtag	{ "autoscope" "0000000000000000" }
+    }
+    parm {
+	name	"sopoutput"
+	label	"Output File"
+	type	file
+	default	{ "$HIP/out.fbx" }
+	menureplace	{
+	    [ "opmenu -l ropnet/filmboxfbx1 sopoutput" ]
+	}
+	parmtag	{ "autoscope" "0000000000000000" }
+	parmtag	{ "filechooser_mode" "write" }
+    }
+    parm {
+	name	"mkpath"
+	label	"Create Intermediate Directories"
+	type	toggle
+	default	{ "on" }
+	parmtag	{ "autoscope" "0000000000000000" }
+    }
+    parm {
+	name	"createsubnetroot"
+	label	"Create Root for Subnet"
+	type	toggle
+	default	{ "on" }
+	parmtag	{ "autoscope" "0000000000000000" }
+    }
+    parm {
+	name	"exportkind"
+	label	"Export in ASCII Format"
+	type	toggle
+	default	{ "on" }
+	parmtag	{ "autoscope" "0000000000000000" }
+    }
+    parm {
+	name	"sdkversion"
+	label	"FBX SDK Version"
+	type	string
+	default	{ "" }
+	menu	{
+	    [ "opmenu -l ropnet/filmboxfbx1 sdkversion" ]
+	}
+	parmtag	{ "autoscope" "0000000000000000" }
+    }
+    parm {
+	name	"vcformat"
+	label	"Vertex Cache Format"
+	type	ordinal
+	default	{ "mayaformat" }
+	menu	{
+	    "mayaformat"	"Maya Compatible (MC)"
+	    "maxformat"	"3DS MAX Compatible (PC2)"
+	}
+	parmtag	{ "autoscope" "0000000000000000" }
+    }
+    parm {
+	name	"invisobj"
+	label	"Export Invisible Objects"
+	type	ordinal
+	default	{ "nullnodes" }
+	menu	{
+	    "nullnodes"	"As Hidden Null Nodes"
+	    "fullnodes"	"As Hidden Full Nodes"
+	}
+	parmtag	{ "autoscope" "0000000000000000" }
+    }
+    parm {
+	name	"polylod"
+	label	"Conversion Level of Detail"
+	type	float
+	default	{ "1" }
+	range	{ 0! 5 }
+	parmtag	{ "autoscope" "0000000000000000" }
+    }
+    parm {
+	name	"detectconstpointobjs"
+	label	"Detect Constant Point Count Dynamic Objects"
+	type	toggle
+	default	{ "on" }
+	parmtag	{ "autoscope" "0000000000000000" }
+    }
+    parm {
+	name	"convertsurfaces"
+	label	"Convert NURBS and Bezier Surfaces to Polygons"
+	type	toggle
+	default	{ "off" }
+	parmtag	{ "autoscope" "0000000000000000" }
+    }
+    parm {
+	name	"conservemem"
+	label	"Conserve Memory at the Expense of Export Time"
+	type	toggle
+	default	{ "off" }
+	parmtag	{ "autoscope" "0000000000000000" }
+    }
+    parm {
+	name	"deformsasvcs"
+	label	"Export Deforms as Vertex Caches"
+	type	toggle
+	default	{ "off" }
+	parmtag	{ "autoscope" "0000000000000000" }
+    }
+    parm {
+	name	"forceblendshape"
+	label	"Force Blend Shape Export"
+	type	toggle
+	default	{ "off" }
+	parmtag	{ "autoscope" "0000000000000000" }
+    }
+    parm {
+	name	"forceskindeform"
+	label	"Force Skin Deform Export"
+	type	toggle
+	default	{ "off" }
+	parmtag	{ "autoscope" "0000000000000000" }
+    }
+    parm {
+	name	"tprerender"
+	label	"Pre-Render Script"
+	type	toggle
+	nolabel
+	joinnext
+	default	{ "on" }
+	parmtag	{ "autoscope" "0000000000000000" }
+    }
+    parm {
+	name	"prerender"
+	label	"Pre-Render Script"
+	type	file
+	joinnext
+	default	{ "" }
+	menureplace	{
+	    [ "opmenu -l ropnet/filmboxfbx1 prerender" ]
+	}
+	parmtag	{ "autoscope" "0000000000000000" }
+	parmtag	{ "filechooser_mode" "read" }
+    }
+    parm {
+	name	"lprerender"
+	label	"Pre-Render Script Language"
+	type	string
+	nolabel
+	default	{ "hscript" }
+	menu	{
+	    "hscript"	"Hscript"
+	    "python"	"Python"
+	}
+	parmtag	{ "autoscope" "0000000000000000" }
+    }
+    parm {
+	name	"tpreframe"
+	label	"Pre-Frame Script"
+	type	toggle
+	nolabel
+	joinnext
+	default	{ "on" }
+	parmtag	{ "autoscope" "0000000000000000" }
+    }
+    parm {
+	name	"preframe"
+	label	"Pre-Frame Script"
+	type	file
+	joinnext
+	default	{ "" }
+	menureplace	{
+	    [ "opmenu -l ropnet/filmboxfbx1 preframe" ]
+	}
+	parmtag	{ "autoscope" "0000000000000000" }
+	parmtag	{ "filechooser_mode" "read" }
+    }
+    parm {
+	name	"lpreframe"
+	label	"Pre-Frame Script Language"
+	type	string
+	nolabel
+	default	{ "hscript" }
+	menu	{
+	    "hscript"	"Hscript"
+	    "python"	"Python"
+	}
+	parmtag	{ "autoscope" "0000000000000000" }
+    }
+    parm {
+	name	"tpostframe"
+	label	"Post-Frame Script"
+	type	toggle
+	nolabel
+	joinnext
+	default	{ "on" }
+	parmtag	{ "autoscope" "0000000000000000" }
+    }
+    parm {
+	name	"postframe"
+	label	"Post-Frame Script"
+	type	file
+	joinnext
+	default	{ "" }
+	menureplace	{
+	    [ "opmenu -l ropnet/filmboxfbx1 postframe" ]
+	}
+	parmtag	{ "autoscope" "0000000000000000" }
+	parmtag	{ "filechooser_mode" "read" }
+    }
+    parm {
+	name	"lpostframe"
+	label	"Post-Frame Script Language"
+	type	string
+	nolabel
+	default	{ "hscript" }
+	menu	{
+	    "hscript"	"Hscript"
+	    "python"	"Python"
+	}
+	parmtag	{ "autoscope" "0000000000000000" }
+    }
+    parm {
+	name	"tpostrender"
+	label	"Post-Render Script"
+	type	toggle
+	nolabel
+	joinnext
+	default	{ "on" }
+	parmtag	{ "autoscope" "0000000000000000" }
+    }
+    parm {
+	name	"postrender"
+	label	"Post-Render Script"
+	type	file
+	joinnext
+	default	{ "" }
+	menureplace	{
+	    [ "opmenu -l ropnet/filmboxfbx1 postrender" ]
+	}
+	parmtag	{ "autoscope" "0000000000000000" }
+	parmtag	{ "filechooser_mode" "read" }
+    }
+    parm {
+	name	"lpostrender"
+	label	"Post-Render Script Language"
+	type	string
+	nolabel
+	default	{ "hscript" }
+	menu	{
+	    "hscript"	"Hscript"
+	    "python"	"Python"
+	}
+	parmtag	{ "autoscope" "0000000000000000" }
+    }
+}

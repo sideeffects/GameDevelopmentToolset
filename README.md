@@ -36,9 +36,9 @@ Be sure to merge as needed! *If you're copying and not cloning, the files should
         HOUDINI_PATH = "/Users/<USER>/Library/Preferences/houdini/[ver#]/<CUSTOM_DIR>;&"  # OSX
         HOUDINI_PATH = "/home/<USER>/houdini[ver#]/<CUSTOM_DIR>;&"                        # Linux
 
-   If `HOUDINI_PATH` already has an entry, you can concatenate both paths:
+   If `HOUDINI_PATH` already has an entry, you can concatenate the paths (separated by a semicolon):
         
-        HOUDINI_PATH = "PATH/TO/DIRECTORY; PATH/TO/ANOTHER/DIRECTORY; &"
+        HOUDINI_PATH = "PATH/TO/DIRECTORY;PATH/TO/ANOTHER/DIRECTORY;&"
         
         
    In case [`houdini.env`](http://www.sidefx.com/docs/houdini/basics/config_env#setting-environment-variables) file doesn’t already exist, you can copy the provided `houdini.env` file of this repository into the following folders depending on your operating system:

@@ -28,19 +28,115 @@
 import urllib
 import json
 import zipfile
+import platform
+
 from PySide2.QtCore import *
 from PySide2.QtGui import *
 from PySide2.QtWidgets import *
 import hou
 
-HOU_SETTINGS_AVAILABLE = 1
-try:
-    import hou_settings
-except:
-    HOU_SETTINGS_AVAILABLE = 0
-
 REPO_URL = 'https://api.github.com/repos/sideeffects/GameDevelopmentToolset'
-BRANCHES = ["Houdini 16.0", "Development"]
+BRANCHES = ["Houdini16.0", "Development"]
+
+SETTINGS_FILE = os.path.join(os.getenv("HOUDINI_USER_PREF_DIR"), "gamedevtoolset.json")
+HOUDINI_ENV = os.path.join(os.getenv("HOUDINI_USER_PREF_DIR"), "houdini.env")
+
+HOU_TEMP_PATH = os.path.join(os.getenv("APPDATA"), "SideFX", "GameDevToolset")
+HOU_TEMP_PATH_STR = "$APPDATA\\SideFX\\GameDevToolset"
+
+class UpdateDialog(QDialog):
+
+    def __init__(self, parent, updater_object):
+        super(UpdateDialog, self).__init__(parent)
+        self.setWindowTitle("Update Game Development Toolset")
+        self.updater_object = updater_object
+
+        self.current_version = None
+        self.current_branch = None
+
+        if self.updater_object.current_version:
+            self.current_version = self.updater_object.current_version
+        if self.updater_object.current_branch:
+            self.current_branch = self.updater_object.current_branch
+
+        self.build_ui()
+
+    def build_ui(self):
+        installed_group = QGroupBox("Installed Version")
+        spacer = QLabel("")
+
+        # Current Version
+        current_version_layout = QHBoxLayout()
+        current_version_lbl = QLabel("Installed Release: ")
+        current_version = self.current_version
+        if not current_version:
+            current_version = "Unknown"
+
+        current_version_value_lbl = QLabel(current_version)
+
+        current_version_layout.addWidget(current_version_lbl)
+        current_version_layout.addWidget(current_version_value_lbl)
+
+        # Current Branch
+        current_branch_layout = QHBoxLayout()
+        current_branch_lbl = QLabel("Installed Branch: ")
+        current_branch = self.current_branch
+        if not current_branch:
+            current_branch = "Unknown"
+        current_branch_value_lbl = QLabel(current_branch)
+
+        current_branch_layout.addWidget(current_branch_lbl)
+        current_branch_layout.addWidget(current_branch_value_lbl)
+
+        group_layout = QVBoxLayout(installed_group)
+
+        group_layout.addLayout(current_version_layout)
+        group_layout.addLayout(current_branch_layout)
+
+        # Update
+        version_layout = QHBoxLayout()
+        update_version_label = QLabel("Update to Release:")
+
+        self.version_combo = QComboBox(self)
+        for release in self.updater_object.releases:
+            self.version_combo.addItem(release)
+
+        version_layout.addWidget(update_version_label)
+        version_layout.addWidget(self.version_combo)
+
+        branch_layout = QHBoxLayout()
+        update_branch_label = QLabel("Update to Branch:")
+        self.branch_combo = QComboBox(self)
+        for branch in BRANCHES:
+            self.branch_combo.addItem(branch)
+
+        if self.current_branch:
+            current_index = BRANCHES.index(self.current_branch)
+            self.branch_combo.setCurrentIndex(current_index)
+
+        branch_layout.addWidget(update_branch_label)
+        branch_layout.addWidget(self.branch_combo)
+
+        self.button = QPushButton("Update the Tools")
+        self.button.clicked.connect(self.on_btn_press)
+        layout = QVBoxLayout()
+
+        layout.addWidget(installed_group)
+        layout.addWidget(spacer)
+        layout.addLayout(version_layout)
+        layout.addLayout(branch_layout)
+
+        layout.addWidget(spacer)
+        layout.addWidget(self.button)
+        self.setLayout(layout)
+
+    def on_btn_press(self):
+        version = self.version_combo.currentText()
+        branch = self.branch_combo.currentText()
+        self.updater_object.on_dialog_close(version, branch)
+
+        self.close()
+
 
 class GameDevelopmentUpdater(object):
 
@@ -66,8 +162,10 @@ class GameDevelopmentUpdater(object):
 
     def download_url(self, url):
         filename = os.path.basename(url)
-        local_path = os.path.join(os.getenv("HOUDINI_USER_PREF_DIR"), filename)
-        urllib.urlretrieve (url, local_path)
+        local_path = os.path.join(HOU_TEMP_PATH, filename)
+        if not os.path.exists(os.path.dirname(local_path)):
+            os.makedirs(os.path.dirname(local_path))
+        urllib.urlretrieve(url, local_path)
         return local_path
 
     def get_download_path(self, version, branch):
@@ -75,7 +173,7 @@ class GameDevelopmentUpdater(object):
         data = response.read()
         j_data = json.loads(data)
         for asset in j_data["assets"]:
-            if branch in asset["browser_download_url"]:
+            if branch in os.path.basename(asset["browser_download_url"]):
                 return asset["browser_download_url"]
 
     def unzip_file(self, zip_file, destination_path):
@@ -83,16 +181,21 @@ class GameDevelopmentUpdater(object):
         zipf.extractall(destination_path)
 
     def load_settings(self):
-        if HOU_SETTINGS_AVAILABLE:
-            settings = hou_settings.Settings("gamedevtoolset")
-            self.current_version = settings.value("current_version")
-            self.current_branch = settings.value("current_branch")
+        try:
+            with open(SETTINGS_FILE, 'r') as fp:
+                settings = json.load(fp)
+                self.current_version = settings["current_version"]
+                self.current_branch = settings["current_branch"]
+        except:
+            self.current_version = None
+            self.current_branch = None
 
     def store_settings(self):
-        if HOU_SETTINGS_AVAILABLE:
-            settings = hou_settings.Settings("gamedevtoolset")
-            settings.set("current_version", self.desired_version)
-            settings.set("current_branch", self.desired_branch)
+        settings = {"current_version": self.desired_version,
+                    "current_branch": self.desired_branch}
+
+        with open(SETTINGS_FILE, 'w') as fp:
+            json.dump(settings, fp)
 
     def show_success_dialog(self):
         msg = QMessageBox()
@@ -109,94 +212,47 @@ class GameDevelopmentUpdater(object):
 
         download_url = self.get_download_path(version, branch)
         local_path = self.download_url(download_url)
-        self.unzip_file(local_path, os.getenv("HOUDINI_USER_PREF_DIR"))
+        self.unzip_file(local_path, os.path.join(HOU_TEMP_PATH, version, branch))
         os.remove(local_path)
+        self.patch_houdini_env(version, branch)
         self.store_settings()
         self.show_success_dialog()
 
+    def patch_houdini_env(self, version, branch):
+        filepath = HOUDINI_ENV
+        if platform.system() == "Windows":
+            sep = ";"
+            quote_char = ""
+        else:
+            sep = ":"
+            quote_char = "\""
 
-class UpdateDialog(QDialog):
+        to_write = []
+        with open(filepath, "r") as fp:
+            for line in fp.readlines():
+                if "# GAME DEVELOPMENT TOOLSET" in line:
+                    continue
 
-    def __init__(self, parent, updater_object):
-        super(UpdateDialog, self).__init__(parent)
-        self.setWindowTitle("Update Game Development Toolset")
-        self.updater_object = updater_object
+                if HOU_TEMP_PATH_STR in line:
+                    continue
 
-        self.current_version = "Unknown"
-        self.current_branch = "Unknown"
-        if self.updater_object.current_version:
-            self.current_version = self.updater_object.current_version
-        if self.updater_object.current_branch:
-            self.current_branch = self.updater_object.current_branch
+                to_write.append(line)
 
-        self.build_ui()
+        if to_write[-1] != "\n":
+            to_write.append("\n")
 
-    def build_ui(self):
-        installed_group = QGroupBox("Installed Version")
-        spacer = QLabel("")
-        group_layout = QVBoxLayout(installed_group)
-        current_version_layout = QHBoxLayout()
-        current_version_lbl = QLabel("Installed Release: ")
-        current_version_value_lbl = QLabel(self.current_version)
+        to_write.append("# GAME DEVELOPMENT TOOLSET\n")
 
-        current_version_layout.addWidget(current_version_lbl)
-        current_version_layout.addWidget(current_version_value_lbl)
+        entry = "HOUDINI_PATH = "
+        entry += quote_char + HOU_TEMP_PATH_STR + "\\"
+        entry += version + "\\" + branch
+        entry += sep + "$HOUDINI_PATH" + sep + "&" + quote_char + "\n"
 
-        current_branch_layout = QHBoxLayout()
-        current_branch_lbl = QLabel("Installed Branch: ")
-        current_branch_value_lbl = QLabel(self.current_branch)
+        to_write.append(entry)
 
-        current_branch_layout.addWidget(current_branch_lbl)
-        current_branch_layout.addWidget(current_branch_value_lbl)
-
-        group_layout.addLayout(current_version_layout)
-        group_layout.addLayout(current_branch_layout)
-
-        version_layout = QHBoxLayout()
-        update_version_label = QLabel("Update to Release:")
-        self.version_combo = QComboBox(self)
-        for release in self.updater_object.releases:
-            self.version_combo.addItem(release)
-
-        version_layout.addWidget(update_version_label)
-        version_layout.addWidget(self.version_combo)
-
-        branch_layout = QHBoxLayout()
-        update_branch_label = QLabel("Update to Branch:")
-        self.branch_combo = QComboBox(self)
-        for branch in BRANCHES:
-            self.branch_combo.addItem(branch)
-
-        if self.current_branch:
-            current_index = BRANCHES.index(self.current_branch)
-            self.branch_combo.setCurrentIndex(current_index)
-
-        branch_layout.addWidget(update_branch_label)
-        branch_layout.addWidget(self.branch_combo)
-
-        self.edit = QLineEdit("Write my name here..")
-        self.button = QPushButton("Update the Tools")
-        self.button.clicked.connect(self.on_btn_press)
-        layout = QVBoxLayout()
-
-        layout.addWidget(installed_group)
-        layout.addWidget(spacer)
-        layout.addLayout(version_layout)
-        layout.addLayout(branch_layout)
-
-        layout.addWidget(spacer)
-
-        layout.addWidget(self.button)
-        # Set dialog layout
-        self.setLayout(layout)
-
-    def on_btn_press(self):
-        version = self.version_combo.currentText()
-        branch = self.branch_combo.currentText()
-        self.updater_object.on_dialog_close(version, branch)
-
-        self.close()
-
+        with open(filepath, "w") as fp:
+            for line in to_write:
+                fp.write(line)
 
 GameDevelopmentUpdater()]]></script>
   </tool>

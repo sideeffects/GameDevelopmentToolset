@@ -3,11 +3,13 @@
 {
     name	rop_games_baker
     script	rop_games_baker
-    label	"Games Baker"
+    label	"GameDev Games Baker"
 
     help {
 	""
     }
+
+    inputlabel	1	"Sub-Network Input #1"
 
     parm {
 	name	"execute"
@@ -287,6 +289,13 @@
 	    label	"Ray Bias"
 	    type	float
 	    default	{ "0.01" }
+	    range	{ 0 10 }
+	}
+	parm {
+	    name	"ray_distance"
+	    label	"Ray Distance"
+	    type	float
+	    default	{ "-1" }
 	    range	{ 0 10 }
 	}
     }

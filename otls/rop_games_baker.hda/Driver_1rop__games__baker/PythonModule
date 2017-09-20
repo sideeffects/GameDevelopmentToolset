@@ -112,7 +112,10 @@ def pre_bake(node):
             singles_rop.bypass(0)
             singles_rop.render()
             singles_rop.bypass(1)
-
+        
+    for exr in tmp_exrs:
+        os.remove(exr)
+        
     # Render out Custom Bake Nodes
     custom_tmp_exrs = []
     multiparm_count = node.parm("custom_channels").eval()
@@ -189,9 +192,6 @@ def pre_bake(node):
         singles_rop.bypass(1)
 
     for exr in custom_tmp_exrs:
-        os.remove(exr)
-        
-    for exr in tmp_exrs:
         os.remove(exr)
         
     composite_net = node.node("composite_net")

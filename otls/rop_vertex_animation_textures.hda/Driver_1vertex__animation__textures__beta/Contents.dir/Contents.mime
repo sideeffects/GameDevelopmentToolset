@@ -31,7 +31,7 @@ Content-Disposition: attachment; filename="hdaroot.def"
 Content-Type: text/plain
 
 comment ""
-position -3.69412 -0.240188
+position -2.77981 0.594349
 connectornextid 0
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
@@ -45,9 +45,9 @@ inputs
 }
 stat
 {
-  create 1494538268
-  modify 1505942259
-  author mike@mikembp.local
+  create 1507726963
+  modify 1507727355
+  author mikel@mikembp-sesi.local
   access 0777
 }
 color UT_Color RGB 0.8 0.8 0.8 
@@ -84,7 +84,7 @@ Content-Type: text/plain
 }
 {
   create 1480965977
-  modify 1505942166
+  modify 1507726973
   author Luiz@Luiz-PC
   access 0777
 }
@@ -107,7 +107,7 @@ Content-Type: text/plain
 }
 {
   create 1480966065
-  modify 1505941076
+  modify 1507726966
   author Luiz@Luiz-PC
   access 0777
 }
@@ -130,7 +130,7 @@ Content-Type: text/plain
 }
 {
   create 1480966168
-  modify 1505941084
+  modify 1507726973
   author Luiz@Luiz-PC
   access 0777
 }
@@ -153,7 +153,7 @@ Content-Type: text/plain
 }
 {
   create 1480966168
-  modify 1505941081
+  modify 1507726970
   author Luiz@Luiz-PC
   access 0777
 }
@@ -1382,7 +1382,7 @@ inputs
 stat
 {
   create 1479856537
-  modify 1505941698
+  modify 1507727027
   author Luiz@Luiz-PC
   access 0777
 }
@@ -5659,7 +5659,7 @@ inputs
 stat
 {
   create 1479856537
-  modify 1505941698
+  modify 1507727027
   author Luiz@Luiz-PC
   access 0777
 }
@@ -14510,7 +14510,7 @@ inputs
 stat
 {
   create 1479856537
-  modify 1505941698
+  modify 1507727027
   author Luiz@Luiz-PC
   access 0777
 }
@@ -21222,7 +21222,7 @@ inputs
 stat
 {
   create 1479856537
-  modify 1505941698
+  modify 1507727027
   author Luiz@Luiz-PC
   access 0777
 }
@@ -21753,7 +21753,7 @@ ogl_alpha	[ 0	locks=0 ]	(	1	)
 ogl_cutout	[ 0	locks=0 ]	(	"on"	)
 ogl_amb	[ 0	locks=0 ]	(	1	1	1	)
 sepparm12	[ 0	locks=0 ]	(	)
-ogl_diff	[ 0	locks=0 ]	(	[ ogl_diffr	0 ] 	[ ogl_diffg	0 ] 	[ ogl_diffb	0 ] 	)
+ogl_diff	[ 0	locks=0 ]	(	[ ogl_diffr	1 ] 	[ ogl_diffg	1 ] 	[ ogl_diffb	1 ] 	)
 ogl_numtex	[ 0	locks=0	autoscope=0 ]	(	1	)
 ogl_tex1	[ 0	locks=0	autoscope=0 ]	(	`chs(\"dif_map\")`	)
 ogl_tex_min_filter1	[ 0	locks=0	autoscope=0 ]	(	GL_LINEAR_MIPMAP_LINEAR	)
@@ -29247,7 +29247,7 @@ inputs
 stat
 {
   create 1499288894
-  modify 1505932714
+  modify 1507726967
   author mikel@mikembp-sesi.local
   access 0777
 }
@@ -37824,7 +37824,7 @@ inputs
 stat
 {
   create 1499288894
-  modify 1505932714
+  modify 1507726967
   author mikel@mikembp-sesi.local
   access 0777
 }
@@ -43566,7 +43566,7 @@ inputs
 stat
 {
   create 1499288894
-  modify 1505932714
+  modify 1507726967
   author mikel@mikembp-sesi.local
   access 0777
 }
@@ -50318,7 +50318,7 @@ posthold	[ 0	locks=0 ]	(	0	)
 stdswitcher5	[ 0	locks=0 ]	(	0	0	0	0	)
 geo	[ 0	locks=0 ]	(	op:`opfullpath(\"../../sprite_obj/TEXTURE_MESH/SIM_GEO1\")	)
 Target_Texture_Size	[ 0	locks=0 ]	(	[ Target_Texture_Size	1024 ] 	)
-No_Of_Points	[ 8	locks=0 ]	(	[ No_Of_Points	3000 ] 	)
+No_Of_Points	[ 8	locks=0 ]	(	[ No_Of_Points	0 ] 	)
 rbd_delta_export_attribute	[ 0	locks=0 ]	(	`chs(\"../../sprite_delta_export_attribute\")`	)
 }
 
@@ -52172,7 +52172,7 @@ inputs
 stat
 {
   create 1499288894
-  modify 1505941638
+  modify 1507726967
   author mikel@mikembp-sesi.local
   access 0777
 }
@@ -69122,7 +69122,7 @@ inputs
 stat
 {
   create 1427214479
-  modify 1491580790
+  modify 1507727291
   author mlyndon@MLYNDON-PC1.northamerica.corp.microsoft.com
   access 0777
 }
@@ -69141,7 +69141,7 @@ Content-Type: text/plain
       righttype = extend
       default = 1024
       flags = 0
-      segment { length = 0 value = 1024 1024 expr = npoints(\"../../REDUCED_MESH/MAX_POINTS/\") }
+      segment { length = 0 value = 1024 1024 expr = "detail(\"../../../sprite_obj/REDUCED_MESH/MAX_POINTS\", \"max_pts\", 0)" }
     }
   }
 
@@ -69160,7 +69160,7 @@ densityattrib	[ 0	locks=0 ]	(	density	)
 useareaattrib	[ 0	locks=0 ]	(	"off"	)
 areaattrib	[ 0	locks=0 ]	(	area	)
 forcetotal	[ 0	locks=0 ]	(	"on"	)
-npts	[ 8	locks=0 ]	(	[ npts	595 ] 	)
+npts	[ 8	locks=0 ]	(	[ npts	0 ] 	)
 usedensitytexture	[ 0	locks=0 ]	(	"off"	)
 densitytexture	[ 0	locks=0 ]	(	default.pic	)
 primcountattrib	[ 0	locks=0 ]	(	count	)
@@ -69270,7 +69270,7 @@ r	[ 0	locks=0 ]	(	0	0	0	)
 s	[ 8	locks=0 ]	(	1	1	1	)
 shear	[ 0	locks=0 ]	(	0	0	0	)
 p	[ 0	locks=0 ]	(	0	0	0	)
-scale	[ 8	locks=0 ]	(	[ scale	0.00062500009536744616 ] 	)
+scale	[ 8	locks=0 ]	(	[ scale	0 ] 	)
 movecentroid	[ 0	locks=0 ]	(	0	)
 attribs	[ 0	locks=0 ]	(	*	)
 updatenmls	[ 0	locks=0 ]	(	"off"	)
@@ -69359,7 +69359,7 @@ r	[ 0	locks=0 ]	(	0	0	0	)
 s	[ 0	locks=0 ]	(	1	1	1	)
 shear	[ 0	locks=0 ]	(	0	0	0	)
 p	[ 0	locks=0 ]	(	0	0	0	)
-scale	[ 8	locks=0 ]	(	[ scale	1599.999755859375 ] 	)
+scale	[ 8	locks=0 ]	(	[ scale	0 ] 	)
 movecentroid	[ 0	locks=0 ]	(	0	)
 attribs	[ 0	locks=0 ]	(	*	)
 updatenmls	[ 0	locks=0 ]	(	"off"	)
@@ -69546,7 +69546,7 @@ Content-Type: text/plain
 version 0.8
 itermethod	[ 0	locks=0 ]	(	"count"	)
 method	[ 0	locks=0 ]	(	"feedback"	)
-iterations	[ 8	locks=0 ]	(	[ iterations	99 ] 	)
+iterations	[ 8	locks=0 ]	(	[ iterations	239 ] 	)
 startvalue	[ 0	locks=0 ]	(	1	)
 increment	[ 0	locks=0 ]	(	1	)
 class	[ 0	locks=0 ]	(	"point"	)
@@ -69728,7 +69728,7 @@ Content-Type: text/plain
 {
 version 0.8
 method	[ 0	locks=0 ]	(	"byframe"	)
-frame	[ 8	locks=0 ]	(	[ frame	99 ] 	)
+frame	[ 8	locks=0 ]	(	[ frame	239 ] 	)
 integerframe	[ 0	locks=0 ]	(	"on"	)
 time	[ 0	locks=0 ]	(	[ time	1.7916666666666667 ] 	)
 rangeclamp	[ 0	locks=0 ]	(	"none"	)
@@ -69776,7 +69776,7 @@ inputs
 stat
 {
   create 1486172943
-  modify 1505954370
+  modify 1507727651
   author Luiz@LAPTOP-LKBBB5D4
   access 0777
 }
@@ -69977,7 +69977,7 @@ inputs
 stat
 {
   create 1486172928
-  modify 1505954282
+  modify 1507727650
   author Luiz@LAPTOP-LKBBB5D4
   access 0777
 }
@@ -70212,7 +70212,7 @@ Content-Type: text/plain
 version 0.8
 itermethod	[ 0	locks=0 ]	(	"count"	)
 method	[ 0	locks=0 ]	(	"merge"	)
-iterations	[ 8	locks=0 ]	(	[ iterations	99 ] 	)
+iterations	[ 8	locks=0 ]	(	[ iterations	239 ] 	)
 startvalue	[ 0	locks=0 ]	(	1	)
 increment	[ 0	locks=0 ]	(	1	)
 class	[ 0	locks=0 ]	(	"point"	)
@@ -70331,7 +70331,7 @@ inputs
 stat
 {
   create 1505935989
-  modify 1505941416
+  modify 1507727751
   author mikel@mikembp-sesi.local
   access 0777
 }
@@ -70453,7 +70453,7 @@ Content-Type: text/plain
 {
 version 0.8
 method	[ 0	locks=0 ]	(	"byframe"	)
-frame	[ 8	locks=0 ]	(	[ frame	99 ] 	)
+frame	[ 8	locks=0 ]	(	[ frame	239 ] 	)
 integerframe	[ 0	locks=0 ]	(	"on"	)
 time	[ 0	locks=0 ]	(	[ time	1.7916666666666667 ] 	)
 rangeclamp	[ 0	locks=0 ]	(	"none"	)
@@ -79346,7 +79346,7 @@ inputs
 stat
 {
   create 1499279728
-  modify 1500056803
+  modify 1507727214
   author mikel@mikembp-sesi.local
   access 0777
 }
@@ -79365,14 +79365,14 @@ Content-Type: text/plain
       righttype = extend
       default = 1920
       flags = 0
-      segment { length = 0 value = 1920 1920 expr = min(npoints(\"../../soft_obj/STATIC_MESH/SIM_GEO\"),ch(\"../../target_texture_size\")) }
+      segment { length = 0 value = 1920 1920 expr = "min(detail(\"../../sprite_obj/REDUCED_MESH/MAX_POINTS\", \"max_pts\", 0),ch(\"../../target_texture_size\"))" }
     }
     channel size2 {
       lefttype = extend
       righttype = extend
       default = 1080
       flags = 0
-      segment { length = 0 value = 1080 1080 expr = "(ch(\"../../fFrame\") - ch(\"../../iFrame\")) * ceil(npoints(\"../../soft_obj/STATIC_MESH/SIM_GEO\")/ch(\"../../target_texture_size\"))" }
+      segment { length = 0 value = 1080 1080 expr = "(ch(\"../../fFrame\") - ch(\"../../iFrame\")) * ceil(detail(\"../../sprite_obj/REDUCED_MESH/MAX_POINTS\", \"max_pts\", 0)/ch(\"../../target_texture_size\"))" }
     }
     channel aspect {
       lefttype = extend
@@ -79409,7 +79409,7 @@ maskplane	[ 0	locks=0 ]	(	A	)
 maskresize	[ 0	locks=0 ]	(	"off"	)
 maskinvert	[ 0	locks=0 ]	(	"off"	)
 overridesize	[ 0	locks=0 ]	(	"on"	)
-size	[ 0	locks=0 ]	(	[ size1	1024 ] 	[ size2	297 ] 	)
+size	[ 8	locks=0 ]	(	[ size1	0 ] 	[ size2	0 ] 	)
 sizemenu	[ 0	locks=0 ]	(	0	)
 overrideaspect	[ 0	locks=0 ]	(	"off"	)
 aspect	[ 0	locks=0 ]	(	[ aspect	1 ] 	)

@@ -33,4 +33,19 @@
 	type	toggle
 	default	{ "0" }
     }
+    parm {
+	name	"gen_nodata"
+	label	"Generate Buildings on Missing Data"
+	type	toggle
+	default	{ "0" }
+    }
+    parm {
+	name	"height_range"
+	label	"Height Range"
+	type	float_minmax
+	size	2
+	default	{ "10" "30" }
+	disablewhen	"{ gen_nodata == 0 }"
+	range	{ 0 10 }
+    }
 }

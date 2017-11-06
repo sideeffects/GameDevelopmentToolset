@@ -1,0 +1,361 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<shelfDocument>
+  <!-- This file contains definitions of shelves, toolbars, and tools.
+ It should not be hand-edited when it is being used by the application.
+ Note, that two definitions of the same element are not allowed in
+ a single file. -->
+
+  <toolshelf name="games_development_toolset" label="Game Development Toolset">
+    <memberTool name="update_toolset"/>
+    <memberTool name="rop_games_baker"/>
+    <memberTool name="rop_texture_sheets0"/>
+    <memberTool name="rop_motion_vectors::1.0"/>
+    <memberTool name="rop_rbd_to_fbx1"/>
+    <memberTool name="sop_static_fracture_export"/>
+    <memberTool name="rop_csv_exporter"/>
+    <memberTool name="rop_vector_field::1"/>
+    <memberTool name="rop_volume_texture::1"/>
+    <memberTool name="sop_make_loop1"/>
+    <memberTool name="sop_mark_seams"/>
+    <memberTool name="sop_osm_importer"/>
+    <memberTool name="sop_instant_meshes_bridge0"/>
+    <memberTool name="sop_create_flowmap0"/>
+    <memberTool name="sop_pivotpainter"/>
+  </toolshelf>
+
+  <tool name="update_toolset" label="Update Toolset" icon="CHOP_joystick">
+    <script scriptType="python"><![CDATA[import os
+import urllib
+import json
+import zipfile
+import platform
+
+from PySide2.QtCore import *
+from PySide2.QtGui import *
+from PySide2.QtWidgets import *
+import hou
+
+REPO_URL = 'https://api.github.com/repos/sideeffects/GameDevelopmentToolset'
+BRANCHES = ["Houdini16.0", "Development"]
+
+SETTINGS_FILE = os.path.join(os.getenv("HOUDINI_USER_PREF_DIR"), "gamedevtoolset.json")
+HOUDINI_ENV = os.path.join(os.getenv("HOUDINI_USER_PREF_DIR"), "houdini.env")
+
+HOU_TEMP_PATH = os.path.join(os.getenv("APPDATA"), "SideFX", "GameDevToolset")
+HOU_TEMP_PATH_STR = "$APPDATA\\SideFX\\GameDevToolset"
+
+class UpdateDialog(QDialog):
+
+    def __init__(self, parent, updater_object):
+        super(UpdateDialog, self).__init__(parent)
+        self.setWindowTitle("Update Game Development Toolset")
+        self.updater_object = updater_object
+
+        self.current_version = None
+        self.current_branch = None
+
+        if self.updater_object.current_version:
+            self.current_version = self.updater_object.current_version
+        if self.updater_object.current_branch:
+            self.current_branch = self.updater_object.current_branch
+
+        self.build_ui()
+
+    def build_ui(self):
+        installed_group = QGroupBox("Installed Version")
+        spacer = QLabel("")
+
+        # Current Version
+        current_version_layout = QHBoxLayout()
+        current_version_lbl = QLabel("Installed Release: ")
+        current_version = self.current_version
+        if not current_version:
+            current_version = "Unknown"
+
+        current_version_value_lbl = QLabel(current_version)
+
+        current_version_layout.addWidget(current_version_lbl)
+        current_version_layout.addWidget(current_version_value_lbl)
+
+        # Current Branch
+        current_branch_layout = QHBoxLayout()
+        current_branch_lbl = QLabel("Installed Branch: ")
+        current_branch = self.current_branch
+        if not current_branch:
+            current_branch = "Unknown"
+        current_branch_value_lbl = QLabel(current_branch)
+
+        current_branch_layout.addWidget(current_branch_lbl)
+        current_branch_layout.addWidget(current_branch_value_lbl)
+
+        group_layout = QVBoxLayout(installed_group)
+
+        group_layout.addLayout(current_version_layout)
+        group_layout.addLayout(current_branch_layout)
+
+        # Update
+        version_layout = QHBoxLayout()
+        update_version_label = QLabel("Update to Release:")
+
+        self.version_combo = QComboBox(self)
+        for release in self.updater_object.releases:
+            self.version_combo.addItem(release)
+
+        version_layout.addWidget(update_version_label)
+        version_layout.addWidget(self.version_combo)
+
+        branch_layout = QHBoxLayout()
+        update_branch_label = QLabel("Update to Branch:")
+        self.branch_combo = QComboBox(self)
+        for branch in BRANCHES:
+            self.branch_combo.addItem(branch)
+
+        if self.current_branch:
+            current_index = BRANCHES.index(self.current_branch)
+            self.branch_combo.setCurrentIndex(current_index)
+
+        branch_layout.addWidget(update_branch_label)
+        branch_layout.addWidget(self.branch_combo)
+
+        self.button = QPushButton("Update the Tools")
+        self.button.clicked.connect(self.on_btn_press)
+        layout = QVBoxLayout()
+
+        layout.addWidget(installed_group)
+        layout.addWidget(spacer)
+        layout.addLayout(version_layout)
+        layout.addLayout(branch_layout)
+
+        layout.addWidget(spacer)
+        layout.addWidget(self.button)
+        self.setLayout(layout)
+
+    def on_btn_press(self):
+        version = self.version_combo.currentText()
+        branch = self.branch_combo.currentText()
+        self.updater_object.on_dialog_close(version, branch)
+
+        self.close()
+
+
+class GameDevelopmentUpdater(object):
+
+    def __init__(self):
+        self.releases = []
+        self.desired_version = None
+        self.desired_branch = None
+
+        self.load_settings()
+        self.get_releases()
+        self.show_dialog()
+
+    def get_releases(self):
+        response = urllib.urlopen(REPO_URL + "/releases")
+        data = response.read()
+        j_data = json.loads(data)
+        for release in j_data:
+            self.releases.append(release["tag_name"])
+
+    def show_dialog(self):
+        dialog = UpdateDialog(hou.ui.mainQtWindow(), self)
+        dialog.show()
+
+    def download_url(self, url):
+        filename = os.path.basename(url)
+        local_path = os.path.join(HOU_TEMP_PATH, filename)
+        if not os.path.exists(os.path.dirname(local_path)):
+            os.makedirs(os.path.dirname(local_path))
+        urllib.urlretrieve(url, local_path)
+        return local_path
+
+    def get_download_path(self, version, branch):
+        response = urllib.urlopen(REPO_URL + "/releases/tags/" + version)
+        data = response.read()
+        j_data = json.loads(data)
+        for asset in j_data["assets"]:
+            if branch in os.path.basename(asset["browser_download_url"]):
+                return asset["browser_download_url"]
+
+    def unzip_file(self, zip_file, destination_path):
+        zipf = zipfile.ZipFile(zip_file, 'r', zipfile.ZIP_DEFLATED)
+        zipf.extractall(destination_path)
+
+    def load_settings(self):
+        try:
+            with open(SETTINGS_FILE, 'r') as fp:
+                settings = json.load(fp)
+                self.current_version = settings["current_version"]
+                self.current_branch = settings["current_branch"]
+        except:
+            self.current_version = None
+            self.current_branch = None
+
+    def store_settings(self):
+        settings = {"current_version": self.desired_version,
+                    "current_branch": self.desired_branch}
+
+        with open(SETTINGS_FILE, 'w') as fp:
+            json.dump(settings, fp)
+
+    def show_success_dialog(self):
+        msg = QMessageBox()
+        msg.setIcon(QMessageBox.Information)
+
+        msg.setText("Game Development Toolset Updated Successfully")
+        msg.setInformativeText("Please Restart Houdini to load all of the new tools")
+        msg.setWindowTitle("Success")
+        retval = msg.exec_()
+
+    def on_dialog_close(self, version, branch):
+        self.desired_version = version
+        self.desired_branch = branch
+
+        download_url = self.get_download_path(version, branch)
+        local_path = self.download_url(download_url)
+        self.unzip_file(local_path, os.path.join(HOU_TEMP_PATH, version, branch))
+        os.remove(local_path)
+        self.patch_houdini_env(version, branch)
+        self.store_settings()
+        self.show_success_dialog()
+
+    def patch_houdini_env(self, version, branch):
+        filepath = HOUDINI_ENV
+        if platform.system() == "Windows":
+            sep = ";"
+            quote_char = ""
+        else:
+            sep = ":"
+            quote_char = "\""
+
+        to_write = []
+        with open(filepath, "r") as fp:
+            for line in fp.readlines():
+                if "# GAME DEVELOPMENT TOOLSET" in line:
+                    continue
+
+                if HOU_TEMP_PATH_STR in line:
+                    continue
+
+                to_write.append(line)
+
+        if to_write[-1] != "\n":
+            to_write.append("\n")
+
+        to_write.append("# GAME DEVELOPMENT TOOLSET\n")
+
+        entry = "HOUDINI_PATH = "
+        entry += quote_char + HOU_TEMP_PATH_STR + "\\"
+        entry += version + "\\" + branch
+        entry += sep + "$HOUDINI_PATH" + sep + "&" + quote_char + "\n"
+
+        to_write.append(entry)
+
+        with open(filepath, "w") as fp:
+            for line in to_write:
+                fp.write(line)
+
+GameDevelopmentUpdater()]]></script>
+  </tool>
+
+  <tool name="rop_games_baker" label="Games Baker" icon="COMMON_bake">
+    <helpURL>operator:Driver/rop_games_baker</helpURL>
+    <script scriptType="python"><![CDATA[import roptoolutils
+roptoolutils.createRenderNode("rop_games_baker")
+]]></script>
+  </tool>
+
+  <tool name="rop_texture_sheets0" label="Texture Sheets" icon="COP2_mosaic">
+    <helpURL>operator:Driver/rop_texture_sheets</helpURL>
+    <script scriptType="python"><![CDATA[import roptoolutils
+roptoolutils.createRenderNode("rop_texture_sheets")
+]]></script>
+  </tool>
+
+  <tool name="rop_csv_exporter" label="CSV Exporter" icon="BUTTONS_jump_to_line">
+    <helpURL>operator:Driver/rop_csv_exporter</helpURL>
+    <script scriptType="python"><![CDATA[import roptoolutils
+roptoolutils.createRenderNode("rop_csv_exporter")
+]]></script>
+  </tool>
+
+  <tool name="rop_motion_vectors::1.0" label="Motion Vectors" icon="SHELF_convert_to_fire">
+    <helpURL>operator:Driver/rop_motion_vectors?version=1.0</helpURL>
+    <script scriptType="python"><![CDATA[import roptoolutils
+roptoolutils.createRenderNode("rop_motion_vectors")
+]]></script>
+  </tool>
+
+  <tool name="sop_static_fracture_export" label="Static Fracture Export" icon="SOP_shatter">
+    <helpURL>operator:Sop/sop_static_fracture_export</helpURL>
+    <script scriptType="python"><![CDATA[import soptoolutils
+soptoolutils.genericTool(kwargs, 'sop_static_fracture_export')]]></script>
+  </tool>
+
+  <tool name="sop_instant_meshes_bridge" label="Instant Meshes Bridge" icon="opdef:/Sop/sop_instant_meshes_bridge?IconImage">
+    <helpURL>operator:Sop/sop_instant_meshes_bridge</helpURL>
+    <script scriptType="python"><![CDATA[import soptoolutils
+soptoolutils.genericTool(kwargs, 'sop_instant_meshes_bridge')]]></script>
+  </tool>
+
+  <tool name="sop_mark_seams" label="Mark Seams" icon="TOOLS_select_mode_add">
+    <helpURL>operator:Sop/sop_mark_seams</helpURL>
+    <script scriptType="python"><![CDATA[import soptoolutils
+soptoolutils.genericTool(kwargs, 'sop_mark_seams')]]></script>
+  </tool>
+
+  <tool name="sop_osm_importer" label="OSM Importer" icon="opdef:/Sop/sop_osm_importer?IconImage">
+    <helpURL>operator:Sop/sop_osm_importer</helpURL>
+    <script scriptType="python"><![CDATA[import soptoolutils
+soptoolutils.genericTool(kwargs, 'sop_osm_importer')]]></script>
+  </tool>
+
+  <tool name="rop_vector_field::1" label="Vector Field (FGA)" icon="SOP_volumetrail">
+    <helpURL>operator:Sop/rop_vector_field?version=1</helpURL>
+    <script scriptType="python"><![CDATA[import roptoolutils
+roptoolutils.createRenderNode("rop_vector_field")
+]]></script>
+  </tool>
+
+  <tool name="rop_volume_texture::1" label="Volume Textures" icon="SOP_volumesdf">
+    <helpURL>operator:Sop/rop_volume_texture?version=1</helpURL>
+    <script scriptType="python"><![CDATA[import soptoolutils
+soptoolutils.genericTool(kwargs, 'rop_volume_texture')]]></script>
+  </tool>
+
+  <tool name="sop_create_flowmap0" label="Create FlowMap" icon="VOP_river">
+    <helpURL>operator:Sop/sop_create_flowmap</helpURL>
+    <script scriptType="python"><![CDATA[import soptoolutils
+soptoolutils.genericTool(kwargs, 'sop_create_flowmap')]]></script>
+  </tool>
+
+  <tool name="sop_make_loop1" label="Make Loop" icon="SOP_foreach">
+    <helpURL>operator:Sop/sop_make_loop</helpURL>
+    <script scriptType="python"><![CDATA[import soptoolutils
+soptoolutils.genericTool(kwargs, 'sop_make_loop')]]></script>
+  </tool>
+
+  <tool name="sop_make_loop" label="Make Loop" icon="SOP_foreach">
+    <helpURL>operator:Sop/sop_make_loop</helpURL>
+    <script scriptType="python"><![CDATA[import soptoolutils
+soptoolutils.genericTool(kwargs, 'sop_make_loop')]]></script>
+  </tool>
+
+  <tool name="sop_pivotpainter" label="Pivot Painter" icon="opdef:/Sop/sop_pivotpainter?IconSVG">
+    <helpURL>operator:Sop/sop_pivotpainter</helpURL>
+    <script scriptType="python"><![CDATA[import soptoolutils
+soptoolutils.genericTool(kwargs, 'sop_pivotpainter')]]></script>
+  </tool>
+
+  <tool name="sop_instant_meshes_bridge0" label="Instant Meshes Bridge" icon="opdef:/Sop/sop_instant_meshes_bridge?IconImage">
+    <helpURL>operator:Sop/sop_instant_meshes_bridge</helpURL>
+    <script scriptType="python"><![CDATA[import soptoolutils
+soptoolutils.genericTool(kwargs, 'sop_instant_meshes_bridge')]]></script>
+  </tool>
+
+  <tool name="rop_rbd_to_fbx1" label="RBD to FBX" icon="ROP_fbx">
+    <helpURL>operator:Driver/rop_rbd_to_fbx</helpURL>
+    <script scriptType="python"><![CDATA[import roptoolutils
+roptoolutils.createRenderNode("rop_rbd_to_fbx")
+]]></script>
+  </tool>
+</shelfDocument>

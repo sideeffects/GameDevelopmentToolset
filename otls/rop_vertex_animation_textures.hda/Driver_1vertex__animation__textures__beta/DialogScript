@@ -120,7 +120,7 @@
 	    type	toggle
 	    joinnext
 	    default	{ "0" }
-	    hidewhen	"{ method == 0 } { method == 1 }"
+	    hidewhen	"{ method == 1 }"
 	}
 	parm {
 	    name	"color_path"
@@ -128,7 +128,7 @@
 	    type	image
 	    default	{ "$HIP/export/${HIPNAME}_col.exr" }
 	    disablewhen	"{ export_color_map == 0 }"
-	    hidewhen	"{ method == 0 } { method == 1 }"
+	    hidewhen	"{ method == 1 }"
 	    range	{ 0 1 }
 	}
     }
@@ -293,6 +293,89 @@
 	    }
 	}
 
+    }
+
+    group {
+	name	"advanced_folder"
+	label	"Advanced"
+
+	parm {
+	    name	"cloth_delta_export_attribute"
+	    label	"Delta Export Attribute (P)"
+	    type	string
+	    default	{ "P" }
+	    hidewhen	"{ method != 0 }"
+	}
+	parm {
+	    name	"cloth_frame_export_attribute"
+	    label	"Frame Export Attribute (N)"
+	    type	string
+	    default	{ "N" }
+	    hidewhen	"{ method != 0 }"
+	}
+	parm {
+	    name	"rbd_delta_export_attribute"
+	    label	"Delta Export Attribute (P)"
+	    type	string
+	    default	{ "P" }
+	    hidewhen	"{ method != 1 }"
+	}
+	parm {
+	    name	"rbd_rest_export_attribute"
+	    label	"Rest Export Attribute (rest)"
+	    type	string
+	    default	{ "rest" }
+	    hidewhen	"{ method != 1 }"
+	}
+	parm {
+	    name	"rbd_frame_export_attribute"
+	    label	"Frame Export Attribute (orient)"
+	    type	string
+	    default	{ "orient" }
+	    hidewhen	"{ method != 1 }"
+	}
+	parm {
+	    name	"fluid_delta_export_attribute"
+	    label	"Delta Export Attribute (P)"
+	    type	string
+	    default	{ "P" }
+	    hidewhen	"{ method != 2 }"
+	}
+	parm {
+	    name	"fluid_colour_export_attribute"
+	    label	"Colour Export Attribute (Cd)"
+	    type	string
+	    default	{ "Cd" }
+	    hidewhen	"{ method != 2 }"
+	}
+	parm {
+	    name	"fluid_frame_export_attribute"
+	    label	"Frame Export Attribute (N)"
+	    type	string
+	    default	{ "N" }
+	    hidewhen	"{ method != 2 }"
+	}
+	parm {
+	    name	"sprite_delta_export_attribute"
+	    label	"Delta Export Attribute (P)"
+	    type	string
+	    default	{ "P" }
+	    hidewhen	"{ method != 3 }"
+	}
+	parm {
+	    name	"sprite_colour_export_attribute"
+	    label	"Colour Export Attribute (Cd)"
+	    type	string
+	    default	{ "Cd" }
+	    hidewhen	"{ method != 3 }"
+	}
+	parm {
+	    name	"sprite_alpha_export_attribute"
+	    label	"Colour Export Attribute (Alpha)"
+	    type	string
+	    default	{ "Alpha" }
+	    hidewhen	"{ method != 3 }"
+	}
     }
 
 }

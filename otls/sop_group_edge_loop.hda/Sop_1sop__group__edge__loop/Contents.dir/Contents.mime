@@ -20,22 +20,25 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position -3.45294 -0.984412
-connectornextid 0
-flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
+position -2.52941 0.709788
+connectornextid 2
+flags =  lock off model off template on footprint off xray off bypass off display on render on highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
 {
+1 "output1"
 }
 inputsNamed3
 {
+0 	group2 0 1 "input1"
 }
 inputs
 {
+0 	group2 0 1
 }
 stat
 {
-  create 1502310027
-  modify 1502310065
+  create 1504401352
+  modify 1504403559
   author Luiz@Luiz-PC
   access 0777
 }
@@ -63,146 +66,6 @@ Content-Type: text/plain
 0 0 6 2 0 __NO_OWNER_NETWORK_BOX__ "FROMOUTPUT"
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot/edge_loop.init"
-Content-Type: text/plain
-
-type = python
-matchesdef = 0
-
---HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot/edge_loop.def"
-Content-Type: text/plain
-
-sopflags sopflags = 
-comment ""
-position -1.11759e-08 4.72348
-connectornextid 2
-flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
-outputsNamed3
-{
-1 "output1"
-}
-inputsNamed3
-{
-0 	(0) "" 1 "input1"
-}
-inputs
-{
-0 	(0) 0 1
-}
-stat
-{
-  create 1500405813
-  modify 1500486850
-  author Luiz@Luiz-PC
-  access 0777
-}
-color UT_Color RGB 0.8 0.8 0.8 
-delscript ""
-exprlanguage hscript
-end
-
---HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot/edge_loop.parm"
-Content-Type: text/plain
-
-{
-version 0.8
-python	[ 0	locks=0 ]	(	"node = hou.pwd()
-geo = node.geometry()
-
-def remove_duplicate_edges(edge_list):
-    cleanup = {}
-    for edge in edge_list:
-        if edge.points() not in cleanup:
-            cleanup[edge.points()] = edge      
-        
-    return cleanup.values()
-
-def get_edge_points():
-    dict = {}
-    all_edges = geo.globEdges(\"*\")
-    for edge in all_edges:
-        for point in edge.points():
-            if point not in dict:
-                dict[point] = []
-            dict[point].append(edge)
-            
-    return dict 
-    
-def get_prim_points():
-    dict = {}
-    all_edges = geo.globEdges(\"*\")
-    for prim in geo.prims():
-        for vert in prim.vertices():
-            if vert.point() not in dict:
-                dict[vert.point()] = []
-            dict[vert.point()].append(prim)
-            
-    return dict     
-    
-MAX_RECURSION = 100
-edge_pairs = get_edge_points()
-prim_pairs = get_prim_points()
-
-group_name = hou.node(\"..\").parm(\"group\").eval()
-new_name = hou.node(\"..\").parm(\"new_name\").eval()
-override_name = hou.node(\"..\").parm(\"override_name\").eval()
-
-if override_name:
-    loop_name = new_name
-else:
-    loop_name = group_name 
-    
-
-if override_name:
-    edges = geo.globEdges(group_name)
-    group = geo.createEdgeGroup(loop_name)  
-    group.add(edges)
-else:
-    group = geo.findEdgeGroup(group_name)
-
-source_edges = geo.globEdges(group_name)
-
-for source_edge in source_edges:
-    current_edges =[]
-    all_edges = []
-
-    partial_grp = geo.createEdgeGroup(\"partial_result\")  
-    partial_grp.add(source_edge)
-    for i in range(MAX_RECURSION):
-        edges = geo.globEdges(\"partial_result\")
-        for edge in edges:
-            for prim in edge.prims():
-                current_edges.extend(prim.edges())
-            for point in edge.points():
-                all_edges.extend(edge_pairs[point])
-                
-            tmp_group = geo.createEdgeGroup(\"tmp\")  
-            tmp_group.add(all_edges)
-            tmp_group.remove(current_edges)
-            spare_edges = geo.globEdges(\"tmp\")
-            partial_grp.add(spare_edges)
-            tmp_group.destroy() 
-            if len(spare_edges) == 0 :   
-                break
-    group.add(geo.globEdges(\"partial_result\"))
-    partial_grp.destroy()
-"	)
-}
-
---HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot/edge_loop.userdata"
-Content-Type: text/plain
-
-{
-	"___Version___":{
-		"type":"string",
-		"value":"16.0.600"
-	}
-}
-
---HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
 Content-Disposition: attachment; filename="hdaroot/groupcombine1.init"
 Content-Type: text/plain
 
@@ -215,7 +78,7 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position -0.941007 3.66174
+position -1.34903 3.45773
 connectornextid 2
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight on unload off savedata off compress on colordefault on exposed on
 outputsNamed3
@@ -224,16 +87,16 @@ outputsNamed3
 }
 inputsNamed3
 {
-0 	edge_loop 1 1 "input1"
+0 	python1 1 1 "input1"
 }
 inputs
 {
-0 	edge_loop 0 1
+0 	python1 0 1
 }
 stat
 {
   create 1500414921
-  modify 1500485447
+  modify 1504402204
   author Luiz@Luiz-PC
   access 0777
 }
@@ -271,7 +134,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.0.600"
+		"value":"16.0.715"
 	}
 }
 
@@ -297,16 +160,16 @@ outputsNamed3
 }
 inputsNamed3
 {
-0 	edge_loop 1 1 "input1"
+0 	python1 1 1 "input1"
 }
 inputs
 {
-0 	edge_loop 0 1
+0 	python1 0 1
 }
 stat
 {
   create 1500414921
-  modify 1500485436
+  modify 1504402098
   author Luiz@Luiz-PC
   access 0777
 }
@@ -344,7 +207,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.0.600"
+		"value":"16.0.715"
 	}
 }
 
@@ -380,7 +243,7 @@ inputs
 stat
 {
   create 1500485439
-  modify 1500486850
+  modify 1504402649
   author Luiz@Luiz-PC
   access 0777
 }
@@ -408,7 +271,7 @@ Content-Type: text/plain
 
 {
 version 0.8
-input	[ 8	locks=0 ]	(	[ input	0 ] 	)
+input	[ 8	locks=0 ]	(	[ input	1 ] 	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -418,7 +281,110 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.0.600"
+		"value":"16.0.715"
+	}
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/python1.init"
+Content-Type: text/plain
+
+type = python
+matchesdef = 0
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/python1.def"
+Content-Type: text/plain
+
+sopflags sopflags = 
+comment ""
+position 0.167321 4.62147
+connectornextid 2
+flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
+outputsNamed3
+{
+1 "output1"
+}
+inputsNamed3
+{
+0 	(0) "" 1 "input1"
+}
+inputs
+{
+0 	(0) 0 1
+}
+stat
+{
+  create 1504401384
+  modify 1504403703
+  author Luiz@Luiz-PC
+  access 0777
+}
+color UT_Color RGB 0.8 0.8 0.8 
+delscript ""
+exprlanguage hscript
+end
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/python1.parm"
+Content-Type: text/plain
+
+{
+version 0.8
+python	[ 0	locks=0 ]	(	"node = hou.pwd()
+geo = node.geometry()
+
+# Add code to modify contents of geo.
+# Use drop down menu to select examples.
+group_name = hou.node(\"..\").parm(\"group\").eval()
+
+point_group = geo.findPointGroup(group_name)
+edge_group = geo.findEdgeGroup(group_name)
+prim_group = geo.findPrimGroup(group_name)
+step = node.parent().parm(\"step\").eval()
+
+override_name = node.parent().parm(\"override_name\").eval()
+new_name = node.parent().parm(\"new_name\").eval()
+
+if point_group:
+    original_points = geo.globPoints(group_name)
+    new_points = geo.pointLoop(original_points, hou.componentLoopType.Extended)
+    
+    if override_name:
+        point_group = geo.createPointGroup(new_name)
+    
+    point_group.clear()
+    point_group.add(new_points[::step])  
+    
+if edge_group:
+    original_edges = geo.globEdges(group_name)
+    new_edges = geo.edgeLoop(original_edges, hou.componentLoopType.Extended,False, False, True)
+
+    if override_name:
+        edge_group = geo.createEdgeGroup(new_name)
+    
+    edge_group.clear()
+    edge_group.add(new_edges[::step])  
+
+if prim_group:
+    original_prims = geo.globPrims(group_name)
+    new_prims = geo.primLoop(original_prims, hou.componentLoopType.Extended)
+    
+    if override_name:
+        prim_group = geo.createPrimGroup(new_name)
+        
+    prim_group.clear()
+    prim_group.add(new_prims[::step])  "	)
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/python1.userdata"
+Content-Type: text/plain
+
+{
+	"___Version___":{
+		"type":"string",
+		"value":"16.0.715"
 	}
 }
 
@@ -427,10 +393,10 @@ Content-Disposition: attachment; filename="hdaroot.order"
 Content-Type: text/plain
 
 4
-edge_loop
 groupcombine1
 groupcombine2
 switch1
+python1
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
 Content-Disposition: attachment; filename="hdaroot.net"

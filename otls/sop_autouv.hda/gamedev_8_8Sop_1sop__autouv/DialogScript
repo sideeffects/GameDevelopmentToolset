@@ -1,0 +1,84 @@
+# Dialog script for gamedev::sop_autouv automatically generated
+
+{
+    name	gamedev::sop_autouv
+    script	gamedev::sop_autouv
+    label	"GameDev Auto UV "
+
+    help {
+	""
+    }
+
+    inputlabel	1	"Sub-Network Input #1"
+    inputlabel	2	"Sub-Network Input #2"
+    inputlabel	3	"Sub-Network Input #3"
+    inputlabel	4	"Sub-Network Input #4"
+
+    groupsimple {
+	name	"method_folder"
+	label	"Method"
+
+	groupradio {
+	    name	"method"
+	    label	"Shortest Path"
+
+	    parm {
+		name	"fuse_distance"
+		label	"Collapse Distance"
+		type	float
+		default	{ "0.01" }
+		range	{ 0 10 }
+	    }
+	    parm {
+		name	"num_points"
+		label	"Number of Paths"
+		type	integer
+		default	{ "25" }
+		range	{ 1 100 }
+	    }
+	    parm {
+		name	"curvature_multiplier"
+		label	"Curvature Multiplier"
+		type	float
+		default	{ "1" }
+		range	{ 0 10 }
+	    }
+	    parm {
+		name	"useBoxSeamSelection"
+		label	"Box Seam Selection"
+		type	toggle
+		default	{ "0" }
+	    }
+	    parm {
+		name	"point_separation"
+		label	"Point Separation"
+		type	float
+		default	{ "0.1" }
+		disablewhen	"{ useBoxSeamSelection == 0 }"
+		range	{ 0 10 }
+	    }
+	}
+
+	groupradio {
+	    name	"method_1"
+	    label	"Cluster"
+
+	    parm {
+		name	"num_clusters"
+		label	"Number of Clusters"
+		type	integer
+		default	{ "30" }
+		range	{ 1 100 }
+	    }
+	}
+
+    }
+
+    parm {
+	name	"layout_padding"
+	label	"Island Padding"
+	type	integer
+	default	{ "2" }
+	range	{ 0 10 }
+    }
+}

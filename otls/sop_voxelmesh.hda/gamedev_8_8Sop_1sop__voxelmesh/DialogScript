@@ -1,0 +1,52 @@
+# Dialog script for gamedev::sop_voxelmesh automatically generated
+
+{
+    name	gamedev::sop_voxelmesh
+    script	gamedev::sop_voxelmesh
+    label	"GameDev Voxel Mesh"
+
+    help {
+	""
+    }
+
+    inputlabel	1	"Sub-Network Input #1"
+    inputlabel	2	"Sub-Network Input #2"
+    inputlabel	3	"Sub-Network Input #3"
+    inputlabel	4	"Sub-Network Input #4"
+
+    parm {
+        name    "resolution"
+        label   "Resolution"
+        type    float
+        default { "0.1" }
+        range   { 0 10 }
+    }
+    parm {
+        name    "adaptivity"
+        label   "Adaptivity"
+        type    float
+        default { "0" }
+        range   { 0 10 }
+    }
+    parm {
+        name    "dilate_erode"
+        label   "Dilate/Erode"
+        type    float
+        default { "0" }
+        range   { -10 10 }
+    }
+    parm {
+        name    "project"
+        label   "Project to Original"
+        type    toggle
+        default { "0" }
+    }
+    parm {
+        name    "post_smooth"
+        label   "Post Smooth Iterations"
+        type    integer
+        default { "0" }
+        disablewhen "{ project == 0 }"
+        range   { 0 10 }
+    }
+}

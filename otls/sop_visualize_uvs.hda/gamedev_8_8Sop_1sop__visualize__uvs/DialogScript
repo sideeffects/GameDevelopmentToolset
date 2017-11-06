@@ -1,0 +1,36 @@
+# Dialog script for gamedev::sop_visualize_uvs automatically generated
+
+{
+    name	gamedev::sop_visualize_uvs
+    script	gamedev::sop_visualize_uvs
+    label	"GameDev Visualize UVs"
+
+    help {
+	""
+    }
+
+    inputlabel	1	"Sub-Network Input #1"
+    inputlabel	2	"Sub-Network Input #2"
+    inputlabel	3	"Sub-Network Input #3"
+    inputlabel	4	"Sub-Network Input #4"
+
+    parm {
+        name    "grid_texture"
+        label   "Grid Texture"
+        type    image
+        default { "uvgrid_grey.pic" }
+    }
+    parm {
+        name    "grid_tiling"
+        label   "Grid Tiling"
+        type    float
+        default { "10" }
+        range   { 0 10 }
+    }
+    parm {
+        name    "visualize_islands"
+        label   "Visualize Islands"
+        type    toggle
+        default { "0" }
+    }
+}

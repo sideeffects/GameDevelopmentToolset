@@ -33,9 +33,9 @@ Content-Type: text/plain
 objflags objflags =  origin off
 pretransform UT_DMatrix4 1 0 0 0 0 1 0 0 0 0 1 0 0 0 0 1
 comment ""
-position -18.5374 -3.2758
+position -2.05941 1.16188
 connectornextid 0
-flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on selectable on
+flags =  lock off model off template off footprint off xray off bypass off display on render off highlight off unload off savedata off compress on colordefault on exposed on selectable on
 outputsNamed3
 {
 }
@@ -47,9 +47,9 @@ inputs
 }
 stat
 {
-  create 1509447733
-  modify 1509453804
-  author mikel@mikembp-sesi.local
+  create 1510008507
+  modify 1510008528
+  author MAINGEAR@DESKTOP-P98C1VA
   access 0777
 }
 color UT_Color RGB 0.8 0.8 0.8 
@@ -113,489 +113,496 @@ Content-Disposition: attachment; filename="hdaroot/cam_full1.spareparmdef"
 Content-Type: text/plain
 
     group {
-	name	"stdswitcher3"
-	label	"Transform"
+        name    "stdswitcher3"
+        label   "Transform"
 
-	parm {
-	    name	"xOrd"
-	    baseparm
-	    label	"Transform Order"
-	    joinnext
-	    export	none
-	}
-	parm {
-	    name	"rOrd"
-	    baseparm
-	    label	"Rotate Order"
-	    export	none
-	}
-	parm {
-	    name	"t"
-	    baseparm
-	    label	"Translate"
-	    export	all
-	}
-	parm {
-	    name	"r"
-	    baseparm
-	    label	"Rotate"
-	    export	all
-	}
-	parm {
-	    name	"s"
-	    baseparm
-	    label	"Scale"
-	    invisible
-	    export	none
-	}
-	parm {
-	    name	"p"
-	    baseparm
-	    label	"Pivot"
-	    export	none
-	}
-	parm {
-	    name	"scale"
-	    baseparm
-	    label	"Uniform Scale"
-	    invisible
-	    export	none
-	}
-	parm {
-	    name	"pre_xform"
-	    baseparm
-	    label	"Modify Pre-Transform"
-	    export	none
-	}
-	parm {
-	    name	"keeppos"
-	    baseparm
-	    label	"Keep Position When Parenting"
-	    export	none
-	}
-	parm {
-	    name	"childcomp"
-	    baseparm
-	    label	"Child Compensation"
-	    export	none
-	}
-	parm {
-	    name	"constraints_on"
-	    baseparm
-	    label	"Enable Constraints"
-	    export	none
-	}
-	parm {
-	    name	"constraints_path"
-	    baseparm
-	    label	"Constraints"
-	    export	none
-	}
-	parm {
-	    name	"lookatpath"
-	    baseparm
-	    label	"Look At"
-	    invisible
-	    export	none
-	}
-	parm {
-	    name	"lookupobjpath"
-	    baseparm
-	    label	"Look Up Object"
-	    invisible
-	    export	none
-	}
-	parm {
-	    name	"lookup"
-	    baseparm
-	    label	"Look At Up Vector"
-	    invisible
-	    export	none
-	}
-	parm {
-	    name	"pathobjpath"
-	    baseparm
-	    label	"Path Object"
-	    invisible
-	    export	none
-	}
-	parm {
-	    name	"roll"
-	    baseparm
-	    label	"Roll"
-	    invisible
-	    export	none
-	}
-	parm {
-	    name	"pos"
-	    baseparm
-	    label	"Position"
-	    invisible
-	    export	none
-	}
-	parm {
-	    name	"uparmtype"
-	    baseparm
-	    label	"Parameterization"
-	    invisible
-	    export	none
-	}
-	parm {
-	    name	"pathorient"
-	    baseparm
-	    label	"Orient Along Path"
-	    invisible
-	    export	none
-	}
-	parm {
-	    name	"up"
-	    baseparm
-	    label	"Orient Up Vector"
-	    invisible
-	    export	none
-	}
-	parm {
-	    name	"bank"
-	    baseparm
-	    label	"Auto-Bank factor"
-	    invisible
-	    export	none
-	}
+        parm {
+            name    "xOrd"
+            baseparm
+            label   "Transform Order"
+            joinnext
+            export  none
+        }
+        parm {
+            name    "rOrd"
+            baseparm
+            label   "Rotate Order"
+            nolabel
+            export  none
+        }
+        parm {
+            name    "t"
+            baseparm
+            label   "Translate"
+            export  all
+        }
+        parm {
+            name    "r"
+            baseparm
+            label   "Rotate"
+            export  all
+        }
+        parm {
+            name    "s"
+            baseparm
+            label   "Scale"
+            invisible
+            export  none
+        }
+        parm {
+            name    "p"
+            baseparm
+            label   "Pivot Translate"
+            export  none
+        }
+        parm {
+            name    "scale"
+            baseparm
+            label   "Uniform Scale"
+            invisible
+            export  none
+        }
+        parm {
+            name    "pre_xform"
+            baseparm
+            label   "Modify Pre-Transform"
+            export  none
+        }
+        parm {
+            name    "keeppos"
+            baseparm
+            label   "Keep Position When Parenting"
+            export  none
+        }
+        parm {
+            name    "childcomp"
+            baseparm
+            label   "Child Compensation"
+            export  none
+        }
+        parm {
+            name    "constraints_on"
+            baseparm
+            label   "Enable Constraints"
+            export  none
+        }
+        parm {
+            name    "constraints_path"
+            baseparm
+            label   "Constraints"
+            export  none
+        }
+        parm {
+            name    "lookatpath"
+            baseparm
+            label   "Look At"
+            invisible
+            export  none
+        }
+        parm {
+            name    "lookupobjpath"
+            baseparm
+            label   "Look Up Object"
+            invisible
+            export  none
+        }
+        parm {
+            name    "lookup"
+            baseparm
+            label   "Look At Up Vector"
+            invisible
+            export  none
+        }
+        parm {
+            name    "pathobjpath"
+            baseparm
+            label   "Path Object"
+            invisible
+            export  none
+        }
+        parm {
+            name    "roll"
+            baseparm
+            label   "Roll"
+            invisible
+            export  none
+        }
+        parm {
+            name    "pos"
+            baseparm
+            label   "Position"
+            invisible
+            export  none
+        }
+        parm {
+            name    "uparmtype"
+            baseparm
+            label   "Parameterization"
+            invisible
+            export  none
+        }
+        parm {
+            name    "pathorient"
+            baseparm
+            label   "Orient Along Path"
+            invisible
+            export  none
+        }
+        parm {
+            name    "up"
+            baseparm
+            label   "Orient Up Vector"
+            invisible
+            export  none
+        }
+        parm {
+            name    "bank"
+            baseparm
+            label   "Auto-Bank factor"
+            invisible
+            export  none
+        }
     }
 
     group {
-	name	"stdswitcher3_1"
-	label	"Render"
+        name    "stdswitcher3_1"
+        label   "Render"
 
-	parm {
-	    name	"tdisplay"
-	    baseparm
-	    label	"Display"
-	    joinnext
-	    export	none
-	}
-	parm {
-	    name	"display"
-	    baseparm
-	    label	"Display"
-	    export	none
-	}
-	parm {
-	    name	"use_dcolor"
-	    baseparm
-	    label	"Set Wireframe Color"
-	    export	none
-	}
-	parm {
-	    name	"dcolor"
-	    baseparm
-	    label	"Wireframe Color"
-	    export	none
-	}
-	parm {
-	    name	"picking"
-	    baseparm
-	    label	"Viewport Selecting Enabled"
-	    export	none
-	}
-	parm {
-	    name	"pickscript"
-	    baseparm
-	    label	"Select Script"
-	    export	none
-	}
-	parm {
-	    name	"caching"
-	    baseparm
-	    label	"Cache Object Transform"
-	    export	none
-	}
+        parm {
+            name    "tdisplay"
+            baseparm
+            label   "Display"
+            joinnext
+            export  none
+        }
+        parm {
+            name    "display"
+            baseparm
+            label   "Display"
+            export  none
+        }
+        parm {
+            name    "use_dcolor"
+            baseparm
+            label   "Set Wireframe Color"
+            export  none
+        }
+        parm {
+            name    "dcolor"
+            baseparm
+            label   "Wireframe Color"
+            export  none
+        }
+        parm {
+            name    "picking"
+            baseparm
+            label   "Viewport Selecting Enabled"
+            export  none
+        }
+        parm {
+            name    "pickscript"
+            baseparm
+            label   "Select Script"
+            export  none
+        }
+        parm {
+            name    "caching"
+            baseparm
+            label   "Cache Object Transform"
+            export  none
+        }
     }
 
     group {
-	name	"stdswitcher3_2"
-	label	"View"
+        name    "stdswitcher3_2"
+        label   "View"
 
-	parm {
-	    name	"iconscale"
-	    label	"Icon Scale"
-	    type	float
-	    default	{ "1" }
-	    range	{ 0.001 10 }
-	    parmtag	{ "spare_category" "View" }
-	}
-	parm {
-	    name	"res"
-	    label	"Resolution"
-	    type	intvector2
-	    joinnext
-	    size	2
-	    default	{ "1280" "720" }
-	    range	{ -1 1 }
-	    parmtag	{ "cook_dependent" "1" }
-	    parmtag	{ "spare_category" "View" }
-	}
-	parm {
-	    name	"resMenu"
-	    label	"Choose Resolution"
-	    type	button
-	    nolabel
-	    default	{ "0" }
-	    menumini	{
-		[ "echo `pythonexprs(\"__import__('toolutils').parseDialogScriptMenu('FBres')\")`" ]
-	    }
-	    parmtag	{ "script_callback" "opparm . res ( `arg(\"$script_value\", 0)` `arg(\"$script_value\", 1)` aspect ( `arg(\"$script_value\", 2)` )" }
-	    parmtag	{ "spare_category" "View" }
-	}
-	parm {
-	    name	"aspect"
-	    label	"Pixel Aspect Ratio"
-	    type	float
-	    default	{ "1" }
-	    range	{ 0.05 2 }
-	    parmtag	{ "spare_category" "View" }
-	}
-	parm {
-	    name	"projection"
-	    label	"Projection"
-	    type	ordinal
-	    default	{ "perspective" }
-	    menu	{
-		"perspective"	"Perspective"
-		"ortho"	"Orthographic"
-		"sphere"	"Polar (panoramic)"
-		"cylinder"	"Cylindrical (panoramic)"
-		"lens"	"Lens Shader"
-	    }
-	    parmtag	{ "spare_category" "View" }
-	}
-	parm {
-	    name	"vm_lensshader"
-	    label	"Lens Shader"
-	    type	oppath
-	    default	{ "" }
-	    disablewhen	"{ projection != lens }"
-	    parmtag	{ "oprelative" "." }
-	    parmtag	{ "spare_category" "View" }
-	}
-	parm {
-	    name	"focal"
-	    label	"Focal Length"
-	    type	float
-	    joinnext
-	    default	{ "50" }
-	    range	{ 1 100 }
-	}
-	parm {
-	    name	"focalunits"
-	    label	"Focal Units"
-	    type	string
-	    default	{ "mm" }
-	    menu	{
-		"mm"	"millimeters"
-		"m"	"meters"
-		"nm"	"nanometers"
-		"in"	"inches"
-		"ft"	"feet"
-	    }
-	}
-	parm {
-	    name	"aperture"
-	    label	"Aperture"
-	    type	float
-	    default	{ "41.4214" }
-	    range	{ 1 100 }
-	    parmtag	{ "spare_category" "View" }
-	}
-	parm {
-	    name	"orthowidth"
-	    label	"Ortho Width"
-	    type	float
-	    default	{ "2" }
-	    disablewhen	"{ projection != ortho }"
-	    range	{ 0.001 10 }
-	    parmtag	{ "spare_category" "View" }
-	}
-	parm {
-	    name	"near"
-	    label	"Near Clipping"
-	    type	float
-	    default	{ "0.001" }
-	    range	{ 0 10 }
-	    parmtag	{ "spare_category" "View" }
-	}
-	parm {
-	    name	"far"
-	    label	"Far Clipping"
-	    type	float
-	    default	{ "10000" }
-	    range	{ 1 10000 }
-	    parmtag	{ "spare_category" "View" }
-	}
-	parm {
-	    name	"vm_bgenable"
-	    label	"Enable Background Image"
-	    type	toggle
-	    default	{ "1" }
-	    parmtag	{ "mantra_class" "image" }
-	    parmtag	{ "mantra_name" "bgenable" }
-	    parmtag	{ "spare_category" "View" }
-	}
-	parm {
-	    name	"vm_background"
-	    label	"Background Image"
-	    type	file
-	    default	{ "" }
-	    disablewhen	"{ vm_bgenable == 0 }"
-	    parmtag	{ "filechooser_mode" "read" }
-	    parmtag	{ "mantra_class" "image" }
-	    parmtag	{ "mantra_name" "background" }
-	    parmtag	{ "spare_category" "View" }
-	}
-	parm {
-	    name	"win"
-	    label	"Screen Window X/Y"
-	    type	vector2
-	    size	2
-	    default	{ "0" "0" }
-	    disablewhen	"{ winmask != \"\" }"
-	    range	{ -1 1 }
-	}
-	parm {
-	    name	"winsize"
-	    label	"Screen Window Size"
-	    type	vector2
-	    size	2
-	    default	{ "1" "1" }
-	    disablewhen	"{ winmask != \"\" }"
-	    range	{ 0.01 10 }
-	}
-	parm {
-	    name	"winmask"
-	    label	"Screen Window Mask"
-	    type	oplist
-	    default	{ "" }
-	    disablewhen	"{ projection != ortho projection != perspective }"
-	    parmtag	{ "opexpand" "1" }
-	    parmtag	{ "opfilter" "!!OBJ/GEOMETRY!!" }
-	    parmtag	{ "oprelative" "/obj" }
-	}
-	parm {
-	    name	"cropl"
-	    label	"Left Crop"
-	    type	float
-	    default	{ "0" }
-	    disablewhen	"{ cropmask != \"\" }"
-	    range	{ 0 1 }
-	}
-	parm {
-	    name	"cropr"
-	    label	"Right Crop"
-	    type	float
-	    default	{ "1" }
-	    disablewhen	"{ cropmask != \"\" }"
-	    range	{ 0 1 }
-	}
-	parm {
-	    name	"cropb"
-	    label	"Bottom Crop"
-	    type	float
-	    default	{ "0" }
-	    disablewhen	"{ cropmask != \"\" }"
-	    range	{ 0 1 }
-	}
-	parm {
-	    name	"cropt"
-	    label	"Top Crop"
-	    type	float
-	    default	{ "1" }
-	    disablewhen	"{ cropmask != \"\" }"
-	    range	{ 0 1 }
-	}
-	parm {
-	    name	"cropmask"
-	    label	"Crop Mask"
-	    type	oplist
-	    default	{ "" }
-	    disablewhen	"{ projection != ortho projection != perspective }"
-	    parmtag	{ "opexpand" "1" }
-	    parmtag	{ "opfilter" "!!OBJ/GEOMETRY!!" }
-	    parmtag	{ "oprelative" "/obj" }
-	}
+        parm {
+            name    "iconscale"
+            label   "Icon Scale"
+            type    float
+            default { "1" }
+            range   { 0.001 10 }
+            parmtag { "spare_category" "View" }
+        }
+        parm {
+            name    "res"
+            label   "Resolution"
+            type    intvector2
+            joinnext
+            size    2
+            default { "1280" "720" }
+            range   { -1 1 }
+            parmtag { "cook_dependent" "1" }
+            parmtag { "spare_category" "View" }
+        }
+        parm {
+            name    "resMenu"
+            label   "Choose Resolution"
+            type    button
+            nolabel
+            default { "0" }
+            menumini {
+                [ "echo `pythonexprs(\"__import__('toolutils').parseDialogScriptMenu('FBres')\")`" ]
+            }
+            parmtag { "script_callback" "opparm . res ( `arg(\"$script_value\", 0)` `arg(\"$script_value\", 1)` aspect ( `arg(\"$script_value\", 2)` )" }
+            parmtag { "spare_category" "View" }
+        }
+        parm {
+            name    "aspect"
+            label   "Pixel Aspect Ratio"
+            type    float
+            default { "1" }
+            range   { 0.05 2 }
+            parmtag { "spare_category" "View" }
+        }
+        parm {
+            name    "projection"
+            label   "Projection"
+            type    ordinal
+            default { "perspective" }
+            menu {
+                "perspective"   "Perspective"
+                "ortho"         "Orthographic"
+                "sphere"        "Polar (panoramic)"
+                "cylinder"      "Cylindrical (panoramic)"
+                "lens"          "Lens Shader"
+            }
+            parmtag { "spare_category" "View" }
+        }
+        parm {
+            name    "vm_lensshader"
+            label   "Lens Shader"
+            type    oppath
+            default { "" }
+            disablewhen "{ projection != lens }"
+            parmtag { "oprelative" "." }
+            parmtag { "spare_category" "View" }
+        }
+        parm {
+            name    "focal"
+            label   "Focal Length"
+            type    float
+            joinnext
+            default { "50" }
+            range   { 1 100 }
+        }
+        parm {
+            name    "focalunits"
+            label   "Focal Units"
+            type    string
+            default { "mm" }
+            menu {
+                "mm"    "millimeters"
+                "m"     "meters"
+                "nm"    "nanometers"
+                "in"    "inches"
+                "ft"    "feet"
+            }
+        }
+        parm {
+            name    "aperture"
+            label   "Aperture"
+            type    float
+            default { "41.4214" }
+            range   { 1 100 }
+            parmtag { "spare_category" "View" }
+        }
+        parm {
+            name    "orthowidth"
+            label   "Ortho Width"
+            type    float
+            default { "2" }
+            disablewhen "{ projection != ortho }"
+            range   { 0.001 10 }
+            parmtag { "spare_category" "View" }
+        }
+        parm {
+            name    "near"
+            label   "Near Clipping"
+            type    float
+            default { "0.001" }
+            range   { 0 10 }
+            parmtag { "spare_category" "View" }
+        }
+        parm {
+            name    "far"
+            label   "Far Clipping"
+            type    float
+            default { "10000" }
+            range   { 1 10000 }
+            parmtag { "spare_category" "View" }
+        }
+        parm {
+            name    "vm_bgenable"
+            label   "Enable Background Image"
+            type    toggle
+            default { "1" }
+            parmtag { "mantra_class" "image" }
+            parmtag { "mantra_name" "bgenable" }
+            parmtag { "spare_category" "View" }
+        }
+        parm {
+            name    "vm_background"
+            label   "Background Image"
+            type    file
+            default { "" }
+            disablewhen "{ vm_bgenable == 0 }"
+            parmtag { "filechooser_mode" "read" }
+            parmtag { "mantra_class" "image" }
+            parmtag { "mantra_name" "background" }
+            parmtag { "spare_category" "View" }
+        }
+        parm {
+            name    "win"
+            label   "Screen Window X/Y"
+            type    vector2
+            size    2
+            default { "0" "0" }
+            disablewhen "{ winmask != \"\" }"
+            range   { -1 1 }
+        }
+        parm {
+            name    "winsize"
+            label   "Screen Window Size"
+            type    vector2
+            size    2
+            default { "1" "1" }
+            disablewhen "{ winmask != \"\" }"
+            range   { 0.01 10 }
+        }
+        parm {
+            name    "winmask"
+            label   "Screen Window Mask"
+            type    oplist
+            default { "" }
+            disablewhen "{ projection != ortho projection != perspective }"
+            parmtag { "opexpand" "1" }
+            parmtag { "opfilter" "!!OBJ/GEOMETRY!!" }
+            parmtag { "oprelative" "/obj" }
+        }
+        parm {
+            name    "cropl"
+            label   "Left Crop"
+            type    float
+            default { "0" }
+            disablewhen "{ cropmask != \"\" }"
+            range   { 0 1 }
+        }
+        parm {
+            name    "cropr"
+            label   "Right Crop"
+            type    float
+            default { "1" }
+            disablewhen "{ cropmask != \"\" }"
+            range   { 0 1 }
+        }
+        parm {
+            name    "cropb"
+            label   "Bottom Crop"
+            type    float
+            default { "0" }
+            disablewhen "{ cropmask != \"\" }"
+            range   { 0 1 }
+        }
+        parm {
+            name    "cropt"
+            label   "Top Crop"
+            type    float
+            default { "1" }
+            disablewhen "{ cropmask != \"\" }"
+            range   { 0 1 }
+        }
+        parm {
+            name    "cropmask"
+            label   "Crop Mask"
+            type    oplist
+            default { "" }
+            disablewhen "{ projection != ortho projection != perspective }"
+            parmtag { "opexpand" "1" }
+            parmtag { "opfilter" "!!OBJ/GEOMETRY!!" }
+            parmtag { "oprelative" "/obj" }
+        }
     }
 
     group {
-	name	"stdswitcher3_3"
-	label	"Sampling"
+        name    "stdswitcher3_3"
+        label   "Sampling"
 
-	parm {
-	    name	"shutter"
-	    label	"Shutter Time"
-	    type	float
-	    default	{ "0.5" }
-	    disablewhen	"{ allowmotionblur == 0 }"
-	    range	{ 0 1 }
-	    parmtag	{ "spare_category" "Sampling" }
-	}
-	parm {
-	    name	"focus"
-	    label	"Focus Distance"
-	    type	float
-	    default	{ "5" }
-	    disablewhen	"{ vm_dof == 0 }"
-	    range	{ 0.001 1000 }
-	    parmtag	{ "mantra_class" "camera" }
-	    parmtag	{ "mantra_name" "focus" }
-	    parmtag	{ "spare_category" "Sampling" }
-	}
-	parm {
-	    name	"fstop"
-	    label	"F-Stop"
-	    type	log
-	    default	{ "5.6" }
-	    disablewhen	"{ vm_dof == 0 }"
-	    range	{ 1.4 22 }
-	    parmtag	{ "mantra_class" "camera" }
-	    parmtag	{ "mantra_name" "fstop" }
-	    parmtag	{ "spare_category" "Sampling" }
-	}
-	parm {
-	    name	"vm_bokeh"
-	    label	"Bokeh"
-	    type	string
-	    default	{ "radial" }
-	    menureplace	{
-		"radial"	"Radial Bokeh"
-		"file"	"Image File Bokeh"
-		"box"	"Box Filter Bokeh"
-		"null"	"Disable Bokeh"
-	    }
-	    parmtag	{ "spare_category" "Sampling" }
-	}
-	parm {
-	    name	"vm_bokehfile"
-	    label	"Bokeh Image File"
-	    type	image
-	    default	{ "default.pic" }
-	    disablewhen	"{ vm_bokeh != file }"
-	    parmtag	{ "filechooser_mode" "read" }
-	    parmtag	{ "mantra_class" "bokeh" }
-	    parmtag	{ "mantra_name" "-f" }
-	    parmtag	{ "spare_category" "Sampling" }
-	}
-	parm {
-	    name	"vm_bokehrotation"
-	    label	"Bokeh Rotation"
-	    type	float
-	    default	{ "0" }
-	    disablewhen	"{ vm_bokeh != file }"
-	    range	{ 0 360 }
-	    parmtag	{ "mantra_class" "bokeh" }
-	    parmtag	{ "mantra_name" "-r" }
-	    parmtag	{ "spare_category" "Sampling" }
-	}
+        parm {
+            name    "shutter"
+            label   "Shutter Time"
+            type    float
+            default { "0.5" }
+            disablewhen "{ allowmotionblur == 0 }"
+            range   { 0 1 }
+            parmtag { "spare_category" "Sampling" }
+        }
+        parm {
+            name    "focus"
+            label   "Focus Distance"
+            type    float
+            default { "5" }
+            disablewhen "{ vm_dof == 0 }"
+            range   { 0.001 1000 }
+            parmtag { "mantra_class" "camera" }
+            parmtag { "mantra_name" "focus" }
+            parmtag { "spare_category" "Sampling" }
+        }
+        parm {
+            name    "fstop"
+            label   "F-Stop"
+            type    log
+            default { "5.6" }
+            disablewhen "{ vm_dof == 0 }"
+            range   { 1.4 22 }
+            parmtag { "mantra_class" "camera" }
+            parmtag { "mantra_name" "fstop" }
+            parmtag { "spare_category" "Sampling" }
+        }
+        parm {
+            name    "vm_bokeh"
+            label   "Bokeh"
+            type    string
+            default { "radial" }
+            menureplace {
+                "radial"    "Radial Bokeh"
+                "file"      "Image File Bokeh"
+                "box"       "Box Filter Bokeh"
+                "null"      "Disable Bokeh"
+            }
+            parmtag { "spare_category" "Sampling" }
+        }
+        parm {
+            name    "vm_bokehfile"
+            label   "Bokeh Image File"
+            type    image
+            default { "default.pic" }
+            disablewhen "{ vm_bokeh != file }"
+            parmtag { "filechooser_mode" "read" }
+            parmtag { "mantra_class" "bokeh" }
+            parmtag { "mantra_name" "-f" }
+            parmtag { "spare_category" "Sampling" }
+        }
+        parm {
+            name    "vm_bokehrotation"
+            label   "Bokeh Rotation"
+            type    float
+            default { "0" }
+            disablewhen "{ vm_bokeh != file }"
+            range   { 0 360 }
+            parmtag { "mantra_class" "bokeh" }
+            parmtag { "mantra_name" "-r" }
+            parmtag { "spare_category" "Sampling" }
+        }
     }
 
+    parm {
+        name    "pr"
+        baseparm
+        label   "Pivot Rotate"
+        export  none
+    }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
 Content-Disposition: attachment; filename="hdaroot/cam_full1.chn"
@@ -668,10 +675,11 @@ version 0.8
 stdswitcher	[ 0	locks=0 ]	(	0	0	)
 xOrd	[ 0	locks=0 ]	(	"srt"	)
 rOrd	[ 0	locks=0 ]	(	"xyz"	)
-t	[ 8	locks=0 ]	(	0	0	[ tz	2.2267277479171756 ] 	)
+t	[ 8	locks=0 ]	(	0	0	[ tz	0 ] 	)
 r	[ 0	locks=0 ]	(	0	0	0	)
 s	[ 0	locks=0 ]	(	[ sx	1 ] 	[ sy	1 ] 	[ sz	1 ] 	)
 p	[ 8	locks=0 ]	(	0	0	0	)
+pr	[ 0	locks=0 ]	(	0	0	0	)
 scale	[ 0	locks=0 ]	(	[ scale	1 ] 	)
 pre_xform	[ 0	locks=0 ]	(	0	)
 keeppos	[ 0	locks=0 ]	(	"on"	)
@@ -697,7 +705,7 @@ pickscript	[ 0	locks=0 ]	(	""	)
 caching	[ 0	locks=0 ]	(	"on"	)
 stdswitcher3	[ 0	locks=0 ]	(	2	2	2	2	)
 iconscale	[ 0	locks=0 ]	(	1	)
-res	[ 0	locks=0 ]	(	[ resx	128 ] 	[ resy	128 ] 	)
+res	[ 0	locks=0 ]	(	[ resx	0 ] 	[ resy	0 ] 	)
 resMenu	[ 0	locks=0 ]	(	0	)
 aspect	[ 0	locks=0 ]	(	1	)
 projection	[ 0	locks=0 ]	(	"ortho"	)
@@ -733,7 +741,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.0.705"
+		"value":"16.5.268.10"
 	},
 	"___toolcount___":{
 		"type":"string",
@@ -816,7 +824,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.0.705"
+		"value":"16.5.268.10"
 	},
 	"___toolcount___":{
 		"type":"string",
@@ -910,7 +918,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.0.705"
+		"value":"16.5.268.10"
 	},
 	"___toolcount___":{
 		"type":"string",
@@ -988,8 +996,17 @@ t	[ 0	locks=0 ]	(	0	0	0	)
 r	[ 0	locks=0 ]	(	0	0	0	)
 s	[ 0	locks=0 ]	(	1	1	1	)
 shear	[ 0	locks=0 ]	(	0	0	0	)
-p	[ 0	locks=0 ]	(	0	0	0	)
 scale	[ 0	locks=0 ]	(	[ scale	1 ] 	)
+parmgroup_pivotxform	[ 0	locks=0 ]	(	0	)
+p	[ 0	locks=0 ]	(	0	0	0	)
+pr	[ 0	locks=0 ]	(	0	0	0	)
+parmgroup_prexform	[ 0	locks=0 ]	(	0	)
+prexform_xOrd	[ 0	locks=0 ]	(	"srt"	)
+prexform_rOrd	[ 0	locks=0 ]	(	"xyz"	)
+prexform_t	[ 0	locks=0 ]	(	0	0	0	)
+prexform_r	[ 0	locks=0 ]	(	0	0	0	)
+prexform_s	[ 0	locks=0 ]	(	1	1	1	)
+prexform_shear	[ 0	locks=0 ]	(	0	0	0	)
 movecentroid	[ 0	locks=0 ]	(	0	)
 attribs	[ 0	locks=0 ]	(	*	)
 updatenmls	[ 0	locks=0 ]	(	"off"	)
@@ -1005,7 +1022,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.0.705"
+		"value":"16.5.268.10"
 	},
 	"___toolcount___":{
 		"type":"string",
@@ -1100,10 +1117,11 @@ version 0.8
 stdswitcher	[ 0	locks=0 ]	(	0	0	0	)
 xOrd	[ 0	locks=0 ]	(	"srt"	)
 rOrd	[ 0	locks=0 ]	(	"xyz"	)
-t	[ 8	locks=0 ]	(	0	[ ty	0.55851495265960693 ] 	0	)
+t	[ 8	locks=0 ]	(	0	[ ty	0 ] 	0	)
 r	[ 0	locks=0	autoscope=7 ]	(	0	[ ry	0 ] 	0	)
 s	[ 0	locks=0 ]	(	1	1	1	)
 p	[ 0	locks=0 ]	(	0	0	0	)
+pr	[ 0	locks=0 ]	(	0	0	0	)
 scale	[ 0	locks=0 ]	(	1	)
 pre_xform	[ 0	locks=0 ]	(	0	)
 keeppos	[ 0	locks=0 ]	(	"off"	)
@@ -1150,7 +1168,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.0.705"
+		"value":"16.5.268.10"
 	}
 }
 
@@ -1271,7 +1289,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.0.705"
+		"value":"16.5.268.10"
 	}
 }
 
@@ -1346,7 +1364,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.0.705"
+		"value":"16.5.268.10"
 	}
 }
 
@@ -1432,6 +1450,7 @@ t	[ 0	locks=0 ]	(	0	0	0	)
 r	[ 0	locks=0 ]	(	[ rx	-90 ] 	0	0	)
 s	[ 8	locks=0 ]	(	1	1	1	)
 p	[ 0	locks=0 ]	(	0	0	0	)
+pr	[ 0	locks=0 ]	(	0	0	0	)
 scale	[ 0	locks=0 ]	(	1	)
 pre_xform	[ 0	locks=0 ]	(	0	)
 keeppos	[ 0	locks=0 ]	(	"on"	)
@@ -1478,7 +1497,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.0.705"
+		"value":"16.5.268.10"
 	}
 }
 
@@ -1599,7 +1618,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.0.705"
+		"value":"16.5.268.10"
 	}
 }
 
@@ -1674,7 +1693,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.0.705"
+		"value":"16.5.268.10"
 	}
 }
 
@@ -1764,6 +1783,7 @@ t	[ 8	locks=0 ]	(	0	[ ty	0.55851495265960693 ] 	0	)
 r	[ 8	locks=0	autoscope=7 ]	(	0	[ ry	0 ] 	0	)
 s	[ 0	locks=0 ]	(	1	1	1	)
 p	[ 0	locks=0 ]	(	0	0	0	)
+pr	[ 0	locks=0 ]	(	0	0	0	)
 scale	[ 0	locks=0 ]	(	1	)
 pre_xform	[ 0	locks=0 ]	(	0	)
 keeppos	[ 0	locks=0 ]	(	"off"	)
@@ -1810,7 +1830,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.0.705"
+		"value":"16.5.268.10"
 	}
 }
 
@@ -1931,7 +1951,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.0.705"
+		"value":"16.5.268.10"
 	}
 }
 
@@ -2006,7 +2026,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.0.705"
+		"value":"16.5.268.10"
 	}
 }
 
@@ -2069,489 +2089,496 @@ Content-Disposition: attachment; filename="hdaroot/cam_simple1.spareparmdef"
 Content-Type: text/plain
 
     group {
-	name	"stdswitcher3"
-	label	"Transform"
+        name    "stdswitcher3"
+        label   "Transform"
 
-	parm {
-	    name	"xOrd"
-	    baseparm
-	    label	"Transform Order"
-	    joinnext
-	    export	none
-	}
-	parm {
-	    name	"rOrd"
-	    baseparm
-	    label	"Rotate Order"
-	    export	none
-	}
-	parm {
-	    name	"t"
-	    baseparm
-	    label	"Translate"
-	    export	all
-	}
-	parm {
-	    name	"r"
-	    baseparm
-	    label	"Rotate"
-	    export	all
-	}
-	parm {
-	    name	"s"
-	    baseparm
-	    label	"Scale"
-	    invisible
-	    export	none
-	}
-	parm {
-	    name	"p"
-	    baseparm
-	    label	"Pivot"
-	    export	none
-	}
-	parm {
-	    name	"scale"
-	    baseparm
-	    label	"Uniform Scale"
-	    invisible
-	    export	none
-	}
-	parm {
-	    name	"pre_xform"
-	    baseparm
-	    label	"Modify Pre-Transform"
-	    export	none
-	}
-	parm {
-	    name	"keeppos"
-	    baseparm
-	    label	"Keep Position When Parenting"
-	    export	none
-	}
-	parm {
-	    name	"childcomp"
-	    baseparm
-	    label	"Child Compensation"
-	    export	none
-	}
-	parm {
-	    name	"constraints_on"
-	    baseparm
-	    label	"Enable Constraints"
-	    export	none
-	}
-	parm {
-	    name	"constraints_path"
-	    baseparm
-	    label	"Constraints"
-	    export	none
-	}
-	parm {
-	    name	"lookatpath"
-	    baseparm
-	    label	"Look At"
-	    invisible
-	    export	none
-	}
-	parm {
-	    name	"lookupobjpath"
-	    baseparm
-	    label	"Look Up Object"
-	    invisible
-	    export	none
-	}
-	parm {
-	    name	"lookup"
-	    baseparm
-	    label	"Look At Up Vector"
-	    invisible
-	    export	none
-	}
-	parm {
-	    name	"pathobjpath"
-	    baseparm
-	    label	"Path Object"
-	    invisible
-	    export	none
-	}
-	parm {
-	    name	"roll"
-	    baseparm
-	    label	"Roll"
-	    invisible
-	    export	none
-	}
-	parm {
-	    name	"pos"
-	    baseparm
-	    label	"Position"
-	    invisible
-	    export	none
-	}
-	parm {
-	    name	"uparmtype"
-	    baseparm
-	    label	"Parameterization"
-	    invisible
-	    export	none
-	}
-	parm {
-	    name	"pathorient"
-	    baseparm
-	    label	"Orient Along Path"
-	    invisible
-	    export	none
-	}
-	parm {
-	    name	"up"
-	    baseparm
-	    label	"Orient Up Vector"
-	    invisible
-	    export	none
-	}
-	parm {
-	    name	"bank"
-	    baseparm
-	    label	"Auto-Bank factor"
-	    invisible
-	    export	none
-	}
+        parm {
+            name    "xOrd"
+            baseparm
+            label   "Transform Order"
+            joinnext
+            export  none
+        }
+        parm {
+            name    "rOrd"
+            baseparm
+            label   "Rotate Order"
+            nolabel
+            export  none
+        }
+        parm {
+            name    "t"
+            baseparm
+            label   "Translate"
+            export  all
+        }
+        parm {
+            name    "r"
+            baseparm
+            label   "Rotate"
+            export  all
+        }
+        parm {
+            name    "s"
+            baseparm
+            label   "Scale"
+            invisible
+            export  none
+        }
+        parm {
+            name    "p"
+            baseparm
+            label   "Pivot Translate"
+            export  none
+        }
+        parm {
+            name    "scale"
+            baseparm
+            label   "Uniform Scale"
+            invisible
+            export  none
+        }
+        parm {
+            name    "pre_xform"
+            baseparm
+            label   "Modify Pre-Transform"
+            export  none
+        }
+        parm {
+            name    "keeppos"
+            baseparm
+            label   "Keep Position When Parenting"
+            export  none
+        }
+        parm {
+            name    "childcomp"
+            baseparm
+            label   "Child Compensation"
+            export  none
+        }
+        parm {
+            name    "constraints_on"
+            baseparm
+            label   "Enable Constraints"
+            export  none
+        }
+        parm {
+            name    "constraints_path"
+            baseparm
+            label   "Constraints"
+            export  none
+        }
+        parm {
+            name    "lookatpath"
+            baseparm
+            label   "Look At"
+            invisible
+            export  none
+        }
+        parm {
+            name    "lookupobjpath"
+            baseparm
+            label   "Look Up Object"
+            invisible
+            export  none
+        }
+        parm {
+            name    "lookup"
+            baseparm
+            label   "Look At Up Vector"
+            invisible
+            export  none
+        }
+        parm {
+            name    "pathobjpath"
+            baseparm
+            label   "Path Object"
+            invisible
+            export  none
+        }
+        parm {
+            name    "roll"
+            baseparm
+            label   "Roll"
+            invisible
+            export  none
+        }
+        parm {
+            name    "pos"
+            baseparm
+            label   "Position"
+            invisible
+            export  none
+        }
+        parm {
+            name    "uparmtype"
+            baseparm
+            label   "Parameterization"
+            invisible
+            export  none
+        }
+        parm {
+            name    "pathorient"
+            baseparm
+            label   "Orient Along Path"
+            invisible
+            export  none
+        }
+        parm {
+            name    "up"
+            baseparm
+            label   "Orient Up Vector"
+            invisible
+            export  none
+        }
+        parm {
+            name    "bank"
+            baseparm
+            label   "Auto-Bank factor"
+            invisible
+            export  none
+        }
     }
 
     group {
-	name	"stdswitcher3_1"
-	label	"Render"
+        name    "stdswitcher3_1"
+        label   "Render"
 
-	parm {
-	    name	"tdisplay"
-	    baseparm
-	    label	"Display"
-	    joinnext
-	    export	none
-	}
-	parm {
-	    name	"display"
-	    baseparm
-	    label	"Display"
-	    export	none
-	}
-	parm {
-	    name	"use_dcolor"
-	    baseparm
-	    label	"Set Wireframe Color"
-	    export	none
-	}
-	parm {
-	    name	"dcolor"
-	    baseparm
-	    label	"Wireframe Color"
-	    export	none
-	}
-	parm {
-	    name	"picking"
-	    baseparm
-	    label	"Viewport Selecting Enabled"
-	    export	none
-	}
-	parm {
-	    name	"pickscript"
-	    baseparm
-	    label	"Select Script"
-	    export	none
-	}
-	parm {
-	    name	"caching"
-	    baseparm
-	    label	"Cache Object Transform"
-	    export	none
-	}
+        parm {
+            name    "tdisplay"
+            baseparm
+            label   "Display"
+            joinnext
+            export  none
+        }
+        parm {
+            name    "display"
+            baseparm
+            label   "Display"
+            export  none
+        }
+        parm {
+            name    "use_dcolor"
+            baseparm
+            label   "Set Wireframe Color"
+            export  none
+        }
+        parm {
+            name    "dcolor"
+            baseparm
+            label   "Wireframe Color"
+            export  none
+        }
+        parm {
+            name    "picking"
+            baseparm
+            label   "Viewport Selecting Enabled"
+            export  none
+        }
+        parm {
+            name    "pickscript"
+            baseparm
+            label   "Select Script"
+            export  none
+        }
+        parm {
+            name    "caching"
+            baseparm
+            label   "Cache Object Transform"
+            export  none
+        }
     }
 
     group {
-	name	"stdswitcher3_2"
-	label	"View"
+        name    "stdswitcher3_2"
+        label   "View"
 
-	parm {
-	    name	"iconscale"
-	    label	"Icon Scale"
-	    type	float
-	    default	{ "1" }
-	    range	{ 0.001 10 }
-	    parmtag	{ "spare_category" "View" }
-	}
-	parm {
-	    name	"res"
-	    label	"Resolution"
-	    type	intvector2
-	    joinnext
-	    size	2
-	    default	{ "1280" "720" }
-	    range	{ -1 1 }
-	    parmtag	{ "cook_dependent" "1" }
-	    parmtag	{ "spare_category" "View" }
-	}
-	parm {
-	    name	"resMenu"
-	    label	"Choose Resolution"
-	    type	button
-	    nolabel
-	    default	{ "0" }
-	    menumini	{
-		[ "echo `pythonexprs(\"__import__('toolutils').parseDialogScriptMenu('FBres')\")`" ]
-	    }
-	    parmtag	{ "script_callback" "opparm . res ( `arg(\"$script_value\", 0)` `arg(\"$script_value\", 1)` aspect ( `arg(\"$script_value\", 2)` )" }
-	    parmtag	{ "spare_category" "View" }
-	}
-	parm {
-	    name	"aspect"
-	    label	"Pixel Aspect Ratio"
-	    type	float
-	    default	{ "1" }
-	    range	{ 0.05 2 }
-	    parmtag	{ "spare_category" "View" }
-	}
-	parm {
-	    name	"projection"
-	    label	"Projection"
-	    type	ordinal
-	    default	{ "perspective" }
-	    menu	{
-		"perspective"	"Perspective"
-		"ortho"	"Orthographic"
-		"sphere"	"Polar (panoramic)"
-		"cylinder"	"Cylindrical (panoramic)"
-		"lens"	"Lens Shader"
-	    }
-	    parmtag	{ "spare_category" "View" }
-	}
-	parm {
-	    name	"vm_lensshader"
-	    label	"Lens Shader"
-	    type	oppath
-	    default	{ "" }
-	    disablewhen	"{ projection != lens }"
-	    parmtag	{ "oprelative" "." }
-	    parmtag	{ "spare_category" "View" }
-	}
-	parm {
-	    name	"focal"
-	    label	"Focal Length"
-	    type	float
-	    joinnext
-	    default	{ "50" }
-	    range	{ 1 100 }
-	}
-	parm {
-	    name	"focalunits"
-	    label	"Focal Units"
-	    type	string
-	    default	{ "mm" }
-	    menu	{
-		"mm"	"millimeters"
-		"m"	"meters"
-		"nm"	"nanometers"
-		"in"	"inches"
-		"ft"	"feet"
-	    }
-	}
-	parm {
-	    name	"aperture"
-	    label	"Aperture"
-	    type	float
-	    default	{ "41.4214" }
-	    range	{ 1 100 }
-	    parmtag	{ "spare_category" "View" }
-	}
-	parm {
-	    name	"orthowidth"
-	    label	"Ortho Width"
-	    type	float
-	    default	{ "2" }
-	    disablewhen	"{ projection != ortho }"
-	    range	{ 0.001 10 }
-	    parmtag	{ "spare_category" "View" }
-	}
-	parm {
-	    name	"near"
-	    label	"Near Clipping"
-	    type	float
-	    default	{ "0.001" }
-	    range	{ 0 10 }
-	    parmtag	{ "spare_category" "View" }
-	}
-	parm {
-	    name	"far"
-	    label	"Far Clipping"
-	    type	float
-	    default	{ "10000" }
-	    range	{ 1 10000 }
-	    parmtag	{ "spare_category" "View" }
-	}
-	parm {
-	    name	"vm_bgenable"
-	    label	"Enable Background Image"
-	    type	toggle
-	    default	{ "1" }
-	    parmtag	{ "mantra_class" "image" }
-	    parmtag	{ "mantra_name" "bgenable" }
-	    parmtag	{ "spare_category" "View" }
-	}
-	parm {
-	    name	"vm_background"
-	    label	"Background Image"
-	    type	file
-	    default	{ "" }
-	    disablewhen	"{ vm_bgenable == 0 }"
-	    parmtag	{ "filechooser_mode" "read" }
-	    parmtag	{ "mantra_class" "image" }
-	    parmtag	{ "mantra_name" "background" }
-	    parmtag	{ "spare_category" "View" }
-	}
-	parm {
-	    name	"win"
-	    label	"Screen Window X/Y"
-	    type	vector2
-	    size	2
-	    default	{ "0" "0" }
-	    disablewhen	"{ winmask != \"\" }"
-	    range	{ -1 1 }
-	}
-	parm {
-	    name	"winsize"
-	    label	"Screen Window Size"
-	    type	vector2
-	    size	2
-	    default	{ "1" "1" }
-	    disablewhen	"{ winmask != \"\" }"
-	    range	{ 0.01 10 }
-	}
-	parm {
-	    name	"winmask"
-	    label	"Screen Window Mask"
-	    type	oplist
-	    default	{ "" }
-	    disablewhen	"{ projection != ortho projection != perspective }"
-	    parmtag	{ "opexpand" "1" }
-	    parmtag	{ "opfilter" "!!OBJ/GEOMETRY!!" }
-	    parmtag	{ "oprelative" "/obj" }
-	}
-	parm {
-	    name	"cropl"
-	    label	"Left Crop"
-	    type	float
-	    default	{ "0" }
-	    disablewhen	"{ cropmask != \"\" }"
-	    range	{ 0 1 }
-	}
-	parm {
-	    name	"cropr"
-	    label	"Right Crop"
-	    type	float
-	    default	{ "1" }
-	    disablewhen	"{ cropmask != \"\" }"
-	    range	{ 0 1 }
-	}
-	parm {
-	    name	"cropb"
-	    label	"Bottom Crop"
-	    type	float
-	    default	{ "0" }
-	    disablewhen	"{ cropmask != \"\" }"
-	    range	{ 0 1 }
-	}
-	parm {
-	    name	"cropt"
-	    label	"Top Crop"
-	    type	float
-	    default	{ "1" }
-	    disablewhen	"{ cropmask != \"\" }"
-	    range	{ 0 1 }
-	}
-	parm {
-	    name	"cropmask"
-	    label	"Crop Mask"
-	    type	oplist
-	    default	{ "" }
-	    disablewhen	"{ projection != ortho projection != perspective }"
-	    parmtag	{ "opexpand" "1" }
-	    parmtag	{ "opfilter" "!!OBJ/GEOMETRY!!" }
-	    parmtag	{ "oprelative" "/obj" }
-	}
+        parm {
+            name    "iconscale"
+            label   "Icon Scale"
+            type    float
+            default { "1" }
+            range   { 0.001 10 }
+            parmtag { "spare_category" "View" }
+        }
+        parm {
+            name    "res"
+            label   "Resolution"
+            type    intvector2
+            joinnext
+            size    2
+            default { "1280" "720" }
+            range   { -1 1 }
+            parmtag { "cook_dependent" "1" }
+            parmtag { "spare_category" "View" }
+        }
+        parm {
+            name    "resMenu"
+            label   "Choose Resolution"
+            type    button
+            nolabel
+            default { "0" }
+            menumini {
+                [ "echo `pythonexprs(\"__import__('toolutils').parseDialogScriptMenu('FBres')\")`" ]
+            }
+            parmtag { "script_callback" "opparm . res ( `arg(\"$script_value\", 0)` `arg(\"$script_value\", 1)` aspect ( `arg(\"$script_value\", 2)` )" }
+            parmtag { "spare_category" "View" }
+        }
+        parm {
+            name    "aspect"
+            label   "Pixel Aspect Ratio"
+            type    float
+            default { "1" }
+            range   { 0.05 2 }
+            parmtag { "spare_category" "View" }
+        }
+        parm {
+            name    "projection"
+            label   "Projection"
+            type    ordinal
+            default { "perspective" }
+            menu {
+                "perspective"   "Perspective"
+                "ortho"         "Orthographic"
+                "sphere"        "Polar (panoramic)"
+                "cylinder"      "Cylindrical (panoramic)"
+                "lens"          "Lens Shader"
+            }
+            parmtag { "spare_category" "View" }
+        }
+        parm {
+            name    "vm_lensshader"
+            label   "Lens Shader"
+            type    oppath
+            default { "" }
+            disablewhen "{ projection != lens }"
+            parmtag { "oprelative" "." }
+            parmtag { "spare_category" "View" }
+        }
+        parm {
+            name    "focal"
+            label   "Focal Length"
+            type    float
+            joinnext
+            default { "50" }
+            range   { 1 100 }
+        }
+        parm {
+            name    "focalunits"
+            label   "Focal Units"
+            type    string
+            default { "mm" }
+            menu {
+                "mm"    "millimeters"
+                "m"     "meters"
+                "nm"    "nanometers"
+                "in"    "inches"
+                "ft"    "feet"
+            }
+        }
+        parm {
+            name    "aperture"
+            label   "Aperture"
+            type    float
+            default { "41.4214" }
+            range   { 1 100 }
+            parmtag { "spare_category" "View" }
+        }
+        parm {
+            name    "orthowidth"
+            label   "Ortho Width"
+            type    float
+            default { "2" }
+            disablewhen "{ projection != ortho }"
+            range   { 0.001 10 }
+            parmtag { "spare_category" "View" }
+        }
+        parm {
+            name    "near"
+            label   "Near Clipping"
+            type    float
+            default { "0.001" }
+            range   { 0 10 }
+            parmtag { "spare_category" "View" }
+        }
+        parm {
+            name    "far"
+            label   "Far Clipping"
+            type    float
+            default { "10000" }
+            range   { 1 10000 }
+            parmtag { "spare_category" "View" }
+        }
+        parm {
+            name    "vm_bgenable"
+            label   "Enable Background Image"
+            type    toggle
+            default { "1" }
+            parmtag { "mantra_class" "image" }
+            parmtag { "mantra_name" "bgenable" }
+            parmtag { "spare_category" "View" }
+        }
+        parm {
+            name    "vm_background"
+            label   "Background Image"
+            type    file
+            default { "" }
+            disablewhen "{ vm_bgenable == 0 }"
+            parmtag { "filechooser_mode" "read" }
+            parmtag { "mantra_class" "image" }
+            parmtag { "mantra_name" "background" }
+            parmtag { "spare_category" "View" }
+        }
+        parm {
+            name    "win"
+            label   "Screen Window X/Y"
+            type    vector2
+            size    2
+            default { "0" "0" }
+            disablewhen "{ winmask != \"\" }"
+            range   { -1 1 }
+        }
+        parm {
+            name    "winsize"
+            label   "Screen Window Size"
+            type    vector2
+            size    2
+            default { "1" "1" }
+            disablewhen "{ winmask != \"\" }"
+            range   { 0.01 10 }
+        }
+        parm {
+            name    "winmask"
+            label   "Screen Window Mask"
+            type    oplist
+            default { "" }
+            disablewhen "{ projection != ortho projection != perspective }"
+            parmtag { "opexpand" "1" }
+            parmtag { "opfilter" "!!OBJ/GEOMETRY!!" }
+            parmtag { "oprelative" "/obj" }
+        }
+        parm {
+            name    "cropl"
+            label   "Left Crop"
+            type    float
+            default { "0" }
+            disablewhen "{ cropmask != \"\" }"
+            range   { 0 1 }
+        }
+        parm {
+            name    "cropr"
+            label   "Right Crop"
+            type    float
+            default { "1" }
+            disablewhen "{ cropmask != \"\" }"
+            range   { 0 1 }
+        }
+        parm {
+            name    "cropb"
+            label   "Bottom Crop"
+            type    float
+            default { "0" }
+            disablewhen "{ cropmask != \"\" }"
+            range   { 0 1 }
+        }
+        parm {
+            name    "cropt"
+            label   "Top Crop"
+            type    float
+            default { "1" }
+            disablewhen "{ cropmask != \"\" }"
+            range   { 0 1 }
+        }
+        parm {
+            name    "cropmask"
+            label   "Crop Mask"
+            type    oplist
+            default { "" }
+            disablewhen "{ projection != ortho projection != perspective }"
+            parmtag { "opexpand" "1" }
+            parmtag { "opfilter" "!!OBJ/GEOMETRY!!" }
+            parmtag { "oprelative" "/obj" }
+        }
     }
 
     group {
-	name	"stdswitcher3_3"
-	label	"Sampling"
+        name    "stdswitcher3_3"
+        label   "Sampling"
 
-	parm {
-	    name	"shutter"
-	    label	"Shutter Time"
-	    type	float
-	    default	{ "0.5" }
-	    disablewhen	"{ allowmotionblur == 0 }"
-	    range	{ 0 1 }
-	    parmtag	{ "spare_category" "Sampling" }
-	}
-	parm {
-	    name	"focus"
-	    label	"Focus Distance"
-	    type	float
-	    default	{ "5" }
-	    disablewhen	"{ vm_dof == 0 }"
-	    range	{ 0.001 1000 }
-	    parmtag	{ "mantra_class" "camera" }
-	    parmtag	{ "mantra_name" "focus" }
-	    parmtag	{ "spare_category" "Sampling" }
-	}
-	parm {
-	    name	"fstop"
-	    label	"F-Stop"
-	    type	log
-	    default	{ "5.6" }
-	    disablewhen	"{ vm_dof == 0 }"
-	    range	{ 1.4 22 }
-	    parmtag	{ "mantra_class" "camera" }
-	    parmtag	{ "mantra_name" "fstop" }
-	    parmtag	{ "spare_category" "Sampling" }
-	}
-	parm {
-	    name	"vm_bokeh"
-	    label	"Bokeh"
-	    type	string
-	    default	{ "radial" }
-	    menureplace	{
-		"radial"	"Radial Bokeh"
-		"file"	"Image File Bokeh"
-		"box"	"Box Filter Bokeh"
-		"null"	"Disable Bokeh"
-	    }
-	    parmtag	{ "spare_category" "Sampling" }
-	}
-	parm {
-	    name	"vm_bokehfile"
-	    label	"Bokeh Image File"
-	    type	image
-	    default	{ "default.pic" }
-	    disablewhen	"{ vm_bokeh != file }"
-	    parmtag	{ "filechooser_mode" "read" }
-	    parmtag	{ "mantra_class" "bokeh" }
-	    parmtag	{ "mantra_name" "-f" }
-	    parmtag	{ "spare_category" "Sampling" }
-	}
-	parm {
-	    name	"vm_bokehrotation"
-	    label	"Bokeh Rotation"
-	    type	float
-	    default	{ "0" }
-	    disablewhen	"{ vm_bokeh != file }"
-	    range	{ 0 360 }
-	    parmtag	{ "mantra_class" "bokeh" }
-	    parmtag	{ "mantra_name" "-r" }
-	    parmtag	{ "spare_category" "Sampling" }
-	}
+        parm {
+            name    "shutter"
+            label   "Shutter Time"
+            type    float
+            default { "0.5" }
+            disablewhen "{ allowmotionblur == 0 }"
+            range   { 0 1 }
+            parmtag { "spare_category" "Sampling" }
+        }
+        parm {
+            name    "focus"
+            label   "Focus Distance"
+            type    float
+            default { "5" }
+            disablewhen "{ vm_dof == 0 }"
+            range   { 0.001 1000 }
+            parmtag { "mantra_class" "camera" }
+            parmtag { "mantra_name" "focus" }
+            parmtag { "spare_category" "Sampling" }
+        }
+        parm {
+            name    "fstop"
+            label   "F-Stop"
+            type    log
+            default { "5.6" }
+            disablewhen "{ vm_dof == 0 }"
+            range   { 1.4 22 }
+            parmtag { "mantra_class" "camera" }
+            parmtag { "mantra_name" "fstop" }
+            parmtag { "spare_category" "Sampling" }
+        }
+        parm {
+            name    "vm_bokeh"
+            label   "Bokeh"
+            type    string
+            default { "radial" }
+            menureplace {
+                "radial"    "Radial Bokeh"
+                "file"      "Image File Bokeh"
+                "box"       "Box Filter Bokeh"
+                "null"      "Disable Bokeh"
+            }
+            parmtag { "spare_category" "Sampling" }
+        }
+        parm {
+            name    "vm_bokehfile"
+            label   "Bokeh Image File"
+            type    image
+            default { "default.pic" }
+            disablewhen "{ vm_bokeh != file }"
+            parmtag { "filechooser_mode" "read" }
+            parmtag { "mantra_class" "bokeh" }
+            parmtag { "mantra_name" "-f" }
+            parmtag { "spare_category" "Sampling" }
+        }
+        parm {
+            name    "vm_bokehrotation"
+            label   "Bokeh Rotation"
+            type    float
+            default { "0" }
+            disablewhen "{ vm_bokeh != file }"
+            range   { 0 360 }
+            parmtag { "mantra_class" "bokeh" }
+            parmtag { "mantra_name" "-r" }
+            parmtag { "spare_category" "Sampling" }
+        }
     }
 
+    parm {
+        name    "pr"
+        baseparm
+        label   "Pivot Rotate"
+        export  none
+    }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
 Content-Disposition: attachment; filename="hdaroot/cam_simple1.chn"
@@ -2629,6 +2656,7 @@ t	[ 8	locks=0 ]	(	0	0	[ tz	2.2267277479171756 ] 	)
 r	[ 0	locks=0 ]	(	0	0	0	)
 s	[ 0	locks=0 ]	(	[ sx	1 ] 	[ sy	1 ] 	[ sz	1 ] 	)
 p	[ 8	locks=0 ]	(	0	0	0	)
+pr	[ 0	locks=0 ]	(	0	0	0	)
 scale	[ 0	locks=0 ]	(	[ scale	1 ] 	)
 pre_xform	[ 0	locks=0 ]	(	0	)
 keeppos	[ 0	locks=0 ]	(	"on"	)
@@ -2690,7 +2718,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.0.705"
+		"value":"16.5.268.10"
 	},
 	"___toolcount___":{
 		"type":"string",
@@ -2773,7 +2801,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.0.705"
+		"value":"16.5.268.10"
 	},
 	"___toolcount___":{
 		"type":"string",
@@ -2867,7 +2895,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.0.705"
+		"value":"16.5.268.10"
 	},
 	"___toolcount___":{
 		"type":"string",
@@ -2945,8 +2973,17 @@ t	[ 0	locks=0 ]	(	0	0	0	)
 r	[ 0	locks=0 ]	(	0	0	0	)
 s	[ 0	locks=0 ]	(	1	1	1	)
 shear	[ 0	locks=0 ]	(	0	0	0	)
-p	[ 0	locks=0 ]	(	0	0	0	)
 scale	[ 0	locks=0 ]	(	[ scale	1 ] 	)
+parmgroup_pivotxform	[ 0	locks=0 ]	(	0	)
+p	[ 0	locks=0 ]	(	0	0	0	)
+pr	[ 0	locks=0 ]	(	0	0	0	)
+parmgroup_prexform	[ 0	locks=0 ]	(	0	)
+prexform_xOrd	[ 0	locks=0 ]	(	"srt"	)
+prexform_rOrd	[ 0	locks=0 ]	(	"xyz"	)
+prexform_t	[ 0	locks=0 ]	(	0	0	0	)
+prexform_r	[ 0	locks=0 ]	(	0	0	0	)
+prexform_s	[ 0	locks=0 ]	(	1	1	1	)
+prexform_shear	[ 0	locks=0 ]	(	0	0	0	)
 movecentroid	[ 0	locks=0 ]	(	0	)
 attribs	[ 0	locks=0 ]	(	*	)
 updatenmls	[ 0	locks=0 ]	(	"off"	)
@@ -2962,7 +2999,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.0.705"
+		"value":"16.5.268.10"
 	},
 	"___toolcount___":{
 		"type":"string",
@@ -3054,6 +3091,7 @@ t	[ 8	locks=0 ]	(	0	[ ty	0.85636997222900391 ] 	0	)
 r	[ 0	locks=0	autoscope=7 ]	(	0	0	0	)
 s	[ 0	locks=0 ]	(	1	1	1	)
 p	[ 0	locks=0 ]	(	0	0	0	)
+pr	[ 0	locks=0 ]	(	0	0	0	)
 scale	[ 0	locks=0 ]	(	1	)
 pre_xform	[ 0	locks=0 ]	(	0	)
 keeppos	[ 0	locks=0 ]	(	"off"	)
@@ -3100,7 +3138,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.0.705"
+		"value":"16.5.268.10"
 	}
 }
 
@@ -3221,7 +3259,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.0.705"
+		"value":"16.5.268.10"
 	}
 }
 
@@ -3296,7 +3334,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.0.705"
+		"value":"16.5.268.10"
 	}
 }
 
@@ -3359,489 +3397,496 @@ Content-Disposition: attachment; filename="hdaroot/cam_animation1.spareparmdef"
 Content-Type: text/plain
 
     group {
-	name	"stdswitcher3"
-	label	"Transform"
+        name    "stdswitcher3"
+        label   "Transform"
 
-	parm {
-	    name	"xOrd"
-	    baseparm
-	    label	"Transform Order"
-	    joinnext
-	    export	none
-	}
-	parm {
-	    name	"rOrd"
-	    baseparm
-	    label	"Rotate Order"
-	    export	none
-	}
-	parm {
-	    name	"t"
-	    baseparm
-	    label	"Translate"
-	    export	all
-	}
-	parm {
-	    name	"r"
-	    baseparm
-	    label	"Rotate"
-	    export	all
-	}
-	parm {
-	    name	"s"
-	    baseparm
-	    label	"Scale"
-	    invisible
-	    export	none
-	}
-	parm {
-	    name	"p"
-	    baseparm
-	    label	"Pivot"
-	    export	none
-	}
-	parm {
-	    name	"scale"
-	    baseparm
-	    label	"Uniform Scale"
-	    invisible
-	    export	none
-	}
-	parm {
-	    name	"pre_xform"
-	    baseparm
-	    label	"Modify Pre-Transform"
-	    export	none
-	}
-	parm {
-	    name	"keeppos"
-	    baseparm
-	    label	"Keep Position When Parenting"
-	    export	none
-	}
-	parm {
-	    name	"childcomp"
-	    baseparm
-	    label	"Child Compensation"
-	    export	none
-	}
-	parm {
-	    name	"constraints_on"
-	    baseparm
-	    label	"Enable Constraints"
-	    export	none
-	}
-	parm {
-	    name	"constraints_path"
-	    baseparm
-	    label	"Constraints"
-	    export	none
-	}
-	parm {
-	    name	"lookatpath"
-	    baseparm
-	    label	"Look At"
-	    invisible
-	    export	none
-	}
-	parm {
-	    name	"lookupobjpath"
-	    baseparm
-	    label	"Look Up Object"
-	    invisible
-	    export	none
-	}
-	parm {
-	    name	"lookup"
-	    baseparm
-	    label	"Look At Up Vector"
-	    invisible
-	    export	none
-	}
-	parm {
-	    name	"pathobjpath"
-	    baseparm
-	    label	"Path Object"
-	    invisible
-	    export	none
-	}
-	parm {
-	    name	"roll"
-	    baseparm
-	    label	"Roll"
-	    invisible
-	    export	none
-	}
-	parm {
-	    name	"pos"
-	    baseparm
-	    label	"Position"
-	    invisible
-	    export	none
-	}
-	parm {
-	    name	"uparmtype"
-	    baseparm
-	    label	"Parameterization"
-	    invisible
-	    export	none
-	}
-	parm {
-	    name	"pathorient"
-	    baseparm
-	    label	"Orient Along Path"
-	    invisible
-	    export	none
-	}
-	parm {
-	    name	"up"
-	    baseparm
-	    label	"Orient Up Vector"
-	    invisible
-	    export	none
-	}
-	parm {
-	    name	"bank"
-	    baseparm
-	    label	"Auto-Bank factor"
-	    invisible
-	    export	none
-	}
+        parm {
+            name    "xOrd"
+            baseparm
+            label   "Transform Order"
+            joinnext
+            export  none
+        }
+        parm {
+            name    "rOrd"
+            baseparm
+            label   "Rotate Order"
+            nolabel
+            export  none
+        }
+        parm {
+            name    "t"
+            baseparm
+            label   "Translate"
+            export  all
+        }
+        parm {
+            name    "r"
+            baseparm
+            label   "Rotate"
+            export  all
+        }
+        parm {
+            name    "s"
+            baseparm
+            label   "Scale"
+            invisible
+            export  none
+        }
+        parm {
+            name    "p"
+            baseparm
+            label   "Pivot Translate"
+            export  none
+        }
+        parm {
+            name    "scale"
+            baseparm
+            label   "Uniform Scale"
+            invisible
+            export  none
+        }
+        parm {
+            name    "pre_xform"
+            baseparm
+            label   "Modify Pre-Transform"
+            export  none
+        }
+        parm {
+            name    "keeppos"
+            baseparm
+            label   "Keep Position When Parenting"
+            export  none
+        }
+        parm {
+            name    "childcomp"
+            baseparm
+            label   "Child Compensation"
+            export  none
+        }
+        parm {
+            name    "constraints_on"
+            baseparm
+            label   "Enable Constraints"
+            export  none
+        }
+        parm {
+            name    "constraints_path"
+            baseparm
+            label   "Constraints"
+            export  none
+        }
+        parm {
+            name    "lookatpath"
+            baseparm
+            label   "Look At"
+            invisible
+            export  none
+        }
+        parm {
+            name    "lookupobjpath"
+            baseparm
+            label   "Look Up Object"
+            invisible
+            export  none
+        }
+        parm {
+            name    "lookup"
+            baseparm
+            label   "Look At Up Vector"
+            invisible
+            export  none
+        }
+        parm {
+            name    "pathobjpath"
+            baseparm
+            label   "Path Object"
+            invisible
+            export  none
+        }
+        parm {
+            name    "roll"
+            baseparm
+            label   "Roll"
+            invisible
+            export  none
+        }
+        parm {
+            name    "pos"
+            baseparm
+            label   "Position"
+            invisible
+            export  none
+        }
+        parm {
+            name    "uparmtype"
+            baseparm
+            label   "Parameterization"
+            invisible
+            export  none
+        }
+        parm {
+            name    "pathorient"
+            baseparm
+            label   "Orient Along Path"
+            invisible
+            export  none
+        }
+        parm {
+            name    "up"
+            baseparm
+            label   "Orient Up Vector"
+            invisible
+            export  none
+        }
+        parm {
+            name    "bank"
+            baseparm
+            label   "Auto-Bank factor"
+            invisible
+            export  none
+        }
     }
 
     group {
-	name	"stdswitcher3_1"
-	label	"Render"
+        name    "stdswitcher3_1"
+        label   "Render"
 
-	parm {
-	    name	"tdisplay"
-	    baseparm
-	    label	"Display"
-	    joinnext
-	    export	none
-	}
-	parm {
-	    name	"display"
-	    baseparm
-	    label	"Display"
-	    export	none
-	}
-	parm {
-	    name	"use_dcolor"
-	    baseparm
-	    label	"Set Wireframe Color"
-	    export	none
-	}
-	parm {
-	    name	"dcolor"
-	    baseparm
-	    label	"Wireframe Color"
-	    export	none
-	}
-	parm {
-	    name	"picking"
-	    baseparm
-	    label	"Viewport Selecting Enabled"
-	    export	none
-	}
-	parm {
-	    name	"pickscript"
-	    baseparm
-	    label	"Select Script"
-	    export	none
-	}
-	parm {
-	    name	"caching"
-	    baseparm
-	    label	"Cache Object Transform"
-	    export	none
-	}
+        parm {
+            name    "tdisplay"
+            baseparm
+            label   "Display"
+            joinnext
+            export  none
+        }
+        parm {
+            name    "display"
+            baseparm
+            label   "Display"
+            export  none
+        }
+        parm {
+            name    "use_dcolor"
+            baseparm
+            label   "Set Wireframe Color"
+            export  none
+        }
+        parm {
+            name    "dcolor"
+            baseparm
+            label   "Wireframe Color"
+            export  none
+        }
+        parm {
+            name    "picking"
+            baseparm
+            label   "Viewport Selecting Enabled"
+            export  none
+        }
+        parm {
+            name    "pickscript"
+            baseparm
+            label   "Select Script"
+            export  none
+        }
+        parm {
+            name    "caching"
+            baseparm
+            label   "Cache Object Transform"
+            export  none
+        }
     }
 
     group {
-	name	"stdswitcher3_2"
-	label	"View"
+        name    "stdswitcher3_2"
+        label   "View"
 
-	parm {
-	    name	"iconscale"
-	    label	"Icon Scale"
-	    type	float
-	    default	{ "1" }
-	    range	{ 0.001 10 }
-	    parmtag	{ "spare_category" "View" }
-	}
-	parm {
-	    name	"res"
-	    label	"Resolution"
-	    type	intvector2
-	    joinnext
-	    size	2
-	    default	{ "1280" "720" }
-	    range	{ -1 1 }
-	    parmtag	{ "cook_dependent" "1" }
-	    parmtag	{ "spare_category" "View" }
-	}
-	parm {
-	    name	"resMenu"
-	    label	"Choose Resolution"
-	    type	button
-	    nolabel
-	    default	{ "0" }
-	    menumini	{
-		[ "echo `pythonexprs(\"__import__('toolutils').parseDialogScriptMenu('FBres')\")`" ]
-	    }
-	    parmtag	{ "script_callback" "opparm . res ( `arg(\"$script_value\", 0)` `arg(\"$script_value\", 1)` aspect ( `arg(\"$script_value\", 2)` )" }
-	    parmtag	{ "spare_category" "View" }
-	}
-	parm {
-	    name	"aspect"
-	    label	"Pixel Aspect Ratio"
-	    type	float
-	    default	{ "1" }
-	    range	{ 0.05 2 }
-	    parmtag	{ "spare_category" "View" }
-	}
-	parm {
-	    name	"projection"
-	    label	"Projection"
-	    type	ordinal
-	    default	{ "perspective" }
-	    menu	{
-		"perspective"	"Perspective"
-		"ortho"	"Orthographic"
-		"sphere"	"Polar (panoramic)"
-		"cylinder"	"Cylindrical (panoramic)"
-		"lens"	"Lens Shader"
-	    }
-	    parmtag	{ "spare_category" "View" }
-	}
-	parm {
-	    name	"vm_lensshader"
-	    label	"Lens Shader"
-	    type	oppath
-	    default	{ "" }
-	    disablewhen	"{ projection != lens }"
-	    parmtag	{ "oprelative" "." }
-	    parmtag	{ "spare_category" "View" }
-	}
-	parm {
-	    name	"focal"
-	    label	"Focal Length"
-	    type	float
-	    joinnext
-	    default	{ "50" }
-	    range	{ 1 100 }
-	}
-	parm {
-	    name	"focalunits"
-	    label	"Focal Units"
-	    type	string
-	    default	{ "mm" }
-	    menu	{
-		"mm"	"millimeters"
-		"m"	"meters"
-		"nm"	"nanometers"
-		"in"	"inches"
-		"ft"	"feet"
-	    }
-	}
-	parm {
-	    name	"aperture"
-	    label	"Aperture"
-	    type	float
-	    default	{ "41.4214" }
-	    range	{ 1 100 }
-	    parmtag	{ "spare_category" "View" }
-	}
-	parm {
-	    name	"orthowidth"
-	    label	"Ortho Width"
-	    type	float
-	    default	{ "2" }
-	    disablewhen	"{ projection != ortho }"
-	    range	{ 0.001 10 }
-	    parmtag	{ "spare_category" "View" }
-	}
-	parm {
-	    name	"near"
-	    label	"Near Clipping"
-	    type	float
-	    default	{ "0.001" }
-	    range	{ 0 10 }
-	    parmtag	{ "spare_category" "View" }
-	}
-	parm {
-	    name	"far"
-	    label	"Far Clipping"
-	    type	float
-	    default	{ "10000" }
-	    range	{ 1 10000 }
-	    parmtag	{ "spare_category" "View" }
-	}
-	parm {
-	    name	"vm_bgenable"
-	    label	"Enable Background Image"
-	    type	toggle
-	    default	{ "1" }
-	    parmtag	{ "mantra_class" "image" }
-	    parmtag	{ "mantra_name" "bgenable" }
-	    parmtag	{ "spare_category" "View" }
-	}
-	parm {
-	    name	"vm_background"
-	    label	"Background Image"
-	    type	file
-	    default	{ "" }
-	    disablewhen	"{ vm_bgenable == 0 }"
-	    parmtag	{ "filechooser_mode" "read" }
-	    parmtag	{ "mantra_class" "image" }
-	    parmtag	{ "mantra_name" "background" }
-	    parmtag	{ "spare_category" "View" }
-	}
-	parm {
-	    name	"win"
-	    label	"Screen Window X/Y"
-	    type	vector2
-	    size	2
-	    default	{ "0" "0" }
-	    disablewhen	"{ winmask != \"\" }"
-	    range	{ -1 1 }
-	}
-	parm {
-	    name	"winsize"
-	    label	"Screen Window Size"
-	    type	vector2
-	    size	2
-	    default	{ "1" "1" }
-	    disablewhen	"{ winmask != \"\" }"
-	    range	{ 0.01 10 }
-	}
-	parm {
-	    name	"winmask"
-	    label	"Screen Window Mask"
-	    type	oplist
-	    default	{ "" }
-	    disablewhen	"{ projection != ortho projection != perspective }"
-	    parmtag	{ "opexpand" "1" }
-	    parmtag	{ "opfilter" "!!OBJ/GEOMETRY!!" }
-	    parmtag	{ "oprelative" "/obj" }
-	}
-	parm {
-	    name	"cropl"
-	    label	"Left Crop"
-	    type	float
-	    default	{ "0" }
-	    disablewhen	"{ cropmask != \"\" }"
-	    range	{ 0 1 }
-	}
-	parm {
-	    name	"cropr"
-	    label	"Right Crop"
-	    type	float
-	    default	{ "1" }
-	    disablewhen	"{ cropmask != \"\" }"
-	    range	{ 0 1 }
-	}
-	parm {
-	    name	"cropb"
-	    label	"Bottom Crop"
-	    type	float
-	    default	{ "0" }
-	    disablewhen	"{ cropmask != \"\" }"
-	    range	{ 0 1 }
-	}
-	parm {
-	    name	"cropt"
-	    label	"Top Crop"
-	    type	float
-	    default	{ "1" }
-	    disablewhen	"{ cropmask != \"\" }"
-	    range	{ 0 1 }
-	}
-	parm {
-	    name	"cropmask"
-	    label	"Crop Mask"
-	    type	oplist
-	    default	{ "" }
-	    disablewhen	"{ projection != ortho projection != perspective }"
-	    parmtag	{ "opexpand" "1" }
-	    parmtag	{ "opfilter" "!!OBJ/GEOMETRY!!" }
-	    parmtag	{ "oprelative" "/obj" }
-	}
+        parm {
+            name    "iconscale"
+            label   "Icon Scale"
+            type    float
+            default { "1" }
+            range   { 0.001 10 }
+            parmtag { "spare_category" "View" }
+        }
+        parm {
+            name    "res"
+            label   "Resolution"
+            type    intvector2
+            joinnext
+            size    2
+            default { "1280" "720" }
+            range   { -1 1 }
+            parmtag { "cook_dependent" "1" }
+            parmtag { "spare_category" "View" }
+        }
+        parm {
+            name    "resMenu"
+            label   "Choose Resolution"
+            type    button
+            nolabel
+            default { "0" }
+            menumini {
+                [ "echo `pythonexprs(\"__import__('toolutils').parseDialogScriptMenu('FBres')\")`" ]
+            }
+            parmtag { "script_callback" "opparm . res ( `arg(\"$script_value\", 0)` `arg(\"$script_value\", 1)` aspect ( `arg(\"$script_value\", 2)` )" }
+            parmtag { "spare_category" "View" }
+        }
+        parm {
+            name    "aspect"
+            label   "Pixel Aspect Ratio"
+            type    float
+            default { "1" }
+            range   { 0.05 2 }
+            parmtag { "spare_category" "View" }
+        }
+        parm {
+            name    "projection"
+            label   "Projection"
+            type    ordinal
+            default { "perspective" }
+            menu {
+                "perspective"   "Perspective"
+                "ortho"         "Orthographic"
+                "sphere"        "Polar (panoramic)"
+                "cylinder"      "Cylindrical (panoramic)"
+                "lens"          "Lens Shader"
+            }
+            parmtag { "spare_category" "View" }
+        }
+        parm {
+            name    "vm_lensshader"
+            label   "Lens Shader"
+            type    oppath
+            default { "" }
+            disablewhen "{ projection != lens }"
+            parmtag { "oprelative" "." }
+            parmtag { "spare_category" "View" }
+        }
+        parm {
+            name    "focal"
+            label   "Focal Length"
+            type    float
+            joinnext
+            default { "50" }
+            range   { 1 100 }
+        }
+        parm {
+            name    "focalunits"
+            label   "Focal Units"
+            type    string
+            default { "mm" }
+            menu {
+                "mm"    "millimeters"
+                "m"     "meters"
+                "nm"    "nanometers"
+                "in"    "inches"
+                "ft"    "feet"
+            }
+        }
+        parm {
+            name    "aperture"
+            label   "Aperture"
+            type    float
+            default { "41.4214" }
+            range   { 1 100 }
+            parmtag { "spare_category" "View" }
+        }
+        parm {
+            name    "orthowidth"
+            label   "Ortho Width"
+            type    float
+            default { "2" }
+            disablewhen "{ projection != ortho }"
+            range   { 0.001 10 }
+            parmtag { "spare_category" "View" }
+        }
+        parm {
+            name    "near"
+            label   "Near Clipping"
+            type    float
+            default { "0.001" }
+            range   { 0 10 }
+            parmtag { "spare_category" "View" }
+        }
+        parm {
+            name    "far"
+            label   "Far Clipping"
+            type    float
+            default { "10000" }
+            range   { 1 10000 }
+            parmtag { "spare_category" "View" }
+        }
+        parm {
+            name    "vm_bgenable"
+            label   "Enable Background Image"
+            type    toggle
+            default { "1" }
+            parmtag { "mantra_class" "image" }
+            parmtag { "mantra_name" "bgenable" }
+            parmtag { "spare_category" "View" }
+        }
+        parm {
+            name    "vm_background"
+            label   "Background Image"
+            type    file
+            default { "" }
+            disablewhen "{ vm_bgenable == 0 }"
+            parmtag { "filechooser_mode" "read" }
+            parmtag { "mantra_class" "image" }
+            parmtag { "mantra_name" "background" }
+            parmtag { "spare_category" "View" }
+        }
+        parm {
+            name    "win"
+            label   "Screen Window X/Y"
+            type    vector2
+            size    2
+            default { "0" "0" }
+            disablewhen "{ winmask != \"\" }"
+            range   { -1 1 }
+        }
+        parm {
+            name    "winsize"
+            label   "Screen Window Size"
+            type    vector2
+            size    2
+            default { "1" "1" }
+            disablewhen "{ winmask != \"\" }"
+            range   { 0.01 10 }
+        }
+        parm {
+            name    "winmask"
+            label   "Screen Window Mask"
+            type    oplist
+            default { "" }
+            disablewhen "{ projection != ortho projection != perspective }"
+            parmtag { "opexpand" "1" }
+            parmtag { "opfilter" "!!OBJ/GEOMETRY!!" }
+            parmtag { "oprelative" "/obj" }
+        }
+        parm {
+            name    "cropl"
+            label   "Left Crop"
+            type    float
+            default { "0" }
+            disablewhen "{ cropmask != \"\" }"
+            range   { 0 1 }
+        }
+        parm {
+            name    "cropr"
+            label   "Right Crop"
+            type    float
+            default { "1" }
+            disablewhen "{ cropmask != \"\" }"
+            range   { 0 1 }
+        }
+        parm {
+            name    "cropb"
+            label   "Bottom Crop"
+            type    float
+            default { "0" }
+            disablewhen "{ cropmask != \"\" }"
+            range   { 0 1 }
+        }
+        parm {
+            name    "cropt"
+            label   "Top Crop"
+            type    float
+            default { "1" }
+            disablewhen "{ cropmask != \"\" }"
+            range   { 0 1 }
+        }
+        parm {
+            name    "cropmask"
+            label   "Crop Mask"
+            type    oplist
+            default { "" }
+            disablewhen "{ projection != ortho projection != perspective }"
+            parmtag { "opexpand" "1" }
+            parmtag { "opfilter" "!!OBJ/GEOMETRY!!" }
+            parmtag { "oprelative" "/obj" }
+        }
     }
 
     group {
-	name	"stdswitcher3_3"
-	label	"Sampling"
+        name    "stdswitcher3_3"
+        label   "Sampling"
 
-	parm {
-	    name	"shutter"
-	    label	"Shutter Time"
-	    type	float
-	    default	{ "0.5" }
-	    disablewhen	"{ allowmotionblur == 0 }"
-	    range	{ 0 1 }
-	    parmtag	{ "spare_category" "Sampling" }
-	}
-	parm {
-	    name	"focus"
-	    label	"Focus Distance"
-	    type	float
-	    default	{ "5" }
-	    disablewhen	"{ vm_dof == 0 }"
-	    range	{ 0.001 1000 }
-	    parmtag	{ "mantra_class" "camera" }
-	    parmtag	{ "mantra_name" "focus" }
-	    parmtag	{ "spare_category" "Sampling" }
-	}
-	parm {
-	    name	"fstop"
-	    label	"F-Stop"
-	    type	log
-	    default	{ "5.6" }
-	    disablewhen	"{ vm_dof == 0 }"
-	    range	{ 1.4 22 }
-	    parmtag	{ "mantra_class" "camera" }
-	    parmtag	{ "mantra_name" "fstop" }
-	    parmtag	{ "spare_category" "Sampling" }
-	}
-	parm {
-	    name	"vm_bokeh"
-	    label	"Bokeh"
-	    type	string
-	    default	{ "radial" }
-	    menureplace	{
-		"radial"	"Radial Bokeh"
-		"file"	"Image File Bokeh"
-		"box"	"Box Filter Bokeh"
-		"null"	"Disable Bokeh"
-	    }
-	    parmtag	{ "spare_category" "Sampling" }
-	}
-	parm {
-	    name	"vm_bokehfile"
-	    label	"Bokeh Image File"
-	    type	image
-	    default	{ "default.pic" }
-	    disablewhen	"{ vm_bokeh != file }"
-	    parmtag	{ "filechooser_mode" "read" }
-	    parmtag	{ "mantra_class" "bokeh" }
-	    parmtag	{ "mantra_name" "-f" }
-	    parmtag	{ "spare_category" "Sampling" }
-	}
-	parm {
-	    name	"vm_bokehrotation"
-	    label	"Bokeh Rotation"
-	    type	float
-	    default	{ "0" }
-	    disablewhen	"{ vm_bokeh != file }"
-	    range	{ 0 360 }
-	    parmtag	{ "mantra_class" "bokeh" }
-	    parmtag	{ "mantra_name" "-r" }
-	    parmtag	{ "spare_category" "Sampling" }
-	}
+        parm {
+            name    "shutter"
+            label   "Shutter Time"
+            type    float
+            default { "0.5" }
+            disablewhen "{ allowmotionblur == 0 }"
+            range   { 0 1 }
+            parmtag { "spare_category" "Sampling" }
+        }
+        parm {
+            name    "focus"
+            label   "Focus Distance"
+            type    float
+            default { "5" }
+            disablewhen "{ vm_dof == 0 }"
+            range   { 0.001 1000 }
+            parmtag { "mantra_class" "camera" }
+            parmtag { "mantra_name" "focus" }
+            parmtag { "spare_category" "Sampling" }
+        }
+        parm {
+            name    "fstop"
+            label   "F-Stop"
+            type    log
+            default { "5.6" }
+            disablewhen "{ vm_dof == 0 }"
+            range   { 1.4 22 }
+            parmtag { "mantra_class" "camera" }
+            parmtag { "mantra_name" "fstop" }
+            parmtag { "spare_category" "Sampling" }
+        }
+        parm {
+            name    "vm_bokeh"
+            label   "Bokeh"
+            type    string
+            default { "radial" }
+            menureplace {
+                "radial"    "Radial Bokeh"
+                "file"      "Image File Bokeh"
+                "box"       "Box Filter Bokeh"
+                "null"      "Disable Bokeh"
+            }
+            parmtag { "spare_category" "Sampling" }
+        }
+        parm {
+            name    "vm_bokehfile"
+            label   "Bokeh Image File"
+            type    image
+            default { "default.pic" }
+            disablewhen "{ vm_bokeh != file }"
+            parmtag { "filechooser_mode" "read" }
+            parmtag { "mantra_class" "bokeh" }
+            parmtag { "mantra_name" "-f" }
+            parmtag { "spare_category" "Sampling" }
+        }
+        parm {
+            name    "vm_bokehrotation"
+            label   "Bokeh Rotation"
+            type    float
+            default { "0" }
+            disablewhen "{ vm_bokeh != file }"
+            range   { 0 360 }
+            parmtag { "mantra_class" "bokeh" }
+            parmtag { "mantra_name" "-r" }
+            parmtag { "spare_category" "Sampling" }
+        }
     }
 
+    parm {
+        name    "pr"
+        baseparm
+        label   "Pivot Rotate"
+        export  none
+    }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
 Content-Disposition: attachment; filename="hdaroot/cam_animation1.chn"
@@ -3919,6 +3964,7 @@ t	[ 8	locks=0 ]	(	0	0	[ tz	2.2000000000000002 ] 	)
 r	[ 0	locks=0 ]	(	0	0	0	)
 s	[ 0	locks=0 ]	(	[ sx	1 ] 	[ sy	1 ] 	[ sz	1 ] 	)
 p	[ 8	locks=0 ]	(	0	0	0	)
+pr	[ 0	locks=0 ]	(	0	0	0	)
 scale	[ 0	locks=0 ]	(	[ scale	1 ] 	)
 pre_xform	[ 0	locks=0 ]	(	0	)
 keeppos	[ 0	locks=0 ]	(	"on"	)
@@ -3980,7 +4026,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.0.705"
+		"value":"16.5.268.10"
 	},
 	"___toolcount___":{
 		"type":"string",
@@ -4063,7 +4109,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.0.705"
+		"value":"16.5.268.10"
 	},
 	"___toolcount___":{
 		"type":"string",
@@ -4157,7 +4203,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.0.705"
+		"value":"16.5.268.10"
 	},
 	"___toolcount___":{
 		"type":"string",
@@ -4235,8 +4281,17 @@ t	[ 0	locks=0 ]	(	0	0	0	)
 r	[ 0	locks=0 ]	(	0	0	0	)
 s	[ 0	locks=0 ]	(	1	1	1	)
 shear	[ 0	locks=0 ]	(	0	0	0	)
-p	[ 0	locks=0 ]	(	0	0	0	)
 scale	[ 0	locks=0 ]	(	[ scale	1 ] 	)
+parmgroup_pivotxform	[ 0	locks=0 ]	(	0	)
+p	[ 0	locks=0 ]	(	0	0	0	)
+pr	[ 0	locks=0 ]	(	0	0	0	)
+parmgroup_prexform	[ 0	locks=0 ]	(	0	)
+prexform_xOrd	[ 0	locks=0 ]	(	"srt"	)
+prexform_rOrd	[ 0	locks=0 ]	(	"xyz"	)
+prexform_t	[ 0	locks=0 ]	(	0	0	0	)
+prexform_r	[ 0	locks=0 ]	(	0	0	0	)
+prexform_s	[ 0	locks=0 ]	(	1	1	1	)
+prexform_shear	[ 0	locks=0 ]	(	0	0	0	)
 movecentroid	[ 0	locks=0 ]	(	0	)
 attribs	[ 0	locks=0 ]	(	*	)
 updatenmls	[ 0	locks=0 ]	(	"off"	)
@@ -4252,7 +4307,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.0.705"
+		"value":"16.5.268.10"
 	},
 	"___toolcount___":{
 		"type":"string",
@@ -4330,7 +4385,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.0.705"
+		"value":"16.5.268.10"
 	}
 }
 
@@ -4499,6 +4554,7 @@ t	[ 8	locks=0 ]	(	0	[ ty	0.55851495265960693 ] 	0	)
 r	[ 8	locks=0	autoscope=7 ]	(	0	0	0	)
 s	[ 0	locks=0 ]	(	1	1	1	)
 p	[ 0	locks=0 ]	(	0	0	0	)
+pr	[ 0	locks=0 ]	(	0	0	0	)
 scale	[ 0	locks=0 ]	(	1	)
 pre_xform	[ 0	locks=0 ]	(	0	)
 keeppos	[ 0	locks=0 ]	(	"off"	)
@@ -4545,7 +4601,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.0.705"
+		"value":"16.5.268.10"
 	}
 }
 
@@ -4666,7 +4722,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.0.705"
+		"value":"16.5.268.10"
 	}
 }
 
@@ -4741,7 +4797,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.0.705"
+		"value":"16.5.268.10"
 	}
 }
 
@@ -4804,489 +4860,496 @@ Content-Disposition: attachment; filename="hdaroot/cam_lens_shader.spareparmdef"
 Content-Type: text/plain
 
     group {
-	name	"stdswitcher3"
-	label	"Transform"
+        name    "stdswitcher3"
+        label   "Transform"
 
-	parm {
-	    name	"xOrd"
-	    baseparm
-	    label	"Transform Order"
-	    joinnext
-	    export	none
-	}
-	parm {
-	    name	"rOrd"
-	    baseparm
-	    label	"Rotate Order"
-	    export	none
-	}
-	parm {
-	    name	"t"
-	    baseparm
-	    label	"Translate"
-	    export	all
-	}
-	parm {
-	    name	"r"
-	    baseparm
-	    label	"Rotate"
-	    export	all
-	}
-	parm {
-	    name	"s"
-	    baseparm
-	    label	"Scale"
-	    invisible
-	    export	none
-	}
-	parm {
-	    name	"p"
-	    baseparm
-	    label	"Pivot"
-	    export	none
-	}
-	parm {
-	    name	"scale"
-	    baseparm
-	    label	"Uniform Scale"
-	    invisible
-	    export	none
-	}
-	parm {
-	    name	"pre_xform"
-	    baseparm
-	    label	"Modify Pre-Transform"
-	    export	none
-	}
-	parm {
-	    name	"keeppos"
-	    baseparm
-	    label	"Keep Position When Parenting"
-	    export	none
-	}
-	parm {
-	    name	"childcomp"
-	    baseparm
-	    label	"Child Compensation"
-	    export	none
-	}
-	parm {
-	    name	"constraints_on"
-	    baseparm
-	    label	"Enable Constraints"
-	    export	none
-	}
-	parm {
-	    name	"constraints_path"
-	    baseparm
-	    label	"Constraints"
-	    export	none
-	}
-	parm {
-	    name	"lookatpath"
-	    baseparm
-	    label	"Look At"
-	    invisible
-	    export	none
-	}
-	parm {
-	    name	"lookupobjpath"
-	    baseparm
-	    label	"Look Up Object"
-	    invisible
-	    export	none
-	}
-	parm {
-	    name	"lookup"
-	    baseparm
-	    label	"Look At Up Vector"
-	    invisible
-	    export	none
-	}
-	parm {
-	    name	"pathobjpath"
-	    baseparm
-	    label	"Path Object"
-	    invisible
-	    export	none
-	}
-	parm {
-	    name	"roll"
-	    baseparm
-	    label	"Roll"
-	    invisible
-	    export	none
-	}
-	parm {
-	    name	"pos"
-	    baseparm
-	    label	"Position"
-	    invisible
-	    export	none
-	}
-	parm {
-	    name	"uparmtype"
-	    baseparm
-	    label	"Parameterization"
-	    invisible
-	    export	none
-	}
-	parm {
-	    name	"pathorient"
-	    baseparm
-	    label	"Orient Along Path"
-	    invisible
-	    export	none
-	}
-	parm {
-	    name	"up"
-	    baseparm
-	    label	"Orient Up Vector"
-	    invisible
-	    export	none
-	}
-	parm {
-	    name	"bank"
-	    baseparm
-	    label	"Auto-Bank factor"
-	    invisible
-	    export	none
-	}
+        parm {
+            name    "xOrd"
+            baseparm
+            label   "Transform Order"
+            joinnext
+            export  none
+        }
+        parm {
+            name    "rOrd"
+            baseparm
+            label   "Rotate Order"
+            nolabel
+            export  none
+        }
+        parm {
+            name    "t"
+            baseparm
+            label   "Translate"
+            export  all
+        }
+        parm {
+            name    "r"
+            baseparm
+            label   "Rotate"
+            export  all
+        }
+        parm {
+            name    "s"
+            baseparm
+            label   "Scale"
+            invisible
+            export  none
+        }
+        parm {
+            name    "p"
+            baseparm
+            label   "Pivot Translate"
+            export  none
+        }
+        parm {
+            name    "scale"
+            baseparm
+            label   "Uniform Scale"
+            invisible
+            export  none
+        }
+        parm {
+            name    "pre_xform"
+            baseparm
+            label   "Modify Pre-Transform"
+            export  none
+        }
+        parm {
+            name    "keeppos"
+            baseparm
+            label   "Keep Position When Parenting"
+            export  none
+        }
+        parm {
+            name    "childcomp"
+            baseparm
+            label   "Child Compensation"
+            export  none
+        }
+        parm {
+            name    "constraints_on"
+            baseparm
+            label   "Enable Constraints"
+            export  none
+        }
+        parm {
+            name    "constraints_path"
+            baseparm
+            label   "Constraints"
+            export  none
+        }
+        parm {
+            name    "lookatpath"
+            baseparm
+            label   "Look At"
+            invisible
+            export  none
+        }
+        parm {
+            name    "lookupobjpath"
+            baseparm
+            label   "Look Up Object"
+            invisible
+            export  none
+        }
+        parm {
+            name    "lookup"
+            baseparm
+            label   "Look At Up Vector"
+            invisible
+            export  none
+        }
+        parm {
+            name    "pathobjpath"
+            baseparm
+            label   "Path Object"
+            invisible
+            export  none
+        }
+        parm {
+            name    "roll"
+            baseparm
+            label   "Roll"
+            invisible
+            export  none
+        }
+        parm {
+            name    "pos"
+            baseparm
+            label   "Position"
+            invisible
+            export  none
+        }
+        parm {
+            name    "uparmtype"
+            baseparm
+            label   "Parameterization"
+            invisible
+            export  none
+        }
+        parm {
+            name    "pathorient"
+            baseparm
+            label   "Orient Along Path"
+            invisible
+            export  none
+        }
+        parm {
+            name    "up"
+            baseparm
+            label   "Orient Up Vector"
+            invisible
+            export  none
+        }
+        parm {
+            name    "bank"
+            baseparm
+            label   "Auto-Bank factor"
+            invisible
+            export  none
+        }
     }
 
     group {
-	name	"stdswitcher3_1"
-	label	"Render"
+        name    "stdswitcher3_1"
+        label   "Render"
 
-	parm {
-	    name	"tdisplay"
-	    baseparm
-	    label	"Display"
-	    joinnext
-	    export	none
-	}
-	parm {
-	    name	"display"
-	    baseparm
-	    label	"Display"
-	    export	none
-	}
-	parm {
-	    name	"use_dcolor"
-	    baseparm
-	    label	"Set Wireframe Color"
-	    export	none
-	}
-	parm {
-	    name	"dcolor"
-	    baseparm
-	    label	"Wireframe Color"
-	    export	none
-	}
-	parm {
-	    name	"picking"
-	    baseparm
-	    label	"Viewport Selecting Enabled"
-	    export	none
-	}
-	parm {
-	    name	"pickscript"
-	    baseparm
-	    label	"Select Script"
-	    export	none
-	}
-	parm {
-	    name	"caching"
-	    baseparm
-	    label	"Cache Object Transform"
-	    export	none
-	}
+        parm {
+            name    "tdisplay"
+            baseparm
+            label   "Display"
+            joinnext
+            export  none
+        }
+        parm {
+            name    "display"
+            baseparm
+            label   "Display"
+            export  none
+        }
+        parm {
+            name    "use_dcolor"
+            baseparm
+            label   "Set Wireframe Color"
+            export  none
+        }
+        parm {
+            name    "dcolor"
+            baseparm
+            label   "Wireframe Color"
+            export  none
+        }
+        parm {
+            name    "picking"
+            baseparm
+            label   "Viewport Selecting Enabled"
+            export  none
+        }
+        parm {
+            name    "pickscript"
+            baseparm
+            label   "Select Script"
+            export  none
+        }
+        parm {
+            name    "caching"
+            baseparm
+            label   "Cache Object Transform"
+            export  none
+        }
     }
 
     group {
-	name	"stdswitcher3_2"
-	label	"View"
+        name    "stdswitcher3_2"
+        label   "View"
 
-	parm {
-	    name	"iconscale"
-	    label	"Icon Scale"
-	    type	float
-	    default	{ "1" }
-	    range	{ 0.001 10 }
-	    parmtag	{ "spare_category" "View" }
-	}
-	parm {
-	    name	"res"
-	    label	"Resolution"
-	    type	intvector2
-	    joinnext
-	    size	2
-	    default	{ "1280" "720" }
-	    range	{ -1 1 }
-	    parmtag	{ "cook_dependent" "1" }
-	    parmtag	{ "spare_category" "View" }
-	}
-	parm {
-	    name	"resMenu"
-	    label	"Choose Resolution"
-	    type	button
-	    nolabel
-	    default	{ "0" }
-	    menumini	{
-		[ "echo `pythonexprs(\"__import__('toolutils').parseDialogScriptMenu('FBres')\")`" ]
-	    }
-	    parmtag	{ "script_callback" "opparm . res ( `arg(\"$script_value\", 0)` `arg(\"$script_value\", 1)` aspect ( `arg(\"$script_value\", 2)` )" }
-	    parmtag	{ "spare_category" "View" }
-	}
-	parm {
-	    name	"aspect"
-	    label	"Pixel Aspect Ratio"
-	    type	float
-	    default	{ "1" }
-	    range	{ 0.05 2 }
-	    parmtag	{ "spare_category" "View" }
-	}
-	parm {
-	    name	"projection"
-	    label	"Projection"
-	    type	ordinal
-	    default	{ "perspective" }
-	    menu	{
-		"perspective"	"Perspective"
-		"ortho"	"Orthographic"
-		"sphere"	"Polar (panoramic)"
-		"cylinder"	"Cylindrical (panoramic)"
-		"lens"	"Lens Shader"
-	    }
-	    parmtag	{ "spare_category" "View" }
-	}
-	parm {
-	    name	"vm_lensshader"
-	    label	"Lens Shader"
-	    type	oppath
-	    default	{ "" }
-	    disablewhen	"{ projection != lens }"
-	    parmtag	{ "oprelative" "." }
-	    parmtag	{ "spare_category" "View" }
-	}
-	parm {
-	    name	"focal"
-	    label	"Focal Length"
-	    type	float
-	    joinnext
-	    default	{ "50" }
-	    range	{ 1 100 }
-	}
-	parm {
-	    name	"focalunits"
-	    label	"Focal Units"
-	    type	string
-	    default	{ "mm" }
-	    menu	{
-		"mm"	"millimeters"
-		"m"	"meters"
-		"nm"	"nanometers"
-		"in"	"inches"
-		"ft"	"feet"
-	    }
-	}
-	parm {
-	    name	"aperture"
-	    label	"Aperture"
-	    type	float
-	    default	{ "41.4214" }
-	    range	{ 1 100 }
-	    parmtag	{ "spare_category" "View" }
-	}
-	parm {
-	    name	"orthowidth"
-	    label	"Ortho Width"
-	    type	float
-	    default	{ "2" }
-	    disablewhen	"{ projection != ortho }"
-	    range	{ 0.001 10 }
-	    parmtag	{ "spare_category" "View" }
-	}
-	parm {
-	    name	"near"
-	    label	"Near Clipping"
-	    type	float
-	    default	{ "0.001" }
-	    range	{ 0 10 }
-	    parmtag	{ "spare_category" "View" }
-	}
-	parm {
-	    name	"far"
-	    label	"Far Clipping"
-	    type	float
-	    default	{ "10000" }
-	    range	{ 1 10000 }
-	    parmtag	{ "spare_category" "View" }
-	}
-	parm {
-	    name	"vm_bgenable"
-	    label	"Enable Background Image"
-	    type	toggle
-	    default	{ "1" }
-	    parmtag	{ "mantra_class" "image" }
-	    parmtag	{ "mantra_name" "bgenable" }
-	    parmtag	{ "spare_category" "View" }
-	}
-	parm {
-	    name	"vm_background"
-	    label	"Background Image"
-	    type	file
-	    default	{ "" }
-	    disablewhen	"{ vm_bgenable == 0 }"
-	    parmtag	{ "filechooser_mode" "read" }
-	    parmtag	{ "mantra_class" "image" }
-	    parmtag	{ "mantra_name" "background" }
-	    parmtag	{ "spare_category" "View" }
-	}
-	parm {
-	    name	"win"
-	    label	"Screen Window X/Y"
-	    type	vector2
-	    size	2
-	    default	{ "0" "0" }
-	    disablewhen	"{ winmask != \"\" }"
-	    range	{ -1 1 }
-	}
-	parm {
-	    name	"winsize"
-	    label	"Screen Window Size"
-	    type	vector2
-	    size	2
-	    default	{ "1" "1" }
-	    disablewhen	"{ winmask != \"\" }"
-	    range	{ 0.01 10 }
-	}
-	parm {
-	    name	"winmask"
-	    label	"Screen Window Mask"
-	    type	oplist
-	    default	{ "" }
-	    disablewhen	"{ projection != ortho projection != perspective }"
-	    parmtag	{ "opexpand" "1" }
-	    parmtag	{ "opfilter" "!!OBJ/GEOMETRY!!" }
-	    parmtag	{ "oprelative" "/obj" }
-	}
-	parm {
-	    name	"cropl"
-	    label	"Left Crop"
-	    type	float
-	    default	{ "0" }
-	    disablewhen	"{ cropmask != \"\" }"
-	    range	{ 0 1 }
-	}
-	parm {
-	    name	"cropr"
-	    label	"Right Crop"
-	    type	float
-	    default	{ "1" }
-	    disablewhen	"{ cropmask != \"\" }"
-	    range	{ 0 1 }
-	}
-	parm {
-	    name	"cropb"
-	    label	"Bottom Crop"
-	    type	float
-	    default	{ "0" }
-	    disablewhen	"{ cropmask != \"\" }"
-	    range	{ 0 1 }
-	}
-	parm {
-	    name	"cropt"
-	    label	"Top Crop"
-	    type	float
-	    default	{ "1" }
-	    disablewhen	"{ cropmask != \"\" }"
-	    range	{ 0 1 }
-	}
-	parm {
-	    name	"cropmask"
-	    label	"Crop Mask"
-	    type	oplist
-	    default	{ "" }
-	    disablewhen	"{ projection != ortho projection != perspective }"
-	    parmtag	{ "opexpand" "1" }
-	    parmtag	{ "opfilter" "!!OBJ/GEOMETRY!!" }
-	    parmtag	{ "oprelative" "/obj" }
-	}
+        parm {
+            name    "iconscale"
+            label   "Icon Scale"
+            type    float
+            default { "1" }
+            range   { 0.001 10 }
+            parmtag { "spare_category" "View" }
+        }
+        parm {
+            name    "res"
+            label   "Resolution"
+            type    intvector2
+            joinnext
+            size    2
+            default { "1280" "720" }
+            range   { -1 1 }
+            parmtag { "cook_dependent" "1" }
+            parmtag { "spare_category" "View" }
+        }
+        parm {
+            name    "resMenu"
+            label   "Choose Resolution"
+            type    button
+            nolabel
+            default { "0" }
+            menumini {
+                [ "echo `pythonexprs(\"__import__('toolutils').parseDialogScriptMenu('FBres')\")`" ]
+            }
+            parmtag { "script_callback" "opparm . res ( `arg(\"$script_value\", 0)` `arg(\"$script_value\", 1)` aspect ( `arg(\"$script_value\", 2)` )" }
+            parmtag { "spare_category" "View" }
+        }
+        parm {
+            name    "aspect"
+            label   "Pixel Aspect Ratio"
+            type    float
+            default { "1" }
+            range   { 0.05 2 }
+            parmtag { "spare_category" "View" }
+        }
+        parm {
+            name    "projection"
+            label   "Projection"
+            type    ordinal
+            default { "perspective" }
+            menu {
+                "perspective"   "Perspective"
+                "ortho"         "Orthographic"
+                "sphere"        "Polar (panoramic)"
+                "cylinder"      "Cylindrical (panoramic)"
+                "lens"          "Lens Shader"
+            }
+            parmtag { "spare_category" "View" }
+        }
+        parm {
+            name    "vm_lensshader"
+            label   "Lens Shader"
+            type    oppath
+            default { "" }
+            disablewhen "{ projection != lens }"
+            parmtag { "oprelative" "." }
+            parmtag { "spare_category" "View" }
+        }
+        parm {
+            name    "focal"
+            label   "Focal Length"
+            type    float
+            joinnext
+            default { "50" }
+            range   { 1 100 }
+        }
+        parm {
+            name    "focalunits"
+            label   "Focal Units"
+            type    string
+            default { "mm" }
+            menu {
+                "mm"    "millimeters"
+                "m"     "meters"
+                "nm"    "nanometers"
+                "in"    "inches"
+                "ft"    "feet"
+            }
+        }
+        parm {
+            name    "aperture"
+            label   "Aperture"
+            type    float
+            default { "41.4214" }
+            range   { 1 100 }
+            parmtag { "spare_category" "View" }
+        }
+        parm {
+            name    "orthowidth"
+            label   "Ortho Width"
+            type    float
+            default { "2" }
+            disablewhen "{ projection != ortho }"
+            range   { 0.001 10 }
+            parmtag { "spare_category" "View" }
+        }
+        parm {
+            name    "near"
+            label   "Near Clipping"
+            type    float
+            default { "0.001" }
+            range   { 0 10 }
+            parmtag { "spare_category" "View" }
+        }
+        parm {
+            name    "far"
+            label   "Far Clipping"
+            type    float
+            default { "10000" }
+            range   { 1 10000 }
+            parmtag { "spare_category" "View" }
+        }
+        parm {
+            name    "vm_bgenable"
+            label   "Enable Background Image"
+            type    toggle
+            default { "1" }
+            parmtag { "mantra_class" "image" }
+            parmtag { "mantra_name" "bgenable" }
+            parmtag { "spare_category" "View" }
+        }
+        parm {
+            name    "vm_background"
+            label   "Background Image"
+            type    file
+            default { "" }
+            disablewhen "{ vm_bgenable == 0 }"
+            parmtag { "filechooser_mode" "read" }
+            parmtag { "mantra_class" "image" }
+            parmtag { "mantra_name" "background" }
+            parmtag { "spare_category" "View" }
+        }
+        parm {
+            name    "win"
+            label   "Screen Window X/Y"
+            type    vector2
+            size    2
+            default { "0" "0" }
+            disablewhen "{ winmask != \"\" }"
+            range   { -1 1 }
+        }
+        parm {
+            name    "winsize"
+            label   "Screen Window Size"
+            type    vector2
+            size    2
+            default { "1" "1" }
+            disablewhen "{ winmask != \"\" }"
+            range   { 0.01 10 }
+        }
+        parm {
+            name    "winmask"
+            label   "Screen Window Mask"
+            type    oplist
+            default { "" }
+            disablewhen "{ projection != ortho projection != perspective }"
+            parmtag { "opexpand" "1" }
+            parmtag { "opfilter" "!!OBJ/GEOMETRY!!" }
+            parmtag { "oprelative" "/obj" }
+        }
+        parm {
+            name    "cropl"
+            label   "Left Crop"
+            type    float
+            default { "0" }
+            disablewhen "{ cropmask != \"\" }"
+            range   { 0 1 }
+        }
+        parm {
+            name    "cropr"
+            label   "Right Crop"
+            type    float
+            default { "1" }
+            disablewhen "{ cropmask != \"\" }"
+            range   { 0 1 }
+        }
+        parm {
+            name    "cropb"
+            label   "Bottom Crop"
+            type    float
+            default { "0" }
+            disablewhen "{ cropmask != \"\" }"
+            range   { 0 1 }
+        }
+        parm {
+            name    "cropt"
+            label   "Top Crop"
+            type    float
+            default { "1" }
+            disablewhen "{ cropmask != \"\" }"
+            range   { 0 1 }
+        }
+        parm {
+            name    "cropmask"
+            label   "Crop Mask"
+            type    oplist
+            default { "" }
+            disablewhen "{ projection != ortho projection != perspective }"
+            parmtag { "opexpand" "1" }
+            parmtag { "opfilter" "!!OBJ/GEOMETRY!!" }
+            parmtag { "oprelative" "/obj" }
+        }
     }
 
     group {
-	name	"stdswitcher3_3"
-	label	"Sampling"
+        name    "stdswitcher3_3"
+        label   "Sampling"
 
-	parm {
-	    name	"shutter"
-	    label	"Shutter Time"
-	    type	float
-	    default	{ "0.5" }
-	    disablewhen	"{ allowmotionblur == 0 }"
-	    range	{ 0 1 }
-	    parmtag	{ "spare_category" "Sampling" }
-	}
-	parm {
-	    name	"focus"
-	    label	"Focus Distance"
-	    type	float
-	    default	{ "5" }
-	    disablewhen	"{ vm_dof == 0 }"
-	    range	{ 0.001 1000 }
-	    parmtag	{ "mantra_class" "camera" }
-	    parmtag	{ "mantra_name" "focus" }
-	    parmtag	{ "spare_category" "Sampling" }
-	}
-	parm {
-	    name	"fstop"
-	    label	"F-Stop"
-	    type	log
-	    default	{ "5.6" }
-	    disablewhen	"{ vm_dof == 0 }"
-	    range	{ 1.4 22 }
-	    parmtag	{ "mantra_class" "camera" }
-	    parmtag	{ "mantra_name" "fstop" }
-	    parmtag	{ "spare_category" "Sampling" }
-	}
-	parm {
-	    name	"vm_bokeh"
-	    label	"Bokeh"
-	    type	string
-	    default	{ "radial" }
-	    menureplace	{
-		"radial"	"Radial Bokeh"
-		"file"	"Image File Bokeh"
-		"box"	"Box Filter Bokeh"
-		"null"	"Disable Bokeh"
-	    }
-	    parmtag	{ "spare_category" "Sampling" }
-	}
-	parm {
-	    name	"vm_bokehfile"
-	    label	"Bokeh Image File"
-	    type	image
-	    default	{ "default.pic" }
-	    disablewhen	"{ vm_bokeh != file }"
-	    parmtag	{ "filechooser_mode" "read" }
-	    parmtag	{ "mantra_class" "bokeh" }
-	    parmtag	{ "mantra_name" "-f" }
-	    parmtag	{ "spare_category" "Sampling" }
-	}
-	parm {
-	    name	"vm_bokehrotation"
-	    label	"Bokeh Rotation"
-	    type	float
-	    default	{ "0" }
-	    disablewhen	"{ vm_bokeh != file }"
-	    range	{ 0 360 }
-	    parmtag	{ "mantra_class" "bokeh" }
-	    parmtag	{ "mantra_name" "-r" }
-	    parmtag	{ "spare_category" "Sampling" }
-	}
+        parm {
+            name    "shutter"
+            label   "Shutter Time"
+            type    float
+            default { "0.5" }
+            disablewhen "{ allowmotionblur == 0 }"
+            range   { 0 1 }
+            parmtag { "spare_category" "Sampling" }
+        }
+        parm {
+            name    "focus"
+            label   "Focus Distance"
+            type    float
+            default { "5" }
+            disablewhen "{ vm_dof == 0 }"
+            range   { 0.001 1000 }
+            parmtag { "mantra_class" "camera" }
+            parmtag { "mantra_name" "focus" }
+            parmtag { "spare_category" "Sampling" }
+        }
+        parm {
+            name    "fstop"
+            label   "F-Stop"
+            type    log
+            default { "5.6" }
+            disablewhen "{ vm_dof == 0 }"
+            range   { 1.4 22 }
+            parmtag { "mantra_class" "camera" }
+            parmtag { "mantra_name" "fstop" }
+            parmtag { "spare_category" "Sampling" }
+        }
+        parm {
+            name    "vm_bokeh"
+            label   "Bokeh"
+            type    string
+            default { "radial" }
+            menureplace {
+                "radial"    "Radial Bokeh"
+                "file"      "Image File Bokeh"
+                "box"       "Box Filter Bokeh"
+                "null"      "Disable Bokeh"
+            }
+            parmtag { "spare_category" "Sampling" }
+        }
+        parm {
+            name    "vm_bokehfile"
+            label   "Bokeh Image File"
+            type    image
+            default { "default.pic" }
+            disablewhen "{ vm_bokeh != file }"
+            parmtag { "filechooser_mode" "read" }
+            parmtag { "mantra_class" "bokeh" }
+            parmtag { "mantra_name" "-f" }
+            parmtag { "spare_category" "Sampling" }
+        }
+        parm {
+            name    "vm_bokehrotation"
+            label   "Bokeh Rotation"
+            type    float
+            default { "0" }
+            disablewhen "{ vm_bokeh != file }"
+            range   { 0 360 }
+            parmtag { "mantra_class" "bokeh" }
+            parmtag { "mantra_name" "-r" }
+            parmtag { "spare_category" "Sampling" }
+        }
     }
 
+    parm {
+        name    "pr"
+        baseparm
+        label   "Pivot Rotate"
+        export  none
+    }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
 Content-Disposition: attachment; filename="hdaroot/cam_lens_shader.chn"
@@ -5350,6 +5413,7 @@ t	[ 8	locks=0 ]	(	0	0	0	)
 r	[ 0	locks=0 ]	(	0	0	0	)
 s	[ 0	locks=0 ]	(	[ sx	1 ] 	[ sy	1 ] 	[ sz	1 ] 	)
 p	[ 8	locks=0 ]	(	0	0	0	)
+pr	[ 0	locks=0 ]	(	0	0	0	)
 scale	[ 0	locks=0 ]	(	[ scale	1 ] 	)
 pre_xform	[ 0	locks=0 ]	(	0	)
 keeppos	[ 0	locks=0 ]	(	"on"	)
@@ -5411,7 +5475,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.0.705"
+		"value":"16.5.268.10"
 	},
 	"___toolcount___":{
 		"type":"string",
@@ -5494,7 +5558,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.0.705"
+		"value":"16.5.268.10"
 	},
 	"___toolcount___":{
 		"type":"string",
@@ -5588,7 +5652,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.0.705"
+		"value":"16.5.268.10"
 	},
 	"___toolcount___":{
 		"type":"string",
@@ -5666,8 +5730,17 @@ t	[ 0	locks=0 ]	(	0	0	0	)
 r	[ 0	locks=0 ]	(	0	0	0	)
 s	[ 0	locks=0 ]	(	1	1	1	)
 shear	[ 0	locks=0 ]	(	0	0	0	)
-p	[ 0	locks=0 ]	(	0	0	0	)
 scale	[ 0	locks=0 ]	(	[ scale	1 ] 	)
+parmgroup_pivotxform	[ 0	locks=0 ]	(	0	)
+p	[ 0	locks=0 ]	(	0	0	0	)
+pr	[ 0	locks=0 ]	(	0	0	0	)
+parmgroup_prexform	[ 0	locks=0 ]	(	0	)
+prexform_xOrd	[ 0	locks=0 ]	(	"srt"	)
+prexform_rOrd	[ 0	locks=0 ]	(	"xyz"	)
+prexform_t	[ 0	locks=0 ]	(	0	0	0	)
+prexform_r	[ 0	locks=0 ]	(	0	0	0	)
+prexform_s	[ 0	locks=0 ]	(	1	1	1	)
+prexform_shear	[ 0	locks=0 ]	(	0	0	0	)
 movecentroid	[ 0	locks=0 ]	(	0	)
 attribs	[ 0	locks=0 ]	(	*	)
 updatenmls	[ 0	locks=0 ]	(	"off"	)
@@ -5683,7 +5756,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.0.705"
+		"value":"16.5.268.10"
 	},
 	"___toolcount___":{
 		"type":"string",

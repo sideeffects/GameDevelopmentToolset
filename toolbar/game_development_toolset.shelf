@@ -17,8 +17,8 @@
     <memberTool name="rop_volume_texture::1"/>
     <memberTool name="sop_make_loop1"/>
     <memberTool name="sop_mark_seams"/>
-    <memberTool name="sop_osm_importer"/>
-    <memberTool name="sop_instant_meshes_bridge0"/>
+    <memberTool name="sop_osm_import"/>
+    <memberTool name="sop_instant_meshes"/>
     <memberTool name="sop_create_flowmap0"/>
     <memberTool name="sop_pivotpainter"/>
   </toolshelf>
@@ -36,7 +36,7 @@ from PySide2.QtWidgets import *
 import hou
 
 REPO_URL = 'https://api.github.com/repos/sideeffects/GameDevelopmentToolset'
-BRANCHES = ["Houdini16.0", "Development"]
+BRANCHES = ["Stable", "Development"]
 
 SETTINGS_FILE = os.path.join(os.getenv("HOUDINI_USER_PREF_DIR"), "gamedevtoolset.json")
 HOUDINI_ENV = os.path.join(os.getenv("HOUDINI_USER_PREF_DIR"), "houdini.env")
@@ -175,7 +175,9 @@ class GameDevelopmentUpdater(object):
         for asset in j_data["assets"]:
             if branch in os.path.basename(asset["browser_download_url"]):
                 return asset["browser_download_url"]
-
+        
+        
+                
     def unzip_file(self, zip_file, destination_path):
         zipf = zipfile.ZipFile(zip_file, 'r', zipfile.ZIP_DEFLATED)
         zipf.extractall(destination_path)
@@ -211,6 +213,10 @@ class GameDevelopmentUpdater(object):
         self.desired_branch = branch
 
         download_url = self.get_download_path(version, branch)
+        if not download_url:
+            hou.ui.displayMessage("Package not Available for this branch", severity=hou.severityType.Error)
+            return 
+            
         local_path = self.download_url(download_url)
         self.unzip_file(local_path, os.path.join(HOU_TEMP_PATH, version, branch))
         os.remove(local_path)
@@ -260,35 +266,35 @@ GameDevelopmentUpdater()]]></script>
   <tool name="rop_games_baker" label="Games Baker" icon="COMMON_bake">
     <helpURL>operator:Driver/rop_games_baker</helpURL>
     <script scriptType="python"><![CDATA[import roptoolutils
-roptoolutils.createRenderNode("rop_games_baker")
+roptoolutils.createRenderNode("gamedev::rop_games_baker")
 ]]></script>
   </tool>
 
   <tool name="rop_texture_sheets0" label="Texture Sheets" icon="COP2_mosaic">
     <helpURL>operator:Driver/rop_texture_sheets</helpURL>
     <script scriptType="python"><![CDATA[import roptoolutils
-roptoolutils.createRenderNode("rop_texture_sheets")
+roptoolutils.createRenderNode("gamedev::rop_texture_sheets")
 ]]></script>
   </tool>
 
   <tool name="rop_csv_exporter" label="CSV Exporter" icon="BUTTONS_jump_to_line">
     <helpURL>operator:Driver/rop_csv_exporter</helpURL>
     <script scriptType="python"><![CDATA[import roptoolutils
-roptoolutils.createRenderNode("rop_csv_exporter")
+roptoolutils.createRenderNode("gamedev::rop_csv_exporter")
 ]]></script>
   </tool>
 
   <tool name="rop_motion_vectors::1.0" label="Motion Vectors" icon="SHELF_convert_to_fire">
     <helpURL>operator:Driver/rop_motion_vectors?version=1.0</helpURL>
     <script scriptType="python"><![CDATA[import roptoolutils
-roptoolutils.createRenderNode("rop_motion_vectors")
+roptoolutils.createRenderNode("gamedev::rop_motion_vectors")
 ]]></script>
   </tool>
 
   <tool name="sop_static_fracture_export" label="Static Fracture Export" icon="SOP_shatter">
     <helpURL>operator:Sop/sop_static_fracture_export</helpURL>
     <script scriptType="python"><![CDATA[import soptoolutils
-soptoolutils.genericTool(kwargs, 'sop_static_fracture_export')]]></script>
+soptoolutils.genericTool(kwargs, 'gamedev::sop_static_fracture_export')]]></script>
   </tool>
 
   <tool name="sop_instant_meshes_bridge" label="Instant Meshes Bridge" icon="opdef:/Sop/sop_instant_meshes_bridge?IconImage">
@@ -300,38 +306,31 @@ soptoolutils.genericTool(kwargs, 'sop_instant_meshes_bridge')]]></script>
   <tool name="sop_mark_seams" label="Mark Seams" icon="TOOLS_select_mode_add">
     <helpURL>operator:Sop/sop_mark_seams</helpURL>
     <script scriptType="python"><![CDATA[import soptoolutils
-soptoolutils.genericTool(kwargs, 'sop_mark_seams')]]></script>
-  </tool>
-
-  <tool name="sop_osm_importer" label="OSM Importer" icon="opdef:/Sop/sop_osm_importer?IconImage">
-    <helpURL>operator:Sop/sop_osm_importer</helpURL>
-    <script scriptType="python"><![CDATA[import soptoolutils
-soptoolutils.genericTool(kwargs, 'sop_osm_importer')]]></script>
+soptoolutils.genericTool(kwargs, 'gamedev::sop_mark_seams')]]></script>
   </tool>
 
   <tool name="rop_vector_field::1" label="Vector Field (FGA)" icon="SOP_volumetrail">
     <helpURL>operator:Sop/rop_vector_field?version=1</helpURL>
-    <script scriptType="python"><![CDATA[import roptoolutils
-roptoolutils.createRenderNode("rop_vector_field")
-]]></script>
+    <script scriptType="python"><![CDATA[import soptoolutils
+soptoolutils.genericTool(kwargs, 'gamedev::rop_vector_field')]]></script>
   </tool>
 
   <tool name="rop_volume_texture::1" label="Volume Textures" icon="SOP_volumesdf">
     <helpURL>operator:Sop/rop_volume_texture?version=1</helpURL>
     <script scriptType="python"><![CDATA[import soptoolutils
-soptoolutils.genericTool(kwargs, 'rop_volume_texture')]]></script>
+soptoolutils.genericTool(kwargs, 'gamedev::rop_volume_texture')]]></script>
   </tool>
 
   <tool name="sop_create_flowmap0" label="Create FlowMap" icon="VOP_river">
     <helpURL>operator:Sop/sop_create_flowmap</helpURL>
     <script scriptType="python"><![CDATA[import soptoolutils
-soptoolutils.genericTool(kwargs, 'sop_create_flowmap')]]></script>
+soptoolutils.genericTool(kwargs, 'gamedev::sop_flowmap')]]></script>
   </tool>
 
   <tool name="sop_make_loop1" label="Make Loop" icon="SOP_foreach">
     <helpURL>operator:Sop/sop_make_loop</helpURL>
     <script scriptType="python"><![CDATA[import soptoolutils
-soptoolutils.genericTool(kwargs, 'sop_make_loop')]]></script>
+soptoolutils.genericTool(kwargs, 'gamedev::sop_make_loop')]]></script>
   </tool>
 
   <tool name="sop_make_loop" label="Make Loop" icon="SOP_foreach">
@@ -340,22 +339,28 @@ soptoolutils.genericTool(kwargs, 'sop_make_loop')]]></script>
 soptoolutils.genericTool(kwargs, 'sop_make_loop')]]></script>
   </tool>
 
-  <tool name="sop_pivotpainter" label="Pivot Painter" icon="opdef:/Sop/sop_pivotpainter?IconSVG">
+  <tool name="sop_pivotpainter" label="Pivot Painter" icon="opdef:/gamedev::Sop/sop_unreal_pivotpainter?IconSVG">
     <helpURL>operator:Sop/sop_pivotpainter</helpURL>
     <script scriptType="python"><![CDATA[import soptoolutils
-soptoolutils.genericTool(kwargs, 'sop_pivotpainter')]]></script>
-  </tool>
-
-  <tool name="sop_instant_meshes_bridge0" label="Instant Meshes Bridge" icon="opdef:/Sop/sop_instant_meshes_bridge?IconImage">
-    <helpURL>operator:Sop/sop_instant_meshes_bridge</helpURL>
-    <script scriptType="python"><![CDATA[import soptoolutils
-soptoolutils.genericTool(kwargs, 'sop_instant_meshes_bridge')]]></script>
+soptoolutils.genericTool(kwargs, 'gamedev::sop_unreal_pivotpainter')]]></script>
   </tool>
 
   <tool name="rop_rbd_to_fbx1" label="RBD to FBX" icon="ROP_fbx">
     <helpURL>operator:Driver/rop_rbd_to_fbx</helpURL>
     <script scriptType="python"><![CDATA[import roptoolutils
-roptoolutils.createRenderNode("rop_rbd_to_fbx")
+roptoolutils.createRenderNode("gamedev::rop_rbd_to_fbx")
 ]]></script>
+  </tool>
+
+  <tool name="sop_osm_import" label="OSM Importer" icon="opdef:/gamedev::Sop/sop_osm_import?IconImage">
+    <helpURL>operator:Sop/sop_osm_import</helpURL>
+    <script scriptType="python"><![CDATA[import soptoolutils
+soptoolutils.genericTool(kwargs, 'gamedev::sop_osm_import')]]></script>
+  </tool>
+
+  <tool name="sop_instant_meshes" label="Instant Meshes" icon="opdef:/gamedev::Sop/sop_instant_meshes?IconImage">
+    <helpURL>operator:Sop/sop_instant_meshes_bridge</helpURL>
+    <script scriptType="python"><![CDATA[import soptoolutils
+soptoolutils.genericTool(kwargs, 'sop_instant_meshes_bridge')]]></script>
   </tool>
 </shelfDocument>

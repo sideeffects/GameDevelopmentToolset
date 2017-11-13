@@ -23,7 +23,7 @@ Driver
 Content-Disposition: attachment; filename="hdaroot.init"
 Content-Type: text/plain
 
-type = rop_games_baker
+type = gamedev::rop_games_baker
 matchesdef = 0
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -31,7 +31,7 @@ Content-Disposition: attachment; filename="hdaroot.def"
 Content-Type: text/plain
 
 comment ""
-position 1.42244 0.823597
+position -7.42171 4.07346
 connectornextid 0
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
@@ -45,8 +45,8 @@ inputs
 }
 stat
 {
-  create 1509745105
-  modify 1509745130
+  create 1510179100
+  modify 1510179128
   author MAINGEAR@DESKTOP-P98C1VA
   access 0777
 }
@@ -2162,7 +2162,7 @@ inputs
 stat
 {
   create 1496776162
-  modify 1509744646
+  modify 1510176255
   author Luiz@Luiz-PC
   access 0777
 }
@@ -3633,6 +3633,20 @@ Content-Type: text/plain
       flags = 0
       segment { length = 0 value = 0.10000000000000001 0.10000000000000001 expr = ch(\"../ray_distance\") }
     }
+    channel vm_uvunwrapresx {
+      lefttype = extend
+      righttype = extend
+      default = 1024
+      flags = 0
+      segment { length = 0 value = 1024 1024 expr = ch(\"../vm_uvunwrapresx\") }
+    }
+    channel vm_uvunwrapresy {
+      lefttype = extend
+      righttype = extend
+      default = 1024
+      flags = 0
+      segment { length = 0 value = 1024 1024 expr = ch(\"../vm_uvunwrapresy\") }
+    }
   }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -3650,7 +3664,7 @@ f	[ 8	locks=0 ]	(	1	10	1	)
 take	[ 0	locks=0 ]	(	_current_	)
 camera	[ 0	locks=0 ]	(	"`opfullpath(\"..\") + \"/objnet/cam1\"`"	)
 vm_uvtype	[ 0	locks=0 ]	(	udim	)
-vm_uvunwrapres	[ 8	locks=0 ]	(	1024	1024	)
+vm_uvunwrapres	[ 8	locks=0 ]	(	[ vm_uvunwrapresx	2048 ] 	[ vm_uvunwrapresy	2048 ] 	)
 uvresmenu	[ 0	locks=0 ]	(	[ uvresmenu	0 ] 	)
 vm_ptexmapminres	[ 0	locks=0 ]	(	8	8	)
 vm_uvptexminresmenu	[ 0	locks=0 ]	(	0	)
@@ -3723,7 +3737,7 @@ main3	[ 0	locks=0 ]	(	0	0	)
 vm_bake_normalizep	[ 0	locks=0 ]	(	"on"	)
 vm_extractimageplanes	[ 0	locks=0 ]	(	"off"	)
 vm_extractimageplanesformat	[ 0	locks=0 ]	(	Targa	)
-vm_quickplane_Nt	[ 8	locks=0 ]	(	[ vm_quickplane_Nt	0 ] 	)
+vm_quickplane_Nt	[ 8	locks=0 ]	(	[ vm_quickplane_Nt	1 ] 	)
 vm_quickplane_Ds	[ 8	locks=0 ]	(	[ vm_quickplane_Ds	0 ] 	)
 vm_quickplane_Vd	[ 0	locks=0 ]	(	"off"	)
 vm_quickplane_Vdt	[ 0	locks=0 ]	(	"off"	)
@@ -3733,7 +3747,7 @@ vm_quickplane_Th	[ 8	locks=0 ]	(	[ vm_quickplane_Th	0 ] 	)
 vm_quickplane_Cu	[ 8	locks=0 ]	(	[ vm_quickplane_Cu	0 ] 	)
 vm_quickplane_P	[ 8	locks=0 ]	(	[ vm_quickplane_P	0 ] 	)
 vm_quickplane_N	[ 8	locks=0 ]	(	[ vm_quickplane_N	0 ] 	)
-vm_quickplane_basecolor	[ 8	locks=0 ]	(	[ vm_quickplane_basecolor	0 ] 	)
+vm_quickplane_basecolor	[ 8	locks=0 ]	(	[ vm_quickplane_basecolor	1 ] 	)
 vm_quickplane_diffcolor	[ 0	locks=0 ]	(	"off"	)
 vm_quickplane_speccolor	[ 0	locks=0 ]	(	"off"	)
 vm_quickplane_emitcolor	[ 0	locks=0 ]	(	"off"	)
@@ -9670,7 +9684,7 @@ inputs
 stat
 {
   create 1496798868
-  modify 1504808923
+  modify 1510176248
   author Luiz@Luiz-PC
   access 0777
 }
@@ -9796,7 +9810,7 @@ inputs
 stat
 {
   create 1496776162
-  modify 1504808631
+  modify 1510176252
   author Luiz@Luiz-PC
   access 0777
 }
@@ -11203,6 +11217,20 @@ Content-Type: text/plain
       flags = 0
       segment { length = 0 value = -1 -1 expr = ch(\"../ray_distance\") }
     }
+    channel vm_uvunwrapresx {
+      lefttype = extend
+      righttype = extend
+      default = 1024
+      flags = 0
+      segment { length = 0 value = 1024 1024 expr = ch(\"../vm_uvunwrapresx\") }
+    }
+    channel vm_uvunwrapresy {
+      lefttype = extend
+      righttype = extend
+      default = 1024
+      flags = 0
+      segment { length = 0 value = 1024 1024 expr = ch(\"../vm_uvunwrapresy\") }
+    }
   }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -11220,7 +11248,7 @@ f	[ 8	locks=0 ]	(	1	10	1	)
 take	[ 0	locks=0 ]	(	_current_	)
 camera	[ 0	locks=0 ]	(	"`opfullpath(\"..\") + \"/objnet/cam1\"`"	)
 vm_uvtype	[ 0	locks=0 ]	(	udim	)
-vm_uvunwrapres	[ 8	locks=0 ]	(	1024	1024	)
+vm_uvunwrapres	[ 8	locks=0 ]	(	[ vm_uvunwrapresx	2048 ] 	[ vm_uvunwrapresy	2048 ] 	)
 uvresmenu	[ 0	locks=0 ]	(	[ uvresmenu	0 ] 	)
 vm_ptexmapminres	[ 0	locks=0 ]	(	8	8	)
 vm_uvptexminresmenu	[ 0	locks=0 ]	(	0	)

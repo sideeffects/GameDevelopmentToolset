@@ -23,7 +23,7 @@ Sop
 Content-Disposition: attachment; filename="hdaroot.init"
 Content-Type: text/plain
 
-type = flowmap_guide
+type = sop_flowmap_guide
 matchesdef = 0
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -32,23 +32,27 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position 0 0
-connectornextid 0
+position -0.0958192 -4.20303
+connectornextid 2
 flags =  lock off model off template off footprint off xray off bypass off display on render on highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
 {
 }
 inputsNamed3
 {
+0 	sop_flowmap_obstacle1 2 1 "input1"
+1 	curve1 0 1 "input2"
 }
 inputs
 {
+0 	sop_flowmap_obstacle1 0 1
+1 	curve1 0 1
 }
 stat
 {
-  create 1484779038
-  modify 1484779054
-  author Luiz@Luiz-PC
+  create 1510643643
+  modify 1510644071
+  author mikel@mikembp-sesi.local
   access 0777
 }
 color UT_Color RGB 0.8 0.8 0.8 
@@ -87,7 +91,7 @@ Content-Disposition: attachment; filename="hdaroot/sticky1.postitdef"
 Content-Type: text/plain
 
 text "Here we transfer the tangents of the curve as velocity vectors to the field"
-position 3.29853 2.93411
+position 6.06526 1.39504
 size 2.5 2.5
 flags = minimize off
 stat
@@ -133,7 +137,7 @@ inputs
 stat
 {
   create 1478104396
-  modify 1484779054
+  modify 1510644057
   author Luiz@Luiz-PC
   access 0777
 }
@@ -181,76 +185,6 @@ Content-Type: text/plain
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot/polyframe1.init"
-Content-Type: text/plain
-
-type = polyframe
-matchesdef = 0
-
---HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot/polyframe1.def"
-Content-Type: text/plain
-
-sopflags sopflags = 
-comment ""
-position 1.43062 4.38385
-connectornextid 2
-flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault off exposed on
-outputsNamed3
-{
-1 "output1"
-}
-inputsNamed3
-{
-0 	resample1 1 1 "input1"
-}
-inputs
-{
-0 	resample1 0 1
-}
-stat
-{
-  create 1478103698
-  modify 1484779058
-  author Luiz@Luiz-PC
-  access 0777
-}
-color UT_Color RGB 0.8 0.8 0.8 
-delscript ""
-exprlanguage hscript
-end
-
---HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot/polyframe1.parm"
-Content-Type: text/plain
-
-{
-version 0.8
-group	[ 0	locks=0 ]	(	""	)
-entity	[ 0	locks=0 ]	(	"point"	)
-style	[ 0	locks=0 ]	(	edge1	)
-attribname	[ 0	locks=0 ]	(	""	)
-Non	[ 0	locks=0 ]	(	"off"	)
-N	[ 0	locks=0 ]	(	vel	)
-tangentuon	[ 0	locks=0 ]	(	"on"	)
-tangentu	[ 0	locks=0 ]	(	v	)
-tangentvon	[ 0	locks=0 ]	(	"off"	)
-tangentv	[ 0	locks=0 ]	(	tangentv	)
-ortho	[ 0	locks=0 ]	(	"off"	)
-}
-
---HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot/polyframe1.userdata"
-Content-Type: text/plain
-
-{
-	"___Version___":{
-		"type":"string",
-		"value":"16.0.492"
-	}
-}
-
---HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
 Content-Disposition: attachment; filename="hdaroot/attribtransfer1.init"
 Content-Type: text/plain
 
@@ -263,7 +197,7 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position 0.29672 3.15945
+position 0.708513 3.00503
 connectornextid 3
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault off exposed on
 outputsNamed3
@@ -273,17 +207,17 @@ outputsNamed3
 inputsNamed3
 {
 0 	(0) "" 1 "input1"
-1 	polyframe1 1 1 "input2"
+1 	rename_tangentu 1 1 "input2"
 }
 inputs
 {
 0 	(0) 0 1
-1 	polyframe1 0 1
+1 	rename_tangentu 0 1
 }
 stat
 {
   create 1478103708
-  modify 1484779054
+  modify 1510644048
   author Luiz@Luiz-PC
   access 0777
 }
@@ -337,8 +271,8 @@ kernel	[ 0	locks=0 ]	(	elendt	)
 kernelradius	[ 0	locks=0 ]	(	10	)
 maxsamplecount	[ 0	locks=0 ]	(	1	)
 threshold	[ 0	locks=0 ]	(	"on"	)
-thresholddist	[ 8	locks=0 ]	(	[ thresholddist	0.70999999999999996 ] 	)
-blendwidth	[ 8	locks=0 ]	(	[ blendwidth	1.1000000000000001 ] 	)
+thresholddist	[ 8	locks=0 ]	(	[ thresholddist	1 ] 	)
+blendwidth	[ 8	locks=0 ]	(	[ blendwidth	1 ] 	)
 uniformbias	[ 0	locks=0 ]	(	0.5	)
 }
 
@@ -349,7 +283,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.0.492"
+		"value":"16.5.268"
 	}
 }
 
@@ -366,7 +300,7 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position 1.43062 5.16914
+position 2.0332 5.08514
 connectornextid 2
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
@@ -384,7 +318,7 @@ inputs
 stat
 {
   create 1484779054
-  modify 1484779058
+  modify 1510644083
   author Luiz@Luiz-PC
   access 0777
 }
@@ -417,7 +351,7 @@ treatpolysas	[ 0	locks=0 ]	(	"straight"	)
 outputsubdpoly	[ 0	locks=0 ]	(	"off"	)
 doptdistattr	[ 0	locks=0 ]	(	"off"	)
 ptdistattr	[ 0	locks=0 ]	(	ptdist	)
-dotangentattr	[ 0	locks=0 ]	(	"off"	)
+dotangentattr	[ 0	locks=0 ]	(	"on"	)
 tangentattr	[ 0	locks=0 ]	(	tangentu	)
 docurveuattr	[ 0	locks=0 ]	(	"off"	)
 curveuattr	[ 0	locks=0 ]	(	curveu	)
@@ -432,7 +366,148 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.0.492"
+		"value":"16.5.268"
+	}
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/rename_tangentu.init"
+Content-Type: text/plain
+
+type = attribute
+matchesdef = 0
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/rename_tangentu.def"
+Content-Type: text/plain
+
+sopflags sopflags = 
+comment ""
+position 2.02975 4.12004
+connectornextid 2
+flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
+outputsNamed3
+{
+1 "output1"
+}
+inputsNamed3
+{
+0 	resample1 1 1 "input1"
+}
+inputs
+{
+0 	resample1 0 1
+}
+stat
+{
+  create 1510644031
+  modify 1510644087
+  author mikel@mikembp-sesi.local
+  access 0777
+}
+color UT_Color RGB 0.8 0.8 0.8 
+delscript ""
+exprlanguage hscript
+end
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/rename_tangentu.parm"
+Content-Type: text/plain
+
+{
+version 0.8
+stdswitcher	[ 0	locks=0 ]	(	0	0	0	0	0	)
+_label1_	[ 0	locks=0 ]	(	From	To	)
+ptrenames	[ 0	locks=0 ]	(	5	)
+ptdel	[ 0	locks=0 ]	(	""	)
+ptkeep	[ 0	locks=0 ]	(	*	)
+_label2_	[ 0	locks=0 ]	(	From	To	)
+vtxrenames	[ 0	locks=0 ]	(	5	)
+vtxdel	[ 0	locks=0 ]	(	""	)
+vtxkeep	[ 0	locks=0 ]	(	*	)
+_label3_	[ 0	locks=0 ]	(	From	To	)
+primrenames	[ 0	locks=0 ]	(	5	)
+primdel	[ 0	locks=0 ]	(	""	)
+primkeep	[ 0	locks=0 ]	(	*	)
+_label4_	[ 0	locks=0 ]	(	From	To	)
+detailrenames	[ 0	locks=0 ]	(	5	)
+dtldel	[ 0	locks=0 ]	(	""	)
+dtlkeep	[ 0	locks=0 ]	(	*	)
+_label5_	[ 0	locks=0 ]	(	RiName	RiType	Offset	""	)
+rmanconversions	[ 0	locks=0 ]	(	5	)
+ridefault	[ 0	locks=0 ]	(	"off"	)
+updatevar	[ 0	locks=0 ]	(	"on"	)
+overwrite	[ 0	locks=0 ]	(	"off"	)
+frompt0	[ 0	locks=0 ]	(	tangentu	)
+topt0	[ 0	locks=0 ]	(	v	)
+frompt1	[ 0	locks=0 ]	(	""	)
+topt1	[ 0	locks=0 ]	(	""	)
+frompt2	[ 0	locks=0 ]	(	""	)
+topt2	[ 0	locks=0 ]	(	""	)
+frompt3	[ 0	locks=0 ]	(	""	)
+topt3	[ 0	locks=0 ]	(	""	)
+frompt4	[ 0	locks=0 ]	(	""	)
+topt4	[ 0	locks=0 ]	(	""	)
+fromvtx0	[ 0	locks=0 ]	(	""	)
+tovtx0	[ 0	locks=0 ]	(	""	)
+fromvtx1	[ 0	locks=0 ]	(	""	)
+tovtx1	[ 0	locks=0 ]	(	""	)
+fromvtx2	[ 0	locks=0 ]	(	""	)
+tovtx2	[ 0	locks=0 ]	(	""	)
+fromvtx3	[ 0	locks=0 ]	(	""	)
+tovtx3	[ 0	locks=0 ]	(	""	)
+fromvtx4	[ 0	locks=0 ]	(	""	)
+tovtx4	[ 0	locks=0 ]	(	""	)
+frompr0	[ 0	locks=0 ]	(	""	)
+topr0	[ 0	locks=0 ]	(	""	)
+frompr1	[ 0	locks=0 ]	(	""	)
+topr1	[ 0	locks=0 ]	(	""	)
+frompr2	[ 0	locks=0 ]	(	""	)
+topr2	[ 0	locks=0 ]	(	""	)
+frompr3	[ 0	locks=0 ]	(	""	)
+topr3	[ 0	locks=0 ]	(	""	)
+frompr4	[ 0	locks=0 ]	(	""	)
+topr4	[ 0	locks=0 ]	(	""	)
+fromdtl0	[ 0	locks=0 ]	(	""	)
+todtl0	[ 0	locks=0 ]	(	""	)
+fromdtl1	[ 0	locks=0 ]	(	""	)
+todtl1	[ 0	locks=0 ]	(	""	)
+fromdtl2	[ 0	locks=0 ]	(	""	)
+todtl2	[ 0	locks=0 ]	(	""	)
+fromdtl3	[ 0	locks=0 ]	(	""	)
+todtl3	[ 0	locks=0 ]	(	""	)
+fromdtl4	[ 0	locks=0 ]	(	""	)
+todtl4	[ 0	locks=0 ]	(	""	)
+hname0	[ 0	locks=0 ]	(	""	)
+riname0	[ 0	locks=0 ]	(	""	)
+ritype0	[ 0	locks=0 ]	(	vtx_float	)
+rioff0	[ 0	locks=0 ]	(	0	)
+hname1	[ 0	locks=0 ]	(	""	)
+riname1	[ 0	locks=0 ]	(	""	)
+ritype1	[ 0	locks=0 ]	(	vtx_float	)
+rioff1	[ 0	locks=0 ]	(	0	)
+hname2	[ 0	locks=0 ]	(	""	)
+riname2	[ 0	locks=0 ]	(	""	)
+ritype2	[ 0	locks=0 ]	(	vtx_float	)
+rioff2	[ 0	locks=0 ]	(	0	)
+hname3	[ 0	locks=0 ]	(	""	)
+riname3	[ 0	locks=0 ]	(	""	)
+ritype3	[ 0	locks=0 ]	(	vtx_float	)
+rioff3	[ 0	locks=0 ]	(	0	)
+hname4	[ 0	locks=0 ]	(	""	)
+riname4	[ 0	locks=0 ]	(	""	)
+ritype4	[ 0	locks=0 ]	(	vtx_float	)
+rioff4	[ 0	locks=0 ]	(	0	)
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/rename_tangentu.userdata"
+Content-Type: text/plain
+
+{
+	"___Version___":{
+		"type":"string",
+		"value":"16.5.268"
 	}
 }
 
@@ -442,9 +517,9 @@ Content-Type: text/plain
 
 4
 pointwrangle1
-polyframe1
 attribtransfer1
 resample1
+rename_tangentu
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
 Content-Disposition: attachment; filename="hdaroot.net"

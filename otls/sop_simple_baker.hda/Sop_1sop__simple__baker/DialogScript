@@ -97,6 +97,40 @@
                 parmtag { "autoscope" "0000000000000000" }
             }
             parm {
+                name    "bake_specrough"
+                label   "Roughness Map"
+                type    toggle
+                nolabel
+                joinnext
+                default { "off" }
+                parmtag { "autoscope" "0000000000000000" }
+            }
+            parm {
+                name    "specrough_suffix"
+                label   "Roughness Map"
+                type    string
+                default { "roughness" }
+                disablewhen "{ bake_specrough == 0 }"
+                parmtag { "autoscope" "0000000000000000" }
+            }
+            parm {
+                name    "bake_metallic"
+                label   "Metallic Map"
+                type    toggle
+                nolabel
+                joinnext
+                default { "off" }
+                parmtag { "autoscope" "0000000000000000" }
+            }
+            parm {
+                name    "metallic_suffix"
+                label   "Metallic Map"
+                type    string
+                default { "metallic" }
+                disablewhen "{ bake_metallic == 0 }"
+                parmtag { "autoscope" "0000000000000000" }
+            }
+            parm {
                 name    "bake_N"
                 label   "World Normal Map"
                 type    toggle

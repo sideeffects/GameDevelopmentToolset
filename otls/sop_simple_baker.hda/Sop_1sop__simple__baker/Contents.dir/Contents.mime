@@ -32,26 +32,22 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position 0.564 -9.25171
-connectornextid 2
-flags =  lock off model off template on footprint off xray off bypass off display on render on highlight off unload off savedata off compress on colordefault on exposed on
+position -3.45878 -6.74372
+connectornextid 0
+flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
 {
 }
 inputsNamed3
 {
-0 	normal1 1 1 "input1"
-1 	normal2 1 1 "input2"
 }
 inputs
 {
-0 	normal1 0 1
-1 	normal2 0 1
 }
 stat
 {
-  create 1510175472
-  modify 1510179129
+  create 1510678571
+  modify 1510678575
   author MAINGEAR@DESKTOP-P98C1VA
   access 0777
 }
@@ -132,7 +128,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.268"
+		"value":"16.5.290"
 	}
 }
 
@@ -163,7 +159,7 @@ inputs
 stat
 {
   create 1510086161
-  modify 1510179120
+  modify 1510677947
   author MAINGEAR@DESKTOP-P98C1VA
   access 0777
 }
@@ -351,6 +347,46 @@ Content-Type: text/plain
       flags = 0
       segment { length = 0 value = -1 -1 expr = ch(\"../../ray_distance\") }
     }
+    channel bake_specrough {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = ch(\"../../bake_specrough\") }
+    }
+    channel specrough_suffix {
+      lefttype = extend
+      righttype = extend
+      defaultString = \"roughness\"
+      flags = 0
+      segment { length = 0 expr = chs(\"../../specrough_suffix\") }
+    }
+    channel bake_metallic {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = ch(\"../../bake_metallic\") }
+    }
+    channel metallic_suffix {
+      lefttype = extend
+      righttype = extend
+      defaultString = \"metallic\"
+      flags = 0
+      segment { length = 0 expr = chs(\"../../metallic_suffix\") }
+    }
+    channel vm_uvunwrapresx {
+      lefttype = extend
+      righttype = extend
+      default = 256
+      flags = 0
+      segment { length = 0 value = 256 256 expr = ch(\"../../vm_uvunwrapresx\") }
+    }
+    channel vm_uvunwrapresy {
+      lefttype = extend
+      righttype = extend
+      default = 256
+      flags = 0
+      segment { length = 0 value = 256 256 expr = ch(\"../../vm_uvunwrapresy\") }
+    }
   }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -362,18 +398,18 @@ version 0.8
 execute	[ 0	locks=0 ]	(	0	)
 renderdialog	[ 0	locks=0 ]	(	0	)
 meshes	[ 0	locks=0	autoscope=0 ]	(	1	)
-vm_uvunwrapres	[ 0	locks=0 ]	(	2048	2048	)
+vm_uvunwrapres	[ 8	locks=0 ]	(	[ vm_uvunwrapresx	2048 ] 	[ vm_uvunwrapresy	2048 ] 	)
 uvresmenu	[ 0	locks=0 ]	(	[ uvresmenu	0 ] 	)
-base_path	[ 0	locks=0	autoscope=0 ]	(	[ base_path	C:/Users/MAINGEAR/render/crab_01_$(CHANNEL).tga ] 	)
+base_path	[ 0	locks=0	autoscope=0 ]	(	[ base_path	D:/work/SideFX/Samples/Photogrammetry/render/reduction_with_textures_$(CHANNEL).tga ] 	)
 channels	[ 0	locks=0 ]	(	0	0	)
 bake_basecolor	[ 0	locks=0	autoscope=0 ]	(	[ bake_basecolor	1 ] 	)
 basecolor_suffix	[ 0	locks=0	autoscope=0 ]	(	[ basecolor_suffix	basecolor ] 	)
 bake_Nt	[ 0	locks=0	autoscope=0 ]	(	[ bake_Nt	1 ] 	)
 Nt_suffix	[ 0	locks=0	autoscope=0 ]	(	[ Nt_suffix	normal ] 	)
-bake_specrough	[ 0	locks=0 ]	(	"off"	)
-specrough_suffix	[ 0	locks=0 ]	(	roughness	)
-bake_metallic	[ 0	locks=0 ]	(	"off"	)
-metallic_suffix	[ 0	locks=0 ]	(	metallic	)
+bake_specrough	[ 0	locks=0 ]	(	[ bake_specrough	0 ] 	)
+specrough_suffix	[ 0	locks=0 ]	(	[ specrough_suffix	roughness ] 	)
+bake_metallic	[ 0	locks=0 ]	(	[ bake_metallic	0 ] 	)
+metallic_suffix	[ 0	locks=0 ]	(	[ metallic_suffix	metallic ] 	)
 bake_N	[ 0	locks=0	autoscope=0 ]	(	[ bake_N	0 ] 	)
 N_suffix	[ 0	locks=0	autoscope=0 ]	(	[ N_suffix	worldnormal ] 	)
 bake_Oc	[ 0	locks=0	autoscope=0 ]	(	[ bake_Oc	1 ] 	)
@@ -432,7 +468,7 @@ inputs
 stat
 {
   create 1496780578
-  modify 1510178915
+  modify 1510673780
   author Luiz@Luiz-PC
   access 0777
 }
@@ -493,7 +529,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.268"
+		"value":"16.5.290"
 	}
 }
 
@@ -548,7 +584,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.268"
+		"value":"16.5.290"
 	}
 }
 
@@ -2214,7 +2250,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.268"
+		"value":"16.5.290"
 	}
 }
 
@@ -2515,7 +2551,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.268"
+		"value":"16.5.290"
 	}
 }
 
@@ -3000,7 +3036,7 @@ inputs
 stat
 {
   create 1509396313
-  modify 1510179113
+  modify 1510677941
   author MAINGEAR@DESKTOP-P98C1VA
   access 0777
 }
@@ -3117,7 +3153,7 @@ basecolor_usePackedColor	[ 0	locks=0 ]	(	"off"	)
 frontface	[ 0	locks=0 ]	(	"on"	)
 folder4	[ 0	locks=0 ]	(	0	)
 ior	[ 0	locks=0 ]	(	[ ior	1.52 ] 	)
-rough	[ 0	locks=0 ]	(	[ rough	0.51800000000000002 ] 	)
+rough	[ 0	locks=0 ]	(	[ rough	0.56299999999999994 ] 	)
 aniso	[ 0	locks=0 ]	(	0	)
 anisodir	[ 0	locks=0 ]	(	0	)
 folder12	[ 0	locks=0 ]	(	0	)
@@ -4226,7 +4262,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.268"
+		"value":"16.5.290"
 	}
 }
 
@@ -4259,7 +4295,7 @@ inputs
 stat
 {
   create 1496780594
-  modify 1510179093
+  modify 1510677882
   author Luiz@Luiz-PC
   access 0777
 }
@@ -4293,7 +4329,7 @@ pivot	[ 0	locks=0 ]	(	"centroid"	)
 viewportlod	[ 0	locks=0 ]	(	"full"	)
 addpath	[ 0	locks=0 ]	(	"on"	)
 enable1	[ 0	locks=0 ]	(	"on"	)
-objpath1	[ 0	locks=0 ]	(	../../../../../LOW	)
+objpath1	[ 0	locks=0 ]	(	/obj/geo1/sop_simple_baker1/LOW	)
 group1	[ 0	locks=0 ]	(	""	)
 expand1	[ 0	locks=0 ]	(	"off"	)
 }
@@ -4305,7 +4341,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.268"
+		"value":"16.5.290"
 	}
 }
 
@@ -4379,7 +4415,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.268"
+		"value":"16.5.290"
 	}
 }
 
@@ -4454,7 +4490,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.268"
+		"value":"16.5.290"
 	}
 }
 
@@ -4520,7 +4556,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.268"
+		"value":"16.5.290"
 	}
 }
 
@@ -4584,7 +4620,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.268"
+		"value":"16.5.290"
 	}
 }
 
@@ -5362,7 +5398,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.268"
+		"value":"16.5.290"
 	}
 }
 
@@ -5441,7 +5477,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.268"
+		"value":"16.5.290"
 	}
 }
 
@@ -5516,7 +5552,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.268"
+		"value":"16.5.290"
 	}
 }
 
@@ -5549,7 +5585,7 @@ inputs
 stat
 {
   create 1496780594
-  modify 1510179093
+  modify 1510677882
   author Luiz@Luiz-PC
   access 0777
 }
@@ -5583,7 +5619,7 @@ pivot	[ 0	locks=0 ]	(	"centroid"	)
 viewportlod	[ 0	locks=0 ]	(	"full"	)
 addpath	[ 0	locks=0 ]	(	"on"	)
 enable1	[ 0	locks=0 ]	(	"on"	)
-objpath1	[ 0	locks=0 ]	(	../../../../../HIGH	)
+objpath1	[ 0	locks=0 ]	(	/obj/geo1/sop_simple_baker1/HIGH	)
 group1	[ 0	locks=0 ]	(	""	)
 expand1	[ 0	locks=0 ]	(	"off"	)
 }
@@ -5595,7 +5631,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.268"
+		"value":"16.5.290"
 	}
 }
 
@@ -5670,7 +5706,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.268"
+		"value":"16.5.290"
 	}
 }
 
@@ -5745,7 +5781,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.268"
+		"value":"16.5.290"
 	}
 }
 
@@ -5811,7 +5847,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.268"
+		"value":"16.5.290"
 	}
 }
 
@@ -5875,7 +5911,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.268"
+		"value":"16.5.290"
 	}
 }
 
@@ -5944,7 +5980,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.268"
+		"value":"16.5.290"
 	}
 }
 
@@ -6018,7 +6054,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.268"
+		"value":"16.5.290"
 	}
 }
 
@@ -6687,7 +6723,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.268"
+		"value":"16.5.290"
 	}
 }
 
@@ -6762,7 +6798,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.268"
+		"value":"16.5.290"
 	}
 }
 
@@ -6848,7 +6884,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.268"
+		"value":"16.5.290"
 	}
 }
 
@@ -6944,7 +6980,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.268"
+		"value":"16.5.290"
 	}
 }
 
@@ -7044,7 +7080,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.268"
+		"value":"16.5.290"
 	}
 }
 
@@ -7119,7 +7155,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.268"
+		"value":"16.5.290"
 	}
 }
 
@@ -7198,7 +7234,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.268"
+		"value":"16.5.290"
 	}
 }
 
@@ -7256,7 +7292,7 @@ inputs
 stat
 {
   create 1496776162
-  modify 1510179100
+  modify 1510678629
   author Luiz@Luiz-PC
   access 0777
 }
@@ -8727,6 +8763,20 @@ Content-Type: text/plain
       flags = 0
       segment { length = 0 value = 0.10000000000000001 0.10000000000000001 expr = ch(\"../ray_distance\") }
     }
+    channel vm_uvunwrapresx {
+      lefttype = extend
+      righttype = extend
+      default = 256
+      flags = 0
+      segment { length = 0 value = 256 256 expr = ch(\"../vm_uvunwrapresx\") }
+    }
+    channel vm_uvunwrapresy {
+      lefttype = extend
+      righttype = extend
+      default = 256
+      flags = 0
+      segment { length = 0 value = 256 256 expr = ch(\"../vm_uvunwrapresy\") }
+    }
   }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -8744,7 +8794,7 @@ f	[ 8	locks=0 ]	(	1	10	1	)
 take	[ 0	locks=0 ]	(	_current_	)
 camera	[ 0	locks=0 ]	(	"`opfullpath(\"..\") + \"/objnet/cam1\"`"	)
 vm_uvtype	[ 0	locks=0 ]	(	udim	)
-vm_uvunwrapres	[ 8	locks=0 ]	(	2048	2048	)
+vm_uvunwrapres	[ 8	locks=0 ]	(	[ vm_uvunwrapresx	2048 ] 	[ vm_uvunwrapresy	2048 ] 	)
 uvresmenu	[ 0	locks=0 ]	(	[ uvresmenu	0 ] 	)
 vm_ptexmapminres	[ 0	locks=0 ]	(	8	8	)
 vm_uvptexminresmenu	[ 0	locks=0 ]	(	0	)
@@ -8811,7 +8861,7 @@ vm_uvobjectenable1	[ 0	locks=0 ]	(	"on"	)
 vm_uvobject1	[ 0	locks=0 ]	(	"`opfullpath(\"..\") + \"/objnet/low\"`"	)
 vm_uvcageobject1	[ 8	locks=0 ]	(	`chsop(\"../vm_uvcageobject1\")`	)
 vm_uvhires1	[ 0	locks=0 ]	(	"`opfullpath(\"..\") + \"/objnet/high\"`"	)
-vm_uvoutputpicture1	[ 0	locks=0 ]	(	C:/Users/MAINGEAR/render\\LOW_tmp.exr	)
+vm_uvoutputpicture1	[ 0	locks=0 ]	(	D:/work/SideFX/Samples/SimplePhotogrammetry/render\\LOW_tmp.exr	)
 images6	[ 0	locks=0 ]	(	0	0	0	0	0	)
 main3	[ 0	locks=0 ]	(	0	0	)
 vm_bake_normalizep	[ 0	locks=0 ]	(	"on"	)
@@ -8936,7 +8986,7 @@ inputs
 stat
 {
   create 1496798844
-  modify 1510178915
+  modify 1510673780
   author Luiz@Luiz-PC
   access 0777
 }
@@ -8960,7 +9010,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.268"
+		"value":"16.5.290"
 	}
 }
 
@@ -8992,7 +9042,7 @@ inputs
 stat
 {
   create 1496798847
-  modify 1510179014
+  modify 1510677896
   author Luiz@Luiz-PC
   access 0777
 }
@@ -9021,12 +9071,12 @@ Content-Type: text/plain
 {
 version 0.8
 stdswitcher	[ 0	locks=0 ]	(	0	0	0	0	)
-filename	[ 0	locks=0 ]	(	C:/Users/MAINGEAR/render\\tmp.exr	"cinspace lin cinlut \"\" cinwhite 685 cingamma 0.6"	)
+filename	[ 0	locks=0 ]	(	D:/work/SideFX/Samples/SimplePhotogrammetry/render\\tmp.exr	"cinspace lin cinlut \"\" cinwhite 685 cingamma 0.6"	)
 nodename	[ 0	locks=0 ]	(	"userdef"	)
 reload	[ 0	locks=0 ]	(	0	)
 subframes	[ 0	locks=0 ]	(	"off"	)
 overridesize	[ 0	locks=0 ]	(	"natural"	)
-size	[ 0	locks=0 ]	(	2048	2048	)
+size	[ 0	locks=0 ]	(	256	256	)
 sizemenu	[ 0	locks=0 ]	(	0	)
 filter	[ 0	locks=0 ]	(	box	)
 overrideaspect	[ 0	locks=0 ]	(	"off"	)
@@ -9075,7 +9125,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.268"
+		"value":"16.5.290"
 	}
 }
 
@@ -9084,7 +9134,7 @@ Content-Disposition: attachment; filename="hdaroot/ropnet1/rop_games_baker/extra
 Content-Type: text/plain
 
 2
-625
+649
 0
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -9170,7 +9220,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.268"
+		"value":"16.5.290"
 	}
 }
 
@@ -9240,7 +9290,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.268"
+		"value":"16.5.290"
 	}
 }
 
@@ -9342,7 +9392,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.268"
+		"value":"16.5.290"
 	}
 }
 
@@ -9447,7 +9497,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.268"
+		"value":"16.5.290"
 	}
 }
 
@@ -9539,7 +9589,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.268"
+		"value":"16.5.290"
 	}
 }
 
@@ -9644,7 +9694,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.268"
+		"value":"16.5.290"
 	}
 }
 
@@ -9784,7 +9834,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.268"
+		"value":"16.5.290"
 	}
 }
 
@@ -9889,7 +9939,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.268"
+		"value":"16.5.290"
 	}
 }
 
@@ -9955,7 +10005,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.268"
+		"value":"16.5.290"
 	}
 }
 
@@ -10021,7 +10071,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.268"
+		"value":"16.5.290"
 	}
 }
 
@@ -10112,7 +10162,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.268"
+		"value":"16.5.290"
 	}
 }
 
@@ -10217,7 +10267,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.268"
+		"value":"16.5.290"
 	}
 }
 
@@ -10322,7 +10372,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.268"
+		"value":"16.5.290"
 	}
 }
 
@@ -10427,7 +10477,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.268"
+		"value":"16.5.290"
 	}
 }
 
@@ -10493,7 +10543,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.268"
+		"value":"16.5.290"
 	}
 }
 
@@ -10559,7 +10609,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.268"
+		"value":"16.5.290"
 	}
 }
 
@@ -10637,7 +10687,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.268"
+		"value":"16.5.290"
 	}
 }
 
@@ -10715,7 +10765,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.268"
+		"value":"16.5.290"
 	}
 }
 
@@ -10795,7 +10845,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.268"
+		"value":"16.5.290"
 	}
 }
 
@@ -10872,7 +10922,7 @@ inputs
 stat
 {
   create 1496798868
-  modify 1510179048
+  modify 1510677925
   author Luiz@Luiz-PC
   access 0777
 }
@@ -10895,9 +10945,9 @@ take	[ 0	locks=0 ]	(	_current_	)
 copswitcher	[ 0	locks=0 ]	(	0	0	0	0	0	)
 coppath	[ 0	locks=0 ]	(	../extract_net/base_image	)
 tres	[ 0	locks=0 ]	(	"natural"	)
-res	[ 0	locks=0 ]	(	2048	2048	)
+res	[ 0	locks=0 ]	(	256	256	)
 resmenu	[ 0	locks=0 ]	(	0	)
-copoutput	[ 0	locks=0 ]	(	C:/Users/MAINGEAR/render/crab_01_ao.tga	)
+copoutput	[ 0	locks=0 ]	(	D:/work/SideFX/Samples/SimplePhotogrammetry/render/simple_decimation_ao.tga	)
 mkpath	[ 0	locks=0 ]	(	"on"	)
 color	[ 0	locks=0 ]	(	Oc	)
 alpha	[ 0	locks=0 ]	(	A	)
@@ -10910,7 +10960,7 @@ batchmode	[ 0	locks=0 ]	(	"off"	)
 batchsize	[ 0	locks=0 ]	(	2	)
 reloadfiles	[ 0	locks=0 ]	(	"on"	)
 outputarea	[ 0	locks=0 ]	(	"frame"	)
-pixelcrop	[ 0	locks=0 ]	(	0	0	2047	2047	)
+pixelcrop	[ 0	locks=0 ]	(	0	0	255	255	)
 uvcrop	[ 0	locks=0 ]	(	0	0	1	1	)
 limitcanvaspixels	[ 0	locks=0 ]	(	"on"	)
 canvaspixels	[ 0	locks=0 ]	(	64	)
@@ -10966,7 +11016,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.268"
+		"value":"16.5.290"
 	}
 }
 
@@ -10991,7 +11041,7 @@ inputs
 stat
 {
   create 1496776162
-  modify 1510178928
+  modify 1510678640
   author Luiz@Luiz-PC
   access 0777
 }
@@ -12398,6 +12448,20 @@ Content-Type: text/plain
       flags = 0
       segment { length = 0 value = -1 -1 expr = ch(\"../ray_distance\") }
     }
+    channel vm_uvunwrapresx {
+      lefttype = extend
+      righttype = extend
+      default = 256
+      flags = 0
+      segment { length = 0 value = 256 256 expr = ch(\"../vm_uvunwrapresx\") }
+    }
+    channel vm_uvunwrapresy {
+      lefttype = extend
+      righttype = extend
+      default = 256
+      flags = 0
+      segment { length = 0 value = 256 256 expr = ch(\"../vm_uvunwrapresy\") }
+    }
   }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -12415,7 +12479,7 @@ f	[ 8	locks=0 ]	(	1	10	1	)
 take	[ 0	locks=0 ]	(	_current_	)
 camera	[ 0	locks=0 ]	(	"`opfullpath(\"..\") + \"/objnet/cam1\"`"	)
 vm_uvtype	[ 0	locks=0 ]	(	udim	)
-vm_uvunwrapres	[ 8	locks=0 ]	(	2048	2048	)
+vm_uvunwrapres	[ 8	locks=0 ]	(	[ vm_uvunwrapresx	2048 ] 	[ vm_uvunwrapresy	2048 ] 	)
 uvresmenu	[ 0	locks=0 ]	(	[ uvresmenu	0 ] 	)
 vm_ptexmapminres	[ 0	locks=0 ]	(	8	8	)
 vm_uvptexminresmenu	[ 0	locks=0 ]	(	0	)
@@ -12589,7 +12653,7 @@ inputs
 stat
 {
   create 1496798844
-  modify 1510179013
+  modify 1510677894
   author Luiz@Luiz-PC
   access 0777
 }
@@ -12613,7 +12677,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.268"
+		"value":"16.5.290"
 	}
 }
 
@@ -12644,7 +12708,7 @@ inputs
 stat
 {
   create 1496798868
-  modify 1510179019
+  modify 1510677900
   author Luiz@Luiz-PC
   access 0777
 }
@@ -12667,9 +12731,9 @@ take	[ 0	locks=0 ]	(	_current_	)
 copswitcher	[ 0	locks=0 ]	(	0	0	0	0	0	)
 coppath	[ 0	locks=0 ]	(	../composite_net	)
 tres	[ 0	locks=0 ]	(	"natural"	)
-res	[ 0	locks=0 ]	(	2048	2048	)
+res	[ 0	locks=0 ]	(	256	256	)
 resmenu	[ 0	locks=0 ]	(	0	)
-copoutput	[ 0	locks=0 ]	(	C:/Users/MAINGEAR/render\\tmp.exr	)
+copoutput	[ 0	locks=0 ]	(	D:/work/SideFX/Samples/SimplePhotogrammetry/render\\tmp.exr	)
 mkpath	[ 0	locks=0 ]	(	"on"	)
 color	[ 0	locks=0 ]	(	Nt	)
 alpha	[ 0	locks=0 ]	(	A	)
@@ -12682,7 +12746,7 @@ batchmode	[ 0	locks=0 ]	(	"off"	)
 batchsize	[ 0	locks=0 ]	(	2	)
 reloadfiles	[ 0	locks=0 ]	(	"on"	)
 outputarea	[ 0	locks=0 ]	(	"frame"	)
-pixelcrop	[ 0	locks=0 ]	(	0	0	2047	2047	)
+pixelcrop	[ 0	locks=0 ]	(	0	0	255	255	)
 uvcrop	[ 0	locks=0 ]	(	0	0	1	1	)
 limitcanvaspixels	[ 0	locks=0 ]	(	"on"	)
 canvaspixels	[ 0	locks=0 ]	(	64	)
@@ -12738,7 +12802,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.268"
+		"value":"16.5.290"
 	}
 }
 
@@ -12811,7 +12875,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.268"
+		"value":"16.5.290"
 	}
 }
 
@@ -12871,7 +12935,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.268"
+		"value":"16.5.290"
 	}
 }
 
@@ -12939,7 +13003,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.268"
+		"value":"16.5.290"
 	}
 }
 

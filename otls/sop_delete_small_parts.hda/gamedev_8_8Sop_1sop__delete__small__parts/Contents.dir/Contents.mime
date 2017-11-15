@@ -20,22 +20,25 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position -1.31308 -1.8486
-connectornextid 0
+position -3.67696 -2.15637
+connectornextid 2
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
 {
+1 "output1"
 }
 inputsNamed3
 {
+0 	sop_axis_align1 1 1 "input1"
 }
 inputs
 {
+0 	sop_axis_align1 0 1
 }
 stat
 {
-  create 1510006119
-  modify 1510006174
+  create 1510707566
+  modify 1510709184
   author MAINGEAR@DESKTOP-P98C1VA
   access 0777
 }
@@ -114,6 +117,7 @@ createvarmap	[ 0	locks=0 ]	(	"off"	)
 varname	[ 0	locks=0 ]	(	""	)
 seamgroup	[ 0	locks=0 ]	(	""	)
 byuv	[ 0	locks=0 ]	(	"off"	)
+uvattrib	[ 0	locks=0 ]	(	uv	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -123,7 +127,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.268.10"
+		"value":"16.5.290"
 	}
 }
 
@@ -158,7 +162,7 @@ inputs
 stat
 {
   create 1509985294
-  modify 1509985452
+  modify 1510707755
   author MAINGEAR@DESKTOP-P98C1VA
   access 0777
 }
@@ -199,7 +203,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.268.10"
+		"value":"16.5.290"
 	}
 }
 
@@ -234,7 +238,7 @@ inputs
 stat
 {
   create 1509985295
-  modify 1509985462
+  modify 1510707874
   author MAINGEAR@DESKTOP-P98C1VA
   access 0777
 }
@@ -262,7 +266,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.268.10"
+		"value":"16.5.290"
 	}
 }
 
@@ -297,7 +301,7 @@ inputs
 stat
 {
   create 1509985300
-  modify 1509985414
+  modify 1510707755
   author MAINGEAR@DESKTOP-P98C1VA
   access 0777
 }
@@ -328,7 +332,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.268.10"
+		"value":"16.5.290"
 	}
 }
 
@@ -363,7 +367,7 @@ inputs
 stat
 {
   create 1509985305
-  modify 1509985414
+  modify 1510707755
   author MAINGEAR@DESKTOP-P98C1VA
   access 0777
 }
@@ -394,7 +398,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.268.10"
+		"value":"16.5.290"
 	}
 }
 
@@ -429,7 +433,7 @@ inputs
 stat
 {
   create 1509985305
-  modify 1509985414
+  modify 1510707755
   author MAINGEAR@DESKTOP-P98C1VA
   access 0777
 }
@@ -460,7 +464,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.268.10"
+		"value":"16.5.290"
 	}
 }
 
@@ -477,7 +481,7 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position -0.21176 -2.19416
+position -0.528021 -1.74431
 connectornextid 1
 flags =  lock off model off template on footprint off xray off bypass off display on render on highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
@@ -494,7 +498,7 @@ inputs
 stat
 {
   create 1509985341
-  modify 1509985414
+  modify 1510709184
   author MAINGEAR@DESKTOP-P98C1VA
   access 0777
 }
@@ -504,15 +508,28 @@ exprlanguage hscript
 end
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/blast1.chn"
+Content-Type: text/plain
+
+{
+    channel negate {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = ch(\"../negate\") }
+    }
+  }
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
 Content-Disposition: attachment; filename="hdaroot/blast1.parm"
 Content-Type: text/plain
 
 {
 version 0.8
-group	[ 0	locks=0 ]	(	@area<.1	)
+group	[ 0	locks=0 ]	(	@area<`ch(\"../threshold\")`	)
 grouptype	[ 0	locks=0 ]	(	"prims"	)
 computenorms	[ 0	locks=0 ]	(	"off"	)
-negate	[ 0	locks=0 ]	(	"off"	)
+negate	[ 0	locks=0 ]	(	[ negate	0 ] 	)
 fillhole	[ 0	locks=0 ]	(	"off"	)
 removegrp	[ 0	locks=0 ]	(	"off"	)
 }
@@ -524,7 +541,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.268.10"
+		"value":"16.5.290"
 	}
 }
 

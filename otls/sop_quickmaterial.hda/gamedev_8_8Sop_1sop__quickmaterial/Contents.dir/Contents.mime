@@ -32,25 +32,25 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position 0.348471 -0.878529
+position -2.63133 -5.09259
 connectornextid 2
-flags =  lock off model off template on footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
+flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
 {
 1 "output1"
 }
 inputsNamed3
 {
-0 	sop_quickmaterial1 1 1 "input1"
+0 	fuse1 1 1 "input1"
 }
 inputs
 {
-0 	sop_quickmaterial1 0 1
+0 	fuse1 0 1
 }
 stat
 {
-  create 1510684991
-  modify 1510685134
+  create 1510670714
+  modify 1510709993
   author MAINGEAR@DESKTOP-P98C1VA
   access 0777
 }
@@ -613,7 +613,7 @@ inputs
 stat
 {
   create 1510670639
-  modify 1510685134
+  modify 1510702760
   author MAINGEAR@DESKTOP-P98C1VA
   access 0777
 }
@@ -781,7 +781,7 @@ specmodel	[ 0	locks=0 ]	(	ggx	)
 coatspecmodel	[ 0	locks=0 ]	(	ggx	)
 speccolor	[ 0	locks=0 ]	(	[ speccolorr	1 ] 	[ speccolorg	1 ] 	[ speccolorb	1 ] 	)
 specular_tint	[ 0	locks=0 ]	(	[ specular_tint	0 ] 	)
-diffuse_folder_15	[ 0	locks=0 ]	(	3	3	3	3	3	3	)
+diffuse_folder_15	[ 0	locks=0 ]	(	0	0	0	0	0	0	)
 folder7	[ 0	locks=0 ]	(	0	)
 basecolor	[ 0	locks=0 ]	(	[ basecolorr	1 ] 	[ basecolorg	1 ] 	[ basecolorb	1 ] 	)
 basecolor_usePointColor	[ 0	locks=0 ]	(	"on"	)
@@ -789,7 +789,7 @@ basecolor_usePackedColor	[ 0	locks=0 ]	(	"off"	)
 frontface	[ 0	locks=0 ]	(	"on"	)
 folder4	[ 0	locks=0 ]	(	0	)
 ior	[ 0	locks=0 ]	(	[ ior	1.1000000000000001 ] 	)
-rough	[ 0	locks=0 ]	(	[ rough	0.65200000000000002 ] 	)
+rough	[ 0	locks=0 ]	(	[ rough	1 ] 	)
 aniso	[ 0	locks=0 ]	(	0	)
 anisodir	[ 0	locks=0 ]	(	0	)
 folder12	[ 0	locks=0 ]	(	0	)
@@ -829,7 +829,7 @@ fakecausticsshadow	[ 0	locks=0 ]	(	1	)
 fakecausticsopacity	[ 0	locks=0 ]	(	0	)
 folder54	[ 0	locks=0 ]	(	0	)
 basecolor_useTexture	[ 0	locks=0 ]	(	"on"	)
-basecolor_texture	[ 0	locks=0 ]	(	[ basecolor_texture	D:/GDC_Female/lowerbody/LowerBodySG_id.tga ] 	)
+basecolor_texture	[ 0	locks=0 ]	(	[ basecolor_texture	"" ] 	)
 basecolor_textureIntensity	[ 0	locks=0 ]	(	1	)
 basecolor_textureWrap	[ 0	locks=0 ]	(	repeat	)
 basecolor_textureColorSpace	[ 0	locks=0 ]	(	auto	)
@@ -964,7 +964,7 @@ baseBumpAndNormal_enable	[ 0	locks=0 ]	(	"on"	)
 baseBumpAndNormal_type	[ 0	locks=0 ]	(	normal	)
 baseBump_colorSpace	[ 0	locks=0 ]	(	linear	)
 baseBump_bumpScale	[ 0	locks=0 ]	(	0.050000000000000003	)
-baseBump_bumpTexture	[ 0	locks=0 ]	(	[ baseBump_bumpTexture	D:/GDC_Female/lowerbody/LowerBodySG_normal.tga ] 	)
+baseBump_bumpTexture	[ 0	locks=0 ]	(	[ baseBump_bumpTexture	"" ] 	)
 baseBump_wrap	[ 0	locks=0 ]	(	repeat	)
 baseBump_filter	[ 0	locks=0 ]	(	gauss	)
 baseBump_filterWidth	[ 0	locks=0 ]	(	1	)
@@ -973,7 +973,7 @@ baseBump_imagePlane	[ 0	locks=0 ]	(	""	)
 baseNormal_colorspace	[ 0	locks=0 ]	(	linear	)
 baseNormal_vectorSpace	[ 0	locks=0 ]	(	uvtangent	)
 baseNormal_scale	[ 0	locks=0 ]	(	1	)
-baseNormal_texture	[ 0	locks=0 ]	(	`chs(\"../../baseBump_bumpTexture\")`	)
+baseNormal_texture	[ 0	locks=0 ]	(	""	)
 baseNormal_wrap	[ 0	locks=0 ]	(	repeat	)
 baseNormal_filter	[ 0	locks=0 ]	(	gauss	)
 baseNormal_filterWidth	[ 0	locks=0 ]	(	1	)
@@ -1177,7 +1177,7 @@ inputs
 stat
 {
   create 1510670635
-  modify 1510685014
+  modify 1510672942
   author MAINGEAR@DESKTOP-P98C1VA
   access 0777
 }
@@ -1185,20 +1185,6 @@ color UT_Color RGB 0.8 0.8 0.8
 delscript ""
 exprlanguage hscript
 end
-
---HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot/material1.chn"
-Content-Type: text/plain
-
-{
-    channel group1 {
-      lefttype = extend
-      righttype = extend
-      defaultString = \"\"
-      flags = 0
-      segment { length = 0 expr = chs(\"../group1\") }
-    }
-  }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
 Content-Disposition: attachment; filename="hdaroot/material1.parm"
@@ -1211,7 +1197,7 @@ uselabels	[ 0	locks=0 ]	(	"uselabels"	)
 createstylesheets	[ 0	locks=0 ]	(	"off"	)
 fullpath	[ 0	locks=0 ]	(	"on"	)
 num_materials	[ 0	locks=0 ]	(	1	)
-group1	[ 0	locks=0 ]	(	[ group1	@name=lowerbody ] 	)
+group1	[ 0	locks=0 ]	(	""	)
 shop_materialpath1	[ 0	locks=0 ]	(	../matnet1/principledshader1	)
 localvar1	[ 0	locks=0 ]	(	"off"	)
 mergeoverride1	[ 0	locks=0 ]	(	"off"	)

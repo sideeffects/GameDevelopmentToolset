@@ -39,7 +39,7 @@ def pre_bake(node):
         low_node.parm("objpath1").set(low_mesh)
         high_node.parm("objpath1").set(high_mesh)
 
-        exr_path = os.path.join(dir_path, low_mesh.split("/")[-1] + "_tmp.exr")
+        exr_path = dir_path + "/" + low_mesh.split("/")[-1] + "_tmp.exr"
         if i == 0:
             bake_texture.parm("vm_uvpostprocess").set("diffusefill")
         else:

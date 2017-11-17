@@ -6,6 +6,15 @@ def export(node):
         render_node.render()
 
     export_node = node.parm("node_to_export").eval()
+
+    # If Not /obj level node selected, get /obj level parent
+    if hou.node(export_node).type().category() != hou.objNodeTypeCategory():
+        parent_node = hou.node(export_node).parent()
+        while parent_node.type().category() != hou.objNodeTypeCategory():
+            parent_node = parent_node.parent()
+        export_node = parent_node.path()
+
+
     exporter = FractureExporter()
     exporter.export(hou.node(export_node))
 

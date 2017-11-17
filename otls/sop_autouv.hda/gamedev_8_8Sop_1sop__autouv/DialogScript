@@ -37,8 +37,22 @@
                 range   { 1 100 }
             }
             parm {
-                name    "curvature_multiplier"
-                label   "Curvature Multiplier"
+                name    "convex_multiplier"
+                label   "Convex Multiplier"
+                type    float
+                default { "1" }
+                range   { 0 10 }
+            }
+            parm {
+                name    "concave_multiplier"
+                label   "Concave Multiplier"
+                type    float
+                default { "0.1" }
+                range   { 0 10 }
+            }
+            parm {
+                name    "occlusion_multiplier"
+                label   "Occlusion Multiplier"
                 type    float
                 default { "1" }
                 range   { 0 10 }

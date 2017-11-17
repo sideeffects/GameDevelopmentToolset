@@ -23,7 +23,7 @@ Sop
 Content-Disposition: attachment; filename="hdaroot.init"
 Content-Type: text/plain
 
-type = gamedev::sop_calculate_curvarture
+type = gamedev::sop_measure_curvarture
 matchesdef = 0
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -32,25 +32,26 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position -1.08389 0.491309
-connectornextid 1
-flags =  lock off model off template off footprint off xray off bypass off display on render on highlight off unload off savedata off compress on colordefault on exposed on
+position -9.39371 -5.11212
+connectornextid 2
+flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
 {
+0 "output1"
 }
 inputsNamed3
 {
-0 	testgeometry_pighead1 0 1 "input1"
+1 	(__dot3) "" 1 "input1"
 }
 inputs
 {
-0 	testgeometry_pighead1 0 1
+0 	(__dot3) 0 1
 }
 stat
 {
-  create 1504892721
-  modify 1504892773
-  author Luiz@LAPTOP-LKBBB5D4
+  create 1510932554
+  modify 1510944156
+  author MAINGEAR@DESKTOP-P98C1VA
   access 0777
 }
 color UT_Color RGB 0.8 0.8 0.8 
@@ -87,7 +88,7 @@ Content-Type: text/plain
 }
 {
   create 1504631027
-  modify 1504892727
+  modify 1510938341
   author Luiz@Luiz-PC
   access 0777
 }
@@ -110,7 +111,7 @@ Content-Type: text/plain
 }
 {
   create 1504631032
-  modify 1504892729
+  modify 1510938343
   author Luiz@Luiz-PC
   access 0777
 }
@@ -133,7 +134,7 @@ Content-Type: text/plain
 }
 {
   create 1504631040
-  modify 1504892731
+  modify 1510938345
   author Luiz@Luiz-PC
   access 0777
 }
@@ -156,7 +157,7 @@ Content-Type: text/plain
 }
 {
   create 1504631044
-  modify 1504892731
+  modify 1510938345
   author Luiz@Luiz-PC
   access 0777
 }
@@ -179,7 +180,7 @@ Content-Type: text/plain
 }
 {
   create 1504632698
-  modify 1504892730
+  modify 1510938344
   author Luiz@Luiz-PC
   access 0777
 }
@@ -202,7 +203,7 @@ Content-Type: text/plain
 }
 {
   create 1504632933
-  modify 1504892730
+  modify 1510938344
   author Luiz@Luiz-PC
   access 0777
 }
@@ -225,7 +226,7 @@ Content-Type: text/plain
 }
 {
   create 1504633954
-  modify 1504892729
+  modify 1510938343
   author Luiz@Luiz-PC
   access 0777
 }
@@ -282,215 +283,215 @@ Content-Disposition: attachment; filename="hdaroot/pointwrangle1.spareparmdef"
 Content-Type: text/plain
 
     group {
-	name	"folder1"
-	label	"Code"
+        name    "folder1"
+        label   "Code"
 
-	parm {
-	    name	"group"
-	    baseparm
-	    label	"Group"
-	    export	none
-	    bindselector points "Modify Points"
-	        "Select the points to affect and press Enter to complete."
-	        0 1 0xffffffff 0 grouptype 0
-	}
-	parm {
-	    name	"grouptype"
-	    baseparm
-	    label	"Group Type"
-	    export	none
-	}
-	parm {
-	    name	"class"
-	    baseparm
-	    label	"Run Over"
-	    export	none
-	}
-	parm {
-	    name	"vex_numcount"
-	    baseparm
-	    label	"Number Count"
-	    export	none
-	}
-	parm {
-	    name	"vex_threadjobsize"
-	    baseparm
-	    label	"Thread Job Size"
-	    export	none
-	}
-	parm {
-	    name	"snippet"
-	    baseparm
-	    label	"VEXpression"
-	    export	all
-	}
-	parm {
-	    name	"exportlist"
-	    baseparm
-	    label	"Attributes to Create"
-	    export	none
-	}
-	parm {
-	    name	"vex_strict"
-	    baseparm
-	    label	"Enforce Prototypes"
-	    export	none
-	}
+        parm {
+            name    "group"
+            baseparm
+            label   "Group"
+            export  none
+            bindselector points "Modify Points"
+                "Select the points to affect and press Enter to complete."
+                0 1 0xffffffff 0 grouptype 0
+        }
+        parm {
+            name    "grouptype"
+            baseparm
+            label   "Group Type"
+            export  none
+        }
+        parm {
+            name    "class"
+            baseparm
+            label   "Run Over"
+            export  none
+        }
+        parm {
+            name    "vex_numcount"
+            baseparm
+            label   "Number Count"
+            export  none
+        }
+        parm {
+            name    "vex_threadjobsize"
+            baseparm
+            label   "Thread Job Size"
+            export  none
+        }
+        parm {
+            name    "snippet"
+            baseparm
+            label   "VEXpression"
+            export  all
+        }
+        parm {
+            name    "exportlist"
+            baseparm
+            label   "Attributes to Create"
+            export  none
+        }
+        parm {
+            name    "vex_strict"
+            baseparm
+            label   "Enforce Prototypes"
+            export  none
+        }
     }
 
     group {
-	name	"folder1_1"
-	label	"Bindings"
+        name    "folder1_1"
+        label   "Bindings"
 
-	parm {
-	    name	"autobind"
-	    baseparm
-	    label	"Autobind by Name"
-	    export	none
-	}
-	multiparm {
-	    name	"bindings"
-	    label	"Number of Bindings"
-	    baseparm
-	    default	0
-	    parmtag	{ "autoscope" "0000000000000000" }
-	    parmtag	{ "multistartoffset" "1" }
+        parm {
+            name    "autobind"
+            baseparm
+            label   "Autobind by Name"
+            export  none
+        }
+        multiparm {
+            name    "bindings"
+            label    "Number of Bindings"
+            baseparm
+            default 0
+            parmtag { "autoscope" "0000000000000000" }
+            parmtag { "multistartoffset" "1" }
 
-	    parm {
-		name	"bindname#"
-		baseparm
-		label	"Attribute Name"
-		export	none
-	    }
-	    parm {
-		name	"bindparm#"
-		baseparm
-		label	"VEX Parameter"
-		export	none
-	    }
-	}
+            parm {
+                name    "bindname#"
+                baseparm
+                label   "Attribute Name"
+                export  none
+            }
+            parm {
+                name    "bindparm#"
+                baseparm
+                label   "VEX Parameter"
+                export  none
+            }
+        }
 
-	parm {
-	    name	"groupautobind"
-	    baseparm
-	    label	"Autobind Groups by Name"
-	    export	none
-	}
-	multiparm {
-	    name	"groupbindings"
-	    label	"Group Bindings"
-	    baseparm
-	    default	0
-	    parmtag	{ "autoscope" "0000000000000000" }
-	    parmtag	{ "multistartoffset" "1" }
+        parm {
+            name    "groupautobind"
+            baseparm
+            label   "Autobind Groups by Name"
+            export  none
+        }
+        multiparm {
+            name    "groupbindings"
+            label    "Group Bindings"
+            baseparm
+            default 0
+            parmtag { "autoscope" "0000000000000000" }
+            parmtag { "multistartoffset" "1" }
 
-	    parm {
-		name	"bindgroupname#"
-		baseparm
-		label	"Group Name"
-		export	none
-	    }
-	    parm {
-		name	"bindgroupparm#"
-		baseparm
-		label	"VEX Parameter"
-		export	none
-	    }
-	}
+            parm {
+                name    "bindgroupname#"
+                baseparm
+                label   "Group Name"
+                export  none
+            }
+            parm {
+                name    "bindgroupparm#"
+                baseparm
+                label   "VEX Parameter"
+                export  none
+            }
+        }
 
-	parm {
-	    name	"vex_cwdpath"
-	    baseparm
-	    label	"Evaluation Node Path"
-	    export	none
-	}
-	parm {
-	    name	"vex_outputmask"
-	    baseparm
-	    label	"Export Parameters"
-	    export	none
-	}
-	parm {
-	    name	"vex_updatenmls"
-	    baseparm
-	    label	"Update Normals If Displaced"
-	    export	none
-	}
-	parm {
-	    name	"vex_matchattrib"
-	    baseparm
-	    label	"Attribute to Match"
-	    export	none
-	}
-	parm {
-	    name	"vex_inplace"
-	    baseparm
-	    label	"Compute Results In Place"
-	    export	none
-	}
-	parm {
-	    name	"vex_selectiongroup"
-	    baseparm
-	    label	"Output Selection Group"
-	    export	none
-	}
+        parm {
+            name    "vex_cwdpath"
+            baseparm
+            label   "Evaluation Node Path"
+            export  none
+        }
+        parm {
+            name    "vex_outputmask"
+            baseparm
+            label   "Export Parameters"
+            export  none
+        }
+        parm {
+            name    "vex_updatenmls"
+            baseparm
+            label   "Update Normals If Displaced"
+            export  none
+        }
+        parm {
+            name    "vex_matchattrib"
+            baseparm
+            label   "Attribute to Match"
+            export  none
+        }
+        parm {
+            name    "vex_inplace"
+            baseparm
+            label   "Compute Results In Place"
+            export  none
+        }
+        parm {
+            name    "vex_selectiongroup"
+            baseparm
+            label   "Output Selection Group"
+            export  none
+        }
     }
 
     parm {
-	name	"min_curv"
-	label	"Min Curv"
-	type	float
-	default	{ "0" }
-	range	{ 0 1 }
+        name    "min_curv"
+        label   "Min Curv"
+        type    float
+        default { "0" }
+        range   { 0 1 }
     }
     parm {
-	name	"max_curv"
-	label	"Max Curv"
-	type	float
-	default	{ "0" }
-	range	{ 0 1 }
+        name    "max_curv"
+        label   "Max Curv"
+        type    float
+        default { "0" }
+        range   { 0 1 }
     }
     parm {
-	name	"concave_range_scale"
-	label	"Concave Range Scale"
-	type	float
-	default	{ "0" }
-	range	{ 0 1 }
+        name    "concave_range_scale"
+        label   "Concave Range Scale"
+        type    float
+        default { "0" }
+        range   { 0 1 }
     }
     parm {
-	name	"convex_range_scale"
-	label	"Convex Range Scale"
-	type	float
-	default	{ "0" }
-	range	{ 0 1 }
+        name    "convex_range_scale"
+        label   "Convex Range Scale"
+        type    float
+        default { "0" }
+        range   { 0 1 }
     }
     parm {
-	name	"concave_contrast"
-	label	"Concave Contrast"
-	type	float
-	default	{ "0" }
-	range	{ 0 1 }
+        name    "concave_contrast"
+        label   "Concave Contrast"
+        type    float
+        default { "0" }
+        range   { 0 1 }
     }
     parm {
-	name	"concave_intensity"
-	label	"Concave Intensity"
-	type	float
-	default	{ "0" }
-	range	{ 0 1 }
+        name    "concave_intensity"
+        label   "Concave Intensity"
+        type    float
+        default { "0" }
+        range   { 0 1 }
     }
     parm {
-	name	"convex_contrast"
-	label	"Convex Contrast"
-	type	float
-	default	{ "0" }
-	range	{ 0 1 }
+        name    "convex_contrast"
+        label   "Convex Contrast"
+        type    float
+        default { "0" }
+        range   { 0 1 }
     }
     parm {
-	name	"convex_intensity"
-	label	"Convex Intensity"
-	type	float
-	default	{ "0" }
-	range	{ 0 1 }
+        name    "convex_intensity"
+        label   "Convex Intensity"
+        type    float
+        default { "0" }
+        range   { 0 1 }
     }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -578,8 +579,8 @@ vex_matchattrib	[ 0	locks=0 ]	(	id	)
 vex_inplace	[ 0	locks=0 ]	(	"off"	)
 vex_selectiongroup	[ 0	locks=0 ]	(	""	)
 folder1	[ 0	locks=0 ]	(	0	0	)
-min_curv	[ 0	locks=0 ]	(	[ min_curv	0 ] 	)
-max_curv	[ 0	locks=0 ]	(	[ max_curv	0 ] 	)
+min_curv	[ 0	locks=0 ]	(	[ min_curv	-1000 ] 	)
+max_curv	[ 0	locks=0 ]	(	[ max_curv	1000 ] 	)
 concave_range_scale	[ 8	locks=0 ]	(	[ concave_range_scale	2 ] 	)
 convex_range_scale	[ 8	locks=0 ]	(	[ convex_range_scale	2 ] 	)
 concave_contrast	[ 8	locks=0 ]	(	[ concave_contrast	0 ] 	)
@@ -818,166 +819,166 @@ Content-Disposition: attachment; filename="hdaroot/pointwrangle2.spareparmdef"
 Content-Type: text/plain
 
     group {
-	name	"folder1"
-	label	"Code"
+        name    "folder1"
+        label   "Code"
 
-	parm {
-	    name	"group"
-	    baseparm
-	    label	"Group"
-	    export	none
-	    bindselector points "Modify Points"
-	        "Select the points to affect and press Enter to complete."
-	        0 1 0xffffffff 0 grouptype 0
-	}
-	parm {
-	    name	"grouptype"
-	    baseparm
-	    label	"Group Type"
-	    export	none
-	}
-	parm {
-	    name	"class"
-	    baseparm
-	    label	"Run Over"
-	    export	none
-	}
-	parm {
-	    name	"vex_numcount"
-	    baseparm
-	    label	"Number Count"
-	    export	none
-	}
-	parm {
-	    name	"vex_threadjobsize"
-	    baseparm
-	    label	"Thread Job Size"
-	    export	none
-	}
-	parm {
-	    name	"snippet"
-	    baseparm
-	    label	"VEXpression"
-	    export	all
-	}
-	parm {
-	    name	"exportlist"
-	    baseparm
-	    label	"Attributes to Create"
-	    export	none
-	}
-	parm {
-	    name	"vex_strict"
-	    baseparm
-	    label	"Enforce Prototypes"
-	    export	none
-	}
+        parm {
+            name    "group"
+            baseparm
+            label   "Group"
+            export  none
+            bindselector points "Modify Points"
+                "Select the points to affect and press Enter to complete."
+                0 1 0xffffffff 0 grouptype 0
+        }
+        parm {
+            name    "grouptype"
+            baseparm
+            label   "Group Type"
+            export  none
+        }
+        parm {
+            name    "class"
+            baseparm
+            label   "Run Over"
+            export  none
+        }
+        parm {
+            name    "vex_numcount"
+            baseparm
+            label   "Number Count"
+            export  none
+        }
+        parm {
+            name    "vex_threadjobsize"
+            baseparm
+            label   "Thread Job Size"
+            export  none
+        }
+        parm {
+            name    "snippet"
+            baseparm
+            label   "VEXpression"
+            export  all
+        }
+        parm {
+            name    "exportlist"
+            baseparm
+            label   "Attributes to Create"
+            export  none
+        }
+        parm {
+            name    "vex_strict"
+            baseparm
+            label   "Enforce Prototypes"
+            export  none
+        }
     }
 
     group {
-	name	"folder1_1"
-	label	"Bindings"
+        name    "folder1_1"
+        label   "Bindings"
 
-	parm {
-	    name	"autobind"
-	    baseparm
-	    label	"Autobind by Name"
-	    export	none
-	}
-	multiparm {
-	    name	"bindings"
-	    label	"Number of Bindings"
-	    baseparm
-	    default	0
-	    parmtag	{ "autoscope" "0000000000000000" }
-	    parmtag	{ "multistartoffset" "1" }
+        parm {
+            name    "autobind"
+            baseparm
+            label   "Autobind by Name"
+            export  none
+        }
+        multiparm {
+            name    "bindings"
+            label    "Number of Bindings"
+            baseparm
+            default 0
+            parmtag { "autoscope" "0000000000000000" }
+            parmtag { "multistartoffset" "1" }
 
-	    parm {
-		name	"bindname#"
-		baseparm
-		label	"Attribute Name"
-		export	none
-	    }
-	    parm {
-		name	"bindparm#"
-		baseparm
-		label	"VEX Parameter"
-		export	none
-	    }
-	}
+            parm {
+                name    "bindname#"
+                baseparm
+                label   "Attribute Name"
+                export  none
+            }
+            parm {
+                name    "bindparm#"
+                baseparm
+                label   "VEX Parameter"
+                export  none
+            }
+        }
 
-	parm {
-	    name	"groupautobind"
-	    baseparm
-	    label	"Autobind Groups by Name"
-	    export	none
-	}
-	multiparm {
-	    name	"groupbindings"
-	    label	"Group Bindings"
-	    baseparm
-	    default	0
-	    parmtag	{ "autoscope" "0000000000000000" }
-	    parmtag	{ "multistartoffset" "1" }
+        parm {
+            name    "groupautobind"
+            baseparm
+            label   "Autobind Groups by Name"
+            export  none
+        }
+        multiparm {
+            name    "groupbindings"
+            label    "Group Bindings"
+            baseparm
+            default 0
+            parmtag { "autoscope" "0000000000000000" }
+            parmtag { "multistartoffset" "1" }
 
-	    parm {
-		name	"bindgroupname#"
-		baseparm
-		label	"Group Name"
-		export	none
-	    }
-	    parm {
-		name	"bindgroupparm#"
-		baseparm
-		label	"VEX Parameter"
-		export	none
-	    }
-	}
+            parm {
+                name    "bindgroupname#"
+                baseparm
+                label   "Group Name"
+                export  none
+            }
+            parm {
+                name    "bindgroupparm#"
+                baseparm
+                label   "VEX Parameter"
+                export  none
+            }
+        }
 
-	parm {
-	    name	"vex_cwdpath"
-	    baseparm
-	    label	"Evaluation Node Path"
-	    export	none
-	}
-	parm {
-	    name	"vex_outputmask"
-	    baseparm
-	    label	"Export Parameters"
-	    export	none
-	}
-	parm {
-	    name	"vex_updatenmls"
-	    baseparm
-	    label	"Update Normals If Displaced"
-	    export	none
-	}
-	parm {
-	    name	"vex_matchattrib"
-	    baseparm
-	    label	"Attribute to Match"
-	    export	none
-	}
-	parm {
-	    name	"vex_inplace"
-	    baseparm
-	    label	"Compute Results In Place"
-	    export	none
-	}
-	parm {
-	    name	"vex_selectiongroup"
-	    baseparm
-	    label	"Output Selection Group"
-	    export	none
-	}
+        parm {
+            name    "vex_cwdpath"
+            baseparm
+            label   "Evaluation Node Path"
+            export  none
+        }
+        parm {
+            name    "vex_outputmask"
+            baseparm
+            label   "Export Parameters"
+            export  none
+        }
+        parm {
+            name    "vex_updatenmls"
+            baseparm
+            label   "Update Normals If Displaced"
+            export  none
+        }
+        parm {
+            name    "vex_matchattrib"
+            baseparm
+            label   "Attribute to Match"
+            export  none
+        }
+        parm {
+            name    "vex_inplace"
+            baseparm
+            label   "Compute Results In Place"
+            export  none
+        }
+        parm {
+            name    "vex_selectiongroup"
+            baseparm
+            label   "Output Selection Group"
+            export  none
+        }
     }
 
     parm {
-	name	"single_color"
-	label	"Single Color"
-	type	float
-	default	{ "0" }
-	range	{ 0 1 }
+        name    "single_color"
+        label   "Single Color"
+        type    float
+        default { "0" }
+        range   { 0 1 }
     }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -1029,7 +1030,7 @@ vex_matchattrib	[ 0	locks=0 ]	(	id	)
 vex_inplace	[ 0	locks=0 ]	(	"off"	)
 vex_selectiongroup	[ 0	locks=0 ]	(	""	)
 folder1	[ 0	locks=0 ]	(	0	0	)
-single_color	[ 8	locks=0 ]	(	[ single_color	0 ] 	)
+single_color	[ 8	locks=0 ]	(	[ single_color	1 ] 	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -1108,7 +1109,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.0.557"
+		"value":"16.5.290"
 	}
 }
 
@@ -1264,7 +1265,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.0.557"
+		"value":"16.5.290"
 	}
 }
 
@@ -1420,7 +1421,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.0.557"
+		"value":"16.5.290"
 	}
 }
 
@@ -1861,7 +1862,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.0.557"
+		"value":"16.5.290"
 	}
 }
 
@@ -3452,7 +3453,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.0.557"
+		"value":"16.5.290"
 	}
 }
 
@@ -3904,7 +3905,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.0.557"
+		"value":"16.5.290"
 	}
 }
 
@@ -4356,7 +4357,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.0.557"
+		"value":"16.5.290"
 	}
 }
 
@@ -4779,7 +4780,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.0.557"
+		"value":"16.5.290"
 	}
 }
 
@@ -5286,7 +5287,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.0.557"
+		"value":"16.5.290"
 	}
 }
 
@@ -5706,7 +5707,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.0.557"
+		"value":"16.5.290"
 	}
 }
 
@@ -5772,7 +5773,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.0.557"
+		"value":"16.5.290"
 	}
 }
 
@@ -5965,7 +5966,7 @@ Content-Type: text/plain
 
 {
 version 0.8
-input	[ 8	locks=0 ]	(	[ input	0 ] 	)
+input	[ 8	locks=0 ]	(	[ input	1 ] 	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -5975,7 +5976,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.0.557"
+		"value":"16.5.290"
 	}
 }
 
@@ -6057,7 +6058,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.0.557"
+		"value":"16.5.290"
 	}
 }
 
@@ -6126,7 +6127,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.0.557"
+		"value":"16.5.290"
 	}
 }
 
@@ -6182,6 +6183,7 @@ createvarmap	[ 0	locks=0 ]	(	"off"	)
 varname	[ 0	locks=0 ]	(	""	)
 seamgroup	[ 0	locks=0 ]	(	""	)
 byuv	[ 0	locks=0 ]	(	"off"	)
+uvattrib	[ 0	locks=0 ]	(	uv	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -6197,7 +6199,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.0.557"
+		"value":"16.5.290"
 	}
 }
 
@@ -6279,7 +6281,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.0.557"
+		"value":"16.5.290"
 	}
 }
 
@@ -6436,7 +6438,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.0.557"
+		"value":"16.5.290"
 	}
 }
 
@@ -6500,7 +6502,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.0.557"
+		"value":"16.5.290"
 	}
 }
 
@@ -6591,7 +6593,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.0.557"
+		"value":"16.5.290"
 	}
 }
 
@@ -6694,7 +6696,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.0.557"
+		"value":"16.5.290"
 	}
 }
 
@@ -6758,7 +6760,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.0.557"
+		"value":"16.5.290"
 	}
 }
 
@@ -6849,7 +6851,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.0.557"
+		"value":"16.5.290"
 	}
 }
 
@@ -6956,7 +6958,7 @@ Content-Type: text/plain
 
 {
 version 0.8
-input	[ 0	locks=0 ]	(	[ input	0 ] 	)
+input	[ 0	locks=0 ]	(	[ input	5 ] 	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -6966,7 +6968,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.0.557"
+		"value":"16.5.290"
 	}
 }
 
@@ -7048,7 +7050,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.0.557"
+		"value":"16.5.290"
 	}
 }
 
@@ -7130,7 +7132,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.0.557"
+		"value":"16.5.290"
 	}
 }
 
@@ -7199,7 +7201,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.0.557"
+		"value":"16.5.290"
 	}
 }
 
@@ -7255,6 +7257,7 @@ createvarmap	[ 0	locks=0 ]	(	"off"	)
 varname	[ 0	locks=0 ]	(	""	)
 seamgroup	[ 0	locks=0 ]	(	""	)
 byuv	[ 0	locks=0 ]	(	"off"	)
+uvattrib	[ 0	locks=0 ]	(	uv	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -7270,7 +7273,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.0.557"
+		"value":"16.5.290"
 	}
 }
 
@@ -7437,7 +7440,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.0.557"
+		"value":"16.5.290"
 	}
 }
 
@@ -7506,7 +7509,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.0.557"
+		"value":"16.5.290"
 	}
 }
 
@@ -7562,6 +7565,7 @@ createvarmap	[ 0	locks=0 ]	(	"off"	)
 varname	[ 0	locks=0 ]	(	""	)
 seamgroup	[ 0	locks=0 ]	(	""	)
 byuv	[ 0	locks=0 ]	(	"off"	)
+uvattrib	[ 0	locks=0 ]	(	uv	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -7577,7 +7581,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.0.557"
+		"value":"16.5.290"
 	}
 }
 
@@ -7729,7 +7733,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.0.557"
+		"value":"16.5.290"
 	}
 }
 
@@ -7811,7 +7815,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.0.557"
+		"value":"16.5.290"
 	}
 }
 
@@ -7880,7 +7884,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.0.557"
+		"value":"16.5.290"
 	}
 }
 
@@ -7936,6 +7940,7 @@ createvarmap	[ 0	locks=0 ]	(	"off"	)
 varname	[ 0	locks=0 ]	(	""	)
 seamgroup	[ 0	locks=0 ]	(	""	)
 byuv	[ 0	locks=0 ]	(	"off"	)
+uvattrib	[ 0	locks=0 ]	(	uv	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -7951,7 +7956,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.0.557"
+		"value":"16.5.290"
 	}
 }
 
@@ -8103,7 +8108,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.0.557"
+		"value":"16.5.290"
 	}
 }
 
@@ -8187,7 +8192,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.0.557"
+		"value":"16.5.290"
 	}
 }
 
@@ -8276,7 +8281,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.0.557"
+		"value":"16.5.290"
 	}
 }
 
@@ -8360,7 +8365,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.0.557"
+		"value":"16.5.290"
 	}
 }
 
@@ -8449,7 +8454,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.0.557"
+		"value":"16.5.290"
 	}
 }
 
@@ -8533,7 +8538,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.0.557"
+		"value":"16.5.290"
 	}
 }
 
@@ -8622,7 +8627,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.0.557"
+		"value":"16.5.290"
 	}
 }
 
@@ -8720,7 +8725,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.0.557"
+		"value":"16.5.290"
 	}
 }
 
@@ -8809,7 +8814,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.0.557"
+		"value":"16.5.290"
 	}
 }
 
@@ -8875,7 +8880,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.0.557"
+		"value":"16.5.290"
 	}
 }
 
@@ -9016,7 +9021,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.0.557"
+		"value":"16.5.290"
 	}
 }
 
@@ -9117,7 +9122,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.0.557"
+		"value":"16.5.290"
 	}
 }
 
@@ -9187,7 +9192,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.0.557"
+		"value":"16.5.290"
 	}
 }
 
@@ -9269,7 +9274,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.0.557"
+		"value":"16.5.290"
 	}
 }
 
@@ -9338,7 +9343,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.0.557"
+		"value":"16.5.290"
 	}
 }
 
@@ -9394,6 +9399,7 @@ createvarmap	[ 0	locks=0 ]	(	"off"	)
 varname	[ 0	locks=0 ]	(	""	)
 seamgroup	[ 0	locks=0 ]	(	""	)
 byuv	[ 0	locks=0 ]	(	"off"	)
+uvattrib	[ 0	locks=0 ]	(	uv	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -9409,7 +9415,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.0.557"
+		"value":"16.5.290"
 	}
 }
 
@@ -9545,7 +9551,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.0.557"
+		"value":"16.5.290"
 	}
 }
 
@@ -9686,7 +9692,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.0.557"
+		"value":"16.5.290"
 	}
 }
 
@@ -9785,7 +9791,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.0.557"
+		"value":"16.5.290"
 	}
 }
 
@@ -9869,7 +9875,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.0.557"
+		"value":"16.5.290"
 	}
 }
 
@@ -9939,7 +9945,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.0.557"
+		"value":"16.5.290"
 	}
 }
 
@@ -10005,7 +10011,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.0.557"
+		"value":"16.5.290"
 	}
 }
 
@@ -10103,7 +10109,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.0.557"
+		"value":"16.5.290"
 	}
 }
 
@@ -10172,7 +10178,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.0.557"
+		"value":"16.5.290"
 	}
 }
 
@@ -10228,6 +10234,7 @@ createvarmap	[ 0	locks=0 ]	(	"off"	)
 varname	[ 0	locks=0 ]	(	""	)
 seamgroup	[ 0	locks=0 ]	(	""	)
 byuv	[ 0	locks=0 ]	(	"off"	)
+uvattrib	[ 0	locks=0 ]	(	uv	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -10243,7 +10250,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.0.557"
+		"value":"16.5.290"
 	}
 }
 
@@ -10395,7 +10402,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.0.557"
+		"value":"16.5.290"
 	}
 }
 
@@ -10461,7 +10468,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.0.557"
+		"value":"16.5.290"
 	}
 }
 
@@ -10566,7 +10573,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.0.557"
+		"value":"16.5.290"
 	}
 }
 
@@ -10638,7 +10645,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.0.557"
+		"value":"16.5.290"
 	}
 }
 
@@ -10710,7 +10717,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.0.557"
+		"value":"16.5.290"
 	}
 }
 
@@ -10776,7 +10783,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.0.557"
+		"value":"16.5.290"
 	}
 }
 
@@ -10874,7 +10881,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.0.557"
+		"value":"16.5.290"
 	}
 }
 
@@ -10943,7 +10950,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.0.557"
+		"value":"16.5.290"
 	}
 }
 
@@ -10999,6 +11006,7 @@ createvarmap	[ 0	locks=0 ]	(	"off"	)
 varname	[ 0	locks=0 ]	(	""	)
 seamgroup	[ 0	locks=0 ]	(	""	)
 byuv	[ 0	locks=0 ]	(	"off"	)
+uvattrib	[ 0	locks=0 ]	(	uv	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -11014,7 +11022,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.0.557"
+		"value":"16.5.290"
 	}
 }
 
@@ -11166,7 +11174,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.0.557"
+		"value":"16.5.290"
 	}
 }
 

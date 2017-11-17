@@ -58,6 +58,21 @@
             default { "$HIP/render/${HIPNAME}_$(CHANNEL).tga" }
             parmtag { "autoscope" "0000000000000000" }
         }
+        parm {
+            name    "export_fbx"
+            label   "Label"
+            type    toggle
+            nolabel
+            joinnext
+            default { "0" }
+        }
+        parm {
+            name    "fbx_path"
+            label   "Export FBX"
+            type    geometry
+            default { "$HIP/render/${HIPNAME}.fbx" }
+            disablewhen "{ export_fbx == 0 }"
+        }
         group {
             name    "channels"
             label   "Channels"

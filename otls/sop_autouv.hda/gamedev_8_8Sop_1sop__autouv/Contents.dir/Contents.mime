@@ -32,25 +32,22 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position -0.382353 -9.00588
-connectornextid 2
+position -0.429412 -4.64324
+connectornextid 0
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
 {
-1 "output1"
 }
 inputsNamed3
 {
-0 	polyreduce1 1 1 "input1"
 }
 inputs
 {
-0 	polyreduce1 0 1
 }
 stat
 {
-  create 1510951580
-  modify 1510951629
+  create 1510970453
+  modify 1510970456
   author MAINGEAR@DESKTOP-P98C1VA
   access 0777
 }
@@ -501,7 +498,7 @@ vex_matchattrib	[ 0	locks=0 ]	(	id	)
 vex_inplace	[ 0	locks=0 ]	(	"off"	)
 vex_selectiongroup	[ 0	locks=0 ]	(	""	)
 folder1	[ 0	locks=0 ]	(	0	0	)
-curvature_mult	[ 8	locks=0 ]	(	[ curvature_mult	2.6600000000000001 ] 	)
+curvature_mult	[ 8	locks=0 ]	(	[ curvature_mult	1 ] 	)
 curvature_multiplier	[ 0	locks=0 ]	(	0	)
 concave_multiplier	[ 8	locks=0 ]	(	[ concave_multiplier	0.10000000000000001 ] 	)
 convex_multiplier	[ 8	locks=0 ]	(	[ convex_multiplier	1 ] 	)
@@ -1697,20 +1694,20 @@ intensity	[ 8	locks=0 ]	(	[ intensity	1 ] 	)
 occ_output	[ 0	locks=0 ]	(	0	)
 colorout	[ 0	locks=0 ]	(	"off"	)
 occattr	[ 0	locks=0 ]	(	occlusion	)
+outputramp	[ 0	locks=0 ]	(	2	)
 sepparm	[ 0	locks=0 ]	(	)
-rampattr	[ 0	locks=0 ]	(	2	)
 sepparm3	[ 0	locks=0 ]	(	)
 folder1	[ 0	locks=0 ]	(	0	)
 method	[ 0	locks=0 ]	(	"edgelength"	)
 influencetype	[ 0	locks=0 ]	(	"connectivity"	)
 iterations2	[ 0	locks=0 ]	(	6	)
 blur	[ 0	locks=0 ]	(	0.5	)
-rampattr1pos	[ 0	locks=0 ]	(	0.0037553647998720407	)
-rampattr1value	[ 0	locks=0 ]	(	0	)
-rampattr1interp	[ 0	locks=0 ]	(	"linear"	)
-rampattr2pos	[ 0	locks=0 ]	(	0.9973176121711731	)
-rampattr2value	[ 0	locks=0 ]	(	1	)
-rampattr2interp	[ 0	locks=0 ]	(	"linear"	)
+outputramp1pos	[ 0	locks=0 ]	(	0	)
+outputramp1value	[ 0	locks=0 ]	(	0	)
+outputramp1interp	[ 0	locks=0 ]	(	"linear"	)
+outputramp2pos	[ 0	locks=0 ]	(	1	)
+outputramp2value	[ 0	locks=0 ]	(	1	)
+outputramp2interp	[ 0	locks=0 ]	(	"linear"	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -2271,25 +2268,6 @@ Content-Type: text/plain
       flags = 0
       segment { length = 0 value = 1 1 expr = ch(\"../rampattr1interp\") }
     }
-    channel ramp2pos {
-      lefttype = extend
-      righttype = extend
-      flags = 0
-      segment { length = 0 expr = ch(\"../rampattr2pos\") }
-    }
-    channel ramp2value {
-      lefttype = extend
-      righttype = extend
-      flags = 0
-      segment { length = 0 expr = ch(\"../rampattr2value\") }
-    }
-    channel ramp2interp {
-      lefttype = extend
-      righttype = extend
-      default = 1
-      flags = 0
-      segment { length = 0 value = 1 1 expr = ch(\"../rampattr2interp\") }
-    }
     channel iterations {
       lefttype = extend
       righttype = extend
@@ -2396,14 +2374,11 @@ iterations	[ 0	locks=0 ]	(	[ iterations	20 ] 	)
 maxdist	[ 0	locks=0 ]	(	[ maxdist	2 ] 	)
 raybbias	[ 0	locks=0 ]	(	[ raybbias	0.01 ] 	)
 colorout	[ 0	locks=0 ]	(	[ colorout	0 ] 	)
-ramp	[ 0	locks=0 ]	(	[ ramp	2 ] 	)
-ramp1pos	[ 0	locks=0 ]	(	[ ramp1pos	0.0037553647998720407 ] 	)
+ramp	[ 0	locks=0 ]	(	[ ramp	0 ] 	)
+ramp1pos	[ 0	locks=0 ]	(	[ ramp1pos	0 ] 	)
 ramp1value	[ 0	locks=0 ]	(	[ ramp1value	0 ] 	)
-ramp1interp	[ 0	locks=0 ]	(	[ ramp1interp	1 ] 	)
+ramp1interp	[ 0	locks=0 ]	(	[ ramp1interp	0 ] 	)
 intensity	[ 8	locks=0 ]	(	[ intensity	1 ] 	)
-ramp2pos	[ 0	locks=0 ]	(	[ ramp2pos	0.9973176121711731 ] 	)
-ramp2value	[ 0	locks=0 ]	(	[ ramp2value	1 ] 	)
-ramp2interp	[ 0	locks=0 ]	(	[ ramp2interp	1 ] 	)
 bindname1	[ 0	locks=0 ]	(	[ bindname1	occlusion ] 	)
 bindparm1	[ 0	locks=0 ]	(	occlusion	)
 }
@@ -7364,7 +7339,7 @@ inputs
 stat
 {
   create 1504652436
-  modify 1510949714
+  modify 1510970461
   author Luiz@Luiz-PC
   access 0777
 }
@@ -7392,7 +7367,7 @@ maxiter	[ 0	locks=0 ]	(	10	)
 blockpath	[ 0	locks=0 ]	(	../foreach_begin3	)
 templatepath	[ 0	locks=0 ]	(	../foreach_begin3	)
 resetcookpass	[ 0	locks=0 ]	(	0	)
-dosinglepass	[ 0	locks=0 ]	(	"on"	)
+dosinglepass	[ 0	locks=0 ]	(	"off"	)
 singlepass	[ 0	locks=0 ]	(	0	)
 stopcondition	[ 0	locks=0 ]	(	0	)
 multithread	[ 0	locks=0 ]	(	"off"	)

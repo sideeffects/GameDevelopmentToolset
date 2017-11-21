@@ -32,24 +32,24 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position -0.735294 -0.0785294
+position 0.245781 -3.87167
 connectornextid 1
-flags =  lock off model off template off footprint off xray off bypass off display on render on highlight off unload off savedata off compress on colordefault on exposed on
+flags =  lock off model off template on footprint off xray off bypass off display on render on highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
 {
 }
 inputsNamed3
 {
-0 	testgeometry_pighead1 0 1 "input1"
+0 	switch1 3 1 "input1"
 }
 inputs
 {
-0 	testgeometry_pighead1 0 1
+0 	switch1 0 1
 }
 stat
 {
-  create 1510957009
-  modify 1510957027
+  create 1511282771
+  modify 1511284199
   author MAINGEAR@DESKTOP-P98C1VA
   access 0777
 }
@@ -2876,7 +2876,7 @@ version 0.8
 group	[ 0	locks=0 ]	(	""	)
 attributes	[ 0	locks=0 ]	(	`chs(\"../attribvop2/bindname1\")`	)
 method	[ 0	locks=0 ]	(	[ method	1 ] 	)
-iterations	[ 0	locks=0 ]	(	[ iterations	2 ] 	)
+iterations	[ 0	locks=0 ]	(	[ iterations	8 ] 	)
 mode	[ 0	locks=0 ]	(	"laplacian"	)
 frequency	[ 0	locks=0 ]	(	0.10000000000000001	)
 stepsize	[ 0	locks=0 ]	(	[ stepsize	0.5 ] 	)
@@ -3100,7 +3100,7 @@ inputs
 stat
 {
   create 1510767588
-  modify 1510957573
+  modify 1511282824
   author Scott@saudi
   access 0777
 }
@@ -3578,25 +3578,6 @@ Content-Type: text/plain
       flags = 0
       segment { length = 0 value = 1 1 expr = ch(\"../outputramp1interp\") }
     }
-    channel outputramp2pos {
-      lefttype = extend
-      righttype = extend
-      flags = 0
-      segment { length = 0 expr = ch(\"../outputramp2pos\") }
-    }
-    channel outputramp2value {
-      lefttype = extend
-      righttype = extend
-      flags = 0
-      segment { length = 0 expr = ch(\"../outputramp2value\") }
-    }
-    channel outputramp2interp {
-      lefttype = extend
-      righttype = extend
-      default = 1
-      flags = 0
-      segment { length = 0 value = 1 1 expr = ch(\"../outputramp2interp\") }
-    }
     channel bindname1 {
       lefttype = extend
       righttype = extend
@@ -3624,6 +3605,25 @@ Content-Type: text/plain
       default = 1
       flags = 0
       segment { length = 0 value = 1 1 expr = ch(\"../intensity\") }
+    }
+    channel outputramp2pos {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = ch(\"../outputramp2pos\") }
+    }
+    channel outputramp2value {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = ch(\"../outputramp2value\") }
+    }
+    channel outputramp2interp {
+      lefttype = extend
+      righttype = extend
+      default = 1
+      flags = 0
+      segment { length = 0 value = 1 1 expr = ch(\"../outputramp2interp\") }
     }
   }
 
@@ -3684,12 +3684,12 @@ outputramp	[ 0	locks=0 ]	(	[ outputramp	2 ] 	)
 outputramp1pos	[ 0	locks=0 ]	(	[ outputramp1pos	0 ] 	)
 outputramp1value	[ 0	locks=0 ]	(	[ outputramp1value	0 ] 	)
 outputramp1interp	[ 0	locks=0 ]	(	[ outputramp1interp	1 ] 	)
-intensity	[ 8	locks=0 ]	(	[ intensity	1 ] 	)
+intensity	[ 8	locks=0 ]	(	[ intensity	5.8200000000000003 ] 	)
+bindname1	[ 0	locks=0 ]	(	[ bindname1	occlusion ] 	)
+bindparm1	[ 0	locks=0 ]	(	occlusion	)
 outputramp2pos	[ 0	locks=0 ]	(	[ outputramp2pos	1 ] 	)
 outputramp2value	[ 0	locks=0 ]	(	[ outputramp2value	1 ] 	)
 outputramp2interp	[ 0	locks=0 ]	(	[ outputramp2interp	1 ] 	)
-bindname1	[ 0	locks=0 ]	(	[ bindname1	gamedev::sop_calculate_occlusion ] 	)
-bindparm1	[ 0	locks=0 ]	(	occlusion	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -5369,7 +5369,7 @@ Content-Type: text/plain
 
 {
 version 0.8
-input	[ 8	locks=0 ]	(	[ input	0 ] 	)
+input	[ 8	locks=0 ]	(	[ input	1 ] 	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY

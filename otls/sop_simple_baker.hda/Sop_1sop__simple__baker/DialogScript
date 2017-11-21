@@ -49,6 +49,7 @@
                 "4096 4096" "4096 x 4096"
             }
             parmtag { "autoscope" "0000000000000000" }
+            parmtag { "script_callback" "opparm . vm_uvunwrapres (`arg(\"$script_value\", 0)` `arg(\"$script_value\", 1)`" }
         }
         parm {
             name    "base_path"
@@ -56,6 +57,21 @@
             type    image
             default { "$HIP/render/${HIPNAME}_$(CHANNEL).tga" }
             parmtag { "autoscope" "0000000000000000" }
+        }
+        parm {
+            name    "export_fbx"
+            label   "Label"
+            type    toggle
+            nolabel
+            joinnext
+            default { "0" }
+        }
+        parm {
+            name    "fbx_path"
+            label   "Export FBX"
+            type    geometry
+            default { "$HIP/render/${HIPNAME}.fbx" }
+            disablewhen "{ export_fbx == 0 }"
         }
         group {
             name    "channels"
@@ -93,6 +109,40 @@
                 type    string
                 default { "normal" }
                 disablewhen "{ bake_Nt == 0 }"
+                parmtag { "autoscope" "0000000000000000" }
+            }
+            parm {
+                name    "bake_specrough"
+                label   "Roughness Map"
+                type    toggle
+                nolabel
+                joinnext
+                default { "off" }
+                parmtag { "autoscope" "0000000000000000" }
+            }
+            parm {
+                name    "specrough_suffix"
+                label   "Roughness Map"
+                type    string
+                default { "roughness" }
+                disablewhen "{ bake_specrough == 0 }"
+                parmtag { "autoscope" "0000000000000000" }
+            }
+            parm {
+                name    "bake_metallic"
+                label   "Metallic Map"
+                type    toggle
+                nolabel
+                joinnext
+                default { "off" }
+                parmtag { "autoscope" "0000000000000000" }
+            }
+            parm {
+                name    "metallic_suffix"
+                label   "Metallic Map"
+                type    string
+                default { "metallic" }
+                disablewhen "{ bake_metallic == 0 }"
                 parmtag { "autoscope" "0000000000000000" }
             }
             parm {

@@ -3,7 +3,7 @@
 {
     name	gamedev::sop_visualize_uvs
     script	gamedev::sop_visualize_uvs
-    label	"GameDev Visualize UVs"
+    label	"GameDev UV Visualize"
 
     help {
 	""
@@ -32,5 +32,33 @@
         label   "Visualize Islands"
         type    toggle
         default { "0" }
+    }
+    parm {
+        name    "worldspace"
+        label   "View in Worldspace"
+        type    toggle
+        joinnext
+        default { "0" }
+    }
+    parm {
+        name    "blend"
+        label   "Blend"
+        type    float
+        default { "1" }
+        range   { 0! 1! }
+    }
+    parm {
+        name    "vis_seams"
+        label   "Visualize Seams"
+        type    toggle
+        joinnext
+        default { "0" }
+    }
+    parm {
+        name    "thickness"
+        label   "Thickness"
+        type    float
+        default { "0.01" }
+        range   { 0 10 }
     }
 }

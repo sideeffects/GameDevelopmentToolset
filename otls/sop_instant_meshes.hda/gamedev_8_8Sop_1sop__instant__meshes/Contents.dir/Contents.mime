@@ -11,7 +11,7 @@ Sop
 Content-Disposition: attachment; filename="hdaroot.init"
 Content-Type: text/plain
 
-type = sop_instant_meshes_bridge
+type = gamedev::sop_instant_meshes
 matchesdef = 0
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -20,23 +20,26 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position -1.02941 0.968529
-connectornextid 0
+position -0.782353 0.321471
+connectornextid 2
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
 {
+1 "output1"
 }
 inputsNamed3
 {
+0 	testgeometry_pighead1 0 1 "input1"
 }
 inputs
 {
+0 	testgeometry_pighead1 0 1
 }
 stat
 {
-  create 1505762385
-  modify 1505762413
-  author Luiz@Luiz-PC
+  create 1511364058
+  modify 1511367035
+  author MAINGEAR@DESKTOP-P98C1VA
   access 0777
 }
 color UT_Color RGB 0.8 0.8 0.8 
@@ -146,7 +149,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.0.715"
+		"value":"16.5.290"
 	}
 }
 
@@ -207,7 +210,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.0.715"
+		"value":"16.5.290"
 	}
 }
 
@@ -242,7 +245,7 @@ inputs
 stat
 {
   create 1467390063
-  modify 1501166907
+  modify 1511364650
   author Luiz@Luiz-PC
   access 0777
 }
@@ -268,11 +271,20 @@ in_path = str(node.parm(\"unremeshed_tmp_file\").eval())
 out_path = str(node.parm(\"remeshed_tmp_file\").eval())
 numPolys = str(node.parm(\"poly_count\").eval() / 4)
 hide_instant_meshes_dialog = node.parm(\"hide_instant_meshes_dialog\").eval()
+quad_dominant = node.parm(\"quad_dominant\").eval()
+if quad_dominant: 
+    numPolys = str(node.parm(\"poly_count\").eval() )
+crease_angle = str(node.parm(\"crease_angle\").eval())
 
 # Build Instant Meshes Commandline
 cmd = [instant_meshes]
+if quad_dominant:
+    cmd.append(\"-D\")
 cmd.append(\"-f\")
 cmd.append(numPolys)
+cmd.append(\"-c\")
+cmd.append(crease_angle)
+
 cmd.append(\"-o\")
 cmd.append(out_path)    
 cmd.append(in_path)
@@ -302,7 +314,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.0.715"
+		"value":"16.5.290"
 	}
 }
 
@@ -339,7 +351,7 @@ inputs
 stat
 {
   create 1467390179
-  modify 1501167103
+  modify 1511364463
   author Luiz@Luiz-PC
   access 0777
 }
@@ -409,7 +421,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.0.715"
+		"value":"16.5.290"
 	}
 }
 
@@ -446,7 +458,7 @@ inputs
 stat
 {
   create 1467390236
-  modify 1501167103
+  modify 1511364650
   author Luiz@Luiz-PC
   access 0777
 }
@@ -516,7 +528,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.0.715"
+		"value":"16.5.290"
 	}
 }
 
@@ -577,68 +589,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.0.715"
-	}
-}
-
---HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot/OUT.init"
-Content-Type: text/plain
-
-type = null
-matchesdef = 0
-
---HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot/OUT.def"
-Content-Type: text/plain
-
-sopflags sopflags = 
-comment ""
-position -0.502209 -2.47685
-connectornextid 2
-flags =  lock off model off template on footprint off xray off bypass off display on render on highlight off unload off savedata off compress on colordefault off exposed on
-outputsNamed3
-{
-1 "output1"
-}
-inputsNamed3
-{
-0 	facet1 1 1 "input1"
-}
-inputs
-{
-0 	facet1 0 1
-}
-stat
-{
-  create 1467390259
-  modify 1501167076
-  author Luiz@Luiz-PC
-  access 0777
-}
-color UT_Color RGB 0.8 0.8 0.8 
-delscript ""
-exprlanguage hscript
-end
-
---HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot/OUT.parm"
-Content-Type: text/plain
-
-{
-version 0.8
-copyinput	[ 0	locks=0 ]	(	"on"	)
-cacheinput	[ 0	locks=0 ]	(	"off"	)
-}
-
---HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot/OUT.userdata"
-Content-Type: text/plain
-
-{
-	"___Version___":{
-		"type":"string",
-		"value":"16.0.715"
+		"value":"16.5.290"
 	}
 }
 
@@ -655,7 +606,7 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position -0.494758 -1.37415
+position -0.502209 -1.77916
 connectornextid 2
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
@@ -673,7 +624,7 @@ inputs
 stat
 {
   create 1501166377
-  modify 1501167078
+  modify 1511364706
   author Luiz@Luiz-PC
   access 0777
 }
@@ -713,7 +664,67 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.0.715"
+		"value":"16.5.290"
+	}
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/output1.init"
+Content-Type: text/plain
+
+type = output
+matchesdef = 0
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/output1.def"
+Content-Type: text/plain
+
+sopflags sopflags = 
+comment ""
+position -0.502209 -4.37415
+connectornextid 2
+flags =  lock off model off template on footprint off xray off bypass off display on render on highlight off unload off savedata off compress on colordefault on exposed on
+outputsNamed3
+{
+1 "output1"
+}
+inputsNamed3
+{
+0 	facet1 1 1 "input1"
+}
+inputs
+{
+0 	facet1 0 1
+}
+stat
+{
+  create 1511364191
+  modify 1511364706
+  author MAINGEAR@DESKTOP-P98C1VA
+  access 0777
+}
+color UT_Color RGB 0.8 0.8 0.8 
+delscript ""
+exprlanguage hscript
+end
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/output1.parm"
+Content-Type: text/plain
+
+{
+version 0.8
+outputidx	[ 0	locks=0 ]	(	0	)
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/output1.userdata"
+Content-Type: text/plain
+
+{
+	"___Version___":{
+		"type":"string",
+		"value":"16.5.290"
 	}
 }
 
@@ -728,8 +739,8 @@ python1
 cache_input
 cache_output
 merge1
-OUT
 facet1
+output1
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
 Content-Disposition: attachment; filename="hdaroot.net"

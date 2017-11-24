@@ -6,19 +6,15 @@
  a single file. -->
 
   <tool name="$HDA_DEFAULT_TOOL" label="$HDA_LABEL" icon="$HDA_ICON">
-    <helpURL>operator:Shop/v_asadlens</helpURL>
     <toolMenuContext name="viewer">
-      <contextNetType>SHOP</contextNetType>
+      <contextNetType>ROP</contextNetType>
     </toolMenuContext>
     <toolMenuContext name="network">
       <contextOpType>$HDA_TABLE_AND_NAME</contextOpType>
     </toolMenuContext>
-    <toolSubmenu>CVEX</toolSubmenu>
-    <script scriptType="python"><![CDATA[import shoptoolutils
+    <toolSubmenu>Digital Assets</toolSubmenu>
+    <script scriptType="python"><![CDATA[import drivertoolutils
 
-shoptoolutils.genericTool(kwargs, '$HDA_NAME')]]></script>
-    <keywordList>
-      <keyword>Mantra</keyword>
-    </keywordList>
+drivertoolutils.genericTool(kwargs, '$HDA_NAME')]]></script>
   </tool>
 </shelfDocument>

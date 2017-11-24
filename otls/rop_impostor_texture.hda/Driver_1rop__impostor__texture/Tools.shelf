@@ -7,14 +7,14 @@
 
   <tool name="$HDA_DEFAULT_TOOL" label="$HDA_LABEL" icon="$HDA_ICON">
     <toolMenuContext name="viewer">
-      <contextNetType>OBJ</contextNetType>
+      <contextNetType>ROP</contextNetType>
     </toolMenuContext>
     <toolMenuContext name="network">
       <contextOpType>$HDA_TABLE_AND_NAME</contextOpType>
     </toolMenuContext>
     <toolSubmenu>Digital Assets</toolSubmenu>
-    <script scriptType="python"><![CDATA[import objecttoolutils
+    <script scriptType="python"><![CDATA[import drivertoolutils
 
-objecttoolutils.genericTool(kwargs, '$HDA_NAME')]]></script>
+drivertoolutils.genericTool(kwargs, '$HDA_NAME')]]></script>
   </tool>
 </shelfDocument>

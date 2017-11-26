@@ -21,6 +21,7 @@
     <memberTool name="sop_instant_meshes"/>
     <memberTool name="sop_create_flowmap0"/>
     <memberTool name="sop_pivotpainter"/>
+    <memberTool name="vertex_animation_textures"/>
   </toolshelf>
 
   <tool name="update_toolset" label="Update Toolset" icon="CHOP_joystick">
@@ -362,5 +363,15 @@ soptoolutils.genericTool(kwargs, 'gamedev::sop_osm_import')]]></script>
     <helpURL>operator:Sop/sop_instant_meshes_bridge</helpURL>
     <script scriptType="python"><![CDATA[import soptoolutils
 soptoolutils.genericTool(kwargs, 'sop_instant_meshes_bridge')]]></script>
+  </tool>
+
+  <tool name="vertex_animation_textures" label="Vertex Animation Textures" icon="NODEFLAGS_output">
+    <helpURL>operator:Driver/vertex_animation_textures?namespace=gamedev</helpURL>
+    <toolMenuContext name="network">
+      <contextOpType>gamedev::Driver/vertex_animation_textures</contextOpType>
+    </toolMenuContext>
+    <script scriptType="python"><![CDATA[import roptoolutils
+roptoolutils.createRenderNode("gamedev::vertex_animation_textures")
+]]></script>
   </tool>
 </shelfDocument>

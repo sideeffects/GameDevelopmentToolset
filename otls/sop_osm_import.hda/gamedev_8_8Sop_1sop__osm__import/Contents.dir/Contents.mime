@@ -32,12 +32,11 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position -2.9 1.55582
-connectornextid 1
-flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
+position 0.0764706 0.00382352
+connectornextid 0
+flags =  lock off model off template off footprint off xray off bypass off display on render on highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
 {
-0 "output1"
 }
 inputsNamed3
 {
@@ -47,8 +46,8 @@ inputs
 }
 stat
 {
-  create 1511365191
-  modify 1511367005
+  create 1511709931
+  modify 1511710054
   author MAINGEAR@DESKTOP-P98C1VA
   access 0777
 }
@@ -97,7 +96,7 @@ inputs
 stat
 {
   create 1500592402
-  modify 1511366965
+  modify 1511710049
   author Luiz@Luiz-PC
   access 0777
 }
@@ -149,7 +148,7 @@ def hex_to_rgb(value):
     
 class OSMNode(object):
     def __init__(self):
-        self.id = True
+        self.id = \"\"
         self.lat = 0
         self.lon = 0
         self.tags = {}
@@ -158,7 +157,7 @@ class OSMNode(object):
     def from_xml(cls, xml_node):
         self = cls()
 
-        self.id = int(xml_node.attrib[\"id\"])
+        self.id = xml_node.attrib[\"id\"]
         self.lat = xml_node.attrib[\"lat\"]
         self.lon = xml_node.attrib[\"lon\"]
         for child in xml_node:
@@ -181,15 +180,15 @@ class OSMWay(object):
     def from_xml(cls, xml_node):
         self = cls()
 
-        self.id = int(xml_node.attrib[\"id\"])
+        self.id = xml_node.attrib[\"id\"]
         for child in xml_node:
             if child.tag == \"tag\" and \"k\" in child.attrib:
                 clean_tag = re.sub('[^a-zA-Z0-9\\n]', '_', child.attrib[\"k\"])
                 self.tags[clean_tag] = child.attrib[\"v\"]
 
             if child.tag == \"nd\" and \"ref\" in child.attrib:
-                self.nodes.append(int(child.attrib[\"ref\"]))
-
+                self.nodes.append(child.attrib[\"ref\"])
+                                
         return self
 
 
@@ -243,7 +242,7 @@ class OSMParser(object):
                 geo.addAttrib(hou.attribType.Prim, \"Cd\", [1.0,1.0,1.0])
             
         if not geo.findPrimAttrib(\"hou_id\"):
-            geo.addAttrib(hou.attribType.Prim, \"hou_id\", 0)
+            geo.addAttrib(hou.attribType.Prim, \"hou_id\", \"-1\")
             
         if not geo.findPrimAttrib(\"hou_name\"):
             geo.addAttrib(hou.attribType.Prim, \"hou_name\", \"\")

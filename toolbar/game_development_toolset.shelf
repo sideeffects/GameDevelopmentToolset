@@ -25,6 +25,7 @@
   </toolshelf>
 
   <tool name="update_toolset" label="Update Toolset" icon="CHOP_joystick">
+  <helpURL>tool:update_toolset</helpURL>
     <script scriptType="python"><![CDATA[import os
 import urllib
 import json
@@ -36,14 +37,18 @@ from PySide2.QtGui import *
 from PySide2.QtWidgets import *
 import hou
 
-REPO_URL = 'https://api.github.com/repos/sideeffects/GameDevelopmentToolset'
+REPO_URL = 'http://api.github.com/repos/sideeffects/GameDevelopmentToolset'
 BRANCHES = ["Stable", "Development"]
 
 SETTINGS_FILE = os.path.join(os.getenv("HOUDINI_USER_PREF_DIR"), "gamedevtoolset.json")
 HOUDINI_ENV = os.path.join(os.getenv("HOUDINI_USER_PREF_DIR"), "houdini.env")
 
-HOU_TEMP_PATH = os.path.join(os.getenv("APPDATA"), "SideFX", "GameDevToolset")
-HOU_TEMP_PATH_STR = "$APPDATA\\SideFX\\GameDevToolset"
+if platform.system() == "Windows":
+    HOU_TEMP_PATH = os.path.join(os.getenv("APPDATA"), "SideFX", "GameDevToolset")
+    HOU_TEMP_PATH_STR = "$APPDATA\\SideFX\\GameDevToolset"
+else:
+    HOU_TEMP_PATH = os.path.join(os.getenv("HOUDINI_USER_PREF_DIR"), "GameDevToolset")
+    HOU_TEMP_PATH_STR = HOU_TEMP_PATH
 
 class UpdateDialog(QDialog):
 
@@ -99,7 +104,7 @@ class UpdateDialog(QDialog):
         update_version_label = QLabel("Update to Release:")
 
         self.version_combo = QComboBox(self)
-        for release in self.updater_object.releases:
+        for release in self.updater_object.releases[-10:]:
             self.version_combo.addItem(release)
 
         version_layout.addWidget(update_version_label)
@@ -135,7 +140,7 @@ class UpdateDialog(QDialog):
         version = self.version_combo.currentText()
         branch = self.branch_combo.currentText()
         self.updater_object.on_dialog_close(version, branch)
-
+ 
         self.close()
 
 
@@ -145,11 +150,25 @@ class GameDevelopmentUpdater(object):
         self.releases = []
         self.desired_version = None
         self.desired_branch = None
-
+       
+        self.cleanup_old_installs()
         self.load_settings()
         self.get_releases()
         self.show_dialog()
 
+    def cleanup_old_installs(self):
+        houdini_pref_dir = os.getenv("HOUDINI_USER_PREF_DIR")
+       
+        otl = os.path.join(houdini_pref_dir, "otls", "SideFX_GameDevelopmentToolset.hda")
+        desktop = os.path.join(houdini_pref_dir, "desktop", "Games_Minimal.desk")
+        toolbar = os.path.join(houdini_pref_dir, "toolbar", "game_development_toolset.shelf")
+        script = os.path.join(houdini_pref_dir, "scripts", "python", "hou_settings.py")
+       
+        to_delete = [otl, desktop, toolbar, script]
+        for filename in to_delete:
+            if os.path.exists(filename):
+                os.remove(filename)
+       
     def get_releases(self):
         response = urllib.urlopen(REPO_URL + "/releases")
         data = response.read()
@@ -176,9 +195,9 @@ class GameDevelopmentUpdater(object):
         for asset in j_data["assets"]:
             if branch in os.path.basename(asset["browser_download_url"]):
                 return asset["browser_download_url"]
-        
-        
-                
+       
+       
+               
     def unzip_file(self, zip_file, destination_path):
         zipf = zipfile.ZipFile(zip_file, 'r', zipfile.ZIP_DEFLATED)
         zipf.extractall(destination_path)
@@ -216,8 +235,8 @@ class GameDevelopmentUpdater(object):
         download_url = self.get_download_path(version, branch)
         if not download_url:
             hou.ui.displayMessage("Package not Available for this branch", severity=hou.severityType.Error)
-            return 
-            
+            return
+           
         local_path = self.download_url(download_url)
         self.unzip_file(local_path, os.path.join(HOU_TEMP_PATH, version, branch))
         os.remove(local_path)

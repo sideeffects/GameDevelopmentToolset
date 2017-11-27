@@ -49,4 +49,18 @@
         disablewhen "{ project == 0 }"
         range   { 0 10 }
     }
+    parm {
+        name    "sharpen_features"
+        label   "Sharpen Features"
+        type    toggle
+        default { "0" }
+    }
+    parm {
+        name    "edge_tolerance"
+        label   "Edge Tolerance"
+        type    float
+        default { "0.5" }
+        disablewhen "{ sharpen_features == 0 }"
+        range   { 0 1 }
+    }
 }

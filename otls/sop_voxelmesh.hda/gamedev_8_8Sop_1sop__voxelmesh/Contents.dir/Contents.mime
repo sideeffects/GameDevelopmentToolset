@@ -32,22 +32,25 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position 0.475906 -1.21839
-connectornextid 0
-flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
+position 0.588235 -3.62559
+connectornextid 2
+flags =  lock off model off template on footprint off xray off bypass off display on render on highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
 {
+1 "output1"
 }
 inputsNamed3
 {
+0 	boolean1 2 1 "input1"
 }
 inputs
 {
+0 	boolean1 0 1
 }
 stat
 {
-  create 1510006253
-  modify 1510006307
+  create 1511808266
+  modify 1511808995
   author MAINGEAR@DESKTOP-P98C1VA
   access 0777
 }
@@ -244,7 +247,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.268.10"
+		"value":"16.5.290"
 	}
 }
 
@@ -262,7 +265,7 @@ Content-Type: text/plain
 sopflags sopflags = 
 comment ""
 position -1.2837e-16 0.702404
-connectornextid 2
+connectornextid 3
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
 {
@@ -271,15 +274,17 @@ outputsNamed3
 inputsNamed3
 {
 0 	switch2 1 1 "input1"
+2 	(0) "" 1 "input2"
 }
 inputs
 {
 0 	switch2 0 1
+1 	(0) 0 1
 }
 stat
 {
   create 1508967233
-  modify 1509043181
+  modify 1511808727
   author MAINGEAR@DESKTOP-P98C1VA
   access 0777
 }
@@ -300,6 +305,20 @@ Content-Type: text/plain
       flags = 0
       segment { length = 0 value = 0.10000000000000001 0.10000000000000001 expr = ch(\"../adaptivity\") }
     }
+    channel sharpenfeatures {
+      lefttype = extend
+      righttype = extend
+      default = 1
+      flags = 0
+      segment { length = 0 value = 1 1 expr = ch(\"../sharpen_features\") }
+    }
+    channel edgetolerance {
+      lefttype = extend
+      righttype = extend
+      default = 0.5
+      flags = 0
+      segment { length = 0 value = 0.5 0.5 expr = ch(\"../edge_tolerance\") }
+    }
   }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -314,12 +333,12 @@ vdbclass	[ 0	locks=0 ]	(	"none"	)
 splitdisjointvolumes	[ 0	locks=0 ]	(	"off"	)
 isovalue	[ 0	locks=0 ]	(	0	)
 fogisovalue	[ 0	locks=0 ]	(	0.5	)
-adaptivity	[ 8	locks=0 ]	(	[ adaptivity	0.01 ] 	)
+adaptivity	[ 8	locks=0 ]	(	[ adaptivity	0 ] 	)
 computenormals	[ 0	locks=0 ]	(	"off"	)
 internaladaptivity	[ 0	locks=0 ]	(	0	)
 transferattributes	[ 0	locks=0 ]	(	"off"	)
-sharpenfeatures	[ 0	locks=0 ]	(	"off"	)
-edgetolerance	[ 0	locks=0 ]	(	0.5	)
+sharpenfeatures	[ 8	locks=0 ]	(	[ sharpenfeatures	0 ] 	)
+edgetolerance	[ 8	locks=0 ]	(	[ edgetolerance	0.5 ] 	)
 surfacegroup	[ 0	locks=0 ]	(	surface_polygons	)
 interiorgroup	[ 0	locks=0 ]	(	interior_polygons	)
 seamlinegroup	[ 0	locks=0 ]	(	seam_polygons	)
@@ -343,7 +362,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.268.10"
+		"value":"16.5.290"
 	}
 }
 
@@ -429,7 +448,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.268.10"
+		"value":"16.5.290"
 	}
 }
 
@@ -504,7 +523,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.268.10"
+		"value":"16.5.290"
 	}
 }
 
@@ -590,7 +609,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.268.10"
+		"value":"16.5.290"
 	}
 }
 
@@ -665,7 +684,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.268.10"
+		"value":"16.5.290"
 	}
 }
 
@@ -785,7 +804,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.268.10"
+		"value":"16.5.290"
 	}
 }
 
@@ -850,7 +869,7 @@ Content-Type: text/plain
 
 {
 version 0.8
-input	[ 8	locks=0 ]	(	[ input	1 ] 	)
+input	[ 8	locks=0 ]	(	[ input	0 ] 	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -860,7 +879,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.268.10"
+		"value":"16.5.290"
 	}
 }
 
@@ -920,7 +939,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.268.10"
+		"value":"16.5.290"
 	}
 }
 

@@ -1,0 +1,889 @@
+# Dialog script for fire_presets automatically generated
+
+{
+    name	fire_presets
+    script	fire_presets
+    label	"Fire Presets"
+
+    help {
+	""
+    }
+
+    inputlabel	1	"Sub-Network Input #1"
+    inputlabel	2	"Sub-Network Input #2"
+    inputlabel	3	"Sub-Network Input #3"
+    inputlabel	4	"Sub-Network Input #4"
+
+    parm {
+	name	"printChanges"
+	label	"Print Changes"
+	type	button
+	default	{ "0" }
+	parmtag	{ "script_callback" "hou.pwd().hdaModule().printChanges(kwargs)" }
+	parmtag	{ "script_callback_language" "python" }
+    }
+    parm {
+	name	"loadfromdisk"
+	label	"Load from Disk     "
+	type	toggle
+	joinnext
+	default	{ "off" }
+	range	{ 0 1 }
+	parmtag	{ "autoscope" "0000000000000000" }
+    }
+    parm {
+	name	"reload"
+	label	"Reload Geometry"
+	type	button
+	default	{ "0" }
+	range	{ 0 1 }
+	parmtag	{ "autoscope" "0000000000000000" }
+    }
+    parm {
+	name	"file"
+	label	"Geometry File"
+	type	geometry
+	default	{ "$HIP/geo/$OS.$F.bgeo.sc" }
+	menureplace	{
+	    [ "opmenu -l fire_import/fire_sim_import file" ]
+	}
+	range	{ 0 1 }
+	parmtag	{ "autoscope" "0000000000000000" }
+	parmtag	{ "filechooser_mode" "write" }
+    }
+    parm {
+	name	"execute"
+	label	"Save to Disk"
+	type	button
+	joinnext
+	default	{ "0" }
+	range	{ 0 1 }
+	parmtag	{ "autoscope" "0000000000000000" }
+	parmtag	{ "script_callback_language" "python" }
+	parmtag	{ "takecontrol" "always" }
+    }
+    parm {
+	name	"executebackground"
+	label	"Save to Disk in Background"
+	type	button
+	default	{ "0" }
+	range	{ 0 1 }
+	parmtag	{ "autoscope" "0000000000000000" }
+	parmtag	{ "takecontrol" "always" }
+    }
+    parm {
+	name	"trange"
+	label	"Valid Frame Range"
+	type	ordinal
+	default	{ "normal" }
+	menu	{
+	    "off"	"Save Current Frame"
+	    "normal"	"Save Frame Range"
+	    "on"	"Save Frame Range Only (Strict)"
+	}
+	range	{ 0 1 }
+	parmtag	{ "autoscope" "0000000000000000" }
+    }
+    parm {
+	name	"f"
+	label	"Start/End/Inc"
+	type	float
+	size	3
+	default	{ "1" "100" "1" }
+	disablewhen	"{ trange == off }"
+	range	{ 0 10 }
+	parmtag	{ "autoscope" "0000000000000000" }
+    }
+    parm {
+	name	"take"
+	label	"Render With Take"
+	type	string
+	default	{ "_current_" }
+	menu	{
+	    [ "opmenu -l fire_import/fire_sim_import take" ]
+	}
+	range	{ 0 1 }
+	parmtag	{ "autoscope" "0000000000000000" }
+    }
+    parm {
+	name	"presets"
+	label	"Presets"
+	type	string
+	default	{ "choose" }
+	menu	{
+	    "1m_wide_high"	"1m_wide_high"
+	    "1m_wide_low"	"1m_wide_low"
+	    "small_flame"	"small_flame"
+	    "torch_fire"	"torch_fire"
+	}
+	parmtag	{ "script_callback" "hou.pwd().hdaModule().invokePresetMenu(kwargs)" }
+	parmtag	{ "script_callback_language" "python" }
+    }
+    group {
+	name	"folder2"
+	label	"Simulation"
+
+	parm {
+	    name	"divsize"
+	    label	"Division Size"
+	    type	float
+	    default	{ "0.035" }
+	    range	{ 0! 10 }
+	    parmtag	{ "autoscope" "0000000000000000" }
+	    parmtag	{ "units" "m1" }
+	}
+	groupsimple {
+	    name	"sourcefolder"
+	    label	"Source"
+
+	    parm {
+		name	"scale_source"
+		label	"Scale Source Volume"
+		type	float
+		default	{ "0.4" }
+		range	{ 0 10 }
+		parmtag	{ "autoscope" "0000000000000000" }
+	    }
+	}
+
+	groupsimple {
+	    name	"pyrofolder"
+	    label	"Pyro Solver"
+
+	    parm {
+		name	"cooldown_time"
+		label	"Flame Height"
+		type	float
+		default	{ "1.5" }
+		range	{ 0 10 }
+		parmtag	{ "autoscope" "0000000000000000" }
+		parmtag	{ "parmvop" "1" }
+	    }
+	    parm {
+		name	"evap"
+		label	"Dissipation"
+		type	float
+		default	{ "0.1" }
+		range	{ 0! 1 }
+		parmtag	{ "autoscope" "0000000000000000" }
+		parmtag	{ "parmvop" "1" }
+	    }
+	    groupsimple {
+		name	"distrubancefolder"
+		label	"Disturbance"
+
+		parm {
+		    name	"dist_scale"
+		    label	"Disturbance"
+		    type	float
+		    default	{ "0.4" }
+		    range	{ 0! 10 }
+		    parmtag	{ "autoscope" "0000000000000000" }
+		    parmtag	{ "parmvop" "1" }
+		}
+		parm {
+		    name	"dist_density_cutoff"
+		    label	"Cutoff"
+		    type	float
+		    default	{ "0.1" }
+		    range	{ 0 1 }
+		    parmtag	{ "autoscope" "0000000000000000" }
+		    parmtag	{ "parmvop" "1" }
+		}
+		parm {
+		    name	"dist_override_block_size"
+		    label	"Use Block Size"
+		    type	toggle
+		    default	{ "off" }
+		    range	{ 0 1 }
+		    parmtag	{ "autoscope" "0000000000000000" }
+		    parmtag	{ "parmvop" "1" }
+		}
+		parm {
+		    name	"dist_locality"
+		    label	"Locality"
+		    type	integer
+		    default	{ "2" }
+		    disablewhen	"{ dist_override_block_size == 1 }"
+		    range	{ 1! 10 }
+		    parmtag	{ "autoscope" "0000000000000000" }
+		    parmtag	{ "parmvop" "1" }
+		}
+	    }
+
+	    parm {
+		name	"shred_scale"
+		label	"Shredding"
+		type	float
+		default	{ "0.0806667" }
+		range	{ 0! 1 }
+		parmtag	{ "autoscope" "0000000000000000" }
+	    }
+	    groupsimple {
+		name	"advancedfolder"
+		label	"Advanced"
+
+		parm {
+		    name	"opencl"
+		    label	"Use OpenCL"
+		    type	toggle
+		    default	{ "off" }
+		    range	{ 0 1 }
+		    parmtag	{ "autoscope" "0000000000000000" }
+		}
+		parm {
+		    name	"minimumsubsteps"
+		    label	"Min Substeps"
+		    type	integer
+		    default	{ "1" }
+		    range	{ 0 10 }
+		    parmtag	{ "autoscope" "0000000000000000" }
+		}
+		parm {
+		    name	"substeps"
+		    label	"Max Substeps"
+		    type	integer
+		    default	{ "5" }
+		    range	{ 0 10 }
+		    parmtag	{ "autoscope" "0000000000000000" }
+		}
+	    }
+
+	}
+
+    }
+
+    group {
+	name	"folder2_1"
+	label	"Source"
+
+	parm {
+	    name	"sourceobject"
+	    label	"Source Geometry"
+	    type	oppath
+	    default	{ "" }
+	    parmtag	{ "oprelative" "." }
+	}
+	groupsimple {
+	    name	"sizefolder"
+	    label	"Source Size"
+
+	    parm {
+		name	"s2"
+		label	"Scale"
+		type	vector
+		size	3
+		default	{ "1" "0.2" "1" }
+		range	{ -1 1 }
+		parmtag	{ "autoscope" "0000000000000000" }
+	    }
+	    parm {
+		name	"scale2"
+		label	"Uniform Scale"
+		type	float
+		default	{ "1" }
+		range	{ 0 10 }
+		parmtag	{ "autoscope" "0000000000000000" }
+	    }
+	}
+
+	parm {
+	    name	"boundexpansion"
+	    label	"Container Padding"
+	    type	float
+	    default	{ "0.0183333" }
+	    range	{ 0 10 }
+	    parmtag	{ "autoscope" "0000000000000000" }
+	    parmtag	{ "units" "m1" }
+	}
+	groupsimple {
+	    name	"noisefolder"
+	    label	"Noise"
+
+	    parm {
+		name	"voronoiinfluence"
+		label	"Cell Influence"
+		type	float
+		default	{ "0.3" }
+		range	{ 0 1 }
+		parmtag	{ "autoscope" "0000000000000000" }
+		parmtag	{ "parmvop" "1" }
+	    }
+	    parm {
+		name	"pulseduration"
+		label	"Pulse Duration"
+		type	float
+		default	{ "3" }
+		range	{ 0 10 }
+		parmtag	{ "autoscope" "0000000000000000" }
+		parmtag	{ "units" "s1" }
+	    }
+	    parm {
+		name	"elementsize"
+		label	"Element Size"
+		type	float
+		default	{ "0.366667" }
+		range	{ 0 10 }
+		parmtag	{ "autoscope" "0000000000000000" }
+		parmtag	{ "parmvop" "1" }
+		parmtag	{ "units" "m1" }
+	    }
+	}
+
+    }
+
+    group {
+	name	"folder2_2"
+	label	"Visualisation"
+
+	parm {
+	    name	"densityscale"
+	    label	"Density Scale"
+	    type	float
+	    default	{ "1.022" }
+	    range	{ 0! 10 }
+	    parmtag	{ "autoscope" "0000000000000000" }
+	}
+	parm {
+	    name	"shadowscale"
+	    label	"Shadow Scale"
+	    type	float
+	    default	{ "1.022" }
+	    range	{ 0! 10 }
+	    parmtag	{ "autoscope" "0000000000000000" }
+	}
+	parm {
+	    name	"setmaxres"
+	    label	"Set Max Res"
+	    type	toggle
+	    default	{ "off" }
+	    parmtag	{ "autoscope" "0000000000000000" }
+	}
+	parm {
+	    name	"maxres"
+	    label	"Max Vis Res"
+	    type	integer
+	    default	{ "128" }
+	    disablewhen	"{ setmaxres == 0 }"
+	    range	{ 1! 512 }
+	    parmtag	{ "autoscope" "0000000000000000" }
+	}
+	group {
+	    name	"emitswitcher"
+	    label	"Smoke"
+
+	    parm {
+		name	"densityfield"
+		label	"Density Field"
+		type	string
+		default	{ "heat" }
+		menureplace	{
+		    [ "opmenu -l fire_import/volumevisualization3 densityfield" ]
+		}
+		parmtag	{ "autoscope" "0000000000000000" }
+	    }
+	    parm {
+		name	"densityrampmode"
+		label	"Mode"
+		type	ordinal
+		joinnext
+		default	{ "clamp" }
+		menu	{
+		    "none"	"No Ramp"
+		    "clamp"	"Clamped Ramp"
+		    "periodic"	"Periodic Ramp"
+		}
+		parmtag	{ "autoscope" "0000000000000000" }
+	    }
+	    parm {
+		name	"densitypreset"
+		label	"Density"
+		type	ordinal
+		default	{ "none" }
+		menu	{
+		    "none"	"Presets"
+		    "increasing"	"Increasing"
+		    "descreasing"	"Decreasing"
+		    "hill"	"Hill"
+		    "valley"	"Valley"
+		    "step"	"Step"
+		    "square"	"Square"
+		}
+		parmtag	{ "autoscope" "0000000000000000" }
+	    }
+	    parm {
+		name	"densityramp"
+		label	"Density Ramp"
+		type	ramp_flt
+		default	{ "2" }
+		disablewhen	"{ densityrampmode == none }"
+		range	{ 1! 10 }
+		parmtag	{ "autoscope" "0000000000000000" }
+		parmtag	{ "rampfloatdefault" "1pos ( 0 ) 1value ( 0 ) 1interp ( linear ) 2pos ( 1 ) 2value ( 1 ) 2interp ( linear )" }
+		parmtag	{ "rampshowcontrolsdefault" "0" }
+	    }
+	    parm {
+		name	"cdfield"
+		label	"Diffuse Field"
+		type	string
+		default	{ "" }
+		menureplace	{
+		    [ "opmenu -l fire_import/volumevisualization3 cdfield" ]
+		}
+		parmtag	{ "autoscope" "0000000000000000" }
+	    }
+	    parm {
+		name	"cdrangeoverride"
+		label	"Diffuse Range"
+		type	toggle
+		nolabel
+		joinnext
+		default	{ "off" }
+		parmtag	{ "autoscope" "0000000000000000" }
+	    }
+	    parm {
+		name	"cdrange"
+		label	"Diffuse Range"
+		type	float
+		size	2
+		default	{ "0" "1" }
+		disablewhen	"{ cdrangeoverride == 0 }"
+		range	{ 0 10 }
+		parmtag	{ "autoscope" "0000000000000000" }
+	    }
+	    parm {
+		name	"cdrampmode"
+		label	"Mode"
+		type	ordinal
+		joinnext
+		default	{ "clamp" }
+		menu	{
+		    "none"	"No Ramp"
+		    "clamp"	"Clamped Ramp"
+		    "periodic"	"Periodic Ramp"
+		}
+		parmtag	{ "autoscope" "0000000000000000" }
+	    }
+	    parm {
+		name	"cdpreset"
+		label	"Diffuse"
+		type	ordinal
+		default	{ "none" }
+		menu	{
+		    "none"	"Presets"
+		    "false"	"Infra-Red"
+		    "pink"	"White to Red"
+		    "mono"	"Grayscale"
+		    "blackbody"	"Black Body"
+		    "bipartite"	"Two-Tone"
+		}
+		parmtag	{ "autoscope" "0000000000000000" }
+	    }
+	    parm {
+		name	"cdramp"
+		label	"Diffuse Ramp"
+		type	ramp_rgb
+		default	{ "2" }
+		disablewhen	"{ cdrampmode == none }"
+		range	{ 1! 10 }
+		parmtag	{ "autoscope" "0000000000000000" }
+		parmtag	{ "rampcolordefault" "1pos ( 0 ) 1c ( 0 0 0 ) 1interp ( linear ) 2pos ( 1 ) 2c ( 1 1 1 ) 2interp ( linear )" }
+		parmtag	{ "rampshowcontrolsdefault" "0" }
+	    }
+	}
+
+	group {
+	    name	"emitswitcher_1"
+	    label	"Emission"
+
+	    parm {
+		name	"emitscale"
+		label	"Emission Scale"
+		type	float
+		default	{ "5" }
+		range	{ 0! 10 }
+		parmtag	{ "autoscope" "0000000000000000" }
+	    }
+	    parm {
+		name	"emitfield"
+		label	"Emission Field"
+		type	string
+		default	{ "temperature" }
+		menureplace	{
+		    [ "opmenu -l fire_import/volumevisualization3 emitfield" ]
+		}
+		parmtag	{ "autoscope" "0000000000000000" }
+	    }
+	    parm {
+		name	"emitrangeoverride"
+		label	"Emit Range"
+		type	toggle
+		nolabel
+		joinnext
+		default	{ "off" }
+		parmtag	{ "autoscope" "0000000000000000" }
+	    }
+	    parm {
+		name	"emitrange"
+		label	"Emit Range"
+		type	float
+		size	2
+		default	{ "0" "1" }
+		disablewhen	"{ emitrangeoverride == 0 }"
+		range	{ 0 10 }
+		parmtag	{ "autoscope" "0000000000000000" }
+	    }
+	    parm {
+		name	"emitrampmode"
+		label	"Mode"
+		type	ordinal
+		joinnext
+		default	{ "clamp" }
+		menu	{
+		    "none"	"No Ramp"
+		    "clamp"	"Clamped Ramp"
+		    "periodic"	"Periodic Ramp"
+		}
+		parmtag	{ "autoscope" "0000000000000000" }
+	    }
+	    parm {
+		name	"emitpreset"
+		label	"Emission"
+		type	ordinal
+		default	{ "none" }
+		menu	{
+		    "none"	"Presets"
+		    "increasing"	"Increasing"
+		    "descreasing"	"Decreasing"
+		    "hill"	"Hill"
+		    "valley"	"Valley"
+		    "step"	"Step"
+		    "square"	"Square"
+		}
+		parmtag	{ "autoscope" "0000000000000000" }
+	    }
+	    parm {
+		name	"emitramp"
+		label	"Emission Ramp"
+		type	ramp_flt
+		default	{ "2" }
+		disablewhen	"{ emitrampmode == none }"
+		range	{ 1! 10 }
+		parmtag	{ "autoscope" "0000000000000000" }
+		parmtag	{ "rampfloatdefault" "1pos ( 0 ) 1value ( 0 ) 1interp ( linear ) 2pos ( 1 ) 2value ( 1 ) 2interp ( linear )" }
+		parmtag	{ "rampshowcontrolsdefault" "0" }
+	    }
+	    parm {
+		name	"emitcdfield"
+		label	"Emission Color Field"
+		type	string
+		default	{ "heat" }
+		menureplace	{
+		    [ "opmenu -l fire_import/volumevisualization3 emitcdfield" ]
+		}
+		parmtag	{ "autoscope" "0000000000000000" }
+	    }
+	    parm {
+		name	"emitcdrangeoverride"
+		label	"Emission Color Range"
+		type	toggle
+		nolabel
+		joinnext
+		default	{ "on" }
+		parmtag	{ "autoscope" "0000000000000000" }
+	    }
+	    parm {
+		name	"emitcdrange"
+		label	"Emission Color Range"
+		type	float
+		size	2
+		default	{ "0" "2" }
+		disablewhen	"{ emitcdrangeoverride == 0 }"
+		range	{ 0 10 }
+		parmtag	{ "autoscope" "0000000000000000" }
+	    }
+	    parm {
+		name	"emitcdrampmode"
+		label	"Mode"
+		type	ordinal
+		joinnext
+		default	{ "clamp" }
+		menu	{
+		    "none"	"No Ramp"
+		    "clamp"	"Clamped Ramp"
+		    "periodic"	"Periodic Ramp"
+		}
+		parmtag	{ "autoscope" "0000000000000000" }
+	    }
+	    parm {
+		name	"emitcdpreset"
+		label	"Emission"
+		type	ordinal
+		default	{ "none" }
+		menu	{
+		    "none"	"Presets"
+		    "false"	"Infra-Red"
+		    "pink"	"White to Red"
+		    "mono"	"Grayscale"
+		    "blackbody"	"Black Body"
+		    "bipartite"	"Two-Tone"
+		}
+		parmtag	{ "autoscope" "0000000000000000" }
+	    }
+	    parm {
+		name	"emitcdramp"
+		label	"Emission Color Ramp"
+		type	ramp_rgb
+		default	{ "7" }
+		disablewhen	"{ emitcdrampmode == none }"
+		range	{ 1! 10 }
+		parmtag	{ "autoscope" "0000000000000000" }
+		parmtag	{ "rampcolordefault" "1pos ( 0 ) 1c ( 0 0 0 ) 1interp ( catmull-rom ) 2pos ( 0.10820559412240982 ) 2c ( 0.1778702437877655 0.064017504453659058 -0.022574704140424728 ) 2interp ( catmull-rom ) 3pos ( 0.20198376476764679 ) 3c ( 0.36907279491424561 0.13387858867645264 -0.045001506805419922 ) 3interp ( catmull-rom ) 4pos ( 0.37871956825256348 ) 4c ( 0.71618944406509399 0.26735293865203857 -0.07401563972234726 ) 4interp ( catmull-rom ) 5pos ( 0.55906224250793457 ) 5c ( 1 0.43200001120567322 0 ) 5interp ( catmull-rom ) 6pos ( 0.57168620824813843 ) 6c ( 1 1 1 ) 6interp ( catmull-rom ) 7pos ( 1 ) 7c ( 2 2 2 ) 7interp ( linear )" }
+		parmtag	{ "rampshowcontrolsdefault" "0" }
+	    }
+	}
+
+    }
+
+    group {
+	name	"folder2_3"
+	label	"Transform"
+
+	parm {
+	    name	"xOrd"
+	    baseparm
+	    label	"Transform Order"
+	    joinnext
+	    export	none
+	}
+	parm {
+	    name	"rOrd"
+	    baseparm
+	    label	"Rotate Order"
+	    export	none
+	}
+	parm {
+	    name	"t"
+	    baseparm
+	    label	"Translate"
+	    export	none
+	}
+	parm {
+	    name	"r"
+	    baseparm
+	    label	"Rotate"
+	    export	none
+	}
+	parm {
+	    name	"s"
+	    baseparm
+	    label	"Scale"
+	    export	none
+	}
+	parm {
+	    name	"p"
+	    baseparm
+	    label	"Pivot"
+	    export	none
+	}
+	parm {
+	    name	"scale"
+	    baseparm
+	    label	"Uniform Scale"
+	    export	none
+	}
+	parm {
+	    name	"pre_xform"
+	    baseparm
+	    label	"Modify Pre-Transform"
+	    export	none
+	}
+	parm {
+	    name	"keeppos"
+	    baseparm
+	    label	"Keep Position When Parenting"
+	    export	none
+	}
+	parm {
+	    name	"childcomp"
+	    baseparm
+	    label	"Child Compensation"
+	    export	none
+	}
+	parm {
+	    name	"constraints_on"
+	    baseparm
+	    label	"Enable Constraints"
+	    export	none
+	}
+	parm {
+	    name	"constraints_path"
+	    baseparm
+	    label	"Constraints"
+	    export	none
+	}
+	parm {
+	    name	"lookatpath"
+	    baseparm
+	    label	"Look At"
+	    invisible
+	    export	none
+	}
+	parm {
+	    name	"lookupobjpath"
+	    baseparm
+	    label	"Look Up Object"
+	    invisible
+	    export	none
+	}
+	parm {
+	    name	"lookup"
+	    baseparm
+	    label	"Look At Up Vector"
+	    invisible
+	    export	none
+	}
+	parm {
+	    name	"pathobjpath"
+	    baseparm
+	    label	"Path Object"
+	    invisible
+	    export	none
+	}
+	parm {
+	    name	"roll"
+	    baseparm
+	    label	"Roll"
+	    invisible
+	    export	none
+	}
+	parm {
+	    name	"pos"
+	    baseparm
+	    label	"Position"
+	    invisible
+	    export	none
+	}
+	parm {
+	    name	"uparmtype"
+	    baseparm
+	    label	"Parameterization"
+	    invisible
+	    export	none
+	}
+	parm {
+	    name	"pathorient"
+	    baseparm
+	    label	"Orient Along Path"
+	    invisible
+	    export	none
+	}
+	parm {
+	    name	"up"
+	    baseparm
+	    label	"Orient Up Vector"
+	    invisible
+	    export	none
+	}
+	parm {
+	    name	"bank"
+	    baseparm
+	    label	"Auto-Bank factor"
+	    invisible
+	    export	none
+	}
+    }
+
+    group {
+	name	"folder2_4"
+	label	"Subnet"
+	invisibletab
+
+	parm {
+	    name	"label1"
+	    baseparm
+	    label	"Input #1 Label"
+	    invisible
+	    export	dialog
+	}
+	parm {
+	    name	"label2"
+	    baseparm
+	    label	"Input #2 Label"
+	    invisible
+	    export	dialog
+	}
+	parm {
+	    name	"label3"
+	    baseparm
+	    label	"Input #3 Label"
+	    invisible
+	    export	dialog
+	}
+	parm {
+	    name	"label4"
+	    baseparm
+	    label	"Input #4 Label"
+	    invisible
+	    export	dialog
+	}
+	parm {
+	    name	"tdisplay"
+	    baseparm
+	    label	"Display"
+	    joinnext
+	    export	all
+	}
+	parm {
+	    name	"display"
+	    baseparm
+	    label	"Display"
+	    export	all
+	}
+	parm {
+	    name	"outputobj"
+	    baseparm
+	    label	"Output Transform"
+	    export	all
+	}
+	parm {
+	    name	"visibleobjects"
+	    baseparm
+	    label	"Visible Children"
+	    export	none
+	}
+	parm {
+	    name	"picking"
+	    baseparm
+	    label	"Viewport Selecting Enabled"
+	    export	none
+	}
+	parm {
+	    name	"pickscript"
+	    baseparm
+	    label	"Select Script"
+	    export	none
+	}
+	parm {
+	    name	"caching"
+	    baseparm
+	    label	"Cache Object Transform"
+	    export	none
+	}
+	parm {
+	    name	"use_dcolor"
+	    baseparm
+	    label	"Set Wireframe Color"
+	    invisible
+	    export	none
+	}
+	parm {
+	    name	"dcolor"
+	    baseparm
+	    label	"Wireframe Color"
+	    invisible
+	    export	none
+	}
+    }
+
+}

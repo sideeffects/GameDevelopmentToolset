@@ -15,10 +15,23 @@
     inputlabel	4	"Sub-Network Input #4"
 
     parm {
+        name    "res_preset"
+        label   "Resolution Preset"
+        type    ordinal
+        default { "1" }
+        menu {
+            "0" "Low"
+            "1" "Mid"
+            "2" "High"
+            "3" "Custom"
+        }
+    }
+    parm {
         name    "resolution"
         label   "Resolution"
         type    float
         default { "0.1" }
+        hidewhen "{ res_preset != 3 }"
         range   { 0 10 }
     }
     parm {

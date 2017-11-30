@@ -31,7 +31,7 @@ Content-Disposition: attachment; filename="hdaroot.def"
 Content-Type: text/plain
 
 comment ""
-position -2.84064 1.99143
+position -2.72915 3.22775
 connectornextid 0
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
@@ -45,8 +45,8 @@ inputs
 }
 stat
 {
-  create 1511195993
-  modify 1511196061
+  create 1512056279
+  modify 1512057636
   author MAINGEAR@DESKTOP-P98C1VA
   access 0777
 }
@@ -163,7 +163,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.290"
+		"value":"16.5.307"
 	}
 }
 
@@ -218,7 +218,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.290"
+		"value":"16.5.307"
 	}
 }
 
@@ -1156,7 +1156,7 @@ inputs
 stat
 {
   create 1496780581
-  modify 1504555617
+  modify 1512055948
   author Luiz@Luiz-PC
   access 0777
 }
@@ -1846,7 +1846,7 @@ vm_rendervisibility	[ 0	locks=0 ]	(	*	)
 vm_rendersubd	[ 0	locks=0 ]	(	"off"	)
 vm_subdstyle	[ 0	locks=0 ]	(	mantra_catclark	)
 vm_subdgroup	[ 0	locks=0 ]	(	""	)
-folder0	[ 0	locks=0 ]	(	0	0	0	0	)
+folder0	[ 0	locks=0 ]	(	3	3	3	3	)
 categories	[ 0	locks=0 ]	(	""	)
 reflectmask	[ 0	locks=0 ]	(	*	)
 refractmask	[ 0	locks=0 ]	(	*	)
@@ -1884,7 +1884,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.290"
+		"value":"16.5.307"
 	}
 }
 
@@ -2162,7 +2162,7 @@ inputs
 stat
 {
   create 1496776162
-  modify 1511196004
+  modify 1512057586
   author Luiz@Luiz-PC
   access 0777
 }
@@ -3525,6 +3525,47 @@ Content-Type: text/plain
                 default { "0" }
                 parmtag { "spare_category" "Driver" }
             }
+            parm {
+                name    "declare_stylesheets"
+                label   "Declare Style Sheets"
+                type    string
+                default { "*" }
+                help    "Controls which style sheets defined in the hip file are embedded into the IFD. Standard Houdini pattern matching is used on each embedded style sheet name."
+                menutoggle {
+                    [ "result = ['*', 'All\\t(*)']" ]
+                    [ "styles = hou.styles.styles()" ]
+                    [ "for style in styles:" ]
+                    [ "    desc = hou.styles.description(style)" ]
+                    [ "    desc = desc if len(desc) > 0 else 'No description'" ]
+                    [ "    result.append(style)" ]
+                    [ "    result.append(style + '\\t (' + desc + ')')" ]
+                    [ "" ]
+                    [ "return result" ]
+                    language python
+                }
+                parmtag { "spare_category" "Render" }
+            }
+            parm {
+                name    "apply_stylesheets"
+                label   "Apply Style Sheets"
+                type    file
+                default { "`pythonexprs(\"' '.join(hou.styles.styles())\")`" }
+                help    "Specifies which style sheets mantra should apply during rendering. This is a space separated list of either names of style sheets embedded in the hip file, or external JSON files on disk. As with individual styles within a single style sheet, style sheets later in the list take precedence over style sheets earlier in the list."
+                menutoggle {
+                    [ "result = []" ]
+                    [ "styles = hou.styles.styles()" ]
+                    [ "for style in styles:" ]
+                    [ "    desc = hou.styles.description(style)" ]
+                    [ "    desc = desc if len(desc) > 0 else 'No description'" ]
+                    [ "    result.append(style)" ]
+                    [ "    result.append(style + '\\t (' + desc + ')')" ]
+                    [ "" ]
+                    [ "return result" ]
+                    language python
+                }
+                parmtag { "filechooser_pattern" "*.json" }
+                parmtag { "spare_category" "Render" }
+            }
         }
 
     }
@@ -3647,6 +3688,13 @@ Content-Type: text/plain
       flags = 0
       segment { length = 0 value = 256 256 expr = ch(\"../vm_uvunwrapresy\") }
     }
+    channel vm_bake_samples {
+      lefttype = extend
+      righttype = extend
+      default = 4
+      flags = 0
+      segment { length = 0 value = 4 4 expr = ch(\"../baking_samples\") }
+    }
   }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -3732,7 +3780,7 @@ vm_uvobject1	[ 0	locks=0 ]	(	"`opfullpath(\"..\") + \"/objnet/low\"`"	)
 vm_uvcageobject1	[ 8	locks=0 ]	(	`chsop(\"../vm_uvcageobject1\")`	)
 vm_uvhires1	[ 0	locks=0 ]	(	"`opfullpath(\"..\") + \"/objnet/high\"`"	)
 vm_uvoutputpicture1	[ 0	locks=0 ]	(	""	)
-images6	[ 0	locks=0 ]	(	1	1	1	1	1	)
+images6	[ 0	locks=0 ]	(	4	4	4	4	4	)
 main3	[ 0	locks=0 ]	(	0	0	)
 vm_bake_normalizep	[ 0	locks=0 ]	(	"on"	)
 vm_extractimageplanes	[ 0	locks=0 ]	(	"off"	)
@@ -3770,7 +3818,7 @@ vm_quickplane_P_channel	[ 0	locks=0 ]	(	P	)
 vm_quickplane_N_channel	[ 0	locks=0 ]	(	N	)
 vm_bake_skipcf	[ 0	locks=0 ]	(	"on"	)
 vm_bake_layerexport	[ 0	locks=0 ]	(	"on"	)
-vm_bake_samples	[ 0	locks=0 ]	(	4	)
+vm_bake_samples	[ 8	locks=0 ]	(	[ vm_bake_samples	4 ] 	)
 vm_bake_usemikkt	[ 0	locks=0 ]	(	[ vm_bake_usemikkt	1 ] 	)
 vm_bake_tangentnormalflipx	[ 0	locks=0 ]	(	"off"	)
 vm_bake_tangentnormalflipy	[ 0	locks=0 ]	(	[ vm_bake_tangentnormalflipy	0 ] 	)
@@ -3805,6 +3853,8 @@ vm_imageblur	[ 0	locks=0 ]	(	"on"	)
 objects4	[ 0	locks=0 ]	(	2	2	2	)
 vm_extractlinearplanes	[ 0	locks=0 ]	(	`propertys('vm_quickplane_Nt_channel','Nt')`,`propertys('vm_quickplane_Ds_channel','Ds')`,`propertys('vm_quickplane_Vd_channel','Vd')`,`propertys('vm_quickplane_Vdt_channel','Vdt')`,`propertys('vm_quickplane_Cv_channel','Cv')`,`propertys('vm_quickplane_Th_channel','Th')`,`propertys('vm_quickplane_Cu_channel','Cu')`,`propertys('vm_quickplane_N_channel','N')`,`propertys('vm_quickplane_P_channel','P')`	)
 vm_inlinestorage	[ 0	locks=0 ]	(	"off"	)
+declare_stylesheets	[ 0	locks=0 ]	(	*	)
+apply_stylesheets	[ 0	locks=0 ]	(	opdef:..?stylesheet.json	)
 vm_disable_plane1	[ 0	locks=0 ]	(	"off"	)
 vm_excludedcm_plane1	[ 0	locks=0 ]	(	"off"	)
 vm_variable_plane1	[ 0	locks=0 ]	(	Af	)
@@ -3865,7 +3915,7 @@ inputs
 stat
 {
   create 1496780581
-  modify 1504475387
+  modify 1512055944
   author Luiz@Luiz-PC
   access 0777
 }
@@ -4555,7 +4605,7 @@ vm_rendervisibility	[ 0	locks=0 ]	(	*	)
 vm_rendersubd	[ 0	locks=0 ]	(	"off"	)
 vm_subdstyle	[ 0	locks=0 ]	(	mantra_catclark	)
 vm_subdgroup	[ 0	locks=0 ]	(	""	)
-folder0	[ 0	locks=0 ]	(	0	0	0	0	)
+folder0	[ 0	locks=0 ]	(	3	3	3	3	)
 categories	[ 0	locks=0 ]	(	""	)
 reflectmask	[ 0	locks=0 ]	(	*	)
 refractmask	[ 0	locks=0 ]	(	*	)
@@ -4593,7 +4643,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.290"
+		"value":"16.5.307"
 	}
 }
 
@@ -4672,7 +4722,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.290"
+		"value":"16.5.307"
 	}
 }
 
@@ -4746,7 +4796,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.290"
+		"value":"16.5.307"
 	}
 }
 
@@ -4821,7 +4871,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.290"
+		"value":"16.5.307"
 	}
 }
 
@@ -4887,7 +4937,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.290"
+		"value":"16.5.307"
 	}
 }
 
@@ -4951,7 +5001,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.290"
+		"value":"16.5.307"
 	}
 }
 
@@ -5001,7 +5051,7 @@ inputs
 stat
 {
   create 1496780581
-  modify 1509741521
+  modify 1512055946
   author Luiz@Luiz-PC
   access 0777
 }
@@ -5691,7 +5741,7 @@ vm_rendervisibility	[ 0	locks=0 ]	(	*	)
 vm_rendersubd	[ 0	locks=0 ]	(	"off"	)
 vm_subdstyle	[ 0	locks=0 ]	(	mantra_catclark	)
 vm_subdgroup	[ 0	locks=0 ]	(	""	)
-folder0	[ 0	locks=0 ]	(	0	0	0	0	)
+folder0	[ 0	locks=0 ]	(	3	3	3	3	)
 categories	[ 0	locks=0 ]	(	""	)
 reflectmask	[ 0	locks=0 ]	(	*	)
 refractmask	[ 0	locks=0 ]	(	*	)
@@ -5729,7 +5779,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.290"
+		"value":"16.5.307"
 	}
 }
 
@@ -5808,7 +5858,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.290"
+		"value":"16.5.307"
 	}
 }
 
@@ -5883,7 +5933,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.290"
+		"value":"16.5.307"
 	}
 }
 
@@ -5962,7 +6012,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.290"
+		"value":"16.5.307"
 	}
 }
 
@@ -6037,7 +6087,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.290"
+		"value":"16.5.307"
 	}
 }
 
@@ -6112,7 +6162,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.290"
+		"value":"16.5.307"
 	}
 }
 
@@ -6178,7 +6228,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.290"
+		"value":"16.5.307"
 	}
 }
 
@@ -6242,7 +6292,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.290"
+		"value":"16.5.307"
 	}
 }
 
@@ -6311,7 +6361,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.290"
+		"value":"16.5.307"
 	}
 }
 
@@ -6385,7 +6435,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.290"
+		"value":"16.5.307"
 	}
 }
 
@@ -7054,7 +7104,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.290"
+		"value":"16.5.307"
 	}
 }
 
@@ -7129,7 +7179,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.290"
+		"value":"16.5.307"
 	}
 }
 
@@ -7215,7 +7265,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.290"
+		"value":"16.5.307"
 	}
 }
 
@@ -7311,7 +7361,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.290"
+		"value":"16.5.307"
 	}
 }
 
@@ -7411,7 +7461,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.290"
+		"value":"16.5.307"
 	}
 }
 
@@ -7486,7 +7536,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.290"
+		"value":"16.5.307"
 	}
 }
 
@@ -7565,7 +7615,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.290"
+		"value":"16.5.307"
 	}
 }
 
@@ -7710,7 +7760,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.290"
+		"value":"16.5.307"
 	}
 }
 
@@ -7765,7 +7815,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.290"
+		"value":"16.5.307"
 	}
 }
 
@@ -7880,7 +7930,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.290"
+		"value":"16.5.307"
 	}
 }
 
@@ -7975,7 +8025,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.290"
+		"value":"16.5.307"
 	}
 }
 
@@ -8045,7 +8095,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.290"
+		"value":"16.5.307"
 	}
 }
 
@@ -8147,7 +8197,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.290"
+		"value":"16.5.307"
 	}
 }
 
@@ -8252,7 +8302,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.290"
+		"value":"16.5.307"
 	}
 }
 
@@ -8344,7 +8394,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.290"
+		"value":"16.5.307"
 	}
 }
 
@@ -8449,7 +8499,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.290"
+		"value":"16.5.307"
 	}
 }
 
@@ -8589,7 +8639,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.290"
+		"value":"16.5.307"
 	}
 }
 
@@ -8694,7 +8744,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.290"
+		"value":"16.5.307"
 	}
 }
 
@@ -8760,7 +8810,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.290"
+		"value":"16.5.307"
 	}
 }
 
@@ -8826,7 +8876,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.290"
+		"value":"16.5.307"
 	}
 }
 
@@ -8917,7 +8967,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.290"
+		"value":"16.5.307"
 	}
 }
 
@@ -9022,7 +9072,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.290"
+		"value":"16.5.307"
 	}
 }
 
@@ -9127,7 +9177,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.290"
+		"value":"16.5.307"
 	}
 }
 
@@ -9232,7 +9282,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.290"
+		"value":"16.5.307"
 	}
 }
 
@@ -9298,7 +9348,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.290"
+		"value":"16.5.307"
 	}
 }
 
@@ -9364,7 +9414,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.290"
+		"value":"16.5.307"
 	}
 }
 
@@ -9442,7 +9492,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.290"
+		"value":"16.5.307"
 	}
 }
 
@@ -9520,7 +9570,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.290"
+		"value":"16.5.307"
 	}
 }
 
@@ -9600,7 +9650,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.290"
+		"value":"16.5.307"
 	}
 }
 
@@ -9778,7 +9828,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.290"
+		"value":"16.5.307"
 	}
 }
 
@@ -9810,7 +9860,7 @@ inputs
 stat
 {
   create 1496776162
-  modify 1510768991
+  modify 1511990029
   author Luiz@Luiz-PC
   access 0777
 }
@@ -11231,6 +11281,13 @@ Content-Type: text/plain
       flags = 0
       segment { length = 0 value = 256 256 expr = ch(\"../vm_uvunwrapresy\") }
     }
+    channel vm_bake_samples {
+      lefttype = extend
+      righttype = extend
+      default = 4
+      flags = 0
+      segment { length = 0 value = 4 4 expr = ch(\"../baking_samples\") }
+    }
   }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -11354,7 +11411,7 @@ vm_quickplane_P_channel	[ 0	locks=0 ]	(	P	)
 vm_quickplane_N_channel	[ 0	locks=0 ]	(	N	)
 vm_bake_skipcf	[ 0	locks=0 ]	(	"on"	)
 vm_bake_layerexport	[ 0	locks=0 ]	(	"on"	)
-vm_bake_samples	[ 0	locks=0 ]	(	4	)
+vm_bake_samples	[ 8	locks=0 ]	(	[ vm_bake_samples	4 ] 	)
 vm_bake_usemikkt	[ 0	locks=0 ]	(	"on"	)
 vm_bake_tangentnormalflipx	[ 0	locks=0 ]	(	"off"	)
 vm_bake_tangentnormalflipy	[ 0	locks=0 ]	(	"off"	)
@@ -11453,7 +11510,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.290"
+		"value":"16.5.307"
 	}
 }
 
@@ -11585,7 +11642,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.290"
+		"value":"16.5.307"
 	}
 }
 

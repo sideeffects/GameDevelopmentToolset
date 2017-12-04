@@ -33,7 +33,7 @@ Content-Type: text/plain
 objflags objflags =  origin off
 pretransform UT_DMatrix4 1 0 0 0 0 1 0 0 0 0 1 0 0 0 0 1
 comment ""
-position -7.71696 -2.0871
+position -9.13333 0.5955
 connectornextid 0
 flags =  lock off model off template off footprint off xray off bypass off display on render off highlight off unload off savedata off compress on colordefault on exposed on selectable on
 outputsNamed3
@@ -48,7 +48,7 @@ inputs
 stat
 {
   create 1511445142
-  modify 1511875774
+  modify 1512242447
   author mikel@mikembp-sesi.local
   access 0777
 }
@@ -83,10 +83,11 @@ objflags objflags =  origin off
 pretransform UT_DMatrix4 1 0 0 0 0 1 0 0 0 0 1 0 0 0 0 1
 comment ""
 position -22.8195 8.17508
-connectornextid 0
+connectornextid 1
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on selectable on
 outputsNamed3
 {
+0 "output1"
 }
 inputsNamed3
 {
@@ -97,7 +98,7 @@ inputs
 stat
 {
   create 1496865950
-  modify 1511875774
+  modify 1512242446
   author mikel@mikembp-sesi.local
   access 0777
 }
@@ -852,7 +853,7 @@ sopflags sopflags =
 comment ""
 position -1.6944 1.84568
 connectornextid 2
-flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
+flags =  lock off model off template off footprint off xray off bypass off display on render off highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
 {
 1 "output1"
@@ -868,7 +869,7 @@ inputs
 stat
 {
   create 1496865993
-  modify 1511868139
+  modify 1512206428
   author mikel@mikembp-sesi.local
   access 0777
 }
@@ -940,6 +941,13 @@ Content-Type: text/plain
       flags = 0
       segment { length = 0 value = 0.018333333358168603 0.018333333358168603 expr = ch(\"../../boundexpansion\") }
     }
+    channel offset {
+      lefttype = extend
+      righttype = extend
+      default = 10
+      flags = 0
+      segment { length = 0 value = 10 10 expr = ch(\"../../offset\") }
+    }
   }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -984,16 +992,16 @@ pointsdf_edge_location	[ 0	locks=0 ]	(	0.5	)
 use_noise	[ 0	locks=0 ]	(	"on"	)
 animate_noise	[ 0	locks=0 ]	(	"on"	)
 destmin	[ 0	locks=0 ]	(	1	)
-voronoi_influence	[ 0	locks=0 ]	(	[ voronoi_influence	0.29999999999999999 ] 	)
-pulse_duration	[ 0	locks=0 ]	(	[ pulse_duration	1.5 ] 	)
+voronoi_influence	[ 0	locks=0 ]	(	[ voronoi_influence	0.69999999999999996 ] 	)
+pulse_duration	[ 0	locks=0 ]	(	[ pulse_duration	0 ] 	)
 turbulent	[ 0	locks=0 ]	(	0	0	)
 noise_mode	[ 0	locks=0 ]	(	"0"	)
 sharpness	[ 0	locks=0 ]	(	0.5	)
 amp	[ 0	locks=0 ]	(	1	)
 grain	[ 0	locks=0 ]	(	0.10000000000000001	)
-turb	[ 0	locks=0 ]	(	2	)
-offset	[ 0	locks=0 ]	(	0	)
-element_size	[ 0	locks=0 ]	(	[ element_size	0.29999999999999999 ] 	)
+turb	[ 0	locks=0 ]	(	3	)
+offset	[ 8	locks=0 ]	(	[ offset	10 ] 	)
+element_size	[ 0	locks=0 ]	(	[ element_size	0.5 ] 	)
 element_scale	[ 0	locks=0 ]	(	1	1	1	)
 cell_mode	[ 0	locks=0 ]	(	"0"	)
 invert_cells	[ 0	locks=0 ]	(	"off"	)
@@ -1143,11 +1151,12 @@ Content-Type: text/plain
 objflags objflags =  origin off
 pretransform UT_DMatrix4 1 0 0 0 0 1 0 0 0 0 1 0 0 0 0 1
 comment ""
-position -22.8195 6.88967
-connectornextid 0
+position -22.8195 6.83807
+connectornextid 1
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on selectable on
 outputsNamed3
 {
+0 "output1"
 }
 inputsNamed3
 {
@@ -1158,7 +1167,7 @@ inputs
 stat
 {
   create 1496865992
-  modify 1511875774
+  modify 1512242446
   author mikel@mikembp-sesi.local
   access 0777
 }
@@ -1311,7 +1320,7 @@ inputs
 stat
 {
   create 1496865992
-  modify 1511869919
+  modify 1512203396
   author mikel@mikembp-sesi.local
   access 0777
 }
@@ -1393,6 +1402,20 @@ Content-Type: text/plain
       flags = 0
       segment { length = 0 value = 5 5 expr = ch(\"../../substeps\") }
     }
+    channel turbulence_scale {
+      lefttype = extend
+      righttype = extend
+      default = 0.34999999999999998
+      flags = 0
+      segment { length = 0 value = 0.34999999999999998 0.34999999999999998 expr = ch(\"../../turbulence\") }
+    }
+    channel turb_swirl_size {
+      lefttype = extend
+      righttype = extend
+      default = 0.40000000000000002
+      flags = 0
+      segment { length = 0 value = 0.40000000000000002 0.40000000000000002 expr = ch(\"../../turbulenceswirlsize\") }
+    }
   }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -1401,21 +1424,21 @@ Content-Type: text/plain
 
 {
 version 0.8
-combustion_1	[ 0	locks=0 ]	(	0	0	0	0	0	)
+combustion_1	[ 0	locks=0 ]	(	1	1	1	1	1	)
 timescale	[ 0	locks=0 ]	(	1	)
 temp_diffusion	[ 0	locks=0 ]	(	0.045833333395421505	)
 cooling_rate	[ 0	locks=0 ]	(	0.90000000000000002	)
 viscosity	[ 0	locks=0 ]	(	0	)
-lift	[ 0	locks=0 ]	(	1.25	)
+lift	[ 0	locks=0 ]	(	1.1000000000000001	)
 buoyancy_dir	[ 0	locks=0 ]	(	0	1	0	)
 enable_combustion	[ 0	locks=0 ]	(	"on"	)
 ignitiontemp	[ 0	locks=0 ]	(	0.10000000000000001	)
-burnrate	[ 0	locks=0 ]	(	0.90000000000000002	)
-fuelinefficiency	[ 0	locks=0 ]	(	0.20000000000000001	)
+burnrate	[ 0	locks=0 ]	(	0.98999999999999999	)
+fuelinefficiency	[ 0	locks=0 ]	(	0.10000000000000001	)
 heatoutput	[ 0	locks=0 ]	(	0.14999999999999999	)
-gasrelease	[ 0	locks=0 ]	(	14	)
+gasrelease	[ 0	locks=0 ]	(	12	)
 flames	[ 0	locks=0 ]	(	0	0	0	0	0	)
-cooldown_time	[ 0	locks=0 ]	(	[ cooldown_time	1 ] 	)
+cooldown_time	[ 0	locks=0 ]	(	[ cooldown_time	0.29999999999999999 ] 	)
 enable_cooling_field	[ 0	locks=0 ]	(	"on"	)
 cooling_field	[ 0	locks=0 ]	(	temperature	)
 cooling_field_range	[ 0	locks=0 ]	(	0	2	)
@@ -1440,16 +1463,16 @@ fuel_speed	[ 0	locks=0 ]	(	0.050000000000000003	)
 enable_dissipation	[ 0	locks=0 ]	(	"on"	)
 evap	[ 0	locks=0 ]	(	[ evap	0.10000000000000001 ] 	)
 enable_disturbance	[ 0	locks=0 ]	(	"on"	)
-dist_scale	[ 0	locks=0 ]	(	[ dist_scale	0.40000000000000002 ] 	)
+dist_scale	[ 0	locks=0 ]	(	[ dist_scale	0.59999999999999998 ] 	)
 enable_shredding	[ 0	locks=0 ]	(	"on"	)
 shred_scale	[ 0	locks=0 ]	(	[ shred_scale	0.080666699999999994 ] 	)
 enable_sharpening	[ 0	locks=0 ]	(	"off"	)
 sharpenrate	[ 0	locks=0 ]	(	0.5	)
-enable_turbulence	[ 0	locks=0 ]	(	"off"	)
-turbulence_scale	[ 0	locks=0 ]	(	0.10000000000000001	)
+enable_turbulence	[ 0	locks=0 ]	(	"on"	)
+turbulence_scale	[ 0	locks=0 ]	(	[ turbulence_scale	0.34999999999999998 ] 	)
 enable_confinement	[ 0	locks=0 ]	(	"off"	)
 confinementscale	[ 0	locks=0 ]	(	2	)
-wind_2	[ 0	locks=0 ]	(	1	1	1	1	1	1	)
+wind_2	[ 0	locks=0 ]	(	4	4	4	4	4	4	)
 use_dissipation_control_field	[ 0	locks=0 ]	(	"on"	)
 dissipation_control_field	[ 0	locks=0 ]	(	temperature	)
 dissipation_control_range	[ 0	locks=0 ]	(	0	1	)
@@ -1494,7 +1517,7 @@ shred_temperature_field	[ 0	locks=0 ]	(	temperature	)
 shred_velocity_field	[ 0	locks=0 ]	(	vel	)
 sharpen_field	[ 0	locks=0 ]	(	density	)
 sharpen_locality	[ 0	locks=0 ]	(	4	)
-turb_swirl_size	[ 0	locks=0 ]	(	1	)
+turb_swirl_size	[ 0	locks=0 ]	(	[ turb_swirl_size	0.40000000000000002 ] 	)
 turb_rough	[ 0	locks=0 ]	(	0.5	)
 turb_pulse_length	[ 0	locks=0 ]	(	0.5	)
 turb_seed	[ 0	locks=0 ]	(	0	)
@@ -1702,7 +1725,7 @@ inputs
 stat
 {
   create 1496865993
-  modify 1510165009
+  modify 1512202419
   author mikel@mikembp-sesi.local
   access 0777
 }
@@ -1747,6 +1770,18 @@ Content-Type: text/plain
       flags = 0
       segment { length = 0 value = 0.035000000000000003 0.035000000000000003 expr = ch(\"../../divsize\") }
     }
+    channel tx {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = ch(\"../../tx\") }
+    }
+    channel tz {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = ch(\"../../tz\") }
+    }
   }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -1763,7 +1798,7 @@ divsize	[ 0	locks=0 ]	(	[ divsize	0.02 ] 	)
 uniformdiv	[ 0	locks=0 ]	(	1	)
 div	[ 0	locks=0 ]	(	1	1	1	)
 size	[ 0	locks=0 ]	(	2.8333333358168602	4.2333333417773247	2.8333333358168602	)
-t	[ 0	locks=0 ]	(	0	1.8333333358168602	0	)
+t	[ 8	locks=0 ]	(	[ tx	1.25 ] 	1.8333333358168602	[ tz	0 ] 	)
 closedends	[ 0	locks=0 ]	(	"off"	)
 closexneg	[ 0	locks=0 ]	(	"on"	)
 closexpos	[ 0	locks=0 ]	(	"on"	)
@@ -1782,7 +1817,7 @@ override_division_size	[ 0	locks=0 ]	(	"off"	)
 numobjects	[ 0	locks=0 ]	(	1	)
 instance_points	[ 0	locks=0 ]	(	""	)
 continuous	[ 0	locks=0 ]	(	"off"	)
-size_unit_comp	[ 0	locks=0 ]	(	[ size_unit_compx	0.0016666641831400708 ] 	[ size_unit_compy	0.023333322405815704 ] 	[ size_unit_compz	0.0016666641831400708 ] 	)
+size_unit_comp	[ 0	locks=0 ]	(	[ size_unit_compx	0.016666664183139886 ] 	[ size_unit_compy	0.013333322405815251 ] 	[ size_unit_compz	0.0066666641831398601 ] 	)
 std_switcher_0	[ 0	locks=0 ]	(	0	0	0	0	)
 folder0	[ 0	locks=0 ]	(	0	0	0	0	0	0	0	0	0	0	0	0	0	)
 multifield_showguide	[ 0	locks=0 ]	(	"on"	)
@@ -1826,7 +1861,7 @@ multifield_cdrange	[ 0	locks=0 ]	(	0	1	)
 multifield_cdrampmode	[ 0	locks=0 ]	(	"clamp"	)
 multifield_cdpreset	[ 0	locks=0 ]	(	"none"	)
 multifield_cdramp	[ 0	locks=0 ]	(	2	)
-multifield_emitscale	[ 0	locks=0 ]	(	13.636363617891123	)
+multifield_emitscale	[ 0	locks=0 ]	(	5	)
 multifield_emitfield	[ 0	locks=0 ]	(	temperature	)
 multifield_emitrangeoverride	[ 0	locks=0 ]	(	"off"	)
 multifield_emitrange	[ 0	locks=0 ]	(	0	1	)
@@ -1866,7 +1901,7 @@ temperature1_guideplaneval	[ 0	locks=0 ]	(	0	)
 temperature1_guidevismode	[ 0	locks=0 ]	(	"blackbody"	)
 temperature1_guidevisdensitymode	[ 0	locks=0 ]	(	"none"	)
 temperature1_guiderangemode	[ 0	locks=0 ]	(	"on"	)
-temperature1_guiderange	[ 0	locks=0 ]	(	0	1	)
+temperature1_guiderange	[ 0	locks=0 ]	(	0	5	)
 temperature1_guiderangecenter	[ 0	locks=0 ]	(	0.5	)
 temperature1_guiderangesize	[ 0	locks=0 ]	(	1	)
 temperature1_guideiso	[ 0	locks=0 ]	(	0	)
@@ -1923,7 +1958,7 @@ heat_usebox	[ 0	locks=0 ]	(	"off"	)
 heat_useboxhash	[ 0	locks=0 ]	(	"off"	)
 heat_usesmoke	[ 0	locks=0 ]	(	"on"	)
 heat_guideremapsmoke	[ 0	locks=0 ]	(	"off"	)
-heat_guidesmokedensity	[ 0	locks=0 ]	(	1	)
+heat_guidesmokedensity	[ 0	locks=0 ]	(	2	)
 heat_guideuseplane	[ 0	locks=0 ]	(	"off"	)
 heat_guideplane	[ 0	locks=0 ]	(	"xy"	)
 heat_guideplaneval	[ 0	locks=0 ]	(	0	)
@@ -2135,7 +2170,7 @@ inputs
 stat
 {
   create 1496865993
-  modify 1510162590
+  modify 1512031748
   author mikel@mikembp-sesi.local
   access 0777
 }
@@ -2231,7 +2266,7 @@ inputs
 stat
 {
   create 1496865993
-  modify 1510165100
+  modify 1512031748
   author mikel@mikembp-sesi.local
   access 0777
 }
@@ -2263,7 +2298,7 @@ version 0.8
 initialize	[ 0	locks=0 ]	(	"sourcefuel"	)
 source_path	[ 0	locks=0 ]	(	../../fire_source/OUT_fuel	)
 activation	[ 0	locks=0 ]	(	1	)
-scale_source	[ 0	locks=0 ]	(	[ scale_source	0.14999999999999999 ] 	)
+scale_source	[ 0	locks=0 ]	(	[ scale_source	0.16 ] 	)
 scale_temperature	[ 0	locks=0 ]	(	1	)
 scale_velocity	[ 0	locks=0 ]	(	1	)
 use_object_transform	[ 0	locks=0 ]	(	"on"	)
@@ -2394,6 +2429,2181 @@ comment "Created from Gallery Entry: Smokeless Flames
 
 Flame material"
 position -20.6961 7.74359
+connectornextid 167
+flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on lowdetail off mediumdetail off highdetail on material on
+outputsNamed3
+{
+}
+inputsNamed3
+{
+0 	"" "" 1 "next"
+1 	"" "" 1 "rest"
+2 	"" "" 1 "rest_ratio"
+3 	"" "" 1 "rest2"
+4 	"" "" 1 "rest2_ratio"
+5 	"" "" 1 "Cd"
+6 	"" "" 1 "s_densityscale"
+7 	"" "" 1 "s_int"
+8 	"" "" 1 "s_color"
+9 	"" "" 1 "s_tintwithcd"
+10 	"" "" 1 "shade_phase"
+11 	"" "" 1 "fi_int"
+12 	"" "" 1 "fc_int"
+13 	"" "" 1 "fc_colormode"
+14 	"" "" 1 "fc_constantcolor"
+15 	"" "" 1 "fc_rampmin"
+16 	"" "" 1 "fc_rampmax"
+17 	"" "" 1 "fc_colorramp"
+18 	"" "" 1 "fc_bbtemp"
+19 	"" "" 1 "fc_bbadapt"
+20 	"" "" 1 "fc_bbburn"
+21 	"" "" 1 "s_shadowint"
+22 	"" "" 1 "s_shadowclr"
+23 	"" "" 1 "ftype"
+24 	"" "" 1 "fscale"
+25 	"" "" 1 "s_fitenable"
+26 	"" "" 1 "s_fitsrcmin"
+27 	"" "" 1 "s_fitsrcmax"
+28 	"" "" 1 "s_fitdestmin"
+29 	"" "" 1 "s_fitdestmax"
+30 	"" "" 1 "s_rampenable"
+31 	"" "" 1 "s_rampextl"
+32 	"" "" 1 "s_rampextr"
+33 	"" "" 1 "s_ramp"
+34 	"" "" 1 "s_contourenable"
+35 	"" "" 1 "s_contourwidth"
+36 	"" "" 1 "s_contoursharp"
+37 	"" "" 1 "s_sclipenable"
+38 	"" "" 1 "s_sclipstart"
+39 	"" "" 1 "s_sclipsuppress"
+40 	"" "" 1 "s_lowlimitenable"
+41 	"" "" 1 "s_lowlimit"
+42 	"" "" 1 "s_highlimitenable"
+43 	"" "" 1 "s_highlimit"
+44 	"" "" 1 "s_amp"
+45 	"" "" 1 "s_noiseenable"
+46 	"" "" 1 "s_noisemode"
+47 	"" "" 1 "s_noisebasis"
+48 	"" "" 1 "s_noisefreq"
+49 	"" "" 1 "s_noiseoffset"
+50 	"" "" 1 "s_noiseperiod"
+51 	"" "" 1 "s_noisefractal"
+52 	"" "" 1 "s_noiseoct"
+53 	"" "" 1 "s_noiselac"
+54 	"" "" 1 "s_noiserough"
+55 	"" "" 1 "s_noisedolwarp"
+56 	"" "" 1 "s_noiseaccuml"
+57 	"" "" 1 "s_noisedisp"
+58 	"" "" 1 "s_noisedispfreq"
+59 	"" "" 1 "s_noisedogwarp"
+60 	"" "" 1 "s_noiseaccumg"
+61 	"" "" 1 "s_noisegflow"
+62 	"" "" 1 "s_noiseflowrot"
+63 	"" "" 1 "s_noisecc_dobias"
+64 	"" "" 1 "s_noisecc_bias"
+65 	"" "" 1 "s_noisecc_dogain"
+66 	"" "" 1 "s_noisecc_gain"
+67 	"" "" 1 "s_noisecc_inv"
+68 	"" "" 1 "s_noisecc_dorng"
+69 	"" "" 1 "s_noisecc_rnglo"
+70 	"" "" 1 "s_noisecc_rnghi"
+71 	"" "" 1 "s_noisecc_amp"
+72 	"" "" 1 "fi_fitenable"
+73 	"" "" 1 "fi_fitsrcmin"
+74 	"" "" 1 "fi_fitsrcmax"
+75 	"" "" 1 "fi_fitdestmin"
+76 	"" "" 1 "fi_fitdestmax"
+77 	"" "" 1 "fi_rampenable"
+78 	"" "" 1 "fi_rampextl"
+79 	"" "" 1 "fi_rampextr"
+80 	"" "" 1 "fi_ramp"
+81 	"" "" 1 "fi_contourenable"
+82 	"" "" 1 "fi_contourwidth"
+83 	"" "" 1 "fi_contoursharp"
+84 	"" "" 1 "fi_sclipenable"
+85 	"" "" 1 "fi_sclipstart"
+86 	"" "" 1 "fi_sclipsuppress"
+87 	"" "" 1 "fi_lowlimitenable"
+88 	"" "" 1 "fi_lowlimit"
+89 	"" "" 1 "fi_highlimitenable"
+90 	"" "" 1 "fi_highlimit"
+91 	"" "" 1 "fi_amp"
+92 	"" "" 1 "fi_noiseenable"
+93 	"" "" 1 "fi_noisemode"
+94 	"" "" 1 "fi_noisebasis"
+95 	"" "" 1 "fi_noisefreq"
+96 	"" "" 1 "fi_noiseoffset"
+97 	"" "" 1 "fi_noiseperiod"
+98 	"" "" 1 "fi_noisefractal"
+99 	"" "" 1 "fi_noiseoct"
+100 	"" "" 1 "fi_noiselac"
+101 	"" "" 1 "fi_noiserough"
+102 	"" "" 1 "fi_noisedolwarp"
+103 	"" "" 1 "fi_noiseaccuml"
+104 	"" "" 1 "fi_noisedisp"
+105 	"" "" 1 "fi_noisedispfreq"
+106 	"" "" 1 "fi_noisedogwarp"
+107 	"" "" 1 "fi_noiseaccumg"
+108 	"" "" 1 "fi_noisegflow"
+109 	"" "" 1 "fi_noiseflowrot"
+110 	"" "" 1 "fi_noisecc_dobias"
+111 	"" "" 1 "fi_noisecc_bias"
+112 	"" "" 1 "fi_noisecc_dogain"
+113 	"" "" 1 "fi_noisecc_gain"
+114 	"" "" 1 "fi_noisecc_inv"
+115 	"" "" 1 "fi_noisecc_dorng"
+116 	"" "" 1 "fi_noisecc_rnglo"
+117 	"" "" 1 "fi_noisecc_rnghi"
+118 	"" "" 1 "fi_noisecc_amp"
+119 	"" "" 1 "fc_fitenable"
+120 	"" "" 1 "fc_fitsrcmin"
+121 	"" "" 1 "fc_fitsrcmax"
+122 	"" "" 1 "fc_fitdestmin"
+123 	"" "" 1 "fc_fitdestmax"
+124 	"" "" 1 "fc_rampenable"
+125 	"" "" 1 "fc_rampextl"
+126 	"" "" 1 "fc_rampextr"
+127 	"" "" 1 "fc_ramp"
+128 	"" "" 1 "fc_contourenable"
+129 	"" "" 1 "fc_contourwidth"
+130 	"" "" 1 "fc_contoursharp"
+131 	"" "" 1 "fc_sclipenable"
+132 	"" "" 1 "fc_sclipstart"
+133 	"" "" 1 "fc_sclipsuppress"
+134 	"" "" 1 "fc_lowlimitenable"
+135 	"" "" 1 "fc_lowlimit"
+136 	"" "" 1 "fc_highlimitenable"
+137 	"" "" 1 "fc_highlimit"
+138 	"" "" 1 "fc_amp"
+139 	"" "" 1 "fc_noiseenable"
+140 	"" "" 1 "fc_noisemode"
+141 	"" "" 1 "fc_noisebasis"
+142 	"" "" 1 "fc_noisefreq"
+143 	"" "" 1 "fc_noiseoffset"
+144 	"" "" 1 "fc_noiseperiod"
+145 	"" "" 1 "fc_noisefractal"
+146 	"" "" 1 "fc_noiseoct"
+147 	"" "" 1 "fc_noiselac"
+148 	"" "" 1 "fc_noiserough"
+149 	"" "" 1 "fc_noisedolwarp"
+150 	"" "" 1 "fc_noiseaccuml"
+151 	"" "" 1 "fc_noisedisp"
+152 	"" "" 1 "fc_noisedispfreq"
+153 	"" "" 1 "fc_noisedogwarp"
+154 	"" "" 1 "fc_noiseaccumg"
+155 	"" "" 1 "fc_noisegflow"
+156 	"" "" 1 "fc_noiseflowrot"
+157 	"" "" 1 "fc_noisecc_dobias"
+158 	"" "" 1 "fc_noisecc_bias"
+159 	"" "" 1 "fc_noisecc_dogain"
+160 	"" "" 1 "fc_noisecc_gain"
+161 	"" "" 1 "fc_noisecc_inv"
+162 	"" "" 1 "fc_noisecc_dorng"
+163 	"" "" 1 "fc_noisecc_rnglo"
+164 	"" "" 1 "fc_noisecc_rnghi"
+165 	"" "" 1 "fc_noisecc_amp"
+166 	"" "" 1 "density"
+}
+inputs
+{
+0 	"" 0 1
+1 	"" 0 1
+2 	"" 0 1
+3 	"" 0 1
+4 	"" 0 1
+5 	"" 0 1
+6 	"" 0 1
+7 	"" 0 1
+8 	"" 0 1
+9 	"" 0 1
+10 	"" 0 1
+11 	"" 0 1
+12 	"" 0 1
+13 	"" 0 1
+14 	"" 0 1
+15 	"" 0 1
+16 	"" 0 1
+17 	"" 0 1
+18 	"" 0 1
+19 	"" 0 1
+20 	"" 0 1
+21 	"" 0 1
+22 	"" 0 1
+23 	"" 0 1
+24 	"" 0 1
+25 	"" 0 1
+26 	"" 0 1
+27 	"" 0 1
+28 	"" 0 1
+29 	"" 0 1
+30 	"" 0 1
+31 	"" 0 1
+32 	"" 0 1
+33 	"" 0 1
+34 	"" 0 1
+35 	"" 0 1
+36 	"" 0 1
+37 	"" 0 1
+38 	"" 0 1
+39 	"" 0 1
+40 	"" 0 1
+41 	"" 0 1
+42 	"" 0 1
+43 	"" 0 1
+44 	"" 0 1
+45 	"" 0 1
+46 	"" 0 1
+47 	"" 0 1
+48 	"" 0 1
+49 	"" 0 1
+50 	"" 0 1
+51 	"" 0 1
+52 	"" 0 1
+53 	"" 0 1
+54 	"" 0 1
+55 	"" 0 1
+56 	"" 0 1
+57 	"" 0 1
+58 	"" 0 1
+59 	"" 0 1
+60 	"" 0 1
+61 	"" 0 1
+62 	"" 0 1
+63 	"" 0 1
+64 	"" 0 1
+65 	"" 0 1
+66 	"" 0 1
+67 	"" 0 1
+68 	"" 0 1
+69 	"" 0 1
+70 	"" 0 1
+71 	"" 0 1
+72 	"" 0 1
+73 	"" 0 1
+74 	"" 0 1
+75 	"" 0 1
+76 	"" 0 1
+77 	"" 0 1
+78 	"" 0 1
+79 	"" 0 1
+80 	"" 0 1
+81 	"" 0 1
+82 	"" 0 1
+83 	"" 0 1
+84 	"" 0 1
+85 	"" 0 1
+86 	"" 0 1
+87 	"" 0 1
+88 	"" 0 1
+89 	"" 0 1
+90 	"" 0 1
+91 	"" 0 1
+92 	"" 0 1
+93 	"" 0 1
+94 	"" 0 1
+95 	"" 0 1
+96 	"" 0 1
+97 	"" 0 1
+98 	"" 0 1
+99 	"" 0 1
+100 	"" 0 1
+101 	"" 0 1
+102 	"" 0 1
+103 	"" 0 1
+104 	"" 0 1
+105 	"" 0 1
+106 	"" 0 1
+107 	"" 0 1
+108 	"" 0 1
+109 	"" 0 1
+110 	"" 0 1
+111 	"" 0 1
+112 	"" 0 1
+113 	"" 0 1
+114 	"" 0 1
+115 	"" 0 1
+116 	"" 0 1
+117 	"" 0 1
+118 	"" 0 1
+119 	"" 0 1
+120 	"" 0 1
+121 	"" 0 1
+122 	"" 0 1
+123 	"" 0 1
+124 	"" 0 1
+125 	"" 0 1
+126 	"" 0 1
+127 	"" 0 1
+128 	"" 0 1
+129 	"" 0 1
+130 	"" 0 1
+131 	"" 0 1
+132 	"" 0 1
+133 	"" 0 1
+134 	"" 0 1
+135 	"" 0 1
+136 	"" 0 1
+137 	"" 0 1
+138 	"" 0 1
+139 	"" 0 1
+140 	"" 0 1
+141 	"" 0 1
+142 	"" 0 1
+143 	"" 0 1
+144 	"" 0 1
+145 	"" 0 1
+146 	"" 0 1
+147 	"" 0 1
+148 	"" 0 1
+149 	"" 0 1
+150 	"" 0 1
+151 	"" 0 1
+152 	"" 0 1
+153 	"" 0 1
+154 	"" 0 1
+155 	"" 0 1
+156 	"" 0 1
+157 	"" 0 1
+158 	"" 0 1
+159 	"" 0 1
+160 	"" 0 1
+161 	"" 0 1
+162 	"" 0 1
+163 	"" 0 1
+164 	"" 0 1
+165 	"" 0 1
+166 	"" 0 1
+}
+stat
+{
+  create 1496865993
+  modify 1512379779
+  author mikel@mikembp-sesi.local
+  access 0777
+}
+color UT_Color RGB 0.8 0.8 0.8 
+creator gallery::smokelessflames
+explicit 1
+delscript ""
+exprlanguage hscript
+end
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/matnet1/smokelessflames.parm"
+Content-Type: text/plain
+
+{
+version 0.8
+folder2_4	[ 0	locks=0	autoscope=0 ]	(	0	0	0	0	0	)
+folder6	[ 0	locks=0	autoscope=0 ]	(	0	)
+s_densityscale	[ 0	locks=0	autoscope=0 ]	(	10	)
+s_int	[ 0	locks=0	autoscope=0 ]	(	1	)
+s_color	[ 0	locks=0	autoscope=0 ]	(	0.40000000000000002	0.40000000000000002	0.40000000000000002	)
+s_tintwithcd	[ 0	locks=0	autoscope=0 ]	(	"on"	)
+shade_phase	[ 0	locks=0	autoscope=0 ]	(	0	)
+folder2_3_4	[ 0	locks=0	autoscope=0 ]	(	0	)
+fi_int	[ 0	locks=0	autoscope=0 ]	(	10	)
+fc_int	[ 0	locks=0	autoscope=0 ]	(	0.90000000000000002	)
+fc_colormode	[ 0	locks=0	autoscope=0 ]	(	2	)
+fc_constantcolor	[ 0	locks=0	autoscope=0 ]	(	1	1	1	)
+fc_rampmin	[ 0	locks=0	autoscope=0 ]	(	0	)
+fc_rampmax	[ 0	locks=0	autoscope=0 ]	(	1	)
+fc_colorramp	[ 0	locks=0	autoscope=0 ]	(	4	)
+fc_bbtemp	[ 0	locks=0	autoscope=0 ]	(	6000	)
+fc_bbadapt	[ 0	locks=0	autoscope=0 ]	(	0.055	)
+fc_bbburn	[ 0	locks=0	autoscope=0 ]	(	-0.46700000000000003	)
+folder8	[ 0	locks=0	autoscope=0 ]	(	0	)
+s_shadowint	[ 0	locks=0	autoscope=0 ]	(	1	)
+s_shadowclr	[ 0	locks=0	autoscope=0 ]	(	1	1	1	)
+folder15	[ 0	locks=0	autoscope=0 ]	(	0	)
+ftype	[ 0	locks=0	autoscope=0 ]	(	point	)
+fscale	[ 0	locks=0	autoscope=0 ]	(	1	)
+s_volumename	[ 0	locks=0	autoscope=0 ]	(	heat	)
+folder16	[ 0	locks=0	autoscope=0 ]	(	0	0	)
+s_fitenable	[ 0	locks=0	autoscope=0 ]	(	"off"	)
+s_fitsrcmin	[ 0	locks=0	autoscope=0 ]	(	0	)
+s_fitsrcmax	[ 0	locks=0	autoscope=0 ]	(	1	)
+s_fitdestmin	[ 0	locks=0	autoscope=0 ]	(	0	)
+s_fitdestmax	[ 0	locks=0	autoscope=0 ]	(	1	)
+s_rampenable	[ 0	locks=0	autoscope=0 ]	(	"off"	)
+s_rampextl	[ 0	locks=0	autoscope=0 ]	(	hold	)
+s_rampextr	[ 0	locks=0	autoscope=0 ]	(	hold	)
+s_ramp	[ 0	locks=0	autoscope=0 ]	(	2	)
+s_contourenable	[ 0	locks=0	autoscope=0 ]	(	"off"	)
+s_contourwidth	[ 0	locks=0	autoscope=0 ]	(	0.02	)
+s_contoursharp	[ 0	locks=0	autoscope=0 ]	(	4	)
+s_sclipenable	[ 0	locks=0	autoscope=0 ]	(	"off"	)
+s_sclipstart	[ 0	locks=0	autoscope=0 ]	(	0.80000000000000004	)
+s_sclipsuppress	[ 0	locks=0	autoscope=0 ]	(	1	)
+s_lowlimitenable	[ 0	locks=0	autoscope=0 ]	(	"off"	)
+s_lowlimit	[ 0	locks=0	autoscope=0 ]	(	0	)
+s_highlimitenable	[ 0	locks=0	autoscope=0 ]	(	"off"	)
+s_highlimit	[ 0	locks=0	autoscope=0 ]	(	1	)
+s_amp	[ 0	locks=0	autoscope=0 ]	(	1	)
+s_noiseenable	[ 0	locks=0	autoscope=0 ]	(	"off"	)
+s_noisemode	[ 0	locks=0	autoscope=0 ]	(	0	)
+s_noisebasis	[ 0	locks=0	autoscope=0 ]	(	simplex	)
+s_noisefreq	[ 0	locks=0	autoscope=0 ]	(	5	5	5	1	)
+s_noiseoffset	[ 0	locks=0	autoscope=0 ]	(	0	0	0	0	)
+s_noiseperiod	[ 0	locks=0	autoscope=0 ]	(	1	1	1	1	)
+folder17	[ 0	locks=0	autoscope=0 ]	(	0	)
+s_noisefractal	[ 0	locks=0	autoscope=0 ]	(	none	)
+s_noiseoct	[ 0	locks=0	autoscope=0 ]	(	8	)
+s_noiselac	[ 0	locks=0	autoscope=0 ]	(	2.01234	)
+s_noiserough	[ 0	locks=0	autoscope=0 ]	(	0.5	)
+folder18	[ 0	locks=0	autoscope=0 ]	(	0	)
+s_noisedolwarp	[ 0	locks=0	autoscope=0 ]	(	"off"	)
+s_noiseaccuml	[ 0	locks=0	autoscope=0 ]	(	"off"	)
+s_noisedisp	[ 0	locks=0	autoscope=0 ]	(	0	)
+s_noisedispfreq	[ 0	locks=0	autoscope=0 ]	(	1	)
+s_noisedogwarp	[ 0	locks=0	autoscope=0 ]	(	"off"	)
+s_noiseaccumg	[ 0	locks=0	autoscope=0 ]	(	"off"	)
+s_noisegflow	[ 0	locks=0	autoscope=0 ]	(	0	)
+s_noiseflowrot	[ 0	locks=0	autoscope=0 ]	(	0	)
+folder5_1_2	[ 0	locks=0	autoscope=0 ]	(	0	)
+s_noisecc_dobias	[ 0	locks=0	autoscope=0 ]	(	"off"	)
+s_noisecc_bias	[ 0	locks=0	autoscope=0 ]	(	0.5	)
+s_noisecc_dogain	[ 0	locks=0	autoscope=0 ]	(	"off"	)
+s_noisecc_gain	[ 0	locks=0	autoscope=0 ]	(	0.5	)
+s_noisecc_inv	[ 0	locks=0	autoscope=0 ]	(	"off"	)
+s_noisecc_dorng	[ 0	locks=0	autoscope=0 ]	(	"off"	)
+s_noisecc_rnglo	[ 0	locks=0	autoscope=0 ]	(	0	)
+s_noisecc_rnghi	[ 0	locks=0	autoscope=0 ]	(	1	)
+s_noisecc_amp	[ 0	locks=0	autoscope=0 ]	(	1	1	1	)
+fi_volumename	[ 0	locks=0	autoscope=0 ]	(	temperature	)
+folder19	[ 0	locks=0	autoscope=0 ]	(	0	0	)
+fi_fitenable	[ 0	locks=0	autoscope=0 ]	(	"on"	)
+fi_fitsrcmin	[ 0	locks=0	autoscope=0 ]	(	0	)
+fi_fitsrcmax	[ 0	locks=0	autoscope=0 ]	(	10	)
+fi_fitdestmin	[ 0	locks=0	autoscope=0 ]	(	0	)
+fi_fitdestmax	[ 0	locks=0	autoscope=0 ]	(	1	)
+fi_rampenable	[ 0	locks=0	autoscope=0 ]	(	"on"	)
+fi_rampextl	[ 0	locks=0	autoscope=0 ]	(	hold	)
+fi_rampextr	[ 0	locks=0	autoscope=0 ]	(	hold	)
+fi_ramp	[ 0	locks=0	autoscope=0 ]	(	8	)
+fi_contourenable	[ 0	locks=0	autoscope=0 ]	(	"off"	)
+fi_contourwidth	[ 0	locks=0	autoscope=0 ]	(	0.02	)
+fi_contoursharp	[ 0	locks=0	autoscope=0 ]	(	4	)
+fi_sclipenable	[ 0	locks=0	autoscope=0 ]	(	"off"	)
+fi_sclipstart	[ 0	locks=0	autoscope=0 ]	(	0.90000000000000002	)
+fi_sclipsuppress	[ 0	locks=0	autoscope=0 ]	(	1	)
+fi_lowlimitenable	[ 0	locks=0	autoscope=0 ]	(	"off"	)
+fi_lowlimit	[ 0	locks=0	autoscope=0 ]	(	0	)
+fi_highlimitenable	[ 0	locks=0	autoscope=0 ]	(	"off"	)
+fi_highlimit	[ 0	locks=0	autoscope=0 ]	(	5	)
+fi_amp	[ 0	locks=0	autoscope=0 ]	(	10	)
+fi_noiseenable	[ 0	locks=0	autoscope=0 ]	(	"off"	)
+fi_noisemode	[ 0	locks=0	autoscope=0 ]	(	0	)
+fi_noisebasis	[ 0	locks=0	autoscope=0 ]	(	simplex	)
+fi_noisefreq	[ 0	locks=0	autoscope=0 ]	(	5	5	5	1	)
+fi_noiseoffset	[ 0	locks=0	autoscope=0 ]	(	5	0	0	0	)
+fi_noiseperiod	[ 0	locks=0	autoscope=0 ]	(	1	1	1	1	)
+folder20	[ 0	locks=0	autoscope=0 ]	(	0	)
+fi_noisefractal	[ 0	locks=0	autoscope=0 ]	(	none	)
+fi_noiseoct	[ 0	locks=0	autoscope=0 ]	(	8	)
+fi_noiselac	[ 0	locks=0	autoscope=0 ]	(	2.01234	)
+fi_noiserough	[ 0	locks=0	autoscope=0 ]	(	0.5	)
+folder21	[ 0	locks=0	autoscope=0 ]	(	0	)
+fi_noisedolwarp	[ 0	locks=0	autoscope=0 ]	(	"off"	)
+fi_noiseaccuml	[ 0	locks=0	autoscope=0 ]	(	"off"	)
+fi_noisedisp	[ 0	locks=0	autoscope=0 ]	(	0	)
+fi_noisedispfreq	[ 0	locks=0	autoscope=0 ]	(	1	)
+fi_noisedogwarp	[ 0	locks=0	autoscope=0 ]	(	"off"	)
+fi_noiseaccumg	[ 0	locks=0	autoscope=0 ]	(	"off"	)
+fi_noisegflow	[ 0	locks=0	autoscope=0 ]	(	0	)
+fi_noiseflowrot	[ 0	locks=0	autoscope=0 ]	(	0	)
+folder22	[ 0	locks=0	autoscope=0 ]	(	0	)
+fi_noisecc_dobias	[ 0	locks=0	autoscope=0 ]	(	"off"	)
+fi_noisecc_bias	[ 0	locks=0	autoscope=0 ]	(	0.5	)
+fi_noisecc_dogain	[ 0	locks=0	autoscope=0 ]	(	"off"	)
+fi_noisecc_gain	[ 0	locks=0	autoscope=0 ]	(	0.5	)
+fi_noisecc_inv	[ 0	locks=0	autoscope=0 ]	(	"off"	)
+fi_noisecc_dorng	[ 0	locks=0	autoscope=0 ]	(	"off"	)
+fi_noisecc_rnglo	[ 0	locks=0	autoscope=0 ]	(	0	)
+fi_noisecc_rnghi	[ 0	locks=0	autoscope=0 ]	(	1	)
+fi_noisecc_amp	[ 0	locks=0	autoscope=0 ]	(	1	1	1	)
+fc_volumename	[ 0	locks=0	autoscope=0 ]	(	heat	)
+folder7_3	[ 0	locks=0	autoscope=0 ]	(	0	0	)
+fc_fitenable	[ 0	locks=0	autoscope=0 ]	(	"on"	)
+fc_fitsrcmin	[ 0	locks=0	autoscope=0 ]	(	0	)
+fc_fitsrcmax	[ 0	locks=0	autoscope=0 ]	(	1.5	)
+fc_fitdestmin	[ 0	locks=0	autoscope=0 ]	(	0	)
+fc_fitdestmax	[ 0	locks=0	autoscope=0 ]	(	1	)
+fc_rampenable	[ 0	locks=0	autoscope=0 ]	(	"on"	)
+fc_rampextl	[ 0	locks=0	autoscope=0 ]	(	hold	)
+fc_rampextr	[ 0	locks=0	autoscope=0 ]	(	hold	)
+fc_ramp	[ 0	locks=0	autoscope=0 ]	(	50	)
+fc_contourenable	[ 0	locks=0	autoscope=0 ]	(	"off"	)
+fc_contourwidth	[ 0	locks=0	autoscope=0 ]	(	0.02	)
+fc_contoursharp	[ 0	locks=0	autoscope=0 ]	(	4	)
+fc_sclipenable	[ 0	locks=0	autoscope=0 ]	(	"off"	)
+fc_sclipstart	[ 0	locks=0	autoscope=0 ]	(	0.80000000000000004	)
+fc_sclipsuppress	[ 0	locks=0	autoscope=0 ]	(	1	)
+fc_lowlimitenable	[ 0	locks=0	autoscope=0 ]	(	"off"	)
+fc_lowlimit	[ 0	locks=0	autoscope=0 ]	(	0	)
+fc_highlimitenable	[ 0	locks=0	autoscope=0 ]	(	"off"	)
+fc_highlimit	[ 0	locks=0	autoscope=0 ]	(	1	)
+fc_amp	[ 0	locks=0	autoscope=0 ]	(	2	)
+fc_noiseenable	[ 0	locks=0	autoscope=0 ]	(	"off"	)
+fc_noisemode	[ 0	locks=0	autoscope=0 ]	(	0	)
+fc_noisebasis	[ 0	locks=0	autoscope=0 ]	(	simplex	)
+fc_noisefreq	[ 0	locks=0	autoscope=0 ]	(	5	5	5	1	)
+fc_noiseoffset	[ 0	locks=0	autoscope=0 ]	(	5	0	0	0	)
+fc_noiseperiod	[ 0	locks=0	autoscope=0 ]	(	1	1	1	1	)
+folder23	[ 0	locks=0	autoscope=0 ]	(	0	)
+fc_noisefractal	[ 0	locks=0	autoscope=0 ]	(	none	)
+fc_noiseoct	[ 0	locks=0	autoscope=0 ]	(	8	)
+fc_noiselac	[ 0	locks=0	autoscope=0 ]	(	2.01234	)
+fc_noiserough	[ 0	locks=0	autoscope=0 ]	(	0.5	)
+folder24	[ 0	locks=0	autoscope=0 ]	(	0	)
+fc_noisedolwarp	[ 0	locks=0	autoscope=0 ]	(	"off"	)
+fc_noiseaccuml	[ 0	locks=0	autoscope=0 ]	(	"off"	)
+fc_noisedisp	[ 0	locks=0	autoscope=0 ]	(	0	)
+fc_noisedispfreq	[ 0	locks=0	autoscope=0 ]	(	1	)
+fc_noisedogwarp	[ 0	locks=0	autoscope=0 ]	(	"off"	)
+fc_noiseaccumg	[ 0	locks=0	autoscope=0 ]	(	"off"	)
+fc_noisegflow	[ 0	locks=0	autoscope=0 ]	(	0	)
+fc_noiseflowrot	[ 0	locks=0	autoscope=0 ]	(	0	)
+folder25	[ 0	locks=0	autoscope=0 ]	(	0	)
+fc_noisecc_dobias	[ 0	locks=0	autoscope=0 ]	(	"off"	)
+fc_noisecc_bias	[ 0	locks=0	autoscope=0 ]	(	0.5	)
+fc_noisecc_dogain	[ 0	locks=0	autoscope=0 ]	(	"off"	)
+fc_noisecc_gain	[ 0	locks=0	autoscope=0 ]	(	0.5	)
+fc_noisecc_inv	[ 0	locks=0	autoscope=0 ]	(	"off"	)
+fc_noisecc_dorng	[ 0	locks=0	autoscope=0 ]	(	"off"	)
+fc_noisecc_rnglo	[ 0	locks=0	autoscope=0 ]	(	0	)
+fc_noisecc_rnghi	[ 0	locks=0	autoscope=0 ]	(	1	)
+fc_noisecc_amp	[ 0	locks=0	autoscope=0 ]	(	1	1	1	)
+smokemask_export_name	[ 0	locks=0	autoscope=0 ]	(	smoke_mask	)
+firemask_export_name	[ 0	locks=0	autoscope=0 ]	(	fire_mask	)
+direct	[ 0	locks=0	autoscope=0 ]	(	0	0	0	)
+indirect	[ 0	locks=0	autoscope=0 ]	(	0	0	0	)
+Ce	[ 0	locks=0	autoscope=0 ]	(	0	0	0	)
+direct_emission	[ 0	locks=0	autoscope=0 ]	(	0	0	0	)
+all_emission	[ 0	locks=0	autoscope=0 ]	(	0	0	0	)
+all	[ 0	locks=0	autoscope=0 ]	(	0	0	0	)
+indirect_emission	[ 0	locks=0	autoscope=0 ]	(	0	0	0	)
+direct_comp	[ 0	locks=0	autoscope=0 ]	(	""	)
+indirect_comp	[ 0	locks=0	autoscope=0 ]	(	""	)
+all_comp	[ 0	locks=0	autoscope=0 ]	(	""	)
+direct_noshadow	[ 0	locks=0	autoscope=0 ]	(	0	0	0	)
+direct_shadow	[ 0	locks=0	autoscope=0 ]	(	0	0	0	)
+indirect_noshadow	[ 0	locks=0	autoscope=0 ]	(	0	0	0	)
+indirect_shadow	[ 0	locks=0	autoscope=0 ]	(	0	0	0	)
+level	[ 0	locks=0	autoscope=0 ]	(	0	)
+diffuselevel	[ 0	locks=0	autoscope=0 ]	(	0	)
+specularlevel	[ 0	locks=0	autoscope=0 ]	(	0	)
+volumelevel	[ 0	locks=0	autoscope=0 ]	(	0	)
+direct_samples	[ 0	locks=0	autoscope=0 ]	(	0	)
+indirect_samples	[ 0	locks=0	autoscope=0 ]	(	0	)
+nlights	[ 0	locks=0	autoscope=0 ]	(	0	)
+direct_noshadow_comp	[ 0	locks=0	autoscope=0 ]	(	""	)
+indirect_noshadow_comp	[ 0	locks=0	autoscope=0 ]	(	""	)
+nddispersion	[ 0	locks=0	autoscope=0 ]	(	0	)
+ndpriority	[ 0	locks=0	autoscope=0 ]	(	0	)
+ndior	[ 0	locks=0	autoscope=0 ]	(	0	)
+absorption	[ 0	locks=0	autoscope=0 ]	(	0	0	0	)
+layer	[ 0	locks=0	autoscope=0 ]	(	""	)
+fc_colorramp1pos	[ 0	locks=0	autoscope=0 ]	(	0	)
+fc_colorramp1c	[ 0	locks=0	autoscope=0 ]	(	0	0	0	)
+fc_colorramp1interp	[ 0	locks=0	autoscope=0 ]	(	"catmull-rom"	)
+fc_colorramp2pos	[ 0	locks=0	autoscope=0 ]	(	0.54000002145767212	)
+fc_colorramp2c	[ 0	locks=0	autoscope=0 ]	(	1	0.34999999403953552	0.012000024318695068	)
+fc_colorramp2interp	[ 0	locks=0	autoscope=0 ]	(	"catmull-rom"	)
+s_ramp1pos	[ 0	locks=0	autoscope=0 ]	(	0	)
+s_ramp1value	[ 0	locks=0	autoscope=0 ]	(	0	)
+s_ramp1interp	[ 0	locks=0	autoscope=0 ]	(	"linear"	)
+s_ramp2pos	[ 0	locks=0	autoscope=0 ]	(	1	)
+s_ramp2value	[ 0	locks=0	autoscope=0 ]	(	1	)
+s_ramp2interp	[ 0	locks=0	autoscope=0 ]	(	"linear"	)
+fi_ramp1pos	[ 0	locks=0	autoscope=0 ]	(	0	)
+fi_ramp1value	[ 0	locks=0	autoscope=0 ]	(	0	)
+fi_ramp1interp	[ 0	locks=0	autoscope=0 ]	(	"linear"	)
+fi_ramp2pos	[ 0	locks=0	autoscope=0 ]	(	0.9100000262260437	)
+fi_ramp2value	[ 0	locks=0	autoscope=0 ]	(	0.9100000262260437	)
+fi_ramp2interp	[ 0	locks=0	autoscope=0 ]	(	"linear"	)
+fc_ramp1pos	[ 0	locks=0	autoscope=0 ]	(	0	)
+fc_ramp1value	[ 0	locks=0	autoscope=0 ]	(	0	)
+fc_ramp1interp	[ 0	locks=0	autoscope=0 ]	(	"linear"	)
+fc_ramp2pos	[ 0	locks=0	autoscope=0 ]	(	0.084493041038513184	)
+fc_ramp2value	[ 0	locks=0	autoscope=0 ]	(	0.079881653189659119	)
+fc_ramp2interp	[ 0	locks=0	autoscope=0 ]	(	"catmull-rom"	)
+fc_colorramp3pos	[ 0	locks=0	autoscope=0 ]	(	0.78313255310058594	)
+fc_colorramp3c	[ 0	locks=0	autoscope=0 ]	(	1	0.64999997615814209	0	)
+fc_colorramp3interp	[ 0	locks=0	autoscope=0 ]	(	"catmull-rom"	)
+fc_colorramp4pos	[ 0	locks=0	autoscope=0 ]	(	1	)
+fc_colorramp4c	[ 0	locks=0	autoscope=0 ]	(	1	1	1	)
+fc_colorramp4interp	[ 0	locks=0	autoscope=0 ]	(	"catmull-rom"	)
+fc_ramp3pos	[ 0	locks=0 ]	(	0.11299999803304672	)
+fc_ramp3value	[ 0	locks=0 ]	(	0.075999999999999998	)
+fc_ramp3interp	[ 0	locks=0 ]	(	"catmull-rom"	)
+fc_ramp4pos	[ 0	locks=0 ]	(	0.14015904068946838	)
+fc_ramp4value	[ 0	locks=0 ]	(	0.1331360936164856	)
+fc_ramp4interp	[ 0	locks=0 ]	(	"catmull-rom"	)
+fc_ramp5pos	[ 0	locks=0 ]	(	0.15208747982978821	)
+fc_ramp5value	[ 0	locks=0 ]	(	0.14497041702270508	)
+fc_ramp5interp	[ 0	locks=0 ]	(	"catmull-rom"	)
+fc_ramp6pos	[ 0	locks=0 ]	(	0.16998012363910675	)
+fc_ramp6value	[ 0	locks=0 ]	(	0.11899999999999999	)
+fc_ramp6interp	[ 0	locks=0 ]	(	"catmull-rom"	)
+fc_ramp7pos	[ 0	locks=0 ]	(	0.18389661610126495	)
+fc_ramp7value	[ 0	locks=0 ]	(	0.18047337234020233	)
+fc_ramp7interp	[ 0	locks=0 ]	(	"catmull-rom"	)
+fc_ramp8pos	[ 0	locks=0 ]	(	0.20000000298023224	)
+fc_ramp8value	[ 0	locks=0 ]	(	0.20000000298023224	)
+fc_ramp8interp	[ 0	locks=0 ]	(	"catmull-rom"	)
+fc_ramp9pos	[ 0	locks=0 ]	(	0.22365805506706238	)
+fc_ramp9value	[ 0	locks=0 ]	(	0.16400000000000001	)
+fc_ramp9interp	[ 0	locks=0 ]	(	"catmull-rom"	)
+fc_ramp10pos	[ 0	locks=0 ]	(	0.25149103999137878	)
+fc_ramp10value	[ 0	locks=0 ]	(	0.25443786382675171	)
+fc_ramp10interp	[ 0	locks=0 ]	(	"catmull-rom"	)
+fc_ramp11pos	[ 0	locks=0 ]	(	0.27335983514785767	)
+fc_ramp11value	[ 0	locks=0 ]	(	0.215	)
+fc_ramp11interp	[ 0	locks=0 ]	(	"catmull-rom"	)
+fc_ramp12pos	[ 0	locks=0 ]	(	0.30000001192092896	)
+fc_ramp12value	[ 0	locks=0 ]	(	0.30000001192092896	)
+fc_ramp12interp	[ 0	locks=0 ]	(	"catmull-rom"	)
+fc_ramp13pos	[ 0	locks=0 ]	(	0.32703778147697449	)
+fc_ramp13value	[ 0	locks=0 ]	(	0.26100000000000001	)
+fc_ramp13interp	[ 0	locks=0 ]	(	"catmull-rom"	)
+fc_ramp14pos	[ 0	locks=0 ]	(	0.34999999403953552	)
+fc_ramp14value	[ 0	locks=0 ]	(	0.34999999403953552	)
+fc_ramp14interp	[ 0	locks=0 ]	(	"catmull-rom"	)
+fc_ramp15pos	[ 0	locks=0 ]	(	0.37475147843360901	)
+fc_ramp15value	[ 0	locks=0 ]	(	0.23964497447013855	)
+fc_ramp15interp	[ 0	locks=0 ]	(	"catmull-rom"	)
+fc_ramp16pos	[ 0	locks=0 ]	(	0.40000000596046448	)
+fc_ramp16value	[ 0	locks=0 ]	(	0.40000000596046448	)
+fc_ramp16interp	[ 0	locks=0 ]	(	"catmull-rom"	)
+fc_ramp17pos	[ 0	locks=0 ]	(	0.42644134163856506	)
+fc_ramp17value	[ 0	locks=0 ]	(	0.28698223829269409	)
+fc_ramp17interp	[ 0	locks=0 ]	(	"catmull-rom"	)
+fc_ramp18pos	[ 0	locks=0 ]	(	0.45228627324104309	)
+fc_ramp18value	[ 0	locks=0 ]	(	0.44082841277122498	)
+fc_ramp18interp	[ 0	locks=0 ]	(	"catmull-rom"	)
+fc_ramp19pos	[ 0	locks=0 ]	(	0.47415506839752197	)
+fc_ramp19value	[ 0	locks=0 ]	(	0.25147929787635803	)
+fc_ramp19interp	[ 0	locks=0 ]	(	"catmull-rom"	)
+fc_ramp20pos	[ 0	locks=0 ]	(	0.5	)
+fc_ramp20value	[ 0	locks=0 ]	(	0.5	)
+fc_ramp20interp	[ 0	locks=0 ]	(	"linear"	)
+fc_ramp21pos	[ 0	locks=0 ]	(	0.51988071203231812	)
+fc_ramp21value	[ 0	locks=0 ]	(	0.33431953191757202	)
+fc_ramp21interp	[ 0	locks=0 ]	(	"linear"	)
+fc_ramp22pos	[ 0	locks=0 ]	(	0.53777337074279785	)
+fc_ramp22value	[ 0	locks=0 ]	(	0.50295859575271606	)
+fc_ramp22interp	[ 0	locks=0 ]	(	"linear"	)
+fc_ramp23pos	[ 0	locks=0 ]	(	0.55000001192092896	)
+fc_ramp23value	[ 0	locks=0 ]	(	0.55000001192092896	)
+fc_ramp23interp	[ 0	locks=0 ]	(	"linear"	)
+fc_ramp24pos	[ 0	locks=0 ]	(	0.56560635566711426	)
+fc_ramp24value	[ 0	locks=0 ]	(	0.3372780978679657	)
+fc_ramp24interp	[ 0	locks=0 ]	(	"linear"	)
+fc_ramp25pos	[ 0	locks=0 ]	(	0.57952284812927246	)
+fc_ramp25value	[ 0	locks=0 ]	(	0.55325442552566528	)
+fc_ramp25interp	[ 0	locks=0 ]	(	"linear"	)
+fc_ramp26pos	[ 0	locks=0 ]	(	0.5974155068397522	)
+fc_ramp26value	[ 0	locks=0 ]	(	0.57396447658538818	)
+fc_ramp26interp	[ 0	locks=0 ]	(	"linear"	)
+fc_ramp27pos	[ 0	locks=0 ]	(	0.61729621887207031	)
+fc_ramp27value	[ 0	locks=0 ]	(	0.35798817873001099	)
+fc_ramp27interp	[ 0	locks=0 ]	(	"linear"	)
+fc_ramp28pos	[ 0	locks=0 ]	(	0.63518887758255005	)
+fc_ramp28value	[ 0	locks=0 ]	(	0.60650885105133057	)
+fc_ramp28interp	[ 0	locks=0 ]	(	"linear"	)
+fc_ramp29pos	[ 0	locks=0 ]	(	0.65109342336654663	)
+fc_ramp29value	[ 0	locks=0 ]	(	0.38165679574012756	)
+fc_ramp29interp	[ 0	locks=0 ]	(	"linear"	)
+fc_ramp30pos	[ 0	locks=0 ]	(	0.66103380918502808	)
+fc_ramp30value	[ 0	locks=0 ]	(	0.62130177021026611	)
+fc_ramp30interp	[ 0	locks=0 ]	(	"linear"	)
+fc_ramp31pos	[ 0	locks=0 ]	(	0.68489062786102295	)
+fc_ramp31value	[ 0	locks=0 ]	(	0.39349111914634705	)
+fc_ramp31interp	[ 0	locks=0 ]	(	"linear"	)
+fc_ramp32pos	[ 0	locks=0 ]	(	0.70079523324966431	)
+fc_ramp32value	[ 0	locks=0 ]	(	0.65680474042892456	)
+fc_ramp32interp	[ 0	locks=0 ]	(	"linear"	)
+fc_ramp33pos	[ 0	locks=0 ]	(	0.72664016485214233	)
+fc_ramp33value	[ 0	locks=0 ]	(	0.66863906383514404	)
+fc_ramp33interp	[ 0	locks=0 ]	(	"linear"	)
+fc_ramp34pos	[ 0	locks=0 ]	(	0.74254471063613892	)
+fc_ramp34value	[ 0	locks=0 ]	(	0.42307692766189575	)
+fc_ramp34interp	[ 0	locks=0 ]	(	"catmull-rom"	)
+fc_ramp35pos	[ 0	locks=0 ]	(	0.75646120309829712	)
+fc_ramp35value	[ 0	locks=0 ]	(	0.5	)
+fc_ramp35interp	[ 0	locks=0 ]	(	"catmull-rom"	)
+fc_ramp36pos	[ 0	locks=0 ]	(	0.76838964223861694	)
+fc_ramp36value	[ 0	locks=0 ]	(	0.71005916595458984	)
+fc_ramp36interp	[ 0	locks=0 ]	(	"linear"	)
+fc_ramp37pos	[ 0	locks=0 ]	(	0.79622268676757812	)
+fc_ramp37value	[ 0	locks=0 ]	(	0.75739645957946777	)
+fc_ramp37interp	[ 0	locks=0 ]	(	"linear"	)
+fc_ramp38pos	[ 0	locks=0 ]	(	0.80616301298141479	)
+fc_ramp38value	[ 0	locks=0 ]	(	0.44082841277122498	)
+fc_ramp38interp	[ 0	locks=0 ]	(	"linear"	)
+fc_ramp39pos	[ 0	locks=0 ]	(	0.82405567169189453	)
+fc_ramp39value	[ 0	locks=0 ]	(	0.77514791488647461	)
+fc_ramp39interp	[ 0	locks=0 ]	(	"linear"	)
+fc_ramp40pos	[ 0	locks=0 ]	(	0.83797216415405273	)
+fc_ramp40value	[ 0	locks=0 ]	(	0.75739645957946777	)
+fc_ramp40interp	[ 0	locks=0 ]	(	"linear"	)
+fc_ramp41pos	[ 0	locks=0 ]	(	0.84990060329437256	)
+fc_ramp41value	[ 0	locks=0 ]	(	0.48816567659378052	)
+fc_ramp41interp	[ 0	locks=0 ]	(	"linear"	)
+fc_ramp42pos	[ 0	locks=0 ]	(	0.86182904243469238	)
+fc_ramp42value	[ 0	locks=0 ]	(	0.78106510639190674	)
+fc_ramp42interp	[ 0	locks=0 ]	(	"linear"	)
+fc_ramp43pos	[ 0	locks=0 ]	(	0.87375748157501221	)
+fc_ramp43value	[ 0	locks=0 ]	(	0.82248520851135254	)
+fc_ramp43interp	[ 0	locks=0 ]	(	"linear"	)
+fc_ramp44pos	[ 0	locks=0 ]	(	0.89363819360733032	)
+fc_ramp44value	[ 0	locks=0 ]	(	0.48816567659378052	)
+fc_ramp44interp	[ 0	locks=0 ]	(	"linear"	)
+fc_ramp45pos	[ 0	locks=0 ]	(	0.91550695896148682	)
+fc_ramp45value	[ 0	locks=0 ]	(	0.83431953191757202	)
+fc_ramp45interp	[ 0	locks=0 ]	(	"linear"	)
+fc_ramp46pos	[ 0	locks=0 ]	(	0.92942345142364502	)
+fc_ramp46value	[ 0	locks=0 ]	(	0.88165682554244995	)
+fc_ramp46interp	[ 0	locks=0 ]	(	"linear"	)
+fc_ramp47pos	[ 0	locks=0 ]	(	0.94333994388580322	)
+fc_ramp47value	[ 0	locks=0 ]	(	0.64201182126998901	)
+fc_ramp47interp	[ 0	locks=0 ]	(	"linear"	)
+fc_ramp48pos	[ 0	locks=0 ]	(	0.95328032970428467	)
+fc_ramp48value	[ 0	locks=0 ]	(	0.8668639063835144	)
+fc_ramp48interp	[ 0	locks=0 ]	(	"linear"	)
+fc_ramp49pos	[ 0	locks=0 ]	(	0.97713714838027954	)
+fc_ramp49value	[ 0	locks=0 ]	(	0.58284026384353638	)
+fc_ramp49interp	[ 0	locks=0 ]	(	"linear"	)
+fc_ramp50pos	[ 0	locks=0 ]	(	1	)
+fc_ramp50value	[ 0	locks=0 ]	(	1	)
+fc_ramp50interp	[ 0	locks=0 ]	(	"linear"	)
+fi_ramp3pos	[ 0	locks=0 ]	(	0.9314115047454834	)
+fi_ramp3value	[ 0	locks=0 ]	(	0.14792899787425995	)
+fi_ramp3interp	[ 0	locks=0 ]	(	"linear"	)
+fi_ramp4pos	[ 0	locks=0 ]	(	0.94532805681228638	)
+fi_ramp4value	[ 0	locks=0 ]	(	0.94082838296890259	)
+fi_ramp4interp	[ 0	locks=0 ]	(	"linear"	)
+fi_ramp5pos	[ 0	locks=0 ]	(	0.9711729884147644	)
+fi_ramp5value	[ 0	locks=0 ]	(	0.21301774680614471	)
+fi_ramp5interp	[ 0	locks=0 ]	(	"linear"	)
+fi_ramp6pos	[ 0	locks=0 ]	(	0.97713714838027954	)
+fi_ramp6value	[ 0	locks=0 ]	(	0.9585798978805542	)
+fi_ramp6interp	[ 0	locks=0 ]	(	"linear"	)
+fi_ramp7pos	[ 0	locks=0 ]	(	0.99347823858261108	)
+fi_ramp7value	[ 0	locks=0 ]	(	0.052727270871400833	)
+fi_ramp7interp	[ 0	locks=0 ]	(	"linear"	)
+fi_ramp8pos	[ 0	locks=0 ]	(	1	)
+fi_ramp8value	[ 0	locks=0 ]	(	0.24852071702480316	)
+fi_ramp8interp	[ 0	locks=0 ]	(	"linear"	)
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/matnet1/smokelessflames.userdata"
+Content-Type: text/plain
+
+{
+	"___Version___":{
+		"type":"string",
+		"value":""
+	},
+	"___toolcount___":{
+		"type":"string",
+		"value":"2"
+	},
+	"___toolid___":{
+		"type":"string",
+		"value":"pyro_smokelessflame"
+	},
+	"__inputgroup_Exports":{
+		"type":"string",
+		"value":"collapsed"
+	},
+	"__inputgroup_Fire Intensity Field":{
+		"type":"string",
+		"value":"collapsed"
+	},
+	"__inputgroup_Fire Temperature Field":{
+		"type":"string",
+		"value":"collapsed"
+	},
+	"__inputgroup_General":{
+		"type":"string",
+		"value":"collapsed"
+	},
+	"__inputgroup_Smoke Field":{
+		"type":"string",
+		"value":"collapsed"
+	}
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/matnet1/smokelessflames_orig.init"
+Content-Type: text/plain
+
+type = pyroshader
+matchesdef = 1
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/matnet1/smokelessflames_orig.def"
+Content-Type: text/plain
+
+comment "Created from Gallery Entry: Smokeless Flames
+
+Flame material"
+position -17.7934 7.74359
+connectornextid 167
+flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on lowdetail off mediumdetail off highdetail on material on
+outputsNamed3
+{
+}
+inputsNamed3
+{
+0 	"" "" 1 "next"
+1 	"" "" 1 "rest"
+2 	"" "" 1 "rest_ratio"
+3 	"" "" 1 "rest2"
+4 	"" "" 1 "rest2_ratio"
+5 	"" "" 1 "Cd"
+6 	"" "" 1 "s_densityscale"
+7 	"" "" 1 "s_int"
+8 	"" "" 1 "s_color"
+9 	"" "" 1 "s_tintwithcd"
+10 	"" "" 1 "shade_phase"
+11 	"" "" 1 "fi_int"
+12 	"" "" 1 "fc_int"
+13 	"" "" 1 "fc_colormode"
+14 	"" "" 1 "fc_constantcolor"
+15 	"" "" 1 "fc_rampmin"
+16 	"" "" 1 "fc_rampmax"
+17 	"" "" 1 "fc_colorramp"
+18 	"" "" 1 "fc_bbtemp"
+19 	"" "" 1 "fc_bbadapt"
+20 	"" "" 1 "fc_bbburn"
+21 	"" "" 1 "s_shadowint"
+22 	"" "" 1 "s_shadowclr"
+23 	"" "" 1 "ftype"
+24 	"" "" 1 "fscale"
+25 	"" "" 1 "s_fitenable"
+26 	"" "" 1 "s_fitsrcmin"
+27 	"" "" 1 "s_fitsrcmax"
+28 	"" "" 1 "s_fitdestmin"
+29 	"" "" 1 "s_fitdestmax"
+30 	"" "" 1 "s_rampenable"
+31 	"" "" 1 "s_rampextl"
+32 	"" "" 1 "s_rampextr"
+33 	"" "" 1 "s_ramp"
+34 	"" "" 1 "s_contourenable"
+35 	"" "" 1 "s_contourwidth"
+36 	"" "" 1 "s_contoursharp"
+37 	"" "" 1 "s_sclipenable"
+38 	"" "" 1 "s_sclipstart"
+39 	"" "" 1 "s_sclipsuppress"
+40 	"" "" 1 "s_lowlimitenable"
+41 	"" "" 1 "s_lowlimit"
+42 	"" "" 1 "s_highlimitenable"
+43 	"" "" 1 "s_highlimit"
+44 	"" "" 1 "s_amp"
+45 	"" "" 1 "s_noiseenable"
+46 	"" "" 1 "s_noisemode"
+47 	"" "" 1 "s_noisebasis"
+48 	"" "" 1 "s_noisefreq"
+49 	"" "" 1 "s_noiseoffset"
+50 	"" "" 1 "s_noiseperiod"
+51 	"" "" 1 "s_noisefractal"
+52 	"" "" 1 "s_noiseoct"
+53 	"" "" 1 "s_noiselac"
+54 	"" "" 1 "s_noiserough"
+55 	"" "" 1 "s_noisedolwarp"
+56 	"" "" 1 "s_noiseaccuml"
+57 	"" "" 1 "s_noisedisp"
+58 	"" "" 1 "s_noisedispfreq"
+59 	"" "" 1 "s_noisedogwarp"
+60 	"" "" 1 "s_noiseaccumg"
+61 	"" "" 1 "s_noisegflow"
+62 	"" "" 1 "s_noiseflowrot"
+63 	"" "" 1 "s_noisecc_dobias"
+64 	"" "" 1 "s_noisecc_bias"
+65 	"" "" 1 "s_noisecc_dogain"
+66 	"" "" 1 "s_noisecc_gain"
+67 	"" "" 1 "s_noisecc_inv"
+68 	"" "" 1 "s_noisecc_dorng"
+69 	"" "" 1 "s_noisecc_rnglo"
+70 	"" "" 1 "s_noisecc_rnghi"
+71 	"" "" 1 "s_noisecc_amp"
+72 	"" "" 1 "fi_fitenable"
+73 	"" "" 1 "fi_fitsrcmin"
+74 	"" "" 1 "fi_fitsrcmax"
+75 	"" "" 1 "fi_fitdestmin"
+76 	"" "" 1 "fi_fitdestmax"
+77 	"" "" 1 "fi_rampenable"
+78 	"" "" 1 "fi_rampextl"
+79 	"" "" 1 "fi_rampextr"
+80 	"" "" 1 "fi_ramp"
+81 	"" "" 1 "fi_contourenable"
+82 	"" "" 1 "fi_contourwidth"
+83 	"" "" 1 "fi_contoursharp"
+84 	"" "" 1 "fi_sclipenable"
+85 	"" "" 1 "fi_sclipstart"
+86 	"" "" 1 "fi_sclipsuppress"
+87 	"" "" 1 "fi_lowlimitenable"
+88 	"" "" 1 "fi_lowlimit"
+89 	"" "" 1 "fi_highlimitenable"
+90 	"" "" 1 "fi_highlimit"
+91 	"" "" 1 "fi_amp"
+92 	"" "" 1 "fi_noiseenable"
+93 	"" "" 1 "fi_noisemode"
+94 	"" "" 1 "fi_noisebasis"
+95 	"" "" 1 "fi_noisefreq"
+96 	"" "" 1 "fi_noiseoffset"
+97 	"" "" 1 "fi_noiseperiod"
+98 	"" "" 1 "fi_noisefractal"
+99 	"" "" 1 "fi_noiseoct"
+100 	"" "" 1 "fi_noiselac"
+101 	"" "" 1 "fi_noiserough"
+102 	"" "" 1 "fi_noisedolwarp"
+103 	"" "" 1 "fi_noiseaccuml"
+104 	"" "" 1 "fi_noisedisp"
+105 	"" "" 1 "fi_noisedispfreq"
+106 	"" "" 1 "fi_noisedogwarp"
+107 	"" "" 1 "fi_noiseaccumg"
+108 	"" "" 1 "fi_noisegflow"
+109 	"" "" 1 "fi_noiseflowrot"
+110 	"" "" 1 "fi_noisecc_dobias"
+111 	"" "" 1 "fi_noisecc_bias"
+112 	"" "" 1 "fi_noisecc_dogain"
+113 	"" "" 1 "fi_noisecc_gain"
+114 	"" "" 1 "fi_noisecc_inv"
+115 	"" "" 1 "fi_noisecc_dorng"
+116 	"" "" 1 "fi_noisecc_rnglo"
+117 	"" "" 1 "fi_noisecc_rnghi"
+118 	"" "" 1 "fi_noisecc_amp"
+119 	"" "" 1 "fc_fitenable"
+120 	"" "" 1 "fc_fitsrcmin"
+121 	"" "" 1 "fc_fitsrcmax"
+122 	"" "" 1 "fc_fitdestmin"
+123 	"" "" 1 "fc_fitdestmax"
+124 	"" "" 1 "fc_rampenable"
+125 	"" "" 1 "fc_rampextl"
+126 	"" "" 1 "fc_rampextr"
+127 	"" "" 1 "fc_ramp"
+128 	"" "" 1 "fc_contourenable"
+129 	"" "" 1 "fc_contourwidth"
+130 	"" "" 1 "fc_contoursharp"
+131 	"" "" 1 "fc_sclipenable"
+132 	"" "" 1 "fc_sclipstart"
+133 	"" "" 1 "fc_sclipsuppress"
+134 	"" "" 1 "fc_lowlimitenable"
+135 	"" "" 1 "fc_lowlimit"
+136 	"" "" 1 "fc_highlimitenable"
+137 	"" "" 1 "fc_highlimit"
+138 	"" "" 1 "fc_amp"
+139 	"" "" 1 "fc_noiseenable"
+140 	"" "" 1 "fc_noisemode"
+141 	"" "" 1 "fc_noisebasis"
+142 	"" "" 1 "fc_noisefreq"
+143 	"" "" 1 "fc_noiseoffset"
+144 	"" "" 1 "fc_noiseperiod"
+145 	"" "" 1 "fc_noisefractal"
+146 	"" "" 1 "fc_noiseoct"
+147 	"" "" 1 "fc_noiselac"
+148 	"" "" 1 "fc_noiserough"
+149 	"" "" 1 "fc_noisedolwarp"
+150 	"" "" 1 "fc_noiseaccuml"
+151 	"" "" 1 "fc_noisedisp"
+152 	"" "" 1 "fc_noisedispfreq"
+153 	"" "" 1 "fc_noisedogwarp"
+154 	"" "" 1 "fc_noiseaccumg"
+155 	"" "" 1 "fc_noisegflow"
+156 	"" "" 1 "fc_noiseflowrot"
+157 	"" "" 1 "fc_noisecc_dobias"
+158 	"" "" 1 "fc_noisecc_bias"
+159 	"" "" 1 "fc_noisecc_dogain"
+160 	"" "" 1 "fc_noisecc_gain"
+161 	"" "" 1 "fc_noisecc_inv"
+162 	"" "" 1 "fc_noisecc_dorng"
+163 	"" "" 1 "fc_noisecc_rnglo"
+164 	"" "" 1 "fc_noisecc_rnghi"
+165 	"" "" 1 "fc_noisecc_amp"
+166 	"" "" 1 "density"
+}
+inputs
+{
+0 	"" 0 1
+1 	"" 0 1
+2 	"" 0 1
+3 	"" 0 1
+4 	"" 0 1
+5 	"" 0 1
+6 	"" 0 1
+7 	"" 0 1
+8 	"" 0 1
+9 	"" 0 1
+10 	"" 0 1
+11 	"" 0 1
+12 	"" 0 1
+13 	"" 0 1
+14 	"" 0 1
+15 	"" 0 1
+16 	"" 0 1
+17 	"" 0 1
+18 	"" 0 1
+19 	"" 0 1
+20 	"" 0 1
+21 	"" 0 1
+22 	"" 0 1
+23 	"" 0 1
+24 	"" 0 1
+25 	"" 0 1
+26 	"" 0 1
+27 	"" 0 1
+28 	"" 0 1
+29 	"" 0 1
+30 	"" 0 1
+31 	"" 0 1
+32 	"" 0 1
+33 	"" 0 1
+34 	"" 0 1
+35 	"" 0 1
+36 	"" 0 1
+37 	"" 0 1
+38 	"" 0 1
+39 	"" 0 1
+40 	"" 0 1
+41 	"" 0 1
+42 	"" 0 1
+43 	"" 0 1
+44 	"" 0 1
+45 	"" 0 1
+46 	"" 0 1
+47 	"" 0 1
+48 	"" 0 1
+49 	"" 0 1
+50 	"" 0 1
+51 	"" 0 1
+52 	"" 0 1
+53 	"" 0 1
+54 	"" 0 1
+55 	"" 0 1
+56 	"" 0 1
+57 	"" 0 1
+58 	"" 0 1
+59 	"" 0 1
+60 	"" 0 1
+61 	"" 0 1
+62 	"" 0 1
+63 	"" 0 1
+64 	"" 0 1
+65 	"" 0 1
+66 	"" 0 1
+67 	"" 0 1
+68 	"" 0 1
+69 	"" 0 1
+70 	"" 0 1
+71 	"" 0 1
+72 	"" 0 1
+73 	"" 0 1
+74 	"" 0 1
+75 	"" 0 1
+76 	"" 0 1
+77 	"" 0 1
+78 	"" 0 1
+79 	"" 0 1
+80 	"" 0 1
+81 	"" 0 1
+82 	"" 0 1
+83 	"" 0 1
+84 	"" 0 1
+85 	"" 0 1
+86 	"" 0 1
+87 	"" 0 1
+88 	"" 0 1
+89 	"" 0 1
+90 	"" 0 1
+91 	"" 0 1
+92 	"" 0 1
+93 	"" 0 1
+94 	"" 0 1
+95 	"" 0 1
+96 	"" 0 1
+97 	"" 0 1
+98 	"" 0 1
+99 	"" 0 1
+100 	"" 0 1
+101 	"" 0 1
+102 	"" 0 1
+103 	"" 0 1
+104 	"" 0 1
+105 	"" 0 1
+106 	"" 0 1
+107 	"" 0 1
+108 	"" 0 1
+109 	"" 0 1
+110 	"" 0 1
+111 	"" 0 1
+112 	"" 0 1
+113 	"" 0 1
+114 	"" 0 1
+115 	"" 0 1
+116 	"" 0 1
+117 	"" 0 1
+118 	"" 0 1
+119 	"" 0 1
+120 	"" 0 1
+121 	"" 0 1
+122 	"" 0 1
+123 	"" 0 1
+124 	"" 0 1
+125 	"" 0 1
+126 	"" 0 1
+127 	"" 0 1
+128 	"" 0 1
+129 	"" 0 1
+130 	"" 0 1
+131 	"" 0 1
+132 	"" 0 1
+133 	"" 0 1
+134 	"" 0 1
+135 	"" 0 1
+136 	"" 0 1
+137 	"" 0 1
+138 	"" 0 1
+139 	"" 0 1
+140 	"" 0 1
+141 	"" 0 1
+142 	"" 0 1
+143 	"" 0 1
+144 	"" 0 1
+145 	"" 0 1
+146 	"" 0 1
+147 	"" 0 1
+148 	"" 0 1
+149 	"" 0 1
+150 	"" 0 1
+151 	"" 0 1
+152 	"" 0 1
+153 	"" 0 1
+154 	"" 0 1
+155 	"" 0 1
+156 	"" 0 1
+157 	"" 0 1
+158 	"" 0 1
+159 	"" 0 1
+160 	"" 0 1
+161 	"" 0 1
+162 	"" 0 1
+163 	"" 0 1
+164 	"" 0 1
+165 	"" 0 1
+166 	"" 0 1
+}
+stat
+{
+  create 1496865993
+  modify 1512379779
+  author mikel@mikembp-sesi.local
+  access 0777
+}
+color UT_Color RGB 0.8 0.8 0.8 
+creator gallery::smokelessflames
+explicit 1
+delscript ""
+exprlanguage hscript
+end
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/matnet1/smokelessflames_orig.parm"
+Content-Type: text/plain
+
+{
+version 0.8
+folder2_4	[ 0	locks=0	autoscope=0 ]	(	0	0	0	0	0	)
+folder6	[ 0	locks=0	autoscope=0 ]	(	0	)
+s_densityscale	[ 0	locks=0	autoscope=0 ]	(	20	)
+s_int	[ 0	locks=0	autoscope=0 ]	(	1	)
+s_color	[ 0	locks=0	autoscope=0 ]	(	0.40000000000000002	0.40000000000000002	0.40000000000000002	)
+s_tintwithcd	[ 0	locks=0	autoscope=0 ]	(	"on"	)
+shade_phase	[ 0	locks=0	autoscope=0 ]	(	0	)
+folder2_3_4	[ 0	locks=0	autoscope=0 ]	(	0	)
+fi_int	[ 0	locks=0	autoscope=0 ]	(	30	)
+fc_int	[ 0	locks=0	autoscope=0 ]	(	1.0009999999999999	)
+fc_colormode	[ 0	locks=0	autoscope=0 ]	(	2	)
+fc_constantcolor	[ 0	locks=0	autoscope=0 ]	(	1	1	1	)
+fc_rampmin	[ 0	locks=0	autoscope=0 ]	(	0	)
+fc_rampmax	[ 0	locks=0	autoscope=0 ]	(	1	)
+fc_colorramp	[ 0	locks=0	autoscope=0 ]	(	4	)
+fc_bbtemp	[ 0	locks=0	autoscope=0 ]	(	6500	)
+fc_bbadapt	[ 0	locks=0	autoscope=0 ]	(	0.070000000000000007	)
+fc_bbburn	[ 0	locks=0	autoscope=0 ]	(	-0.46700000000000003	)
+folder8	[ 0	locks=0	autoscope=0 ]	(	0	)
+s_shadowint	[ 0	locks=0	autoscope=0 ]	(	1	)
+s_shadowclr	[ 0	locks=0	autoscope=0 ]	(	1	1	1	)
+folder15	[ 0	locks=0	autoscope=0 ]	(	0	)
+ftype	[ 0	locks=0	autoscope=0 ]	(	point	)
+fscale	[ 0	locks=0	autoscope=0 ]	(	1	)
+s_volumename	[ 0	locks=0	autoscope=0 ]	(	heat	)
+folder16	[ 0	locks=0	autoscope=0 ]	(	0	0	)
+s_fitenable	[ 0	locks=0	autoscope=0 ]	(	"off"	)
+s_fitsrcmin	[ 0	locks=0	autoscope=0 ]	(	0	)
+s_fitsrcmax	[ 0	locks=0	autoscope=0 ]	(	1	)
+s_fitdestmin	[ 0	locks=0	autoscope=0 ]	(	0	)
+s_fitdestmax	[ 0	locks=0	autoscope=0 ]	(	1	)
+s_rampenable	[ 0	locks=0	autoscope=0 ]	(	"off"	)
+s_rampextl	[ 0	locks=0	autoscope=0 ]	(	hold	)
+s_rampextr	[ 0	locks=0	autoscope=0 ]	(	hold	)
+s_ramp	[ 0	locks=0	autoscope=0 ]	(	2	)
+s_contourenable	[ 0	locks=0	autoscope=0 ]	(	"off"	)
+s_contourwidth	[ 0	locks=0	autoscope=0 ]	(	0.02	)
+s_contoursharp	[ 0	locks=0	autoscope=0 ]	(	4	)
+s_sclipenable	[ 0	locks=0	autoscope=0 ]	(	"off"	)
+s_sclipstart	[ 0	locks=0	autoscope=0 ]	(	0.80000000000000004	)
+s_sclipsuppress	[ 0	locks=0	autoscope=0 ]	(	1	)
+s_lowlimitenable	[ 0	locks=0	autoscope=0 ]	(	"off"	)
+s_lowlimit	[ 0	locks=0	autoscope=0 ]	(	0	)
+s_highlimitenable	[ 0	locks=0	autoscope=0 ]	(	"off"	)
+s_highlimit	[ 0	locks=0	autoscope=0 ]	(	1	)
+s_amp	[ 0	locks=0	autoscope=0 ]	(	1	)
+s_noiseenable	[ 0	locks=0	autoscope=0 ]	(	"off"	)
+s_noisemode	[ 0	locks=0	autoscope=0 ]	(	0	)
+s_noisebasis	[ 0	locks=0	autoscope=0 ]	(	simplex	)
+s_noisefreq	[ 0	locks=0	autoscope=0 ]	(	5	5	5	1	)
+s_noiseoffset	[ 0	locks=0	autoscope=0 ]	(	0	0	0	0	)
+s_noiseperiod	[ 0	locks=0	autoscope=0 ]	(	1	1	1	1	)
+folder17	[ 0	locks=0	autoscope=0 ]	(	0	)
+s_noisefractal	[ 0	locks=0	autoscope=0 ]	(	none	)
+s_noiseoct	[ 0	locks=0	autoscope=0 ]	(	8	)
+s_noiselac	[ 0	locks=0	autoscope=0 ]	(	2.01234	)
+s_noiserough	[ 0	locks=0	autoscope=0 ]	(	0.5	)
+folder18	[ 0	locks=0	autoscope=0 ]	(	0	)
+s_noisedolwarp	[ 0	locks=0	autoscope=0 ]	(	"off"	)
+s_noiseaccuml	[ 0	locks=0	autoscope=0 ]	(	"off"	)
+s_noisedisp	[ 0	locks=0	autoscope=0 ]	(	0	)
+s_noisedispfreq	[ 0	locks=0	autoscope=0 ]	(	1	)
+s_noisedogwarp	[ 0	locks=0	autoscope=0 ]	(	"off"	)
+s_noiseaccumg	[ 0	locks=0	autoscope=0 ]	(	"off"	)
+s_noisegflow	[ 0	locks=0	autoscope=0 ]	(	0	)
+s_noiseflowrot	[ 0	locks=0	autoscope=0 ]	(	0	)
+folder5_1_2	[ 0	locks=0	autoscope=0 ]	(	0	)
+s_noisecc_dobias	[ 0	locks=0	autoscope=0 ]	(	"off"	)
+s_noisecc_bias	[ 0	locks=0	autoscope=0 ]	(	0.5	)
+s_noisecc_dogain	[ 0	locks=0	autoscope=0 ]	(	"off"	)
+s_noisecc_gain	[ 0	locks=0	autoscope=0 ]	(	0.5	)
+s_noisecc_inv	[ 0	locks=0	autoscope=0 ]	(	"off"	)
+s_noisecc_dorng	[ 0	locks=0	autoscope=0 ]	(	"off"	)
+s_noisecc_rnglo	[ 0	locks=0	autoscope=0 ]	(	0	)
+s_noisecc_rnghi	[ 0	locks=0	autoscope=0 ]	(	1	)
+s_noisecc_amp	[ 0	locks=0	autoscope=0 ]	(	1	1	1	)
+fi_volumename	[ 0	locks=0	autoscope=0 ]	(	temperature	)
+folder19	[ 0	locks=0	autoscope=0 ]	(	0	0	)
+fi_fitenable	[ 0	locks=0	autoscope=0 ]	(	"off"	)
+fi_fitsrcmin	[ 0	locks=0	autoscope=0 ]	(	0	)
+fi_fitsrcmax	[ 0	locks=0	autoscope=0 ]	(	1	)
+fi_fitdestmin	[ 0	locks=0	autoscope=0 ]	(	0	)
+fi_fitdestmax	[ 0	locks=0	autoscope=0 ]	(	1	)
+fi_rampenable	[ 0	locks=0	autoscope=0 ]	(	"off"	)
+fi_rampextl	[ 0	locks=0	autoscope=0 ]	(	hold	)
+fi_rampextr	[ 0	locks=0	autoscope=0 ]	(	hold	)
+fi_ramp	[ 0	locks=0	autoscope=0 ]	(	2	)
+fi_contourenable	[ 0	locks=0	autoscope=0 ]	(	"off"	)
+fi_contourwidth	[ 0	locks=0	autoscope=0 ]	(	0.02	)
+fi_contoursharp	[ 0	locks=0	autoscope=0 ]	(	4	)
+fi_sclipenable	[ 0	locks=0	autoscope=0 ]	(	"off"	)
+fi_sclipstart	[ 0	locks=0	autoscope=0 ]	(	0.80000000000000004	)
+fi_sclipsuppress	[ 0	locks=0	autoscope=0 ]	(	1	)
+fi_lowlimitenable	[ 0	locks=0	autoscope=0 ]	(	"off"	)
+fi_lowlimit	[ 0	locks=0	autoscope=0 ]	(	0	)
+fi_highlimitenable	[ 0	locks=0	autoscope=0 ]	(	"off"	)
+fi_highlimit	[ 0	locks=0	autoscope=0 ]	(	1	)
+fi_amp	[ 0	locks=0	autoscope=0 ]	(	1	)
+fi_noiseenable	[ 0	locks=0	autoscope=0 ]	(	"off"	)
+fi_noisemode	[ 0	locks=0	autoscope=0 ]	(	0	)
+fi_noisebasis	[ 0	locks=0	autoscope=0 ]	(	simplex	)
+fi_noisefreq	[ 0	locks=0	autoscope=0 ]	(	5	5	5	1	)
+fi_noiseoffset	[ 0	locks=0	autoscope=0 ]	(	5	0	0	0	)
+fi_noiseperiod	[ 0	locks=0	autoscope=0 ]	(	1	1	1	1	)
+folder20	[ 0	locks=0	autoscope=0 ]	(	0	)
+fi_noisefractal	[ 0	locks=0	autoscope=0 ]	(	none	)
+fi_noiseoct	[ 0	locks=0	autoscope=0 ]	(	8	)
+fi_noiselac	[ 0	locks=0	autoscope=0 ]	(	2.01234	)
+fi_noiserough	[ 0	locks=0	autoscope=0 ]	(	0.5	)
+folder21	[ 0	locks=0	autoscope=0 ]	(	0	)
+fi_noisedolwarp	[ 0	locks=0	autoscope=0 ]	(	"off"	)
+fi_noiseaccuml	[ 0	locks=0	autoscope=0 ]	(	"off"	)
+fi_noisedisp	[ 0	locks=0	autoscope=0 ]	(	0	)
+fi_noisedispfreq	[ 0	locks=0	autoscope=0 ]	(	1	)
+fi_noisedogwarp	[ 0	locks=0	autoscope=0 ]	(	"off"	)
+fi_noiseaccumg	[ 0	locks=0	autoscope=0 ]	(	"off"	)
+fi_noisegflow	[ 0	locks=0	autoscope=0 ]	(	0	)
+fi_noiseflowrot	[ 0	locks=0	autoscope=0 ]	(	0	)
+folder22	[ 0	locks=0	autoscope=0 ]	(	0	)
+fi_noisecc_dobias	[ 0	locks=0	autoscope=0 ]	(	"off"	)
+fi_noisecc_bias	[ 0	locks=0	autoscope=0 ]	(	0.5	)
+fi_noisecc_dogain	[ 0	locks=0	autoscope=0 ]	(	"off"	)
+fi_noisecc_gain	[ 0	locks=0	autoscope=0 ]	(	0.5	)
+fi_noisecc_inv	[ 0	locks=0	autoscope=0 ]	(	"off"	)
+fi_noisecc_dorng	[ 0	locks=0	autoscope=0 ]	(	"off"	)
+fi_noisecc_rnglo	[ 0	locks=0	autoscope=0 ]	(	0	)
+fi_noisecc_rnghi	[ 0	locks=0	autoscope=0 ]	(	1	)
+fi_noisecc_amp	[ 0	locks=0	autoscope=0 ]	(	1	1	1	)
+fc_volumename	[ 0	locks=0	autoscope=0 ]	(	heat	)
+folder7_3	[ 0	locks=0	autoscope=0 ]	(	0	0	)
+fc_fitenable	[ 0	locks=0	autoscope=0 ]	(	"off"	)
+fc_fitsrcmin	[ 0	locks=0	autoscope=0 ]	(	0	)
+fc_fitsrcmax	[ 0	locks=0	autoscope=0 ]	(	1	)
+fc_fitdestmin	[ 0	locks=0	autoscope=0 ]	(	0	)
+fc_fitdestmax	[ 0	locks=0	autoscope=0 ]	(	1	)
+fc_rampenable	[ 0	locks=0	autoscope=0 ]	(	"off"	)
+fc_rampextl	[ 0	locks=0	autoscope=0 ]	(	hold	)
+fc_rampextr	[ 0	locks=0	autoscope=0 ]	(	hold	)
+fc_ramp	[ 0	locks=0	autoscope=0 ]	(	2	)
+fc_contourenable	[ 0	locks=0	autoscope=0 ]	(	"off"	)
+fc_contourwidth	[ 0	locks=0	autoscope=0 ]	(	0.02	)
+fc_contoursharp	[ 0	locks=0	autoscope=0 ]	(	4	)
+fc_sclipenable	[ 0	locks=0	autoscope=0 ]	(	"off"	)
+fc_sclipstart	[ 0	locks=0	autoscope=0 ]	(	0.80000000000000004	)
+fc_sclipsuppress	[ 0	locks=0	autoscope=0 ]	(	1	)
+fc_lowlimitenable	[ 0	locks=0	autoscope=0 ]	(	"off"	)
+fc_lowlimit	[ 0	locks=0	autoscope=0 ]	(	0	)
+fc_highlimitenable	[ 0	locks=0	autoscope=0 ]	(	"off"	)
+fc_highlimit	[ 0	locks=0	autoscope=0 ]	(	1	)
+fc_amp	[ 0	locks=0	autoscope=0 ]	(	1	)
+fc_noiseenable	[ 0	locks=0	autoscope=0 ]	(	"off"	)
+fc_noisemode	[ 0	locks=0	autoscope=0 ]	(	0	)
+fc_noisebasis	[ 0	locks=0	autoscope=0 ]	(	simplex	)
+fc_noisefreq	[ 0	locks=0	autoscope=0 ]	(	5	5	5	1	)
+fc_noiseoffset	[ 0	locks=0	autoscope=0 ]	(	5	0	0	0	)
+fc_noiseperiod	[ 0	locks=0	autoscope=0 ]	(	1	1	1	1	)
+folder23	[ 0	locks=0	autoscope=0 ]	(	0	)
+fc_noisefractal	[ 0	locks=0	autoscope=0 ]	(	none	)
+fc_noiseoct	[ 0	locks=0	autoscope=0 ]	(	8	)
+fc_noiselac	[ 0	locks=0	autoscope=0 ]	(	2.01234	)
+fc_noiserough	[ 0	locks=0	autoscope=0 ]	(	0.5	)
+folder24	[ 0	locks=0	autoscope=0 ]	(	0	)
+fc_noisedolwarp	[ 0	locks=0	autoscope=0 ]	(	"off"	)
+fc_noiseaccuml	[ 0	locks=0	autoscope=0 ]	(	"off"	)
+fc_noisedisp	[ 0	locks=0	autoscope=0 ]	(	0	)
+fc_noisedispfreq	[ 0	locks=0	autoscope=0 ]	(	1	)
+fc_noisedogwarp	[ 0	locks=0	autoscope=0 ]	(	"off"	)
+fc_noiseaccumg	[ 0	locks=0	autoscope=0 ]	(	"off"	)
+fc_noisegflow	[ 0	locks=0	autoscope=0 ]	(	0	)
+fc_noiseflowrot	[ 0	locks=0	autoscope=0 ]	(	0	)
+folder25	[ 0	locks=0	autoscope=0 ]	(	0	)
+fc_noisecc_dobias	[ 0	locks=0	autoscope=0 ]	(	"off"	)
+fc_noisecc_bias	[ 0	locks=0	autoscope=0 ]	(	0.5	)
+fc_noisecc_dogain	[ 0	locks=0	autoscope=0 ]	(	"off"	)
+fc_noisecc_gain	[ 0	locks=0	autoscope=0 ]	(	0.5	)
+fc_noisecc_inv	[ 0	locks=0	autoscope=0 ]	(	"off"	)
+fc_noisecc_dorng	[ 0	locks=0	autoscope=0 ]	(	"off"	)
+fc_noisecc_rnglo	[ 0	locks=0	autoscope=0 ]	(	0	)
+fc_noisecc_rnghi	[ 0	locks=0	autoscope=0 ]	(	1	)
+fc_noisecc_amp	[ 0	locks=0	autoscope=0 ]	(	1	1	1	)
+smokemask_export_name	[ 0	locks=0	autoscope=0 ]	(	smoke_mask	)
+firemask_export_name	[ 0	locks=0	autoscope=0 ]	(	fire_mask	)
+direct	[ 0	locks=0	autoscope=0 ]	(	0	0	0	)
+indirect	[ 0	locks=0	autoscope=0 ]	(	0	0	0	)
+Ce	[ 0	locks=0	autoscope=0 ]	(	0	0	0	)
+direct_emission	[ 0	locks=0	autoscope=0 ]	(	0	0	0	)
+all_emission	[ 0	locks=0	autoscope=0 ]	(	0	0	0	)
+all	[ 0	locks=0	autoscope=0 ]	(	0	0	0	)
+indirect_emission	[ 0	locks=0	autoscope=0 ]	(	0	0	0	)
+direct_comp	[ 0	locks=0	autoscope=0 ]	(	""	)
+indirect_comp	[ 0	locks=0	autoscope=0 ]	(	""	)
+all_comp	[ 0	locks=0	autoscope=0 ]	(	""	)
+direct_noshadow	[ 0	locks=0	autoscope=0 ]	(	0	0	0	)
+direct_shadow	[ 0	locks=0	autoscope=0 ]	(	0	0	0	)
+indirect_noshadow	[ 0	locks=0	autoscope=0 ]	(	0	0	0	)
+indirect_shadow	[ 0	locks=0	autoscope=0 ]	(	0	0	0	)
+level	[ 0	locks=0	autoscope=0 ]	(	0	)
+diffuselevel	[ 0	locks=0	autoscope=0 ]	(	0	)
+specularlevel	[ 0	locks=0	autoscope=0 ]	(	0	)
+volumelevel	[ 0	locks=0	autoscope=0 ]	(	0	)
+direct_samples	[ 0	locks=0	autoscope=0 ]	(	0	)
+indirect_samples	[ 0	locks=0	autoscope=0 ]	(	0	)
+nlights	[ 0	locks=0	autoscope=0 ]	(	0	)
+direct_noshadow_comp	[ 0	locks=0	autoscope=0 ]	(	""	)
+indirect_noshadow_comp	[ 0	locks=0	autoscope=0 ]	(	""	)
+nddispersion	[ 0	locks=0	autoscope=0 ]	(	0	)
+ndpriority	[ 0	locks=0	autoscope=0 ]	(	0	)
+ndior	[ 0	locks=0	autoscope=0 ]	(	0	)
+absorption	[ 0	locks=0	autoscope=0 ]	(	0	0	0	)
+layer	[ 0	locks=0	autoscope=0 ]	(	""	)
+fc_colorramp1pos	[ 0	locks=0	autoscope=0 ]	(	0	)
+fc_colorramp1c	[ 0	locks=0	autoscope=0 ]	(	0	0	0	)
+fc_colorramp1interp	[ 0	locks=0	autoscope=0 ]	(	"catmull-rom"	)
+fc_colorramp2pos	[ 0	locks=0	autoscope=0 ]	(	0.54000002145767212	)
+fc_colorramp2c	[ 0	locks=0	autoscope=0 ]	(	1	0.34999999403953552	0.012000024318695068	)
+fc_colorramp2interp	[ 0	locks=0	autoscope=0 ]	(	"catmull-rom"	)
+s_ramp1pos	[ 0	locks=0	autoscope=0 ]	(	0	)
+s_ramp1value	[ 0	locks=0	autoscope=0 ]	(	0	)
+s_ramp1interp	[ 0	locks=0	autoscope=0 ]	(	"linear"	)
+s_ramp2pos	[ 0	locks=0	autoscope=0 ]	(	1	)
+s_ramp2value	[ 0	locks=0	autoscope=0 ]	(	1	)
+s_ramp2interp	[ 0	locks=0	autoscope=0 ]	(	"linear"	)
+fi_ramp1pos	[ 0	locks=0	autoscope=0 ]	(	0	)
+fi_ramp1value	[ 0	locks=0	autoscope=0 ]	(	0	)
+fi_ramp1interp	[ 0	locks=0	autoscope=0 ]	(	"linear"	)
+fi_ramp2pos	[ 0	locks=0	autoscope=0 ]	(	1	)
+fi_ramp2value	[ 0	locks=0	autoscope=0 ]	(	1	)
+fi_ramp2interp	[ 0	locks=0	autoscope=0 ]	(	"linear"	)
+fc_ramp1pos	[ 0	locks=0	autoscope=0 ]	(	0	)
+fc_ramp1value	[ 0	locks=0	autoscope=0 ]	(	0	)
+fc_ramp1interp	[ 0	locks=0	autoscope=0 ]	(	"linear"	)
+fc_ramp2pos	[ 0	locks=0	autoscope=0 ]	(	1	)
+fc_ramp2value	[ 0	locks=0	autoscope=0 ]	(	1	)
+fc_ramp2interp	[ 0	locks=0	autoscope=0 ]	(	"linear"	)
+fc_colorramp3pos	[ 0	locks=0	autoscope=0 ]	(	0.78313255310058594	)
+fc_colorramp3c	[ 0	locks=0	autoscope=0 ]	(	1	0.64999997615814209	0	)
+fc_colorramp3interp	[ 0	locks=0	autoscope=0 ]	(	"catmull-rom"	)
+fc_colorramp4pos	[ 0	locks=0	autoscope=0 ]	(	1	)
+fc_colorramp4c	[ 0	locks=0	autoscope=0 ]	(	1	1	1	)
+fc_colorramp4interp	[ 0	locks=0	autoscope=0 ]	(	"catmull-rom"	)
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/matnet1/smokelessflames_orig.userdata"
+Content-Type: text/plain
+
+{
+	"___Version___":{
+		"type":"string",
+		"value":""
+	},
+	"___toolcount___":{
+		"type":"string",
+		"value":"2"
+	},
+	"___toolid___":{
+		"type":"string",
+		"value":"pyro_smokelessflame"
+	},
+	"__inputgroup_Exports":{
+		"type":"string",
+		"value":"collapsed"
+	},
+	"__inputgroup_Fire Intensity Field":{
+		"type":"string",
+		"value":"collapsed"
+	},
+	"__inputgroup_Fire Temperature Field":{
+		"type":"string",
+		"value":"collapsed"
+	},
+	"__inputgroup_General":{
+		"type":"string",
+		"value":"collapsed"
+	},
+	"__inputgroup_Smoke Field":{
+		"type":"string",
+		"value":"collapsed"
+	}
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/matnet1/smokelessflames1.init"
+Content-Type: text/plain
+
+type = pyroshader
+matchesdef = 1
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/matnet1/smokelessflames1.def"
+Content-Type: text/plain
+
+comment "Created from Gallery Entry: Smokeless Flames
+
+Flame material"
+position -20.6961 4.51985
+connectornextid 167
+flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on lowdetail off mediumdetail off highdetail on material on
+outputsNamed3
+{
+}
+inputsNamed3
+{
+0 	"" "" 1 "next"
+1 	"" "" 1 "rest"
+2 	"" "" 1 "rest_ratio"
+3 	"" "" 1 "rest2"
+4 	"" "" 1 "rest2_ratio"
+5 	"" "" 1 "Cd"
+6 	"" "" 1 "s_densityscale"
+7 	"" "" 1 "s_int"
+8 	"" "" 1 "s_color"
+9 	"" "" 1 "s_tintwithcd"
+10 	"" "" 1 "shade_phase"
+11 	"" "" 1 "fi_int"
+12 	"" "" 1 "fc_int"
+13 	"" "" 1 "fc_colormode"
+14 	"" "" 1 "fc_constantcolor"
+15 	"" "" 1 "fc_rampmin"
+16 	"" "" 1 "fc_rampmax"
+17 	"" "" 1 "fc_colorramp"
+18 	"" "" 1 "fc_bbtemp"
+19 	"" "" 1 "fc_bbadapt"
+20 	"" "" 1 "fc_bbburn"
+21 	"" "" 1 "s_shadowint"
+22 	"" "" 1 "s_shadowclr"
+23 	"" "" 1 "ftype"
+24 	"" "" 1 "fscale"
+25 	"" "" 1 "s_fitenable"
+26 	"" "" 1 "s_fitsrcmin"
+27 	"" "" 1 "s_fitsrcmax"
+28 	"" "" 1 "s_fitdestmin"
+29 	"" "" 1 "s_fitdestmax"
+30 	"" "" 1 "s_rampenable"
+31 	"" "" 1 "s_rampextl"
+32 	"" "" 1 "s_rampextr"
+33 	"" "" 1 "s_ramp"
+34 	"" "" 1 "s_contourenable"
+35 	"" "" 1 "s_contourwidth"
+36 	"" "" 1 "s_contoursharp"
+37 	"" "" 1 "s_sclipenable"
+38 	"" "" 1 "s_sclipstart"
+39 	"" "" 1 "s_sclipsuppress"
+40 	"" "" 1 "s_lowlimitenable"
+41 	"" "" 1 "s_lowlimit"
+42 	"" "" 1 "s_highlimitenable"
+43 	"" "" 1 "s_highlimit"
+44 	"" "" 1 "s_amp"
+45 	"" "" 1 "s_noiseenable"
+46 	"" "" 1 "s_noisemode"
+47 	"" "" 1 "s_noisebasis"
+48 	"" "" 1 "s_noisefreq"
+49 	"" "" 1 "s_noiseoffset"
+50 	"" "" 1 "s_noiseperiod"
+51 	"" "" 1 "s_noisefractal"
+52 	"" "" 1 "s_noiseoct"
+53 	"" "" 1 "s_noiselac"
+54 	"" "" 1 "s_noiserough"
+55 	"" "" 1 "s_noisedolwarp"
+56 	"" "" 1 "s_noiseaccuml"
+57 	"" "" 1 "s_noisedisp"
+58 	"" "" 1 "s_noisedispfreq"
+59 	"" "" 1 "s_noisedogwarp"
+60 	"" "" 1 "s_noiseaccumg"
+61 	"" "" 1 "s_noisegflow"
+62 	"" "" 1 "s_noiseflowrot"
+63 	"" "" 1 "s_noisecc_dobias"
+64 	"" "" 1 "s_noisecc_bias"
+65 	"" "" 1 "s_noisecc_dogain"
+66 	"" "" 1 "s_noisecc_gain"
+67 	"" "" 1 "s_noisecc_inv"
+68 	"" "" 1 "s_noisecc_dorng"
+69 	"" "" 1 "s_noisecc_rnglo"
+70 	"" "" 1 "s_noisecc_rnghi"
+71 	"" "" 1 "s_noisecc_amp"
+72 	"" "" 1 "fi_fitenable"
+73 	"" "" 1 "fi_fitsrcmin"
+74 	"" "" 1 "fi_fitsrcmax"
+75 	"" "" 1 "fi_fitdestmin"
+76 	"" "" 1 "fi_fitdestmax"
+77 	"" "" 1 "fi_rampenable"
+78 	"" "" 1 "fi_rampextl"
+79 	"" "" 1 "fi_rampextr"
+80 	"" "" 1 "fi_ramp"
+81 	"" "" 1 "fi_contourenable"
+82 	"" "" 1 "fi_contourwidth"
+83 	"" "" 1 "fi_contoursharp"
+84 	"" "" 1 "fi_sclipenable"
+85 	"" "" 1 "fi_sclipstart"
+86 	"" "" 1 "fi_sclipsuppress"
+87 	"" "" 1 "fi_lowlimitenable"
+88 	"" "" 1 "fi_lowlimit"
+89 	"" "" 1 "fi_highlimitenable"
+90 	"" "" 1 "fi_highlimit"
+91 	"" "" 1 "fi_amp"
+92 	"" "" 1 "fi_noiseenable"
+93 	"" "" 1 "fi_noisemode"
+94 	"" "" 1 "fi_noisebasis"
+95 	"" "" 1 "fi_noisefreq"
+96 	"" "" 1 "fi_noiseoffset"
+97 	"" "" 1 "fi_noiseperiod"
+98 	"" "" 1 "fi_noisefractal"
+99 	"" "" 1 "fi_noiseoct"
+100 	"" "" 1 "fi_noiselac"
+101 	"" "" 1 "fi_noiserough"
+102 	"" "" 1 "fi_noisedolwarp"
+103 	"" "" 1 "fi_noiseaccuml"
+104 	"" "" 1 "fi_noisedisp"
+105 	"" "" 1 "fi_noisedispfreq"
+106 	"" "" 1 "fi_noisedogwarp"
+107 	"" "" 1 "fi_noiseaccumg"
+108 	"" "" 1 "fi_noisegflow"
+109 	"" "" 1 "fi_noiseflowrot"
+110 	"" "" 1 "fi_noisecc_dobias"
+111 	"" "" 1 "fi_noisecc_bias"
+112 	"" "" 1 "fi_noisecc_dogain"
+113 	"" "" 1 "fi_noisecc_gain"
+114 	"" "" 1 "fi_noisecc_inv"
+115 	"" "" 1 "fi_noisecc_dorng"
+116 	"" "" 1 "fi_noisecc_rnglo"
+117 	"" "" 1 "fi_noisecc_rnghi"
+118 	"" "" 1 "fi_noisecc_amp"
+119 	"" "" 1 "fc_fitenable"
+120 	"" "" 1 "fc_fitsrcmin"
+121 	"" "" 1 "fc_fitsrcmax"
+122 	"" "" 1 "fc_fitdestmin"
+123 	"" "" 1 "fc_fitdestmax"
+124 	"" "" 1 "fc_rampenable"
+125 	"" "" 1 "fc_rampextl"
+126 	"" "" 1 "fc_rampextr"
+127 	"" "" 1 "fc_ramp"
+128 	"" "" 1 "fc_contourenable"
+129 	"" "" 1 "fc_contourwidth"
+130 	"" "" 1 "fc_contoursharp"
+131 	"" "" 1 "fc_sclipenable"
+132 	"" "" 1 "fc_sclipstart"
+133 	"" "" 1 "fc_sclipsuppress"
+134 	"" "" 1 "fc_lowlimitenable"
+135 	"" "" 1 "fc_lowlimit"
+136 	"" "" 1 "fc_highlimitenable"
+137 	"" "" 1 "fc_highlimit"
+138 	"" "" 1 "fc_amp"
+139 	"" "" 1 "fc_noiseenable"
+140 	"" "" 1 "fc_noisemode"
+141 	"" "" 1 "fc_noisebasis"
+142 	"" "" 1 "fc_noisefreq"
+143 	"" "" 1 "fc_noiseoffset"
+144 	"" "" 1 "fc_noiseperiod"
+145 	"" "" 1 "fc_noisefractal"
+146 	"" "" 1 "fc_noiseoct"
+147 	"" "" 1 "fc_noiselac"
+148 	"" "" 1 "fc_noiserough"
+149 	"" "" 1 "fc_noisedolwarp"
+150 	"" "" 1 "fc_noiseaccuml"
+151 	"" "" 1 "fc_noisedisp"
+152 	"" "" 1 "fc_noisedispfreq"
+153 	"" "" 1 "fc_noisedogwarp"
+154 	"" "" 1 "fc_noiseaccumg"
+155 	"" "" 1 "fc_noisegflow"
+156 	"" "" 1 "fc_noiseflowrot"
+157 	"" "" 1 "fc_noisecc_dobias"
+158 	"" "" 1 "fc_noisecc_bias"
+159 	"" "" 1 "fc_noisecc_dogain"
+160 	"" "" 1 "fc_noisecc_gain"
+161 	"" "" 1 "fc_noisecc_inv"
+162 	"" "" 1 "fc_noisecc_dorng"
+163 	"" "" 1 "fc_noisecc_rnglo"
+164 	"" "" 1 "fc_noisecc_rnghi"
+165 	"" "" 1 "fc_noisecc_amp"
+166 	"" "" 1 "density"
+}
+inputs
+{
+0 	"" 0 1
+1 	"" 0 1
+2 	"" 0 1
+3 	"" 0 1
+4 	"" 0 1
+5 	"" 0 1
+6 	"" 0 1
+7 	"" 0 1
+8 	"" 0 1
+9 	"" 0 1
+10 	"" 0 1
+11 	"" 0 1
+12 	"" 0 1
+13 	"" 0 1
+14 	"" 0 1
+15 	"" 0 1
+16 	"" 0 1
+17 	"" 0 1
+18 	"" 0 1
+19 	"" 0 1
+20 	"" 0 1
+21 	"" 0 1
+22 	"" 0 1
+23 	"" 0 1
+24 	"" 0 1
+25 	"" 0 1
+26 	"" 0 1
+27 	"" 0 1
+28 	"" 0 1
+29 	"" 0 1
+30 	"" 0 1
+31 	"" 0 1
+32 	"" 0 1
+33 	"" 0 1
+34 	"" 0 1
+35 	"" 0 1
+36 	"" 0 1
+37 	"" 0 1
+38 	"" 0 1
+39 	"" 0 1
+40 	"" 0 1
+41 	"" 0 1
+42 	"" 0 1
+43 	"" 0 1
+44 	"" 0 1
+45 	"" 0 1
+46 	"" 0 1
+47 	"" 0 1
+48 	"" 0 1
+49 	"" 0 1
+50 	"" 0 1
+51 	"" 0 1
+52 	"" 0 1
+53 	"" 0 1
+54 	"" 0 1
+55 	"" 0 1
+56 	"" 0 1
+57 	"" 0 1
+58 	"" 0 1
+59 	"" 0 1
+60 	"" 0 1
+61 	"" 0 1
+62 	"" 0 1
+63 	"" 0 1
+64 	"" 0 1
+65 	"" 0 1
+66 	"" 0 1
+67 	"" 0 1
+68 	"" 0 1
+69 	"" 0 1
+70 	"" 0 1
+71 	"" 0 1
+72 	"" 0 1
+73 	"" 0 1
+74 	"" 0 1
+75 	"" 0 1
+76 	"" 0 1
+77 	"" 0 1
+78 	"" 0 1
+79 	"" 0 1
+80 	"" 0 1
+81 	"" 0 1
+82 	"" 0 1
+83 	"" 0 1
+84 	"" 0 1
+85 	"" 0 1
+86 	"" 0 1
+87 	"" 0 1
+88 	"" 0 1
+89 	"" 0 1
+90 	"" 0 1
+91 	"" 0 1
+92 	"" 0 1
+93 	"" 0 1
+94 	"" 0 1
+95 	"" 0 1
+96 	"" 0 1
+97 	"" 0 1
+98 	"" 0 1
+99 	"" 0 1
+100 	"" 0 1
+101 	"" 0 1
+102 	"" 0 1
+103 	"" 0 1
+104 	"" 0 1
+105 	"" 0 1
+106 	"" 0 1
+107 	"" 0 1
+108 	"" 0 1
+109 	"" 0 1
+110 	"" 0 1
+111 	"" 0 1
+112 	"" 0 1
+113 	"" 0 1
+114 	"" 0 1
+115 	"" 0 1
+116 	"" 0 1
+117 	"" 0 1
+118 	"" 0 1
+119 	"" 0 1
+120 	"" 0 1
+121 	"" 0 1
+122 	"" 0 1
+123 	"" 0 1
+124 	"" 0 1
+125 	"" 0 1
+126 	"" 0 1
+127 	"" 0 1
+128 	"" 0 1
+129 	"" 0 1
+130 	"" 0 1
+131 	"" 0 1
+132 	"" 0 1
+133 	"" 0 1
+134 	"" 0 1
+135 	"" 0 1
+136 	"" 0 1
+137 	"" 0 1
+138 	"" 0 1
+139 	"" 0 1
+140 	"" 0 1
+141 	"" 0 1
+142 	"" 0 1
+143 	"" 0 1
+144 	"" 0 1
+145 	"" 0 1
+146 	"" 0 1
+147 	"" 0 1
+148 	"" 0 1
+149 	"" 0 1
+150 	"" 0 1
+151 	"" 0 1
+152 	"" 0 1
+153 	"" 0 1
+154 	"" 0 1
+155 	"" 0 1
+156 	"" 0 1
+157 	"" 0 1
+158 	"" 0 1
+159 	"" 0 1
+160 	"" 0 1
+161 	"" 0 1
+162 	"" 0 1
+163 	"" 0 1
+164 	"" 0 1
+165 	"" 0 1
+166 	"" 0 1
+}
+stat
+{
+  create 1496865993
+  modify 1512379779
+  author mikel@mikembp-sesi.local
+  access 0777
+}
+color UT_Color RGB 0.8 0.8 0.8 
+creator gallery::smokelessflames
+explicit 1
+delscript ""
+exprlanguage hscript
+end
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/matnet1/smokelessflames1.parm"
+Content-Type: text/plain
+
+{
+version 0.8
+folder2_4	[ 0	locks=0	autoscope=0 ]	(	0	0	0	0	0	)
+folder6	[ 0	locks=0	autoscope=0 ]	(	0	)
+s_densityscale	[ 0	locks=0	autoscope=0 ]	(	20	)
+s_int	[ 0	locks=0	autoscope=0 ]	(	1	)
+s_color	[ 0	locks=0	autoscope=0 ]	(	0.40000000000000002	0.40000000000000002	0.40000000000000002	)
+s_tintwithcd	[ 0	locks=0	autoscope=0 ]	(	"on"	)
+shade_phase	[ 0	locks=0	autoscope=0 ]	(	0	)
+folder2_3_4	[ 0	locks=0	autoscope=0 ]	(	0	)
+fi_int	[ 0	locks=0	autoscope=0 ]	(	30	)
+fc_int	[ 0	locks=0	autoscope=0 ]	(	1.1000000000000001	)
+fc_colormode	[ 0	locks=0	autoscope=0 ]	(	2	)
+fc_constantcolor	[ 0	locks=0	autoscope=0 ]	(	1	1	1	)
+fc_rampmin	[ 0	locks=0	autoscope=0 ]	(	0	)
+fc_rampmax	[ 0	locks=0	autoscope=0 ]	(	1	)
+fc_colorramp	[ 0	locks=0	autoscope=0 ]	(	4	)
+fc_bbtemp	[ 0	locks=0	autoscope=0 ]	(	6500	)
+fc_bbadapt	[ 0	locks=0	autoscope=0 ]	(	0.040000000000000001	)
+fc_bbburn	[ 0	locks=0	autoscope=0 ]	(	-0.46700000000000003	)
+folder8	[ 0	locks=0	autoscope=0 ]	(	0	)
+s_shadowint	[ 0	locks=0	autoscope=0 ]	(	1	)
+s_shadowclr	[ 0	locks=0	autoscope=0 ]	(	1	1	1	)
+folder15	[ 0	locks=0	autoscope=0 ]	(	0	)
+ftype	[ 0	locks=0	autoscope=0 ]	(	point	)
+fscale	[ 0	locks=0	autoscope=0 ]	(	1	)
+s_volumename	[ 0	locks=0	autoscope=0 ]	(	heat	)
+folder16	[ 0	locks=0	autoscope=0 ]	(	0	0	)
+s_fitenable	[ 0	locks=0	autoscope=0 ]	(	"off"	)
+s_fitsrcmin	[ 0	locks=0	autoscope=0 ]	(	0	)
+s_fitsrcmax	[ 0	locks=0	autoscope=0 ]	(	1	)
+s_fitdestmin	[ 0	locks=0	autoscope=0 ]	(	0	)
+s_fitdestmax	[ 0	locks=0	autoscope=0 ]	(	1	)
+s_rampenable	[ 0	locks=0	autoscope=0 ]	(	"off"	)
+s_rampextl	[ 0	locks=0	autoscope=0 ]	(	hold	)
+s_rampextr	[ 0	locks=0	autoscope=0 ]	(	hold	)
+s_ramp	[ 0	locks=0	autoscope=0 ]	(	2	)
+s_contourenable	[ 0	locks=0	autoscope=0 ]	(	"off"	)
+s_contourwidth	[ 0	locks=0	autoscope=0 ]	(	0.02	)
+s_contoursharp	[ 0	locks=0	autoscope=0 ]	(	4	)
+s_sclipenable	[ 0	locks=0	autoscope=0 ]	(	"off"	)
+s_sclipstart	[ 0	locks=0	autoscope=0 ]	(	0.80000000000000004	)
+s_sclipsuppress	[ 0	locks=0	autoscope=0 ]	(	1	)
+s_lowlimitenable	[ 0	locks=0	autoscope=0 ]	(	"off"	)
+s_lowlimit	[ 0	locks=0	autoscope=0 ]	(	0	)
+s_highlimitenable	[ 0	locks=0	autoscope=0 ]	(	"off"	)
+s_highlimit	[ 0	locks=0	autoscope=0 ]	(	1	)
+s_amp	[ 0	locks=0	autoscope=0 ]	(	1	)
+s_noiseenable	[ 0	locks=0	autoscope=0 ]	(	"off"	)
+s_noisemode	[ 0	locks=0	autoscope=0 ]	(	0	)
+s_noisebasis	[ 0	locks=0	autoscope=0 ]	(	simplex	)
+s_noisefreq	[ 0	locks=0	autoscope=0 ]	(	5	5	5	1	)
+s_noiseoffset	[ 0	locks=0	autoscope=0 ]	(	0	0	0	0	)
+s_noiseperiod	[ 0	locks=0	autoscope=0 ]	(	1	1	1	1	)
+folder17	[ 0	locks=0	autoscope=0 ]	(	0	)
+s_noisefractal	[ 0	locks=0	autoscope=0 ]	(	none	)
+s_noiseoct	[ 0	locks=0	autoscope=0 ]	(	8	)
+s_noiselac	[ 0	locks=0	autoscope=0 ]	(	2.01234	)
+s_noiserough	[ 0	locks=0	autoscope=0 ]	(	0.5	)
+folder18	[ 0	locks=0	autoscope=0 ]	(	0	)
+s_noisedolwarp	[ 0	locks=0	autoscope=0 ]	(	"off"	)
+s_noiseaccuml	[ 0	locks=0	autoscope=0 ]	(	"off"	)
+s_noisedisp	[ 0	locks=0	autoscope=0 ]	(	0	)
+s_noisedispfreq	[ 0	locks=0	autoscope=0 ]	(	1	)
+s_noisedogwarp	[ 0	locks=0	autoscope=0 ]	(	"off"	)
+s_noiseaccumg	[ 0	locks=0	autoscope=0 ]	(	"off"	)
+s_noisegflow	[ 0	locks=0	autoscope=0 ]	(	0	)
+s_noiseflowrot	[ 0	locks=0	autoscope=0 ]	(	0	)
+folder5_1_2	[ 0	locks=0	autoscope=0 ]	(	0	)
+s_noisecc_dobias	[ 0	locks=0	autoscope=0 ]	(	"off"	)
+s_noisecc_bias	[ 0	locks=0	autoscope=0 ]	(	0.5	)
+s_noisecc_dogain	[ 0	locks=0	autoscope=0 ]	(	"off"	)
+s_noisecc_gain	[ 0	locks=0	autoscope=0 ]	(	0.5	)
+s_noisecc_inv	[ 0	locks=0	autoscope=0 ]	(	"off"	)
+s_noisecc_dorng	[ 0	locks=0	autoscope=0 ]	(	"off"	)
+s_noisecc_rnglo	[ 0	locks=0	autoscope=0 ]	(	0	)
+s_noisecc_rnghi	[ 0	locks=0	autoscope=0 ]	(	1	)
+s_noisecc_amp	[ 0	locks=0	autoscope=0 ]	(	1	1	1	)
+fi_volumename	[ 0	locks=0	autoscope=0 ]	(	temperature	)
+folder19	[ 0	locks=0	autoscope=0 ]	(	0	0	)
+fi_fitenable	[ 0	locks=0	autoscope=0 ]	(	"off"	)
+fi_fitsrcmin	[ 0	locks=0	autoscope=0 ]	(	0	)
+fi_fitsrcmax	[ 8	locks=0	autoscope=0 ]	(	1	)
+fi_fitdestmin	[ 0	locks=0	autoscope=0 ]	(	0	)
+fi_fitdestmax	[ 0	locks=0	autoscope=0 ]	(	1	)
+fi_rampenable	[ 0	locks=0	autoscope=0 ]	(	"off"	)
+fi_rampextl	[ 0	locks=0	autoscope=0 ]	(	hold	)
+fi_rampextr	[ 0	locks=0	autoscope=0 ]	(	hold	)
+fi_ramp	[ 0	locks=0	autoscope=0 ]	(	2	)
+fi_contourenable	[ 0	locks=0	autoscope=0 ]	(	"off"	)
+fi_contourwidth	[ 0	locks=0	autoscope=0 ]	(	0.02	)
+fi_contoursharp	[ 0	locks=0	autoscope=0 ]	(	4	)
+fi_sclipenable	[ 0	locks=0	autoscope=0 ]	(	"off"	)
+fi_sclipstart	[ 0	locks=0	autoscope=0 ]	(	0.90000000000000002	)
+fi_sclipsuppress	[ 0	locks=0	autoscope=0 ]	(	1	)
+fi_lowlimitenable	[ 0	locks=0	autoscope=0 ]	(	"off"	)
+fi_lowlimit	[ 0	locks=0	autoscope=0 ]	(	0	)
+fi_highlimitenable	[ 0	locks=0	autoscope=0 ]	(	"off"	)
+fi_highlimit	[ 0	locks=0	autoscope=0 ]	(	1	)
+fi_amp	[ 0	locks=0	autoscope=0 ]	(	1	)
+fi_noiseenable	[ 0	locks=0	autoscope=0 ]	(	"off"	)
+fi_noisemode	[ 0	locks=0	autoscope=0 ]	(	0	)
+fi_noisebasis	[ 0	locks=0	autoscope=0 ]	(	simplex	)
+fi_noisefreq	[ 0	locks=0	autoscope=0 ]	(	5	5	5	1	)
+fi_noiseoffset	[ 0	locks=0	autoscope=0 ]	(	5	0	0	0	)
+fi_noiseperiod	[ 0	locks=0	autoscope=0 ]	(	1	1	1	1	)
+folder20	[ 0	locks=0	autoscope=0 ]	(	0	)
+fi_noisefractal	[ 0	locks=0	autoscope=0 ]	(	none	)
+fi_noiseoct	[ 0	locks=0	autoscope=0 ]	(	8	)
+fi_noiselac	[ 0	locks=0	autoscope=0 ]	(	2.01234	)
+fi_noiserough	[ 0	locks=0	autoscope=0 ]	(	0.5	)
+folder21	[ 0	locks=0	autoscope=0 ]	(	0	)
+fi_noisedolwarp	[ 0	locks=0	autoscope=0 ]	(	"off"	)
+fi_noiseaccuml	[ 0	locks=0	autoscope=0 ]	(	"off"	)
+fi_noisedisp	[ 0	locks=0	autoscope=0 ]	(	0	)
+fi_noisedispfreq	[ 0	locks=0	autoscope=0 ]	(	1	)
+fi_noisedogwarp	[ 0	locks=0	autoscope=0 ]	(	"off"	)
+fi_noiseaccumg	[ 0	locks=0	autoscope=0 ]	(	"off"	)
+fi_noisegflow	[ 0	locks=0	autoscope=0 ]	(	0	)
+fi_noiseflowrot	[ 0	locks=0	autoscope=0 ]	(	0	)
+folder22	[ 0	locks=0	autoscope=0 ]	(	0	)
+fi_noisecc_dobias	[ 0	locks=0	autoscope=0 ]	(	"off"	)
+fi_noisecc_bias	[ 0	locks=0	autoscope=0 ]	(	0.5	)
+fi_noisecc_dogain	[ 0	locks=0	autoscope=0 ]	(	"off"	)
+fi_noisecc_gain	[ 0	locks=0	autoscope=0 ]	(	0.5	)
+fi_noisecc_inv	[ 0	locks=0	autoscope=0 ]	(	"off"	)
+fi_noisecc_dorng	[ 0	locks=0	autoscope=0 ]	(	"off"	)
+fi_noisecc_rnglo	[ 0	locks=0	autoscope=0 ]	(	0	)
+fi_noisecc_rnghi	[ 0	locks=0	autoscope=0 ]	(	1	)
+fi_noisecc_amp	[ 0	locks=0	autoscope=0 ]	(	1	1	1	)
+fc_volumename	[ 0	locks=0	autoscope=0 ]	(	heat	)
+folder7_3	[ 0	locks=0	autoscope=0 ]	(	0	0	)
+fc_fitenable	[ 0	locks=0	autoscope=0 ]	(	"off"	)
+fc_fitsrcmin	[ 0	locks=0	autoscope=0 ]	(	0	)
+fc_fitsrcmax	[ 0	locks=0	autoscope=0 ]	(	1	)
+fc_fitdestmin	[ 0	locks=0	autoscope=0 ]	(	0	)
+fc_fitdestmax	[ 0	locks=0	autoscope=0 ]	(	1	)
+fc_rampenable	[ 0	locks=0	autoscope=0 ]	(	"on"	)
+fc_rampextl	[ 0	locks=0	autoscope=0 ]	(	hold	)
+fc_rampextr	[ 0	locks=0	autoscope=0 ]	(	hold	)
+fc_ramp	[ 0	locks=0	autoscope=0 ]	(	12	)
+fc_contourenable	[ 0	locks=0	autoscope=0 ]	(	"off"	)
+fc_contourwidth	[ 0	locks=0	autoscope=0 ]	(	0.02	)
+fc_contoursharp	[ 0	locks=0	autoscope=0 ]	(	4	)
+fc_sclipenable	[ 0	locks=0	autoscope=0 ]	(	"off"	)
+fc_sclipstart	[ 0	locks=0	autoscope=0 ]	(	0.80000000000000004	)
+fc_sclipsuppress	[ 0	locks=0	autoscope=0 ]	(	1	)
+fc_lowlimitenable	[ 0	locks=0	autoscope=0 ]	(	"off"	)
+fc_lowlimit	[ 0	locks=0	autoscope=0 ]	(	0	)
+fc_highlimitenable	[ 0	locks=0	autoscope=0 ]	(	"off"	)
+fc_highlimit	[ 0	locks=0	autoscope=0 ]	(	1	)
+fc_amp	[ 0	locks=0	autoscope=0 ]	(	1	)
+fc_noiseenable	[ 0	locks=0	autoscope=0 ]	(	"off"	)
+fc_noisemode	[ 0	locks=0	autoscope=0 ]	(	0	)
+fc_noisebasis	[ 0	locks=0	autoscope=0 ]	(	simplex	)
+fc_noisefreq	[ 0	locks=0	autoscope=0 ]	(	5	5	5	1	)
+fc_noiseoffset	[ 0	locks=0	autoscope=0 ]	(	5	0	0	0	)
+fc_noiseperiod	[ 0	locks=0	autoscope=0 ]	(	1	1	1	1	)
+folder23	[ 0	locks=0	autoscope=0 ]	(	0	)
+fc_noisefractal	[ 0	locks=0	autoscope=0 ]	(	none	)
+fc_noiseoct	[ 0	locks=0	autoscope=0 ]	(	8	)
+fc_noiselac	[ 0	locks=0	autoscope=0 ]	(	2.01234	)
+fc_noiserough	[ 0	locks=0	autoscope=0 ]	(	0.5	)
+folder24	[ 0	locks=0	autoscope=0 ]	(	0	)
+fc_noisedolwarp	[ 0	locks=0	autoscope=0 ]	(	"off"	)
+fc_noiseaccuml	[ 0	locks=0	autoscope=0 ]	(	"off"	)
+fc_noisedisp	[ 0	locks=0	autoscope=0 ]	(	0	)
+fc_noisedispfreq	[ 0	locks=0	autoscope=0 ]	(	1	)
+fc_noisedogwarp	[ 0	locks=0	autoscope=0 ]	(	"off"	)
+fc_noiseaccumg	[ 0	locks=0	autoscope=0 ]	(	"off"	)
+fc_noisegflow	[ 0	locks=0	autoscope=0 ]	(	0	)
+fc_noiseflowrot	[ 0	locks=0	autoscope=0 ]	(	0	)
+folder25	[ 0	locks=0	autoscope=0 ]	(	0	)
+fc_noisecc_dobias	[ 0	locks=0	autoscope=0 ]	(	"off"	)
+fc_noisecc_bias	[ 0	locks=0	autoscope=0 ]	(	0.5	)
+fc_noisecc_dogain	[ 0	locks=0	autoscope=0 ]	(	"off"	)
+fc_noisecc_gain	[ 0	locks=0	autoscope=0 ]	(	0.5	)
+fc_noisecc_inv	[ 0	locks=0	autoscope=0 ]	(	"off"	)
+fc_noisecc_dorng	[ 0	locks=0	autoscope=0 ]	(	"off"	)
+fc_noisecc_rnglo	[ 0	locks=0	autoscope=0 ]	(	0	)
+fc_noisecc_rnghi	[ 0	locks=0	autoscope=0 ]	(	1	)
+fc_noisecc_amp	[ 0	locks=0	autoscope=0 ]	(	1	1	1	)
+smokemask_export_name	[ 0	locks=0	autoscope=0 ]	(	smoke_mask	)
+firemask_export_name	[ 0	locks=0	autoscope=0 ]	(	fire_mask	)
+direct	[ 0	locks=0	autoscope=0 ]	(	0	0	0	)
+indirect	[ 0	locks=0	autoscope=0 ]	(	0	0	0	)
+Ce	[ 0	locks=0	autoscope=0 ]	(	0	0	0	)
+direct_emission	[ 0	locks=0	autoscope=0 ]	(	0	0	0	)
+all_emission	[ 0	locks=0	autoscope=0 ]	(	0	0	0	)
+all	[ 0	locks=0	autoscope=0 ]	(	0	0	0	)
+indirect_emission	[ 0	locks=0	autoscope=0 ]	(	0	0	0	)
+direct_comp	[ 0	locks=0	autoscope=0 ]	(	""	)
+indirect_comp	[ 0	locks=0	autoscope=0 ]	(	""	)
+all_comp	[ 0	locks=0	autoscope=0 ]	(	""	)
+direct_noshadow	[ 0	locks=0	autoscope=0 ]	(	0	0	0	)
+direct_shadow	[ 0	locks=0	autoscope=0 ]	(	0	0	0	)
+indirect_noshadow	[ 0	locks=0	autoscope=0 ]	(	0	0	0	)
+indirect_shadow	[ 0	locks=0	autoscope=0 ]	(	0	0	0	)
+level	[ 0	locks=0	autoscope=0 ]	(	0	)
+diffuselevel	[ 0	locks=0	autoscope=0 ]	(	0	)
+specularlevel	[ 0	locks=0	autoscope=0 ]	(	0	)
+volumelevel	[ 0	locks=0	autoscope=0 ]	(	0	)
+direct_samples	[ 0	locks=0	autoscope=0 ]	(	0	)
+indirect_samples	[ 0	locks=0	autoscope=0 ]	(	0	)
+nlights	[ 0	locks=0	autoscope=0 ]	(	0	)
+direct_noshadow_comp	[ 0	locks=0	autoscope=0 ]	(	""	)
+indirect_noshadow_comp	[ 0	locks=0	autoscope=0 ]	(	""	)
+nddispersion	[ 0	locks=0	autoscope=0 ]	(	0	)
+ndpriority	[ 0	locks=0	autoscope=0 ]	(	0	)
+ndior	[ 0	locks=0	autoscope=0 ]	(	0	)
+absorption	[ 0	locks=0	autoscope=0 ]	(	0	0	0	)
+layer	[ 0	locks=0	autoscope=0 ]	(	""	)
+fc_colorramp1pos	[ 0	locks=0	autoscope=0 ]	(	0	)
+fc_colorramp1c	[ 0	locks=0	autoscope=0 ]	(	0	0	0	)
+fc_colorramp1interp	[ 0	locks=0	autoscope=0 ]	(	"catmull-rom"	)
+fc_colorramp2pos	[ 0	locks=0	autoscope=0 ]	(	0.54000002145767212	)
+fc_colorramp2c	[ 0	locks=0	autoscope=0 ]	(	1	0.34999999403953552	0.012000024318695068	)
+fc_colorramp2interp	[ 0	locks=0	autoscope=0 ]	(	"catmull-rom"	)
+s_ramp1pos	[ 0	locks=0	autoscope=0 ]	(	0	)
+s_ramp1value	[ 0	locks=0	autoscope=0 ]	(	0	)
+s_ramp1interp	[ 0	locks=0	autoscope=0 ]	(	"linear"	)
+s_ramp2pos	[ 0	locks=0	autoscope=0 ]	(	1	)
+s_ramp2value	[ 0	locks=0	autoscope=0 ]	(	1	)
+s_ramp2interp	[ 0	locks=0	autoscope=0 ]	(	"linear"	)
+fi_ramp1pos	[ 0	locks=0	autoscope=0 ]	(	0	)
+fi_ramp1value	[ 0	locks=0	autoscope=0 ]	(	0	)
+fi_ramp1interp	[ 0	locks=0	autoscope=0 ]	(	"linear"	)
+fi_ramp2pos	[ 0	locks=0	autoscope=0 ]	(	1	)
+fi_ramp2value	[ 0	locks=0	autoscope=0 ]	(	1	)
+fi_ramp2interp	[ 0	locks=0	autoscope=0 ]	(	"linear"	)
+fc_ramp1pos	[ 0	locks=0	autoscope=0 ]	(	0	)
+fc_ramp1value	[ 0	locks=0	autoscope=0 ]	(	0	)
+fc_ramp1interp	[ 0	locks=0	autoscope=0 ]	(	"linear"	)
+fc_ramp2pos	[ 0	locks=0	autoscope=0 ]	(	0.20000000298023224	)
+fc_ramp2value	[ 0	locks=0	autoscope=0 ]	(	0.20000000298023224	)
+fc_ramp2interp	[ 0	locks=0	autoscope=0 ]	(	"linear"	)
+fc_colorramp3pos	[ 0	locks=0	autoscope=0 ]	(	0.78313255310058594	)
+fc_colorramp3c	[ 0	locks=0	autoscope=0 ]	(	1	0.64999997615814209	0	)
+fc_colorramp3interp	[ 0	locks=0	autoscope=0 ]	(	"catmull-rom"	)
+fc_colorramp4pos	[ 0	locks=0	autoscope=0 ]	(	1	)
+fc_colorramp4c	[ 0	locks=0	autoscope=0 ]	(	1	1	1	)
+fc_colorramp4interp	[ 0	locks=0	autoscope=0 ]	(	"catmull-rom"	)
+fc_ramp3pos	[ 0	locks=0 ]	(	0.30000001192092896	)
+fc_ramp3value	[ 0	locks=0 ]	(	0.30000001192092896	)
+fc_ramp3interp	[ 0	locks=0 ]	(	"linear"	)
+fc_ramp4pos	[ 0	locks=0 ]	(	0.34999999403953552	)
+fc_ramp4value	[ 0	locks=0 ]	(	0.34999999403953552	)
+fc_ramp4interp	[ 0	locks=0 ]	(	"linear"	)
+fc_ramp5pos	[ 0	locks=0 ]	(	0.37475147843360901	)
+fc_ramp5value	[ 0	locks=0 ]	(	0.15680474042892456	)
+fc_ramp5interp	[ 0	locks=0 ]	(	"linear"	)
+fc_ramp6pos	[ 0	locks=0 ]	(	0.40000000596046448	)
+fc_ramp6value	[ 0	locks=0 ]	(	0.40000000596046448	)
+fc_ramp6interp	[ 0	locks=0 ]	(	"linear"	)
+fc_ramp7pos	[ 0	locks=0 ]	(	0.42500001192092896	)
+fc_ramp7value	[ 0	locks=0 ]	(	0.15600000321865082	)
+fc_ramp7interp	[ 0	locks=0 ]	(	"linear"	)
+fc_ramp8pos	[ 0	locks=0 ]	(	0.45029821991920471	)
+fc_ramp8value	[ 0	locks=0 ]	(	0.22189348936080933	)
+fc_ramp8interp	[ 0	locks=0 ]	(	"linear"	)
+fc_ramp9pos	[ 0	locks=0 ]	(	0.47499999403953552	)
+fc_ramp9value	[ 0	locks=0 ]	(	0.40799999237060547	)
+fc_ramp9interp	[ 0	locks=0 ]	(	"linear"	)
+fc_ramp10pos	[ 0	locks=0 ]	(	0.5	)
+fc_ramp10value	[ 0	locks=0 ]	(	0.5	)
+fc_ramp10interp	[ 0	locks=0 ]	(	"linear"	)
+fc_ramp11pos	[ 0	locks=0 ]	(	0.55000001192092896	)
+fc_ramp11value	[ 0	locks=0 ]	(	0.55000001192092896	)
+fc_ramp11interp	[ 0	locks=0 ]	(	"linear"	)
+fc_ramp12pos	[ 0	locks=0 ]	(	1	)
+fc_ramp12value	[ 0	locks=0 ]	(	1	)
+fc_ramp12interp	[ 0	locks=0 ]	(	"linear"	)
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/matnet1/smokelessflames1.userdata"
+Content-Type: text/plain
+
+{
+	"___Version___":{
+		"type":"string",
+		"value":""
+	},
+	"___toolcount___":{
+		"type":"string",
+		"value":"2"
+	},
+	"___toolid___":{
+		"type":"string",
+		"value":"pyro_smokelessflame"
+	},
+	"__inputgroup_Exports":{
+		"type":"string",
+		"value":"collapsed"
+	},
+	"__inputgroup_Fire Intensity Field":{
+		"type":"string",
+		"value":"collapsed"
+	},
+	"__inputgroup_Fire Temperature Field":{
+		"type":"string",
+		"value":"collapsed"
+	},
+	"__inputgroup_General":{
+		"type":"string",
+		"value":"collapsed"
+	},
+	"__inputgroup_Smoke Field":{
+		"type":"string",
+		"value":"collapsed"
+	}
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/matnet1/smokelessflames_02.init"
+Content-Type: text/plain
+
+type = pyroshader
+matchesdef = 1
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/matnet1/smokelessflames_02.def"
+Content-Type: text/plain
+
+comment "Created from Gallery Entry: Smokeless Flames
+
+Flame material"
+position -17.7934 4.51985
 connectornextid 167
 flags =  lock off model off template off footprint off xray off bypass off display on render on highlight off unload off savedata off compress on colordefault on exposed on lowdetail off mediumdetail off highdetail on material on
 outputsNamed3
@@ -2742,7 +4952,7 @@ inputs
 stat
 {
   create 1496865993
-  modify 1511867336
+  modify 1512379779
   author mikel@mikembp-sesi.local
   access 0777
 }
@@ -2754,20 +4964,20 @@ exprlanguage hscript
 end
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot/matnet1/smokelessflames.parm"
+Content-Disposition: attachment; filename="hdaroot/matnet1/smokelessflames_02.parm"
 Content-Type: text/plain
 
 {
 version 0.8
-folder2_4	[ 0	locks=0	autoscope=0 ]	(	3	3	3	3	3	)
+folder2_4	[ 0	locks=0	autoscope=0 ]	(	0	0	0	0	0	)
 folder6	[ 0	locks=0	autoscope=0 ]	(	0	)
-s_densityscale	[ 0	locks=0	autoscope=0 ]	(	20	)
+s_densityscale	[ 0	locks=0	autoscope=0 ]	(	10	)
 s_int	[ 0	locks=0	autoscope=0 ]	(	1	)
 s_color	[ 0	locks=0	autoscope=0 ]	(	0.40000000000000002	0.40000000000000002	0.40000000000000002	)
 s_tintwithcd	[ 0	locks=0	autoscope=0 ]	(	"on"	)
 shade_phase	[ 0	locks=0	autoscope=0 ]	(	0	)
 folder2_3_4	[ 0	locks=0	autoscope=0 ]	(	0	)
-fi_int	[ 0	locks=0	autoscope=0 ]	(	30	)
+fi_int	[ 0	locks=0	autoscope=0 ]	(	2	)
 fc_int	[ 0	locks=0	autoscope=0 ]	(	1.0009999999999999	)
 fc_colormode	[ 0	locks=0	autoscope=0 ]	(	2	)
 fc_constantcolor	[ 0	locks=0	autoscope=0 ]	(	1	1	1	)
@@ -3002,7 +5212,830 @@ fc_colorramp4interp	[ 0	locks=0	autoscope=0 ]	(	"catmull-rom"	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot/matnet1/smokelessflames.userdata"
+Content-Disposition: attachment; filename="hdaroot/matnet1/smokelessflames_02.userdata"
+Content-Type: text/plain
+
+{
+	"___Version___":{
+		"type":"string",
+		"value":""
+	},
+	"___toolcount___":{
+		"type":"string",
+		"value":"2"
+	},
+	"___toolid___":{
+		"type":"string",
+		"value":"pyro_smokelessflame"
+	},
+	"__inputgroup_Exports":{
+		"type":"string",
+		"value":"collapsed"
+	},
+	"__inputgroup_Fire Intensity Field":{
+		"type":"string",
+		"value":"collapsed"
+	},
+	"__inputgroup_Fire Temperature Field":{
+		"type":"string",
+		"value":"collapsed"
+	},
+	"__inputgroup_General":{
+		"type":"string",
+		"value":"collapsed"
+	},
+	"__inputgroup_Smoke Field":{
+		"type":"string",
+		"value":"collapsed"
+	}
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/matnet1/smokelessflames_spikey.init"
+Content-Type: text/plain
+
+type = pyroshader
+matchesdef = 1
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/matnet1/smokelessflames_spikey.def"
+Content-Type: text/plain
+
+comment "Created from Gallery Entry: Smokeless Flames
+
+Flame material"
+position -24.2436 7.74359
+connectornextid 167
+flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on lowdetail off mediumdetail off highdetail on material on
+outputsNamed3
+{
+}
+inputsNamed3
+{
+0 	"" "" 1 "next"
+1 	"" "" 1 "rest"
+2 	"" "" 1 "rest_ratio"
+3 	"" "" 1 "rest2"
+4 	"" "" 1 "rest2_ratio"
+5 	"" "" 1 "Cd"
+6 	"" "" 1 "s_densityscale"
+7 	"" "" 1 "s_int"
+8 	"" "" 1 "s_color"
+9 	"" "" 1 "s_tintwithcd"
+10 	"" "" 1 "shade_phase"
+11 	"" "" 1 "fi_int"
+12 	"" "" 1 "fc_int"
+13 	"" "" 1 "fc_colormode"
+14 	"" "" 1 "fc_constantcolor"
+15 	"" "" 1 "fc_rampmin"
+16 	"" "" 1 "fc_rampmax"
+17 	"" "" 1 "fc_colorramp"
+18 	"" "" 1 "fc_bbtemp"
+19 	"" "" 1 "fc_bbadapt"
+20 	"" "" 1 "fc_bbburn"
+21 	"" "" 1 "s_shadowint"
+22 	"" "" 1 "s_shadowclr"
+23 	"" "" 1 "ftype"
+24 	"" "" 1 "fscale"
+25 	"" "" 1 "s_fitenable"
+26 	"" "" 1 "s_fitsrcmin"
+27 	"" "" 1 "s_fitsrcmax"
+28 	"" "" 1 "s_fitdestmin"
+29 	"" "" 1 "s_fitdestmax"
+30 	"" "" 1 "s_rampenable"
+31 	"" "" 1 "s_rampextl"
+32 	"" "" 1 "s_rampextr"
+33 	"" "" 1 "s_ramp"
+34 	"" "" 1 "s_contourenable"
+35 	"" "" 1 "s_contourwidth"
+36 	"" "" 1 "s_contoursharp"
+37 	"" "" 1 "s_sclipenable"
+38 	"" "" 1 "s_sclipstart"
+39 	"" "" 1 "s_sclipsuppress"
+40 	"" "" 1 "s_lowlimitenable"
+41 	"" "" 1 "s_lowlimit"
+42 	"" "" 1 "s_highlimitenable"
+43 	"" "" 1 "s_highlimit"
+44 	"" "" 1 "s_amp"
+45 	"" "" 1 "s_noiseenable"
+46 	"" "" 1 "s_noisemode"
+47 	"" "" 1 "s_noisebasis"
+48 	"" "" 1 "s_noisefreq"
+49 	"" "" 1 "s_noiseoffset"
+50 	"" "" 1 "s_noiseperiod"
+51 	"" "" 1 "s_noisefractal"
+52 	"" "" 1 "s_noiseoct"
+53 	"" "" 1 "s_noiselac"
+54 	"" "" 1 "s_noiserough"
+55 	"" "" 1 "s_noisedolwarp"
+56 	"" "" 1 "s_noiseaccuml"
+57 	"" "" 1 "s_noisedisp"
+58 	"" "" 1 "s_noisedispfreq"
+59 	"" "" 1 "s_noisedogwarp"
+60 	"" "" 1 "s_noiseaccumg"
+61 	"" "" 1 "s_noisegflow"
+62 	"" "" 1 "s_noiseflowrot"
+63 	"" "" 1 "s_noisecc_dobias"
+64 	"" "" 1 "s_noisecc_bias"
+65 	"" "" 1 "s_noisecc_dogain"
+66 	"" "" 1 "s_noisecc_gain"
+67 	"" "" 1 "s_noisecc_inv"
+68 	"" "" 1 "s_noisecc_dorng"
+69 	"" "" 1 "s_noisecc_rnglo"
+70 	"" "" 1 "s_noisecc_rnghi"
+71 	"" "" 1 "s_noisecc_amp"
+72 	"" "" 1 "fi_fitenable"
+73 	"" "" 1 "fi_fitsrcmin"
+74 	"" "" 1 "fi_fitsrcmax"
+75 	"" "" 1 "fi_fitdestmin"
+76 	"" "" 1 "fi_fitdestmax"
+77 	"" "" 1 "fi_rampenable"
+78 	"" "" 1 "fi_rampextl"
+79 	"" "" 1 "fi_rampextr"
+80 	"" "" 1 "fi_ramp"
+81 	"" "" 1 "fi_contourenable"
+82 	"" "" 1 "fi_contourwidth"
+83 	"" "" 1 "fi_contoursharp"
+84 	"" "" 1 "fi_sclipenable"
+85 	"" "" 1 "fi_sclipstart"
+86 	"" "" 1 "fi_sclipsuppress"
+87 	"" "" 1 "fi_lowlimitenable"
+88 	"" "" 1 "fi_lowlimit"
+89 	"" "" 1 "fi_highlimitenable"
+90 	"" "" 1 "fi_highlimit"
+91 	"" "" 1 "fi_amp"
+92 	"" "" 1 "fi_noiseenable"
+93 	"" "" 1 "fi_noisemode"
+94 	"" "" 1 "fi_noisebasis"
+95 	"" "" 1 "fi_noisefreq"
+96 	"" "" 1 "fi_noiseoffset"
+97 	"" "" 1 "fi_noiseperiod"
+98 	"" "" 1 "fi_noisefractal"
+99 	"" "" 1 "fi_noiseoct"
+100 	"" "" 1 "fi_noiselac"
+101 	"" "" 1 "fi_noiserough"
+102 	"" "" 1 "fi_noisedolwarp"
+103 	"" "" 1 "fi_noiseaccuml"
+104 	"" "" 1 "fi_noisedisp"
+105 	"" "" 1 "fi_noisedispfreq"
+106 	"" "" 1 "fi_noisedogwarp"
+107 	"" "" 1 "fi_noiseaccumg"
+108 	"" "" 1 "fi_noisegflow"
+109 	"" "" 1 "fi_noiseflowrot"
+110 	"" "" 1 "fi_noisecc_dobias"
+111 	"" "" 1 "fi_noisecc_bias"
+112 	"" "" 1 "fi_noisecc_dogain"
+113 	"" "" 1 "fi_noisecc_gain"
+114 	"" "" 1 "fi_noisecc_inv"
+115 	"" "" 1 "fi_noisecc_dorng"
+116 	"" "" 1 "fi_noisecc_rnglo"
+117 	"" "" 1 "fi_noisecc_rnghi"
+118 	"" "" 1 "fi_noisecc_amp"
+119 	"" "" 1 "fc_fitenable"
+120 	"" "" 1 "fc_fitsrcmin"
+121 	"" "" 1 "fc_fitsrcmax"
+122 	"" "" 1 "fc_fitdestmin"
+123 	"" "" 1 "fc_fitdestmax"
+124 	"" "" 1 "fc_rampenable"
+125 	"" "" 1 "fc_rampextl"
+126 	"" "" 1 "fc_rampextr"
+127 	"" "" 1 "fc_ramp"
+128 	"" "" 1 "fc_contourenable"
+129 	"" "" 1 "fc_contourwidth"
+130 	"" "" 1 "fc_contoursharp"
+131 	"" "" 1 "fc_sclipenable"
+132 	"" "" 1 "fc_sclipstart"
+133 	"" "" 1 "fc_sclipsuppress"
+134 	"" "" 1 "fc_lowlimitenable"
+135 	"" "" 1 "fc_lowlimit"
+136 	"" "" 1 "fc_highlimitenable"
+137 	"" "" 1 "fc_highlimit"
+138 	"" "" 1 "fc_amp"
+139 	"" "" 1 "fc_noiseenable"
+140 	"" "" 1 "fc_noisemode"
+141 	"" "" 1 "fc_noisebasis"
+142 	"" "" 1 "fc_noisefreq"
+143 	"" "" 1 "fc_noiseoffset"
+144 	"" "" 1 "fc_noiseperiod"
+145 	"" "" 1 "fc_noisefractal"
+146 	"" "" 1 "fc_noiseoct"
+147 	"" "" 1 "fc_noiselac"
+148 	"" "" 1 "fc_noiserough"
+149 	"" "" 1 "fc_noisedolwarp"
+150 	"" "" 1 "fc_noiseaccuml"
+151 	"" "" 1 "fc_noisedisp"
+152 	"" "" 1 "fc_noisedispfreq"
+153 	"" "" 1 "fc_noisedogwarp"
+154 	"" "" 1 "fc_noiseaccumg"
+155 	"" "" 1 "fc_noisegflow"
+156 	"" "" 1 "fc_noiseflowrot"
+157 	"" "" 1 "fc_noisecc_dobias"
+158 	"" "" 1 "fc_noisecc_bias"
+159 	"" "" 1 "fc_noisecc_dogain"
+160 	"" "" 1 "fc_noisecc_gain"
+161 	"" "" 1 "fc_noisecc_inv"
+162 	"" "" 1 "fc_noisecc_dorng"
+163 	"" "" 1 "fc_noisecc_rnglo"
+164 	"" "" 1 "fc_noisecc_rnghi"
+165 	"" "" 1 "fc_noisecc_amp"
+166 	"" "" 1 "density"
+}
+inputs
+{
+0 	"" 0 1
+1 	"" 0 1
+2 	"" 0 1
+3 	"" 0 1
+4 	"" 0 1
+5 	"" 0 1
+6 	"" 0 1
+7 	"" 0 1
+8 	"" 0 1
+9 	"" 0 1
+10 	"" 0 1
+11 	"" 0 1
+12 	"" 0 1
+13 	"" 0 1
+14 	"" 0 1
+15 	"" 0 1
+16 	"" 0 1
+17 	"" 0 1
+18 	"" 0 1
+19 	"" 0 1
+20 	"" 0 1
+21 	"" 0 1
+22 	"" 0 1
+23 	"" 0 1
+24 	"" 0 1
+25 	"" 0 1
+26 	"" 0 1
+27 	"" 0 1
+28 	"" 0 1
+29 	"" 0 1
+30 	"" 0 1
+31 	"" 0 1
+32 	"" 0 1
+33 	"" 0 1
+34 	"" 0 1
+35 	"" 0 1
+36 	"" 0 1
+37 	"" 0 1
+38 	"" 0 1
+39 	"" 0 1
+40 	"" 0 1
+41 	"" 0 1
+42 	"" 0 1
+43 	"" 0 1
+44 	"" 0 1
+45 	"" 0 1
+46 	"" 0 1
+47 	"" 0 1
+48 	"" 0 1
+49 	"" 0 1
+50 	"" 0 1
+51 	"" 0 1
+52 	"" 0 1
+53 	"" 0 1
+54 	"" 0 1
+55 	"" 0 1
+56 	"" 0 1
+57 	"" 0 1
+58 	"" 0 1
+59 	"" 0 1
+60 	"" 0 1
+61 	"" 0 1
+62 	"" 0 1
+63 	"" 0 1
+64 	"" 0 1
+65 	"" 0 1
+66 	"" 0 1
+67 	"" 0 1
+68 	"" 0 1
+69 	"" 0 1
+70 	"" 0 1
+71 	"" 0 1
+72 	"" 0 1
+73 	"" 0 1
+74 	"" 0 1
+75 	"" 0 1
+76 	"" 0 1
+77 	"" 0 1
+78 	"" 0 1
+79 	"" 0 1
+80 	"" 0 1
+81 	"" 0 1
+82 	"" 0 1
+83 	"" 0 1
+84 	"" 0 1
+85 	"" 0 1
+86 	"" 0 1
+87 	"" 0 1
+88 	"" 0 1
+89 	"" 0 1
+90 	"" 0 1
+91 	"" 0 1
+92 	"" 0 1
+93 	"" 0 1
+94 	"" 0 1
+95 	"" 0 1
+96 	"" 0 1
+97 	"" 0 1
+98 	"" 0 1
+99 	"" 0 1
+100 	"" 0 1
+101 	"" 0 1
+102 	"" 0 1
+103 	"" 0 1
+104 	"" 0 1
+105 	"" 0 1
+106 	"" 0 1
+107 	"" 0 1
+108 	"" 0 1
+109 	"" 0 1
+110 	"" 0 1
+111 	"" 0 1
+112 	"" 0 1
+113 	"" 0 1
+114 	"" 0 1
+115 	"" 0 1
+116 	"" 0 1
+117 	"" 0 1
+118 	"" 0 1
+119 	"" 0 1
+120 	"" 0 1
+121 	"" 0 1
+122 	"" 0 1
+123 	"" 0 1
+124 	"" 0 1
+125 	"" 0 1
+126 	"" 0 1
+127 	"" 0 1
+128 	"" 0 1
+129 	"" 0 1
+130 	"" 0 1
+131 	"" 0 1
+132 	"" 0 1
+133 	"" 0 1
+134 	"" 0 1
+135 	"" 0 1
+136 	"" 0 1
+137 	"" 0 1
+138 	"" 0 1
+139 	"" 0 1
+140 	"" 0 1
+141 	"" 0 1
+142 	"" 0 1
+143 	"" 0 1
+144 	"" 0 1
+145 	"" 0 1
+146 	"" 0 1
+147 	"" 0 1
+148 	"" 0 1
+149 	"" 0 1
+150 	"" 0 1
+151 	"" 0 1
+152 	"" 0 1
+153 	"" 0 1
+154 	"" 0 1
+155 	"" 0 1
+156 	"" 0 1
+157 	"" 0 1
+158 	"" 0 1
+159 	"" 0 1
+160 	"" 0 1
+161 	"" 0 1
+162 	"" 0 1
+163 	"" 0 1
+164 	"" 0 1
+165 	"" 0 1
+166 	"" 0 1
+}
+stat
+{
+  create 1496865993
+  modify 1512379779
+  author mikel@mikembp-sesi.local
+  access 0777
+}
+color UT_Color RGB 0.8 0.8 0.8 
+creator gallery::smokelessflames
+explicit 1
+delscript ""
+exprlanguage hscript
+end
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/matnet1/smokelessflames_spikey.parm"
+Content-Type: text/plain
+
+{
+version 0.8
+folder2_4	[ 0	locks=0	autoscope=0 ]	(	0	0	0	0	0	)
+folder6	[ 0	locks=0	autoscope=0 ]	(	0	)
+s_densityscale	[ 0	locks=0	autoscope=0 ]	(	20	)
+s_int	[ 0	locks=0	autoscope=0 ]	(	1	)
+s_color	[ 0	locks=0	autoscope=0 ]	(	0.40000000000000002	0.40000000000000002	0.40000000000000002	)
+s_tintwithcd	[ 0	locks=0	autoscope=0 ]	(	"on"	)
+shade_phase	[ 0	locks=0	autoscope=0 ]	(	0	)
+folder2_3_4	[ 0	locks=0	autoscope=0 ]	(	0	)
+fi_int	[ 0	locks=0	autoscope=0 ]	(	30	)
+fc_int	[ 0	locks=0	autoscope=0 ]	(	0.90000000000000002	)
+fc_colormode	[ 0	locks=0	autoscope=0 ]	(	2	)
+fc_constantcolor	[ 0	locks=0	autoscope=0 ]	(	1	1	1	)
+fc_rampmin	[ 0	locks=0	autoscope=0 ]	(	0	)
+fc_rampmax	[ 0	locks=0	autoscope=0 ]	(	1	)
+fc_colorramp	[ 0	locks=0	autoscope=0 ]	(	4	)
+fc_bbtemp	[ 0	locks=0	autoscope=0 ]	(	6500	)
+fc_bbadapt	[ 0	locks=0	autoscope=0 ]	(	0.040000000000000001	)
+fc_bbburn	[ 0	locks=0	autoscope=0 ]	(	-0.46700000000000003	)
+folder8	[ 0	locks=0	autoscope=0 ]	(	0	)
+s_shadowint	[ 0	locks=0	autoscope=0 ]	(	1	)
+s_shadowclr	[ 0	locks=0	autoscope=0 ]	(	1	1	1	)
+folder15	[ 0	locks=0	autoscope=0 ]	(	0	)
+ftype	[ 0	locks=0	autoscope=0 ]	(	point	)
+fscale	[ 0	locks=0	autoscope=0 ]	(	1	)
+s_volumename	[ 0	locks=0	autoscope=0 ]	(	heat	)
+folder16	[ 0	locks=0	autoscope=0 ]	(	0	0	)
+s_fitenable	[ 0	locks=0	autoscope=0 ]	(	"off"	)
+s_fitsrcmin	[ 0	locks=0	autoscope=0 ]	(	0	)
+s_fitsrcmax	[ 0	locks=0	autoscope=0 ]	(	1	)
+s_fitdestmin	[ 0	locks=0	autoscope=0 ]	(	0	)
+s_fitdestmax	[ 0	locks=0	autoscope=0 ]	(	1	)
+s_rampenable	[ 0	locks=0	autoscope=0 ]	(	"off"	)
+s_rampextl	[ 0	locks=0	autoscope=0 ]	(	hold	)
+s_rampextr	[ 0	locks=0	autoscope=0 ]	(	hold	)
+s_ramp	[ 0	locks=0	autoscope=0 ]	(	2	)
+s_contourenable	[ 0	locks=0	autoscope=0 ]	(	"off"	)
+s_contourwidth	[ 0	locks=0	autoscope=0 ]	(	0.02	)
+s_contoursharp	[ 0	locks=0	autoscope=0 ]	(	4	)
+s_sclipenable	[ 0	locks=0	autoscope=0 ]	(	"off"	)
+s_sclipstart	[ 0	locks=0	autoscope=0 ]	(	0.80000000000000004	)
+s_sclipsuppress	[ 0	locks=0	autoscope=0 ]	(	1	)
+s_lowlimitenable	[ 0	locks=0	autoscope=0 ]	(	"off"	)
+s_lowlimit	[ 0	locks=0	autoscope=0 ]	(	0	)
+s_highlimitenable	[ 0	locks=0	autoscope=0 ]	(	"off"	)
+s_highlimit	[ 0	locks=0	autoscope=0 ]	(	1	)
+s_amp	[ 0	locks=0	autoscope=0 ]	(	1	)
+s_noiseenable	[ 0	locks=0	autoscope=0 ]	(	"off"	)
+s_noisemode	[ 0	locks=0	autoscope=0 ]	(	0	)
+s_noisebasis	[ 0	locks=0	autoscope=0 ]	(	simplex	)
+s_noisefreq	[ 0	locks=0	autoscope=0 ]	(	5	5	5	1	)
+s_noiseoffset	[ 0	locks=0	autoscope=0 ]	(	0	0	0	0	)
+s_noiseperiod	[ 0	locks=0	autoscope=0 ]	(	1	1	1	1	)
+folder17	[ 0	locks=0	autoscope=0 ]	(	0	)
+s_noisefractal	[ 0	locks=0	autoscope=0 ]	(	none	)
+s_noiseoct	[ 0	locks=0	autoscope=0 ]	(	8	)
+s_noiselac	[ 0	locks=0	autoscope=0 ]	(	2.01234	)
+s_noiserough	[ 0	locks=0	autoscope=0 ]	(	0.5	)
+folder18	[ 0	locks=0	autoscope=0 ]	(	0	)
+s_noisedolwarp	[ 0	locks=0	autoscope=0 ]	(	"off"	)
+s_noiseaccuml	[ 0	locks=0	autoscope=0 ]	(	"off"	)
+s_noisedisp	[ 0	locks=0	autoscope=0 ]	(	0	)
+s_noisedispfreq	[ 0	locks=0	autoscope=0 ]	(	1	)
+s_noisedogwarp	[ 0	locks=0	autoscope=0 ]	(	"off"	)
+s_noiseaccumg	[ 0	locks=0	autoscope=0 ]	(	"off"	)
+s_noisegflow	[ 0	locks=0	autoscope=0 ]	(	0	)
+s_noiseflowrot	[ 0	locks=0	autoscope=0 ]	(	0	)
+folder5_1_2	[ 0	locks=0	autoscope=0 ]	(	0	)
+s_noisecc_dobias	[ 0	locks=0	autoscope=0 ]	(	"off"	)
+s_noisecc_bias	[ 0	locks=0	autoscope=0 ]	(	0.5	)
+s_noisecc_dogain	[ 0	locks=0	autoscope=0 ]	(	"off"	)
+s_noisecc_gain	[ 0	locks=0	autoscope=0 ]	(	0.5	)
+s_noisecc_inv	[ 0	locks=0	autoscope=0 ]	(	"off"	)
+s_noisecc_dorng	[ 0	locks=0	autoscope=0 ]	(	"off"	)
+s_noisecc_rnglo	[ 0	locks=0	autoscope=0 ]	(	0	)
+s_noisecc_rnghi	[ 0	locks=0	autoscope=0 ]	(	1	)
+s_noisecc_amp	[ 0	locks=0	autoscope=0 ]	(	1	1	1	)
+fi_volumename	[ 0	locks=0	autoscope=0 ]	(	temperature	)
+folder19	[ 0	locks=0	autoscope=0 ]	(	0	0	)
+fi_fitenable	[ 0	locks=0	autoscope=0 ]	(	"on"	)
+fi_fitsrcmin	[ 0	locks=0	autoscope=0 ]	(	0	)
+fi_fitsrcmax	[ 0	locks=0	autoscope=0 ]	(	10	)
+fi_fitdestmin	[ 0	locks=0	autoscope=0 ]	(	0	)
+fi_fitdestmax	[ 0	locks=0	autoscope=0 ]	(	1	)
+fi_rampenable	[ 0	locks=0	autoscope=0 ]	(	"on"	)
+fi_rampextl	[ 0	locks=0	autoscope=0 ]	(	hold	)
+fi_rampextr	[ 0	locks=0	autoscope=0 ]	(	hold	)
+fi_ramp	[ 0	locks=0	autoscope=0 ]	(	8	)
+fi_contourenable	[ 0	locks=0	autoscope=0 ]	(	"off"	)
+fi_contourwidth	[ 0	locks=0	autoscope=0 ]	(	0.02	)
+fi_contoursharp	[ 0	locks=0	autoscope=0 ]	(	4	)
+fi_sclipenable	[ 0	locks=0	autoscope=0 ]	(	"off"	)
+fi_sclipstart	[ 0	locks=0	autoscope=0 ]	(	0.90000000000000002	)
+fi_sclipsuppress	[ 0	locks=0	autoscope=0 ]	(	1	)
+fi_lowlimitenable	[ 0	locks=0	autoscope=0 ]	(	"off"	)
+fi_lowlimit	[ 0	locks=0	autoscope=0 ]	(	0	)
+fi_highlimitenable	[ 0	locks=0	autoscope=0 ]	(	"off"	)
+fi_highlimit	[ 0	locks=0	autoscope=0 ]	(	5	)
+fi_amp	[ 0	locks=0	autoscope=0 ]	(	10	)
+fi_noiseenable	[ 0	locks=0	autoscope=0 ]	(	"off"	)
+fi_noisemode	[ 0	locks=0	autoscope=0 ]	(	0	)
+fi_noisebasis	[ 0	locks=0	autoscope=0 ]	(	simplex	)
+fi_noisefreq	[ 0	locks=0	autoscope=0 ]	(	5	5	5	1	)
+fi_noiseoffset	[ 0	locks=0	autoscope=0 ]	(	5	0	0	0	)
+fi_noiseperiod	[ 0	locks=0	autoscope=0 ]	(	1	1	1	1	)
+folder20	[ 0	locks=0	autoscope=0 ]	(	0	)
+fi_noisefractal	[ 0	locks=0	autoscope=0 ]	(	none	)
+fi_noiseoct	[ 0	locks=0	autoscope=0 ]	(	8	)
+fi_noiselac	[ 0	locks=0	autoscope=0 ]	(	2.01234	)
+fi_noiserough	[ 0	locks=0	autoscope=0 ]	(	0.5	)
+folder21	[ 0	locks=0	autoscope=0 ]	(	0	)
+fi_noisedolwarp	[ 0	locks=0	autoscope=0 ]	(	"off"	)
+fi_noiseaccuml	[ 0	locks=0	autoscope=0 ]	(	"off"	)
+fi_noisedisp	[ 0	locks=0	autoscope=0 ]	(	0	)
+fi_noisedispfreq	[ 0	locks=0	autoscope=0 ]	(	1	)
+fi_noisedogwarp	[ 0	locks=0	autoscope=0 ]	(	"off"	)
+fi_noiseaccumg	[ 0	locks=0	autoscope=0 ]	(	"off"	)
+fi_noisegflow	[ 0	locks=0	autoscope=0 ]	(	0	)
+fi_noiseflowrot	[ 0	locks=0	autoscope=0 ]	(	0	)
+folder22	[ 0	locks=0	autoscope=0 ]	(	0	)
+fi_noisecc_dobias	[ 0	locks=0	autoscope=0 ]	(	"off"	)
+fi_noisecc_bias	[ 0	locks=0	autoscope=0 ]	(	0.5	)
+fi_noisecc_dogain	[ 0	locks=0	autoscope=0 ]	(	"off"	)
+fi_noisecc_gain	[ 0	locks=0	autoscope=0 ]	(	0.5	)
+fi_noisecc_inv	[ 0	locks=0	autoscope=0 ]	(	"off"	)
+fi_noisecc_dorng	[ 0	locks=0	autoscope=0 ]	(	"off"	)
+fi_noisecc_rnglo	[ 0	locks=0	autoscope=0 ]	(	0	)
+fi_noisecc_rnghi	[ 0	locks=0	autoscope=0 ]	(	1	)
+fi_noisecc_amp	[ 0	locks=0	autoscope=0 ]	(	1	1	1	)
+fc_volumename	[ 0	locks=0	autoscope=0 ]	(	heat	)
+folder7_3	[ 0	locks=0	autoscope=0 ]	(	0	0	)
+fc_fitenable	[ 0	locks=0	autoscope=0 ]	(	"on"	)
+fc_fitsrcmin	[ 0	locks=0	autoscope=0 ]	(	0	)
+fc_fitsrcmax	[ 0	locks=0	autoscope=0 ]	(	1.5	)
+fc_fitdestmin	[ 0	locks=0	autoscope=0 ]	(	0	)
+fc_fitdestmax	[ 0	locks=0	autoscope=0 ]	(	1	)
+fc_rampenable	[ 0	locks=0	autoscope=0 ]	(	"on"	)
+fc_rampextl	[ 0	locks=0	autoscope=0 ]	(	hold	)
+fc_rampextr	[ 0	locks=0	autoscope=0 ]	(	hold	)
+fc_ramp	[ 0	locks=0	autoscope=0 ]	(	50	)
+fc_contourenable	[ 0	locks=0	autoscope=0 ]	(	"off"	)
+fc_contourwidth	[ 0	locks=0	autoscope=0 ]	(	0.02	)
+fc_contoursharp	[ 0	locks=0	autoscope=0 ]	(	4	)
+fc_sclipenable	[ 0	locks=0	autoscope=0 ]	(	"off"	)
+fc_sclipstart	[ 0	locks=0	autoscope=0 ]	(	0.80000000000000004	)
+fc_sclipsuppress	[ 0	locks=0	autoscope=0 ]	(	1	)
+fc_lowlimitenable	[ 0	locks=0	autoscope=0 ]	(	"off"	)
+fc_lowlimit	[ 0	locks=0	autoscope=0 ]	(	0	)
+fc_highlimitenable	[ 0	locks=0	autoscope=0 ]	(	"off"	)
+fc_highlimit	[ 0	locks=0	autoscope=0 ]	(	1	)
+fc_amp	[ 0	locks=0	autoscope=0 ]	(	2	)
+fc_noiseenable	[ 0	locks=0	autoscope=0 ]	(	"off"	)
+fc_noisemode	[ 0	locks=0	autoscope=0 ]	(	0	)
+fc_noisebasis	[ 0	locks=0	autoscope=0 ]	(	simplex	)
+fc_noisefreq	[ 0	locks=0	autoscope=0 ]	(	5	5	5	1	)
+fc_noiseoffset	[ 0	locks=0	autoscope=0 ]	(	5	0	0	0	)
+fc_noiseperiod	[ 0	locks=0	autoscope=0 ]	(	1	1	1	1	)
+folder23	[ 0	locks=0	autoscope=0 ]	(	0	)
+fc_noisefractal	[ 0	locks=0	autoscope=0 ]	(	none	)
+fc_noiseoct	[ 0	locks=0	autoscope=0 ]	(	8	)
+fc_noiselac	[ 0	locks=0	autoscope=0 ]	(	2.01234	)
+fc_noiserough	[ 0	locks=0	autoscope=0 ]	(	0.5	)
+folder24	[ 0	locks=0	autoscope=0 ]	(	0	)
+fc_noisedolwarp	[ 0	locks=0	autoscope=0 ]	(	"off"	)
+fc_noiseaccuml	[ 0	locks=0	autoscope=0 ]	(	"off"	)
+fc_noisedisp	[ 0	locks=0	autoscope=0 ]	(	0	)
+fc_noisedispfreq	[ 0	locks=0	autoscope=0 ]	(	1	)
+fc_noisedogwarp	[ 0	locks=0	autoscope=0 ]	(	"off"	)
+fc_noiseaccumg	[ 0	locks=0	autoscope=0 ]	(	"off"	)
+fc_noisegflow	[ 0	locks=0	autoscope=0 ]	(	0	)
+fc_noiseflowrot	[ 0	locks=0	autoscope=0 ]	(	0	)
+folder25	[ 0	locks=0	autoscope=0 ]	(	0	)
+fc_noisecc_dobias	[ 0	locks=0	autoscope=0 ]	(	"off"	)
+fc_noisecc_bias	[ 0	locks=0	autoscope=0 ]	(	0.5	)
+fc_noisecc_dogain	[ 0	locks=0	autoscope=0 ]	(	"off"	)
+fc_noisecc_gain	[ 0	locks=0	autoscope=0 ]	(	0.5	)
+fc_noisecc_inv	[ 0	locks=0	autoscope=0 ]	(	"off"	)
+fc_noisecc_dorng	[ 0	locks=0	autoscope=0 ]	(	"off"	)
+fc_noisecc_rnglo	[ 0	locks=0	autoscope=0 ]	(	0	)
+fc_noisecc_rnghi	[ 0	locks=0	autoscope=0 ]	(	1	)
+fc_noisecc_amp	[ 0	locks=0	autoscope=0 ]	(	1	1	1	)
+smokemask_export_name	[ 0	locks=0	autoscope=0 ]	(	smoke_mask	)
+firemask_export_name	[ 0	locks=0	autoscope=0 ]	(	fire_mask	)
+direct	[ 0	locks=0	autoscope=0 ]	(	0	0	0	)
+indirect	[ 0	locks=0	autoscope=0 ]	(	0	0	0	)
+Ce	[ 0	locks=0	autoscope=0 ]	(	0	0	0	)
+direct_emission	[ 0	locks=0	autoscope=0 ]	(	0	0	0	)
+all_emission	[ 0	locks=0	autoscope=0 ]	(	0	0	0	)
+all	[ 0	locks=0	autoscope=0 ]	(	0	0	0	)
+indirect_emission	[ 0	locks=0	autoscope=0 ]	(	0	0	0	)
+direct_comp	[ 0	locks=0	autoscope=0 ]	(	""	)
+indirect_comp	[ 0	locks=0	autoscope=0 ]	(	""	)
+all_comp	[ 0	locks=0	autoscope=0 ]	(	""	)
+direct_noshadow	[ 0	locks=0	autoscope=0 ]	(	0	0	0	)
+direct_shadow	[ 0	locks=0	autoscope=0 ]	(	0	0	0	)
+indirect_noshadow	[ 0	locks=0	autoscope=0 ]	(	0	0	0	)
+indirect_shadow	[ 0	locks=0	autoscope=0 ]	(	0	0	0	)
+level	[ 0	locks=0	autoscope=0 ]	(	0	)
+diffuselevel	[ 0	locks=0	autoscope=0 ]	(	0	)
+specularlevel	[ 0	locks=0	autoscope=0 ]	(	0	)
+volumelevel	[ 0	locks=0	autoscope=0 ]	(	0	)
+direct_samples	[ 0	locks=0	autoscope=0 ]	(	0	)
+indirect_samples	[ 0	locks=0	autoscope=0 ]	(	0	)
+nlights	[ 0	locks=0	autoscope=0 ]	(	0	)
+direct_noshadow_comp	[ 0	locks=0	autoscope=0 ]	(	""	)
+indirect_noshadow_comp	[ 0	locks=0	autoscope=0 ]	(	""	)
+nddispersion	[ 0	locks=0	autoscope=0 ]	(	0	)
+ndpriority	[ 0	locks=0	autoscope=0 ]	(	0	)
+ndior	[ 0	locks=0	autoscope=0 ]	(	0	)
+absorption	[ 0	locks=0	autoscope=0 ]	(	0	0	0	)
+layer	[ 0	locks=0	autoscope=0 ]	(	""	)
+fc_colorramp1pos	[ 0	locks=0	autoscope=0 ]	(	0	)
+fc_colorramp1c	[ 0	locks=0	autoscope=0 ]	(	0	0	0	)
+fc_colorramp1interp	[ 0	locks=0	autoscope=0 ]	(	"catmull-rom"	)
+fc_colorramp2pos	[ 0	locks=0	autoscope=0 ]	(	0.54000002145767212	)
+fc_colorramp2c	[ 0	locks=0	autoscope=0 ]	(	1	0.34999999403953552	0.012000024318695068	)
+fc_colorramp2interp	[ 0	locks=0	autoscope=0 ]	(	"catmull-rom"	)
+s_ramp1pos	[ 0	locks=0	autoscope=0 ]	(	0	)
+s_ramp1value	[ 0	locks=0	autoscope=0 ]	(	0	)
+s_ramp1interp	[ 0	locks=0	autoscope=0 ]	(	"linear"	)
+s_ramp2pos	[ 0	locks=0	autoscope=0 ]	(	1	)
+s_ramp2value	[ 0	locks=0	autoscope=0 ]	(	1	)
+s_ramp2interp	[ 0	locks=0	autoscope=0 ]	(	"linear"	)
+fi_ramp1pos	[ 0	locks=0	autoscope=0 ]	(	0	)
+fi_ramp1value	[ 0	locks=0	autoscope=0 ]	(	0	)
+fi_ramp1interp	[ 0	locks=0	autoscope=0 ]	(	"linear"	)
+fi_ramp2pos	[ 0	locks=0	autoscope=0 ]	(	0.9100000262260437	)
+fi_ramp2value	[ 0	locks=0	autoscope=0 ]	(	0.9100000262260437	)
+fi_ramp2interp	[ 0	locks=0	autoscope=0 ]	(	"linear"	)
+fc_ramp1pos	[ 0	locks=0	autoscope=0 ]	(	0	)
+fc_ramp1value	[ 0	locks=0	autoscope=0 ]	(	0	)
+fc_ramp1interp	[ 0	locks=0	autoscope=0 ]	(	"linear"	)
+fc_ramp2pos	[ 0	locks=0	autoscope=0 ]	(	0.084493041038513184	)
+fc_ramp2value	[ 0	locks=0	autoscope=0 ]	(	0.079881653189659119	)
+fc_ramp2interp	[ 0	locks=0	autoscope=0 ]	(	"catmull-rom"	)
+fc_colorramp3pos	[ 0	locks=0	autoscope=0 ]	(	0.78313255310058594	)
+fc_colorramp3c	[ 0	locks=0	autoscope=0 ]	(	1	0.64999997615814209	0	)
+fc_colorramp3interp	[ 0	locks=0	autoscope=0 ]	(	"catmull-rom"	)
+fc_colorramp4pos	[ 0	locks=0	autoscope=0 ]	(	1	)
+fc_colorramp4c	[ 0	locks=0	autoscope=0 ]	(	1	1	1	)
+fc_colorramp4interp	[ 0	locks=0	autoscope=0 ]	(	"catmull-rom"	)
+fc_ramp3pos	[ 0	locks=0 ]	(	0.11299999803304672	)
+fc_ramp3value	[ 0	locks=0 ]	(	0.075999999999999998	)
+fc_ramp3interp	[ 0	locks=0 ]	(	"catmull-rom"	)
+fc_ramp4pos	[ 0	locks=0 ]	(	0.14015904068946838	)
+fc_ramp4value	[ 0	locks=0 ]	(	0.1331360936164856	)
+fc_ramp4interp	[ 0	locks=0 ]	(	"catmull-rom"	)
+fc_ramp5pos	[ 0	locks=0 ]	(	0.15208747982978821	)
+fc_ramp5value	[ 0	locks=0 ]	(	0.14497041702270508	)
+fc_ramp5interp	[ 0	locks=0 ]	(	"catmull-rom"	)
+fc_ramp6pos	[ 0	locks=0 ]	(	0.16998012363910675	)
+fc_ramp6value	[ 0	locks=0 ]	(	0.11899999999999999	)
+fc_ramp6interp	[ 0	locks=0 ]	(	"catmull-rom"	)
+fc_ramp7pos	[ 0	locks=0 ]	(	0.18389661610126495	)
+fc_ramp7value	[ 0	locks=0 ]	(	0.18047337234020233	)
+fc_ramp7interp	[ 0	locks=0 ]	(	"catmull-rom"	)
+fc_ramp8pos	[ 0	locks=0 ]	(	0.20000000298023224	)
+fc_ramp8value	[ 0	locks=0 ]	(	0.20000000298023224	)
+fc_ramp8interp	[ 0	locks=0 ]	(	"catmull-rom"	)
+fc_ramp9pos	[ 0	locks=0 ]	(	0.22365805506706238	)
+fc_ramp9value	[ 0	locks=0 ]	(	0.16400000000000001	)
+fc_ramp9interp	[ 0	locks=0 ]	(	"catmull-rom"	)
+fc_ramp10pos	[ 0	locks=0 ]	(	0.25149103999137878	)
+fc_ramp10value	[ 0	locks=0 ]	(	0.25443786382675171	)
+fc_ramp10interp	[ 0	locks=0 ]	(	"catmull-rom"	)
+fc_ramp11pos	[ 0	locks=0 ]	(	0.27335983514785767	)
+fc_ramp11value	[ 0	locks=0 ]	(	0.215	)
+fc_ramp11interp	[ 0	locks=0 ]	(	"catmull-rom"	)
+fc_ramp12pos	[ 0	locks=0 ]	(	0.30000001192092896	)
+fc_ramp12value	[ 0	locks=0 ]	(	0.30000001192092896	)
+fc_ramp12interp	[ 0	locks=0 ]	(	"catmull-rom"	)
+fc_ramp13pos	[ 0	locks=0 ]	(	0.32703778147697449	)
+fc_ramp13value	[ 0	locks=0 ]	(	0.26100000000000001	)
+fc_ramp13interp	[ 0	locks=0 ]	(	"catmull-rom"	)
+fc_ramp14pos	[ 0	locks=0 ]	(	0.34999999403953552	)
+fc_ramp14value	[ 0	locks=0 ]	(	0.34999999403953552	)
+fc_ramp14interp	[ 0	locks=0 ]	(	"catmull-rom"	)
+fc_ramp15pos	[ 0	locks=0 ]	(	0.37475147843360901	)
+fc_ramp15value	[ 0	locks=0 ]	(	0.23964497447013855	)
+fc_ramp15interp	[ 0	locks=0 ]	(	"catmull-rom"	)
+fc_ramp16pos	[ 0	locks=0 ]	(	0.40000000596046448	)
+fc_ramp16value	[ 0	locks=0 ]	(	0.40000000596046448	)
+fc_ramp16interp	[ 0	locks=0 ]	(	"catmull-rom"	)
+fc_ramp17pos	[ 0	locks=0 ]	(	0.42644134163856506	)
+fc_ramp17value	[ 0	locks=0 ]	(	0.28698223829269409	)
+fc_ramp17interp	[ 0	locks=0 ]	(	"catmull-rom"	)
+fc_ramp18pos	[ 0	locks=0 ]	(	0.45228627324104309	)
+fc_ramp18value	[ 0	locks=0 ]	(	0.44082841277122498	)
+fc_ramp18interp	[ 0	locks=0 ]	(	"catmull-rom"	)
+fc_ramp19pos	[ 0	locks=0 ]	(	0.47415506839752197	)
+fc_ramp19value	[ 0	locks=0 ]	(	0.25147929787635803	)
+fc_ramp19interp	[ 0	locks=0 ]	(	"catmull-rom"	)
+fc_ramp20pos	[ 0	locks=0 ]	(	0.5	)
+fc_ramp20value	[ 0	locks=0 ]	(	0.5	)
+fc_ramp20interp	[ 0	locks=0 ]	(	"linear"	)
+fc_ramp21pos	[ 0	locks=0 ]	(	0.51988071203231812	)
+fc_ramp21value	[ 0	locks=0 ]	(	0.33431953191757202	)
+fc_ramp21interp	[ 0	locks=0 ]	(	"linear"	)
+fc_ramp22pos	[ 0	locks=0 ]	(	0.53777337074279785	)
+fc_ramp22value	[ 0	locks=0 ]	(	0.50295859575271606	)
+fc_ramp22interp	[ 0	locks=0 ]	(	"linear"	)
+fc_ramp23pos	[ 0	locks=0 ]	(	0.55000001192092896	)
+fc_ramp23value	[ 0	locks=0 ]	(	0.55000001192092896	)
+fc_ramp23interp	[ 0	locks=0 ]	(	"linear"	)
+fc_ramp24pos	[ 0	locks=0 ]	(	0.56560635566711426	)
+fc_ramp24value	[ 0	locks=0 ]	(	0.3372780978679657	)
+fc_ramp24interp	[ 0	locks=0 ]	(	"linear"	)
+fc_ramp25pos	[ 0	locks=0 ]	(	0.57952284812927246	)
+fc_ramp25value	[ 0	locks=0 ]	(	0.55325442552566528	)
+fc_ramp25interp	[ 0	locks=0 ]	(	"linear"	)
+fc_ramp26pos	[ 0	locks=0 ]	(	0.5974155068397522	)
+fc_ramp26value	[ 0	locks=0 ]	(	0.57396447658538818	)
+fc_ramp26interp	[ 0	locks=0 ]	(	"linear"	)
+fc_ramp27pos	[ 0	locks=0 ]	(	0.61729621887207031	)
+fc_ramp27value	[ 0	locks=0 ]	(	0.35798817873001099	)
+fc_ramp27interp	[ 0	locks=0 ]	(	"linear"	)
+fc_ramp28pos	[ 0	locks=0 ]	(	0.63518887758255005	)
+fc_ramp28value	[ 0	locks=0 ]	(	0.60650885105133057	)
+fc_ramp28interp	[ 0	locks=0 ]	(	"linear"	)
+fc_ramp29pos	[ 0	locks=0 ]	(	0.65109342336654663	)
+fc_ramp29value	[ 0	locks=0 ]	(	0.38165679574012756	)
+fc_ramp29interp	[ 0	locks=0 ]	(	"linear"	)
+fc_ramp30pos	[ 0	locks=0 ]	(	0.66103380918502808	)
+fc_ramp30value	[ 0	locks=0 ]	(	0.62130177021026611	)
+fc_ramp30interp	[ 0	locks=0 ]	(	"linear"	)
+fc_ramp31pos	[ 0	locks=0 ]	(	0.68489062786102295	)
+fc_ramp31value	[ 0	locks=0 ]	(	0.39349111914634705	)
+fc_ramp31interp	[ 0	locks=0 ]	(	"linear"	)
+fc_ramp32pos	[ 0	locks=0 ]	(	0.70079523324966431	)
+fc_ramp32value	[ 0	locks=0 ]	(	0.65680474042892456	)
+fc_ramp32interp	[ 0	locks=0 ]	(	"linear"	)
+fc_ramp33pos	[ 0	locks=0 ]	(	0.72664016485214233	)
+fc_ramp33value	[ 0	locks=0 ]	(	0.66863906383514404	)
+fc_ramp33interp	[ 0	locks=0 ]	(	"linear"	)
+fc_ramp34pos	[ 0	locks=0 ]	(	0.74254471063613892	)
+fc_ramp34value	[ 0	locks=0 ]	(	0.42307692766189575	)
+fc_ramp34interp	[ 0	locks=0 ]	(	"catmull-rom"	)
+fc_ramp35pos	[ 0	locks=0 ]	(	0.75646120309829712	)
+fc_ramp35value	[ 0	locks=0 ]	(	0.5	)
+fc_ramp35interp	[ 0	locks=0 ]	(	"catmull-rom"	)
+fc_ramp36pos	[ 0	locks=0 ]	(	0.76838964223861694	)
+fc_ramp36value	[ 0	locks=0 ]	(	0.71005916595458984	)
+fc_ramp36interp	[ 0	locks=0 ]	(	"linear"	)
+fc_ramp37pos	[ 0	locks=0 ]	(	0.79622268676757812	)
+fc_ramp37value	[ 0	locks=0 ]	(	0.75739645957946777	)
+fc_ramp37interp	[ 0	locks=0 ]	(	"linear"	)
+fc_ramp38pos	[ 0	locks=0 ]	(	0.80616301298141479	)
+fc_ramp38value	[ 0	locks=0 ]	(	0.44082841277122498	)
+fc_ramp38interp	[ 0	locks=0 ]	(	"linear"	)
+fc_ramp39pos	[ 0	locks=0 ]	(	0.82405567169189453	)
+fc_ramp39value	[ 0	locks=0 ]	(	0.77514791488647461	)
+fc_ramp39interp	[ 0	locks=0 ]	(	"linear"	)
+fc_ramp40pos	[ 0	locks=0 ]	(	0.83797216415405273	)
+fc_ramp40value	[ 0	locks=0 ]	(	0.75739645957946777	)
+fc_ramp40interp	[ 0	locks=0 ]	(	"linear"	)
+fc_ramp41pos	[ 0	locks=0 ]	(	0.84990060329437256	)
+fc_ramp41value	[ 0	locks=0 ]	(	0.48816567659378052	)
+fc_ramp41interp	[ 0	locks=0 ]	(	"linear"	)
+fc_ramp42pos	[ 0	locks=0 ]	(	0.86182904243469238	)
+fc_ramp42value	[ 0	locks=0 ]	(	0.78106510639190674	)
+fc_ramp42interp	[ 0	locks=0 ]	(	"linear"	)
+fc_ramp43pos	[ 0	locks=0 ]	(	0.87375748157501221	)
+fc_ramp43value	[ 0	locks=0 ]	(	0.82248520851135254	)
+fc_ramp43interp	[ 0	locks=0 ]	(	"linear"	)
+fc_ramp44pos	[ 0	locks=0 ]	(	0.89363819360733032	)
+fc_ramp44value	[ 0	locks=0 ]	(	0.48816567659378052	)
+fc_ramp44interp	[ 0	locks=0 ]	(	"linear"	)
+fc_ramp45pos	[ 0	locks=0 ]	(	0.91550695896148682	)
+fc_ramp45value	[ 0	locks=0 ]	(	0.83431953191757202	)
+fc_ramp45interp	[ 0	locks=0 ]	(	"linear"	)
+fc_ramp46pos	[ 0	locks=0 ]	(	0.92942345142364502	)
+fc_ramp46value	[ 0	locks=0 ]	(	0.88165682554244995	)
+fc_ramp46interp	[ 0	locks=0 ]	(	"linear"	)
+fc_ramp47pos	[ 0	locks=0 ]	(	0.94333994388580322	)
+fc_ramp47value	[ 0	locks=0 ]	(	0.64201182126998901	)
+fc_ramp47interp	[ 0	locks=0 ]	(	"linear"	)
+fc_ramp48pos	[ 0	locks=0 ]	(	0.95328032970428467	)
+fc_ramp48value	[ 0	locks=0 ]	(	0.8668639063835144	)
+fc_ramp48interp	[ 0	locks=0 ]	(	"linear"	)
+fc_ramp49pos	[ 0	locks=0 ]	(	0.97713714838027954	)
+fc_ramp49value	[ 0	locks=0 ]	(	0.58284026384353638	)
+fc_ramp49interp	[ 0	locks=0 ]	(	"linear"	)
+fc_ramp50pos	[ 0	locks=0 ]	(	1	)
+fc_ramp50value	[ 0	locks=0 ]	(	1	)
+fc_ramp50interp	[ 0	locks=0 ]	(	"linear"	)
+fi_ramp3pos	[ 0	locks=0 ]	(	0.9314115047454834	)
+fi_ramp3value	[ 0	locks=0 ]	(	0.14792899787425995	)
+fi_ramp3interp	[ 0	locks=0 ]	(	"linear"	)
+fi_ramp4pos	[ 0	locks=0 ]	(	0.94532805681228638	)
+fi_ramp4value	[ 0	locks=0 ]	(	0.94082838296890259	)
+fi_ramp4interp	[ 0	locks=0 ]	(	"linear"	)
+fi_ramp5pos	[ 0	locks=0 ]	(	0.9711729884147644	)
+fi_ramp5value	[ 0	locks=0 ]	(	0.21301774680614471	)
+fi_ramp5interp	[ 0	locks=0 ]	(	"linear"	)
+fi_ramp6pos	[ 0	locks=0 ]	(	0.97713714838027954	)
+fi_ramp6value	[ 0	locks=0 ]	(	0.9585798978805542	)
+fi_ramp6interp	[ 0	locks=0 ]	(	"linear"	)
+fi_ramp7pos	[ 0	locks=0 ]	(	0.99347823858261108	)
+fi_ramp7value	[ 0	locks=0 ]	(	0.052727270871400833	)
+fi_ramp7interp	[ 0	locks=0 ]	(	"linear"	)
+fi_ramp8pos	[ 0	locks=0 ]	(	1	)
+fi_ramp8value	[ 0	locks=0 ]	(	0.24852071702480316	)
+fi_ramp8interp	[ 0	locks=0 ]	(	"linear"	)
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/matnet1/smokelessflames_spikey.userdata"
 Content-Type: text/plain
 
 {
@@ -3053,7 +6086,7 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position -3.43937 5.2657
+position -4.52108 6.07698
 connectornextid 1
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight on unload off savedata off compress on colordefault on exposed on
 outputsNamed3
@@ -3069,7 +6102,7 @@ inputs
 stat
 {
   create 1496865950
-  modify 1510225762
+  modify 1512111602
   author mikel@mikembp-sesi.local
   access 0777
 }
@@ -3135,7 +6168,7 @@ sopflags sopflags =
 comment ""
 position -1.6944 0.635746
 connectornextid 1
-flags =  lock off model off template off footprint off xray off bypass off display on render off highlight off unload off savedata off compress on colordefault on exposed on
+flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
 {
 }
@@ -3150,7 +6183,7 @@ inputs
 stat
 {
   create 1496865993
-  modify 1511868291
+  modify 1512202153
   author mikel@mikembp-sesi.local
   access 0777
 }
@@ -3276,18 +6309,18 @@ outputsNamed3
 }
 inputsNamed3
 {
-0 	sphere1 0 1 "input1"
+0 	boolean1 2 1 "input1"
 1 	source_object 0 1 "input2"
 }
 inputs
 {
-0 	sphere1 0 1
+0 	boolean1 0 1
 1 	source_object 0 1
 }
 stat
 {
   create 1510224287
-  modify 1510225741
+  modify 1512111634
   author mikel@mikembp-sesi.local
   access 0777
 }
@@ -3358,7 +6391,7 @@ inputs
 stat
 {
   create 1510224293
-  modify 1510224851
+  modify 1512031748
   author mikel@mikembp-sesi.local
   access 0777
 }
@@ -3439,7 +6472,7 @@ inputs
 stat
 {
   create 1510224483
-  modify 1511868291
+  modify 1512111640
   author mikel@mikembp-sesi.local
   access 0777
 }
@@ -3495,7 +6528,7 @@ xOrd	[ 0	locks=0 ]	(	"srt"	)
 rOrd	[ 0	locks=0 ]	(	"xyz"	)
 t	[ 0	locks=0 ]	(	0	0	0	)
 r	[ 0	locks=0 ]	(	0	0	0	)
-s	[ 0	locks=0 ]	(	[ sx	1 ] 	[ sy	0.20000000000000001 ] 	[ sz	1 ] 	)
+s	[ 0	locks=0 ]	(	[ sx	1 ] 	[ sy	0.29999999999999999 ] 	[ sz	1 ] 	)
 shear	[ 0	locks=0 ]	(	0	0	0	)
 scale	[ 0	locks=0 ]	(	[ scale	1 ] 	)
 parmgroup_pivotxform	[ 0	locks=0 ]	(	0	)
@@ -3528,10 +6561,200 @@ Content-Type: text/plain
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/fire_source/boolean1.init"
+Content-Type: text/plain
+
+type = boolean::2.0
+matchesdef = 0
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/fire_source/boolean1.def"
+Content-Type: text/plain
+
+sopflags sopflags = 
+comment ""
+position -3.42072 4.97293
+connectornextid 3
+flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
+outputsNamed3
+{
+2 "output1"
+}
+inputsNamed3
+{
+0 	sphere1 0 1 "input1"
+1 	grid1 0 1 "input2"
+}
+inputs
+{
+0 	sphere1 0 1
+1 	grid1 0 1
+}
+stat
+{
+  create 1512111571
+  modify 1512113820
+  author mikel@mikembp-sesi.local
+  access 0777
+}
+color UT_Color RGB 0.8 0.8 0.8 
+delscript ""
+exprlanguage hscript
+end
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/fire_source/boolean1.parm"
+Content-Type: text/plain
+
+{
+version 0.8
+inputa	[ 0	locks=0 ]	(	0	)
+agroup	[ 0	locks=0 ]	(	""	)
+asurface	[ 0	locks=0 ]	(	"solid"	)
+resolvea	[ 0	locks=0 ]	(	"on"	)
+inputb	[ 0	locks=0 ]	(	0	)
+bgroup	[ 0	locks=0 ]	(	""	)
+bsurface	[ 0	locks=0 ]	(	"solid"	)
+resolveb	[ 0	locks=0 ]	(	"on"	)
+output	[ 0	locks=0 ]	(	0	)
+booleanop	[ 0	locks=0 ]	(	"subtract"	)
+subtractchoices	[ 0	locks=0 ]	(	"aminusb"	)
+shatterchoices	[ 0	locks=0 ]	(	"apieces"	)
+opencurvesonly	[ 0	locks=0 ]	(	"on"	)
+generateaaseams	[ 0	locks=0 ]	(	"on"	)
+generatebbseams	[ 0	locks=0 ]	(	"on"	)
+generateabseams	[ 0	locks=0 ]	(	"on"	)
+adepth	[ 0	locks=0 ]	(	1	1000	)
+bdepth	[ 0	locks=0 ]	(	1	1000	)
+windingop	[ 0	locks=0 ]	(	"arange"	)
+mergenbrs	[ 0	locks=0 ]	(	"off"	)
+detriangulate	[ 0	locks=0 ]	(	"all"	)
+removeinlinepoints	[ 0	locks=0 ]	(	"on"	)
+uniqueseams	[ 0	locks=0 ]	(	"off"	)
+useaxapolys	[ 0	locks=0 ]	(	"off"	)
+axapolys	[ 0	locks=0 ]	(	axapolys	)
+useaxbpolys	[ 0	locks=0 ]	(	"off"	)
+axbpolys	[ 0	locks=0 ]	(	axbpolys	)
+useaxalist	[ 0	locks=0 ]	(	"off"	)
+axalist	[ 0	locks=0 ]	(	axalist	)
+useaxblist	[ 0	locks=0 ]	(	"off"	)
+axblist	[ 0	locks=0 ]	(	axblist	)
+collapsetinyedges	[ 0	locks=0 ]	(	"on"	)
+lengththreshold	[ 0	locks=0 ]	(	1.0000000000000001e-05	)
+outputprimgroups	[ 0	locks=0 ]	(	0	)
+useapolys	[ 0	locks=0 ]	(	"off"	)
+apolys	[ 0	locks=0 ]	(	apolys	)
+useainsideb	[ 0	locks=0 ]	(	"off"	)
+ainsideb	[ 0	locks=0 ]	(	ainsideb	)
+useaoutsideb	[ 0	locks=0 ]	(	"off"	)
+aoutsideb	[ 0	locks=0 ]	(	aoutsideb	)
+usebpolys	[ 0	locks=0 ]	(	"off"	)
+bpolys	[ 0	locks=0 ]	(	bpolys	)
+usebinsidea	[ 0	locks=0 ]	(	"off"	)
+binsidea	[ 0	locks=0 ]	(	binsidea	)
+useboutsidea	[ 0	locks=0 ]	(	"off"	)
+boutsidea	[ 0	locks=0 ]	(	boutsidea	)
+useaboverlap	[ 0	locks=0 ]	(	"off"	)
+aboverlap	[ 0	locks=0 ]	(	aboverlap	)
+useaonlypieces	[ 0	locks=0 ]	(	"off"	)
+aonlypieces	[ 0	locks=0 ]	(	apieces	)
+usebonlypieces	[ 0	locks=0 ]	(	"off"	)
+bonlypieces	[ 0	locks=0 ]	(	bpieces	)
+useabpieces	[ 0	locks=0 ]	(	"off"	)
+abpieces	[ 0	locks=0 ]	(	abpieces	)
+outputedgegroups	[ 0	locks=0 ]	(	0	)
+useaaseamedges	[ 0	locks=0 ]	(	"off"	)
+aaseamedges	[ 0	locks=0 ]	(	aseams	)
+usebbseamedges	[ 0	locks=0 ]	(	"off"	)
+bbseamedges	[ 0	locks=0 ]	(	bseams	)
+useabseamedges	[ 0	locks=0 ]	(	"off"	)
+abseamedges	[ 0	locks=0 ]	(	abseams	)
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/fire_source/boolean1.userdata"
+Content-Type: text/plain
+
+{
+	"___Version___":{
+		"type":"string",
+		"value":"16.5.304"
+	}
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/fire_source/grid1.init"
+Content-Type: text/plain
+
+type = grid
+matchesdef = 0
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/fire_source/grid1.def"
+Content-Type: text/plain
+
+sopflags sopflags = 
+comment ""
+position -2.30901 6.07698
+connectornextid 1
+flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
+outputsNamed3
+{
+0 "output1"
+}
+inputsNamed3
+{
+}
+inputs
+{
+}
+stat
+{
+  create 1512111574
+  modify 1512113820
+  author mikel@mikembp-sesi.local
+  access 0777
+}
+color UT_Color RGB 0.8 0.8 0.8 
+delscript ""
+exprlanguage hscript
+end
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/fire_source/grid1.parm"
+Content-Type: text/plain
+
+{
+version 0.8
+type	[ 0	locks=0 ]	(	"poly"	)
+surftype	[ 0	locks=0 ]	(	"quads"	)
+orient	[ 0	locks=0 ]	(	"zx"	)
+size	[ 0	locks=0 ]	(	10	10	)
+t	[ 0	locks=0 ]	(	0	0	0	)
+rows	[ 0	locks=0 ]	(	10	)
+cols	[ 0	locks=0 ]	(	10	)
+orderu	[ 0	locks=0 ]	(	4	)
+orderv	[ 0	locks=0 ]	(	4	)
+interpu	[ 0	locks=0 ]	(	"on"	)
+interpv	[ 0	locks=0 ]	(	"on"	)
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/fire_source/grid1.userdata"
+Content-Type: text/plain
+
+{
+	"___Version___":{
+		"type":"string",
+		"value":"16.5.304"
+	}
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
 Content-Disposition: attachment; filename="hdaroot/fire_source.order"
 Content-Type: text/plain
 
-7
+9
 sphere1
 OUT_fuel
 RENDER
@@ -3539,6 +6762,8 @@ create_fuel_volume
 switch1
 source_object
 transform1
+boolean1
+grid1
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
 Content-Disposition: attachment; filename="hdaroot/fire_source.net"
@@ -3575,7 +6800,7 @@ inputs
 stat
 {
   create 1496865992
-  modify 1510162590
+  modify 1512031748
   author mikel@mikembp-sesi.local
   access 0777
 }
@@ -3849,22 +7074,25 @@ Content-Type: text/plain
 objflags objflags =  origin off
 pretransform UT_DMatrix4 1 0 0 0 0 1 0 0 0 0 1 0 0 0 0 1
 comment ""
-position -22.8195 5.49324
-connectornextid 0
+position -22.8195 4.87955
+connectornextid 2
 flags =  lock off model off template off footprint off xray off bypass off display on render off highlight off unload off savedata off compress on colordefault on exposed on selectable on
 outputsNamed3
 {
+0 "output1"
 }
 inputsNamed3
 {
+1 	fetch1 0 1 "input1"
 }
 inputs
 {
+0 	fetch1 0 1
 }
 stat
 {
   create 1496865993
-  modify 1511875774
+  modify 1512242446
   author mikel@mikembp-sesi.local
   access 0777
 }
@@ -4554,11 +7782,11 @@ vm_rendervisibility	[ 0	locks=0 ]	(	*	)
 vm_rendersubd	[ 0	locks=0 ]	(	"off"	)
 vm_subdstyle	[ 0	locks=0 ]	(	mantra_catclark	)
 vm_subdgroup	[ 0	locks=0 ]	(	""	)
-folder0	[ 0	locks=0 ]	(	0	0	0	0	)
+folder0	[ 0	locks=0 ]	(	3	3	3	3	)
 categories	[ 0	locks=0 ]	(	""	)
 reflectmask	[ 0	locks=0 ]	(	*	)
 refractmask	[ 0	locks=0 ]	(	*	)
-lightmask	[ 0	locks=0 ]	(	*	)
+lightmask	[ 0	locks=0 ]	(	""	)
 lightcategories	[ 0	locks=0 ]	(	*	)
 vm_volumefilter	[ 0	locks=0 ]	(	blackman	)
 vm_volumefilterwidth	[ 0	locks=0 ]	(	1.5	)
@@ -4632,7 +7860,7 @@ inputs
 stat
 {
   create 1496865993
-  modify 1510163186
+  modify 1512031748
   author mikel@mikembp-sesi.local
   access 0777
 }
@@ -4732,7 +7960,7 @@ inputs
 stat
 {
   create 1496865993
-  modify 1511097354
+  modify 1512208061
   author mikel@mikembp-sesi.local
   access 0777
 }
@@ -4820,16 +8048,16 @@ Content-Type: text/plain
 
 {
 version 0.8
-loadfromdisk	[ 0	locks=0 ]	(	[ loadfromdisk	0 ] 	)
+loadfromdisk	[ 0	locks=0 ]	(	[ loadfromdisk	1 ] 	)
 reload	[ 0	locks=0 ]	(	[ reload	0 ] 	)
-file	[ 0	locks=0 ]	(	[ file	/Users/mikel/Documents/projects/GameDevShelf/fire_presets/hip/geo/1m_wide_low_sim/1m_wide_low_sim.1.bgeo.sc ] 	)
-folder0	[ 0	locks=0 ]	(	1	1	1	)
+file	[ 0	locks=0 ]	(	[ file	/Users/mikel/Documents/projects/GameDevShelf/fire_presets/hip/geo/1m_wide_high_sim_v02/1m_wide_high_sim_v02.78.bgeo.sc ] 	)
+folder0	[ 0	locks=0 ]	(	0	0	0	)
 doppath	[ 0	locks=0 ]	(	../../fire_simulation	)
 dopnode	[ 0	locks=0 ]	(	../../fire_simulation/pyro	)
 defobj	[ 0	locks=0 ]	(	""	)
 doposxform	[ 0	locks=0 ]	(	"on"	)
 doxform	[ 0	locks=0 ]	(	"on"	)
-computeminmax	[ 0	locks=0 ]	(	"off"	)
+computeminmax	[ 0	locks=0 ]	(	"on"	)
 importsimsettings	[ 0	locks=0 ]	(	"on"	)
 presets	[ 0	locks=0 ]	(	choose	)
 folder1	[ 0	locks=0 ]	(	0	0	)
@@ -4948,7 +8176,7 @@ inputs
 stat
 {
   create 1496867184
-  modify 1511867361
+  modify 1512208061
   author mikel@mikembp-sesi.local
   access 0777
 }
@@ -4984,6 +8212,206 @@ Content-Disposition: attachment; filename="hdaroot/fire_import/volumevisualizati
 Content-Type: text/plain
 
 {
+    channel densityramp1pos {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = ch(\"../../densityramp1pos\") }
+    }
+    channel densityramp1value {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = ch(\"../../densityramp1value\") }
+    }
+    channel densityramp1interp {
+      lefttype = extend
+      righttype = extend
+      default = 1
+      flags = 0
+      segment { length = 0 value = 1 1 expr = ch(\"../../densityramp1interp\") }
+    }
+    channel densityramp2pos {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = ch(\"../../densityramp2pos\") }
+    }
+    channel densityramp2value {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = ch(\"../../densityramp2value\") }
+    }
+    channel densityramp2interp {
+      lefttype = extend
+      righttype = extend
+      default = 1
+      flags = 0
+      segment { length = 0 value = 1 1 expr = ch(\"../../densityramp2interp\") }
+    }
+    channel cdramp1pos {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = ch(\"../../cdramp1pos\") }
+    }
+    channel cdramp1cr {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = ch(\"../../cdramp1cr\") }
+    }
+    channel cdramp1cg {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = ch(\"../../cdramp1cg\") }
+    }
+    channel cdramp1cb {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = ch(\"../../cdramp1cb\") }
+    }
+    channel cdramp1interp {
+      lefttype = extend
+      righttype = extend
+      default = 1
+      flags = 0
+      segment { length = 0 value = 1 1 expr = ch(\"../../cdramp1interp\") }
+    }
+    channel cdramp2pos {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = ch(\"../../cdramp2pos\") }
+    }
+    channel cdramp2cr {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = ch(\"../../cdramp2cr\") }
+    }
+    channel cdramp2cg {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = ch(\"../../cdramp2cg\") }
+    }
+    channel cdramp2cb {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = ch(\"../../cdramp2cb\") }
+    }
+    channel cdramp2interp {
+      lefttype = extend
+      righttype = extend
+      default = 1
+      flags = 0
+      segment { length = 0 value = 1 1 expr = ch(\"../../cdramp2interp\") }
+    }
+    channel emitramp1pos {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = ch(\"../../emitramp1pos\") }
+    }
+    channel emitramp1value {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = ch(\"../../emitramp1value\") }
+    }
+    channel emitramp1interp {
+      lefttype = extend
+      righttype = extend
+      default = 1
+      flags = 0
+      segment { length = 0 value = 1 1 expr = ch(\"../../emitramp1interp\") }
+    }
+    channel emitramp2pos {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = ch(\"../../emitramp2pos\") }
+    }
+    channel emitramp2value {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = ch(\"../../emitramp2value\") }
+    }
+    channel emitramp2interp {
+      lefttype = extend
+      righttype = extend
+      default = 1
+      flags = 0
+      segment { length = 0 value = 1 1 expr = ch(\"../../emitramp2interp\") }
+    }
+    channel emitcdramp1pos {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = ch(\"../../emitcdramp1pos\") }
+    }
+    channel emitcdramp1cr {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = ch(\"../../emitcdramp1cr\") }
+    }
+    channel emitcdramp1cg {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = ch(\"../../emitcdramp1cg\") }
+    }
+    channel emitcdramp1cb {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = ch(\"../../emitcdramp1cb\") }
+    }
+    channel emitcdramp1interp {
+      lefttype = extend
+      righttype = extend
+      default = 2
+      flags = 0
+      segment { length = 0 value = 2 2 expr = ch(\"../../emitcdramp1interp\") }
+    }
+    channel emitcdramp2pos {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = ch(\"../../emitcdramp2pos\") }
+    }
+    channel emitcdramp2cr {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = ch(\"../../emitcdramp2cr\") }
+    }
+    channel emitcdramp2cg {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = ch(\"../../emitcdramp2cg\") }
+    }
+    channel emitcdramp2cb {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = ch(\"../../emitcdramp2cb\") }
+    }
+    channel emitcdramp2interp {
+      lefttype = extend
+      righttype = extend
+      default = 1
+      flags = 0
+      segment { length = 0 value = 1 1 expr = ch(\"../../emitcdramp2interp\") }
+    }
     channel densityscale {
       lefttype = extend
       righttype = extend
@@ -5038,25 +8466,6 @@ Content-Type: text/plain
       flags = 0
       segment { length = 0 value = 2 2 expr = ch(\"../../densityramp\") }
     }
-    channel densityramp1pos {
-      lefttype = extend
-      righttype = extend
-      flags = 0
-      segment { length = 0 expr = ch(\"../../densityramp1pos\") }
-    }
-    channel densityramp1value {
-      lefttype = extend
-      righttype = extend
-      flags = 0
-      segment { length = 0 expr = ch(\"../../densityramp1value\") }
-    }
-    channel densityramp1interp {
-      lefttype = extend
-      righttype = extend
-      default = 1
-      flags = 0
-      segment { length = 0 value = 1 1 expr = ch(\"../../densityramp1interp\") }
-    }
     channel cdfield {
       lefttype = extend
       righttype = extend
@@ -5102,37 +8511,6 @@ Content-Type: text/plain
       default = 2
       flags = 0
       segment { length = 0 value = 2 2 expr = ch(\"../../cdramp\") }
-    }
-    channel cdramp1pos {
-      lefttype = extend
-      righttype = extend
-      flags = 0
-      segment { length = 0 expr = ch(\"../../cdramp1pos\") }
-    }
-    channel cdramp1cr {
-      lefttype = extend
-      righttype = extend
-      flags = 0
-      segment { length = 0 expr = ch(\"../../cdramp1cr\") }
-    }
-    channel cdramp1cg {
-      lefttype = extend
-      righttype = extend
-      flags = 0
-      segment { length = 0 expr = ch(\"../../cdramp1cg\") }
-    }
-    channel cdramp1cb {
-      lefttype = extend
-      righttype = extend
-      flags = 0
-      segment { length = 0 expr = ch(\"../../cdramp1cb\") }
-    }
-    channel cdramp1interp {
-      lefttype = extend
-      righttype = extend
-      default = 1
-      flags = 0
-      segment { length = 0 value = 1 1 expr = ch(\"../../cdramp1interp\") }
     }
     channel emitscale {
       lefttype = extend
@@ -5187,25 +8565,6 @@ Content-Type: text/plain
       flags = 0
       segment { length = 0 value = 2 2 expr = ch(\"../../emitramp\") }
     }
-    channel emitramp1pos {
-      lefttype = extend
-      righttype = extend
-      flags = 0
-      segment { length = 0 expr = ch(\"../../emitramp1pos\") }
-    }
-    channel emitramp1value {
-      lefttype = extend
-      righttype = extend
-      flags = 0
-      segment { length = 0 expr = ch(\"../../emitramp1value\") }
-    }
-    channel emitramp1interp {
-      lefttype = extend
-      righttype = extend
-      default = 1
-      flags = 0
-      segment { length = 0 value = 1 1 expr = ch(\"../../emitramp1interp\") }
-    }
     channel emitcdfield {
       lefttype = extend
       righttype = extend
@@ -5252,137 +8611,6 @@ Content-Type: text/plain
       default = 7
       flags = 0
       segment { length = 0 value = 7 7 expr = ch(\"../../emitcdramp\") }
-    }
-    channel emitcdramp1pos {
-      lefttype = extend
-      righttype = extend
-      flags = 0
-      segment { length = 0 expr = ch(\"../../emitcdramp1pos\") }
-    }
-    channel emitcdramp1cr {
-      lefttype = extend
-      righttype = extend
-      flags = 0
-      segment { length = 0 expr = ch(\"../../emitcdramp1cr\") }
-    }
-    channel emitcdramp1cg {
-      lefttype = extend
-      righttype = extend
-      flags = 0
-      segment { length = 0 expr = ch(\"../../emitcdramp1cg\") }
-    }
-    channel emitcdramp1cb {
-      lefttype = extend
-      righttype = extend
-      flags = 0
-      segment { length = 0 expr = ch(\"../../emitcdramp1cb\") }
-    }
-    channel emitcdramp1interp {
-      lefttype = extend
-      righttype = extend
-      default = 2
-      flags = 0
-      segment { length = 0 value = 2 2 expr = ch(\"../../emitcdramp1interp\") }
-    }
-    channel densityramp2pos {
-      lefttype = extend
-      righttype = extend
-      flags = 0
-      segment { length = 0 expr = ch(\"../../densityramp2pos\") }
-    }
-    channel densityramp2value {
-      lefttype = extend
-      righttype = extend
-      flags = 0
-      segment { length = 0 expr = ch(\"../../densityramp2value\") }
-    }
-    channel densityramp2interp {
-      lefttype = extend
-      righttype = extend
-      default = 1
-      flags = 0
-      segment { length = 0 value = 1 1 expr = ch(\"../../densityramp2interp\") }
-    }
-    channel cdramp2pos {
-      lefttype = extend
-      righttype = extend
-      flags = 0
-      segment { length = 0 expr = ch(\"../../cdramp2pos\") }
-    }
-    channel cdramp2cr {
-      lefttype = extend
-      righttype = extend
-      flags = 0
-      segment { length = 0 expr = ch(\"../../cdramp2cr\") }
-    }
-    channel cdramp2cg {
-      lefttype = extend
-      righttype = extend
-      flags = 0
-      segment { length = 0 expr = ch(\"../../cdramp2cg\") }
-    }
-    channel cdramp2cb {
-      lefttype = extend
-      righttype = extend
-      flags = 0
-      segment { length = 0 expr = ch(\"../../cdramp2cb\") }
-    }
-    channel cdramp2interp {
-      lefttype = extend
-      righttype = extend
-      default = 1
-      flags = 0
-      segment { length = 0 value = 1 1 expr = ch(\"../../cdramp2interp\") }
-    }
-    channel emitramp2pos {
-      lefttype = extend
-      righttype = extend
-      flags = 0
-      segment { length = 0 expr = ch(\"../../emitramp2pos\") }
-    }
-    channel emitramp2value {
-      lefttype = extend
-      righttype = extend
-      flags = 0
-      segment { length = 0 expr = ch(\"../../emitramp2value\") }
-    }
-    channel emitramp2interp {
-      lefttype = extend
-      righttype = extend
-      default = 1
-      flags = 0
-      segment { length = 0 value = 1 1 expr = ch(\"../../emitramp2interp\") }
-    }
-    channel emitcdramp2pos {
-      lefttype = extend
-      righttype = extend
-      flags = 0
-      segment { length = 0 expr = ch(\"../../emitcdramp2pos\") }
-    }
-    channel emitcdramp2cr {
-      lefttype = extend
-      righttype = extend
-      flags = 0
-      segment { length = 0 expr = ch(\"../../emitcdramp2cr\") }
-    }
-    channel emitcdramp2cg {
-      lefttype = extend
-      righttype = extend
-      flags = 0
-      segment { length = 0 expr = ch(\"../../emitcdramp2cg\") }
-    }
-    channel emitcdramp2cb {
-      lefttype = extend
-      righttype = extend
-      flags = 0
-      segment { length = 0 expr = ch(\"../../emitcdramp2cb\") }
-    }
-    channel emitcdramp2interp {
-      lefttype = extend
-      righttype = extend
-      default = 1
-      flags = 0
-      segment { length = 0 value = 1 1 expr = ch(\"../../emitcdramp2interp\") }
     }
     channel emitcdramp3pos {
       lefttype = extend
@@ -5539,6 +8767,37 @@ Content-Type: text/plain
       flags = 0
       segment { length = 0 value = 1 1 expr = ch(\"../../emitcdramp7interp\") }
     }
+    channel emitcdramp8pos {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = ch(\"../../emitcdramp8pos\") }
+    }
+    channel emitcdramp8cr {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = ch(\"../../emitcdramp8cr\") }
+    }
+    channel emitcdramp8cg {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = ch(\"../../emitcdramp8cg\") }
+    }
+    channel emitcdramp8cb {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = ch(\"../../emitcdramp8cb\") }
+    }
+    channel emitcdramp8interp {
+      lefttype = extend
+      righttype = extend
+      default = 1
+      flags = 0
+      segment { length = 0 value = 1 1 expr = ch(\"../../emitcdramp8interp\") }
+    }
   }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -5574,10 +8833,10 @@ emitpreset	[ 0	locks=0 ]	(	[ emitpreset	0 ] 	)
 emitramp	[ 0	locks=0 ]	(	[ emitramp	2 ] 	)
 emitcdfield	[ 0	locks=0 ]	(	[ emitcdfield	heat ] 	)
 emitcdrangeoverride	[ 0	locks=0 ]	(	[ emitcdrangeoverride	1 ] 	)
-emitcdrange	[ 0	locks=0 ]	(	[ emitcdrange1	0 ] 	[ emitcdrange2	2 ] 	)
+emitcdrange	[ 0	locks=0 ]	(	[ emitcdrange1	0 ] 	[ emitcdrange2	1.3 ] 	)
 emitcdrampmode	[ 0	locks=0 ]	(	[ emitcdrampmode	1 ] 	)
 emitcdpreset	[ 0	locks=0 ]	(	[ emitcdpreset	0 ] 	)
-emitcdramp	[ 0	locks=0 ]	(	[ emitcdramp	7 ] 	)
+emitcdramp	[ 0	locks=0 ]	(	[ emitcdramp	8 ] 	)
 densityramp1pos	[ 0	locks=0 ]	(	[ densityramp1pos	0 ] 	)
 densityramp1value	[ 0	locks=0 ]	(	[ densityramp1value	0 ] 	)
 densityramp1interp	[ 0	locks=0 ]	(	[ densityramp1interp	1 ] 	)
@@ -5605,18 +8864,21 @@ emitcdramp2interp	[ 0	locks=0 ]	(	[ emitcdramp2interp	2 ] 	)
 emitcdramp3pos	[ 0	locks=0 ]	(	[ emitcdramp3pos	0.20198376476764679 ] 	)
 emitcdramp3c	[ 0	locks=0 ]	(	[ emitcdramp3cr	0.36907279491424561 ] 	[ emitcdramp3cg	0.13387858867645264 ] 	[ emitcdramp3cb	-0.045001506805419922 ] 	)
 emitcdramp3interp	[ 0	locks=0 ]	(	[ emitcdramp3interp	2 ] 	)
-emitcdramp4pos	[ 0	locks=0 ]	(	[ emitcdramp4pos	0.37871956825256348 ] 	)
-emitcdramp4c	[ 0	locks=0 ]	(	[ emitcdramp4cr	0.71618944406509399 ] 	[ emitcdramp4cg	0.26735293865203857 ] 	[ emitcdramp4cb	-0.07401563972234726 ] 	)
+emitcdramp4pos	[ 0	locks=0 ]	(	[ emitcdramp4pos	0.28063240647315979 ] 	)
+emitcdramp4c	[ 0	locks=0 ]	(	[ emitcdramp4cr	0.51633536815643311 ] 	[ emitcdramp4cg	0.31221354007720947 ] 	[ emitcdramp4cb	0.1569659560918808 ] 	)
 emitcdramp4interp	[ 0	locks=0 ]	(	[ emitcdramp4interp	2 ] 	)
-emitcdramp5pos	[ 0	locks=0 ]	(	[ emitcdramp5pos	0.55906224250793457 ] 	)
-emitcdramp5c	[ 0	locks=0 ]	(	[ emitcdramp5cr	1 ] 	[ emitcdramp5cg	0.43200001120567322 ] 	[ emitcdramp5cb	0 ] 	)
+emitcdramp5pos	[ 0	locks=0 ]	(	[ emitcdramp5pos	0.37871956825256348 ] 	)
+emitcdramp5c	[ 0	locks=0 ]	(	[ emitcdramp5cr	0.71618944406509399 ] 	[ emitcdramp5cg	0.50018095970153809 ] 	[ emitcdramp5cb	0.33589282631874084 ] 	)
 emitcdramp5interp	[ 0	locks=0 ]	(	[ emitcdramp5interp	2 ] 	)
-emitcdramp6pos	[ 0	locks=0 ]	(	[ emitcdramp6pos	0.57168620824813843 ] 	)
-emitcdramp6c	[ 0	locks=0 ]	(	[ emitcdramp6cr	1 ] 	[ emitcdramp6cg	1 ] 	[ emitcdramp6cb	1 ] 	)
+emitcdramp6pos	[ 0	locks=0 ]	(	[ emitcdramp6pos	0.55906224250793457 ] 	)
+emitcdramp6c	[ 0	locks=0 ]	(	[ emitcdramp6cr	1 ] 	[ emitcdramp6cg	0.76939201354980469 ] 	[ emitcdramp6cb	0.59399998188018799 ] 	)
 emitcdramp6interp	[ 0	locks=0 ]	(	[ emitcdramp6interp	2 ] 	)
-emitcdramp7pos	[ 0	locks=0 ]	(	[ emitcdramp7pos	1 ] 	)
-emitcdramp7c	[ 0	locks=0 ]	(	[ emitcdramp7cr	2 ] 	[ emitcdramp7cg	2 ] 	[ emitcdramp7cb	2 ] 	)
-emitcdramp7interp	[ 0	locks=0 ]	(	[ emitcdramp7interp	1 ] 	)
+emitcdramp7pos	[ 0	locks=0 ]	(	[ emitcdramp7pos	0.57168620824813843 ] 	)
+emitcdramp7c	[ 0	locks=0 ]	(	[ emitcdramp7cr	1 ] 	[ emitcdramp7cg	1 ] 	[ emitcdramp7cb	1 ] 	)
+emitcdramp7interp	[ 0	locks=0 ]	(	[ emitcdramp7interp	2 ] 	)
+emitcdramp8pos	[ 0	locks=0 ]	(	[ emitcdramp8pos	1 ] 	)
+emitcdramp8c	[ 0	locks=0 ]	(	[ emitcdramp8cr	2 ] 	[ emitcdramp8cg	2 ] 	[ emitcdramp8cb	2 ] 	)
+emitcdramp8interp	[ 0	locks=0 ]	(	[ emitcdramp8interp	1 ] 	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -5661,7 +8923,7 @@ inputs
 stat
 {
   create 1510226185
-  modify 1511097354
+  modify 1512208061
   author mikel@mikembp-sesi.local
   access 0777
 }
@@ -5720,7 +8982,7 @@ inputs
 stat
 {
   create 1511032821
-  modify 1511032912
+  modify 1512031748
   author mikel@mikembp-sesi.local
   access 0777
 }
@@ -5868,7 +9130,275 @@ Content-Type: text/plain
 1
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/matnet1.order"
+Content-Type: text/plain
+
+5
+smokelessflames
+smokelessflames_orig
+smokelessflames1
+smokelessflames_02
+smokelessflames_spikey
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
 Content-Disposition: attachment; filename="hdaroot/matnet1.net"
+Content-Type: text/plain
+
+1
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/fetch1.init"
+Content-Type: text/plain
+
+type = fetch
+matchesdef = 0
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/fetch1.def"
+Content-Type: text/plain
+
+objflags objflags =  origin off
+pretransform UT_DMatrix4 1 0 0 0 0 1 0 0 0 0 1 0 0 0 0 1
+comment ""
+position -22.8195 5.74482
+connectornextid 1
+flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on selectable on
+outputsNamed3
+{
+0 "output1"
+}
+inputsNamed3
+{
+}
+inputs
+{
+}
+stat
+{
+  create 1512202671
+  modify 1512242446
+  author mikel@mikembp-sesi.local
+  access 0777
+}
+color UT_Color RGB 0.8 0.8 0.8 
+delscript ""
+exprlanguage hscript
+end
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/fetch1.parm"
+Content-Type: text/plain
+
+{
+version 0.8
+fetchobjpath	[ 0	locks=0 ]	(	../	)
+useinputofthis	[ 0	locks=0 ]	(	"on"	)
+useinputoffetched	[ 0	locks=0 ]	(	"off"	)
+fetchsubnet	[ 0	locks=0 ]	(	"off"	)
+invertfetched	[ 0	locks=0 ]	(	"on"	)
+use_dcolor	[ 0	locks=0 ]	(	"on"	)
+dcolor	[ 0	locks=0 ]	(	0.90000000000000002	0	0	)
+picking	[ 0	locks=0 ]	(	"on"	)
+pickscript	[ 0	locks=0 ]	(	""	)
+caching	[ 0	locks=0 ]	(	"on"	)
+xOrd	[ 0	locks=0 ]	(	"srt"	)
+rOrd	[ 0	locks=0 ]	(	"xyz"	)
+t	[ 0	locks=7 ]	(	0	0	0	)
+r	[ 0	locks=7 ]	(	0	0	0	)
+s	[ 0	locks=7 ]	(	1	1	1	)
+p	[ 0	locks=0 ]	(	0	0	0	)
+pr	[ 0	locks=0 ]	(	0	0	0	)
+scale	[ 0	locks=0 ]	(	1	)
+pre_xform	[ 0	locks=0 ]	(	0	)
+keeppos	[ 0	locks=0 ]	(	"off"	)
+childcomp	[ 0	locks=0 ]	(	"off"	)
+constraints_on	[ 0	locks=0 ]	(	"off"	)
+constraints_path	[ 0	locks=0 ]	(	""	)
+lookatpath	[ 0	locks=0 ]	(	""	)
+lookupobjpath	[ 0	locks=0 ]	(	""	)
+lookup	[ 0	locks=0 ]	(	on	)
+pathobjpath	[ 0	locks=0 ]	(	""	)
+roll	[ 0	locks=0 ]	(	0	)
+pos	[ 0	locks=0 ]	(	0	)
+uparmtype	[ 0	locks=0 ]	(	"arc"	)
+pathorient	[ 0	locks=0 ]	(	1	)
+up	[ 0	locks=0 ]	(	0	1	0	)
+bank	[ 0	locks=0 ]	(	0	)
+tdisplay	[ 0	locks=0 ]	(	"off"	)
+display	[ 0	locks=0 ]	(	1	)
+shop_materialpath	[ 0	locks=0 ]	(	""	)
+shop_materialopts	[ 0	locks=0 ]	(	0	)
+vport_shadeopen	[ 0	locks=0 ]	(	"off"	)
+vport_displayassubdiv	[ 0	locks=0 ]	(	"off"	)
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/fetch1.userdata"
+Content-Type: text/plain
+
+{
+	"___Version___":{
+		"type":"string",
+		"value":"16.5.304"
+	}
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/fetch1/sphere1.init"
+Content-Type: text/plain
+
+type = sphere
+matchesdef = 0
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/fetch1/sphere1.def"
+Content-Type: text/plain
+
+sopflags sopflags = 
+comment ""
+position 0.5 1
+connectornextid 0
+flags =  lock off model off template off footprint off xray off bypass off display on render off highlight off unload off savedata off compress on colordefault on exposed on
+outputsNamed3
+{
+}
+inputsNamed3
+{
+}
+inputs
+{
+}
+stat
+{
+  create 1512202671
+  modify 1512202753
+  author mikel@mikembp-sesi.local
+  access 0777
+}
+color UT_Color RGB 0.8 0.8 0.8 
+delscript ""
+exprlanguage hscript
+end
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/fetch1/sphere1.parm"
+Content-Type: text/plain
+
+{
+version 0.8
+type	[ 0	locks=0 ]	(	"prim"	)
+surftype	[ 0	locks=0 ]	(	"quads"	)
+rad	[ 0	locks=0 ]	(	0.10000000000000001	0.10000000000000001	0.10000000000000001	)
+t	[ 0	locks=0 ]	(	0	0	0	)
+scale	[ 0	locks=0 ]	(	1	)
+orient	[ 0	locks=0 ]	(	"y"	)
+freq	[ 0	locks=0 ]	(	2	)
+rows	[ 0	locks=0 ]	(	13	)
+cols	[ 0	locks=0 ]	(	24	)
+orderu	[ 0	locks=0 ]	(	4	)
+orderv	[ 0	locks=0 ]	(	4	)
+imperfect	[ 0	locks=0 ]	(	"on"	)
+upole	[ 0	locks=0 ]	(	"off"	)
+accurate	[ 0	locks=0 ]	(	"on"	)
+triangularpoles	[ 0	locks=0 ]	(	"on"	)
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/fetch1/sphere1.userdata"
+Content-Type: text/plain
+
+{
+	"___Version___":{
+		"type":"string",
+		"value":"16.5.304"
+	}
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/fetch1/point1.init"
+Content-Type: text/plain
+
+type = add
+matchesdef = 0
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/fetch1/point1.def"
+Content-Type: text/plain
+
+sopflags sopflags = 
+comment ""
+position 2.5 1
+connectornextid 0
+flags =  lock off model off template off footprint off xray off bypass off display off render on highlight off unload off savedata off compress on colordefault on exposed on
+outputsNamed3
+{
+}
+inputsNamed3
+{
+}
+inputs
+{
+}
+stat
+{
+  create 1512202671
+  modify 1512202753
+  author mikel@mikembp-sesi.local
+  access 0777
+}
+color UT_Color RGB 0.8 0.8 0.8 
+delscript ""
+exprlanguage hscript
+end
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/fetch1/point1.parm"
+Content-Type: text/plain
+
+{
+version 0.8
+stdswitcher	[ 0	locks=0 ]	(	0	0	0	)
+keep	[ 0	locks=0 ]	(	"off"	)
+points	[ 0	locks=0 ]	(	1	)
+remove	[ 0	locks=0 ]	(	"off"	)
+switcher	[ 0	locks=0 ]	(	0	0	)
+prims	[ 0	locks=0 ]	(	1	)
+group	[ 0	locks=0 ]	(	""	)
+add	[ 0	locks=0 ]	(	"all"	)
+inc	[ 0	locks=0 ]	(	2	)
+attrname	[ 0	locks=0 ]	(	""	)
+closedall	[ 0	locks=0 ]	(	"off"	)
+addparticlesystem	[ 0	locks=0 ]	(	"off"	)
+particlegroup	[ 0	locks=0 ]	(	""	)
+appendunusedtoparticlesystem	[ 0	locks=0 ]	(	"off"	)
+usept0	[ 0	locks=0 ]	(	"off"	)
+pt0	[ 0	locks=0 ]	(	0	0	0	)
+weight0	[ 0	locks=0 ]	(	1	)
+prim0	[ 0	locks=0 ]	(	""	)
+closed0	[ 0	locks=0 ]	(	"off"	)
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/fetch1/point1.userdata"
+Content-Type: text/plain
+
+{
+	"___Version___":{
+		"type":"string",
+		"value":"16.5.304"
+	}
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/fetch1.order"
+Content-Type: text/plain
+
+2
+sphere1
+point1
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/fetch1.net"
 Content-Type: text/plain
 
 1
@@ -5877,11 +9407,12 @@ Content-Type: text/plain
 Content-Disposition: attachment; filename="hdaroot.order"
 Content-Type: text/plain
 
-4
+5
 fire_source
 fire_simulation
 fire_import
 matnet1
+fetch1
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
 Content-Disposition: attachment; filename="hdaroot.net"

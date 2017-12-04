@@ -124,6 +124,12 @@
         label   "Simulation"
 
         parm {
+            name    "resetsimulation"
+            label   "Reset Simulation"
+            type    button
+            default { "0" }
+        }
+        parm {
             name    "divsize"
             label   "Division Size"
             type    float
@@ -283,6 +289,12 @@
         name    "folder2_1"
         label   "Source"
 
+        parm {
+            name    "halfsphere"
+            label   "Half Sphere"
+            type    toggle
+            default { "1" }
+        }
         parm {
             name    "sourceobject"
             label   "Source Geometry"
@@ -667,11 +679,11 @@
                 name    "emitcdramp"
                 label   "Emission Color Ramp"
                 type    ramp_rgb
-                default { "7" }
+                default { "8" }
                 disablewhen "{ emitcdrampmode == none }"
                 range   { 1! 10 }
                 parmtag { "autoscope" "0000000000000000" }
-                parmtag { "rampcolordefault" "1pos ( 0 ) 1c ( 0 0 0 ) 1interp ( catmull-rom ) 2pos ( 0.10820559412240982 ) 2c ( 0.1778702437877655 0.064017504453659058 -0.022574704140424728 ) 2interp ( catmull-rom ) 3pos ( 0.20198376476764679 ) 3c ( 0.36907279491424561 0.13387858867645264 -0.045001506805419922 ) 3interp ( catmull-rom ) 4pos ( 0.37871956825256348 ) 4c ( 0.71618944406509399 0.26735293865203857 -0.07401563972234726 ) 4interp ( catmull-rom ) 5pos ( 0.55906224250793457 ) 5c ( 1 0.43200001120567322 0 ) 5interp ( catmull-rom ) 6pos ( 0.57168620824813843 ) 6c ( 1 1 1 ) 6interp ( catmull-rom ) 7pos ( 1 ) 7c ( 2 2 2 ) 7interp ( linear )" }
+                parmtag { "rampcolordefault" "1pos ( 0 ) 1c ( 0 0 0 ) 1interp ( catmull-rom ) 2pos ( 0.10820559412240982 ) 2c ( 0.1778702437877655 0.064017504453659058 -0.022574704140424728 ) 2interp ( catmull-rom ) 3pos ( 0.20198376476764679 ) 3c ( 0.36907299999999998 0.133879 -0.0450015 ) 3interp ( catmull-rom ) 4pos ( 0.2800000011920929 ) 4c ( 0.51633499999999999 0.31221399999999999 0.15696599999999999 ) 4interp ( catmull-rom ) 5pos ( 0.37871956825256348 ) 5c ( 0.71618944406509399 0.50018095970153809 0.33589282631874084 ) 5interp ( catmull-rom ) 6pos ( 0.55906224250793457 ) 6c ( 1 0.76939201354980469 0.59399998188018799 ) 6interp ( catmull-rom ) 7pos ( 0.57168620824813843 ) 7c ( 1 1 1 ) 7interp ( catmull-rom ) 8pos ( 1 ) 8c ( 2 2 2 ) 8interp ( linear )" }
                 parmtag { "rampshowcontrolsdefault" "0" }
             }
         }

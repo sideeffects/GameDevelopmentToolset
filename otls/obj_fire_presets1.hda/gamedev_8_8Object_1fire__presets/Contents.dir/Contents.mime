@@ -33,9 +33,9 @@ Content-Type: text/plain
 objflags objflags =  origin off
 pretransform UT_DMatrix4 1 0 0 0 0 1 0 0 0 0 1 0 0 0 0 1
 comment ""
-position -9.13333 0.5955
+position -16.0287 0.5955
 connectornextid 0
-flags =  lock off model off template off footprint off xray off bypass off display on render off highlight off unload off savedata off compress on colordefault on exposed on selectable on
+flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on selectable on
 outputsNamed3
 {
 }
@@ -47,8 +47,8 @@ inputs
 }
 stat
 {
-  create 1511445142
-  modify 1512242447
+  create 1511445151
+  modify 1512384227
   author mikel@mikembp-sesi.local
   access 0777
 }
@@ -98,7 +98,7 @@ inputs
 stat
 {
   create 1496865950
-  modify 1512242446
+  modify 1512384226
   author mikel@mikembp-sesi.local
   access 0777
 }
@@ -853,7 +853,7 @@ sopflags sopflags =
 comment ""
 position -1.6944 1.84568
 connectornextid 2
-flags =  lock off model off template off footprint off xray off bypass off display on render off highlight off unload off savedata off compress on colordefault on exposed on
+flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
 {
 1 "output1"
@@ -869,7 +869,7 @@ inputs
 stat
 {
   create 1496865993
-  modify 1512206428
+  modify 1512380050
   author mikel@mikembp-sesi.local
   access 0777
 }
@@ -963,7 +963,7 @@ source_attribute	[ 0	locks=0	autoscope=1 ]	(	[ source_attribute	fuel ] 	)
 number_of_volumes	[ 0	locks=0 ]	(	2	)
 settings	[ 0	locks=0 ]	(	4	4	4	4	4	4	4	)
 invert_sign	[ 0	locks=0 ]	(	"off"	)
-divsize	[ 0	locks=0 ]	(	[ divsize	0.02 ] 	)
+divsize	[ 0	locks=0 ]	(	[ divsize	0.01 ] 	)
 volborderval	[ 0	locks=0 ]	(	0	)
 slice_plane	[ 0	locks=0 ]	(	"xy"	)
 slice_type	[ 0	locks=0 ]	(	"false"	)
@@ -992,16 +992,16 @@ pointsdf_edge_location	[ 0	locks=0 ]	(	0.5	)
 use_noise	[ 0	locks=0 ]	(	"on"	)
 animate_noise	[ 0	locks=0 ]	(	"on"	)
 destmin	[ 0	locks=0 ]	(	1	)
-voronoi_influence	[ 0	locks=0 ]	(	[ voronoi_influence	0.69999999999999996 ] 	)
-pulse_duration	[ 0	locks=0 ]	(	[ pulse_duration	0 ] 	)
+voronoi_influence	[ 0	locks=0 ]	(	[ voronoi_influence	0.29999999999999999 ] 	)
+pulse_duration	[ 0	locks=0 ]	(	[ pulse_duration	5 ] 	)
 turbulent	[ 0	locks=0 ]	(	0	0	)
 noise_mode	[ 0	locks=0 ]	(	"0"	)
 sharpness	[ 0	locks=0 ]	(	0.5	)
 amp	[ 0	locks=0 ]	(	1	)
 grain	[ 0	locks=0 ]	(	0.10000000000000001	)
 turb	[ 0	locks=0 ]	(	3	)
-offset	[ 8	locks=0 ]	(	[ offset	10 ] 	)
-element_size	[ 0	locks=0 ]	(	[ element_size	0.5 ] 	)
+offset	[ 8	locks=0 ]	(	[ offset	0 ] 	)
+element_size	[ 0	locks=0 ]	(	[ element_size	0.13 ] 	)
 element_scale	[ 0	locks=0 ]	(	1	1	1	)
 cell_mode	[ 0	locks=0 ]	(	"0"	)
 invert_cells	[ 0	locks=0 ]	(	"off"	)
@@ -1028,7 +1028,7 @@ vel_add_uniform	[ 0	locks=0 ]	(	"off"	)
 vel_uniformvel	[ 0	locks=0 ]	(	0	1	0	)
 vel_settings	[ 0	locks=0 ]	(	0	0	0	0	0	0	)
 vel_invert_sign	[ 0	locks=0 ]	(	"off"	)
-vel_divsize	[ 8	locks=0 ]	(	[ vel_divsize	0.02 ] 	)
+vel_divsize	[ 8	locks=0 ]	(	[ vel_divsize	0.01 ] 	)
 vel_volborderval	[ 0	locks=0 ]	(	0	)
 vel_stream_use_plane	[ 0	locks=0 ]	(	"on"	)
 vel_stream_plane_orient	[ 0	locks=0 ]	(	"xy"	)
@@ -1167,7 +1167,7 @@ inputs
 stat
 {
   create 1496865992
-  modify 1512242446
+  modify 1512384226
   author mikel@mikembp-sesi.local
   access 0777
 }
@@ -1193,6 +1193,12 @@ Content-Type: text/plain
       flags = 0
       segment { length = 0 expr = (ch(\"startframe\")-1)/$FPS }
     }
+    channel resimulate {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = ch(\"../resetsimulation\") }
+    }
   }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -1204,7 +1210,7 @@ version 0.8
 isplayer	[ 0	locks=0 ]	(	"off"	)
 playfilesname	[ 0	locks=0 ]	(	$HIP/sim/$HIPNAME.$OS.$SF.sim	)
 stdswitcher	[ 0	locks=0 ]	(	0	0	0	)
-resimulate	[ 0	locks=0 ]	(	0	)
+resimulate	[ 8	locks=0 ]	(	[ resimulate	0 ] 	)
 tdisplay	[ 0	locks=0 ]	(	"off"	)
 display	[ 0	locks=0 ]	(	1	)
 initialstate	[ 0	locks=0 ]	(	""	)
@@ -1438,7 +1444,7 @@ fuelinefficiency	[ 0	locks=0 ]	(	0.10000000000000001	)
 heatoutput	[ 0	locks=0 ]	(	0.14999999999999999	)
 gasrelease	[ 0	locks=0 ]	(	12	)
 flames	[ 0	locks=0 ]	(	0	0	0	0	0	)
-cooldown_time	[ 0	locks=0 ]	(	[ cooldown_time	0.29999999999999999 ] 	)
+cooldown_time	[ 0	locks=0 ]	(	[ cooldown_time	1.25 ] 	)
 enable_cooling_field	[ 0	locks=0 ]	(	"on"	)
 cooling_field	[ 0	locks=0 ]	(	temperature	)
 cooling_field_range	[ 0	locks=0 ]	(	0	2	)
@@ -1463,13 +1469,13 @@ fuel_speed	[ 0	locks=0 ]	(	0.050000000000000003	)
 enable_dissipation	[ 0	locks=0 ]	(	"on"	)
 evap	[ 0	locks=0 ]	(	[ evap	0.10000000000000001 ] 	)
 enable_disturbance	[ 0	locks=0 ]	(	"on"	)
-dist_scale	[ 0	locks=0 ]	(	[ dist_scale	0.59999999999999998 ] 	)
+dist_scale	[ 0	locks=0 ]	(	[ dist_scale	0.40000000000000002 ] 	)
 enable_shredding	[ 0	locks=0 ]	(	"on"	)
 shred_scale	[ 0	locks=0 ]	(	[ shred_scale	0.080666699999999994 ] 	)
 enable_sharpening	[ 0	locks=0 ]	(	"off"	)
 sharpenrate	[ 0	locks=0 ]	(	0.5	)
 enable_turbulence	[ 0	locks=0 ]	(	"on"	)
-turbulence_scale	[ 0	locks=0 ]	(	[ turbulence_scale	0.34999999999999998 ] 	)
+turbulence_scale	[ 0	locks=0 ]	(	[ turbulence_scale	0.14999999999999999 ] 	)
 enable_confinement	[ 0	locks=0 ]	(	"off"	)
 confinementscale	[ 0	locks=0 ]	(	2	)
 wind_2	[ 0	locks=0 ]	(	4	4	4	4	4	4	)
@@ -1517,7 +1523,7 @@ shred_temperature_field	[ 0	locks=0 ]	(	temperature	)
 shred_velocity_field	[ 0	locks=0 ]	(	vel	)
 sharpen_field	[ 0	locks=0 ]	(	density	)
 sharpen_locality	[ 0	locks=0 ]	(	4	)
-turb_swirl_size	[ 0	locks=0 ]	(	[ turb_swirl_size	0.40000000000000002 ] 	)
+turb_swirl_size	[ 0	locks=0 ]	(	[ turb_swirl_size	0.20000000000000001 ] 	)
 turb_rough	[ 0	locks=0 ]	(	0.5	)
 turb_pulse_length	[ 0	locks=0 ]	(	0.5	)
 turb_seed	[ 0	locks=0 ]	(	0	)
@@ -1794,11 +1800,11 @@ creation_1	[ 0	locks=0 ]	(	0	0	0	)
 twod	[ 0	locks=0 ]	(	"off"	)
 voxelplane	[ 0	locks=0 ]	(	"xy"	)
 uniformvoxels	[ 0	locks=0 ]	(	"size"	)
-divsize	[ 0	locks=0 ]	(	[ divsize	0.02 ] 	)
+divsize	[ 0	locks=0 ]	(	[ divsize	0.0050000000000000001 ] 	)
 uniformdiv	[ 0	locks=0 ]	(	1	)
 div	[ 0	locks=0 ]	(	1	1	1	)
 size	[ 0	locks=0 ]	(	2.8333333358168602	4.2333333417773247	2.8333333358168602	)
-t	[ 8	locks=0 ]	(	[ tx	1.25 ] 	1.8333333358168602	[ tz	0 ] 	)
+t	[ 8	locks=0 ]	(	[ tx	-0.59999999999999998 ] 	1.8333333358168602	[ tz	0 ] 	)
 closedends	[ 0	locks=0 ]	(	"off"	)
 closexneg	[ 0	locks=0 ]	(	"on"	)
 closexpos	[ 0	locks=0 ]	(	"on"	)
@@ -2298,7 +2304,7 @@ version 0.8
 initialize	[ 0	locks=0 ]	(	"sourcefuel"	)
 source_path	[ 0	locks=0 ]	(	../../fire_source/OUT_fuel	)
 activation	[ 0	locks=0 ]	(	1	)
-scale_source	[ 0	locks=0 ]	(	[ scale_source	0.16 ] 	)
+scale_source	[ 0	locks=0 ]	(	[ scale_source	0.17499999999999999 ] 	)
 scale_temperature	[ 0	locks=0 ]	(	1	)
 scale_velocity	[ 0	locks=0 ]	(	1	)
 use_object_transform	[ 0	locks=0 ]	(	"on"	)
@@ -2777,7 +2783,7 @@ inputs
 stat
 {
   create 1496865993
-  modify 1512379779
+  modify 1512379971
   author mikel@mikembp-sesi.local
   access 0777
 }
@@ -3600,7 +3606,7 @@ inputs
 stat
 {
   create 1496865993
-  modify 1512379779
+  modify 1512379971
   author mikel@mikembp-sesi.local
   access 0777
 }
@@ -4261,7 +4267,7 @@ inputs
 stat
 {
   create 1496865993
-  modify 1512379779
+  modify 1512379971
   author mikel@mikembp-sesi.local
   access 0777
 }
@@ -4952,7 +4958,7 @@ inputs
 stat
 {
   create 1496865993
-  modify 1512379779
+  modify 1512379971
   author mikel@mikembp-sesi.local
   access 0777
 }
@@ -5613,7 +5619,7 @@ inputs
 stat
 {
   create 1496865993
-  modify 1512379779
+  modify 1512379972
   author mikel@mikembp-sesi.local
   access 0777
 }
@@ -6086,7 +6092,7 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position -4.52108 6.07698
+position -5.29163 7.07869
 connectornextid 1
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight on unload off savedata off compress on colordefault on exposed on
 outputsNamed3
@@ -6102,7 +6108,7 @@ inputs
 stat
 {
   create 1496865950
-  modify 1512111602
+  modify 1512380313
   author mikel@mikembp-sesi.local
   access 0777
 }
@@ -6168,7 +6174,7 @@ sopflags sopflags =
 comment ""
 position -1.6944 0.635746
 connectornextid 1
-flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
+flags =  lock off model off template off footprint off xray off bypass off display on render off highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
 {
 }
@@ -6183,7 +6189,7 @@ inputs
 stat
 {
   create 1496865993
-  modify 1512202153
+  modify 1512380313
   author mikel@mikembp-sesi.local
   access 0777
 }
@@ -6309,18 +6315,18 @@ outputsNamed3
 }
 inputsNamed3
 {
-0 	boolean1 2 1 "input1"
+0 	switch2 2 1 "input1"
 1 	source_object 0 1 "input2"
 }
 inputs
 {
-0 	boolean1 0 1
+0 	switch2 0 1
 1 	source_object 0 1
 }
 stat
 {
   create 1510224287
-  modify 1512111634
+  modify 1512380055
   author mikel@mikembp-sesi.local
   access 0777
 }
@@ -6528,9 +6534,9 @@ xOrd	[ 0	locks=0 ]	(	"srt"	)
 rOrd	[ 0	locks=0 ]	(	"xyz"	)
 t	[ 0	locks=0 ]	(	0	0	0	)
 r	[ 0	locks=0 ]	(	0	0	0	)
-s	[ 0	locks=0 ]	(	[ sx	1 ] 	[ sy	0.29999999999999999 ] 	[ sz	1 ] 	)
+s	[ 0	locks=0 ]	(	[ sx	1 ] 	[ sy	1 ] 	[ sz	1 ] 	)
 shear	[ 0	locks=0 ]	(	0	0	0	)
-scale	[ 0	locks=0 ]	(	[ scale	1 ] 	)
+scale	[ 0	locks=0 ]	(	[ scale	0.13500000000000001 ] 	)
 parmgroup_pivotxform	[ 0	locks=0 ]	(	0	)
 p	[ 0	locks=0 ]	(	0	0	0	)
 pr	[ 0	locks=0 ]	(	0	0	0	)
@@ -6573,7 +6579,7 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position -3.42072 4.97293
+position -2.67187 6.14175
 connectornextid 3
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
@@ -6593,7 +6599,7 @@ inputs
 stat
 {
   create 1512111571
-  modify 1512113820
+  modify 1512380062
   author mikel@mikembp-sesi.local
   access 0777
 }
@@ -6695,7 +6701,7 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position -2.30901 6.07698
+position -1.6944 7.26091
 connectornextid 1
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
@@ -6711,7 +6717,7 @@ inputs
 stat
 {
   create 1512111574
-  modify 1512113820
+  modify 1512380061
   author mikel@mikembp-sesi.local
   access 0777
 }
@@ -6751,10 +6757,85 @@ Content-Type: text/plain
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/fire_source/switch2.init"
+Content-Type: text/plain
+
+type = switch
+matchesdef = 0
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/fire_source/switch2.def"
+Content-Type: text/plain
+
+sopflags sopflags = 
+comment ""
+position -3.22885 5.08241
+connectornextid 3
+flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
+outputsNamed3
+{
+2 "output1"
+}
+inputsNamed3
+{
+0 	sphere1 0 1 "input1"
+1 	boolean1 2 1 "input2"
+}
+inputs
+{
+0 	sphere1 0 1
+1 	boolean1 0 1
+}
+stat
+{
+  create 1512380039
+  modify 1512380149
+  author mikel@mikembp-sesi.local
+  access 0777
+}
+color UT_Color RGB 0.8 1 0.7 
+delscript ""
+exprlanguage hscript
+end
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/fire_source/switch2.chn"
+Content-Type: text/plain
+
+{
+    channel input {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = ch(\"../../halfsphere\") }
+    }
+  }
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/fire_source/switch2.parm"
+Content-Type: text/plain
+
+{
+version 0.8
+input	[ 0	locks=0 ]	(	[ input	0 ] 	)
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/fire_source/switch2.userdata"
+Content-Type: text/plain
+
+{
+	"___Version___":{
+		"type":"string",
+		"value":"16.5.304"
+	}
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
 Content-Disposition: attachment; filename="hdaroot/fire_source.order"
 Content-Type: text/plain
 
-9
+10
 sphere1
 OUT_fuel
 RENDER
@@ -6764,6 +6845,7 @@ source_object
 transform1
 boolean1
 grid1
+switch2
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
 Content-Disposition: attachment; filename="hdaroot/fire_source.net"
@@ -7092,7 +7174,7 @@ inputs
 stat
 {
   create 1496865993
-  modify 1512242446
+  modify 1512384226
   author mikel@mikembp-sesi.local
   access 0777
 }
@@ -7960,7 +8042,7 @@ inputs
 stat
 {
   create 1496865993
-  modify 1512208061
+  modify 1512382822
   author mikel@mikembp-sesi.local
   access 0777
 }
@@ -8048,9 +8130,9 @@ Content-Type: text/plain
 
 {
 version 0.8
-loadfromdisk	[ 0	locks=0 ]	(	[ loadfromdisk	1 ] 	)
+loadfromdisk	[ 0	locks=0 ]	(	[ loadfromdisk	0 ] 	)
 reload	[ 0	locks=0 ]	(	[ reload	0 ] 	)
-file	[ 0	locks=0 ]	(	[ file	/Users/mikel/Documents/projects/GameDevShelf/fire_presets/hip/geo/1m_wide_high_sim_v02/1m_wide_high_sim_v02.78.bgeo.sc ] 	)
+file	[ 0	locks=0 ]	(	[ file	/Users/mikel/Documents/projects/GameDevShelf/fire_presets/hip/geo/torch_fire_sim/torch_fire_sim.1.bgeo.sc ] 	)
 folder0	[ 0	locks=0 ]	(	0	0	0	)
 doppath	[ 0	locks=0 ]	(	../../fire_simulation	)
 dopnode	[ 0	locks=0 ]	(	../../fire_simulation/pyro	)
@@ -8176,7 +8258,7 @@ inputs
 stat
 {
   create 1496867184
-  modify 1512208061
+  modify 1512384254
   author mikel@mikembp-sesi.local
   access 0777
 }
@@ -8349,68 +8431,6 @@ Content-Type: text/plain
       default = 1
       flags = 0
       segment { length = 0 value = 1 1 expr = ch(\"../../emitramp2interp\") }
-    }
-    channel emitcdramp1pos {
-      lefttype = extend
-      righttype = extend
-      flags = 0
-      segment { length = 0 expr = ch(\"../../emitcdramp1pos\") }
-    }
-    channel emitcdramp1cr {
-      lefttype = extend
-      righttype = extend
-      flags = 0
-      segment { length = 0 expr = ch(\"../../emitcdramp1cr\") }
-    }
-    channel emitcdramp1cg {
-      lefttype = extend
-      righttype = extend
-      flags = 0
-      segment { length = 0 expr = ch(\"../../emitcdramp1cg\") }
-    }
-    channel emitcdramp1cb {
-      lefttype = extend
-      righttype = extend
-      flags = 0
-      segment { length = 0 expr = ch(\"../../emitcdramp1cb\") }
-    }
-    channel emitcdramp1interp {
-      lefttype = extend
-      righttype = extend
-      default = 2
-      flags = 0
-      segment { length = 0 value = 2 2 expr = ch(\"../../emitcdramp1interp\") }
-    }
-    channel emitcdramp2pos {
-      lefttype = extend
-      righttype = extend
-      flags = 0
-      segment { length = 0 expr = ch(\"../../emitcdramp2pos\") }
-    }
-    channel emitcdramp2cr {
-      lefttype = extend
-      righttype = extend
-      flags = 0
-      segment { length = 0 expr = ch(\"../../emitcdramp2cr\") }
-    }
-    channel emitcdramp2cg {
-      lefttype = extend
-      righttype = extend
-      flags = 0
-      segment { length = 0 expr = ch(\"../../emitcdramp2cg\") }
-    }
-    channel emitcdramp2cb {
-      lefttype = extend
-      righttype = extend
-      flags = 0
-      segment { length = 0 expr = ch(\"../../emitcdramp2cb\") }
-    }
-    channel emitcdramp2interp {
-      lefttype = extend
-      righttype = extend
-      default = 1
-      flags = 0
-      segment { length = 0 value = 1 1 expr = ch(\"../../emitcdramp2interp\") }
     }
     channel densityscale {
       lefttype = extend
@@ -8608,9 +8628,71 @@ Content-Type: text/plain
     channel emitcdramp {
       lefttype = extend
       righttype = extend
-      default = 7
+      default = 8
       flags = 0
-      segment { length = 0 value = 7 7 expr = ch(\"../../emitcdramp\") }
+      segment { length = 0 value = 8 8 expr = ch(\"../../emitcdramp\") }
+    }
+    channel emitcdramp1pos {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = ch(\"../../emitcdramp1pos\") }
+    }
+    channel emitcdramp1cr {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = ch(\"../../emitcdramp1cr\") }
+    }
+    channel emitcdramp1cg {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = ch(\"../../emitcdramp1cg\") }
+    }
+    channel emitcdramp1cb {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = ch(\"../../emitcdramp1cb\") }
+    }
+    channel emitcdramp1interp {
+      lefttype = extend
+      righttype = extend
+      default = 2
+      flags = 0
+      segment { length = 0 value = 2 2 expr = ch(\"../../emitcdramp1interp\") }
+    }
+    channel emitcdramp2pos {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = ch(\"../../emitcdramp2pos\") }
+    }
+    channel emitcdramp2cr {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = ch(\"../../emitcdramp2cr\") }
+    }
+    channel emitcdramp2cg {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = ch(\"../../emitcdramp2cg\") }
+    }
+    channel emitcdramp2cb {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = ch(\"../../emitcdramp2cb\") }
+    }
+    channel emitcdramp2interp {
+      lefttype = extend
+      righttype = extend
+      default = 1
+      flags = 0
+      segment { length = 0 value = 1 1 expr = ch(\"../../emitcdramp2interp\") }
     }
     channel emitcdramp3pos {
       lefttype = extend
@@ -8824,7 +8906,7 @@ cdrange	[ 0	locks=0 ]	(	[ cdrange1	0 ] 	[ cdrange2	1 ] 	)
 cdrampmode	[ 0	locks=0 ]	(	[ cdrampmode	1 ] 	)
 cdpreset	[ 0	locks=0 ]	(	[ cdpreset	0 ] 	)
 cdramp	[ 0	locks=0 ]	(	[ cdramp	2 ] 	)
-emitscale	[ 0	locks=0 ]	(	[ emitscale	10 ] 	)
+emitscale	[ 0	locks=0 ]	(	[ emitscale	40 ] 	)
 emitfield	[ 0	locks=0 ]	(	[ emitfield	temperature ] 	)
 emitrangeoverride	[ 0	locks=0 ]	(	[ emitrangeoverride	0 ] 	)
 emitrange	[ 0	locks=0 ]	(	[ emitrange1	0 ] 	[ emitrange2	1 ] 	)
@@ -8833,7 +8915,7 @@ emitpreset	[ 0	locks=0 ]	(	[ emitpreset	0 ] 	)
 emitramp	[ 0	locks=0 ]	(	[ emitramp	2 ] 	)
 emitcdfield	[ 0	locks=0 ]	(	[ emitcdfield	heat ] 	)
 emitcdrangeoverride	[ 0	locks=0 ]	(	[ emitcdrangeoverride	1 ] 	)
-emitcdrange	[ 0	locks=0 ]	(	[ emitcdrange1	0 ] 	[ emitcdrange2	1.3 ] 	)
+emitcdrange	[ 0	locks=0 ]	(	[ emitcdrange1	0 ] 	[ emitcdrange2	2 ] 	)
 emitcdrampmode	[ 0	locks=0 ]	(	[ emitcdrampmode	1 ] 	)
 emitcdpreset	[ 0	locks=0 ]	(	[ emitcdpreset	0 ] 	)
 emitcdramp	[ 0	locks=0 ]	(	[ emitcdramp	8 ] 	)
@@ -8862,10 +8944,10 @@ emitcdramp2pos	[ 0	locks=0 ]	(	[ emitcdramp2pos	0.10820559412240982 ] 	)
 emitcdramp2c	[ 0	locks=0 ]	(	[ emitcdramp2cr	0.1778702437877655 ] 	[ emitcdramp2cg	0.064017504453659058 ] 	[ emitcdramp2cb	-0.022574704140424728 ] 	)
 emitcdramp2interp	[ 0	locks=0 ]	(	[ emitcdramp2interp	2 ] 	)
 emitcdramp3pos	[ 0	locks=0 ]	(	[ emitcdramp3pos	0.20198376476764679 ] 	)
-emitcdramp3c	[ 0	locks=0 ]	(	[ emitcdramp3cr	0.36907279491424561 ] 	[ emitcdramp3cg	0.13387858867645264 ] 	[ emitcdramp3cb	-0.045001506805419922 ] 	)
+emitcdramp3c	[ 0	locks=0 ]	(	[ emitcdramp3cr	0.36907299999999998 ] 	[ emitcdramp3cg	0.133879 ] 	[ emitcdramp3cb	-0.0450015 ] 	)
 emitcdramp3interp	[ 0	locks=0 ]	(	[ emitcdramp3interp	2 ] 	)
-emitcdramp4pos	[ 0	locks=0 ]	(	[ emitcdramp4pos	0.28063240647315979 ] 	)
-emitcdramp4c	[ 0	locks=0 ]	(	[ emitcdramp4cr	0.51633536815643311 ] 	[ emitcdramp4cg	0.31221354007720947 ] 	[ emitcdramp4cb	0.1569659560918808 ] 	)
+emitcdramp4pos	[ 0	locks=0 ]	(	[ emitcdramp4pos	0.2800000011920929 ] 	)
+emitcdramp4c	[ 0	locks=0 ]	(	[ emitcdramp4cr	0.51633499999999999 ] 	[ emitcdramp4cg	0.31221399999999999 ] 	[ emitcdramp4cb	0.15696599999999999 ] 	)
 emitcdramp4interp	[ 0	locks=0 ]	(	[ emitcdramp4interp	2 ] 	)
 emitcdramp5pos	[ 0	locks=0 ]	(	[ emitcdramp5pos	0.37871956825256348 ] 	)
 emitcdramp5c	[ 0	locks=0 ]	(	[ emitcdramp5cr	0.71618944406509399 ] 	[ emitcdramp5cg	0.50018095970153809 ] 	[ emitcdramp5cb	0.33589282631874084 ] 	)
@@ -8923,7 +9005,7 @@ inputs
 stat
 {
   create 1510226185
-  modify 1512208061
+  modify 1512382822
   author mikel@mikembp-sesi.local
   access 0777
 }
@@ -9176,7 +9258,7 @@ inputs
 stat
 {
   create 1512202671
-  modify 1512242446
+  modify 1512384226
   author mikel@mikembp-sesi.local
   access 0777
 }

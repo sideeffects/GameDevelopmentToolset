@@ -19,22 +19,6 @@
         label   "Curvature Values"
 
         parm {
-            name    "curvature_min_max"
-            label   "Min Max"
-            type    vector2
-            size    2
-            default { "0" "0" }
-            range   { -1 1 }
-        }
-        parm {
-            name    "auto_calculate"
-            label   "Auto Calculate"
-            type    button
-            default { "0" }
-            parmtag { "script_callback" "hou.pwd().hdaModule().populate_min_max(hou.pwd())" }
-            parmtag { "script_callback_language" "python" }
-        }
-        parm {
             name    "per_piece"
             label   "Calculate Per Piece"
             type    toggle

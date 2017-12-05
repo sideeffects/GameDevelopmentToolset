@@ -32,25 +32,24 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position -9.39371 -5.11212
-connectornextid 2
-flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
+position -19.6844 -13.4028
+connectornextid 1
+flags =  lock off model off template on footprint off xray off bypass off display on render on highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
 {
-0 "output1"
 }
 inputsNamed3
 {
-1 	(__dot3) "" 1 "input1"
+0 	null1 1 1 "input1"
 }
 inputs
 {
-0 	(__dot3) 0 1
+0 	null1 0 1
 }
 stat
 {
-  create 1510932554
-  modify 1510944156
+  create 1512421836
+  modify 1512422031
   author MAINGEAR@DESKTOP-P98C1VA
   access 0777
 }
@@ -88,7 +87,7 @@ Content-Type: text/plain
 }
 {
   create 1504631027
-  modify 1510938341
+  modify 1512421842
   author Luiz@Luiz-PC
   access 0777
 }
@@ -111,7 +110,7 @@ Content-Type: text/plain
 }
 {
   create 1504631032
-  modify 1510938343
+  modify 1512421844
   author Luiz@Luiz-PC
   access 0777
 }
@@ -134,7 +133,7 @@ Content-Type: text/plain
 }
 {
   create 1504631040
-  modify 1510938345
+  modify 1512421846
   author Luiz@Luiz-PC
   access 0777
 }
@@ -157,7 +156,7 @@ Content-Type: text/plain
 }
 {
   create 1504631044
-  modify 1510938345
+  modify 1512421846
   author Luiz@Luiz-PC
   access 0777
 }
@@ -180,7 +179,7 @@ Content-Type: text/plain
 }
 {
   create 1504632698
-  modify 1510938344
+  modify 1512421845
   author Luiz@Luiz-PC
   access 0777
 }
@@ -203,7 +202,7 @@ Content-Type: text/plain
 }
 {
   create 1504632933
-  modify 1510938344
+  modify 1512421845
   author Luiz@Luiz-PC
   access 0777
 }
@@ -226,7 +225,7 @@ Content-Type: text/plain
 }
 {
   create 1504633954
-  modify 1510938343
+  modify 1512421844
   author Luiz@Luiz-PC
   access 0777
 }
@@ -251,7 +250,7 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position -1.23583 -18.2572
+position -1.23583 -19.0172
 connectornextid 2
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
@@ -269,7 +268,7 @@ inputs
 stat
 {
   create 1504537576
-  modify 1504632843
+  modify 1512421989
   author MAINGEAR@DESKTOP-P98C1VA
   access 0777
 }
@@ -499,18 +498,6 @@ Content-Disposition: attachment; filename="hdaroot/pointwrangle1.chn"
 Content-Type: text/plain
 
 {
-    channel min_curv {
-      lefttype = extend
-      righttype = extend
-      flags = 0
-      segment { length = 0 expr = ch(\"../curvature_min_maxx\") }
-    }
-    channel max_curv {
-      lefttype = extend
-      righttype = extend
-      flags = 0
-      segment { length = 0 expr = ch(\"../curvature_min_maxy\") }
-    }
     channel concave_range_scale {
       lefttype = extend
       righttype = extend
@@ -561,8 +548,8 @@ grouptype	[ 0	locks=0 ]	(	"guess"	)
 class	[ 0	locks=0 ]	(	"point"	)
 vex_numcount	[ 0	locks=0 ]	(	10	)
 vex_threadjobsize	[ 0	locks=0 ]	(	1024	)
-snippet	[ 0	locks=0 ]	(	"f@concavity = fit(max(-1*f@curvature,0), 0, ch(\"min_curv\")*-1/ch(\"concave_range_scale\"), 0, 1);
-f@convexity = fit(max(f@curvature,0), 0, ch(\"max_curv\")/ch(\"convex_range_scale\"), 0, 1);
+snippet	[ 0	locks=0 ]	(	"f@concavity = fit(max(-1*f@curvature,0), 0, detail(0, \"min_curv\",0)*-1/ch(\"concave_range_scale\"), 0, 1);
+f@convexity = fit(max(f@curvature,0), 0, detail(0, \"max_curv\",0)/ch(\"convex_range_scale\"), 0, 1);
 
 f@concavity = pow(f@concavity, ch(\"concave_contrast\") +1)*ch(\"concave_intensity\"); 
 f@convexity = pow(f@convexity, ch(\"convex_contrast\") +1)*ch(\"convex_intensity\"); "	)
@@ -579,8 +566,8 @@ vex_matchattrib	[ 0	locks=0 ]	(	id	)
 vex_inplace	[ 0	locks=0 ]	(	"off"	)
 vex_selectiongroup	[ 0	locks=0 ]	(	""	)
 folder1	[ 0	locks=0 ]	(	0	0	)
-min_curv	[ 0	locks=0 ]	(	[ min_curv	-1000 ] 	)
-max_curv	[ 0	locks=0 ]	(	[ max_curv	1000 ] 	)
+min_curv	[ 8	locks=0 ]	(	0	)
+max_curv	[ 8	locks=0 ]	(	0	)
 concave_range_scale	[ 8	locks=0 ]	(	[ concave_range_scale	2 ] 	)
 convex_range_scale	[ 8	locks=0 ]	(	[ convex_range_scale	2 ] 	)
 concave_contrast	[ 8	locks=0 ]	(	[ concave_contrast	0 ] 	)
@@ -613,7 +600,7 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position -1.23283 -19.6192
+position -1.23283 -20.009
 connectornextid 2
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
@@ -631,7 +618,7 @@ inputs
 stat
 {
   create 1504538033
-  modify 1504632843
+  modify 1512421893
   author MAINGEAR@DESKTOP-P98C1VA
   access 0777
 }
@@ -1030,7 +1017,7 @@ vex_matchattrib	[ 0	locks=0 ]	(	id	)
 vex_inplace	[ 0	locks=0 ]	(	"off"	)
 vex_selectiongroup	[ 0	locks=0 ]	(	""	)
 folder1	[ 0	locks=0 ]	(	0	0	)
-single_color	[ 8	locks=0 ]	(	[ single_color	1 ] 	)
+single_color	[ 8	locks=0 ]	(	[ single_color	0 ] 	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -1109,7 +1096,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.290"
+		"value":"16.5.307"
 	}
 }
 
@@ -1265,7 +1252,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.290"
+		"value":"16.5.307"
 	}
 }
 
@@ -1421,7 +1408,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.290"
+		"value":"16.5.307"
 	}
 }
 
@@ -1862,7 +1849,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.290"
+		"value":"16.5.307"
 	}
 }
 
@@ -3453,7 +3440,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.290"
+		"value":"16.5.307"
 	}
 }
 
@@ -3905,7 +3892,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.290"
+		"value":"16.5.307"
 	}
 }
 
@@ -4357,7 +4344,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.290"
+		"value":"16.5.307"
 	}
 }
 
@@ -4780,7 +4767,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.290"
+		"value":"16.5.307"
 	}
 }
 
@@ -5287,7 +5274,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.290"
+		"value":"16.5.307"
 	}
 }
 
@@ -5707,7 +5694,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.290"
+		"value":"16.5.307"
 	}
 }
 
@@ -5773,7 +5760,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.290"
+		"value":"16.5.307"
 	}
 }
 
@@ -5976,7 +5963,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.290"
+		"value":"16.5.307"
 	}
 }
 
@@ -6058,7 +6045,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.290"
+		"value":"16.5.307"
 	}
 }
 
@@ -6127,7 +6114,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.290"
+		"value":"16.5.307"
 	}
 }
 
@@ -6199,7 +6186,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.290"
+		"value":"16.5.307"
 	}
 }
 
@@ -6281,7 +6268,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.290"
+		"value":"16.5.307"
 	}
 }
 
@@ -6438,7 +6425,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.290"
+		"value":"16.5.307"
 	}
 }
 
@@ -6502,7 +6489,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.290"
+		"value":"16.5.307"
 	}
 }
 
@@ -6593,7 +6580,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.290"
+		"value":"16.5.307"
 	}
 }
 
@@ -6696,7 +6683,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.290"
+		"value":"16.5.307"
 	}
 }
 
@@ -6760,7 +6747,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.290"
+		"value":"16.5.307"
 	}
 }
 
@@ -6851,7 +6838,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.290"
+		"value":"16.5.307"
 	}
 }
 
@@ -6958,7 +6945,7 @@ Content-Type: text/plain
 
 {
 version 0.8
-input	[ 0	locks=0 ]	(	[ input	5 ] 	)
+input	[ 0	locks=0 ]	(	[ input	0 ] 	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -6968,7 +6955,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.290"
+		"value":"16.5.307"
 	}
 }
 
@@ -7050,7 +7037,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.290"
+		"value":"16.5.307"
 	}
 }
 
@@ -7132,7 +7119,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.290"
+		"value":"16.5.307"
 	}
 }
 
@@ -7201,7 +7188,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.290"
+		"value":"16.5.307"
 	}
 }
 
@@ -7273,7 +7260,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.290"
+		"value":"16.5.307"
 	}
 }
 
@@ -7440,7 +7427,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.290"
+		"value":"16.5.307"
 	}
 }
 
@@ -7509,7 +7496,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.290"
+		"value":"16.5.307"
 	}
 }
 
@@ -7581,7 +7568,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.290"
+		"value":"16.5.307"
 	}
 }
 
@@ -7733,7 +7720,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.290"
+		"value":"16.5.307"
 	}
 }
 
@@ -7815,7 +7802,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.290"
+		"value":"16.5.307"
 	}
 }
 
@@ -7884,7 +7871,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.290"
+		"value":"16.5.307"
 	}
 }
 
@@ -7956,7 +7943,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.290"
+		"value":"16.5.307"
 	}
 }
 
@@ -8108,7 +8095,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.290"
+		"value":"16.5.307"
 	}
 }
 
@@ -8192,7 +8179,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.290"
+		"value":"16.5.307"
 	}
 }
 
@@ -8281,7 +8268,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.290"
+		"value":"16.5.307"
 	}
 }
 
@@ -8365,7 +8352,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.290"
+		"value":"16.5.307"
 	}
 }
 
@@ -8454,7 +8441,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.290"
+		"value":"16.5.307"
 	}
 }
 
@@ -8538,7 +8525,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.290"
+		"value":"16.5.307"
 	}
 }
 
@@ -8627,7 +8614,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.290"
+		"value":"16.5.307"
 	}
 }
 
@@ -8725,7 +8712,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.290"
+		"value":"16.5.307"
 	}
 }
 
@@ -8814,7 +8801,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.290"
+		"value":"16.5.307"
 	}
 }
 
@@ -8880,7 +8867,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.290"
+		"value":"16.5.307"
 	}
 }
 
@@ -9021,7 +9008,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.290"
+		"value":"16.5.307"
 	}
 }
 
@@ -9122,7 +9109,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.290"
+		"value":"16.5.307"
 	}
 }
 
@@ -9192,7 +9179,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.290"
+		"value":"16.5.307"
 	}
 }
 
@@ -9274,7 +9261,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.290"
+		"value":"16.5.307"
 	}
 }
 
@@ -9343,7 +9330,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.290"
+		"value":"16.5.307"
 	}
 }
 
@@ -9415,7 +9402,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.290"
+		"value":"16.5.307"
 	}
 }
 
@@ -9551,7 +9538,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.290"
+		"value":"16.5.307"
 	}
 }
 
@@ -9692,7 +9679,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.290"
+		"value":"16.5.307"
 	}
 }
 
@@ -9791,7 +9778,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.290"
+		"value":"16.5.307"
 	}
 }
 
@@ -9875,7 +9862,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.290"
+		"value":"16.5.307"
 	}
 }
 
@@ -9945,7 +9932,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.290"
+		"value":"16.5.307"
 	}
 }
 
@@ -10011,7 +9998,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.290"
+		"value":"16.5.307"
 	}
 }
 
@@ -10109,7 +10096,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.290"
+		"value":"16.5.307"
 	}
 }
 
@@ -10178,7 +10165,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.290"
+		"value":"16.5.307"
 	}
 }
 
@@ -10250,7 +10237,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.290"
+		"value":"16.5.307"
 	}
 }
 
@@ -10402,7 +10389,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.290"
+		"value":"16.5.307"
 	}
 }
 
@@ -10468,7 +10455,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.290"
+		"value":"16.5.307"
 	}
 }
 
@@ -10573,7 +10560,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.290"
+		"value":"16.5.307"
 	}
 }
 
@@ -10645,7 +10632,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.290"
+		"value":"16.5.307"
 	}
 }
 
@@ -10717,7 +10704,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.290"
+		"value":"16.5.307"
 	}
 }
 
@@ -10783,7 +10770,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.290"
+		"value":"16.5.307"
 	}
 }
 
@@ -10881,7 +10868,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.290"
+		"value":"16.5.307"
 	}
 }
 
@@ -10950,7 +10937,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.290"
+		"value":"16.5.307"
 	}
 }
 
@@ -11022,7 +11009,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.290"
+		"value":"16.5.307"
 	}
 }
 
@@ -11174,7 +11161,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.290"
+		"value":"16.5.307"
 	}
 }
 

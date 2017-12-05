@@ -113,8 +113,8 @@
         menu {
             "1m_wide_high"  "1m_wide_high"
             "1m_wide_low"   "1m_wide_low"
-            "small_flame"   "small_flame"
             "torch_fire"    "torch_fire"
+            "small_flame"   "small_flame"
         }
         parmtag { "script_callback" "hou.pwd().hdaModule().invokePresetMenu(kwargs)" }
         parmtag { "script_callback_language" "python" }
@@ -134,6 +134,7 @@
             label   "Division Size"
             type    float
             default { "0.035" }
+            help    "The explicit size of the voxels. The number of voxels will be computed by fitting an integer number of voxels of this size into the given bounds."
             range   { 0! 10 }
             parmtag { "autoscope" "0000000000000000" }
             parmtag { "units" "m1" }
@@ -147,6 +148,7 @@
                 label   "Scale Source Volume"
                 type    float
                 default { "0.4" }
+                help    "Controls the scale of the (scalar) volume specified as a source volume to be added to scalar field (fuel and temperature)."
                 range   { 0 10 }
                 parmtag { "autoscope" "0000000000000000" }
             }
@@ -161,6 +163,7 @@
                 label   "Flame Height"
                 type    float
                 default { "1.5" }
+                help    "Scaling factor for flames. Higher values give taller flames, lower values give smaller flames. This value is not measured in any unit (it is not the height of the flames in Houdini units), it simply affects the amount of cooling applied to the flames. Very low values will not necessarily result in very small flames, since the cooling factor will often not be enough to counteract a hot temperature field. The inverse of this value (multiplied by the cooling field, see below) is subtracted from the heat field, so lower values give more cooling and smaller flames. You can use the cooling field controls below to vary the flame height value based on the value in a field (by default the temperature field)."
                 range   { 0 10 }
                 parmtag { "autoscope" "0000000000000000" }
                 parmtag { "parmvop" "1" }
@@ -170,6 +173,7 @@
                 label   "Dissipation"
                 type    float
                 default { "0.1" }
+                help    "Causes smoke (density) to disappear over time. Low values cause smoke to disappear slowly, high values cause smoke to disappear quickly. For example, a value of 0.1 means 10% of the smoke will disappear every twenty-fourth of a second. A value of 1 will make all smoke disappear immediately."
                 range   { 0! 1 }
                 parmtag { "autoscope" "0000000000000000" }
                 parmtag { "parmvop" "1" }
@@ -183,6 +187,7 @@
                     label   "Disturbance"
                     type    float
                     default { "0.4" }
+                    help    "Introduces detail of a certain size in the smoke or fire without changing the general motion or shape of the simulation."
                     range   { 0! 10 }
                     parmtag { "autoscope" "0000000000000000" }
                     parmtag { "parmvop" "1" }
@@ -192,6 +197,7 @@
                     label   "Cutoff"
                     type    float
                     default { "0.1" }
+                    help    "Ignore voxels with values higher than this in the \"threshold field\" (density by default, you can change the field on the Bindings tab). This lets you only affect the edges of the smoke."
                     range   { 0 1 }
                     parmtag { "autoscope" "0000000000000000" }
                     parmtag { "parmvop" "1" }
@@ -201,6 +207,7 @@
                     label   "Use Block Size"
                     type    toggle
                     default { "off" }
+                    help    "When this option is on, use the Block size parameter to set the size of disturbance elements in word space units. When this option is off, use Locality to control the size of disturbance elements in voxels. Using block sizes avoids issues if you scale the container."
                     range   { 0 1 }
                     parmtag { "autoscope" "0000000000000000" }
                     parmtag { "parmvop" "1" }
@@ -210,6 +217,7 @@
                     label   "Locality"
                     type    integer
                     default { "2" }
+                    help    "Number of voxels are sampled into a certain disturbance value. Higher values give larger disturbance elements. Available when Use block size is off."
                     disablewhen "{ dist_override_block_size == 1 }"
                     range   { 1! 10 }
                     parmtag { "autoscope" "0000000000000000" }
@@ -226,6 +234,7 @@
                     label   "Shredding"
                     type    float
                     default { "0.0806667" }
+                    help    "Pushes and pulls the velocity field based on gradient of the heat field to create the the streaks, separation, and \"licks\" typical of fire. Very high values tend to give a random, fractal look, while very low values or no shredding gives blobby flames without much character. Since shredding works on the gradient of the temperature field, lower temperature diffusion results in a more noticeable shred effect. When temperature diffuses more, the gradient becomes less dynamic, resulting in bigger streaks. The higher the grid resolution, the more detailed the gradient becomes."
                     range   { 0! 1 }
                     parmtag { "autoscope" "0000000000000000" }
                 }
@@ -240,6 +249,7 @@
                     label   "Turbulence"
                     type    float
                     default { "0.35" }
+                    help    "Adds \"churning\" noise to the velocity field. You should generally use this to add powerful, large-scale/low-frequency noise and rely on shredding for smaller features. This is especially useful when you have a very fast-moving fire and you want to add more character to it."
                     range   { 0 10 }
                 }
                 parm {
@@ -247,6 +257,7 @@
                     label   "Turbulence Swirl Size"
                     type    float
                     default { "0.4" }
+                    help    "Sets the rough size of the swirls, in Houdini units."
                     range   { 0 10 }
                 }
             }
@@ -260,6 +271,7 @@
                     label   "Use OpenCL"
                     type    toggle
                     default { "off" }
+                    help    "Caching is enabled by default in DOPs.     Resizing is enabled by default. Resizing has to go through the CPU to manage the field changes. It can also fragment the GPU memory resulting in out-of-memory errors."
                     range   { 0 1 }
                     parmtag { "autoscope" "0000000000000000" }
                 }
@@ -268,6 +280,7 @@
                     label   "Min Substeps"
                     type    integer
                     default { "1" }
+                    help    "Forces the solver to run a minimum number of substeps. Normally the pyro solver works best with no substeps. If you have smoke and unusual forces you may want to increase this parameter for better stability. Increasing this will usually make the simulation much slower."
                     range   { 0 10 }
                     parmtag { "autoscope" "0000000000000000" }
                 }
@@ -276,6 +289,7 @@
                     label   "Max Substeps"
                     type    integer
                     default { "5" }
+                    help    "Forces the solver to not run more substeps than this maximum. Normally the pyro solver works best with no substeps. If you have smoke and unusual forces you may want to increase this parameter for better stability. Increasing this will usually make the simulation much slower."
                     range   { 0 10 }
                     parmtag { "autoscope" "0000000000000000" }
                 }
@@ -294,6 +308,7 @@
             label   "Half Sphere"
             type    toggle
             default { "1" }
+            help    "Creates a dome shaped sphere for the source."
         }
         parm {
             name    "sourceobject"
@@ -330,6 +345,7 @@
             label   "Container Padding"
             type    float
             default { "0.0183333" }
+            help    "Extra padding added to volume bounds. Measured in world units."
             range   { 0 10 }
             parmtag { "autoscope" "0000000000000000" }
             parmtag { "units" "m1" }
@@ -343,6 +359,7 @@
                 label   "Cell Influence"
                 type    float
                 default { "0.3" }
+                help    "How much influence the cellular pattern has on the previously created volume."
                 range   { 0 1 }
                 parmtag { "autoscope" "0000000000000000" }
                 parmtag { "parmvop" "1" }
@@ -352,6 +369,7 @@
                 label   "Pulse Duration"
                 type    float
                 default { "3" }
+                help    "How fast the noise moves. Higher values result in slower movement."
                 range   { 0 10 }
                 parmtag { "autoscope" "0000000000000000" }
                 parmtag { "units" "s1" }
@@ -361,6 +379,7 @@
                 label   "Offset"
                 type    float
                 default { "0" }
+                help    "Offsets turbulence pattern."
                 range   { 0 10 }
             }
             parm {
@@ -368,6 +387,7 @@
                 label   "Element Size"
                 type    float
                 default { "0.366667" }
+                help    "Initialized (base) element size, measured in world units. The value is derived from frequency (1/FQ)."
                 range   { 0 10 }
                 parmtag { "autoscope" "0000000000000000" }
                 parmtag { "parmvop" "1" }

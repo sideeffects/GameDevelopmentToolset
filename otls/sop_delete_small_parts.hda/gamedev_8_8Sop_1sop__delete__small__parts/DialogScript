@@ -1,0 +1,41 @@
+# Dialog script for gamedev::sop_delete_small_parts automatically generated
+
+{
+    name	gamedev::sop_delete_small_parts
+    script	gamedev::sop_delete_small_parts
+    label	"GameDev Delete Small Parts"
+
+    help {
+	""
+    }
+
+    inputlabel	1	"Sub-Network Input #1"
+    inputlabel	2	"Sub-Network Input #2"
+    inputlabel	3	"Sub-Network Input #3"
+    inputlabel	4	"Sub-Network Input #4"
+
+    parm {
+        name    "mode"
+        label   "Mode"
+        type    ordinal
+        default { "0" }
+        menu {
+            "0" "Area"
+            "1" "Perimeter"
+        }
+    }
+    parm {
+        name    "threshold"
+        label   "Threshold"
+        type    float
+        default { "0.1" }
+        range   { 0 10 }
+    }
+    parm {
+        name    "negate"
+        label   "Delete Non Selected"
+        type    toggle
+        default { "off" }
+        parmtag { "autoscope" "0000000000000000" }
+    }
+}

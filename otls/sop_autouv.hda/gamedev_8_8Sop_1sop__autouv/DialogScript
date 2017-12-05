@@ -1,0 +1,159 @@
+# Dialog script for gamedev::sop_autouv automatically generated
+
+{
+    name	gamedev::sop_autouv
+    script	gamedev::sop_autouv
+    label	"GameDev Auto UV "
+
+    help {
+	""
+    }
+
+    inputlabel	1	"Sub-Network Input #1"
+    inputlabel	2	"Sub-Network Input #2"
+    inputlabel	3	"Sub-Network Input #3"
+    inputlabel	4	"Sub-Network Input #4"
+
+    groupsimple {
+        name    "method_folder"
+        label   "Method"
+
+        groupradio {
+            name    "method"
+            label   "Shortest Path"
+
+            parm {
+                name    "fuse_distance"
+                label   "Collapse Distance"
+                type    float
+                default { "0.01" }
+                range   { 0 10 }
+            }
+            parm {
+                name    "num_points"
+                label   "Number of Paths"
+                type    integer
+                default { "25" }
+                range   { 1 100 }
+            }
+            parm {
+                name    "convex_multiplier"
+                label   "Convex Multiplier"
+                type    float
+                default { "0.1" }
+                range   { 0 10 }
+            }
+            parm {
+                name    "concave_multiplier"
+                label   "Concave Multiplier"
+                type    float
+                default { "0.1" }
+                range   { 0 10 }
+            }
+            parm {
+                name    "occlusion_multiplier"
+                label   "Occlusion Multiplier"
+                type    float
+                default { "1" }
+                range   { 0 10 }
+            }
+        }
+
+        groupradio {
+            name    "method_1"
+            label   "Cluster"
+
+            parm {
+                name    "num_clusters"
+                label   "Number of Clusters"
+                type    integer
+                default { "30" }
+                range   { 1 100 }
+            }
+            parm {
+                name    "normal_weight"
+                label   "Normal Weight"
+                type    float
+                default { "1" }
+                disablewhen "{ consider_normals == 0 }"
+                range   { 0 1 }
+            }
+            parm {
+                name    "normal_blur_cluster"
+                label   "Normal Blur"
+                type    integer
+                default { "5" }
+                disablewhen "{ normal_weight == 0 }"
+                range   { 0 10 }
+            }
+            parm {
+                name    "random_seed"
+                label   "Random Seed"
+                type    integer
+                default { "0" }
+                disablewhen "{ normal_weight == 0 }"
+                range   { 0 10 }
+            }
+        }
+
+        groupradio {
+            name    "method_2"
+            label   "Axis Aligned"
+
+            parm {
+                name    "blur_amount"
+                label   "Normal Blur Ammount"
+                type    integer
+                default { "0" }
+                range   { 0 10 }
+            }
+        }
+
+        groupradio {
+            name    "method_3"
+            label   "UV Unwrap"
+
+            parm {
+                name    "nplanes"
+                label   "Planes"
+                type    ordinal
+                default { "planes6" }
+                menu {
+                    "planes4"   "4"
+                    "planes5"   "5"
+                    "planes6"   "6"
+                    "planes8"   "8"
+                }
+                parmtag { "autoscope" "0000000000000000" }
+            }
+        }
+
+    }
+
+    parm {
+        name    "orientation_mode"
+        label   "Orientation Mode"
+        type    ordinal
+        default { "2" }
+        menu {
+            "1"     "Min"
+            "4"     "Axis Aligned"
+            "20"    "Optimal"
+            "360"   "Best"
+        }
+    }
+    parm {
+        name    "packing_iterations"
+        label   "Packing Iterations"
+        type    integer
+        default { "1" }
+        range   { 0 10 }
+    }
+    parm {
+        name    "layout_padding"
+        label   "Island Padding"
+        type    integer
+        default { "2" }
+        range   { 0 10 }
+    }
+}

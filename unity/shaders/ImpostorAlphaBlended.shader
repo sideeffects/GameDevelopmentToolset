@@ -61,7 +61,7 @@ Category {
 				float4 vertex : POSITION;
 				fixed4 color : COLOR;
 				float4 texcoord : TEXCOORD0;
-				float4 texcoord1 : TEXOORD1;
+				float4 texcoord1 : TEXCOORD1;
 			};
 
 			struct v2f {

@@ -34,7 +34,7 @@
             type    intvector2
             size    2
             default { "4" "4" }
-            range   { 2! 10 }
+            range   { 1! 10 }
             parmtag { "autoscope" "0000000000000000" }
         }
         parm {
@@ -149,8 +149,14 @@
         label   "Output"
 
         parm {
+            name    "bSingleFile"
+            label   "Single File"
+            type    toggle
+            default { "0" }
+        }
+        parm {
             name    "sopoutput"
-            label   "Output File"
+            label   "Output File(s)"
             type    file
             default { "$HIP/geo/TerrainChunk" }
             menureplace {

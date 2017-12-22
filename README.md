@@ -18,6 +18,10 @@ Windows
 OSX
 
     /Users/[username]/Library/Preferences/houdini/[ver#]
+    
+Linux
+
+    ~/houdini[ver#]
 
 Be sure to merge as needed! If you're copying and not cloning, the files shouldn't overwrite anything that doesn't involve the toolset.
 

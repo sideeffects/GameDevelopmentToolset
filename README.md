@@ -23,6 +23,10 @@ OSX
 
     /Users/[username]/Library/Preferences/houdini/[ver#]
 
+Linux
+
+    ~/houdini[ver#]
+
 Be sure to merge as needed! If you're copying and not cloning, the files shouldn't overwrite anything that doesn't involve the toolset.
 
 ## Instructions - Method 2
@@ -43,6 +47,10 @@ Windows
 OSX
 
     /Users/[username]/Library/Preferences/houdini/[ver#]
+
+Linux
+
+    ~/houdini[ver#]
 
 # What's Changed?
 Hi, my name is Luiz Kruel and I have taken over the github from Steven B. who is now working in production. A few of the SideFX TAs (TDs) will also be contributing example files and tools.

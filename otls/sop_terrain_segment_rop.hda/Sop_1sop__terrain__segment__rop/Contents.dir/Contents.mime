@@ -32,25 +32,24 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position -0.973437 -9.75545
-connectornextid 2
+position -4.85475 -2.4395
+connectornextid 1
 flags =  lock off model off template on footprint off xray off bypass off display on render on highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
 {
-1 "output1"
 }
 inputsNamed3
 {
-0 	transform1 1 1 "input1"
+0 	heightfield_xform1 1 1 "input1"
 }
 inputs
 {
-0 	transform1 0 1
+0 	heightfield_xform1 0 1
 }
 stat
 {
-  create 1513028234
-  modify 1513378165
+  create 1518635273
+  modify 1518635664
   author SideFX_Events@MSILA-2
   access 0777
 }
@@ -66,7 +65,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"1.3"
+		"value":"1.4"
 	}
 }
 
@@ -75,7 +74,7 @@ Content-Disposition: attachment; filename="hdaroot.inp"
 Content-Type: text/plain
 
 1
-0 3.248829997653905 21.299300005483627 2 0 __NO_OWNER_NETWORK_BOX__ "FROMOUTPUT"
+0 3.248829997653905 22.299300017404558 2 0 __NO_OWNER_NETWORK_BOX__ "FROMOUTPUT"
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
 Content-Disposition: attachment; filename="hdaroot/attribwrangle4.init"
@@ -341,17 +340,17 @@ outputsNamed3
 inputsNamed3
 {
 0 	attribwrangle10 1 1 "input1"
-2 	transform1 1 1 "input2"
+2 	heightfield_xform3 1 1 "input2"
 }
 inputs
 {
 0 	attribwrangle10 0 1
-1 	transform1 0 1
+1 	heightfield_xform3 0 1
 }
 stat
 {
   create 1507236537
-  modify 1513374878
+  modify 1518204608
   author admin@DESKTOP-PINH
   access 0777
 }
@@ -442,17 +441,17 @@ outputsNamed3
 inputsNamed3
 {
 0 	attribwrangle7 1 1 "input1"
-2 	transform1 1 1 "input2"
+2 	heightfield_xform3 1 1 "input2"
 }
 inputs
 {
 0 	attribwrangle7 0 1
-1 	transform1 0 1
+1 	heightfield_xform3 0 1
 }
 stat
 {
   create 1507239395
-  modify 1513370725
+  modify 1518204610
   author admin@DESKTOP-PINH
   access 0777
 }
@@ -871,16 +870,16 @@ outputsNamed3
 }
 inputsNamed3
 {
-0 	transform1 1 1 "input1"
+0 	heightfield_xform3 1 1 "input1"
 }
 inputs
 {
-0 	transform1 0 1
+0 	heightfield_xform3 0 1
 }
 stat
 {
   create 1507749968
-  modify 1513370731
+  modify 1518204604
   author admin@DESKTOP-PINH
   access 0777
 }
@@ -949,7 +948,7 @@ inputs
 stat
 {
   create 1507750428
-  modify 1507843645
+  modify 1518635489
   author admin@DESKTOP-PINH
   access 0777
 }
@@ -1031,7 +1030,7 @@ inputs
 stat
 {
   create 1507747739
-  modify 1513026845
+  modify 1518635630
   author admin@DESKTOP-PINH
   access 0777
 }
@@ -1315,10 +1314,10 @@ parm	[ 0	locks=0 ]	(	[ parm	2 ] 	)
 parm1pos	[ 0	locks=0 ]	(	[ parm1pos	0 ] 	)
 parm1value	[ 0	locks=0 ]	(	[ parm1value	0 ] 	)
 parm1interp	[ 0	locks=0 ]	(	[ parm1interp	1 ] 	)
+parm2	[ 0	locks=0 ]	(	[ parm2	3 ] 	)
 parm2pos	[ 0	locks=0 ]	(	[ parm2pos	1 ] 	)
 parm2value	[ 0	locks=0 ]	(	[ parm2value	1 ] 	)
 parm2interp	[ 0	locks=0 ]	(	[ parm2interp	1 ] 	)
-parm2	[ 0	locks=0 ]	(	[ parm2	4 ] 	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -1441,7 +1440,7 @@ inputs
 stat
 {
   create 1507751307
-  modify 1507843645
+  modify 1518635476
   author admin@DESKTOP-PINH
   access 0777
 }
@@ -1449,6 +1448,20 @@ color UT_Color RGB 0.8 0.8 0.8
 delscript ""
 exprlanguage hscript
 end
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/attribblur1.chn"
+Content-Type: text/plain
+
+{
+    channel iterations {
+      lefttype = extend
+      righttype = extend
+      default = 100
+      flags = 0
+      segment { length = 0 value = 100 100 expr = ch(\"../iterations\") }
+    }
+  }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
 Content-Disposition: attachment; filename="hdaroot/attribblur1.parm"
@@ -1459,7 +1472,7 @@ version 0.8
 group	[ 0	locks=0 ]	(	""	)
 attributes	[ 0	locks=0 ]	(	curvature	)
 method	[ 0	locks=0 ]	(	"uniform"	)
-iterations	[ 0	locks=0 ]	(	100	)
+iterations	[ 0	locks=0 ]	(	[ iterations	50 ] 	)
 mode	[ 0	locks=0 ]	(	"volpreserving"	)
 frequency	[ 0	locks=0 ]	(	0	)
 stepsize	[ 0	locks=0 ]	(	0.5	)
@@ -1617,7 +1630,7 @@ inputs
 stat
 {
   create 1512971995
-  modify 1513370621
+  modify 1518635621
   author paula@DESKTOP-JOVQSE4
   access 0777
 }
@@ -1699,7 +1712,7 @@ inputs
 stat
 {
   create 1513016158
-  modify 1513374693
+  modify 1518635642
   author GDC_Houdini@AUSTIN
   access 0777
 }
@@ -1784,7 +1797,7 @@ inputs
 stat
 {
   create 1507233895
-  modify 1513374693
+  modify 1518635642
   author admin@DESKTOP-PINH
   access 0777
 }
@@ -1865,7 +1878,7 @@ inputs
 stat
 {
   create 1512967746
-  modify 1513374693
+  modify 1518635642
   author paula@DESKTOP-JOVQSE4
   access 0777
 }
@@ -2216,7 +2229,7 @@ inputs
 stat
 {
   create 1513016158
-  modify 1513374693
+  modify 1518635642
   author GDC_Houdini@AUSTIN
   access 0777
 }
@@ -2300,7 +2313,7 @@ inputs
 stat
 {
   create 1513023403
-  modify 1513374693
+  modify 1518635642
   author GDC_Houdini@AUSTIN
   access 0777
 }
@@ -2498,7 +2511,7 @@ inputs
 stat
 {
   create 1513124172
-  modify 1513374693
+  modify 1518635642
   author GDC_Houdini@AUSTIN
   access 0777
 }
@@ -2576,7 +2589,7 @@ inputs
 stat
 {
   create 1513125147
-  modify 1513374693
+  modify 1518635642
   author GDC_Houdini@AUSTIN
   access 0777
 }
@@ -2627,6 +2640,324 @@ Content-Type: text/plain
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/attribwrangle28.init"
+Content-Type: text/plain
+
+type = attribwrangle
+matchesdef = 1
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/attribwrangle28.def"
+Content-Type: text/plain
+
+sopflags sopflags = 
+comment ""
+position 7.18678 20.0363
+connectornextid 2
+flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
+outputsNamed3
+{
+1 "output1"
+}
+inputsNamed3
+{
+0 	IN 1 1 "input1"
+}
+inputs
+{
+0 	IN 0 1
+}
+stat
+{
+  create 1518202711
+  modify 1518223107
+  author GDC_Houdini@AUSTIN
+  access 0777
+}
+color UT_Color RGB 0.8 0.8 0.8 
+delscript ""
+exprlanguage hscript
+end
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/attribwrangle28.parm"
+Content-Type: text/plain
+
+{
+version 0.8
+folder0	[ 0	locks=0 ]	(	0	0	)
+group	[ 0	locks=0 ]	(	""	)
+grouptype	[ 0	locks=0 ]	(	"guess"	)
+class	[ 0	locks=0 ]	(	"detail"	)
+vex_numcount	[ 0	locks=0 ]	(	10	)
+vex_threadjobsize	[ 0	locks=0 ]	(	1024	)
+snippet	[ 0	locks=0 ]	(	"f@MaxSize = max(getbbox_size(0));"	)
+exportlist	[ 0	locks=0 ]	(	*	)
+vex_strict	[ 0	locks=0 ]	(	"off"	)
+autobind	[ 0	locks=0 ]	(	"on"	)
+bindings	[ 0	locks=0 ]	(	0	)
+groupautobind	[ 0	locks=0 ]	(	"on"	)
+groupbindings	[ 0	locks=0 ]	(	0	)
+vex_cwdpath	[ 0	locks=0 ]	(	.	)
+vex_outputmask	[ 0	locks=0 ]	(	*	)
+vex_updatenmls	[ 0	locks=0 ]	(	"off"	)
+vex_matchattrib	[ 0	locks=0 ]	(	id	)
+vex_inplace	[ 0	locks=0 ]	(	"off"	)
+vex_selectiongroup	[ 0	locks=0 ]	(	""	)
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/attribwrangle28.userdata"
+Content-Type: text/plain
+
+{
+	"___Version___":{
+		"type":"string",
+		"value":""
+	}
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/heightfield_xform1.init"
+Content-Type: text/plain
+
+type = heightfield_xform
+matchesdef = 1
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/heightfield_xform1.def"
+Content-Type: text/plain
+
+sopflags sopflags = 
+comment ""
+position 3.24883 20.0373
+connectornextid 2
+flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
+outputsNamed3
+{
+1 "output1"
+}
+inputsNamed3
+{
+0 	IN 1 1 "input1"
+}
+inputs
+{
+0 	IN 0 1
+}
+stat
+{
+  create 1518204113
+  modify 1518223099
+  author GDC_Houdini@AUSTIN
+  access 0777
+}
+color UT_Color RGB 0.8 0.8 0.8 
+delscript ""
+exprlanguage hscript
+end
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/heightfield_xform1.chn"
+Content-Type: text/plain
+
+{
+    channel tx {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = "-centroid(0, D_X)" }
+    }
+    channel tz {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = "-centroid(0, D_Z)" }
+    }
+  }
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/heightfield_xform1.parm"
+Content-Type: text/plain
+
+{
+version 0.8
+folder1	[ 0	locks=0 ]	(	0	)
+scale	[ 0	locks=0 ]	(	1	)
+gridscale	[ 0	locks=0 ]	(	1	)
+heightscale	[ 0	locks=0 ]	(	1	)
+heightoffset	[ 0	locks=0 ]	(	0	)
+folder0	[ 0	locks=0 ]	(	0	)
+tx	[ 8	locks=0 ]	(	[ tx	-0 ] 	)
+tz	[ 8	locks=0 ]	(	[ tz	-0 ] 	)
+ry	[ 0	locks=0 ]	(	0	)
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/heightfield_xform1.userdata"
+Content-Type: text/plain
+
+{
+	"___Version___":{
+		"type":"string",
+		"value":""
+	}
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/heightfield_xform3.init"
+Content-Type: text/plain
+
+type = heightfield_xform
+matchesdef = 1
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/heightfield_xform3.def"
+Content-Type: text/plain
+
+sopflags sopflags = 
+comment ""
+position 3.24883 19.0373
+connectornextid 2
+flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
+outputsNamed3
+{
+1 "output1"
+}
+inputsNamed3
+{
+0 	heightfield_xform1 1 1 "input1"
+}
+inputs
+{
+0 	heightfield_xform1 0 1
+}
+stat
+{
+  create 1518204275
+  modify 1518223099
+  author GDC_Houdini@AUSTIN
+  access 0777
+}
+color UT_Color RGB 0.8 0.8 0.8 
+delscript ""
+exprlanguage hscript
+end
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/heightfield_xform3.spareparmdef"
+Content-Type: text/plain
+
+    groupsimple {
+        name    "folder2"
+        label   "Scaling"
+
+        parm {
+            name    "scale"
+            baseparm
+            label   "Uniform Scale"
+            export  none
+        }
+        parm {
+            name    "gridscale"
+            baseparm
+            label   "Grid Scale"
+            export  none
+        }
+        parm {
+            name    "heightscale"
+            baseparm
+            label   "Height Scale"
+            export  none
+        }
+        parm {
+            name    "heightoffset"
+            baseparm
+            label   "Height Offset"
+            export  none
+        }
+    }
+
+    groupsimple {
+        name    "folder3"
+        label   "Positioning"
+
+        parm {
+            name    "tx"
+            baseparm
+            label   "Translate X"
+            export  none
+        }
+        parm {
+            name    "tz"
+            baseparm
+            label   "Translate Z"
+            export  none
+        }
+        parm {
+            name    "ry"
+            baseparm
+            label   "Rotate Y"
+            export  none
+        }
+    }
+
+    parm {
+        name    "spare_input0"
+        label   "Spare Input 0"
+        type    oppath
+        default { "" }
+        help    "Refer to this in expressions as -1, such as: npoint(-1)"
+        parmtag { "opfilter" "!!SOP!!" }
+        parmtag { "oprelative" "." }
+    }
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/heightfield_xform3.chn"
+Content-Type: text/plain
+
+{
+    channel scale {
+      lefttype = extend
+      righttype = extend
+      default = 1
+      flags = 0
+      segment { length = 0 value = 1 1 expr = "1.0/detail(-1, \"MaxSize\", 0)*1000" }
+    }
+  }
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/heightfield_xform3.parm"
+Content-Type: text/plain
+
+{
+version 0.8
+folder1	[ 0	locks=0 ]	(	0	)
+scale	[ 8	locks=0 ]	(	[ scale	1 ] 	)
+gridscale	[ 0	locks=0 ]	(	1	)
+heightscale	[ 0	locks=0 ]	(	1	)
+heightoffset	[ 0	locks=0 ]	(	0	)
+folder0	[ 0	locks=0 ]	(	0	)
+tx	[ 0	locks=0 ]	(	0	)
+tz	[ 0	locks=0 ]	(	0	)
+ry	[ 0	locks=0 ]	(	0	)
+folder2	[ 0	locks=0 ]	(	0	)
+folder3	[ 0	locks=0 ]	(	0	)
+spare_input0	[ 0	locks=0 ]	(	../attribwrangle28	)
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/heightfield_xform3.userdata"
+Content-Type: text/plain
+
+{
+	"___Version___":{
+		"type":"string",
+		"value":""
+	}
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
 Content-Disposition: attachment; filename="hdaroot/VIS.init"
 Content-Type: text/plain
 
@@ -2641,7 +2972,7 @@ sopflags sopflags =
 comment ""
 position -2.64565 -65.957
 connectornextid 2
-flags =  lock off model off template on footprint off xray off bypass off display on render on highlight off unload off savedata off compress on colordefault off exposed on
+flags =  lock off model off template off footprint off xray off bypass off display on render on highlight off unload off savedata off compress on colordefault off exposed on
 outputsNamed3
 {
 1 "output1"
@@ -2657,7 +2988,7 @@ inputs
 stat
 {
   create 1506559772
-  modify 1513374878
+  modify 1518635642
   author admin@DESKTOP-PINH
   access 0777
 }
@@ -2682,7 +3013,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.321"
+		"value":"16.5.385"
 	}
 }
 
@@ -2739,7 +3070,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.321"
+		"value":"16.5.385"
 	}
 }
 
@@ -2833,6 +3164,7 @@ conservemem	[ 0	locks=0 ]	(	"off"	)
 deformsasvcs	[ 0	locks=0 ]	(	"off"	)
 forceblendshape	[ 0	locks=0 ]	(	"off"	)
 forceskindeform	[ 0	locks=0 ]	(	"off"	)
+exportendeffectors	[ 0	locks=0 ]	(	"on"	)
 tprerender	[ 0	locks=0 ]	(	"on"	)
 prerender	[ 0	locks=0 ]	(	""	)
 lprerender	[ 0	locks=0 ]	(	hscript	)
@@ -2854,7 +3186,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.321"
+		"value":"16.5.385"
 	}
 }
 
@@ -2948,6 +3280,7 @@ conservemem	[ 0	locks=0 ]	(	"off"	)
 deformsasvcs	[ 0	locks=0 ]	(	"off"	)
 forceblendshape	[ 0	locks=0 ]	(	"off"	)
 forceskindeform	[ 0	locks=0 ]	(	"off"	)
+exportendeffectors	[ 0	locks=0 ]	(	"on"	)
 tprerender	[ 0	locks=0 ]	(	"on"	)
 prerender	[ 0	locks=0 ]	(	""	)
 lprerender	[ 0	locks=0 ]	(	hscript	)
@@ -2969,7 +3302,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.321"
+		"value":"16.5.385"
 	}
 }
 
@@ -3077,7 +3410,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.321"
+		"value":"16.5.385"
 	}
 }
 
@@ -3144,7 +3477,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.321"
+		"value":"16.5.385"
 	}
 }
 
@@ -3243,7 +3576,7 @@ inputs
 stat
 {
   create 1507157997
-  modify 1513374693
+  modify 1518635642
   author admin@DESKTOP-PINH
   access 0777
 }
@@ -3272,7 +3605,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.321"
+		"value":"16.5.385"
 	}
 }
 
@@ -3332,7 +3665,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.321"
+		"value":"16.5.385"
 	}
 }
 
@@ -3486,8 +3819,8 @@ surftype	[ 0	locks=0 ]	(	"quads"	)
 orient	[ 0	locks=0 ]	(	"zx"	)
 size	[ 8	locks=0 ]	(	1	1	)
 t	[ 0	locks=0 ]	(	0	0	0	)
-rows	[ 8	locks=0 ]	(	[ rows	51 ] 	)
-cols	[ 8	locks=0 ]	(	[ cols	11 ] 	)
+rows	[ 8	locks=0 ]	(	[ rows	26 ] 	)
+cols	[ 8	locks=0 ]	(	[ cols	26 ] 	)
 orderu	[ 0	locks=0 ]	(	4	)
 orderv	[ 0	locks=0 ]	(	4	)
 interpu	[ 0	locks=0 ]	(	"on"	)
@@ -3502,7 +3835,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.321"
+		"value":"16.5.385"
 	}
 }
 
@@ -3576,8 +3909,8 @@ surftype	[ 0	locks=0 ]	(	"quads"	)
 orient	[ 0	locks=0 ]	(	"zx"	)
 size	[ 0	locks=0 ]	(	1	1	)
 t	[ 0	locks=0 ]	(	0	0	0	)
-rows	[ 8	locks=0 ]	(	[ rows	2 ] 	)
-cols	[ 8	locks=0 ]	(	[ cols	6 ] 	)
+rows	[ 8	locks=0 ]	(	[ rows	5 ] 	)
+cols	[ 8	locks=0 ]	(	[ cols	5 ] 	)
 orderu	[ 0	locks=0 ]	(	4	)
 orderv	[ 0	locks=0 ]	(	4	)
 interpu	[ 0	locks=0 ]	(	"on"	)
@@ -3591,7 +3924,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.321"
+		"value":"16.5.385"
 	}
 }
 
@@ -3626,7 +3959,7 @@ inputs
 stat
 {
   create 1507237338
-  modify 1513374693
+  modify 1518635642
   author admin@DESKTOP-PINH
   access 0777
 }
@@ -3667,7 +4000,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.321"
+		"value":"16.5.385"
 	}
 }
 
@@ -3702,7 +4035,7 @@ inputs
 stat
 {
   create 1507237338
-  modify 1513378167
+  modify 1518635691
   author admin@DESKTOP-PINH
   access 0777
 }
@@ -3730,7 +4063,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.321"
+		"value":"16.5.385"
 	}
 }
 
@@ -3765,7 +4098,7 @@ inputs
 stat
 {
   create 1507237555
-  modify 1513374870
+  modify 1518635642
   author admin@DESKTOP-PINH
   access 0777
 }
@@ -3792,7 +4125,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.321"
+		"value":"16.5.385"
 	}
 }
 
@@ -3854,7 +4187,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.321"
+		"value":"16.5.385"
 	}
 }
 
@@ -3917,7 +4250,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.321"
+		"value":"16.5.385"
 	}
 }
 
@@ -3943,16 +4276,16 @@ outputsNamed3
 }
 inputsNamed3
 {
-1 	transform1 1 1 "input1"
+1 	heightfield_xform3 1 1 "input1"
 }
 inputs
 {
-0 	transform1 0 1
+0 	heightfield_xform3 0 1
 }
 stat
 {
   create 1507237635
-  modify 1513370728
+  modify 1518204614
   author admin@DESKTOP-PINH
   access 0777
 }
@@ -3979,7 +4312,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.321"
+		"value":"16.5.385"
 	}
 }
 
@@ -4014,7 +4347,7 @@ inputs
 stat
 {
   create 1507240206
-  modify 1513374693
+  modify 1518635642
   author admin@DESKTOP-PINH
   access 0777
 }
@@ -4048,7 +4381,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.321"
+		"value":"16.5.385"
 	}
 }
 
@@ -4202,7 +4535,7 @@ upvector	[ 0	locks=0 ]	(	[ upvectorx	0 ] 	[ upvectory	0 ] 	[ upvectorz	0 ] 	)
 attribslabel	[ 0	locks=0 ]	(	)
 xformattribs	[ 0	locks=0 ]	(	N	)
 doclr	[ 0	locks=0 ]	(	"on"	)
-diff	[ 8	locks=0 ]	(	[ diffr	0.00041210651397705078 ] 	[ diffg	0.12275528907775879 ] 	[ diffb	0.051067709922790527 ] 	)
+diff	[ 8	locks=0 ]	(	[ diffr	0.3486102819442749 ] 	[ diffg	0.4960256814956665 ] 	[ diffb	0.66875958442687988 ] 	)
 doalpha	[ 0	locks=0 ]	(	"off"	)
 alpha	[ 0	locks=0 ]	(	[ alpha	0 ] 	)
 docrease	[ 0	locks=0 ]	(	"off"	)
@@ -4255,7 +4588,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.321"
+		"value":"16.5.385"
 	}
 }
 
@@ -4320,7 +4653,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.321"
+		"value":"16.5.385"
 	}
 }
 
@@ -4357,7 +4690,7 @@ inputs
 stat
 {
   create 1507242876
-  modify 1513374693
+  modify 1518635642
   author admin@DESKTOP-PINH
   access 0777
 }
@@ -4395,7 +4728,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.321"
+		"value":"16.5.385"
 	}
 }
 
@@ -4430,7 +4763,7 @@ inputs
 stat
 {
   create 1507242979
-  modify 1513374693
+  modify 1518635642
   author admin@DESKTOP-PINH
   access 0777
 }
@@ -4471,7 +4804,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.321"
+		"value":"16.5.385"
 	}
 }
 
@@ -4506,7 +4839,7 @@ inputs
 stat
 {
   create 1507242979
-  modify 1513378170
+  modify 1518635693
   author admin@DESKTOP-PINH
   access 0777
 }
@@ -4534,7 +4867,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.321"
+		"value":"16.5.385"
 	}
 }
 
@@ -4632,7 +4965,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.321"
+		"value":"16.5.385"
 	}
 }
 
@@ -4714,7 +5047,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.321"
+		"value":"16.5.385"
 	}
 }
 
@@ -4797,7 +5130,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.321"
+		"value":"16.5.385"
 	}
 }
 
@@ -4832,7 +5165,7 @@ inputs
 stat
 {
   create 1507745179
-  modify 1513374693
+  modify 1518635642
   author admin@DESKTOP-PINH
   access 0777
 }
@@ -4923,7 +5256,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.321"
+		"value":"16.5.385"
 	}
 }
 
@@ -4986,7 +5319,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.321"
+		"value":"16.5.385"
 	}
 }
 
@@ -5021,7 +5354,7 @@ inputs
 stat
 {
   create 1507750418
-  modify 1507843645
+  modify 1518635443
   author admin@DESKTOP-PINH
   access 0777
 }
@@ -5052,7 +5385,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.321"
+		"value":"16.5.385"
 	}
 }
 
@@ -5128,7 +5461,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.321"
+		"value":"16.5.385"
 	}
 }
 
@@ -5163,7 +5496,7 @@ inputs
 stat
 {
   create 1507747671
-  modify 1513378188
+  modify 1518636023
   author admin@DESKTOP-PINH
   access 0777
 }
@@ -5191,7 +5524,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.321"
+		"value":"16.5.385"
 	}
 }
 
@@ -5257,7 +5590,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.321"
+		"value":"16.5.385"
 	}
 }
 
@@ -5323,7 +5656,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.321"
+		"value":"16.5.385"
 	}
 }
 
@@ -5389,7 +5722,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.321"
+		"value":"16.5.385"
 	}
 }
 
@@ -5484,7 +5817,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.321"
+		"value":"16.5.385"
 	}
 }
 
@@ -5516,7 +5849,7 @@ inputs
 stat
 {
   create 1507747949
-  modify 1513378188
+  modify 1518636023
   author admin@DESKTOP-PINH
   access 0777
 }
@@ -5544,7 +5877,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.321"
+		"value":"16.5.385"
 	}
 }
 
@@ -5626,7 +5959,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.321"
+		"value":"16.5.385"
 	}
 }
 
@@ -5663,7 +5996,7 @@ inputs
 stat
 {
   create 1507769135
-  modify 1513374693
+  modify 1518635642
   author admin@DESKTOP-PINH
   access 0777
 }
@@ -5709,7 +6042,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.321"
+		"value":"16.5.385"
 	}
 }
 
@@ -5773,7 +6106,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.321"
+		"value":"16.5.385"
 	}
 }
 
@@ -5810,7 +6143,7 @@ inputs
 stat
 {
   create 1507842587
-  modify 1513374693
+  modify 1518635642
   author admin@DESKTOP-PINH
   access 0777
 }
@@ -5848,7 +6181,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.321"
+		"value":"16.5.385"
 	}
 }
 
@@ -5883,7 +6216,7 @@ inputs
 stat
 {
   create 1507870587
-  modify 1513374693
+  modify 1518635642
   author paula@DESKTOP-JOVQSE4
   access 0777
 }
@@ -5947,7 +6280,7 @@ inputs
 stat
 {
   create 1507870639
-  modify 1513374693
+  modify 1518635642
   author paula@DESKTOP-JOVQSE4
   access 0777
 }
@@ -5975,7 +6308,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.321"
+		"value":"16.5.385"
 	}
 }
 
@@ -6073,7 +6406,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.321"
+		"value":"16.5.385"
 	}
 }
 
@@ -6141,7 +6474,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.321"
+		"value":"16.5.385"
 	}
 }
 
@@ -6176,7 +6509,7 @@ inputs
 stat
 {
   create 1512971926
-  modify 1513374693
+  modify 1518635642
   author paula@DESKTOP-JOVQSE4
   access 0777
 }
@@ -6217,7 +6550,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.321"
+		"value":"16.5.385"
 	}
 }
 
@@ -6252,7 +6585,7 @@ inputs
 stat
 {
   create 1512971926
-  modify 1514304700
+  modify 1518864457
   author paula@DESKTOP-JOVQSE4
   access 0777
 }
@@ -6280,7 +6613,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.321"
+		"value":"16.5.385"
 	}
 }
 
@@ -6315,7 +6648,7 @@ inputs
 stat
 {
   create 1512972606
-  modify 1513374693
+  modify 1518635621
   author paula@DESKTOP-JOVQSE4
   access 0777
 }
@@ -6358,7 +6691,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.321"
+		"value":"16.5.385"
 	}
 }
 
@@ -6393,7 +6726,7 @@ inputs
 stat
 {
   create 1512972914
-  modify 1513374693
+  modify 1518635642
   author paula@DESKTOP-JOVQSE4
   access 0777
 }
@@ -6440,7 +6773,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.321"
+		"value":"16.5.385"
 	}
 }
 
@@ -6522,7 +6855,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.321"
+		"value":"16.5.385"
 	}
 }
 
@@ -6601,7 +6934,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.321"
+		"value":"16.5.385"
 	}
 }
 
@@ -6680,7 +7013,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.321"
+		"value":"16.5.385"
 	}
 }
 
@@ -6715,7 +7048,7 @@ inputs
 stat
 {
   create 1512967536
-  modify 1513374693
+  modify 1518635642
   author paula@DESKTOP-JOVQSE4
   access 0777
 }
@@ -6778,7 +7111,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.321"
+		"value":"16.5.385"
 	}
 }
 
@@ -6813,7 +7146,7 @@ inputs
 stat
 {
   create 1512967576
-  modify 1513374693
+  modify 1518635642
   author paula@DESKTOP-JOVQSE4
   access 0777
 }
@@ -6846,7 +7179,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.321"
+		"value":"16.5.385"
 	}
 }
 
@@ -6922,7 +7255,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.321"
+		"value":"16.5.385"
 	}
 }
 
@@ -6985,7 +7318,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.321"
+		"value":"16.5.385"
 	}
 }
 
@@ -7063,7 +7396,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.321"
+		"value":"16.5.385"
 	}
 }
 
@@ -7098,7 +7431,7 @@ inputs
 stat
 {
   create 1513016862
-  modify 1513374693
+  modify 1518635642
   author GDC_Houdini@AUSTIN
   access 0777
 }
@@ -7139,7 +7472,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.321"
+		"value":"16.5.385"
 	}
 }
 
@@ -7174,7 +7507,7 @@ inputs
 stat
 {
   create 1513016862
-  modify 1513378170
+  modify 1518635693
   author GDC_Houdini@AUSTIN
   access 0777
 }
@@ -7202,7 +7535,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.321"
+		"value":"16.5.385"
 	}
 }
 
@@ -7268,7 +7601,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.321"
+		"value":"16.5.385"
 	}
 }
 
@@ -7305,7 +7638,7 @@ inputs
 stat
 {
   create 1513016983
-  modify 1513374693
+  modify 1518635642
   author GDC_Houdini@AUSTIN
   access 0777
 }
@@ -7351,7 +7684,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.321"
+		"value":"16.5.385"
 	}
 }
 
@@ -7433,7 +7766,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.321"
+		"value":"16.5.385"
 	}
 }
 
@@ -7468,7 +7801,7 @@ inputs
 stat
 {
   create 1512972976
-  modify 1513374693
+  modify 1518635642
   author paula@DESKTOP-JOVQSE4
   access 0777
 }
@@ -7511,7 +7844,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.321"
+		"value":"16.5.385"
 	}
 }
 
@@ -7546,7 +7879,7 @@ inputs
 stat
 {
   create 1513025251
-  modify 1513374693
+  modify 1518635642
   author GDC_Houdini@AUSTIN
   access 0777
 }
@@ -7573,7 +7906,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.321"
+		"value":"16.5.385"
 	}
 }
 
@@ -7608,7 +7941,7 @@ inputs
 stat
 {
   create 1513025251
-  modify 1513374693
+  modify 1518635642
   author GDC_Houdini@AUSTIN
   access 0777
 }
@@ -7635,7 +7968,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.321"
+		"value":"16.5.385"
 	}
 }
 
@@ -7672,7 +8005,7 @@ inputs
 stat
 {
   create 1513026432
-  modify 1513374693
+  modify 1518635642
   author GDC_Houdini@AUSTIN
   access 0777
 }
@@ -7710,7 +8043,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.321"
+		"value":"16.5.385"
 	}
 }
 
@@ -7747,7 +8080,7 @@ inputs
 stat
 {
   create 1513026432
-  modify 1513374693
+  modify 1518635642
   author GDC_Houdini@AUSTIN
   access 0777
 }
@@ -7785,7 +8118,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.321"
+		"value":"16.5.385"
 	}
 }
 
@@ -7820,7 +8153,7 @@ inputs
 stat
 {
   create 1513125250
-  modify 1513374693
+  modify 1518635642
   author GDC_Houdini@AUSTIN
   access 0777
 }
@@ -7853,7 +8186,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.321"
+		"value":"16.5.385"
 	}
 }
 
@@ -7984,7 +8317,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.321"
+		"value":"16.5.385"
 	}
 }
 
@@ -8019,7 +8352,7 @@ inputs
 stat
 {
   create 1506574653
-  modify 1513374693
+  modify 1518635642
   author paula@DESKTOP-JOVQSE4
   access 0777
 }
@@ -8096,7 +8429,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.321"
+		"value":"16.5.385"
 	}
 }
 
@@ -8223,110 +8556,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.321"
-	}
-}
-
---HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot/transform1.init"
-Content-Type: text/plain
-
-type = xform
-matchesdef = 0
-
---HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot/transform1.def"
-Content-Type: text/plain
-
-sopflags sopflags = 
-comment ""
-position 3.24883 19.0373
-connectornextid 2
-flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
-outputsNamed3
-{
-1 "output1"
-}
-inputsNamed3
-{
-0 	IN 1 1 "input1"
-}
-inputs
-{
-0 	IN 0 1
-}
-stat
-{
-  create 1513370683
-  modify 1513374885
-  author GDC_Houdini@AUSTIN
-  access 0777
-}
-color UT_Color RGB 0.8 0.8 0.8 
-delscript ""
-exprlanguage hscript
-end
-
---HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot/transform1.chn"
-Content-Type: text/plain
-
-{
-    channel tx {
-      lefttype = extend
-      righttype = extend
-      flags = 0
-      segment { length = 0 expr = "-centroid(0, D_X)" }
-    }
-    channel tz {
-      lefttype = extend
-      righttype = extend
-      flags = 0
-      segment { length = 0 expr = "-centroid(0, D_Z)" }
-    }
-  }
-
---HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot/transform1.parm"
-Content-Type: text/plain
-
-{
-version 0.8
-group	[ 0	locks=0 ]	(	""	)
-grouptype	[ 0	locks=0 ]	(	"guess"	)
-xOrd	[ 0	locks=0 ]	(	"srt"	)
-rOrd	[ 0	locks=0 ]	(	"xyz"	)
-t	[ 8	locks=0 ]	(	[ tx	-200 ] 	0	[ tz	-0 ] 	)
-r	[ 0	locks=0 ]	(	0	0	0	)
-s	[ 0	locks=0 ]	(	1	1	1	)
-shear	[ 0	locks=0 ]	(	0	0	0	)
-scale	[ 0	locks=0 ]	(	1	)
-parmgroup_pivotxform	[ 0	locks=0 ]	(	0	)
-p	[ 0	locks=0 ]	(	0	0	0	)
-pr	[ 0	locks=0 ]	(	0	0	0	)
-parmgroup_prexform	[ 0	locks=0 ]	(	0	)
-prexform_xOrd	[ 0	locks=0 ]	(	"srt"	)
-prexform_rOrd	[ 0	locks=0 ]	(	"xyz"	)
-prexform_t	[ 0	locks=0 ]	(	0	0	0	)
-prexform_r	[ 0	locks=0 ]	(	0	0	0	)
-prexform_s	[ 0	locks=0 ]	(	1	1	1	)
-prexform_shear	[ 0	locks=0 ]	(	0	0	0	)
-movecentroid	[ 0	locks=0 ]	(	0	)
-attribs	[ 0	locks=0 ]	(	*	)
-updatenmls	[ 0	locks=0 ]	(	"off"	)
-updateaffectednmls	[ 0	locks=0 ]	(	"on"	)
-vlength	[ 0	locks=0 ]	(	"on"	)
-invertxform	[ 0	locks=0 ]	(	"off"	)
-}
-
---HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot/transform1.userdata"
-Content-Type: text/plain
-
-{
-	"___Version___":{
-		"type":"string",
-		"value":"16.5.321"
+		"value":"16.5.385"
 	}
 }
 
@@ -8361,7 +8591,7 @@ inputs
 stat
 {
   create 1513370754
-  modify 1513374885
+  modify 1518635642
   author GDC_Houdini@AUSTIN
   access 0777
 }
@@ -8387,6 +8617,13 @@ Content-Type: text/plain
       flags = 0
       segment { length = 0 expr = "centroid(\"../IN\", D_Z)" }
     }
+    channel scale {
+      lefttype = extend
+      righttype = extend
+      default = 1
+      flags = 0
+      segment { length = 0 value = 1 1 expr = 1.0/ch(\"../heightfield_xform3/scale\") }
+    }
   }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -8399,11 +8636,11 @@ group	[ 0	locks=0 ]	(	""	)
 grouptype	[ 0	locks=0 ]	(	"guess"	)
 xOrd	[ 0	locks=0 ]	(	"srt"	)
 rOrd	[ 0	locks=0 ]	(	"xyz"	)
-t	[ 8	locks=0 ]	(	[ tx	200 ] 	0	[ tz	0 ] 	)
+t	[ 8	locks=0 ]	(	[ tx	0 ] 	0	[ tz	0 ] 	)
 r	[ 0	locks=0 ]	(	0	0	0	)
 s	[ 0	locks=0 ]	(	1	1	1	)
 shear	[ 0	locks=0 ]	(	0	0	0	)
-scale	[ 0	locks=0 ]	(	1	)
+scale	[ 0	locks=0 ]	(	[ scale	1 ] 	)
 parmgroup_pivotxform	[ 0	locks=0 ]	(	0	)
 p	[ 0	locks=0 ]	(	0	0	0	)
 pr	[ 0	locks=0 ]	(	0	0	0	)
@@ -8429,7 +8666,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.321"
+		"value":"16.5.385"
 	}
 }
 
@@ -8446,7 +8683,7 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position 3.24883 20.13
+position 3.24883 21.13
 connectornextid 2
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
@@ -8464,7 +8701,7 @@ inputs
 stat
 {
   create 1513374515
-  modify 1513374885
+  modify 1518223099
   author GDC_Houdini@AUSTIN
   access 0777
 }
@@ -8490,7 +8727,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.321"
+		"value":"16.5.385"
 	}
 }
 
@@ -8550,7 +8787,7 @@ Content-Type: text/plain
 Content-Disposition: attachment; filename="hdaroot.order"
 Content-Type: text/plain
 
-100
+102
 VIS
 OUT
 OUT_GEO
@@ -8648,9 +8885,11 @@ python3
 python5
 attribdelete5
 groupdelete2
-transform1
 transform2
 IN
+attribwrangle28
+heightfield_xform1
+heightfield_xform3
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
 Content-Disposition: attachment; filename="hdaroot.net"

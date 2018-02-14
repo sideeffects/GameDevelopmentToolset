@@ -5,7 +5,14 @@ def export(node):
         render_node = node.inputs()[0]
         render_node.render()
 
-    export_node = node.parm("node_to_export").eval()
+    #Get Relative Path
+    exportparm_val = node.parm("node_to_export").evalAsString()
+    export_path = exportparm_val
+
+    if exportparm_val[:3] == "../":
+        export_path = "../"+exportparm_val
+    
+    export_node = hou.node(export_path).path()
 
     # If Not /obj level node selected, get /obj level parent
     if hou.node(export_node).type().category() != hou.objNodeTypeCategory():
@@ -13,7 +20,6 @@ def export(node):
         while parent_node.type().category() != hou.objNodeTypeCategory():
             parent_node = parent_node.parent()
         export_node = parent_node.path()
-
 
     exporter = FractureExporter()
     exporter.export(hou.node(export_node))
@@ -35,7 +41,6 @@ class PackedObject(object):
         self.prim = None
         self.point = None
         
-
 class FractureExporter(object):
 
     def __init__(self):
@@ -239,6 +244,7 @@ class FractureExporter(object):
 
             # cache the hou node
             export_object.hou_node = geo_node
+            geo_node.cook(force=True)
 
     def animate_individual_nodes(self):
 
@@ -258,6 +264,7 @@ class FractureExporter(object):
 
                 pos = baked_transform.extractTranslates()
                 rot = baked_transform.extractRotates()
+                scale = baked_transform.extractScales()
 
                 for i, parm_name in enumerate(["tx", "ty", "tz"]):
                     parm = houdini_node.parm(parm_name)
@@ -271,4 +278,11 @@ class FractureExporter(object):
                     keyframe = hou.Keyframe()
                     keyframe.setFrame(frame)
                     keyframe.setValue(rot[i])
+                    parm.setKeyframe(keyframe)
+
+                for i, parm_name in enumerate(["sx", "sy", "sz"]):
+                    parm = houdini_node.parm(parm_name)
+                    keyframe = hou.Keyframe()
+                    keyframe.setFrame(frame)
+                    keyframe.setValue(scale[i])
                     parm.setKeyframe(keyframe)

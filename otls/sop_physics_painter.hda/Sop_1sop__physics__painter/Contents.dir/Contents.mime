@@ -32,23 +32,25 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position -5.68921 4.61331
-connectornextid 0
-flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
+position -2.01765 0.345
+connectornextid 1
+flags =  lock off model off template on footprint off xray off bypass off display on render on highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
 {
 }
 inputsNamed3
 {
+0 	box1 0 1 "input1"
 }
 inputs
 {
+0 	box1 0 1
 }
 stat
 {
-  create 1518635805
-  modify 1518635988
-  author SideFX_Events@MSILA-2
+  create 1518739235
+  modify 1518739932
+  author GDC_Houdini@AUSTIN
   access 0777
 }
 color UT_Color RGB 0.8 0.8 0.8 
@@ -63,7 +65,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"0.2"
+		"value":"0.3"
 	}
 }
 
@@ -85,7 +87,7 @@ Content-Type: text/plain
 }
 {
   create 1512112232
-  modify 1518635976
+  modify 1518739238
   author paula@DESKTOP-JOVQSE4
   access 0777
 }
@@ -128,7 +130,7 @@ inputs
 stat
 {
   create 1512106792
-  modify 1513648402
+  modify 1518739238
   author paula@DESKTOP-JOVQSE4
   access 0777
 }
@@ -183,6 +185,13 @@ Content-Type: text/plain
       flags = 0
       segment { length = 0 value = 1 1 expr = ch(\"../reprojection\") }
     }
+    channel stroke_radius {
+      lefttype = extend
+      righttype = extend
+      default = 0.1061520129442215
+      flags = 0
+      segment { length = 0 value = 0.1061520129442215 0.1061520129442215 expr = ch(\"../stroke_radius\") }
+    }
   }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -191,9 +200,9 @@ Content-Type: text/plain
 
 {
 version 0.8
-folder1	[ 0	locks=0 ]	(	1	1	1	)
+folder1	[ 0	locks=0 ]	(	0	0	0	)
 createwidthattrib	[ 0	locks=0 ]	(	"on"	)
-stroke_radius	[ 0	locks=0 ]	(	0.11046218872070313	)
+stroke_radius	[ 0	locks=0 ]	(	[ stroke_radius	0.106152 ] 	)
 stroke_tool	[ 0	locks=0 ]	(	0	)
 createcolorattrib	[ 0	locks=0 ]	(	"on"	)
 stroke_color	[ 0	locks=0 ]	(	1	1	1	)
@@ -420,7 +429,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.385"
+		"value":"16.5.380"
 	}
 }
 
@@ -2365,8 +2374,8 @@ vex_matchattrib	[ 0	locks=0 ]	(	id	)
 vex_inplace	[ 0	locks=0 ]	(	"off"	)
 vex_selectiongroup	[ 0	locks=0 ]	(	""	)
 folder1	[ 0	locks=0 ]	(	0	0	)
-scaleMin	[ 0	locks=0 ]	(	[ scaleMin	0.42299999999999999 ] 	)
-scaleMax	[ 0	locks=0 ]	(	[ scaleMax	1.45 ] 	)
+scaleMin	[ 0	locks=0 ]	(	[ scaleMin	1 ] 	)
+scaleMax	[ 0	locks=0 ]	(	[ scaleMax	1 ] 	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -3771,7 +3780,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.385"
+		"value":"16.5.380"
 	}
 }
 
@@ -3875,7 +3884,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.385"
+		"value":"16.5.380"
 	}
 }
 
@@ -3953,7 +3962,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.385"
+		"value":"16.5.380"
 	}
 }
 
@@ -4016,7 +4025,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.385"
+		"value":"16.5.380"
 	}
 }
 
@@ -4090,7 +4099,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.385"
+		"value":"16.5.380"
 	}
 }
 
@@ -4298,7 +4307,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.385"
+		"value":"16.5.380"
 	}
 }
 
@@ -4376,7 +4385,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.385"
+		"value":"16.5.380"
 	}
 }
 
@@ -4461,7 +4470,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.385"
+		"value":"16.5.380"
 	}
 }
 
@@ -4522,7 +4531,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.385"
+		"value":"16.5.380"
 	}
 }
 
@@ -4587,7 +4596,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.385"
+		"value":"16.5.380"
 	}
 }
 
@@ -4663,7 +4672,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.385"
+		"value":"16.5.380"
 	}
 }
 
@@ -4726,7 +4735,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.385"
+		"value":"16.5.380"
 	}
 }
 
@@ -4851,7 +4860,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.385"
+		"value":"16.5.380"
 	}
 }
 
@@ -4912,7 +4921,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.385"
+		"value":"16.5.380"
 	}
 }
 
@@ -4979,7 +4988,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.385"
+		"value":"16.5.380"
 	}
 }
 
@@ -5072,7 +5081,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.385"
+		"value":"16.5.380"
 	}
 }
 
@@ -5131,7 +5140,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.385"
+		"value":"16.5.380"
 	}
 }
 
@@ -5263,7 +5272,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.385"
+		"value":"16.5.380"
 	}
 }
 
@@ -5325,7 +5334,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.385"
+		"value":"16.5.380"
 	}
 }
 
@@ -5387,7 +5396,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.385"
+		"value":"16.5.380"
 	}
 }
 
@@ -5450,7 +5459,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.385"
+		"value":"16.5.380"
 	}
 }
 
@@ -5512,7 +5521,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.385"
+		"value":"16.5.380"
 	}
 }
 
@@ -5594,7 +5603,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.385"
+		"value":"16.5.380"
 	}
 }
 
@@ -5660,7 +5669,7 @@ Content-Type: text/plain
 version 0.8
 itermethod	[ 0	locks=0 ]	(	"count"	)
 method	[ 0	locks=0 ]	(	"merge"	)
-iterations	[ 8	locks=0 ]	(	[ iterations	0 ] 	)
+iterations	[ 8	locks=0 ]	(	[ iterations	1 ] 	)
 startvalue	[ 0	locks=0 ]	(	1	)
 increment	[ 0	locks=0 ]	(	1	)
 class	[ 0	locks=0 ]	(	"point"	)
@@ -5684,7 +5693,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.385"
+		"value":"16.5.380"
 	}
 }
 
@@ -5745,7 +5754,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.385"
+		"value":"16.5.380"
 	}
 }
 
@@ -5824,7 +5833,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.385"
+		"value":"16.5.380"
 	}
 }
 
@@ -5857,7 +5866,7 @@ inputs
 stat
 {
   create 1512177131
-  modify 1513648176
+  modify 1518739271
   author GDC_Houdini@AUSTIN
   access 0777
 }
@@ -5885,7 +5894,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.385"
+		"value":"16.5.380"
 	}
 }
 
@@ -5953,7 +5962,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.385"
+		"value":"16.5.380"
 	}
 }
 
@@ -6077,7 +6086,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.385"
+		"value":"16.5.380"
 	}
 }
 
@@ -6209,7 +6218,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.385"
+		"value":"16.5.380"
 	}
 }
 
@@ -6305,7 +6314,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.385"
+		"value":"16.5.380"
 	}
 }
 
@@ -6367,7 +6376,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.385"
+		"value":"16.5.380"
 	}
 }
 
@@ -6430,7 +6439,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.385"
+		"value":"16.5.380"
 	}
 }
 
@@ -6504,7 +6513,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.385"
+		"value":"16.5.380"
 	}
 }
 
@@ -6581,7 +6590,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.385"
+		"value":"16.5.380"
 	}
 }
 
@@ -6664,7 +6673,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.385"
+		"value":"16.5.380"
 	}
 }
 
@@ -6739,7 +6748,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.385"
+		"value":"16.5.380"
 	}
 }
 
@@ -6893,7 +6902,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.385"
+		"value":"16.5.380"
 	}
 }
 
@@ -6954,7 +6963,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.385"
+		"value":"16.5.380"
 	}
 }
 
@@ -7033,7 +7042,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.385"
+		"value":"16.5.380"
 	}
 }
 
@@ -7094,7 +7103,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.385"
+		"value":"16.5.380"
 	}
 }
 
@@ -7162,7 +7171,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.385"
+		"value":"16.5.380"
 	}
 }
 
@@ -7238,7 +7247,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.385"
+		"value":"16.5.380"
 	}
 }
 
@@ -7301,7 +7310,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.385"
+		"value":"16.5.380"
 	}
 }
 
@@ -7364,7 +7373,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.385"
+		"value":"16.5.380"
 	}
 }
 
@@ -7427,7 +7436,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.385"
+		"value":"16.5.380"
 	}
 }
 
@@ -7488,7 +7497,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.385"
+		"value":"16.5.380"
 	}
 }
 
@@ -7584,7 +7593,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.385"
+		"value":"16.5.380"
 	}
 }
 
@@ -7646,7 +7655,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.385"
+		"value":"16.5.380"
 	}
 }
 
@@ -7708,7 +7717,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.385"
+		"value":"16.5.380"
 	}
 }
 
@@ -7770,7 +7779,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.385"
+		"value":"16.5.380"
 	}
 }
 
@@ -7832,7 +7841,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.385"
+		"value":"16.5.380"
 	}
 }
 
@@ -7975,7 +7984,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.385"
+		"value":"16.5.380"
 	}
 }
 
@@ -8043,7 +8052,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.385"
+		"value":"16.5.380"
 	}
 }
 
@@ -8107,7 +8116,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.385"
+		"value":"16.5.380"
 	}
 }
 
@@ -8173,7 +8182,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.385"
+		"value":"16.5.380"
 	}
 }
 
@@ -8303,7 +8312,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.385"
+		"value":"16.5.380"
 	}
 }
 
@@ -8369,7 +8378,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.385"
+		"value":"16.5.380"
 	}
 }
 

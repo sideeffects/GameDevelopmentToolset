@@ -4,7 +4,7 @@ This is a series of tools geared towards assisting Houdini users with a variety 
 
 If you'd like more information, please check out the overview page, which contains tutorials for several of the provided tools. [https://www.sidefx.com/tutorials/game-development-toolset-overview/](https://www.sidefx.com/tutorials/game-development-toolset-overview/)
 
-NOTE: This is in-progress. Please file an [Issue](https://github.com/sideeffects/GameDevelopmentToolset/issues) if something doesn't seem quite right! Guidelines can be found [here](https://github.com/sideeffects/GameDevelopmentToolset/wiki/How-to-contribute!).
+NOTE: This is in-progress. Please file an [Issue](https://github.com/sideeffects/GameDevelopmentToolset/issues) if something doesn't seem quite right!
 
 Also, if you forked the respository and suddenly it stopped pulling, that's due to the link changing from [https://github.com/sideeffects/GameDevelopmentShelf/](https://github.com/sideeffects/GameDevelopmentShelf/) to [https://github.com/sideeffects/GameDevelopmentToolset/](https://github.com/sideeffects/GameDevelopmentToolset/). Github appears to forward traffic to the new link, but here's a little FYI just incase.
 

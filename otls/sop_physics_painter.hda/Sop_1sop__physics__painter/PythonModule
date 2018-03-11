@@ -38,19 +38,16 @@ def MainFunction():
     ThisNode.parm("objPrevSim").set(Output.path())
 
     hou.node(ThisNode.path()+"/drawcurve1").parm("stroke_numstrokes").set(0)
-    hou.node(ThisNode.path()+"/dopnet1").parm("resimulate").pressButton()
+    ThisNode.parm("btnClearCurrent").pressButton()
     Clean(ToClean)
     hou.setFrame(1)
 
 def ResetCurrent():
-
     ThisNode = hou.pwd()
     hou.node(ThisNode.path()+"/drawcurve1").parm("stroke_numstrokes").set(0)
-    hou.node(ThisNode.path()+"/dopnet1").parm("resimulate").pressButton()
     hou.setFrame(1)
 
 def TertiaryFunction():
-
     ThisNode = hou.pwd()
     Clean(ThisNode.parm("objPrevSim").evalAsString())
     hou.node(ThisNode.path()+"/IN_PREVIOUS_SIM").parm("objpath1").set("")

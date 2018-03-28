@@ -15,11 +15,42 @@
     inputlabel	4	"Sub-Network Input #4"
 
     parm {
-        name    "generate"
-        label   "Create Container"
-        type    button
-        default { "0" }
-        parmtag { "script_callback" "hou.pwd().hdaModule().generateGeometry()" }
-        parmtag { "script_callback_language" "python" }
+        name    "sepparm2"
+        label   "Separator"
+        type    separator
+        default { "" }
     }
+    groupsimple {
+        name    "folder0"
+        label   "Export Settings"
+
+        parm {
+            name    "iFrame"
+            label   "Frame To Export"
+            type    integer
+            default { "$RFSTART" }
+            range   { 1 240 }
+        }
+        parm {
+            name    "sContainerName"
+            label   "Container Name"
+            type    string
+            default { "FRACTURE_CONTAINER" }
+        }
+    }
+
+    groupsimple {
+        name    "folder1"
+        label   "Export"
+
+        parm {
+            name    "generate"
+            label   "Static Export"
+            type    button
+            default { "0" }
+            parmtag { "script_callback" "hou.pwd().hdaModule().Main()" }
+            parmtag { "script_callback_language" "python" }
+        }
+    }
+
 }

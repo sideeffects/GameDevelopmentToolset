@@ -2,6 +2,18 @@ MIME-Version: 1.0
 Content-Type: multipart/mixed; boundary="HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY"
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename=".OPfallbacks"
+Content-Type: application/external-reference
+
+.OPfallbacks
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename=".OPdummydefs"
+Content-Type: application/external-reference
+
+.OPdummydefs
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
 Content-Disposition: attachment; filename="node_type"
 Content-Type: text/plain
 
@@ -20,23 +32,25 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position -1.98235 1.22735
-connectornextid 0
-flags =  lock off model off template off footprint off xray off bypass off display on render on highlight off unload off savedata off compress on colordefault on exposed on
+position -1.36944 -5.81632
+connectornextid 1
+flags =  lock off model off template on footprint off xray off bypass off display on render on highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
 {
 }
 inputsNamed3
 {
+0 	merge1 2 1 "input1"
 }
 inputs
 {
+0 	merge1 0 1
 }
 stat
 {
-  create 1510004813
-  modify 1510004821
-  author MAINGEAR@DESKTOP-P98C1VA
+  create 1522264338
+  modify 1522264421
+  author GDC_Houdini@AUSTIN
   access 0777
 }
 color UT_Color RGB 0.8 0.8 0.8 
@@ -51,7 +65,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":""
+		"value":"0.2"
 	}
 }
 
@@ -61,6 +75,85 @@ Content-Type: text/plain
 
 1
 0 0 6 2 0 __NO_OWNER_NETWORK_BOX__ "FROMOUTPUT"
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/attribwrangle1.init"
+Content-Type: text/plain
+
+type = attribwrangle
+matchesdef = 1
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/attribwrangle1.def"
+Content-Type: text/plain
+
+sopflags sopflags = 
+comment ""
+position -0.00300001 4.8935
+connectornextid 2
+flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
+outputsNamed3
+{
+1 "output1"
+}
+inputsNamed3
+{
+0 	(0) "" 1 "input1"
+}
+inputs
+{
+0 	(0) 0 1
+}
+stat
+{
+  create 1522261814
+  modify 1522262162
+  author GDC_Houdini@AUSTIN
+  access 0777
+}
+color UT_Color RGB 0.8 0.8 0.8 
+delscript ""
+exprlanguage hscript
+end
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/attribwrangle1.parm"
+Content-Type: text/plain
+
+{
+version 0.8
+folder0	[ 0	locks=0 ]	(	0	0	)
+group	[ 0	locks=0 ]	(	""	)
+grouptype	[ 0	locks=0 ]	(	"guess"	)
+class	[ 0	locks=0 ]	(	"primitive"	)
+vex_numcount	[ 0	locks=0 ]	(	10	)
+vex_threadjobsize	[ 0	locks=0 ]	(	1024	)
+snippet	[ 0	locks=0 ]	(	"if (primintrinsic(0, \"packedtypename\", @primnum) == \"\")
+    removeprim(0, @primnum, 1);"	)
+exportlist	[ 0	locks=0 ]	(	*	)
+vex_strict	[ 0	locks=0 ]	(	"off"	)
+autobind	[ 0	locks=0 ]	(	"on"	)
+bindings	[ 0	locks=0 ]	(	0	)
+groupautobind	[ 0	locks=0 ]	(	"on"	)
+groupbindings	[ 0	locks=0 ]	(	0	)
+vex_cwdpath	[ 0	locks=0 ]	(	.	)
+vex_outputmask	[ 0	locks=0 ]	(	*	)
+vex_updatenmls	[ 0	locks=0 ]	(	"off"	)
+vex_matchattrib	[ 0	locks=0 ]	(	id	)
+vex_inplace	[ 0	locks=0 ]	(	"off"	)
+vex_selectiongroup	[ 0	locks=0 ]	(	""	)
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/attribwrangle1.userdata"
+Content-Type: text/plain
+
+{
+	"___Version___":{
+		"type":"string",
+		"value":""
+	}
+}
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
 Content-Disposition: attachment; filename="hdaroot/FRACTURE_OBJECT.init"
@@ -75,24 +168,25 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position -1.11759e-08 4.1388
-connectornextid 1
-flags =  lock off model off template off footprint off xray off bypass off display on render on highlight off unload off savedata off compress on colordefault on exposed on
+position -1.11759e-08 3.7529
+connectornextid 2
+flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
 {
+1 "output1"
 }
 inputsNamed3
 {
-0 	(0) "" 1 "input1"
+0 	attribwrangle1 1 1 "input1"
 }
 inputs
 {
-0 	(0) 0 1
+0 	attribwrangle1 0 1
 }
 stat
 {
   create 1498684097
-  modify 1498684221
+  modify 1522262162
   author mikel@mikembp-sesi.local
   access 0777
 }
@@ -118,9 +212,77 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.268.10"
+		"value":"16.5.380"
 	}
 }
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/output1.init"
+Content-Type: text/plain
+
+type = output
+matchesdef = 0
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/output1.def"
+Content-Type: text/plain
+
+sopflags sopflags = 
+comment ""
+position -1.11759e-08 2.6602
+connectornextid 1
+flags =  lock off model off template on footprint off xray off bypass off display on render on highlight off unload off savedata off compress on colordefault on exposed on
+outputsNamed3
+{
+}
+inputsNamed3
+{
+0 	FRACTURE_OBJECT 1 1 "input1"
+}
+inputs
+{
+0 	FRACTURE_OBJECT 0 1
+}
+stat
+{
+  create 1522261756
+  modify 1522262160
+  author GDC_Houdini@AUSTIN
+  access 0777
+}
+color UT_Color RGB 0.8 0.8 0.8 
+delscript ""
+exprlanguage hscript
+end
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/output1.parm"
+Content-Type: text/plain
+
+{
+version 0.8
+outputidx	[ 0	locks=0 ]	(	0	)
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/output1.userdata"
+Content-Type: text/plain
+
+{
+	"___Version___":{
+		"type":"string",
+		"value":"16.5.380"
+	}
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot.order"
+Content-Type: text/plain
+
+3
+FRACTURE_OBJECT
+output1
+attribwrangle1
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
 Content-Disposition: attachment; filename="hdaroot.net"

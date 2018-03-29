@@ -37,6 +37,29 @@
             type    string
             default { "FRACTURE_CONTAINER" }
         }
+        parm {
+            name    "sepparm"
+            label   "Separator"
+            type    separator
+            default { "" }
+        }
+        parm {
+            name    "mExportMode"
+            label   "Export Mode"
+            type    ordinal
+            default { "0" }
+            menu {
+                "0" "Packed Primitives"
+                "1" "Piece Attribute"
+            }
+        }
+        parm {
+            name    "sPieceAttribute"
+            label   "Prim Piece Attribute"
+            type    string
+            default { "name" }
+            disablewhen "{ mExportMode == 0 }"
+        }
     }
 
     groupsimple {

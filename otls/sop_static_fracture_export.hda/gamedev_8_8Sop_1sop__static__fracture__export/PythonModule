@@ -2,11 +2,11 @@ def CreateNewSubnet(a_ContainerName):
     a_ContainerName = a_ContainerName if a_ContainerName != "" else "FRACTURE_CONTAINER"
     return hou.node("/obj").createNode("subnet", a_ContainerName)
 
-def CreateGeoFracContainer(a_Source, a_ContainerDir, a_PieceIndex, a_Frame):
+def CreateGeoFracContainer(a_Source, a_ContainerDir, a_PieceIndex, a_GroupName, a_Frame):
     Geometry = hou.node(a_ContainerDir).createNode("geo", "mesh_%s" % a_PieceIndex)
     ObjMerge = Geometry.createNode("object_merge")
     ObjMerge.parm("objpath1").set(a_Source)
-    ObjMerge.parm("group1").set(str(a_PieceIndex))
+    ObjMerge.parm("group1").set(str(a_GroupName))
 
     TimeShift = Geometry.createNode("timeshift")
     TimeShift.parm("frame").deleteAllKeyframes()
@@ -22,14 +22,29 @@ def CreateGeoFracContainer(a_Source, a_ContainerDir, a_PieceIndex, a_Frame):
     Geometry.layoutChildren()
 
 def Main():
+    # Parm Data
     Frame = hou.pwd().parm("iFrame").evalAsInt()
     ContainerName = hou.pwd().parm("sContainerName").evalAsString()
+    ExportMode = hou.pwd().parm("mExportMode").evalAsInt()
+    PieceAttribute = hou.pwd().parm("sPieceAttribute").evalAsString()
+
+    # Geometry Data
     GeometrySource = hou.node("%s/FRACTURE_OBJECT" % hou.pwd().path())
     Geometry = GeometrySource.geometry()
-
+    
+    # Export Container
     ExportContainer = CreateNewSubnet(ContainerName)
 
-    for i, point in enumerate(Geometry.points()):
-        CreateGeoFracContainer(GeometrySource.path(), ExportContainer.path(), i, Frame)
+    # Just export Packed Prims
+    if ExportMode == 0:
+        for i, point in enumerate(Geometry.points()):
+            CreateGeoFracContainer(GeometrySource.path(), ExportContainer.path(), i, i, Frame)
+
+    # Export Based on Attr
+    elif ExportMode == 1:
+        SourceArray = list(hou.node("%s/UniqueVals" % hou.pwd().path()).geometry().stringListAttribValue("UniqueDetVals"))
+
+        for i, attr in enumerate(SourceArray):
+            CreateGeoFracContainer(GeometrySource.path(), ExportContainer.path(), i, "@%s=%s" % (PieceAttribute, attr), Frame)
 
     ExportContainer.layoutChildren()

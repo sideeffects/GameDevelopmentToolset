@@ -139,6 +139,12 @@
             parmtag { "autoscope" "0000000000000000" }
             parmtag { "units" "m1" }
         }
+        parm {
+            name    "displaysim"
+            label   "Display Simulation"
+            type    toggle
+            default { "1" }
+        }
         groupsimple {
             name    "sourcefolder"
             label   "Source"
@@ -304,11 +310,18 @@
         label   "Source"
 
         parm {
+            name    "displaysource"
+            label   "Display Source"
+            type    toggle
+            default { "0" }
+        }
+        parm {
             name    "halfsphere"
             label   "Half Sphere"
             type    toggle
             default { "1" }
             help    "Creates a dome shaped sphere for the source."
+            disablewhen "{ sourceobject != \"\" }"
         }
         parm {
             name    "sourceobject"
@@ -316,6 +329,20 @@
             type    oppath
             default { "" }
             parmtag { "oprelative" "." }
+        }
+        parm {
+            name    "method"
+            label   "Method"
+            type    ordinal
+            default { "0" }
+            disablewhen "{ sourceobject == \"\" }"
+            menu {
+                "0" "Build SDF From Geometry"
+                "1" "Stamp Points"
+                "2" "Sample Volumes"
+            }
+            range   { 0 1 }
+            parmtag { "autoscope" "0000000000000000" }
         }
         groupsimple {
             name    "sizefolder"

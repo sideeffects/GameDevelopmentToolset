@@ -33,9 +33,9 @@ Content-Type: text/plain
 objflags objflags =  origin off
 pretransform UT_DMatrix4 1 0 0 0 0 1 0 0 0 0 1 0 0 0 0 1
 comment ""
-position -19.326 0.5955
+position -7.67973 -0.767127
 connectornextid 0
-flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on selectable on
+flags =  lock off model off template off footprint off xray off bypass off display on render off highlight off unload off savedata off compress on colordefault on exposed on selectable on
 outputsNamed3
 {
 }
@@ -47,9 +47,9 @@ inputs
 }
 stat
 {
-  create 1511445160
-  modify 1512467721
-  author mikel@mikembp-sesi.local
+  create 1522177842
+  modify 1522178652
+  author mikel@android-eb1abd69df500d4.localdomain
   access 0777
 }
 color UT_Color RGB 0.8 0.8 0.8 
@@ -64,7 +64,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":""
+		"value":"0.1"
 	}
 }
 
@@ -84,7 +84,7 @@ pretransform UT_DMatrix4 1 0 0 0 0 1 0 0 0 0 1 0 0 0 0 1
 comment ""
 position -22.8195 8.17508
 connectornextid 1
-flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on selectable on
+flags =  lock off model off template off footprint off xray off bypass off display on render off highlight off unload off savedata off compress on colordefault on exposed on selectable on
 outputsNamed3
 {
 0 "output1"
@@ -98,7 +98,7 @@ inputs
 stat
 {
   create 1496865950
-  modify 1512467086
+  modify 1522178595
   author mikel@mikembp-sesi.local
   access 0777
 }
@@ -741,6 +741,20 @@ Content-Type: text/plain
     }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/fire_source.chn"
+Content-Type: text/plain
+
+{
+    channel display {
+      lefttype = extend
+      righttype = extend
+      default = 1
+      flags = 0
+      segment { length = 0 value = 1 1 expr = ch(\"../displaysource\") }
+    }
+  }
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
 Content-Disposition: attachment; filename="hdaroot/fire_source.parm"
 Content-Type: text/plain
 
@@ -772,8 +786,8 @@ up	[ 0	locks=0 ]	(	0	1	0	)
 bank	[ 0	locks=0 ]	(	0	)
 shop_materialpath	[ 0	locks=0 ]	(	""	)
 shop_materialopts	[ 0	locks=0 ]	(	0	)
-tdisplay	[ 0	locks=0 ]	(	"off"	)
-display	[ 0	locks=0 ]	(	1	)
+tdisplay	[ 0	locks=0 ]	(	"on"	)
+display	[ 8	locks=0 ]	(	[ display	0 ] 	)
 use_dcolor	[ 0	locks=0 ]	(	"off"	)
 dcolor	[ 0	locks=0 ]	(	1	1	1	)
 picking	[ 0	locks=0 ]	(	"on"	)
@@ -782,7 +796,7 @@ caching	[ 0	locks=0 ]	(	"on"	)
 vport_shadeopen	[ 0	locks=0 ]	(	"off"	)
 vport_displayassubdiv	[ 0	locks=0 ]	(	"off"	)
 vport_onionskin	[ 0	locks=0 ]	(	"off"	)
-stdswitcher4	[ 0	locks=0 ]	(	0	0	0	)
+stdswitcher4	[ 0	locks=0 ]	(	1	1	1	)
 viewportlod	[ 0	locks=0 ]	(	"full"	)
 vm_rendervisibility	[ 0	locks=0 ]	(	*	)
 vm_rendersubd	[ 0	locks=0 ]	(	"off"	)
@@ -826,7 +840,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.304"
+		"value":"16.5.378"
 	},
 	"___toolcount___":{
 		"type":"string",
@@ -869,7 +883,7 @@ inputs
 stat
 {
   create 1496865993
-  modify 1512385541
+  modify 1522178160
   author mikel@mikembp-sesi.local
   access 0777
 }
@@ -948,6 +962,12 @@ Content-Type: text/plain
       flags = 0
       segment { length = 0 value = 10 10 expr = ch(\"../../offset\") }
     }
+    channel method {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = ch(\"../../method\") }
+    }
   }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -956,14 +976,14 @@ Content-Type: text/plain
 
 {
 version 0.8
-container_settings_1	[ 0	locks=0 ]	(	3	3	3	3	3	)
-method	[ 0	locks=0 ]	(	"0"	)
+container_settings_1	[ 0	locks=0 ]	(	0	0	0	0	0	)
+method	[ 0	locks=0 ]	(	[ method	1 ] 	)
 make_sdf	[ 0	locks=0 ]	(	"off"	)
 source_attribute	[ 0	locks=0	autoscope=1 ]	(	[ source_attribute	fuel ] 	)
 number_of_volumes	[ 0	locks=0 ]	(	2	)
-settings	[ 0	locks=0 ]	(	0	0	0	0	0	0	0	)
+settings	[ 0	locks=0 ]	(	4	4	4	4	4	4	4	)
 invert_sign	[ 0	locks=0 ]	(	"off"	)
-divsize	[ 0	locks=0 ]	(	[ divsize	0.0025000000000000001 ] 	)
+divsize	[ 0	locks=0 ]	(	[ divsize	0.035000000000000003 ] 	)
 volborderval	[ 0	locks=0 ]	(	0	)
 slice_plane	[ 0	locks=0 ]	(	"xy"	)
 slice_type	[ 0	locks=0 ]	(	"false"	)
@@ -983,7 +1003,7 @@ remap_feather_in	[ 0	locks=0 ]	(	"off"	)
 feather_in_ramp	[ 0	locks=0 ]	(	2	)
 remap_feather_out	[ 0	locks=0 ]	(	"off"	)
 feather_out_ramp	[ 0	locks=0 ]	(	2	)
-generate_particle_sdf	[ 0	locks=0 ]	(	"off"	)
+generate_particle_sdf	[ 0	locks=0 ]	(	"on"	)
 scale_particle_sdf	[ 0	locks=0 ]	(	"off"	)
 bandwidth	[ 0	locks=0 ]	(	0.073333333432674411	)
 smoothness2	[ 0	locks=0 ]	(	8	)
@@ -992,16 +1012,16 @@ pointsdf_edge_location	[ 0	locks=0 ]	(	0.5	)
 use_noise	[ 0	locks=0 ]	(	"on"	)
 animate_noise	[ 0	locks=0 ]	(	"on"	)
 destmin	[ 0	locks=0 ]	(	1	)
-voronoi_influence	[ 0	locks=0 ]	(	[ voronoi_influence	0.050000000000000003 ] 	)
-pulse_duration	[ 0	locks=0 ]	(	[ pulse_duration	6 ] 	)
-turbulent	[ 0	locks=0 ]	(	0	0	)
+voronoi_influence	[ 0	locks=0 ]	(	[ voronoi_influence	0.29999999999999999 ] 	)
+pulse_duration	[ 0	locks=0 ]	(	[ pulse_duration	3 ] 	)
+turbulent	[ 0	locks=0 ]	(	1	1	)
 noise_mode	[ 0	locks=0 ]	(	"0"	)
 sharpness	[ 0	locks=0 ]	(	0.5	)
 amp	[ 0	locks=0 ]	(	1	)
 grain	[ 0	locks=0 ]	(	0.10000000000000001	)
 turb	[ 0	locks=0 ]	(	3	)
 offset	[ 8	locks=0 ]	(	[ offset	0 ] 	)
-element_size	[ 0	locks=0 ]	(	[ element_size	0.080000000000000002 ] 	)
+element_size	[ 0	locks=0 ]	(	[ element_size	0.36666700000000002 ] 	)
 element_scale	[ 0	locks=0 ]	(	1	1	1	)
 cell_mode	[ 0	locks=0 ]	(	"0"	)
 invert_cells	[ 0	locks=0 ]	(	"off"	)
@@ -1028,7 +1048,7 @@ vel_add_uniform	[ 0	locks=0 ]	(	"off"	)
 vel_uniformvel	[ 0	locks=0 ]	(	0	1	0	)
 vel_settings	[ 0	locks=0 ]	(	0	0	0	0	0	0	)
 vel_invert_sign	[ 0	locks=0 ]	(	"off"	)
-vel_divsize	[ 8	locks=0 ]	(	[ vel_divsize	0.0050000000000000001 ] 	)
+vel_divsize	[ 8	locks=0 ]	(	[ vel_divsize	0.035000000000000003 ] 	)
 vel_volborderval	[ 0	locks=0 ]	(	0	)
 vel_stream_use_plane	[ 0	locks=0 ]	(	"on"	)
 vel_stream_plane_orient	[ 0	locks=0 ]	(	"xy"	)
@@ -1078,7 +1098,7 @@ enable_rest	[ 0	locks=0 ]	(	"off"	)
 dual_rest_attributes	[ 0	locks=0 ]	(	"on"	)
 rest_offset	[ 0	locks=0 ]	(	0	0	0	)
 initialize	[ 0	locks=0 ]	(	"sourcefuel"	)
-bound_expansion	[ 0	locks=0 ]	(	[ bound_expansion	0.01 ] 	)
+bound_expansion	[ 0	locks=0 ]	(	[ bound_expansion	0.0183333 ] 	)
 auto_bounds	[ 0	locks=0 ]	(	"on"	)
 enable_partitioning	[ 0	locks=0 ]	(	"off"	)
 partrition_type	[ 0	locks=0 ]	(	"points"	)
@@ -1272,7 +1292,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.304"
+		"value":"16.5.378"
 	},
 	"___toolcount___":{
 		"type":"string",
@@ -1444,7 +1464,7 @@ fuelinefficiency	[ 0	locks=0 ]	(	0.10000000000000001	)
 heatoutput	[ 0	locks=0 ]	(	0.14999999999999999	)
 gasrelease	[ 0	locks=0 ]	(	12	)
 flames	[ 0	locks=0 ]	(	0	0	0	0	0	)
-cooldown_time	[ 0	locks=0 ]	(	[ cooldown_time	0.5 ] 	)
+cooldown_time	[ 0	locks=0 ]	(	[ cooldown_time	1.5 ] 	)
 enable_cooling_field	[ 0	locks=0 ]	(	"on"	)
 cooling_field	[ 0	locks=0 ]	(	temperature	)
 cooling_field_range	[ 0	locks=0 ]	(	0	2	)
@@ -1469,13 +1489,13 @@ fuel_speed	[ 0	locks=0 ]	(	0.050000000000000003	)
 enable_dissipation	[ 0	locks=0 ]	(	"on"	)
 evap	[ 0	locks=0 ]	(	[ evap	0.10000000000000001 ] 	)
 enable_disturbance	[ 0	locks=0 ]	(	"on"	)
-dist_scale	[ 0	locks=0 ]	(	[ dist_scale	0.20000000000000001 ] 	)
+dist_scale	[ 0	locks=0 ]	(	[ dist_scale	0.40000000000000002 ] 	)
 enable_shredding	[ 0	locks=0 ]	(	"on"	)
-shred_scale	[ 0	locks=0 ]	(	[ shred_scale	0.040000000000000001 ] 	)
+shred_scale	[ 0	locks=0 ]	(	[ shred_scale	0.080666699999999994 ] 	)
 enable_sharpening	[ 0	locks=0 ]	(	"off"	)
 sharpenrate	[ 0	locks=0 ]	(	0.5	)
 enable_turbulence	[ 0	locks=0 ]	(	"on"	)
-turbulence_scale	[ 0	locks=0 ]	(	[ turbulence_scale	0 ] 	)
+turbulence_scale	[ 0	locks=0 ]	(	[ turbulence_scale	0.34999999999999998 ] 	)
 enable_confinement	[ 0	locks=0 ]	(	"off"	)
 confinementscale	[ 0	locks=0 ]	(	2	)
 wind_2	[ 0	locks=0 ]	(	4	4	4	4	4	4	)
@@ -1828,11 +1848,11 @@ creation_1	[ 0	locks=0 ]	(	0	0	0	)
 twod	[ 0	locks=0 ]	(	"off"	)
 voxelplane	[ 0	locks=0 ]	(	"xy"	)
 uniformvoxels	[ 0	locks=0 ]	(	"size"	)
-divsize	[ 0	locks=0 ]	(	[ divsize	0.01 ] 	)
+divsize	[ 0	locks=0 ]	(	[ divsize	0.035000000000000003 ] 	)
 uniformdiv	[ 0	locks=0 ]	(	1	)
 div	[ 0	locks=0 ]	(	1	1	1	)
-size	[ 8	locks=0 ]	(	[ sizex	0.38999998569488525 ] 	[ sizey	0.51999998092651367 ] 	[ sizez	0.38999998569488525 ] 	)
-t	[ 8	locks=0 ]	(	[ tx	0.59999999999999998 ] 	[ ty	1.1299999952316284 ] 	[ tz	0 ] 	)
+size	[ 8	locks=0 ]	(	[ sizex	5.1974998712539673 ] 	[ sizey	9.0299997329711914 ] 	[ sizez	5.3025001287460327 ] 	)
+t	[ 8	locks=0 ]	(	[ tx	0 ] 	[ ty	2.2574999332427979 ] 	[ tz	0 ] 	)
 closedends	[ 0	locks=0 ]	(	"off"	)
 closexneg	[ 0	locks=0 ]	(	"on"	)
 closexpos	[ 0	locks=0 ]	(	"on"	)
@@ -2332,7 +2352,7 @@ version 0.8
 initialize	[ 0	locks=0 ]	(	"sourcefuel"	)
 source_path	[ 0	locks=0 ]	(	../../fire_source/OUT_fuel	)
 activation	[ 0	locks=0 ]	(	1	)
-scale_source	[ 0	locks=0 ]	(	[ scale_source	0.20000000000000001 ] 	)
+scale_source	[ 0	locks=0 ]	(	[ scale_source	0.40000000000000002 ] 	)
 scale_temperature	[ 0	locks=0 ]	(	1	)
 scale_velocity	[ 0	locks=0 ]	(	1	)
 use_object_transform	[ 0	locks=0 ]	(	"on"	)
@@ -2444,7 +2464,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.304"
+		"value":"16.5.378"
 	}
 }
 
@@ -2811,7 +2831,7 @@ inputs
 stat
 {
   create 1496865993
-  modify 1512463472
+  modify 1522177859
   author mikel@mikembp-sesi.local
   access 0777
 }
@@ -3634,7 +3654,7 @@ inputs
 stat
 {
   create 1496865993
-  modify 1512463472
+  modify 1522177860
   author mikel@mikembp-sesi.local
   access 0777
 }
@@ -4295,7 +4315,7 @@ inputs
 stat
 {
   create 1496865993
-  modify 1512463472
+  modify 1522177860
   author mikel@mikembp-sesi.local
   access 0777
 }
@@ -4986,7 +5006,7 @@ inputs
 stat
 {
   create 1496865993
-  modify 1512463472
+  modify 1522177860
   author mikel@mikembp-sesi.local
   access 0777
 }
@@ -5647,7 +5667,7 @@ inputs
 stat
 {
   create 1496865993
-  modify 1512463472
+  modify 1522177860
   author mikel@mikembp-sesi.local
   access 0777
 }
@@ -6175,7 +6195,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.304"
+		"value":"16.5.378"
 	},
 	"___toolcount___":{
 		"type":"string",
@@ -6243,7 +6263,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.304"
+		"value":"16.5.378"
 	},
 	"___toolcount___":{
 		"type":"string",
@@ -6309,7 +6329,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.304"
+		"value":"16.5.378"
 	},
 	"___toolcount___":{
 		"type":"string",
@@ -6382,7 +6402,7 @@ Content-Type: text/plain
 
 {
 version 0.8
-input	[ 8	locks=0 ]	(	[ input	0 ] 	)
+input	[ 8	locks=0 ]	(	[ input	1 ] 	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -6392,7 +6412,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.304"
+		"value":"16.5.378"
 	}
 }
 
@@ -6471,7 +6491,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.304"
+		"value":"16.5.378"
 	}
 }
 
@@ -6564,7 +6584,7 @@ t	[ 0	locks=0 ]	(	0	0	0	)
 r	[ 0	locks=0 ]	(	0	0	0	)
 s	[ 0	locks=0 ]	(	[ sx	1 ] 	[ sy	1 ] 	[ sz	1 ] 	)
 shear	[ 0	locks=0 ]	(	0	0	0	)
-scale	[ 0	locks=0 ]	(	[ scale	0.050000000000000003 ] 	)
+scale	[ 0	locks=0 ]	(	[ scale	1 ] 	)
 parmgroup_pivotxform	[ 0	locks=0 ]	(	0	)
 p	[ 0	locks=0 ]	(	0	0	0	)
 pr	[ 0	locks=0 ]	(	0	0	0	)
@@ -6590,7 +6610,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.304"
+		"value":"16.5.378"
 	}
 }
 
@@ -6712,7 +6732,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.304"
+		"value":"16.5.378"
 	}
 }
 
@@ -6780,7 +6800,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.304"
+		"value":"16.5.378"
 	}
 }
 
@@ -6845,7 +6865,7 @@ Content-Type: text/plain
 
 {
 version 0.8
-input	[ 0	locks=0 ]	(	[ input	0 ] 	)
+input	[ 0	locks=0 ]	(	[ input	1 ] 	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -6855,7 +6875,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.304"
+		"value":"16.5.378"
 	}
 }
 
@@ -7055,7 +7075,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.304"
+		"value":"16.5.378"
 	},
 	"___toolcount___":{
 		"type":"string",
@@ -7139,7 +7159,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.304"
+		"value":"16.5.378"
 	},
 	"___toolcount___":{
 		"type":"string",
@@ -7202,7 +7222,7 @@ inputs
 stat
 {
   create 1496865993
-  modify 1512467086
+  modify 1522178580
   author mikel@mikembp-sesi.local
   access 0777
 }
@@ -7845,6 +7865,20 @@ Content-Type: text/plain
     }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/fire_import.chn"
+Content-Type: text/plain
+
+{
+    channel display {
+      lefttype = extend
+      righttype = extend
+      default = 1
+      flags = 0
+      segment { length = 0 value = 1 1 expr = ch(\"../displaysim\") }
+    }
+  }
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
 Content-Disposition: attachment; filename="hdaroot/fire_import.parm"
 Content-Type: text/plain
 
@@ -7876,8 +7910,8 @@ up	[ 0	locks=0 ]	(	0	1	0	)
 bank	[ 0	locks=0 ]	(	0	)
 shop_materialpath	[ 0	locks=0 ]	(	../matnet1/smokelessflames	)
 shop_materialopts	[ 0	locks=0 ]	(	0	)
-tdisplay	[ 0	locks=0 ]	(	"off"	)
-display	[ 0	locks=0 ]	(	1	)
+tdisplay	[ 0	locks=0 ]	(	"on"	)
+display	[ 8	locks=0 ]	(	[ display	1 ] 	)
 use_dcolor	[ 0	locks=0 ]	(	"off"	)
 dcolor	[ 0	locks=0 ]	(	1	1	1	)
 picking	[ 0	locks=0 ]	(	"on"	)
@@ -7930,7 +7964,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.304"
+		"value":"16.5.378"
 	},
 	"___toolcount___":{
 		"type":"string",
@@ -8029,7 +8063,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.304"
+		"value":"16.5.378"
 	},
 	"___toolcount___":{
 		"type":"string",
@@ -8158,7 +8192,7 @@ Content-Type: text/plain
 
 {
 version 0.8
-loadfromdisk	[ 0	locks=0 ]	(	[ loadfromdisk	1 ] 	)
+loadfromdisk	[ 0	locks=0 ]	(	[ loadfromdisk	0 ] 	)
 reload	[ 0	locks=0 ]	(	[ reload	0 ] 	)
 file	[ 0	locks=0 ]	(	[ file	/Users/mikel/Documents/projects/GameDevShelf/fire_presets/hip/geo/small_flame_sim/small_flame_sim.78.bgeo.sc ] 	)
 folder0	[ 0	locks=0 ]	(	0	0	0	)
@@ -8934,7 +8968,7 @@ cdrange	[ 0	locks=0 ]	(	[ cdrange1	0 ] 	[ cdrange2	1 ] 	)
 cdrampmode	[ 0	locks=0 ]	(	[ cdrampmode	1 ] 	)
 cdpreset	[ 0	locks=0 ]	(	[ cdpreset	0 ] 	)
 cdramp	[ 0	locks=0 ]	(	[ cdramp	2 ] 	)
-emitscale	[ 0	locks=0 ]	(	[ emitscale	40 ] 	)
+emitscale	[ 0	locks=0 ]	(	[ emitscale	5 ] 	)
 emitfield	[ 0	locks=0 ]	(	[ emitfield	temperature ] 	)
 emitrangeoverride	[ 0	locks=0 ]	(	[ emitrangeoverride	0 ] 	)
 emitrange	[ 0	locks=0 ]	(	[ emitrange1	0 ] 	[ emitrange2	1 ] 	)
@@ -8998,7 +9032,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.304"
+		"value":"16.5.378"
 	}
 }
 
@@ -9059,7 +9093,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.304"
+		"value":"16.5.378"
 	}
 }
 
@@ -9217,7 +9251,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.304"
+		"value":"16.5.378"
 	}
 }
 
@@ -9349,7 +9383,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.304"
+		"value":"16.5.378"
 	}
 }
 
@@ -9420,7 +9454,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.304"
+		"value":"16.5.378"
 	}
 }
 
@@ -9495,7 +9529,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.304"
+		"value":"16.5.378"
 	}
 }
 

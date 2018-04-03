@@ -8,37 +8,36 @@ Content-Type: text/plain
 Cop2
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="subnet2.init"
+Content-Disposition: attachment; filename="hdaroot.init"
 Content-Type: text/plain
 
-type = cop_normal_color
+type = gamedev::cop_normal_color
 matchesdef = 0
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="subnet2.def"
+Content-Disposition: attachment; filename="hdaroot.def"
 Content-Type: text/plain
 
 comment ""
-position 5.18328 -4.38742
-connectornextid 6
-flags =  lock off model off template off footprint off xray off bypass off display on render off highlight off unload off savedata off compress off exposed on
+position -0.430577 0.222369
+connectornextid 1
+flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress off colordefault on exposed on
 outputsNamed3
 {
-0 "output1"
 }
 inputsNamed3
 {
-5 	xform2 2 1 "input1"
+0 	LOW_tmp_exr 0 1 "input1"
 }
 inputs
 {
-0 	xform2 0 1
+0 	LOW_tmp_exr 0 1
 }
 stat
 {
-  create 1475161799
-  modify 1475162611
-  author Luiz@Luiz-PC
+  create 1522778540
+  modify 1522778572
+  author MAINGEAR@DESKTOP-P98C1VA
   access 0777
 }
 color UT_Color RGB 0.8 0.8 0.8 
@@ -47,59 +46,55 @@ exprlanguage hscript
 end
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="subnet2.userdata"
+Content-Disposition: attachment; filename="hdaroot.userdata"
 Content-Type: text/plain
 
 {
 	"___Version___":{
 		"type":"string",
-		"value":""
+		"value":"0.1"
 	}
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="subnet2.cop2"
+Content-Disposition: attachment; filename="hdaroot.cop2"
 Content-Type: text/plain
 
 2
-7
+0
 0
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="subnet2.inp"
+Content-Disposition: attachment; filename="hdaroot.inp"
 Content-Type: text/plain
 
 1
-0 1 6 0 4496 __NO_OWNER_NETWORK_BOX__
+0 1 6 2 0 __NO_OWNER_NETWORK_BOX__ "FROMOUTPUT"
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="subnet2/color2.init"
+Content-Disposition: attachment; filename="hdaroot/color2.init"
 Content-Type: text/plain
 
 type = color
 matchesdef = 0
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="subnet2/color2.def"
+Content-Disposition: attachment; filename="hdaroot/color2.def"
 Content-Type: text/plain
 
 comment ""
 position -2.08235 4.61759
-connectornextid 7
-flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress off exposed on
+connectornextid 0
+flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault off exposed on
 outputsNamed3
 {
 2 "output1"
 }
 inputsNamed3
 {
-5 	"" "" 1 "input1"
-6 	"" "" 1 "input2"
 }
 inputs
 {
-0 	"" 0 1
-1 	"" 0 1
 }
 stat
 {
@@ -114,10 +109,24 @@ exprlanguage hscript
 end
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="subnet2/color2.chn"
+Content-Disposition: attachment; filename="hdaroot/color2.chn"
 Content-Type: text/plain
 
 {
+    channel size1 {
+      lefttype = extend
+      righttype = extend
+      default = 640
+      flags = 0
+      segment { length = 0 value = 640 640 expr = ch(\"../sizex\") }
+    }
+    channel size2 {
+      lefttype = extend
+      righttype = extend
+      default = 480
+      flags = 0
+      segment { length = 0 value = 480 480 expr = ch(\"../sizey\") }
+    }
     channel aspect {
       lefttype = extend
       righttype = extend
@@ -154,24 +163,10 @@ Content-Type: text/plain
       flags = 0
       segment { length = 0 expr = $NFRAMES }
     }
-    channel size1 {
-      lefttype = extend
-      righttype = extend
-      default = 640
-      flags = 0
-      segment { length = 0 value = 640 640 expr = ch(\"../sizex\") }
-    }
-    channel size2 {
-      lefttype = extend
-      righttype = extend
-      default = 480
-      flags = 0
-      segment { length = 0 value = 480 480 expr = ch(\"../sizey\") }
-    }
   }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="subnet2/color2.parm"
+Content-Disposition: attachment; filename="hdaroot/color2.parm"
 Content-Type: text/plain
 
 {
@@ -185,7 +180,7 @@ maskplane	[ 0	locks=0 ]	(	A	)
 maskresize	[ 0	locks=0 ]	(	"off"	)
 maskinvert	[ 0	locks=0 ]	(	"off"	)
 overridesize	[ 0	locks=0 ]	(	"on"	)
-size	[ 8	locks=0 ]	(	[ size1	256 ] 	[ size2	256 ] 	)
+size	[ 8	locks=0 ]	(	[ size1	512 ] 	[ size2	512 ] 	)
 sizemenu	[ 0	locks=0 ]	(	0	)
 overrideaspect	[ 0	locks=0 ]	(	"off"	)
 aspect	[ 0	locks=0 ]	(	[ aspect	1 ] 	)
@@ -211,18 +206,18 @@ posthold	[ 0	locks=0 ]	(	0	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="subnet2/color2.userdata"
+Content-Disposition: attachment; filename="hdaroot/color2.userdata"
 Content-Type: text/plain
 
 {
 	"___Version___":{
 		"type":"string",
-		"value":"15.5.611"
+		"value":"16.5.412"
 	}
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="subnet2/color2.cop2"
+Content-Disposition: attachment; filename="hdaroot/color2.cop2"
 Content-Type: text/plain
 
 2
@@ -230,20 +225,20 @@ Content-Type: text/plain
 0
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="subnet2/scale1.init"
+Content-Disposition: attachment; filename="hdaroot/scale1.init"
 Content-Type: text/plain
 
 type = scale
 matchesdef = 0
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="subnet2/scale1.def"
+Content-Disposition: attachment; filename="hdaroot/scale1.def"
 Content-Type: text/plain
 
 comment ""
 position -0.123529 3.05288
 connectornextid 3
-flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress off exposed on
+flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault off exposed on
 outputsNamed3
 {
 2 "output1"
@@ -271,7 +266,7 @@ exprlanguage hscript
 end
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="subnet2/scale1.parm"
+Content-Disposition: attachment; filename="hdaroot/scale1.parm"
 Content-Type: text/plain
 
 {
@@ -287,18 +282,18 @@ upfilter	[ 0	locks=0 ]	(	box	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="subnet2/scale1.userdata"
+Content-Disposition: attachment; filename="hdaroot/scale1.userdata"
 Content-Type: text/plain
 
 {
 	"___Version___":{
 		"type":"string",
-		"value":"15.5.611"
+		"value":"16.5.412"
 	}
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="subnet2/scale1.cop2"
+Content-Disposition: attachment; filename="hdaroot/scale1.cop2"
 Content-Type: text/plain
 
 2
@@ -306,20 +301,20 @@ Content-Type: text/plain
 0
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="subnet2/switch1.init"
+Content-Disposition: attachment; filename="hdaroot/switch1.init"
 Content-Type: text/plain
 
 type = switch
 matchesdef = 0
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="subnet2/switch1.def"
+Content-Disposition: attachment; filename="hdaroot/switch1.def"
 Content-Type: text/plain
 
 comment ""
 position -0.805882 1.61759
 connectornextid 3
-flags =  lock off model off template off footprint off xray off bypass off display on render on highlight off unload off savedata off compress off exposed on
+flags =  lock off model off template off footprint off xray off bypass off display on render on highlight off unload off savedata off compress on colordefault off exposed on
 outputsNamed3
 {
 0 "output1"
@@ -337,7 +332,7 @@ inputs
 stat
 {
   create 1475161929
-  modify 1475162402
+  modify 1522778572
   author Luiz@Luiz-PC
   access 0777
 }
@@ -347,7 +342,7 @@ exprlanguage hscript
 end
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="subnet2/switch1.chn"
+Content-Disposition: attachment; filename="hdaroot/switch1.chn"
 Content-Type: text/plain
 
 {
@@ -360,7 +355,7 @@ Content-Type: text/plain
   }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="subnet2/switch1.parm"
+Content-Disposition: attachment; filename="hdaroot/switch1.parm"
 Content-Type: text/plain
 
 {
@@ -370,18 +365,18 @@ index	[ 8	locks=0 ]	(	[ index	1 ] 	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="subnet2/switch1.userdata"
+Content-Disposition: attachment; filename="hdaroot/switch1.userdata"
 Content-Type: text/plain
 
 {
 	"___Version___":{
 		"type":"string",
-		"value":"15.5.611"
+		"value":"16.5.412"
 	}
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="subnet2/switch1.cop2"
+Content-Disposition: attachment; filename="hdaroot/switch1.cop2"
 Content-Type: text/plain
 
 2
@@ -389,7 +384,7 @@ Content-Type: text/plain
 0
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="subnet2.order"
+Content-Disposition: attachment; filename="hdaroot.order"
 Content-Type: text/plain
 
 3
@@ -398,7 +393,7 @@ scale1
 switch1
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="subnet2.net"
+Content-Disposition: attachment; filename="hdaroot.net"
 Content-Type: text/plain
 
 1

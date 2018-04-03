@@ -9,7 +9,7 @@
 	""
     }
 
-    inputlabel	1	"Sub-Network Input #1"
+    inputlabel	1	"Input 1"
 
     parm {
         name    "execute"
@@ -112,6 +112,21 @@
             type    string
             default { "normal" }
             disablewhen "{ bake_Nt == 0 }"
+        }
+        parm {
+            name    "bake_alpha"
+            label   "Opacity"
+            type    toggle
+            nolabel
+            joinnext
+            default { "0" }
+        }
+        parm {
+            name    "alpha_suffix"
+            label   "Opacity Map"
+            type    string
+            default { "alpha" }
+            disablewhen "{ bake_alpha == 0 }"
         }
         parm {
             name    "bake_specrough"

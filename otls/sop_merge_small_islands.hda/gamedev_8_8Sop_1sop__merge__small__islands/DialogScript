@@ -1,0 +1,44 @@
+# Dialog script for gamedev::sop_merge_small_islands automatically generated
+
+{
+    name	gamedev::sop_merge_small_islands
+    script	gamedev::sop_merge_small_islands
+    label	"GameDev Merge Small Islands"
+
+    help {
+	""
+    }
+
+    inputlabel	1	"Geometry with UVs"
+    inputlabel	2	"Sub-Network Input #2"
+    inputlabel	3	"Sub-Network Input #3"
+    inputlabel	4	"Sub-Network Input #4"
+
+    parm {
+        name    "cutoff"
+        label   "Cutoff"
+        type    float
+        default { "0.0001" }
+        range   { 0 1 }
+        parmtag { "autoscope" "0000000000000000" }
+    }
+    parm {
+        name    "method"
+        label   "Flattening Method"
+        type    ordinal
+        default { "abf" }
+        menu {
+            "scp"   "Spectral (SCP)"
+            "abf"   "Angle-Based (ABF)"
+        }
+        parmtag { "autoscope" "0000000000000000" }
+    }
+    parm {
+        name    "iterations"
+        label   "Iterations"
+        type    integer
+        default { "100" }
+        range   { 0 10 }
+        parmtag { "autoscope" "0000000000000000" }
+    }
+}

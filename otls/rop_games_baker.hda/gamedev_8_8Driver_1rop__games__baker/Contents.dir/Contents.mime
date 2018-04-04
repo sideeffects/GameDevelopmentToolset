@@ -31,7 +31,7 @@ Content-Disposition: attachment; filename="hdaroot.def"
 Content-Type: text/plain
 
 comment ""
-position -2.20523 -4.14542
+position -3.61428 -3.81013
 connectornextid 0
 flags =  lock off model off template off footprint off xray off bypass off display on render on highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
@@ -46,7 +46,7 @@ inputs
 stat
 {
   create 1510086161
-  modify 1522771962
+  modify 1522864700
   author MAINGEAR@DESKTOP-P98C1VA
   access 0777
 }
@@ -2162,7 +2162,7 @@ inputs
 stat
 {
   create 1496776162
-  modify 1522771957
+  modify 1522864654
   author Luiz@Luiz-PC
   access 0777
 }
@@ -3695,6 +3695,20 @@ Content-Type: text/plain
       flags = 0
       segment { length = 0 value = 1 1 expr = ch(\"../bake_metallic\") }
     }
+    channel vm_uvunwrapresx {
+      lefttype = extend
+      righttype = extend
+      default = 256
+      flags = 0
+      segment { length = 0 value = 256 256 expr = ch(\"../vm_uvunwrapresx\") }
+    }
+    channel vm_uvunwrapresy {
+      lefttype = extend
+      righttype = extend
+      default = 256
+      flags = 0
+      segment { length = 0 value = 256 256 expr = ch(\"../vm_uvunwrapresy\") }
+    }
   }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -3712,7 +3726,7 @@ f	[ 8	locks=0 ]	(	1	10	1	)
 take	[ 0	locks=0 ]	(	_current_	)
 camera	[ 0	locks=0 ]	(	"`opfullpath(\"..\") + \"/objnet/cam1\"`"	)
 vm_uvtype	[ 0	locks=0 ]	(	udim	)
-vm_uvunwrapres	[ 8	locks=0 ]	(	256	256	)
+vm_uvunwrapres	[ 8	locks=0 ]	(	[ vm_uvunwrapresx	1024 ] 	[ vm_uvunwrapresy	1024 ] 	)
 uvresmenu	[ 0	locks=0 ]	(	[ uvresmenu	0 ] 	)
 vm_ptexmapminres	[ 0	locks=0 ]	(	8	8	)
 vm_uvptexminresmenu	[ 0	locks=0 ]	(	0	)
@@ -3785,17 +3799,17 @@ main3	[ 0	locks=0 ]	(	0	0	)
 vm_bake_normalizep	[ 0	locks=0 ]	(	"on"	)
 vm_extractimageplanes	[ 0	locks=0 ]	(	"off"	)
 vm_extractimageplanesformat	[ 0	locks=0 ]	(	Targa	)
-vm_quickplane_Nt	[ 8	locks=0 ]	(	[ vm_quickplane_Nt	0 ] 	)
+vm_quickplane_Nt	[ 8	locks=0 ]	(	[ vm_quickplane_Nt	1 ] 	)
 vm_quickplane_Ds	[ 8	locks=0 ]	(	[ vm_quickplane_Ds	0 ] 	)
 vm_quickplane_Vd	[ 0	locks=0 ]	(	"off"	)
 vm_quickplane_Vdt	[ 0	locks=0 ]	(	"off"	)
-vm_quickplane_Oc	[ 8	locks=0 ]	(	[ vm_quickplane_Oc	0 ] 	)
+vm_quickplane_Oc	[ 8	locks=0 ]	(	[ vm_quickplane_Oc	1 ] 	)
 vm_quickplane_Cv	[ 0	locks=0 ]	(	"off"	)
 vm_quickplane_Th	[ 8	locks=0 ]	(	[ vm_quickplane_Th	0 ] 	)
 vm_quickplane_Cu	[ 8	locks=0 ]	(	[ vm_quickplane_Cu	0 ] 	)
 vm_quickplane_P	[ 8	locks=0 ]	(	[ vm_quickplane_P	0 ] 	)
 vm_quickplane_N	[ 8	locks=0 ]	(	[ vm_quickplane_N	0 ] 	)
-vm_quickplane_basecolor	[ 8	locks=0 ]	(	[ vm_quickplane_basecolor	0 ] 	)
+vm_quickplane_basecolor	[ 8	locks=0 ]	(	[ vm_quickplane_basecolor	1 ] 	)
 vm_quickplane_diffcolor	[ 0	locks=0 ]	(	"off"	)
 vm_quickplane_speccolor	[ 0	locks=0 ]	(	"off"	)
 vm_quickplane_emitcolor	[ 0	locks=0 ]	(	"off"	)
@@ -3804,24 +3818,6 @@ vm_quickplane_metallic	[ 8	locks=0 ]	(	[ vm_quickplane_metallic	0 ] 	)
 vm_quickplane_specrough	[ 8	locks=0 ]	(	[ vm_quickplane_specrough	0 ] 	)
 vm_showextraplaneparms	[ 0	locks=0 ]	(	"off"	)
 vm_numaux	[ 0	locks=0 ]	(	1	)
-vm_disable_plane1	[ 0	locks=0 ]	(	"off"	)
-vm_excludedcm_plane1	[ 0	locks=0 ]	(	"off"	)
-vm_variable_plane1	[ 0	locks=0 ]	(	Af	)
-vm_vextype_plane1	[ 0	locks=0 ]	(	float	)
-vm_channel_plane1	[ 0	locks=0 ]	(	alpha	)
-vm_usefile_plane1	[ 0	locks=0 ]	(	"off"	)
-vm_filename_plane1	[ 0	locks=0 ]	(	""	)
-vm_quantize_plane1	[ 0	locks=0 ]	(	half	)
-vm_sfilter_plane1	[ 0	locks=0 ]	(	alpha	)
-vm_pfilter_plane1	[ 0	locks=0 ]	(	""	)
-vm_gamma_plane1	[ 0	locks=0 ]	(	1	)
-vm_gain_plane1	[ 0	locks=0 ]	(	1	)
-vm_dither_plane1	[ 0	locks=0 ]	(	0.5	)
-vm_whitepoint_plane1	[ 0	locks=0 ]	(	1	)
-vm_componentexport1	[ 0	locks=0 ]	(	"off"	)
-vm_lightexport1	[ 0	locks=0 ]	(	0	)
-vm_lightexport_scope1	[ 0	locks=0 ]	(	*	)
-vm_lightexport_select1	[ 0	locks=0 ]	(	*	)
 vm_extractseparator	[ 0	locks=0 ]	(	_	)
 vm_channel_names_seperator_bar	[ 0	locks=0 ]	(	)
 vm_quickplane_Nt_channel	[ 0	locks=0 ]	(	Nt	)
@@ -3873,6 +3869,24 @@ vm_extractlinearplanes	[ 0	locks=0 ]	(	`propertys('vm_quickplane_Nt_channel','Nt
 vm_inlinestorage	[ 0	locks=0 ]	(	"off"	)
 declare_stylesheets	[ 0	locks=0 ]	(	*	)
 apply_stylesheets	[ 0	locks=0 ]	(	opdef:..?stylesheet.json	)
+vm_disable_plane1	[ 0	locks=0 ]	(	"off"	)
+vm_excludedcm_plane1	[ 0	locks=0 ]	(	"off"	)
+vm_variable_plane1	[ 0	locks=0 ]	(	Af	)
+vm_vextype_plane1	[ 0	locks=0 ]	(	float	)
+vm_channel_plane1	[ 0	locks=0 ]	(	alpha	)
+vm_usefile_plane1	[ 0	locks=0 ]	(	"off"	)
+vm_filename_plane1	[ 0	locks=0 ]	(	""	)
+vm_quantize_plane1	[ 0	locks=0 ]	(	half	)
+vm_sfilter_plane1	[ 0	locks=0 ]	(	alpha	)
+vm_pfilter_plane1	[ 0	locks=0 ]	(	""	)
+vm_gamma_plane1	[ 0	locks=0 ]	(	1	)
+vm_gain_plane1	[ 0	locks=0 ]	(	1	)
+vm_dither_plane1	[ 0	locks=0 ]	(	0.5	)
+vm_whitepoint_plane1	[ 0	locks=0 ]	(	1	)
+vm_componentexport1	[ 0	locks=0 ]	(	"off"	)
+vm_lightexport1	[ 0	locks=0 ]	(	0	)
+vm_lightexport_scope1	[ 0	locks=0 ]	(	*	)
+vm_lightexport_select1	[ 0	locks=0 ]	(	*	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -4676,7 +4690,7 @@ inputs
 stat
 {
   create 1496780594
-  modify 1522771963
+  modify 1522864701
   author Luiz@Luiz-PC
   access 0777
 }
@@ -5923,7 +5937,7 @@ Content-Type: text/plain
 
 {
 version 0.8
-input	[ 8	locks=0 ]	(	[ input	0 ] 	)
+input	[ 8	locks=0 ]	(	[ input	1 ] 	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -5952,7 +5966,7 @@ sopflags sopflags =
 comment ""
 position -3.25294 0.421471
 connectornextid 1
-flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
+flags =  lock off model off template on footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
 {
 0 "output1"
@@ -5966,7 +5980,7 @@ inputs
 stat
 {
   create 1496780594
-  modify 1522771969
+  modify 1522864706
   author Luiz@Luiz-PC
   access 0777
 }
@@ -6380,7 +6394,7 @@ sopflags sopflags =
 comment ""
 position -1.88716 -11.4623
 connectornextid 2
-flags =  lock off model off template on footprint off xray off bypass off display on render on highlight off unload off savedata off compress on colordefault on exposed on
+flags =  lock off model off template off footprint off xray off bypass off display on render on highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
 {
 }
@@ -6397,7 +6411,7 @@ inputs
 stat
 {
   create 1509741521
-  modify 1509742012
+  modify 1522863722
   author MAINGEAR@DESKTOP-P98C1VA
   access 0777
 }
@@ -7526,7 +7540,7 @@ Content-Type: text/plain
 
 {
 version 0.8
-input	[ 8	locks=0 ]	(	[ input	0 ] 	)
+input	[ 8	locks=0 ]	(	[ input	1 ] 	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -7847,7 +7861,7 @@ inputs
 stat
 {
   create 1496798847
-  modify 1522771946
+  modify 1522864656
   author Luiz@Luiz-PC
   access 0777
 }
@@ -7881,7 +7895,7 @@ nodename	[ 0	locks=0 ]	(	"userdef"	)
 reload	[ 0	locks=0 ]	(	0	)
 subframes	[ 0	locks=0 ]	(	"off"	)
 overridesize	[ 0	locks=0 ]	(	"natural"	)
-size	[ 0	locks=0 ]	(	256	256	)
+size	[ 0	locks=0 ]	(	1024	1024	)
 sizemenu	[ 0	locks=0 ]	(	0	)
 filter	[ 0	locks=0 ]	(	box	)
 overrideaspect	[ 0	locks=0 ]	(	"off"	)
@@ -7939,7 +7953,7 @@ Content-Disposition: attachment; filename="hdaroot/extract_net/base_image.cop2"
 Content-Type: text/plain
 
 2
-681
+708
 0
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -9734,7 +9748,7 @@ inputs
 stat
 {
   create 1496798868
-  modify 1522771963
+  modify 1522864685
   author Luiz@Luiz-PC
   access 0777
 }
@@ -9757,11 +9771,11 @@ take	[ 0	locks=0 ]	(	_current_	)
 copswitcher	[ 0	locks=0 ]	(	0	0	0	0	0	)
 coppath	[ 0	locks=0 ]	(	../extract_net/base_image	)
 tres	[ 0	locks=0 ]	(	"natural"	)
-res	[ 0	locks=0 ]	(	256	256	)
+res	[ 0	locks=0 ]	(	1024	1024	)
 resmenu	[ 0	locks=0 ]	(	0	)
-copoutput	[ 0	locks=0 ]	(	C:/Users/MAINGEAR/render/untitled_alpha.tga	)
+copoutput	[ 0	locks=0 ]	(	C:/Users/MAINGEAR/render/untitled_ao.tga	)
 mkpath	[ 0	locks=0 ]	(	"on"	)
-color	[ 0	locks=0 ]	(	alpha	)
+color	[ 0	locks=0 ]	(	Oc	)
 alpha	[ 0	locks=0 ]	(	A	)
 scopeplanes	[ 8	locks=0 ]	(	*	)
 convertcolorspace	[ 0	locks=0 ]	(	"off"	)
@@ -9772,7 +9786,7 @@ batchmode	[ 0	locks=0 ]	(	"off"	)
 batchsize	[ 0	locks=0 ]	(	2	)
 reloadfiles	[ 0	locks=0 ]	(	"on"	)
 outputarea	[ 0	locks=0 ]	(	"frame"	)
-pixelcrop	[ 0	locks=0 ]	(	0	0	255	255	)
+pixelcrop	[ 0	locks=0 ]	(	0	0	1023	1023	)
 uvcrop	[ 0	locks=0 ]	(	0	0	1	1	)
 limitcanvaspixels	[ 0	locks=0 ]	(	"on"	)
 canvaspixels	[ 0	locks=0 ]	(	64	)
@@ -9860,7 +9874,7 @@ inputs
 stat
 {
   create 1496776162
-  modify 1522766321
+  modify 1522863679
   author Luiz@Luiz-PC
   access 0777
 }
@@ -11274,6 +11288,20 @@ Content-Type: text/plain
       flags = 0
       segment { length = 0 value = 4 4 expr = ch(\"../baking_samples\") }
     }
+    channel vm_uvunwrapresx {
+      lefttype = extend
+      righttype = extend
+      default = 256
+      flags = 0
+      segment { length = 0 value = 256 256 expr = ch(\"../vm_uvunwrapresx\") }
+    }
+    channel vm_uvunwrapresy {
+      lefttype = extend
+      righttype = extend
+      default = 256
+      flags = 0
+      segment { length = 0 value = 256 256 expr = ch(\"../vm_uvunwrapresy\") }
+    }
   }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -11291,7 +11319,7 @@ f	[ 8	locks=0 ]	(	1	10	1	)
 take	[ 0	locks=0 ]	(	_current_	)
 camera	[ 0	locks=0 ]	(	"`opfullpath(\"..\") + \"/objnet/cam1\"`"	)
 vm_uvtype	[ 0	locks=0 ]	(	udim	)
-vm_uvunwrapres	[ 8	locks=0 ]	(	256	256	)
+vm_uvunwrapres	[ 8	locks=0 ]	(	[ vm_uvunwrapresx	512 ] 	[ vm_uvunwrapresy	512 ] 	)
 uvresmenu	[ 0	locks=0 ]	(	[ uvresmenu	0 ] 	)
 vm_ptexmapminres	[ 0	locks=0 ]	(	8	8	)
 vm_uvptexminresmenu	[ 0	locks=0 ]	(	0	)
@@ -11472,7 +11500,7 @@ inputs
 stat
 {
   create 1496798844
-  modify 1522771947
+  modify 1522864654
   author Luiz@Luiz-PC
   access 0777
 }
@@ -11534,7 +11562,7 @@ inputs
 stat
 {
   create 1496798868
-  modify 1522771963
+  modify 1522864659
   author Luiz@Luiz-PC
   access 0777
 }
@@ -11557,7 +11585,7 @@ take	[ 0	locks=0 ]	(	_current_	)
 copswitcher	[ 0	locks=0 ]	(	0	0	0	0	0	)
 coppath	[ 0	locks=0 ]	(	../composite_net	)
 tres	[ 0	locks=0 ]	(	"natural"	)
-res	[ 0	locks=0 ]	(	256	256	)
+res	[ 0	locks=0 ]	(	1024	1024	)
 resmenu	[ 0	locks=0 ]	(	0	)
 copoutput	[ 0	locks=0 ]	(	C:/Users/MAINGEAR/render\\tmp.exr	)
 mkpath	[ 0	locks=0 ]	(	"on"	)
@@ -11572,7 +11600,7 @@ batchmode	[ 0	locks=0 ]	(	"off"	)
 batchsize	[ 0	locks=0 ]	(	2	)
 reloadfiles	[ 0	locks=0 ]	(	"on"	)
 outputarea	[ 0	locks=0 ]	(	"frame"	)
-pixelcrop	[ 0	locks=0 ]	(	0	0	255	255	)
+pixelcrop	[ 0	locks=0 ]	(	0	0	1023	1023	)
 uvcrop	[ 0	locks=0 ]	(	0	0	1	1	)
 limitcanvaspixels	[ 0	locks=0 ]	(	"on"	)
 canvaspixels	[ 0	locks=0 ]	(	64	)
@@ -11660,7 +11688,7 @@ inputs
 stat
 {
   create 1496776162
-  modify 1522771957
+  modify 1522863677
   author Luiz@Luiz-PC
   access 0777
 }
@@ -13074,6 +13102,20 @@ Content-Type: text/plain
       flags = 0
       segment { length = 0 value = 4 4 expr = ch(\"../baking_samples\") }
     }
+    channel vm_uvunwrapresx {
+      lefttype = extend
+      righttype = extend
+      default = 256
+      flags = 0
+      segment { length = 0 value = 256 256 expr = ch(\"../vm_uvunwrapresx\") }
+    }
+    channel vm_uvunwrapresy {
+      lefttype = extend
+      righttype = extend
+      default = 256
+      flags = 0
+      segment { length = 0 value = 256 256 expr = ch(\"../vm_uvunwrapresy\") }
+    }
   }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -13091,7 +13133,7 @@ f	[ 8	locks=0 ]	(	1	10	1	)
 take	[ 0	locks=0 ]	(	_current_	)
 camera	[ 0	locks=0 ]	(	"`opfullpath(\"..\") + \"/objnet/cam1\"`"	)
 vm_uvtype	[ 0	locks=0 ]	(	udim	)
-vm_uvunwrapres	[ 8	locks=0 ]	(	256	256	)
+vm_uvunwrapres	[ 8	locks=0 ]	(	[ vm_uvunwrapresx	1024 ] 	[ vm_uvunwrapresy	1024 ] 	)
 uvresmenu	[ 0	locks=0 ]	(	[ uvresmenu	0 ] 	)
 vm_ptexmapminres	[ 0	locks=0 ]	(	8	8	)
 vm_uvptexminresmenu	[ 0	locks=0 ]	(	0	)

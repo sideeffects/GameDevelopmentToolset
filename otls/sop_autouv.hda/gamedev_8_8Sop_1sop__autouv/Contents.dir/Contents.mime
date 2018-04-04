@@ -32,22 +32,24 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position -2.95882 0.821471
-connectornextid 0
-flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
+position -10.2363 -1.54361
+connectornextid 1
+flags =  lock off model off template on footprint off xray off bypass off display on render on highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
 {
 }
 inputsNamed3
 {
+0 	polyreduce1 1 1 "input1"
 }
 inputs
 {
+0 	polyreduce1 0 1
 }
 stat
 {
-  create 1522779130
-  modify 1522779147
+  create 1522863985
+  modify 1522864415
   author MAINGEAR@DESKTOP-P98C1VA
   access 0777
 }
@@ -761,7 +763,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"0.1"
+		"value":"0.2"
 	}
 }
 
@@ -931,90 +933,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"0.1"
-	}
-}
-
---HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot/merge_small_islands.init"
-Content-Type: text/plain
-
-type = gamedev:sop_merge_small_islands
-matchesdef = 1
-
---HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot/merge_small_islands.def"
-Content-Type: text/plain
-
-sopflags sopflags = 
-comment ""
-position 4.50429 -33.2809
-connectornextid 2
-flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
-outputsNamed3
-{
-1 "output1"
-}
-inputsNamed3
-{
-0 	foreach_begin7 1 1 "input1"
-}
-inputs
-{
-0 	foreach_begin7 0 1
-}
-stat
-{
-  create 1520173495
-  modify 1522697025
-  author Luiz@LAPTOP-LKBBB5D4
-  access 0777
-}
-color UT_Color RGB 0.8 0.8 0.8 
-delscript ""
-exprlanguage hscript
-end
-
---HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot/merge_small_islands.chn"
-Content-Type: text/plain
-
-{
-    channel method {
-      lefttype = extend
-      righttype = extend
-      default = 1
-      flags = 0
-      segment { length = 0 value = 1 1 expr = ch(\"../method2\") }
-    }
-    channel cutoff {
-      lefttype = extend
-      righttype = extend
-      default = 0.050000000000000003
-      flags = 0
-      segment { length = 0 value = 0.050000000000000003 0.050000000000000003 expr = ch(\"../small_island_cutoff\") }
-    }
-  }
-
---HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot/merge_small_islands.parm"
-Content-Type: text/plain
-
-{
-version 0.8
-cutoff	[ 8	locks=0 ]	(	[ cutoff	0.059999999999999998 ] 	)
-method	[ 8	locks=0 ]	(	[ method	1 ] 	)
-iterations	[ 0	locks=0 ]	(	50	)
-}
-
---HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot/merge_small_islands.userdata"
-Content-Type: text/plain
-
-{
-	"___Version___":{
-		"type":"string",
-		"value":""
+		"value":"0.2"
 	}
 }
 
@@ -1097,6 +1016,89 @@ Content-Type: text/plain
 	"___toolid___":{
 		"type":"string",
 		"value":"sop_color"
+	}
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/sop_merge_small_islands1.init"
+Content-Type: text/plain
+
+type = gamedev::sop_merge_small_islands
+matchesdef = 1
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/sop_merge_small_islands1.def"
+Content-Type: text/plain
+
+sopflags sopflags = 
+comment ""
+position 4.50269 -33.749
+connectornextid 2
+flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
+outputsNamed3
+{
+1 "output1"
+}
+inputsNamed3
+{
+0 	foreach_begin7 1 1 "input1"
+}
+inputs
+{
+0 	foreach_begin7 0 1
+}
+stat
+{
+  create 1522864009
+  modify 1522864401
+  author MAINGEAR@DESKTOP-P98C1VA
+  access 0777
+}
+color UT_Color RGB 0.8 0.8 0.8 
+delscript ""
+exprlanguage hscript
+end
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/sop_merge_small_islands1.chn"
+Content-Type: text/plain
+
+{
+    channel cutoff {
+      lefttype = extend
+      righttype = extend
+      default = 0.01
+      flags = 0
+      segment { length = 0 value = 0.01 0.01 expr = ch(\"../small_island_cutoff\") }
+    }
+    channel method {
+      lefttype = extend
+      righttype = extend
+      default = 1
+      flags = 0
+      segment { length = 0 value = 1 1 expr = ch(\"../method2\") }
+    }
+  }
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/sop_merge_small_islands1.parm"
+Content-Type: text/plain
+
+{
+version 0.8
+cutoff	[ 8	locks=0 ]	(	[ cutoff	0.01 ] 	)
+method	[ 8	locks=0 ]	(	[ method	1 ] 	)
+iterations	[ 0	locks=0 ]	(	100	)
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/sop_merge_small_islands1.userdata"
+Content-Type: text/plain
+
+{
+	"___Version___":{
+		"type":"string",
+		"value":".1"
 	}
 }
 
@@ -2442,7 +2444,7 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position 4.50269 -37.075
+position 4.50269 -37.9919
 connectornextid 1
 flags =  lock off model off template off footprint off xray off bypass off display on render on highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
@@ -2459,7 +2461,7 @@ inputs
 stat
 {
   create 1503499999
-  modify 1522695002
+  modify 1522864062
   author Luiz@Luiz-PC
   access 0777
 }
@@ -3314,7 +3316,7 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position 4.50269 -35.5662
+position 4.50269 -36.4831
 connectornextid 2
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
@@ -3332,7 +3334,7 @@ inputs
 stat
 {
   create 1510175427
-  modify 1522693464
+  modify 1522864062
   author MAINGEAR@DESKTOP-P98C1VA
   access 0777
 }
@@ -4124,7 +4126,7 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position 4.50429 -34.4104
+position 4.50429 -35.3273
 connectornextid 2
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault off exposed on
 outputsNamed3
@@ -4133,16 +4135,16 @@ outputsNamed3
 }
 inputsNamed3
 {
-0 	merge_small_islands 1 1 "input1"
+0 	sop_merge_small_islands1 1 1 "input1"
 }
 inputs
 {
-0 	merge_small_islands 0 1
+0 	sop_merge_small_islands1 0 1
 }
 stat
 {
   create 1520213593
-  modify 1522693464
+  modify 1522864016
   author Luiz@LAPTOP-LKBBB5D4
   access 0777
 }
@@ -4218,7 +4220,7 @@ inputs
 stat
 {
   create 1520213593
-  modify 1522766242
+  modify 1522864447
   author Luiz@LAPTOP-LKBBB5D4
   access 0777
 }
@@ -4417,11 +4419,11 @@ normal3
 sop_calculate_occlusion1
 uvflatten4
 uvflatten5
-merge_small_islands
 color1
 connectivity5
 foreach_end7
 foreach_begin7
+sop_merge_small_islands1
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
 Content-Disposition: attachment; filename="hdaroot.net"

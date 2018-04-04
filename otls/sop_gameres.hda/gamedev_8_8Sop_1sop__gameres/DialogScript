@@ -477,6 +477,23 @@
                     parmtag { "autoscope" "0000000000000000" }
                 }
                 parm {
+                    name    "bake_alpha"
+                    label   "Opacity"
+                    type    toggle
+                    nolabel
+                    joinnext
+                    default { "off" }
+                    parmtag { "autoscope" "0000000000000000" }
+                }
+                parm {
+                    name    "alpha_suffix"
+                    label   "Opacity Map"
+                    type    string
+                    default { "alpha" }
+                    disablewhen "{ bake_alpha == 0 }"
+                    parmtag { "autoscope" "0000000000000000" }
+                }
+                parm {
                     name    "bake_specrough"
                     label   "Roughness Map"
                     type    toggle

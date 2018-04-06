@@ -180,9 +180,8 @@ class GameDevelopmentUpdater(object):
     def get_releases(self):
         response = urllib.urlopen(REPO_URL + "/releases")
         data = response.read()
-        if ( data == "" )
+        if ( data == "" ):
             raise ValueError("Unable to get the release list")
-        print data
         j_data = json.loads(data.decode('utf-8'))
         for release in j_data:
             self.releases.append(release["tag_name"])
@@ -202,9 +201,8 @@ class GameDevelopmentUpdater(object):
     def get_download_path(self, version, branch):
         response = urllib.urlopen(REPO_URL + "/releases/tags/" + version)
         data = response.read()
-        if ( data == "" )
+        if ( data == "" ):
             raise ValueError("Unable to get the release tags")
-        print data
         j_data = json.loads(data.decode('utf-8'))
         for asset in j_data["assets"]:
             if branch in os.path.basename(asset["browser_download_url"]):

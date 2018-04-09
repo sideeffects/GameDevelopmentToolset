@@ -19,6 +19,7 @@
         label   "Cutoff"
         type    float
         default { "0.0001" }
+        help    "Size threshold of the islands that will be merged back into larger pieces"
         range   { 0 1 }
         parmtag { "autoscope" "0000000000000000" }
     }
@@ -27,6 +28,7 @@
         label   "Flattening Method"
         type    ordinal
         default { "abf" }
+        help    "Method for reflattening the islands based on the new seams"
         menu {
             "scp"   "Spectral (SCP)"
             "abf"   "Angle-Based (ABF)"
@@ -38,7 +40,15 @@
         label   "Iterations"
         type    integer
         default { "100" }
+        help    "Attempts at merging the islands together. Higher values produce smoother results"
         range   { 0 10 }
         parmtag { "autoscope" "0000000000000000" }
+    }
+    parm {
+        name    "optimize_uv_border"
+        label   "Optimize UV Border"
+        type    toggle
+        default { "1" }
+        help    "Attempts to remove triangles that are sticking to the side of the UV island. May cause small islands to reappear"
     }
 }

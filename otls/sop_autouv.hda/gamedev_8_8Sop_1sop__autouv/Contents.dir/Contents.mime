@@ -32,24 +32,25 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position -10.2363 -1.54361
-connectornextid 1
+position -7.25123 -1.80451
+connectornextid 2
 flags =  lock off model off template on footprint off xray off bypass off display on render on highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
 {
+1 "output1"
 }
 inputsNamed3
 {
-0 	polyreduce1 1 1 "input1"
+0 	divide1 1 1 "input1"
 }
 inputs
 {
-0 	polyreduce1 0 1
+0 	divide1 0 1
 }
 stat
 {
-  create 1522863985
-  modify 1522864415
+  create 1523283401
+  modify 1523284455
   author MAINGEAR@DESKTOP-P98C1VA
   access 0777
 }
@@ -1050,7 +1051,7 @@ inputs
 stat
 {
   create 1522864009
-  modify 1522864401
+  modify 1523284343
   author MAINGEAR@DESKTOP-P98C1VA
   access 0777
 }
@@ -1078,6 +1079,13 @@ Content-Type: text/plain
       flags = 0
       segment { length = 0 value = 1 1 expr = ch(\"../method2\") }
     }
+    channel optimize_uv_border {
+      lefttype = extend
+      righttype = extend
+      default = 1
+      flags = 0
+      segment { length = 0 value = 1 1 expr = ch(\"../optimize_uv_border\") }
+    }
   }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -1089,6 +1097,7 @@ version 0.8
 cutoff	[ 8	locks=0 ]	(	[ cutoff	0.01 ] 	)
 method	[ 8	locks=0 ]	(	[ method	1 ] 	)
 iterations	[ 0	locks=0 ]	(	100	)
+optimize_uv_border	[ 0	locks=0 ]	(	[ optimize_uv_border	1 ] 	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -2446,7 +2455,7 @@ sopflags sopflags =
 comment ""
 position 4.50269 -37.9919
 connectornextid 1
-flags =  lock off model off template off footprint off xray off bypass off display on render on highlight off unload off savedata off compress on colordefault on exposed on
+flags =  lock off model off template on footprint off xray off bypass off display on render on highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
 {
 }
@@ -2461,7 +2470,7 @@ inputs
 stat
 {
   create 1503499999
-  modify 1522864062
+  modify 1523283775
   author Luiz@Luiz-PC
   access 0777
 }
@@ -4220,7 +4229,7 @@ inputs
 stat
 {
   create 1520213593
-  modify 1522864447
+  modify 1523284441
   author Luiz@LAPTOP-LKBBB5D4
   access 0777
 }

@@ -129,6 +129,14 @@
             range   { 0 0.5 }
         }
         parm {
+            name    "optimize_uv_border"
+            label   "Optimize UV Border"
+            type    toggle
+            default { "on" }
+            help    "Attempts to remove triangles that are sticking to the side of the UV island. May cause small islands to reappear"
+            parmtag { "autoscope" "0000000000000000" }
+        }
+        parm {
             name    "method2"
             label   "Flattening Method"
             type    ordinal

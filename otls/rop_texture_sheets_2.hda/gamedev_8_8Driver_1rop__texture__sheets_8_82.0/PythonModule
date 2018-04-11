@@ -298,3 +298,14 @@ def create_rgb_light_rig():
     #add direct image plane to separate the rgb lights in comp
     #add_direct_image_plane()
     
+def set_composite_view():
+    hda = hou.pwd()
+    currentDesktop = hou.ui.curDesktop()
+    compositeView = currentDesktop.paneTabOfType(hou.paneTabType.CompositorViewer)
+    networkEditor = currentDesktop.paneTabOfType(hou.paneTabType.NetworkEditor)
+    pwd = networkEditor.pwd()
+    preview_path = hou.node(hda.path() + "/COMPOSITING")
+    compositeView.setPwd(preview_path)
+    networkEditor.setPwd(pwd)
+    
+    

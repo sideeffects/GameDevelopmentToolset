@@ -101,6 +101,22 @@
             range   { 0 1 }
         }
         parm {
+            name    "N_sequence"
+            label   "N Image Sequence"
+            type    image
+            joinnext
+            default { "$HIP/render/sequence/${OS}_N.$F4.exr" }
+            disablewhen "{ export_normal == 0 }"
+            range   { 0 1 }
+        }
+        parm {
+            name    "render_N"
+            label   "Render N Sequence"
+            type    button
+            default { "0" }
+            disablewhen "{ export_normal == 0 }"
+        }
+        parm {
             name    "rgb_sequence"
             label   "RGB Image Sequence"
             type    image
@@ -124,10 +140,25 @@
             range   { 0 1 }
         }
         parm {
+            name    "flipgreen"
+            label   "Flip Green Channel"
+            type    toggle
+            default { "0" }
+            disablewhen "{ export_normal == 0 }"
+        }
+        parm {
+            name    "gradientfield"
+            label   "Detect N from:"
+            type    string
+            default { "density" }
+            disablewhen "{ export_normal == 0 }"
+        }
+        parm {
             name    "render_rgb_lights"
             label   "Render RGB Lights (Normals)"
             type    toggle
             default { "0" }
+            disablewhen "{ export_normal == 0 }"
             parmtag { "script_callback" "hou.pwd().hdaModule().create_rgb_light_rig()" }
             parmtag { "script_callback_language" "python" }
         }
@@ -218,7 +249,7 @@
                 range   { 0 1 }
                 parmtag { "opfilter" "!!OBJ/GEOMETRY!!" }
                 parmtag { "oprelative" "." }
-                parmtag { "script_callback" "hou.pwd().hdaModule().add_volume_normal()" }
+                parmtag { "script_callback" "" }
                 parmtag { "script_callback_language" "python" }
             }
             parm {
@@ -1139,9 +1170,18 @@
         label   "Channel Packing"
 
         parm {
+            name    "setcompositeview"
+            label   "Set Composite View"
+            type    button
+            default { "0" }
+            parmtag { "script_callback" "hou.pwd().hdaModule().set_composite_view()" }
+            parmtag { "script_callback_language" "python" }
+        }
+        parm {
             name    "comp_preview"
             label   "Texture Preview"
             type    ordinal
+            joinnext
             default { "0" }
             menu {
                 "0" "Beauty"
@@ -1150,10 +1190,17 @@
             }
         }
         parm {
+            name    "reloadsequences"
+            label   "Reload Sequences"
+            type    button
+            default { "0" }
+        }
+        parm {
             name    "copyfrom1"
             label   "Red"
             type    string
-            default { "A:Normals.r" }
+            default { "C:Normals.r" }
+            disablewhen "{ comp_preview != 2 }"
             menu {
                 [ "hda = hou.pwd()" ]
                 [ "cc = hou.node(hda.path() + \"/COMPOSITING/channelcopy2\")" ]
@@ -1171,7 +1218,7 @@
                 [ "    list.append(label)" ]
                 [ "    dict[item] = labels[i]" ]
                 [ "if len(items)==3:" ]
-                [ "    list = [\"A:Normals.r\", \"Normals.r\"]" ]
+                [ "    list = [\"C:Normals.r\", \"Normals.r\"]" ]
                 [ "return list" ]
                 language python
             }
@@ -1181,7 +1228,8 @@
             name    "copyfrom2"
             label   "Green"
             type    string
-            default { "A:Normals.g" }
+            default { "C:Normals.g" }
+            disablewhen "{ comp_preview != 2 }"
             menu {
                 [ "hda = hou.pwd()" ]
                 [ "cc = hou.node(hda.path() + \"/COMPOSITING/channelcopy2\")" ]
@@ -1199,7 +1247,7 @@
                 [ "    list.append(label)" ]
                 [ "    dict[item] = labels[i]" ]
                 [ "if len(items)==3:" ]
-                [ "    list = [\"A:Normals.g\", \"Normals.g\"]" ]
+                [ "    list = [\"C:Normals.g\", \"Normals.g\"]" ]
                 [ "return list" ]
                 language python
             }
@@ -1209,7 +1257,8 @@
             name    "copyfrom3"
             label   "Blue"
             type    string
-            default { "A:Emission_Normalised" }
+            default { "B:Emission_Normalised" }
+            disablewhen "{ comp_preview != 2 }"
             menu {
                 [ "hda = hou.pwd()" ]
                 [ "cc = hou.node(hda.path() + \"/COMPOSITING/channelcopy2\")" ]
@@ -1227,7 +1276,7 @@
                 [ "    list.append(label)" ]
                 [ "    dict[item] = labels[i]" ]
                 [ "if len(items)==3:" ]
-                [ "    list = [\"A:Emission_Normalised\", \"Emission_Normalised\"]" ]
+                [ "    list = [\"B:Emission_Normalised\", \"Emission_Normalised\"]" ]
                 [ "return list" ]
                 language python
             }
@@ -1237,7 +1286,8 @@
             name    "copyfrom4"
             label   "Alpha"
             type    string
-            default { "A:A" }
+            default { "B:A" }
+            disablewhen "{ comp_preview != 2 }"
             menu {
                 [ "hda = hou.pwd()" ]
                 [ "cc = hou.node(hda.path() + \"/COMPOSITING/channelcopy2\")" ]
@@ -1255,7 +1305,7 @@
                 [ "    list.append(label)" ]
                 [ "    dict[item] = labels[i]" ]
                 [ "if len(items)==3:" ]
-                [ "    list = [\"A:A\", \"A\"]" ]
+                [ "    list = [\"B:A\", \"A\"]" ]
                 [ "return list" ]
                 language python
             }

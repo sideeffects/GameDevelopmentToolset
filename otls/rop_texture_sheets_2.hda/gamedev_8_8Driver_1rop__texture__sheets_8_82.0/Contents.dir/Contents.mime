@@ -31,11 +31,12 @@ Content-Disposition: attachment; filename="hdaroot.def"
 Content-Type: text/plain
 
 comment ""
-position -11.6198 -10.3838
-connectornextid 0
+position -11.6198 -11.5134
+connectornextid 1
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
 {
+0 "output1"
 }
 inputsNamed3
 {
@@ -46,7 +47,7 @@ inputs
 stat
 {
   create 1523384616
-  modify 1523405079
+  modify 1523484467
   author mikel@mikembp-sesi.local
   access 0777
 }
@@ -182,7 +183,7 @@ inputs
 stat
 {
   create 1496111784
-  modify 1523394212
+  modify 1523474315
   author mikel@mikembp-sesi.local
   access 0777
 }
@@ -926,7 +927,7 @@ inputs
 stat
 {
   create 1496717079
-  modify 1523394252
+  modify 1523474315
   author mikel@mikembp-sesi.local
   access 0777
 }
@@ -1790,7 +1791,7 @@ inputs
 stat
 {
   create 1496686170
-  modify 1523394252
+  modify 1523474315
   author mikel@mikembp-sesi.local
   access 0777
 }
@@ -2634,7 +2635,7 @@ inputs
 stat
 {
   create 1496718226
-  modify 1523394252
+  modify 1523474315
   author mikel@mikembp-sesi.local
   access 0777
 }
@@ -5468,7 +5469,7 @@ inputs
 stat
 {
   create 1498602356
-  modify 1523394252
+  modify 1523474315
   author mikel@mikembp-sesi.local
   access 0777
 }
@@ -5846,14 +5847,14 @@ Content-Type: text/plain
             baseparm
             label   "Plane Scope"
             joinnext
-            export  dialog
+            export  all
         }
         parm {
             name    "pscope"
             baseparm
             label   ""
             nolabel
-            export  dialog
+            export  all
         }
     }
 
@@ -5968,6 +5969,7 @@ flist	[ 0	locks=0 ]	(	*	)
 fmenu	[ 0	locks=0 ]	(	"scopeall"	)
 fautoadjust	[ 0	locks=0 ]	(	"on"	)
 currange	[ 0	locks=0 ]	(	1	)
+stdswitcher4	[ 0	locks=0 ]	(	0	0	0	)
 Flip_Green	[ 8	locks=0 ]	(	[ Flip_Green	0 ] 	)
 }
 
@@ -8498,7 +8500,7 @@ inputs
 stat
 {
   create 1523059472
-  modify 1523396505
+  modify 1523474321
   author mikel@android-eb1abd69df500d4.localdomain
   access 0777
 }
@@ -18043,12 +18045,6 @@ Content-Disposition: attachment; filename="hdaroot/COMPOSITING/color1.chn"
 Content-Type: text/plain
 
 {
-    channel aspect {
-      lefttype = extend
-      righttype = extend
-      flags = 0
-      segment { length = 0 expr = $CPIXA }
-    }
     channel size1 {
       lefttype = extend
       righttype = extend
@@ -18062,6 +18058,12 @@ Content-Type: text/plain
       default = 1080
       flags = 0
       segment { length = 0 value = 1080 1080 expr = ch(\"../../resolutiony\") }
+    }
+    channel aspect {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = $CPIXA }
     }
     channel depthglobal {
       lefttype = extend

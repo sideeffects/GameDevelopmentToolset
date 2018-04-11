@@ -30,100 +30,37 @@
         label   "Base Settings"
 
         parm {
-            name    "override_res"
-            label   "Override Camera Resolution (Based on Atlas Settings Below)"
-            type    toggle
-            default { "0" }
-            help    "If this is turned on the camera resolution will match the settings for the final texture atlas."
-            disablewhen "{ camera == \"\" }"
-            parmtag { "script_callback" "hou.pwd().hdaModule().override_camera_resolution()" }
-            parmtag { "script_callback_language" "python" }
+            name    "assetname"
+            label   "Asset Name"
+            type    string
+            default { "$OS" }
         }
         parm {
-            name    "image_res"
-            label   "Camera Resolution"
-            type    label
-            default { "`ch(strcat(chs(\"camera_internal\"),\"/resx\"))`  x `ch(strcat(chs(\"camera_internal\"),\"/resy\"))`" }
-            hidewhen "{ override_res == 1 }"
+            name    "sequencedir"
+            label   "Sequence Directory"
+            type    directory
+            default { "$HIP/render/sequence/" }
         }
         parm {
-            name    "image_res2"
-            label   "Override Resolution"
-            type    label
-            default { "`int(ch(\"resolutionx\")/ch(\"numperline\"))` x `int(ch(\"resolutiony\")/((ch(\"internal_frames2\")-ch(\"internal_frames1\")+1)/ch(\"numperline\")))" }
-            hidewhen "{ override_res == 0 }"
-        }
-        parm {
-            name    "cam_res_save"
-            label   "Store Camera Resolution"
-            type    vector2
-            invisible
-            size    2
-            default { "0" "0" }
-            range   { -1 1 }
-        }
-        parm {
-            name    "image_sequence_label"
-            label   "Image Sequence"
-            type    label
+            name    "sepparm"
+            label   "Separator"
+            type    separator
             default { "" }
-            hidewhen "{ ninputs == 0 }"
-        }
-        parm {
-            name    "image_sequence"
-            label   "Image Sequence"
-            type    image
-            joinnext
-            default { "$HIP/render/sequence/${OS}.$F4.exr" }
-            disablewhen "{ ninputs == 1 }"
-            range   { 0 1 }
         }
         parm {
             name    "render_sequence"
             label   "Render Sequence"
             type    button
-            default { "0" }
-        }
-        parm {
-            name    "image_sequence_internal"
-            label   "Image Sequence Internal"
-            type    image
-            invisible
-            default { [ "ifs(opninputs(\".\")>0,chs(\"image_sequence_external\"),chs(\"image_sequence\"))" hscript-expr ] }
-            range   { 0 1 }
-        }
-        parm {
-            name    "image_sequence_external"
-            label   "Image Sequence External"
-            type    image
-            invisible
-            default { "" }
-            range   { 0 1 }
-        }
-        parm {
-            name    "N_sequence"
-            label   "N Image Sequence"
-            type    image
             joinnext
-            default { "$HIP/render/sequence/${OS}_N.$F4.exr" }
-            disablewhen "{ export_normal == 0 }"
-            range   { 0 1 }
+            default { "0" }
         }
         parm {
             name    "render_N"
             label   "Render N Sequence"
             type    button
+            joinnext
             default { "0" }
             disablewhen "{ export_normal == 0 }"
-        }
-        parm {
-            name    "rgb_sequence"
-            label   "RGB Image Sequence"
-            type    image
-            joinnext
-            default { "$HIP/render/sequence/${OS}_rgb.$F4.exr" }
-            disablewhen "{ render_rgb_lights == 0 }"
-            range   { 0 1 }
         }
         parm {
             name    "render_rgb"
@@ -136,27 +73,15 @@
             name    "export_normal"
             label   "Export Normal"
             type    toggle
+            joinnext
             default { "1" }
             range   { 0 1 }
-        }
-        parm {
-            name    "flipgreen"
-            label   "Flip Green Channel"
-            type    toggle
-            default { "0" }
-            disablewhen "{ export_normal == 0 }"
-        }
-        parm {
-            name    "gradientfield"
-            label   "Detect N from:"
-            type    string
-            default { "density" }
-            disablewhen "{ export_normal == 0 }"
         }
         parm {
             name    "render_rgb_lights"
             label   "Render RGB Lights (Normals)"
             type    toggle
+            joinnext
             default { "0" }
             disablewhen "{ export_normal == 0 }"
             parmtag { "script_callback" "hou.pwd().hdaModule().create_rgb_light_rig()" }
@@ -170,48 +95,16 @@
             parmtag { "script_callback" "hou.pwd().hdaModule().add_direct_emission_plane()" }
             parmtag { "script_callback_language" "python" }
         }
+        parm {
+            name    "sepparm2"
+            label   "Separator"
+            type    separator
+            default { "" }
+        }
         groupsimple {
             name    "folder1"
             label   "Maps"
 
-            parm {
-                name    "color_map"
-                label   "Color Map"
-                type    image
-                joinnext
-                default { "$HIP/render/${OS}_color.tga" }
-                range   { 0 1 }
-            }
-            parm {
-                name    "render_color_map"
-                label   "Render Color Map"
-                type    button
-                default { "0" }
-            }
-            parm {
-                name    "normal_map"
-                label   "Normal Map"
-                type    image
-                joinnext
-                default { "$HIP/render/${OS}_normal.tga" }
-                disablewhen "{ export_normal == 0 } { pack_map_toggle == 1 }"
-                range   { 0 1 }
-            }
-            parm {
-                name    "render_normal_map"
-                label   "Render Normal Map"
-                type    button
-                default { "0" }
-                disablewhen "{ export_normal == 0 } { pack_map_toggle == 1 }"
-            }
-            parm {
-                name    "blend_normal"
-                label   "Blend N and RGB Lights"
-                type    float
-                default { "0.5" }
-                disablewhen "{ render_rgb_lights == 0 }"
-                range   { 0 1 }
-            }
             parm {
                 name    "pack_map_toggle"
                 label   "Channel Pack Normal, Emission, Alpha"
@@ -220,13 +113,25 @@
                 disablewhen "{ export_normal == 0 } { render_fire == 0 }"
             }
             parm {
-                name    "packed_map"
-                label   "Packed Map"
-                type    image
+                name    "mapdir"
+                label   "Map Directory"
+                type    directory
+                default { "$HIP/export/" }
+            }
+            parm {
+                name    "render_color_map"
+                label   "Render Color Map"
+                type    button
                 joinnext
-                default { "$HIP/render/${OS}_packed.tga" }
-                disablewhen "{ pack_map_toggle == 0 } { export_normal == 0 } { render_fire == 0 }"
-                range   { 0 1 }
+                default { "0" }
+            }
+            parm {
+                name    "render_normal_map"
+                label   "Render Normal Map"
+                type    button
+                joinnext
+                default { "0" }
+                disablewhen "{ export_normal == 0 } { pack_map_toggle == 1 }"
             }
             parm {
                 name    "render_packed_map"
@@ -360,7 +265,7 @@
             }
         }
 
-        groupsimple {
+        groupcollapsible {
             name    "folder2"
             label   "Settings"
 
@@ -432,7 +337,32 @@
                 name    "res_per_frame"
                 label   "Resolution Per Frame"
                 type    label
+                invisible
                 default { "`int(ch(\"resolutionx\")/ch(\"numperline\"))` x `int(ch(\"resolutiony\")/((ch(\"internal_frames2\")-ch(\"internal_frames1\")+1)/ch(\"numperline\")))" }
+            }
+            parm {
+                name    "override_res"
+                label   "Override Camera Resolution (Based on Atlas Settings)"
+                type    toggle
+                default { "0" }
+                help    "If this is turned on the camera resolution will match the settings for the final texture atlas."
+                disablewhen "{ camera == \"\" }"
+                parmtag { "script_callback" "hou.pwd().hdaModule().override_camera_resolution()" }
+                parmtag { "script_callback_language" "python" }
+            }
+            parm {
+                name    "image_res"
+                label   "Camera Resolution"
+                type    label
+                default { "`ch(strcat(chs(\"camera_internal\"),\"/resx\"))`  x `ch(strcat(chs(\"camera_internal\"),\"/resy\"))`" }
+                hidewhen "{ override_res == 1 }"
+            }
+            parm {
+                name    "image_res2"
+                label   "Override Resolution"
+                type    label
+                default { "`int(ch(\"resolutionx\")/ch(\"numperline\"))` x `int(ch(\"resolutiony\")/((ch(\"internal_frames2\")-ch(\"internal_frames1\")+1)/ch(\"numperline\")))" }
+                hidewhen "{ override_res == 0 }"
             }
         }
 
@@ -440,7 +370,7 @@
 
     group {
         name    "channel_packing_folder_2_1"
-        label   "Advanced Settings"
+        label   "Render Settings"
 
         parm {
             name    "vm_renderengine"
@@ -1311,6 +1241,14 @@
             }
             parmtag { "autoscope" "0000000000000000" }
         }
+        parm {
+            name    "blend_normal"
+            label   "Blend N and RGB Lights"
+            type    float
+            default { "0.5" }
+            disablewhen "{ render_rgb_lights == 0 }"
+            range   { 0 1 }
+        }
     }
 
     group {
@@ -1350,6 +1288,123 @@
             parmtag { "script_callback" "hou.pwd().hdaModule().add_direct_emission_plane()" }
             parmtag { "script_callback_language" "python" }
         }
+    }
+
+    group {
+        name    "channel_packing_folder_2_4"
+        label   "Advanced Settings"
+
+        groupsimple {
+            name    "normalfolder"
+            label   "Normals"
+
+            parm {
+                name    "flipgreen"
+                label   "Flip Green Channel"
+                type    toggle
+                default { "0" }
+                disablewhen "{ export_normal == 0 }"
+            }
+            parm {
+                name    "gradientfield"
+                label   "Calculate N from:"
+                type    string
+                default { "density" }
+                disablewhen "{ export_normal == 0 }"
+            }
+        }
+
+        groupsimple {
+            name    "sequencefolder"
+            label   "Sequence"
+
+            parm {
+                name    "image_sequence_label"
+                label   "Image Sequence"
+                type    label
+                default { "" }
+                hidewhen "{ ninputs == 0 }"
+            }
+            parm {
+                name    "image_sequence"
+                label   "Image Sequence"
+                type    image
+                default { "`strcat(chs(\"sequencedir\"),chs(\"assetname\"))`.$F4.exr" }
+                disablewhen "{ ninputs == 1 }"
+                range   { 0 1 }
+            }
+            parm {
+                name    "N_sequence"
+                label   "N Image Sequence"
+                type    image
+                default { "`strcat(chs(\"sequencedir\"),chs(\"assetname\"))`_N.$F4.exr" }
+                disablewhen "{ export_normal == 0 }"
+                range   { 0 1 }
+            }
+            parm {
+                name    "rgb_sequence"
+                label   "RGB Image Sequence"
+                type    image
+                default { "`strcat(chs(\"sequencedir\"),chs(\"assetname\"))`_rgb.$F4.exr" }
+                disablewhen "{ render_rgb_lights == 0 }"
+                range   { 0 1 }
+            }
+        }
+
+        parm {
+            name    "image_sequence_internal"
+            label   "Image Sequence Internal"
+            type    image
+            invisible
+            default { [ "ifs(opninputs(\".\")>0,chs(\"image_sequence_external\"),chs(\"image_sequence\"))" hscript-expr ] }
+            range   { 0 1 }
+        }
+        parm {
+            name    "image_sequence_external"
+            label   "Image Sequence External"
+            type    image
+            invisible
+            default { "" }
+            range   { 0 1 }
+        }
+        parm {
+            name    "cam_res_save"
+            label   "Store Camera Resolution"
+            type    vector2
+            invisible
+            size    2
+            default { "0" "0" }
+            range   { -1 1 }
+        }
+        group {
+            name    "mapfolder"
+            label   "Maps"
+
+            parm {
+                name    "color_map"
+                label   "Color Map"
+                type    image
+                default { "`strcat(chs(\"mapdir\"),chs(\"assetname\"))`_color.exr" }
+                range   { 0 1 }
+            }
+            parm {
+                name    "normal_map"
+                label   "Normal Map"
+                type    image
+                default { "`strcat(chs(\"mapdir\"),chs(\"assetname\"))`_normal.exr" }
+                disablewhen "{ export_normal == 0 } { pack_map_toggle == 1 }"
+                range   { 0 1 }
+            }
+            parm {
+                name    "packed_map"
+                label   "Packed Map"
+                type    image
+                default { "`strcat(chs(\"mapdir\"),chs(\"assetname\"))`_packed.exr" }
+                disablewhen "{ pack_map_toggle == 0 } { export_normal == 0 } { render_fire == 0 }"
+                range   { 0 1 }
+            }
+        }
+
     }
 
 }

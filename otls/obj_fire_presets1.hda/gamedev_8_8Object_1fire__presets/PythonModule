@@ -12,9 +12,6 @@ def applyPresets(node, firetype):
                  ('cooldown_time', '0.3'),
                  ('evap', '0.1'),
                  ('dist_scale', '0.6'),
-                 ('dist_density_cutoff', '0.1'),
-                 ('dist_override_block_size', '0'),
-                 ('dist_locality', '2'),
                  ('shred_scale', '0.0806667'),
                  ('turbulence', '0.35'),
                  ('turbulenceswirlsize', '0.4'),
@@ -38,11 +35,11 @@ def applyPresets(node, firetype):
                  ('emitscale', '10'),
                  ]
     
-    1m_wide_high_preview = [ ('divsize', '0.0111'), 
-                             ('substeps', '1'),
+    m_wide_high_preview = [ ('divsize', '0.02'), 
+                             ('substeps', '3'),
                              ]
                  
-    1m_wide_low = [ ('scale_source', '0.135'),
+    m_wide_low = [ ('scale_source', '0.135'),
                     ('cooldown_time', '0.2'),
                     ('dist_scale', '0.4'),
                     ('voronoiinfluence', '0.65'),
@@ -50,7 +47,7 @@ def applyPresets(node, firetype):
                     ('elementsize', '0.28'),
                   ]
                   
-    1m_wide_low_preview = [ ('divsize', '0.02'),
+    m_wide_low_preview = [ ('divsize', '0.02'),
                             ('scale_source', '0.15'),
                             ('substeps', '3'),
                             ('voronoiinfluence', '1.3'),
@@ -107,12 +104,12 @@ def applyPresets(node, firetype):
         applyParmList(node, defaults)
     if firetype == '1m_wide_high_preview':
         applyParmList(node, defaults)
-        applyParmList(node, 1m_wide_high_preview)
+        applyParmList(node, m_wide_high_preview)
     if firetype == '1m_wide_low':
-        applyParmList(node, 1m_wide_low)
+        applyParmList(node, m_wide_low)
     if firetype == '1m_wide_low_preview':
-        applyParmList(node, 1m_wide_low)
-        applyParmList(node, 1m_wide_low_preview)
+        applyParmList(node, m_wide_low)
+        applyParmList(node, m_wide_low_preview)
     if firetype == 'small_flame':
         applyParmList(node, small_flame)
     if firetype == 'small_flame_preview':

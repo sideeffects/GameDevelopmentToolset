@@ -49,7 +49,7 @@ inputs
 stat
 {
   create 1523038821
-  modify 1523547741
+  modify 1523567030
   author mikel@android-eb1abd69df500d4.localdomain
   access 0777
 }
@@ -99,7 +99,7 @@ inputs
 stat
 {
   create 1496865950
-  modify 1523492115
+  modify 1523566482
   author mikel@mikembp-sesi.local
   access 0777
 }
@@ -1013,7 +1013,7 @@ pointsdf_edge_location	[ 0	locks=0 ]	(	0.5	)
 use_noise	[ 0	locks=0 ]	(	"on"	)
 animate_noise	[ 0	locks=0 ]	(	"on"	)
 destmin	[ 0	locks=0 ]	(	1	)
-voronoi_influence	[ 0	locks=0 ]	(	[ voronoi_influence	0.10000000000000001 ] 	)
+voronoi_influence	[ 0	locks=0 ]	(	[ voronoi_influence	0.050000000000000003 ] 	)
 pulse_duration	[ 0	locks=0 ]	(	[ pulse_duration	6 ] 	)
 turbulent	[ 0	locks=0 ]	(	1	1	)
 noise_mode	[ 0	locks=0 ]	(	"0"	)
@@ -1188,7 +1188,7 @@ inputs
 stat
 {
   create 1496865992
-  modify 1523492115
+  modify 1523566482
   author mikel@mikembp-sesi.local
   access 0777
 }
@@ -1347,7 +1347,7 @@ inputs
 stat
 {
   create 1496865992
-  modify 1523491500
+  modify 1523566224
   author mikel@mikembp-sesi.local
   access 0777
 }
@@ -1388,26 +1388,6 @@ Content-Type: text/plain
       default = 0.080666666885217023
       flags = 0
       segment { length = 0 value = 0.080666666885217023 0.080666666885217023 expr = ch(\"../../shred_scale\") }
-    }
-    channel dist_density_cutoff {
-      lefttype = extend
-      righttype = extend
-      default = 0.10000000000000001
-      flags = 0
-      segment { length = 0 value = 0.10000000000000001 0.10000000000000001 expr = ch(\"../../dist_density_cutoff\") }
-    }
-    channel dist_override_block_size {
-      lefttype = extend
-      righttype = extend
-      flags = 0
-      segment { length = 0 expr = ch(\"../../dist_override_block_size\") }
-    }
-    channel dist_locality {
-      lefttype = extend
-      righttype = extend
-      default = 2
-      flags = 0
-      segment { length = 0 value = 2 2 expr = ch(\"../../dist_locality\") }
     }
     channel opencl {
       lefttype = extend
@@ -1451,7 +1431,7 @@ Content-Type: text/plain
 
 {
 version 0.8
-combustion_1	[ 0	locks=0 ]	(	1	1	1	1	1	)
+combustion_1	[ 0	locks=0 ]	(	2	2	2	2	2	)
 timescale	[ 0	locks=0 ]	(	1	)
 temp_diffusion	[ 0	locks=0 ]	(	0.045833333395421505	)
 cooling_rate	[ 0	locks=0 ]	(	0.90000000000000002	)
@@ -1499,16 +1479,16 @@ enable_turbulence	[ 0	locks=0 ]	(	"on"	)
 turbulence_scale	[ 0	locks=0 ]	(	[ turbulence_scale	0.050000000000000003 ] 	)
 enable_confinement	[ 0	locks=0 ]	(	"off"	)
 confinementscale	[ 0	locks=0 ]	(	2	)
-wind_2	[ 0	locks=0 ]	(	4	4	4	4	4	4	)
+wind_2	[ 0	locks=0 ]	(	1	1	1	1	1	1	)
 use_dissipation_control_field	[ 0	locks=0 ]	(	"on"	)
 dissipation_control_field	[ 0	locks=0 ]	(	temperature	)
 dissipation_control_range	[ 0	locks=0 ]	(	0	1	)
 remap_dissipation_field	[ 0	locks=0 ]	(	4	)
 dist_target	[ 0	locks=0 ]	(	"vel"	)
-dist_density_cutoff	[ 0	locks=0 ]	(	[ dist_density_cutoff	0.10000000000000001 ] 	)
-dist_override_block_size	[ 0	locks=0 ]	(	[ dist_override_block_size	0 ] 	)
+dist_density_cutoff	[ 0	locks=0 ]	(	0.10000000000000001	)
+dist_override_block_size	[ 0	locks=0 ]	(	"off"	)
 dist_block_size	[ 0	locks=0 ]	(	0.11000000014901161	)
-dist_locality	[ 0	locks=0 ]	(	[ dist_locality	2 ] 	)
+dist_locality	[ 0	locks=0 ]	(	2	)
 control_settings2	[ 0	locks=0 ]	(	1	1	)
 dist_use_control_field	[ 0	locks=0 ]	(	"off"	)
 dist_control_field	[ 0	locks=0 ]	(	""	)
@@ -2353,7 +2333,7 @@ version 0.8
 initialize	[ 0	locks=0 ]	(	"sourcefuel"	)
 source_path	[ 0	locks=0 ]	(	../../fire_source/OUT_fuel	)
 activation	[ 0	locks=0 ]	(	1	)
-scale_source	[ 0	locks=0 ]	(	[ scale_source	0.20000000000000001 ] 	)
+scale_source	[ 0	locks=0 ]	(	[ scale_source	0.22 ] 	)
 scale_temperature	[ 0	locks=0 ]	(	1	)
 scale_velocity	[ 0	locks=0 ]	(	1	)
 use_object_transform	[ 0	locks=0 ]	(	"on"	)
@@ -6931,7 +6911,7 @@ inputs
 stat
 {
   create 1496865992
-  modify 1523491544
+  modify 1523566874
   author mikel@mikembp-sesi.local
   access 0777
 }
@@ -7199,7 +7179,7 @@ inputs
 stat
 {
   create 1523042844
-  modify 1523491544
+  modify 1523566874
   author mikel@android-eb1abd69df500d4.localdomain
   access 0777
 }
@@ -7279,7 +7259,7 @@ inputs
 stat
 {
   create 1496865993
-  modify 1523492115
+  modify 1523566482
   author mikel@mikembp-sesi.local
   access 0777
 }
@@ -8161,7 +8141,7 @@ inputs
 stat
 {
   create 1496865993
-  modify 1523491500
+  modify 1523567080
   author mikel@mikembp-sesi.local
   access 0777
 }
@@ -8377,7 +8357,7 @@ inputs
 stat
 {
   create 1496867184
-  modify 1523491500
+  modify 1523567080
   author mikel@mikembp-sesi.local
   access 0777
 }
@@ -9124,7 +9104,7 @@ inputs
 stat
 {
   create 1510226185
-  modify 1523040781
+  modify 1523567080
   author mikel@mikembp-sesi.local
   access 0777
 }
@@ -9377,7 +9357,7 @@ inputs
 stat
 {
   create 1512202671
-  modify 1523492115
+  modify 1523566482
   author mikel@mikembp-sesi.local
   access 0777
 }

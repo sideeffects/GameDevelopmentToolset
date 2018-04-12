@@ -36,57 +36,93 @@ def applyPresets(node, firetype):
                  ('setmaxres', '0'),
                  ('maxres', '128'),
                  ('emitscale', '10'),
-                 ]               
+                 ]
+    
+    1m_wide_high_preview = [ ('divsize', '0.0111'), 
+                             ('substeps', '1'),
+                             ]
                  
+    1m_wide_low = [ ('scale_source', '0.135'),
+                    ('cooldown_time', '0.2'),
+                    ('dist_scale', '0.4'),
+                    ('voronoiinfluence', '0.65'),
+                    ('offset', '8'),
+                    ('elementsize', '0.28'),
+                  ]
+                  
+    1m_wide_low_preview = [ ('divsize', '0.02'),
+                            ('scale_source', '0.15'),
+                            ('substeps', '3'),
+                            ('voronoiinfluence', '1.3'),
+                          ]
+    
+    small_flame = [ ('divsize', '0.0025'),
+                    ('scale_source', '0.2'),
+                    ('cooldown_time', '0.5'),
+                    ('dist_scale', '0.2'),
+                    ('shred_scale', '0.04'),
+                    ('turbulence', '0.1'),
+                    ('turbulenceswirlsize', '0.1'),
+                    ('halfsphere', '0'),
+                    ('s2y', '1.0'),
+                    ('scale2', '0.05'),
+                    ('boundexpansion', '0.01'),
+                    ('voronoiinfluence', '0.05'),
+                    ('pulseduration', '6'),
+                    ('offset', '0'),
+                    ('elementsize', '0.08'),
+                    ('emitscale', '40.0'),
+                  ]
+                  
+    small_flame_preview = [ ('divsize', '0.005'),
+                            ('scale_source', '0.22'),
+                            ('turbulence', '0.05'),
+                            ('turbulenceswirlsize', '0.05'),
+                            ('substeps', '3'),
+                          ]
+                          
+    torch_flame = [ ('divsize', '0.005'),
+                    ('scale_source', '0.175'),
+                    ('cooldown_time', '1.25'),
+                    ('dist_scale', '0.4'),
+                    ('turbulence', '0.15'),
+                    ('turbulenceswirlsize', '0.2'),
+                    ('halfsphere', '0'),
+                    ('s2y', '1.0'),
+                    ('scale2', '0.135'),
+                    ('voronoiinfluence', '0.3'),
+                    ('pulseduration', '5'),
+                    ('offset', '0'),
+                    ('elementsize', '0.13'),
+                    ('emitscale', '40.0'),
+                  ]
+                  
+    torch_flame_preview = [ ('divsize', '0.01'),
+                            ('substeps', '2'),
+                          ]
+    
     applyParmList(node, defaults)
     
     if firetype == '1m_wide_high':
         applyParmList(node, defaults)
+    if firetype == '1m_wide_high_preview':
+        applyParmList(node, defaults)
+        applyParmList(node, 1m_wide_high_preview)
     if firetype == '1m_wide_low':
-        applyParmList(node,
-                [ ('scale_source', '0.135'),
-                  ('cooldown_time', '0.2'),
-                  ('dist_scale', '0.4'),
-                  ('voronoiinfluence', '0.65'),
-                  ('offset', '8'),
-                  ('elementsize', '0.28'),
-                 ])
+        applyParmList(node, 1m_wide_low)
+    if firetype == '1m_wide_low_preview':
+        applyParmList(node, 1m_wide_low)
+        applyParmList(node, 1m_wide_low_preview)
     if firetype == 'small_flame':
-        applyParmList(node,
-                [ ('divsize', '0.0025'),
-                  ('scale_source', '0.2'),
-                  ('cooldown_time', '0.5'),
-                  ('dist_scale', '0.2'),
-                  ('shred_scale', '0.04'),
-                  ('turbulence', '0.1'),
-                  ('turbulenceswirlsize', '0.1'),
-                  ('halfsphere', '0'),
-                  ('s2y', '1.0'),
-                  ('scale2', '0.05'),
-                  ('boundexpansion', '0.01'),
-                  ('voronoiinfluence', '0.05'),
-                  ('pulseduration', '6'),
-                  ('offset', '0'),
-                  ('elementsize', '0.08'),
-                  ('emitscale', '40.0'),
-                ])
+        applyParmList(node, small_flame)
+    if firetype == 'small_flame_preview':
+        applyParmList(node, small_flame)
+        applyParmList(node, small_flame_preview)
     if firetype == 'torch_fire':
-        applyParmList(node,
-                [ ('divsize', '0.005'),
-                  ('scale_source', '0.175'),
-                  ('cooldown_time', '1.25'),
-                  ('dist_scale', '0.4'),
-                  ('turbulence', '0.15'),
-                  ('turbulenceswirlsize', '0.2'),
-                  ('halfsphere', '0'),
-                  ('s2y', '1.0'),
-                  ('scale2', '0.135'),
-                  ('voronoiinfluence', '0.3'),
-                  ('pulseduration', '5'),
-                  ('offset', '0'),
-                  ('elementsize', '0.13'),
-                  ('emitscale', '40.0'),
-                ])
+        applyParmList(node, torch_flame)
+    if firetype == 'torch_fire_preview':
+        applyParmList(node, torch_flame)
+        applyParmList(node, torch_flame_preview)
     
 def invokePresetMenu(kwargs):
     node = kwargs['node']
@@ -103,4 +139,3 @@ def printChanges(kwargs):
             name = pm.name()
             value = str(pm.eval())
             print (name + " : " + value)
-    

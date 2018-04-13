@@ -18,93 +18,100 @@
         name    "printChanges"
         label   "Print Changes"
         type    button
+        invisible
         default { "0" }
         parmtag { "script_callback" "hou.pwd().hdaModule().printChanges(kwargs)" }
         parmtag { "script_callback_language" "python" }
     }
-    parm {
-        name    "loadfromdisk"
-        label   "Load from Disk     "
-        type    toggle
-        joinnext
-        default { "off" }
-        range   { 0 1 }
-        parmtag { "autoscope" "0000000000000000" }
-    }
-    parm {
-        name    "reload"
-        label   "Reload Geometry"
-        type    button
-        default { "0" }
-        range   { 0 1 }
-        parmtag { "autoscope" "0000000000000000" }
-    }
-    parm {
-        name    "file"
-        label   "Geometry File"
-        type    geometry
-        default { "$HIP/geo/$OS.$F.bgeo.sc" }
-        menureplace {
-            [ "opmenu -l fire_import/fire_sim_import file" ]
+    groupcollapsible {
+        name    "cachefolder"
+        label   "Cache"
+
+        parm {
+            name    "loadfromdisk"
+            label   "Load from Disk     "
+            type    toggle
+            joinnext
+            default { "off" }
+            range   { 0 1 }
+            parmtag { "autoscope" "0000000000000000" }
         }
-        range   { 0 1 }
-        parmtag { "autoscope" "0000000000000000" }
-        parmtag { "filechooser_mode" "write" }
-    }
-    parm {
-        name    "execute"
-        label   "Save to Disk"
-        type    button
-        joinnext
-        default { "0" }
-        range   { 0 1 }
-        parmtag { "autoscope" "0000000000000000" }
-        parmtag { "script_callback_language" "python" }
-        parmtag { "takecontrol" "always" }
-    }
-    parm {
-        name    "executebackground"
-        label   "Save to Disk in Background"
-        type    button
-        default { "0" }
-        range   { 0 1 }
-        parmtag { "autoscope" "0000000000000000" }
-        parmtag { "takecontrol" "always" }
-    }
-    parm {
-        name    "trange"
-        label   "Valid Frame Range"
-        type    ordinal
-        default { "normal" }
-        menu {
-            "off"       "Save Current Frame"
-            "normal"    "Save Frame Range"
-            "on"        "Save Frame Range Only (Strict)"
+        parm {
+            name    "reload"
+            label   "Reload Geometry"
+            type    button
+            default { "0" }
+            range   { 0 1 }
+            parmtag { "autoscope" "0000000000000000" }
         }
-        range   { 0 1 }
-        parmtag { "autoscope" "0000000000000000" }
-    }
-    parm {
-        name    "f"
-        label   "Start/End/Inc"
-        type    float
-        size    3
-        default { "1" "100" "1" }
-        disablewhen "{ trange == off }"
-        range   { 0 10 }
-        parmtag { "autoscope" "0000000000000000" }
-    }
-    parm {
-        name    "take"
-        label   "Render With Take"
-        type    string
-        default { "_current_" }
-        menu {
-            [ "opmenu -l fire_import/fire_sim_import take" ]
+        parm {
+            name    "file"
+            label   "Geometry File"
+            type    geometry
+            default { "$HIP/geo/$OS.$F.bgeo.sc" }
+            menureplace {
+                [ "opmenu -l fire_import/fire_sim_import file" ]
+            }
+            range   { 0 1 }
+            parmtag { "autoscope" "0000000000000000" }
+            parmtag { "filechooser_mode" "write" }
         }
-        range   { 0 1 }
-        parmtag { "autoscope" "0000000000000000" }
+        parm {
+            name    "execute"
+            label   "Save to Disk"
+            type    button
+            joinnext
+            default { "0" }
+            range   { 0 1 }
+            parmtag { "autoscope" "0000000000000000" }
+            parmtag { "script_callback_language" "python" }
+            parmtag { "takecontrol" "always" }
+        }
+        parm {
+            name    "executebackground"
+            label   "Save to Disk in Background"
+            type    button
+            default { "0" }
+            range   { 0 1 }
+            parmtag { "autoscope" "0000000000000000" }
+            parmtag { "takecontrol" "always" }
+        }
+        parm {
+            name    "trange"
+            label   "Valid Frame Range"
+            type    ordinal
+            default { "normal" }
+            menu {
+                "off"       "Save Current Frame"
+                "normal"    "Save Frame Range"
+                "on"        "Save Frame Range Only (Strict)"
+            }
+            range   { 0 1 }
+            parmtag { "autoscope" "0000000000000000" }
+        }
+        parm {
+            name    "f"
+            label   "Start/End/Inc"
+            type    float
+            size    3
+            default { "1" "100" "1" }
+            disablewhen "{ trange == off }"
+            range   { 0 10 }
+            parmtag { "autoscope" "0000000000000000" }
+        }
+        parm {
+            name    "take"
+            label   "Render With Take"
+            type    string
+            default { "_current_" }
+            menu {
+                [ "opmenu -l fire_import/fire_sim_import take" ]
+            }
+            range   { 0 1 }
+            parmtag { "autoscope" "0000000000000000" }
+        }
     }
+
     parm {
         name    "presets"
         label   "Presets"
@@ -189,8 +196,8 @@
                 parmtag { "parmvop" "1" }
             }
             groupsimple {
-                name    "distrubancefolder"
-                label   "Disturbance"
+                name    "shapefolder"
+                label   "Shape"
 
                 parm {
                     name    "dist_scale"
@@ -203,43 +210,6 @@
                     parmtag { "parmvop" "1" }
                 }
                 parm {
-                    name    "dist_density_cutoff"
-                    label   "Cutoff"
-                    type    float
-                    default { "0.1" }
-                    help    "Ignore voxels with values higher than this in the \"threshold field\" (density by default, you can change the field on the Bindings tab). This lets you only affect the edges of the smoke."
-                    range   { 0 1 }
-                    parmtag { "autoscope" "0000000000000000" }
-                    parmtag { "parmvop" "1" }
-                }
-                parm {
-                    name    "dist_override_block_size"
-                    label   "Use Block Size"
-                    type    toggle
-                    default { "off" }
-                    help    "When this option is on, use the Block size parameter to set the size of disturbance elements in word space units. When this option is off, use Locality to control the size of disturbance elements in voxels. Using block sizes avoids issues if you scale the container."
-                    range   { 0 1 }
-                    parmtag { "autoscope" "0000000000000000" }
-                    parmtag { "parmvop" "1" }
-                }
-                parm {
-                    name    "dist_locality"
-                    label   "Locality"
-                    type    integer
-                    default { "2" }
-                    help    "Number of voxels are sampled into a certain disturbance value. Higher values give larger disturbance elements. Available when Use block size is off."
-                    disablewhen "{ dist_override_block_size == 1 }"
-                    range   { 1! 10 }
-                    parmtag { "autoscope" "0000000000000000" }
-                    parmtag { "parmvop" "1" }
-                }
-            }
-
-            groupsimple {
-                name    "shreddingfolder"
-                label   "Shredding"
-
-                parm {
                     name    "shred_scale"
                     label   "Shredding"
                     type    float
@@ -248,12 +218,6 @@
                     range   { 0! 1 }
                     parmtag { "autoscope" "0000000000000000" }
                 }
-            }
-
-            groupsimple {
-                name    "turbulencefolder"
-                label   "Turbulence"
-
                 parm {
                     name    "turbulence"
                     label   "Turbulence"

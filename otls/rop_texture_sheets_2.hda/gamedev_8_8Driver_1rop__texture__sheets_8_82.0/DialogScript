@@ -325,13 +325,13 @@
                 name    "no_of_frames"
                 label   "No. Of Frames"
                 type    label
-                default { "`ch(\"internal_frames2\")-ch(\"internal_frames1\")+1" }
+                default { "`(ch(\"internal_frames2\")-ch(\"internal_frames1\"))/ch(\"internal_frames3\")+1" }
             }
             parm {
                 name    "atlas_layout"
                 label   "Atlas Layout"
                 type    label
-                default { "`int(ch(\"numperline\"))` x `ceil((ch(\"internal_frames2\")-ch(\"internal_frames1\")+1)/ch(\"numperline\"))" }
+                default { "`int(ch(\"numperline\"))` x `ceil(((ch(\"internal_frames2\")-ch(\"internal_frames1\"))/ch(\"internal_frames3\")+1)/ch(\"numperline\"))" }
             }
             parm {
                 name    "res_per_frame"
@@ -361,7 +361,7 @@
                 name    "image_res2"
                 label   "Override Resolution"
                 type    label
-                default { "`int(ch(\"resolutionx\")/ch(\"numperline\"))` x `int(ch(\"resolutiony\")/((ch(\"internal_frames2\")-ch(\"internal_frames1\")+1)/ch(\"numperline\")))" }
+                default { "`int(ch(\"resolutionx\")/ch(\"numperline\"))` x `int(ch(\"resolutiony\")/(((ch(\"internal_frames2\")-ch(\"internal_frames1\"))/ch(\"internal_frames3\")+1)/ch(\"numperline\")))" }
                 hidewhen "{ override_res == 0 }"
             }
         }

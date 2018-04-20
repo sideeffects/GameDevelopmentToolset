@@ -117,7 +117,7 @@ Shader "sidefx/ShaderFunctionsExamples" {
 		}
 
 		// Function to construct normal vector from TextureSheet Color
-		float DecodeNormalFromTextureSheet(float3 Color){
+		float3 DecodeNormalFromTextureSheet(float3 Color){
 
 			fixed3 Normal;
 			Normal.rg = Color.rg * 2 - 1;
@@ -139,7 +139,7 @@ Shader "sidefx/ShaderFunctionsExamples" {
 
 			*/
 
-			/* ////////////// TEXTURE SHEETS EXAMPLE CODE //////////////
+			////////////// TEXTURE SHEETS EXAMPLE CODE //////////////
 			fixed4 c = tex2D(_PyroTexture, IN.uv_PyroTexture);
 			
 			// Diffuse
@@ -163,7 +163,7 @@ Shader "sidefx/ShaderFunctionsExamples" {
 			
 			// Alpha
 			o.Alpha = c.a;
-			*/
+			
 
 		}
 		ENDCG

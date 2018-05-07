@@ -1,4 +1,4 @@
-﻿// Questions: paula@sidefx.com
+// Questions: paula@sidefx.com
 // Last Update: 05-April-2018
 
 Shader "sidefx/ShaderFunctionsExamples" {
@@ -65,6 +65,7 @@ Shader "sidefx/ShaderFunctionsExamples" {
 		float4 GetMotionVectorDisplacedTexture(float2 f2OrigUV, sampler2D saTexture, sampler2D saMotionVectorTexture, float fDoubleMotionVector, float fCols, float fRows, float fDistortion, float fAnimationPhase ){
 		
 			// Flipbook Setup
+			f2Orig*V.y = 1 - f2Orig.y;
 			float XColTime = (fCols * fRows) * min(fAnimationPhase, 0.99999);
 			float FloorXColTime = floor(XColTime);
 			float2 ColRow = float2(fCols, fRows);
@@ -80,9 +81,10 @@ Shader "sidefx/ShaderFunctionsExamples" {
 			
 			// Motion Vector Setup
 			float2 PrimMotionVector = tex2D(saMotionVectorTexture, CustomUV).rg;
-			PrimMotionVector.r = 1-PrimMotionVector.r;
+			PrimMotionVector.g = 1-PrimMotionVector.g;
 
-			float2 PrimMotionVectorBias = (PrimMotionVector - 0.5) * 2.0;
+			float2 PrimMotionVectorBias = PrimMotionVector - 0.5;
+			PrimMotionVectorBias *= 2;
 			float2 PrimMotionVectorIntens = (PrimMotionVectorBias / ColRow) * fDistortion;
 
 			// Regular Motion Vectors
@@ -94,14 +96,17 @@ Shader "sidefx/ShaderFunctionsExamples" {
 
 			// Double Motion Vectors
 			if (fDoubleMotionVector) {
-				PrimMotionVectorAdd.r = 1 - PrimMotionVectorAdd.r;
 				float2 MotionVecForward = tex2D(saMotionVectorTexture, PrimMotionVectorAdd).rg;
-
+				MotionVecForward.g = 1-MotionVecForward.g;
+				MotionVecForward -= 0.5;
+				MotionVecForward *= 2.0;
 				MotionVectorForward = CustomUV + ((fDistortion * ((MotionVecForward -0.5) * 2) / ColRow) * BlendPhase); //DoubleMotionVectorAdd
 
-				PrimMotionVectorSubtract.r = 1 - PrimMotionVectorSubtract.r;
 				float2 MotionVecReverse = tex2D(saMotionVectorTexture, PrimMotionVectorSubtract).rg;
-
+				MotionVecReverse.g = 1-MotionVecReverse.g;
+				MotionVecReverse -= 0.5;
+				MotionVecReverse *= 2.0;
+				
 				MotionVectorReverse = CustomUV2 - ((fDistortion * ((MotionVecReverse -0.5) * 2) / ColRow) * (1-BlendPhase)); //DoubleMotionVectorSubtract
 
 			 }

@@ -65,7 +65,7 @@ Shader "sidefx/ShaderFunctionsExamples" {
 		float4 GetMotionVectorDisplacedTexture(float2 f2OrigUV, sampler2D saTexture, sampler2D saMotionVectorTexture, float fDoubleMotionVector, float fCols, float fRows, float fDistortion, float fAnimationPhase ){
 		
 			// Flipbook Setup
-			f2Orig*V.y = 1 - f2Orig.y;
+			f2OrigUV.y = 1 - f2OrigUV.y;
 			float XColTime = (fCols * fRows) * min(fAnimationPhase, 0.99999);
 			float FloorXColTime = floor(XColTime);
 			float2 ColRow = float2(fCols, fRows);

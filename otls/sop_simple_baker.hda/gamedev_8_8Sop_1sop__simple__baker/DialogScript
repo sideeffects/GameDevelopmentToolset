@@ -18,6 +18,15 @@
         name    "render"
         label   "Render"
         type    button
+        invisible
+        default { "0" }
+        parmtag { "script_callback" "hou.pwd().hdaModule().render()" }
+        parmtag { "script_callback_language" "python" }
+    }
+    parm {
+        name    "execute"
+        label   "Render"
+        type    button
         default { "0" }
         parmtag { "script_callback" "hou.pwd().hdaModule().render()" }
         parmtag { "script_callback_language" "python" }

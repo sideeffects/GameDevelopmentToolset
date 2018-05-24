@@ -31,24 +31,32 @@ def CreateLocalCopy(a_Parent, a_Container):
 def MainFunction():
 
     ThisNode = hou.pwd()
-    ToClean = ThisNode.parm("objPrevSim").evalAsString()
     ContainerObject = CreateNewSubnet()
     Output = CreateLocalCopy(ThisNode, ContainerObject)
-
+    Cache = ThisNode.parm("objPrevSim").evalAsString()
     ThisNode.parm("objPrevSim").set(Output.path())
 
     hou.node(ThisNode.path()+"/drawcurve1").parm("stroke_numstrokes").set(0)
     ThisNode.parm("btnClearCurrent").pressButton()
-    Clean(ToClean)
+    Clean(Cache)
+    ThisNode.parm('Activate_All').set(0)
     hou.setFrame(1)
 
 def ResetCurrent():
     ThisNode = hou.pwd()
     hou.node(ThisNode.path()+"/drawcurve1").parm("stroke_numstrokes").set(0)
+    ThisNode.parm('Activate_All').set(0)
     hou.setFrame(1)
+
+def ActivateAll():
+    ThisNode = hou.pwd()
+    hou.setFrame(1)
+    ThisNode.parm('Activate_All').set(1)
+
 
 def TertiaryFunction():
     ThisNode = hou.pwd()
     Clean(ThisNode.parm("objPrevSim").evalAsString())
     hou.node(ThisNode.path()+"/IN_PREVIOUS_SIM").parm("objpath1").set("")
+    ThisNode.parm('Activate_All').set(0)
     ResetCurrent()

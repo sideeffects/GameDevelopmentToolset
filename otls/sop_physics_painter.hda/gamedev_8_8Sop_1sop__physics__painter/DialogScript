@@ -58,12 +58,27 @@
         parmtag { "autoscope" "0000000000000000" }
     }
     parm {
+        name    "Activate_All"
+        label   "bActivateAll"
+        type    toggle
+        invisible
+        default { "0" }
+    }
+    parm {
         name    "btnClearCurrent"
         label   "Clear Current Paint"
         type    button
         default { "0" }
         parmtag { "autoscope" "0000000000000000" }
         parmtag { "script_callback" "kwargs['node'].hm().ResetCurrent()" }
+        parmtag { "script_callback_language" "python" }
+    }
+    parm {
+        name    "parm"
+        label   "Activate All Paint"
+        type    button
+        default { "0" }
+        parmtag { "script_callback" "kwargs['node'].hm().ActivateAll()" }
         parmtag { "script_callback_language" "python" }
     }
     parm {

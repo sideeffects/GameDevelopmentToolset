@@ -23,7 +23,7 @@ Sop
 Content-Disposition: attachment; filename="hdaroot.init"
 Content-Type: text/plain
 
-type = sop_physics_painter
+type = gamedev::sop_physics_painter
 matchesdef = 0
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -32,9 +32,9 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position 9.58296 -31.4237
+position -40.67 -0.221943
 connectornextid 3
-flags =  lock off model off template on footprint off xray off bypass off display on render on highlight off unload off savedata off compress on colordefault on exposed on
+flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
 {
 1 "output1"
@@ -42,16 +42,16 @@ outputsNamed3
 }
 inputsNamed3
 {
-0 	polyreduce1 1 1 "input1"
+0 	Static_Objects 0 1 "input1"
 }
 inputs
 {
-0 	polyreduce1 0 1
+0 	Static_Objects 0 1
 }
 stat
 {
-  create 1519778871
-  modify 1519780447
+  create 1527102442
+  modify 1527200459
   author GDC_Houdini@AUSTIN
   access 0777
 }
@@ -67,7 +67,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"0.4"
+		"value":"0.5"
 	}
 }
 
@@ -83,13 +83,13 @@ Content-Type: text/plain
 	height := 3.8889804518799274;
 	width := 3.9621039845173209;
 	comment := SIM;
-	y_position := -39.310473486728846;
+	y_position := -40.612093990123881;
 	minimized := 0;
-	x_position := -10.885919704418088;
+	x_position := -10.308079678879825;
 }
 {
   create 1512112232
-  modify 1519778937
+  modify 1527196715
   author paula@DESKTOP-JOVQSE4
   access 0777
 }
@@ -132,7 +132,7 @@ inputs
 stat
 {
   create 1512106792
-  modify 1519779139
+  modify 1527197110
   author paula@DESKTOP-JOVQSE4
   access 0777
 }
@@ -194,103 +194,6 @@ Content-Type: text/plain
       flags = 0
       segment { length = 0 value = 0.1061520129442215 0.1061520129442215 expr = ch(\"../stroke_radius\") }
     }
-    channel stroke1_enable {
-      lefttype = extend
-      righttype = extend
-      default = 1
-      flags = 0
-      segment { length = 0 value = 1 1 expr = ch(\"../stroke1_enable\") }
-    }
-    channel stroke1_radius {
-      lefttype = extend
-      righttype = extend
-      default = 0.10000000000000001
-      flags = 0
-      segment { length = 0 value = 0.10000000000000001 0.10000000000000001 expr = ch(\"../stroke1_radius\") }
-    }
-    channel stroke1_tool {
-      lefttype = extend
-      righttype = extend
-      flags = 0
-      segment { length = 0 expr = ch(\"../stroke1_tool\") }
-    }
-    channel stroke1_colorr {
-      lefttype = extend
-      righttype = extend
-      default = 1
-      flags = 0
-      segment { length = 0 value = 1 1 expr = ch(\"../stroke1_colorr\") }
-    }
-    channel stroke1_colorg {
-      lefttype = extend
-      righttype = extend
-      default = 1
-      flags = 0
-      segment { length = 0 value = 1 1 expr = ch(\"../stroke1_colorg\") }
-    }
-    channel stroke1_colorb {
-      lefttype = extend
-      righttype = extend
-      default = 1
-      flags = 0
-      segment { length = 0 value = 1 1 expr = ch(\"../stroke1_colorb\") }
-    }
-    channel stroke1_opacity {
-      lefttype = extend
-      righttype = extend
-      default = 1
-      flags = 0
-      segment { length = 0 value = 1 1 expr = ch(\"../stroke1_opacity\") }
-    }
-    channel stroke1_projtype {
-      lefttype = extend
-      righttype = extend
-      flags = 0
-      segment { length = 0 expr = ch(\"../stroke1_projtype\") }
-    }
-    channel stroke1_projcenterx {
-      lefttype = extend
-      righttype = extend
-      flags = 0
-      segment { length = 0 expr = ch(\"../stroke1_projcenterx\") }
-    }
-    channel stroke1_projcentery {
-      lefttype = extend
-      righttype = extend
-      flags = 0
-      segment { length = 0 expr = ch(\"../stroke1_projcentery\") }
-    }
-    channel stroke1_projcenterz {
-      lefttype = extend
-      righttype = extend
-      flags = 0
-      segment { length = 0 expr = ch(\"../stroke1_projcenterz\") }
-    }
-    channel stroke1_projdirx {
-      lefttype = extend
-      righttype = extend
-      flags = 0
-      segment { length = 0 expr = ch(\"../stroke1_projdirx\") }
-    }
-    channel stroke1_projdiry {
-      lefttype = extend
-      righttype = extend
-      flags = 0
-      segment { length = 0 expr = ch(\"../stroke1_projdiry\") }
-    }
-    channel stroke1_projdirz {
-      lefttype = extend
-      righttype = extend
-      flags = 0
-      segment { length = 0 expr = ch(\"../stroke1_projdirz\") }
-    }
-    channel stroke1_data {
-      lefttype = extend
-      righttype = extend
-      defaultString = \"0\"
-      flags = 0
-      segment { length = 0 expr = chs(\"../stroke1_data\") }
-    }
   }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -299,9 +202,9 @@ Content-Type: text/plain
 
 {
 version 0.8
-folder1	[ 0	locks=0 ]	(	0	0	0	)
+folder1	[ 0	locks=0 ]	(	2	2	2	)
 createwidthattrib	[ 0	locks=0 ]	(	"on"	)
-stroke_radius	[ 0	locks=0 ]	(	[ stroke_radius	0.106152 ] 	)
+stroke_radius	[ 0	locks=0 ]	(	[ stroke_radius	0.36821362376213074 ] 	)
 stroke_tool	[ 0	locks=0 ]	(	0	)
 createcolorattrib	[ 0	locks=0 ]	(	"on"	)
 stroke_color	[ 0	locks=0 ]	(	1	1	1	)
@@ -312,16 +215,7 @@ trimcurves	[ 0	locks=0 ]	(	"on"	)
 stroke_projtype	[ 0	locks=0 ]	(	[ stroke_projtype	4 ] 	)
 showguide	[ 0	locks=0 ]	(	"on"	)
 stroke_projcenter	[ 0	locks=0 ]	(	0	0	0	)
-stroke_numstrokes	[ 0	locks=0 ]	(	[ stroke_numstrokes	1 ] 	)
-stroke1_enable	[ 0	locks=0 ]	(	[ stroke1_enable	1 ] 	)
-stroke1_radius	[ 0	locks=0 ]	(	[ stroke1_radius	0.10000000000000001 ] 	)
-stroke1_tool	[ 0	locks=0 ]	(	[ stroke1_tool	-1 ] 	)
-stroke1_color	[ 0	locks=0 ]	(	[ stroke1_colorr	1 ] 	[ stroke1_colorg	1 ] 	[ stroke1_colorb	1 ] 	)
-stroke1_opacity	[ 0	locks=0 ]	(	[ stroke1_opacity	1 ] 	)
-stroke1_projtype	[ 0	locks=0 ]	(	[ stroke1_projtype	4 ] 	)
-stroke1_projcenter	[ 0	locks=0 ]	(	[ stroke1_projcenterx	0 ] 	[ stroke1_projcentery	0 ] 	[ stroke1_projcenterz	0 ] 	)
-stroke1_projdir	[ 0	locks=0 ]	(	[ stroke1_projdirx	-0.13316851854324341 ] 	[ stroke1_projdiry	-0.81921404600143433 ] 	[ stroke1_projdirz	0.5578121542930603 ] 	)
-stroke1_data	[ 0	locks=0 ]	(	[ stroke1_data	20000000C1000000B3B75A049C36981439F6031C7589C1EB2C2484FBFC79A1F3000008F30000000000004B2400000000000000006B03D00404C500040E09E2F3A8700000C502E9D3492925F3000000001000000064E75A04FE2698144B17031CA56EB1EB7B9784FB6CB5A1F3000008F3F62130D300004B240000000000000000FDD3E0048BE30004034F62F3DD800000E7288CD3433146F300000000100000004BC85A048DD59814FEE7031CFBC981EB531C94FBAD3E81F3000008F321380CD300004B2400000000000000001AB431040A1FDFF306F84FE38570000094B940E33A9BADE300000000100000004DD85A04FFC59814A418031C75C581EB367F94FB940A81F3000008F321380CD300004B24000000000000000025BB310400C2DFF306A16EE3857000006131FDD336A66BE30000000010000000EBD85A04B2A59814B998031C2B9681EB80BAA4FB590B71F3000008F3000000E300004B240000000000000000572041040AED9FF304126BE3C1700000D4AFE2E338D018C300000000100000006A385A04536598141769031CB4DCA1EBAA3AB4FB71B361F3000008F35C0203E300004B24000000000000000075F41104829E2FF3086696E3306000004E9C28E3630F10F30000000010000000EEB75A04BC45981448B9031C31C9C1EB23BFB4FB216A51F3000008F3213804E300004B2400000000000000002B41F00486A8FEF30CF6B3E330600000ACC2ECE3176358E3000000001000000002175A040D259814F92A031C0632F1EB0E47C4FB4C4D41F3000008F3981406E300004B240000000000000000868FB00486EEAEF3001E4FD3406000000E9C2BE3C4688BD3000000001000000058B55A04BDE498144D0B031C1CF242EBC256D4FB8DF231F3000008F3721388E300004B2400000000000000008808500400E3FDF300003DB3BE400000072AAAD309DDEDE3000000001000000031245A045EA49814F7FB031C9BC1A2EB3FF4E4FB649711F3000008F398140AE300004B2400000000000000008957BFF3002C1DF3080AFCDBC940000033DEF5E39263D6E3000000001000000024D25A049C749814E1BC031C472FE2EB8A40F4FB82B101F3000008F35C020BE300004B240000000000000000E30AEEF30F8A6CF300A3D3EBC94000007EDFD1F33AE26AC3000000001000000025C15A0461649814022D031C8FED23EBE236F4FBF854F0F3000008F3E4260DE300004B240000000000000000A3404EF383BEEBF3084E86EBD940000087B134E3A764D3E3000000001000000069205A04D35498140B7D031C822D83EB6688F4FBA669E0F3000008F30B278EE300004B24000000000000000025C83DF38A7E5BF300FA57EBD9400000AAD36BC32D7D11F30000000010000000035C4A04D354981440FD031CE78F64EB4BF5F4FBA10AD0F3000008F3000000F300004B240000000000000000EB58BAF307AB3AF308D765EB634000004D84A9E36A5374D3000000001000000089BB4A04D3549814A20E031C80D294EBE585F4FB9F87D0F3000008F3000000F300004B2400000000000000002E535AF38F1E0AF3042B15EBD0400000F46990E3A3A1B3F30000000010000000E4394A04D35498149F4E031CE6B625EBEA63F4FBEC2DC0F3000008F35C0201F300004B2400000000000000000220B8F388DC69F304C084EB43400000DDD95AE3D34B9DE3000000001000000008F54A04D354981482BE031CF224E5EB4940F4FB6D8FB0F3000008F36F82C1F300004B240000000000000000098535F30586C8F30C72A4EB9040000085E23EE365BAC2E30000000010000000B5624A04F56498147AEE031C6014B6EB8C18E4FBDE56B0F3000008F31380C2F300004B24000000000000000081F6A0F30B8F58F30451A3EBB640000057E159E358237BE30000000010000000F72E3A04A58498141F0F031CFB79A7EB3C5BD4FB0B7EA0F3000008F36F82C3F300004B2400000000000000000CB8C6E30B91D8F3046EC5EBE24000006E31E1F3677038E3000000001000000071473A0470C49814253F031C2B6A98EB9063C4FB4013A0F3000008F3721384F300004B2400000000000000000AE6D2EB06280CF30824DEEB05400000F1A2E1E390D8FCC3000000001000000096413A04384598142D5E031CBC7349EBC28994FB1FB4B0F3000008F36F82C5F300004B24000000000000000007EE51FB814EADF30C7A0CEBB050000059D693E37ED5EED300000000100000004F6E2A04D4B59814F47D031CC2D299EBE7CA74FB6F6BC0F3000008F31380C6F300004B2400000000000000000762F4FB05CD4EF3007E95EBA8500000BC00D1F3CB0136E30000000010000000DCAC2A0408369814492C031C4333C9EB5A5854FB257EE0F3000008F3000008F300004B240000000000000000870CF6FB82D28FF300CA0DCB6E60000048D178E3DD55B3F30000000010000000B31D2A04E1D69814195A031C7CA6B9EB422434FBBA0321F3000008F3CAC1A8F300004B24000000000000000000BB16FBC936B004047E24E371800000F7FB3AE3D182C8E30000000010000000D38D2A04380798143CA9031CE7D9A9EB28B724FB68E631F3000008F3398149F300004B2400000000000000008984C4FBC93B710404F714E317800000AA6067F3F5F5C8C30000000010000000D17D2A04C51798148689031C84ABA9EBF44424FB0BFA31F3000008F3CAC1A9F300004B24000000000000000006CBB4FBC35D910404D194E31780000073E090F3E224A5E30000000010000000D56D2A04DE1798145D69031CD6DCA9EB77F124FB51BD31F3000008F31380C9F300004B24000000000000000001F5B4FB4404B1040CE2E4E3178000004CA118E34C6EFAE30000000010000000D56D2A04DE1798145D69031CD6DCA9EB77F124FB51BD31F3000008F31380C9F300004B24000000000000000001F5B4FB4404B1040CE2E4E3178000004CA118E34C6EFAE30000000010000000 ] 	)
+stroke_numstrokes	[ 0	locks=0 ]	(	[ stroke_numstrokes	0 ] 	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -344,87 +238,6 @@ Content-Type: text/plain
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot/attribwrangle3.init"
-Content-Type: text/plain
-
-type = attribwrangle
-matchesdef = 1
-
---HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot/attribwrangle3.def"
-Content-Type: text/plain
-
-sopflags sopflags = 
-comment ""
-position -10.1501 -14.4645
-connectornextid 3
-flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
-outputsNamed3
-{
-1 "output1"
-}
-inputsNamed3
-{
-0 	foreach_begin1 0 1 "input1"
-2 	attribwrangle16 1 1 "input2"
-}
-inputs
-{
-0 	foreach_begin1 0 1
-1 	attribwrangle16 0 1
-}
-stat
-{
-  create 1512107655
-  modify 1519779278
-  author paula@DESKTOP-JOVQSE4
-  access 0777
-}
-color UT_Color RGB 0.8 0.8 0.8 
-delscript ""
-exprlanguage hscript
-end
-
---HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot/attribwrangle3.parm"
-Content-Type: text/plain
-
-{
-version 0.8
-folder0	[ 0	locks=0 ]	(	0	0	)
-group	[ 0	locks=0 ]	(	""	)
-grouptype	[ 0	locks=0 ]	(	"guess"	)
-class	[ 0	locks=0 ]	(	"point"	)
-vex_numcount	[ 0	locks=0 ]	(	10	)
-vex_threadjobsize	[ 0	locks=0 ]	(	1024	)
-snippet	[ 0	locks=0 ]	(	"float size = point(1, \"size\", 0);
-f@radius = size/2 * @pscale;"	)
-exportlist	[ 0	locks=0 ]	(	*	)
-vex_strict	[ 0	locks=0 ]	(	"off"	)
-autobind	[ 0	locks=0 ]	(	"on"	)
-bindings	[ 0	locks=0 ]	(	0	)
-groupautobind	[ 0	locks=0 ]	(	"on"	)
-groupbindings	[ 0	locks=0 ]	(	0	)
-vex_cwdpath	[ 0	locks=0 ]	(	.	)
-vex_outputmask	[ 0	locks=0 ]	(	*	)
-vex_updatenmls	[ 0	locks=0 ]	(	"off"	)
-vex_matchattrib	[ 0	locks=0 ]	(	id	)
-vex_inplace	[ 0	locks=0 ]	(	"off"	)
-vex_selectiongroup	[ 0	locks=0 ]	(	""	)
-}
-
---HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot/attribwrangle3.userdata"
-Content-Type: text/plain
-
-{
-	"___Version___":{
-		"type":"string",
-		"value":""
-	}
-}
-
---HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
 Content-Disposition: attachment; filename="hdaroot/dopnet1.init"
 Content-Type: text/plain
 
@@ -437,9 +250,9 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position -10.4859 -35.9214
+position -9.90806 -37.223
 connectornextid 1
-flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
+flags =  lock off model off template on footprint off xray off bypass off display on render on highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
 {
 0 "output1"
@@ -453,7 +266,7 @@ inputs
 stat
 {
   create 1512107763
-  modify 1513622821
+  modify 1527196943
   author paula@DESKTOP-JOVQSE4
   access 0777
 }
@@ -499,7 +312,7 @@ stdswitcher	[ 0	locks=0 ]	(	1	1	1	)
 numobj	[ 0	locks=0 ]	(	1	)
 resimulate	[ 0	locks=0 ]	(	[ resimulate	0 ] 	)
 initialstate	[ 0	locks=0 ]	(	""	)
-timestep	[ 0	locks=0 ]	(	[ timestep	0.041666666666666664 ] 	)
+timestep	[ 0	locks=0 ]	(	[ timestep	0.033333333333333333 ] 	)
 substep	[ 0	locks=0 ]	(	1	)
 timeoffset	[ 0	locks=0 ]	(	[ timeoffset	0 ] 	)
 startframe	[ 0	locks=0 ]	(	1	)
@@ -537,7 +350,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.380"
+		"value":"16.5.473"
 	}
 }
 
@@ -569,7 +382,7 @@ inputs
 stat
 {
   create 1512108120
-  modify 1513622821
+  modify 1527189327
   author paula@DESKTOP-JOVQSE4
   access 0777
 }
@@ -611,20 +424,20 @@ initialstate	[ 0	locks=0 ]	(	"active"	)
 geosource	[ 0	locks=0 ]	(	"sop"	)
 soppath	[ 0	locks=0 ]	(	../../OUT_PRE_PHYSICSOBJECTS	)
 packtype	[ 0	locks=0 ]	(	packbyname	)
-overwritefromsop	[ 0	locks=0 ]	(	"off"	)
-overwriteattributes	[ 0	locks=0 ]	(	density	)
+overwritefromsop	[ 0	locks=0 ]	(	"on"	)
+overwriteattributes	[ 0	locks=0 ]	(	"active bounce computemass density friction inertialtensorstiffness mass weight"	)
 usetransform	[ 0	locks=0 ]	(	"off"	)
 active	[ 0	locks=0 ]	(	"on"	)
-display	[ 0	locks=0 ]	(	"on"	)
+display	[ 0	locks=0 ]	(	"off"	)
 displaygeo	[ 0	locks=0 ]	(	"simgeo"	)
 rendergeopath	[ 0	locks=0 ]	(	""	)
-initial_state	[ 0	locks=0 ]	(	0	0	0	)
+initial_state	[ 0	locks=0 ]	(	1	1	1	)
 t	[ 0	locks=0 ]	(	0	0	0	)
 r	[ 0	locks=0 ]	(	0	0	0	)
 vel	[ 0	locks=0 ]	(	0	0	0	)
 angvel	[ 0	locks=0 ]	(	0	0	0	)
 inheritvelocity	[ 0	locks=0 ]	(	"off"	)
-showguide	[ 0	locks=0 ]	(	"off"	)
+showguide	[ 0	locks=0 ]	(	"on"	)
 color	[ 0	locks=0 ]	(	0	0	1	)
 bullet_deactivated_color	[ 0	locks=0 ]	(	1	0	0	)
 sepparm	[ 0	locks=0 ]	(	)
@@ -704,7 +517,7 @@ inputs
 stat
 {
   create 1512108120
-  modify 1513622821
+  modify 1527189323
   author paula@DESKTOP-JOVQSE4
   access 0777
 }
@@ -746,8 +559,8 @@ initialstate	[ 0	locks=0 ]	(	"static"	)
 geosource	[ 0	locks=0 ]	(	"sop"	)
 soppath	[ 0	locks=0 ]	(	../../OUT_STATICOBJECTS	)
 packtype	[ 0	locks=0 ]	(	packbyname	)
-overwritefromsop	[ 0	locks=0 ]	(	"off"	)
-overwriteattributes	[ 0	locks=0 ]	(	"active animated deforming"	)
+overwritefromsop	[ 0	locks=0 ]	(	"on"	)
+overwriteattributes	[ 0	locks=0 ]	(	"active bounce computemass density friction inertialtensorstiffness mass weight"	)
 usetransform	[ 0	locks=0 ]	(	"off"	)
 active	[ 0	locks=0 ]	(	"on"	)
 display	[ 0	locks=0 ]	(	"on"	)
@@ -914,7 +727,7 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position -2.35237 -28.3647
+position -2.35237 -28.8486
 connectornextid 2
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
@@ -932,7 +745,7 @@ inputs
 stat
 {
   create 1512108039
-  modify 1519779278
+  modify 1527184066
   author paula@DESKTOP-JOVQSE4
   access 0777
 }
@@ -994,7 +807,7 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position -2.34937 -27.3248
+position -2.34937 -27.8087
 connectornextid 2
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
@@ -1012,7 +825,7 @@ inputs
 stat
 {
   create 1512108087
-  modify 1519779278
+  modify 1527103526
   author paula@DESKTOP-JOVQSE4
   access 0777
 }
@@ -1068,7 +881,7 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position -6.93022 -28.3647
+position -6.93022 -29.8875
 connectornextid 2
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
@@ -1086,7 +899,7 @@ inputs
 stat
 {
   create 1512108039
-  modify 1519779278
+  modify 1527184072
   author paula@DESKTOP-JOVQSE4
   access 0777
 }
@@ -1148,7 +961,7 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position -8.32682 -36.8868
+position -7.74898 -38.1884
 connectornextid 2
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
@@ -1166,7 +979,7 @@ inputs
 stat
 {
   create 1512108039
-  modify 1513622821
+  modify 1527185119
   author paula@DESKTOP-JOVQSE4
   access 0777
 }
@@ -1236,7 +1049,7 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position -8.32382 -37.9247
+position -7.74598 -39.2263
 connectornextid 2
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
@@ -1254,7 +1067,7 @@ inputs
 stat
 {
   create 1512108087
-  modify 1513304371
+  modify 1527185119
   author paula@DESKTOP-JOVQSE4
   access 0777
 }
@@ -1316,7 +1129,7 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position -14.2783 -21.7698
+position -16.7849 -17.2751
 connectornextid 2
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
@@ -1325,16 +1138,16 @@ outputsNamed3
 }
 inputsNamed3
 {
-0 	attribwrangle42 1 1 "input1"
+0 	merge5 2 1 "input1"
 }
 inputs
 {
-0 	attribwrangle42 0 1
+0 	merge5 0 1
 }
 stat
 {
   create 1512109517
-  modify 1519779278
+  modify 1527196929
   author paula@DESKTOP-JOVQSE4
   access 0777
 }
@@ -1357,7 +1170,10 @@ vex_numcount	[ 0	locks=0 ]	(	10	)
 vex_threadjobsize	[ 0	locks=0 ]	(	1024	)
 snippet	[ 0	locks=0 ]	(	"i@PaintObject = 1;
 i@PrevSim = 0;
-s@name = sprintf(\"piece_%g\", @ptnum);"	)
+s@name = sprintf(\"piece_%g\", @ptnum);
+i@active = 1;
+i@static = 0;
+i@found_overlap = 1;"	)
 exportlist	[ 0	locks=0 ]	(	*	)
 vex_strict	[ 0	locks=0 ]	(	"off"	)
 autobind	[ 0	locks=0 ]	(	"on"	)
@@ -1396,7 +1212,7 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position -2.15068 4.90415
+position -2.15068 4.93529
 connectornextid 2
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
@@ -1414,7 +1230,7 @@ inputs
 stat
 {
   create 1512167564
-  modify 1513622821
+  modify 1527190209
   author GDC_Houdini@AUSTIN
   access 0777
 }
@@ -1474,7 +1290,7 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position -2.35237 -29.4425
+position -2.35237 -29.9264
 connectornextid 2
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
@@ -1492,7 +1308,7 @@ inputs
 stat
 {
   create 1512169309
-  modify 1519779278
+  modify 1527184066
   author GDC_Houdini@AUSTIN
   access 0777
 }
@@ -1553,7 +1369,7 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position -6.93022 -29.4425
+position -6.93022 -30.9653
 connectornextid 2
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
@@ -1571,7 +1387,7 @@ inputs
 stat
 {
   create 1512169309
-  modify 1519779278
+  modify 1527184072
   author GDC_Houdini@AUSTIN
   access 0777
 }
@@ -1632,7 +1448,7 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position -18.2016 -1.7162
+position -16.7849 -0.80222
 connectornextid 2
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
@@ -1650,7 +1466,7 @@ inputs
 stat
 {
   create 1512107073
-  modify 1513622821
+  modify 1527185051
   author paula@DESKTOP-JOVQSE4
   access 0777
 }
@@ -1712,8 +1528,8 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position -18.2016 -5.30089
-connectornextid 4
+position -16.7849 -1.88002
+connectornextid 3
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
 {
@@ -1723,18 +1539,16 @@ inputsNamed3
 {
 0 	attribwrangle13 1 1 "input1"
 2 	repeat_begin1_metadata1 0 1 "input2"
-3 	convert1 1 1 "input3"
 }
 inputs
 {
 0 	attribwrangle13 0 1
 1 	repeat_begin1_metadata1 0 1
-2 	convert1 0 1
 }
 stat
 {
   create 1512150598
-  modify 1519779278
+  modify 1527185051
   author GDC_Houdini@AUSTIN
   access 0777
 }
@@ -1755,8 +1569,7 @@ grouptype	[ 0	locks=0 ]	(	"guess"	)
 class	[ 0	locks=0 ]	(	"point"	)
 vex_numcount	[ 0	locks=0 ]	(	10	)
 vex_threadjobsize	[ 0	locks=0 ]	(	1024	)
-snippet	[ 0	locks=0 ]	(	"f@size = max(getpointbbox_size(2));
-int val = detail(1, \"ivalue\");
+snippet	[ 0	locks=0 ]	(	"int val = detail(1, \"ivalue\");
 i@ID = val;
 
 // Custom Parms
@@ -1807,7 +1620,7 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position -14.2784 -12.1173
+position -16.7849 -8.29727
 connectornextid 3
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
@@ -1827,7 +1640,7 @@ inputs
 stat
 {
   create 1512188031
-  modify 1519779278
+  modify 1527185059
   author paula@DESKTOP-JOVQSE4
   access 0777
 }
@@ -1906,7 +1719,7 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position -14.2784 -13.1951
+position -16.7849 -9.37507
 connectornextid 2
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
@@ -1924,7 +1737,7 @@ inputs
 stat
 {
   create 1512188655
-  modify 1519779278
+  modify 1527185059
   author paula@DESKTOP-JOVQSE4
   access 0777
 }
@@ -2074,7 +1887,7 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position -14.0514 -52.0349
+position -13.4736 -53.3365
 connectornextid 2
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
@@ -2092,7 +1905,7 @@ inputs
 stat
 {
   create 1512594570
-  modify 1513622821
+  modify 1527185119
   author GDC_Houdini@AUSTIN
   access 0777
 }
@@ -2152,8 +1965,8 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position -12.3607 -16.4506
-connectornextid 4
+position -10.1501 -10.4769
+connectornextid 3
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
 {
@@ -2161,20 +1974,18 @@ outputsNamed3
 }
 inputsNamed3
 {
-0 	attribwrangle21 1 1 "input1"
-2 	foreach_begin1 0 1 "input2"
-3 	attribwrangle16 1 1 "input3"
+0 	foreach_begin1 0 1 "input1"
+2 	attribwrangle16 1 1 "input2"
 }
 inputs
 {
-0 	attribwrangle21 0 1
-1 	foreach_begin1 0 1
-2 	attribwrangle16 0 1
+0 	foreach_begin1 0 1
+1 	attribwrangle16 0 1
 }
 stat
 {
   create 1512602768
-  modify 1519779278
+  modify 1527185045
   author GDC_Houdini@AUSTIN
   access 0777
 }
@@ -2195,8 +2006,8 @@ grouptype	[ 0	locks=0 ]	(	"guess"	)
 class	[ 0	locks=0 ]	(	"point"	)
 vex_numcount	[ 0	locks=0 ]	(	10	)
 vex_threadjobsize	[ 0	locks=0 ]	(	1024	)
-snippet	[ 0	locks=0 ]	(	"@pscale = point(1, \"pscale\", 0);
-i@InstanceID = point(2, \"randVal\", 0);"	)
+snippet	[ 0	locks=0 ]	(	"//@pscale = point(1, \"pscale\", 0);
+i@InstanceID = point(1, \"randVal\", 0);"	)
 exportlist	[ 0	locks=0 ]	(	*	)
 vex_strict	[ 0	locks=0 ]	(	"off"	)
 autobind	[ 0	locks=0 ]	(	"on"	)
@@ -2482,8 +2293,8 @@ vex_matchattrib	[ 0	locks=0 ]	(	id	)
 vex_inplace	[ 0	locks=0 ]	(	"off"	)
 vex_selectiongroup	[ 0	locks=0 ]	(	""	)
 folder1	[ 0	locks=0 ]	(	0	0	)
-scaleMin	[ 0	locks=0 ]	(	[ scaleMin	1 ] 	)
-scaleMax	[ 0	locks=0 ]	(	[ scaleMax	1 ] 	)
+scaleMin	[ 0	locks=0 ]	(	[ scaleMin	0.38700000000000001 ] 	)
+scaleMax	[ 0	locks=0 ]	(	[ scaleMax	1.4770000000000001 ] 	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -2510,7 +2321,7 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position 0.132093 -40.2066
+position 0.709933 -41.5082
 connectornextid 3
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
@@ -2530,7 +2341,7 @@ inputs
 stat
 {
   create 1512107073
-  modify 1513622821
+  modify 1527185119
   author paula@DESKTOP-JOVQSE4
   access 0777
 }
@@ -2593,7 +2404,7 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position 0.132093 -47.3189
+position 0.709933 -48.6205
 connectornextid 3
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
@@ -2613,7 +2424,7 @@ inputs
 stat
 {
   create 1512686410
-  modify 1513622821
+  modify 1527185119
   author GDC_Houdini@AUSTIN
   access 0777
 }
@@ -2675,7 +2486,7 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position -10.489 -41.4727
+position -9.91116 -42.7743
 connectornextid 2
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
@@ -2693,7 +2504,7 @@ inputs
 stat
 {
   create 1512689428
-  modify 1513622821
+  modify 1527185119
   author GDC_Houdini@AUSTIN
   access 0777
 }
@@ -2755,7 +2566,7 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position -10.489 -42.5505
+position -9.91116 -43.8521
 connectornextid 2
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
@@ -2773,7 +2584,7 @@ inputs
 stat
 {
   create 1512691081
-  modify 1513622821
+  modify 1527185119
   author GDC_Houdini@AUSTIN
   access 0777
 }
@@ -2835,7 +2646,7 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position -6.93022 -41.4727
+position -6.35238 -42.7743
 connectornextid 2
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
@@ -2853,7 +2664,7 @@ inputs
 stat
 {
   create 1512689428
-  modify 1513622821
+  modify 1527185119
   author GDC_Houdini@AUSTIN
   access 0777
 }
@@ -2915,7 +2726,7 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position -6.93022 -42.5505
+position -6.35238 -43.8521
 connectornextid 2
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
@@ -2933,7 +2744,7 @@ inputs
 stat
 {
   create 1512691081
-  modify 1513622821
+  modify 1527185119
   author GDC_Houdini@AUSTIN
   access 0777
 }
@@ -2995,7 +2806,7 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position -6.93022 -47.3189
+position -6.35238 -48.6205
 connectornextid 3
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
@@ -3015,7 +2826,7 @@ inputs
 stat
 {
   create 1512691908
-  modify 1513622821
+  modify 1527185119
   author GDC_Houdini@AUSTIN
   access 0777
 }
@@ -3079,7 +2890,7 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position -14.2783 -20.692
+position -16.7849 -14.7313
 connectornextid 2
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
@@ -3097,7 +2908,7 @@ inputs
 stat
 {
   create 1512709426
-  modify 1519779278
+  modify 1527196927
   author paula@DESKTOP-JOVQSE4
   access 0777
 }
@@ -3256,7 +3067,7 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position -10.4889 -54.4117
+position -9.91106 -55.7133
 connectornextid 3
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
@@ -3276,7 +3087,7 @@ inputs
 stat
 {
   create 1512689074
-  modify 1513647663
+  modify 1527185119
   author GDC_Houdini@AUSTIN
   access 0777
 }
@@ -3342,7 +3153,7 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position -10.4889 -53.3339
+position -9.91106 -54.6355
 connectornextid 3
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
@@ -3362,7 +3173,7 @@ inputs
 stat
 {
   create 1513280263
-  modify 1513647667
+  modify 1527185119
   author GDC_Houdini@AUSTIN
   access 0777
 }
@@ -3414,20 +3225,20 @@ Content-Type: text/plain
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot/attribwrangle21.init"
+Content-Disposition: attachment; filename="hdaroot/attribwrangle44.init"
 Content-Type: text/plain
 
 type = attribwrangle
 matchesdef = 1
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot/attribwrangle21.def"
+Content-Disposition: attachment; filename="hdaroot/attribwrangle44.def"
 Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position -7.08141 -15.4198
-connectornextid 3
+position -8.06331 -16.848
+connectornextid 2
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
 {
@@ -3435,19 +3246,17 @@ outputsNamed3
 }
 inputsNamed3
 {
-0 	attribwrangle3 1 1 "input1"
-2 	foreach_begin1_metadata2 1 1 "input2"
+0 	merge4 1 1 "input1"
 }
 inputs
 {
-0 	attribwrangle3 0 1
-1 	foreach_begin1_metadata2 0 1
+0 	merge4 0 1
 }
 stat
 {
-  create 1512538464
-  modify 1519779278
-  author paula@DESKTOP-JOVQSE4
+  create 1527102603
+  modify 1527186331
+  author GDC_Houdini@AUSTIN
   access 0777
 }
 color UT_Color RGB 0.8 0.8 0.8 
@@ -3456,188 +3265,7 @@ exprlanguage hscript
 end
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot/attribwrangle21.spareparmdef"
-Content-Type: text/plain
-
-    group {
-        name    "folder1"
-        label   "Code"
-
-        parm {
-            name    "group"
-            baseparm
-            label   "Group"
-            export  none
-            bindselector points "Modify Points"
-                "Select the points to affect and press Enter to complete."
-                0 1 0xffffffff 0 grouptype 0
-        }
-        parm {
-            name    "grouptype"
-            baseparm
-            label   "Group Type"
-            export  none
-        }
-        parm {
-            name    "class"
-            baseparm
-            label   "Run Over"
-            export  none
-        }
-        parm {
-            name    "vex_numcount"
-            baseparm
-            label   "Number Count"
-            export  none
-        }
-        parm {
-            name    "vex_threadjobsize"
-            baseparm
-            label   "Thread Job Size"
-            export  none
-        }
-        parm {
-            name    "snippet"
-            baseparm
-            label   "VEXpression"
-            export  all
-        }
-        parm {
-            name    "exportlist"
-            baseparm
-            label   "Attributes to Create"
-            export  none
-        }
-        parm {
-            name    "vex_strict"
-            baseparm
-            label   "Enforce Prototypes"
-            export  none
-        }
-    }
-
-    group {
-        name    "folder1_1"
-        label   "Bindings"
-
-        parm {
-            name    "autobind"
-            baseparm
-            label   "Autobind by Name"
-            export  none
-        }
-        multiparm {
-            name    "bindings"
-            label    "Number of Bindings"
-            baseparm
-            default 0
-            parmtag { "autoscope" "0000000000000000" }
-            parmtag { "multistartoffset" "1" }
-
-            parm {
-                name    "bindname#"
-                baseparm
-                label   "Attribute Name"
-                export  none
-            }
-            parm {
-                name    "bindparm#"
-                baseparm
-                label   "VEX Parameter"
-                export  none
-            }
-        }
-
-        parm {
-            name    "groupautobind"
-            baseparm
-            label   "Autobind Groups by Name"
-            export  none
-        }
-        multiparm {
-            name    "groupbindings"
-            label    "Group Bindings"
-            baseparm
-            default 0
-            parmtag { "autoscope" "0000000000000000" }
-            parmtag { "multistartoffset" "1" }
-
-            parm {
-                name    "bindgroupname#"
-                baseparm
-                label   "Group Name"
-                export  none
-            }
-            parm {
-                name    "bindgroupparm#"
-                baseparm
-                label   "VEX Parameter"
-                export  none
-            }
-        }
-
-        parm {
-            name    "vex_cwdpath"
-            baseparm
-            label   "Evaluation Node Path"
-            export  none
-        }
-        parm {
-            name    "vex_outputmask"
-            baseparm
-            label   "Export Parameters"
-            export  none
-        }
-        parm {
-            name    "vex_updatenmls"
-            baseparm
-            label   "Update Normals If Displaced"
-            export  none
-        }
-        parm {
-            name    "vex_matchattrib"
-            baseparm
-            label   "Attribute to Match"
-            export  none
-        }
-        parm {
-            name    "vex_inplace"
-            baseparm
-            label   "Compute Results In Place"
-            export  none
-        }
-        parm {
-            name    "vex_selectiongroup"
-            baseparm
-            label   "Output Selection Group"
-            export  none
-        }
-    }
-
-    parm {
-        name    "fOffsetDist"
-        label   "Surface Offset"
-        type    float
-        default { "0" }
-        range   { 0 10 }
-    }
-
---HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot/attribwrangle21.chn"
-Content-Type: text/plain
-
-{
-    channel fOffsetDist {
-      lefttype = extend
-      righttype = extend
-      default = 0.10000000000000001
-      flags = 0
-      segment { length = 0 value = 0.10000000000000001 0.10000000000000001 expr = ch(\"../fOffsetDist\") }
-    }
-  }
-
---HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot/attribwrangle21.parm"
+Content-Disposition: attachment; filename="hdaroot/attribwrangle44.parm"
 Content-Type: text/plain
 
 {
@@ -3648,29 +3276,8 @@ grouptype	[ 0	locks=0 ]	(	"guess"	)
 class	[ 0	locks=0 ]	(	"point"	)
 vex_numcount	[ 0	locks=0 ]	(	10	)
 vex_threadjobsize	[ 0	locks=0 ]	(	1024	)
-snippet	[ 0	locks=0 ]	(	"int Prim = -1;
-vector UV = -1;
-float dist;
-vector Pos;
-vector dir;
-vector UpdatedPos = @P;
-
-for (int i = 0; i<3; i++) {
-    
-    dist = xyzdist(1, UpdatedPos, Prim, UV, f@radius*2);
-
-    if (Prim != -1) {
-    
-        if (f@radius > dist) {
-            Pos = primuv(1, \"P\", Prim, UV);
-            dir = primuv(1, \"N\", Prim, UV);
-            UpdatedPos += dir * (f@radius-dist + ch(\"fOffsetDist\"));
-        }
-    
-    }
-}
-
-@P = UpdatedPos;"	)
+snippet	[ 0	locks=0 ]	(	"i@active=0;
+i@found_overlap = 1;"	)
 exportlist	[ 0	locks=0 ]	(	*	)
 vex_strict	[ 0	locks=0 ]	(	"off"	)
 autobind	[ 0	locks=0 ]	(	"on"	)
@@ -3683,18 +3290,258 @@ vex_updatenmls	[ 0	locks=0 ]	(	"off"	)
 vex_matchattrib	[ 0	locks=0 ]	(	id	)
 vex_inplace	[ 0	locks=0 ]	(	"off"	)
 vex_selectiongroup	[ 0	locks=0 ]	(	""	)
-folder1	[ 0	locks=0 ]	(	0	0	)
-fOffsetDist	[ 8	locks=0 ]	(	[ fOffsetDist	0.52500000000000002 ] 	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot/attribwrangle21.userdata"
+Content-Disposition: attachment; filename="hdaroot/attribwrangle44.userdata"
 Content-Type: text/plain
 
 {
 	"___Version___":{
 		"type":"string",
 		"value":""
+	}
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/dopnet2.init"
+Content-Type: text/plain
+
+type = dopnet
+matchesdef = 0
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/dopnet2.def"
+Content-Type: text/plain
+
+sopflags sopflags = 
+comment ""
+position -10.1471 -21.1974
+connectornextid 2
+flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
+outputsNamed3
+{
+1 "output1"
+}
+inputsNamed3
+{
+0 	attribdelete8 1 1 "input1"
+}
+inputs
+{
+0 	attribdelete8 0 1
+}
+stat
+{
+  create 1527102805
+  modify 1527196932
+  author GDC_Houdini@AUSTIN
+  access 0777
+}
+color UT_Color RGB 0.7 0.9 0.6 
+delscript ""
+exprlanguage hscript
+end
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/dopnet2.chn"
+Content-Type: text/plain
+
+{
+    channel timestep {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = ch(\"timescale\")/(ch(\"substep\")*$FPS) }
+    }
+    channel timeoffset {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = (ch(\"startframe\")-1)/$FPS }
+    }
+  }
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/dopnet2.parm"
+Content-Type: text/plain
+
+{
+version 0.8
+isplayer	[ 0	locks=0 ]	(	"off"	)
+playfilesname	[ 0	locks=0 ]	(	$HIP/sim/$HIPNAME.$OS.$SF.sim	)
+stdswitcher	[ 0	locks=0 ]	(	2	2	2	)
+numobj	[ 0	locks=0 ]	(	1	)
+resimulate	[ 0	locks=0 ]	(	0	)
+initialstate	[ 0	locks=0 ]	(	""	)
+timestep	[ 0	locks=0 ]	(	[ timestep	0.033333333333333333 ] 	)
+substep	[ 0	locks=0 ]	(	1	)
+timeoffset	[ 0	locks=0 ]	(	[ timeoffset	0 ] 	)
+startframe	[ 0	locks=0 ]	(	1	)
+timescale	[ 0	locks=0 ]	(	1	)
+maxfeedback	[ 0	locks=0 ]	(	2	)
+autoresim	[ 0	locks=0 ]	(	"on"	)
+datahints	[ 0	locks=0 ]	(	"on"	)
+interpolate	[ 0	locks=0 ]	(	"on"	)
+cacheenabled	[ 0	locks=0 ]	(	"off"	)
+compresssims	[ 0	locks=0 ]	(	"blosc"	)
+cachetodisk	[ 0	locks=0 ]	(	"off"	)
+cachetodisknoninteractive	[ 0	locks=0 ]	(	"off"	)
+cachesubsteps	[ 0	locks=0 ]	(	"off"	)
+cachemaxsize	[ 0	locks=0 ]	(	5000	)
+timeless	[ 0	locks=0 ]	(	"off"	)
+explicitcache	[ 0	locks=0 ]	(	"off"	)
+explicitcachename	[ 0	locks=0 ]	(	$HIP/cache.$OS.$SF.sim	)
+explicitcachensteps	[ 0	locks=0 ]	(	0	)
+explicitcachecheckpointspacing	[ 0	locks=0 ]	(	1	)
+enable1	[ 0	locks=0 ]	(	"on"	)
+objname1	[ 0	locks=0 ]	(	*	)
+dataname1	[ 0	locks=0 ]	(	""	)
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/dopnet2.userdata"
+Content-Type: text/plain
+
+{
+	"___Version___":{
+		"type":"string",
+		"value":"16.5.473"
+	}
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/dopnet2/rbdpackedobject2.init"
+Content-Type: text/plain
+
+type = rbdpackedobject
+matchesdef = 1
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/dopnet2/rbdpackedobject2.def"
+Content-Type: text/plain
+
+comment ""
+position -2.14626 2.19317
+connectornextid 1
+flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
+outputsNamed3
+{
+0 "output1"
+}
+inputsNamed3
+{
+}
+inputs
+{
+}
+stat
+{
+  create 1523471873
+  modify 1527192661
+  author MAINGEAR@DESKTOP-P98C1VA
+  access 0777
+}
+color UT_Color RGB 0.6 0.6 0.6 
+delscript ""
+exprlanguage hscript
+end
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/dopnet2/rbdpackedobject2.chn"
+Content-Type: text/plain
+
+{
+    channel createframe {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = ch(opcreator(\".\")+\"/startframe\") }
+    }
+    channel bullet_shrink_amount {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = ch(\"bullet_collision_margin\") }
+    }
+  }
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/dopnet2/rbdpackedobject2.parm"
+Content-Type: text/plain
+
+{
+version 0.8
+usesimframe	[ 0	locks=0 ]	(	"off"	)
+createframe	[ 0	locks=0 ]	(	[ createframe	1 ] 	)
+solvefirstframe	[ 0	locks=0 ]	(	"on"	)
+object_name	[ 0	locks=0 ]	(	$OS	)
+initialstate	[ 0	locks=0 ]	(	"active"	)
+geosource	[ 0	locks=0 ]	(	"first"	)
+soppath	[ 0	locks=0 ]	(	""	)
+packtype	[ 0	locks=0 ]	(	packbyname	)
+overwritefromsop	[ 0	locks=0 ]	(	"on"	)
+overwriteattributes	[ 0	locks=0 ]	(	"active bounce computemass density friction inertialtensorstiffness mass weight"	)
+usetransform	[ 0	locks=0 ]	(	"off"	)
+active	[ 0	locks=0 ]	(	"on"	)
+display	[ 0	locks=0 ]	(	"off"	)
+displaygeo	[ 0	locks=0 ]	(	"simgeo"	)
+rendergeopath	[ 0	locks=0 ]	(	""	)
+initial_state	[ 0	locks=0 ]	(	1	1	1	)
+t	[ 0	locks=0 ]	(	0	0	0	)
+r	[ 0	locks=0 ]	(	0	0	0	)
+vel	[ 0	locks=0 ]	(	0	0	0	)
+angvel	[ 0	locks=0 ]	(	0	0	0	)
+inheritvelocity	[ 0	locks=0 ]	(	"off"	)
+showguide	[ 0	locks=0 ]	(	"on"	)
+color	[ 0	locks=0 ]	(	0	0	1	)
+bullet_deactivated_color	[ 0	locks=0 ]	(	1	0	0	)
+sepparm	[ 0	locks=0 ]	(	)
+bullet_georep	[ 0	locks=0 ]	(	convexhull	)
+geo_triangulate	[ 0	locks=0 ]	(	"on"	)
+bullet_geoconvexhull	[ 0	locks=0 ]	(	"on"	)
+bullet_groupconnected	[ 0	locks=0 ]	(	"on"	)
+bullet_autofit	[ 0	locks=0 ]	(	"on"	)
+bullet_primT	[ 0	locks=0 ]	(	0	0	0	)
+bullet_primR	[ 0	locks=0 ]	(	0	0	0	)
+bullet_primS	[ 0	locks=0 ]	(	1	1	1	)
+bullet_radius	[ 0	locks=0 ]	(	1	)
+bullet_length	[ 0	locks=0 ]	(	1	)
+bullet_collision_margin	[ 0	locks=0 ]	(	0	)
+bullet_adjust_geometry	[ 0	locks=0 ]	(	"off"	)
+bullet_adjust_factor	[ 0	locks=0 ]	(	1	)
+bullet_shrink_amount	[ 0	locks=0 ]	(	[ bullet_shrink_amount	0 ] 	)
+bullet_add_impact	[ 0	locks=0 ]	(	"on"	)
+bullet_want_deactivate	[ 0	locks=0 ]	(	"on"	)
+bullet_linear_sleep_threshold	[ 0	locks=0 ]	(	0.80000000000000004	)
+bullet_angular_sleep_threshold	[ 0	locks=0 ]	(	1	)
+computecom	[ 0	locks=0 ]	(	"on"	)
+inheritpivot	[ 0	locks=0 ]	(	"on"	)
+p	[ 0	locks=0 ]	(	0	0	0	)
+computemass	[ 0	locks=0 ]	(	"on"	)
+density	[ 0	locks=0 ]	(	1000	)
+mass	[ 0	locks=0 ]	(	1	)
+inertialtensorstiffness	[ 0	locks=0 ]	(	1	)
+bounce	[ 0	locks=0 ]	(	0.5	)
+friction	[ 0	locks=0 ]	(	1	)
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/dopnet2/rbdpackedobject2.userdata"
+Content-Type: text/plain
+
+{
+	"___Version___":{
+		"type":"string",
+		"value":"4"
+	},
+	"___toolcount___":{
+		"type":"string",
+		"value":"3"
+	},
+	"___toolid___":{
+		"type":"string",
+		"value":"dop_rbdpackedobject"
 	}
 }
 
@@ -3727,7 +3574,7 @@ inputs
 stat
 {
   create 1512107763
-  modify 1513622821
+  modify 1527188211
   author paula@DESKTOP-JOVQSE4
   access 0777
 }
@@ -3813,7 +3660,7 @@ inputs
 stat
 {
   create 1512108134
-  modify 1513647103
+  modify 1527188001
   author paula@DESKTOP-JOVQSE4
   access 0777
 }
@@ -3888,7 +3735,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.380"
+		"value":"16.5.473"
 	}
 }
 
@@ -3922,7 +3769,7 @@ inputs
 stat
 {
   create 1512108143
-  modify 1513647099
+  modify 1527188023
   author paula@DESKTOP-JOVQSE4
   access 0777
 }
@@ -3992,7 +3839,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.380"
+		"value":"16.5.473"
 	}
 }
 
@@ -4070,7 +3917,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.380"
+		"value":"16.5.473"
 	}
 }
 
@@ -4133,7 +3980,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.380"
+		"value":"16.5.473"
 	}
 }
 
@@ -4207,7 +4054,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.380"
+		"value":"16.5.473"
 	}
 }
 
@@ -4415,7 +4262,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.380"
+		"value":"16.5.473"
 	}
 }
 
@@ -4493,7 +4340,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.380"
+		"value":"16.5.473"
 	}
 }
 
@@ -4578,7 +4425,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.380"
+		"value":"16.5.473"
 	}
 }
 
@@ -4639,7 +4486,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.380"
+		"value":"16.5.473"
 	}
 }
 
@@ -4656,7 +4503,7 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position -4.62325 -25.7836
+position -4.62325 -26.2675
 connectornextid 5
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
@@ -4665,22 +4512,22 @@ outputsNamed3
 }
 inputsNamed3
 {
-0 	attribdelete5 1 1 "input1"
-1 	attribwrangle1 1 1 "input2"
-3 	attribwrangle9 1 1 "input3"
-4 	attribwrangle43 1 1 "input4"
+0 	timeshift1 1 1 "input1"
+1 	(__dot6) "" 1 "input2"
+3 	(__dot7) "" 1 "input3"
+4 	(__dot8) "" 1 "input4"
 }
 inputs
 {
-0 	attribdelete5 0 1
-1 	attribwrangle1 0 1
-2 	attribwrangle9 0 1
-3 	attribwrangle43 0 1
+0 	timeshift1 0 1
+1 	(__dot6) 0 1
+2 	(__dot7) 0 1
+3 	(__dot8) 0 1
 }
 stat
 {
   create 1512106904
-  modify 1519779278
+  modify 1527185095
   author paula@DESKTOP-JOVQSE4
   access 0777
 }
@@ -4704,7 +4551,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.380"
+		"value":"16.5.473"
 	}
 }
 
@@ -4721,7 +4568,7 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position -14.2737 -18.5271
+position -16.7803 -12.5664
 connectornextid 2
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault off exposed on
 outputsNamed3
@@ -4739,7 +4586,7 @@ inputs
 stat
 {
   create 1512107206
-  modify 1519779278
+  modify 1527185059
   author paula@DESKTOP-JOVQSE4
   access 0777
 }
@@ -4780,7 +4627,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.380"
+		"value":"16.5.473"
 	}
 }
 
@@ -4797,7 +4644,7 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position -10.1455 -10.7442
+position -10.1455 -7.21733
 connectornextid 2
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault off exposed on
 outputsNamed3
@@ -4815,7 +4662,7 @@ inputs
 stat
 {
   create 1512107206
-  modify 1513622821
+  modify 1527185045
   author paula@DESKTOP-JOVQSE4
   access 0777
 }
@@ -4843,7 +4690,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.380"
+		"value":"16.5.473"
 	}
 }
 
@@ -4924,7 +4771,7 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position -2.34937 -31.5831
+position -2.34937 -32.6978
 connectornextid 2
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
@@ -4942,7 +4789,7 @@ inputs
 stat
 {
   create 1512109176
-  modify 1519779278
+  modify 1527196941
   author paula@DESKTOP-JOVQSE4
   access 0777
 }
@@ -4968,7 +4815,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.380"
+		"value":"16.5.473"
 	}
 }
 
@@ -4985,7 +4832,7 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position -6.92722 -31.5442
+position -6.92722 -33.1059
 connectornextid 2
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
@@ -4994,16 +4841,16 @@ outputsNamed3
 }
 inputsNamed3
 {
-0 	attribwrangle11 1 1 "input1"
+0 	attribdelete9 1 1 "input1"
 }
 inputs
 {
-0 	attribwrangle11 0 1
+0 	attribdelete9 0 1
 }
 stat
 {
   create 1512109189
-  modify 1519779278
+  modify 1527196939
   author paula@DESKTOP-JOVQSE4
   access 0777
 }
@@ -5029,7 +4876,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.380"
+		"value":"16.5.473"
 	}
 }
 
@@ -5046,7 +4893,7 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position -8.32382 -39.0177
+position -7.74598 -40.3193
 connectornextid 2
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
@@ -5064,7 +4911,7 @@ inputs
 stat
 {
   create 1512109302
-  modify 1513304371
+  modify 1527185119
   author paula@DESKTOP-JOVQSE4
   access 0777
 }
@@ -5096,7 +4943,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.380"
+		"value":"16.5.473"
 	}
 }
 
@@ -5113,7 +4960,7 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position -2.14893 6.94715
+position -2.14893 6.97829
 connectornextid 1
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
@@ -5129,7 +4976,7 @@ inputs
 stat
 {
   create 1512109453
-  modify 1513622821
+  modify 1527190213
   author paula@DESKTOP-JOVQSE4
   access 0777
 }
@@ -5149,6 +4996,14 @@ Content-Type: text/plain
       defaultString = chsop(\"../objPrevSim\")
       flags = 0
       segment { length = 0 expr = chsop(\"../objPrevSim\") }
+    }
+    channel enable1 {
+      lefttype = extend
+      righttype = extend
+      default = 1
+      flags = 0
+      segment { length = 0 value = 1 1 expr = "import hou
+return 1-hou.pwd().parent().parm('Activate_All').evalAsInt()" language = python }
     }
   }
 
@@ -5176,8 +5031,8 @@ pack	[ 0	locks=0 ]	(	"off"	)
 pivot	[ 0	locks=0 ]	(	"centroid"	)
 viewportlod	[ 0	locks=0 ]	(	"full"	)
 addpath	[ 0	locks=0 ]	(	"on"	)
-enable1	[ 0	locks=0 ]	(	"on"	)
-objpath1	[ 8	locks=0 ]	(	[ objpath1	"" ] 	)
+enable1	[ 0	locks=0 ]	(	[ enable1	0 ] 	)
+objpath1	[ 0	locks=0 ]	(	[ objpath1	/obj/PhysicsPainter_Data/geo1 ] 	)
 group1	[ 0	locks=0 ]	(	""	)
 expand1	[ 0	locks=0 ]	(	"off"	)
 }
@@ -5189,7 +5044,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.380"
+		"value":"16.5.473"
 	}
 }
 
@@ -5206,9 +5061,9 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position -15.1024 -57.4496
+position -14.5246 -58.7512
 connectornextid 1
-flags =  lock off model off template on footprint off xray off bypass off display on render on highlight off unload off savedata off compress on colordefault on exposed on
+flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
 {
 }
@@ -5223,7 +5078,7 @@ inputs
 stat
 {
   create 1512109476
-  modify 1519779336
+  modify 1527190075
   author paula@DESKTOP-JOVQSE4
   access 0777
 }
@@ -5248,7 +5103,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.380"
+		"value":"16.5.473"
 	}
 }
 
@@ -5265,7 +5120,7 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position -2.15113 5.94405
+position -2.15113 5.97519
 connectornextid 2
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
@@ -5283,7 +5138,7 @@ inputs
 stat
 {
   create 1512111437
-  modify 1512693684
+  modify 1527190213
   author paula@DESKTOP-JOVQSE4
   access 0777
 }
@@ -5298,7 +5153,7 @@ Content-Type: text/plain
 
 {
 version 0.8
-ptdel	[ 0	locks=0 ]	(	"* ^PaintObject ^name ^ID ^InstanceID"	)
+ptdel	[ 0	locks=0 ]	(	"* ^PaintObject ^name ^ID ^density ^computemass ^mass ^inertialtensorstiffness ^bounce ^friction ^InstanceID"	)
 vtxdel	[ 0	locks=0 ]	(	""	)
 primdel	[ 0	locks=0 ]	(	Cd	)
 dtldel	[ 0	locks=0 ]	(	""	)
@@ -5347,7 +5202,7 @@ inputs
 stat
 {
   create 1512111688
-  modify 1512761743
+  modify 1527189445
   author paula@DESKTOP-JOVQSE4
   access 0777
 }
@@ -5380,7 +5235,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.380"
+		"value":"16.5.473"
 	}
 }
 
@@ -5397,7 +5252,7 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position -14.2737 -19.6128
+position -16.7803 -13.6521
 connectornextid 2
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault off exposed on
 outputsNamed3
@@ -5415,7 +5270,7 @@ inputs
 stat
 {
   create 1512112313
-  modify 1519779278
+  modify 1527185059
   author paula@DESKTOP-JOVQSE4
   access 0777
 }
@@ -5442,7 +5297,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.380"
+		"value":"16.5.473"
 	}
 }
 
@@ -5459,7 +5314,7 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position -10.1455 -9.65854
+position -10.1455 -6.13163
 connectornextid 2
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault off exposed on
 outputsNamed3
@@ -5477,7 +5332,7 @@ inputs
 stat
 {
   create 1512112313
-  modify 1513622821
+  modify 1527185045
   author paula@DESKTOP-JOVQSE4
   access 0777
 }
@@ -5504,7 +5359,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.380"
+		"value":"16.5.473"
 	}
 }
 
@@ -5521,7 +5376,7 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position -14.2738 -11.0374
+position -16.7803 -7.21737
 connectornextid 2
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault off exposed on
 outputsNamed3
@@ -5539,7 +5394,7 @@ inputs
 stat
 {
   create 1512112346
-  modify 1519779278
+  modify 1527185059
   author paula@DESKTOP-JOVQSE4
   access 0777
 }
@@ -5567,7 +5422,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.380"
+		"value":"16.5.473"
 	}
 }
 
@@ -5584,7 +5439,7 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position -14.2738 -9.95166
+position -16.7803 -6.13163
 connectornextid 2
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault off exposed on
 outputsNamed3
@@ -5602,7 +5457,7 @@ inputs
 stat
 {
   create 1512112356
-  modify 1519779278
+  modify 1527185059
   author paula@DESKTOP-JOVQSE4
   access 0777
 }
@@ -5629,7 +5484,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.380"
+		"value":"16.5.473"
 	}
 }
 
@@ -5646,7 +5501,7 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position -14.2754 -17.4807
+position -16.7819 -11.52
 connectornextid 3
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
@@ -5666,7 +5521,7 @@ inputs
 stat
 {
   create 1512112587
-  modify 1519779278
+  modify 1527185059
   author paula@DESKTOP-JOVQSE4
   access 0777
 }
@@ -5711,7 +5566,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.380"
+		"value":"16.5.473"
 	}
 }
 
@@ -5728,7 +5583,7 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position -18.197 -7.45139
+position -16.7803 -4.03052
 connectornextid 2
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault off exposed on
 outputsNamed3
@@ -5746,7 +5601,7 @@ inputs
 stat
 {
   create 1512176978
-  modify 1519779336
+  modify 1527185051
   author GDC_Houdini@AUSTIN
   access 0777
 }
@@ -5777,7 +5632,7 @@ Content-Type: text/plain
 version 0.8
 itermethod	[ 0	locks=0 ]	(	"count"	)
 method	[ 0	locks=0 ]	(	"merge"	)
-iterations	[ 8	locks=0 ]	(	[ iterations	7 ] 	)
+iterations	[ 8	locks=0 ]	(	[ iterations	2 ] 	)
 startvalue	[ 0	locks=0 ]	(	1	)
 increment	[ 0	locks=0 ]	(	1	)
 class	[ 0	locks=0 ]	(	"point"	)
@@ -5801,7 +5656,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.380"
+		"value":"16.5.473"
 	}
 }
 
@@ -5818,7 +5673,7 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position -18.197 0.3668
+position -16.7803 1.28078
 connectornextid 1
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault off exposed on
 outputsNamed3
@@ -5834,7 +5689,7 @@ inputs
 stat
 {
   create 1512176978
-  modify 1513622821
+  modify 1527185051
   author GDC_Houdini@AUSTIN
   access 0777
 }
@@ -5862,7 +5717,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.380"
+		"value":"16.5.473"
 	}
 }
 
@@ -5879,7 +5734,7 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position -18.1999 -0.6732
+position -16.7831 0.24078
 connectornextid 1
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
@@ -5895,7 +5750,7 @@ inputs
 stat
 {
   create 1512177030
-  modify 1513622821
+  modify 1527185051
   author GDC_Houdini@AUSTIN
   access 0777
 }
@@ -5941,7 +5796,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.380"
+		"value":"16.5.473"
 	}
 }
 
@@ -5958,7 +5813,7 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position -17.6514 -3.28145
+position -13.8865 -0.80407
 connectornextid 1
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault off exposed on
 outputsNamed3
@@ -5974,7 +5829,7 @@ inputs
 stat
 {
   create 1512177131
-  modify 1519779346
+  modify 1527196963
   author GDC_Houdini@AUSTIN
   access 0777
 }
@@ -6002,7 +5857,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.380"
+		"value":"16.5.473"
 	}
 }
 
@@ -6019,7 +5874,7 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position -18.1965 -6.37349
+position -16.7798 -2.95262
 connectornextid 2
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
@@ -6037,7 +5892,7 @@ inputs
 stat
 {
   create 1512179921
-  modify 1519779278
+  modify 1527185051
   author GDC_Houdini@AUSTIN
   access 0777
 }
@@ -6070,7 +5925,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.380"
+		"value":"16.5.473"
 	}
 }
 
@@ -6087,7 +5942,7 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position -10.4894 -40.1165
+position -9.91156 -41.4181
 connectornextid 2
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
@@ -6105,7 +5960,7 @@ inputs
 stat
 {
   create 1512188864
-  modify 1513621818
+  modify 1527185119
   author paula@DESKTOP-JOVQSE4
   access 0777
 }
@@ -6151,7 +6006,7 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position -10.4859 -57.4496
+position -9.90806 -58.7512
 connectornextid 2
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
@@ -6169,7 +6024,7 @@ inputs
 stat
 {
   create 1512190325
-  modify 1513648004
+  modify 1527196918
   author paula@DESKTOP-JOVQSE4
   access 0777
 }
@@ -6194,7 +6049,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.380"
+		"value":"16.5.473"
 	}
 }
 
@@ -6211,7 +6066,7 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position -2.35282 -30.4804
+position -2.35282 -30.9643
 connectornextid 2
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
@@ -6229,7 +6084,7 @@ inputs
 stat
 {
   create 1512111437
-  modify 1519779278
+  modify 1527184066
   author paula@DESKTOP-JOVQSE4
   access 0777
 }
@@ -6326,7 +6181,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.380"
+		"value":"16.5.473"
 	}
 }
 
@@ -6393,7 +6248,7 @@ version 0.8
 group	[ 0	locks=0 ]	(	""	)
 switcher	[ 0	locks=0 ]	(	0	0	0	)
 usedist	[ 0	locks=0 ]	(	"on"	)
-dist	[ 0	locks=0 ]	(	[ dist	0.050000000000000003 ] 	)
+dist	[ 0	locks=0 ]	(	[ dist	0.57399999999999995 ] 	)
 deldegen	[ 0	locks=0 ]	(	"on"	)
 keepunusedpoints	[ 0	locks=0 ]	(	"on"	)
 keepconsolidatedpoints	[ 0	locks=0 ]	(	"off"	)
@@ -6422,283 +6277,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.380"
-	}
-}
-
---HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot/compile_begin5.init"
-Content-Type: text/plain
-
-type = compile_begin
-matchesdef = 0
-
---HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot/compile_begin5.def"
-Content-Type: text/plain
-
-sopflags sopflags = 
-comment ""
-position -7.07681 -9.65854
-connectornextid 2
-flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault off exposed on
-outputsNamed3
-{
-1 "output1"
-}
-inputsNamed3
-{
-0 	normal1 1 1 "input1"
-}
-inputs
-{
-0 	normal1 0 1
-}
-stat
-{
-  create 1512539554
-  modify 1513622821
-  author paula@DESKTOP-JOVQSE4
-  access 0777
-}
-color UT_Color RGB 0.75 0.75 0 
-delscript ""
-exprlanguage hscript
-end
-
---HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot/compile_begin5.parm"
-Content-Type: text/plain
-
-{
-version 0.8
-blockpath	[ 0	locks=0 ]	(	../compile_end1	)
-name	[ 0	locks=0 ]	(	""	)
-createbeginblock	[ 0	locks=0 ]	(	0	)
-}
-
---HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot/compile_begin5.userdata"
-Content-Type: text/plain
-
-{
-	"___Version___":{
-		"type":"string",
-		"value":"16.5.380"
-	}
-}
-
---HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot/foreach_begin1_metadata2.init"
-Content-Type: text/plain
-
-type = block_begin
-matchesdef = 0
-
---HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot/foreach_begin1_metadata2.def"
-Content-Type: text/plain
-
-sopflags sopflags = 
-comment ""
-position -7.07681 -10.7332
-connectornextid 2
-flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault off exposed on
-outputsNamed3
-{
-1 "output1"
-}
-inputsNamed3
-{
-0 	compile_begin5 1 1 "input1"
-}
-inputs
-{
-0 	compile_begin5 0 1
-}
-stat
-{
-  create 1512539564
-  modify 1513622821
-  author paula@DESKTOP-JOVQSE4
-  access 0777
-}
-color UT_Color RGB 0.75 0.4 0 
-delscript ""
-exprlanguage hscript
-end
-
---HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot/foreach_begin1_metadata2.parm"
-Content-Type: text/plain
-
-{
-version 0.8
-method	[ 0	locks=0 ]	(	"input"	)
-blockpath	[ 0	locks=0 ]	(	../foreach_end1	)
-createmetablock	[ 0	locks=0 ]	(	0	)
-label1	[ 0	locks=0 ]	(	"iteration, numiterations, value, ivalue"	)
-}
-
---HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot/foreach_begin1_metadata2.userdata"
-Content-Type: text/plain
-
-{
-	"___Version___":{
-		"type":"string",
-		"value":"16.5.380"
-	}
-}
-
---HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot/bound1.init"
-Content-Type: text/plain
-
-type = bound
-matchesdef = 0
-
---HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot/bound1.def"
-Content-Type: text/plain
-
-sopflags sopflags = 
-comment ""
-position -13.5704 -3.44565
-connectornextid 2
-flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
-outputsNamed3
-{
-1 "output1"
-}
-inputsNamed3
-{
-0 	unpack2 1 1 "input1"
-}
-inputs
-{
-0 	unpack2 0 1
-}
-stat
-{
-  create 1512539667
-  modify 1519779336
-  author paula@DESKTOP-JOVQSE4
-  access 0777
-}
-color UT_Color RGB 0.8 0.8 0.8 
-delscript ""
-exprlanguage hscript
-end
-
---HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot/bound1.parm"
-Content-Type: text/plain
-
-{
-version 0.8
-group	[ 0	locks=0 ]	(	""	)
-grouptype	[ 0	locks=0 ]	(	"guess"	)
-keepOriginal	[ 0	locks=0 ]	(	"off"	)
-createempty	[ 0	locks=0 ]	(	"on"	)
-boundtype	[ 0	locks=0 ]	(	"on"	"on"	)
-dodivs	[ 0	locks=0 ]	(	"off"	)
-divs	[ 0	locks=0 ]	(	3	3	3	)
-rebar	[ 0	locks=0 ]	(	"off"	)
-minsize	[ 0	locks=0 ]	(	0	0	0	)
-orientedbbox	[ 0	locks=0 ]	(	"off"	)
-orient	[ 0	locks=0 ]	(	"y"	)
-accurate	[ 0	locks=0 ]	(	"on"	)
-minradius	[ 0	locks=0 ]	(	0	)
-minpad	[ 0	locks=0 ]	(	0	0	0	)
-maxpad	[ 0	locks=0 ]	(	0	0	0	)
-}
-
---HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot/bound1.userdata"
-Content-Type: text/plain
-
-{
-	"___Version___":{
-		"type":"string",
-		"value":"16.5.380"
-	}
-}
-
---HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot/convert1.init"
-Content-Type: text/plain
-
-type = convert
-matchesdef = 0
-
---HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot/convert1.def"
-Content-Type: text/plain
-
-sopflags sopflags = 
-comment ""
-position -13.5717 -4.44565
-connectornextid 2
-flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
-outputsNamed3
-{
-1 "output1"
-}
-inputsNamed3
-{
-0 	bound1 1 1 "input1"
-}
-inputs
-{
-0 	bound1 0 1
-}
-stat
-{
-  create 1512539757
-  modify 1519779278
-  author paula@DESKTOP-JOVQSE4
-  access 0777
-}
-color UT_Color RGB 0.8 0.8 0.8 
-delscript ""
-exprlanguage hscript
-end
-
---HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot/convert1.parm"
-Content-Type: text/plain
-
-{
-version 0.8
-group	[ 0	locks=0 ]	(	""	)
-fromtype	[ 0	locks=0 ]	(	"all"	)
-totype	[ 0	locks=0 ]	(	"poly"	)
-surftype	[ 0	locks=0 ]	(	"quads"	)
-stdswitcher	[ 0	locks=0 ]	(	0	0	)
-lodu	[ 0	locks=0 ]	(	2.0680000000000001	)
-lodv	[ 0	locks=0 ]	(	0.001	)
-lodtrim	[ 0	locks=0 ]	(	1	)
-divu	[ 0	locks=0 ]	(	2	)
-divv	[ 0	locks=0 ]	(	2	)
-divtrim	[ 0	locks=0 ]	(	1	)
-orderu	[ 0	locks=0 ]	(	4	)
-orderv	[ 0	locks=0 ]	(	4	)
-pastecoord	[ 0	locks=0 ]	(	"cfeature"	)
-pasteattrib	[ 0	locks=0 ]	(	"afeature"	)
-new	[ 0	locks=0 ]	(	"off"	)
-interphull	[ 0	locks=0 ]	(	"off"	)
-offset	[ 0	locks=0 ]	(	0	)
-}
-
---HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot/convert1.userdata"
-Content-Type: text/plain
-
-{
-	"___Version___":{
-		"type":"string",
-		"value":"16.5.380"
+		"value":"16.5.473"
 	}
 }
 
@@ -6715,7 +6294,7 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position -14.0496 -50.9919
+position -13.4718 -52.2935
 connectornextid 1
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
@@ -6731,7 +6310,7 @@ inputs
 stat
 {
   create 1512591807
-  modify 1513622821
+  modify 1527185119
   author GDC_Houdini@AUSTIN
   access 0777
 }
@@ -6781,7 +6360,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.380"
+		"value":"16.5.473"
 	}
 }
 
@@ -6798,7 +6377,7 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position -15.1024 -53.39
+position -14.5246 -54.6916
 connectornextid 3
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
@@ -6818,7 +6397,7 @@ inputs
 stat
 {
   create 1512593418
-  modify 1513622821
+  modify 1527185119
   author GDC_Houdini@AUSTIN
   access 0777
 }
@@ -6856,7 +6435,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.380"
+		"value":"16.5.473"
 	}
 }
 
@@ -6873,7 +6452,7 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position -14.2788 -22.8077
+position -16.7853 -18.313
 connectornextid 2
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
@@ -6891,7 +6470,7 @@ inputs
 stat
 {
   create 1512604050
-  modify 1519779278
+  modify 1527188234
   author GDC_Houdini@AUSTIN
   access 0777
 }
@@ -6937,7 +6516,7 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position 0.136693 -42.3571
+position 0.714533 -43.6587
 connectornextid 2
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault off exposed on
 outputsNamed3
@@ -6955,7 +6534,7 @@ inputs
 stat
 {
   create 1512176978
-  modify 1513622821
+  modify 1527185119
   author GDC_Houdini@AUSTIN
   access 0777
 }
@@ -7010,7 +6589,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.380"
+		"value":"16.5.473"
 	}
 }
 
@@ -7027,7 +6606,7 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position 0.136693 -38.1236
+position 0.714533 -39.4252
 connectornextid 1
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault off exposed on
 outputsNamed3
@@ -7043,7 +6622,7 @@ inputs
 stat
 {
   create 1512176978
-  modify 1513622821
+  modify 1527185119
   author GDC_Houdini@AUSTIN
   access 0777
 }
@@ -7071,7 +6650,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.380"
+		"value":"16.5.473"
 	}
 }
 
@@ -7088,7 +6667,7 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position 0.133793 -39.1636
+position 0.711633 -40.4652
 connectornextid 1
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
@@ -7104,7 +6683,7 @@ inputs
 stat
 {
   create 1512177030
-  modify 1513622821
+  modify 1527185119
   author GDC_Houdini@AUSTIN
   access 0777
 }
@@ -7150,7 +6729,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.380"
+		"value":"16.5.473"
 	}
 }
 
@@ -7167,7 +6746,7 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position 2.91619 -38.1236
+position 3.49403 -39.4252
 connectornextid 1
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault off exposed on
 outputsNamed3
@@ -7183,7 +6762,7 @@ inputs
 stat
 {
   create 1512177131
-  modify 1513648109
+  modify 1527196912
   author GDC_Houdini@AUSTIN
   access 0777
 }
@@ -7211,7 +6790,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.380"
+		"value":"16.5.473"
 	}
 }
 
@@ -7228,7 +6807,7 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position 0.137193 -41.2792
+position 0.715033 -42.5808
 connectornextid 2
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
@@ -7246,7 +6825,7 @@ inputs
 stat
 {
   create 1512179921
-  modify 1513622821
+  modify 1527185119
   author GDC_Houdini@AUSTIN
   access 0777
 }
@@ -7279,7 +6858,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.380"
+		"value":"16.5.473"
 	}
 }
 
@@ -7296,7 +6875,7 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position -3.09798 -49.6803
+position -2.52014 -50.9819
 connectornextid 2
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault off exposed on
 outputsNamed3
@@ -7314,7 +6893,7 @@ inputs
 stat
 {
   create 1512686327
-  modify 1513622821
+  modify 1527185119
   author GDC_Houdini@AUSTIN
   access 0777
 }
@@ -7355,7 +6934,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.380"
+		"value":"16.5.473"
 	}
 }
 
@@ -7372,7 +6951,7 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position -3.09798 -45.2052
+position -2.52014 -46.5068
 connectornextid 2
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault off exposed on
 outputsNamed3
@@ -7390,7 +6969,7 @@ inputs
 stat
 {
   create 1512686327
-  modify 1513622821
+  modify 1527185119
   author GDC_Houdini@AUSTIN
   access 0777
 }
@@ -7418,7 +6997,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.380"
+		"value":"16.5.473"
 	}
 }
 
@@ -7435,7 +7014,7 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position 0.136693 -45.2052
+position 0.714533 -46.5068
 connectornextid 2
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault off exposed on
 outputsNamed3
@@ -7453,7 +7032,7 @@ inputs
 stat
 {
   create 1512686391
-  modify 1513622821
+  modify 1527185119
   author GDC_Houdini@AUSTIN
   access 0777
 }
@@ -7481,7 +7060,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.380"
+		"value":"16.5.473"
 	}
 }
 
@@ -7498,7 +7077,7 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position -6.92562 -45.2052
+position -6.34778 -46.5068
 connectornextid 2
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault off exposed on
 outputsNamed3
@@ -7516,7 +7095,7 @@ inputs
 stat
 {
   create 1512691492
-  modify 1513622821
+  modify 1527185119
   author GDC_Houdini@AUSTIN
   access 0777
 }
@@ -7544,7 +7123,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.380"
+		"value":"16.5.473"
 	}
 }
 
@@ -7561,7 +7140,7 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position -5.19834 -46.2087
+position -4.6205 -47.5103
 connectornextid 1
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault off exposed on
 outputsNamed3
@@ -7577,7 +7156,7 @@ inputs
 stat
 {
   create 1512691917
-  modify 1513622821
+  modify 1527185119
   author GDC_Houdini@AUSTIN
   access 0777
 }
@@ -7605,7 +7184,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.380"
+		"value":"16.5.473"
 	}
 }
 
@@ -7622,7 +7201,7 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position -3.09958 -48.5743
+position -2.52174 -49.8759
 connectornextid 3
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
@@ -7642,7 +7221,7 @@ inputs
 stat
 {
   create 1512691988
-  modify 1513622821
+  modify 1527185119
   author GDC_Houdini@AUSTIN
   access 0777
 }
@@ -7690,7 +7269,7 @@ Content-Type: text/plain
 
 {
 version 0.8
-input	[ 8	locks=0 ]	(	[ input	1 ] 	)
+input	[ 8	locks=0 ]	(	[ input	0 ] 	)
 spare_input0	[ 0	locks=0 ]	(	../attribwrangle32	)
 }
 
@@ -7701,7 +7280,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.380"
+		"value":"16.5.473"
 	}
 }
 
@@ -7718,7 +7297,7 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position -3.09798 -50.9557
+position -2.52014 -52.2573
 connectornextid 2
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault off exposed on
 outputsNamed3
@@ -7736,7 +7315,7 @@ inputs
 stat
 {
   create 1512693806
-  modify 1513621818
+  modify 1527185119
   author GDC_Houdini@AUSTIN
   access 0777
 }
@@ -7763,7 +7342,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.380"
+		"value":"16.5.473"
 	}
 }
 
@@ -7780,7 +7359,7 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position -3.09798 -44.1195
+position -2.52014 -45.4211
 connectornextid 2
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault off exposed on
 outputsNamed3
@@ -7798,7 +7377,7 @@ inputs
 stat
 {
   create 1512693806
-  modify 1513622821
+  modify 1527185119
   author GDC_Houdini@AUSTIN
   access 0777
 }
@@ -7825,7 +7404,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.380"
+		"value":"16.5.473"
 	}
 }
 
@@ -7842,7 +7421,7 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position 0.136693 -44.1195
+position 0.714533 -45.4211
 connectornextid 2
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault off exposed on
 outputsNamed3
@@ -7860,7 +7439,7 @@ inputs
 stat
 {
   create 1512693845
-  modify 1513622821
+  modify 1527185119
   author GDC_Houdini@AUSTIN
   access 0777
 }
@@ -7887,7 +7466,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.380"
+		"value":"16.5.473"
 	}
 }
 
@@ -7904,7 +7483,7 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position -6.92562 -44.1195
+position -6.34778 -45.4211
 connectornextid 2
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault off exposed on
 outputsNamed3
@@ -7922,7 +7501,7 @@ inputs
 stat
 {
   create 1512693853
-  modify 1513622821
+  modify 1527185119
   author GDC_Houdini@AUSTIN
   access 0777
 }
@@ -7949,7 +7528,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.380"
+		"value":"16.5.473"
 	}
 }
 
@@ -7966,7 +7545,7 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position -10.4894 -56.4496
+position -9.91156 -57.7512
 connectornextid 2
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
@@ -7984,7 +7563,7 @@ inputs
 stat
 {
   create 1512762249
-  modify 1513648165
+  modify 1527185119
   author GDC_Houdini@AUSTIN
   access 0777
 }
@@ -8092,7 +7671,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.380"
+		"value":"16.5.473"
 	}
 }
 
@@ -8160,71 +7739,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.380"
-	}
-}
-
---HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot/normal1.init"
-Content-Type: text/plain
-
-type = normal
-matchesdef = 0
-
---HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot/normal1.def"
-Content-Type: text/plain
-
-sopflags sopflags = 
-comment ""
-position -7.07841 -4.02697
-connectornextid 2
-flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
-outputsNamed3
-{
-1 "output1"
-}
-inputsNamed3
-{
-0 	IN_MESH 1 1 "input1"
-}
-inputs
-{
-0 	IN_MESH 0 1
-}
-stat
-{
-  create 1513301100
-  modify 1513301702
-  author GDC_Houdini@AUSTIN
-  access 0777
-}
-color UT_Color RGB 0.8 0.8 0.8 
-delscript ""
-exprlanguage hscript
-end
-
---HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot/normal1.parm"
-Content-Type: text/plain
-
-{
-version 0.8
-group	[ 0	locks=0 ]	(	""	)
-grouptype	[ 0	locks=0 ]	(	"guess"	)
-type	[ 0	locks=0 ]	(	"typevertex"	)
-cuspangle	[ 0	locks=0 ]	(	60	)
-method	[ 0	locks=0 ]	(	1	)
-}
-
---HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot/normal1.userdata"
-Content-Type: text/plain
-
-{
-	"___Version___":{
-		"type":"string",
-		"value":"16.5.380"
+		"value":"16.5.473"
 	}
 }
 
@@ -8241,7 +7756,7 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position -10.4894 -55.4496
+position -9.91156 -56.7512
 connectornextid 2
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
@@ -8259,7 +7774,7 @@ inputs
 stat
 {
   create 1513621106
-  modify 1513647663
+  modify 1527185119
   author GDC_Houdini@AUSTIN
   access 0777
 }
@@ -8290,7 +7805,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.380"
+		"value":"16.5.473"
 	}
 }
 
@@ -8307,7 +7822,7 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position -15.1058 -56.4496
+position -14.528 -57.7512
 connectornextid 2
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
@@ -8325,7 +7840,7 @@ inputs
 stat
 {
   create 1513647516
-  modify 1513648162
+  modify 1527185119
   author SideFX_Events@MSILA-2
   access 0777
 }
@@ -8371,7 +7886,7 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position -15.1058 -54.4496
+position -14.528 -55.7512
 connectornextid 2
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
@@ -8389,7 +7904,7 @@ inputs
 stat
 {
   create 1513621106
-  modify 1513647658
+  modify 1527185119
   author GDC_Houdini@AUSTIN
   access 0777
 }
@@ -8420,7 +7935,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.380"
+		"value":"16.5.473"
 	}
 }
 
@@ -8437,7 +7952,7 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position -15.1058 -55.4496
+position -14.528 -56.7512
 connectornextid 2
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
@@ -8455,7 +7970,7 @@ inputs
 stat
 {
   create 1513647624
-  modify 1513647658
+  modify 1527185119
   author SideFX_Events@MSILA-2
   access 0777
 }
@@ -8486,24 +8001,108 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.380"
+		"value":"16.5.473"
 	}
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot/unpack2.init"
+Content-Disposition: attachment; filename="hdaroot/dopnet2/output.init"
 Content-Type: text/plain
 
-type = unpack
+type = output
+matchesdef = 1
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/dopnet2/output.def"
+Content-Type: text/plain
+
+comment ""
+position -2.14626 0.193169
+connectornextid 1
+flags =  lock off model off template off footprint off xray off bypass off display on render off highlight off unload off savedata off compress on colordefault on exposed on
+outputsNamed3
+{
+}
+inputsNamed3
+{
+0 	bulletrbdsolver1 1 1 "input1"
+}
+inputs
+{
+0 	bulletrbdsolver1 0 1
+}
+stat
+{
+  create 1527102805
+  modify 1527192664
+  author GDC_Houdini@AUSTIN
+  access 0777
+}
+color UT_Color RGB 0.6 0.6 0.6 
+delscript ""
+exprlanguage hscript
+end
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/dopnet2/output.chn"
+Content-Type: text/plain
+
+{
+    channel f1 {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = $FSTART }
+    }
+    channel f2 {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = $FEND }
+    }
+  }
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/dopnet2/output.parm"
+Content-Type: text/plain
+
+{
+version 0.8
+execute	[ 0	locks=0 ]	(	0	)
+executebackground	[ 0	locks=0 ]	(	0	)
+f	[ 0	locks=0 ]	(	[ f1	1 ] 	[ f2	240 ] 	1	)
+take	[ 0	locks=0 ]	(	_current_	)
+dopoutput	[ 0	locks=0 ]	(	$HIP/sim/$HIPNAME.`opname(\"..\")`.$SF.sim	)
+usesimframes	[ 0	locks=0 ]	(	"on"	)
+mkpath	[ 0	locks=0 ]	(	"on"	)
+initsim	[ 0	locks=0 ]	(	"off"	)
+alfprogress	[ 0	locks=0 ]	(	"off"	)
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/dopnet2/output.userdata"
+Content-Type: text/plain
+
+{
+	"___Version___":{
+		"type":"string",
+		"value":""
+	}
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/dopnet2/bulletrbdsolver1.init"
+Content-Type: text/plain
+
+type = bulletrbdsolver
 matchesdef = 0
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot/unpack2.def"
+Content-Disposition: attachment; filename="hdaroot/dopnet2/bulletrbdsolver1.def"
 Content-Type: text/plain
 
-sopflags sopflags = 
 comment ""
-position -13.5704 -2.44565
+position -2.14971 1.19317
 connectornextid 2
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
@@ -8512,16 +8111,123 @@ outputsNamed3
 }
 inputsNamed3
 {
-0 	attribwrangle13 1 1 "input1"
+0 	rbdpackedobject2 0 1 "input1"
 }
 inputs
 {
-0 	attribwrangle13 0 1
+0 	rbdpackedobject2 0 1
 }
 stat
 {
-  create 1519779278
-  modify 1519779340
+  create 1523471829
+  modify 1527192664
+  author MAINGEAR@DESKTOP-P98C1VA
+  access 0777
+}
+color UT_Color RGB 0.5 0.8 0.5 
+delscript ""
+exprlanguage hscript
+end
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/dopnet2/bulletrbdsolver1.parm"
+Content-Type: text/plain
+
+{
+version 0.8
+parmop_substeps	[ 0	locks=0 ]	(	"default"	)
+substeps	[ 0	locks=0 ]	(	10	)
+parmop_sleepingtime	[ 0	locks=0 ]	(	"default"	)
+sleepingtime	[ 0	locks=0 ]	(	2	)
+parmop_contactbreakingthreshold	[ 0	locks=0 ]	(	"default"	)
+contactbreakingthreshold	[ 0	locks=0 ]	(	0.02	)
+constraintsolver	[ 0	locks=0 ]	(	0	)
+parmop_constraintsolvertype	[ 0	locks=0 ]	(	"default"	)
+constraintsolvertype	[ 0	locks=0 ]	(	"gaussseidelisland"	)
+parmop_numiteration	[ 0	locks=0 ]	(	"default"	)
+numiteration	[ 0	locks=0 ]	(	1	)
+parmop_constraintsolvertolerance	[ 0	locks=0 ]	(	"default"	)
+constraintsolvertolerance	[ 0	locks=0 ]	(	0.0001	)
+parmop_globalcfm	[ 0	locks=0 ]	(	"default"	)
+globalcfm	[ 0	locks=0 ]	(	0	)
+parmop_globalerp	[ 0	locks=0 ]	(	"default"	)
+globalerp	[ 0	locks=0 ]	(	0.20000000000000001	)
+parmop_randomize_order	[ 0	locks=0 ]	(	"default"	)
+randomize_order	[ 0	locks=0 ]	(	"off"	)
+parmop_splitimpulse	[ 0	locks=0 ]	(	"default"	)
+splitimpulse	[ 0	locks=0 ]	(	"on"	)
+parmop_penetrationthreshold	[ 0	locks=0 ]	(	"default"	)
+penetrationthreshold	[ 0	locks=0 ]	(	0	)
+parmop_splitimpulseerp	[ 0	locks=0 ]	(	"default"	)
+splitimpulseerp	[ 0	locks=0 ]	(	0.80000000000000004	)
+defaultparmop	[ 0	locks=0 ]	(	"initial"	)
+addaffectors	[ 0	locks=0 ]	(	"on"	)
+group	[ 0	locks=0 ]	(	*	)
+dataname	[ 0	locks=0 ]	(	Solver	)
+uniquedataname	[ 0	locks=0 ]	(	"off"	)
+solverperobject	[ 0	locks=0 ]	(	"off"	)
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/dopnet2/bulletrbdsolver1.userdata"
+Content-Type: text/plain
+
+{
+	"___Version___":{
+		"type":"string",
+		"value":"16.5.473"
+	}
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/dopnet2.order"
+Content-Type: text/plain
+
+3
+output
+rbdpackedobject2
+bulletrbdsolver1
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/dopnet2.net"
+Content-Type: text/plain
+
+1
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/merge3.init"
+Content-Type: text/plain
+
+type = merge
+matchesdef = 0
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/merge3.def"
+Content-Type: text/plain
+
+sopflags sopflags = 
+comment ""
+position -10.1483 -19.1698
+connectornextid 3
+flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
+outputsNamed3
+{
+1 "output1"
+}
+inputsNamed3
+{
+2 	attribdelete5 1 1 "input1"
+0 	attribwrangle44 1 1 "input2"
+}
+inputs
+{
+0 	attribdelete5 0 1
+1 	attribwrangle44 0 1
+}
+stat
+{
+  create 1527102850
+  modify 1527186337
   author GDC_Houdini@AUSTIN
   access 0777
 }
@@ -8531,30 +8237,611 @@ exprlanguage hscript
 end
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot/unpack2.parm"
+Content-Disposition: attachment; filename="hdaroot/merge3.parm"
 Content-Type: text/plain
 
 {
 version 0.8
-group	[ 0	locks=0 ]	(	""	)
-limit_iterations	[ 0	locks=0 ]	(	"on"	)
-iterations	[ 0	locks=0 ]	(	1	)
-detail_attributes	[ 0	locks=0 ]	(	"detail"	)
-transfer_attributes	[ 0	locks=0 ]	(	""	)
-transfer_groups	[ 0	locks=0 ]	(	""	)
-apply_style_sheets	[ 0	locks=0 ]	(	"off"	)
-scene_style_sheet	[ 0	locks=0 ]	(	""	)
-obj_style_sheet	[ 0	locks=0 ]	(	""	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot/unpack2.userdata"
+Content-Disposition: attachment; filename="hdaroot/merge3.userdata"
 Content-Type: text/plain
 
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.380"
+		"value":"16.5.473"
+	}
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/blast1.init"
+Content-Type: text/plain
+
+type = blast
+matchesdef = 0
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/blast1.def"
+Content-Type: text/plain
+
+sopflags sopflags = 
+comment ""
+position -10.1471 -22.1974
+connectornextid 2
+flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
+outputsNamed3
+{
+1 "output1"
+}
+inputsNamed3
+{
+0 	dopnet2 1 1 "input1"
+}
+inputs
+{
+0 	dopnet2 0 1
+}
+stat
+{
+  create 1527102919
+  modify 1527186342
+  author GDC_Houdini@AUSTIN
+  access 0777
+}
+color UT_Color RGB 0.8 0.8 0.8 
+delscript ""
+exprlanguage hscript
+end
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/blast1.parm"
+Content-Type: text/plain
+
+{
+version 0.8
+group	[ 0	locks=0 ]	(	@PaintObject=0	)
+grouptype	[ 0	locks=0 ]	(	"points"	)
+computenorms	[ 0	locks=0 ]	(	"off"	)
+negate	[ 0	locks=0 ]	(	"off"	)
+fillhole	[ 0	locks=0 ]	(	"off"	)
+removegrp	[ 0	locks=0 ]	(	"off"	)
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/blast1.userdata"
+Content-Type: text/plain
+
+{
+	"___Version___":{
+		"type":"string",
+		"value":"16.5.473"
+	}
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/merge4.init"
+Content-Type: text/plain
+
+type = merge
+matchesdef = 0
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/merge4.def"
+Content-Type: text/plain
+
+sopflags sopflags = 
+comment ""
+position -8.06146 -15.7805
+connectornextid 3
+flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
+outputsNamed3
+{
+1 "output1"
+}
+inputsNamed3
+{
+0 	(__dot6) "" 1 "input1"
+2 	(__dot7) "" 1 "input2"
+}
+inputs
+{
+0 	(__dot6) 0 1
+1 	(__dot7) 0 1
+}
+stat
+{
+  create 1527103104
+  modify 1527185074
+  author GDC_Houdini@AUSTIN
+  access 0777
+}
+color UT_Color RGB 0.8 0.8 0.8 
+delscript ""
+exprlanguage hscript
+end
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/merge4.parm"
+Content-Type: text/plain
+
+{
+version 0.8
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/merge4.userdata"
+Content-Type: text/plain
+
+{
+	"___Version___":{
+		"type":"string",
+		"value":"16.5.473"
+	}
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/timeshift1.init"
+Content-Type: text/plain
+
+type = timeshift
+matchesdef = 0
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/timeshift1.def"
+Content-Type: text/plain
+
+sopflags sopflags = 
+comment ""
+position -10.1471 -24.1974
+connectornextid 2
+flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
+outputsNamed3
+{
+1 "output1"
+}
+inputsNamed3
+{
+0 	blast2 0 1 "input1"
+}
+inputs
+{
+0 	blast2 0 1
+}
+stat
+{
+  create 1527103202
+  modify 1527196935
+  author GDC_Houdini@AUSTIN
+  access 0777
+}
+color UT_Color RGB 0.8 0.8 0.8 
+delscript ""
+exprlanguage hscript
+end
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/timeshift1.chn"
+Content-Type: text/plain
+
+{
+    channel frame {
+      lefttype = extend
+      righttype = extend
+      default = 1
+      flags = 0
+      segment { length = 0 value = 1 1 expr = $RFSTART }
+    }
+    channel time {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = $T }
+    }
+    channel frange1 {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = $FSTART }
+    }
+    channel frange2 {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = $FEND }
+    }
+    channel trange1 {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = $TSTART }
+    }
+    channel trange2 {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = $TEND }
+    }
+  }
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/timeshift1.parm"
+Content-Type: text/plain
+
+{
+version 0.8
+method	[ 0	locks=0 ]	(	"byframe"	)
+frame	[ 0	locks=0 ]	(	[ frame	1 ] 	)
+integerframe	[ 0	locks=0 ]	(	"on"	)
+time	[ 0	locks=0 ]	(	[ time	0 ] 	)
+rangeclamp	[ 0	locks=0 ]	(	"none"	)
+frange	[ 0	locks=0 ]	(	[ frange1	1 ] 	[ frange2	240 ] 	)
+trange	[ 0	locks=0 ]	(	[ trange1	0 ] 	[ trange2	0 ] 	)
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/timeshift1.userdata"
+Content-Type: text/plain
+
+{
+	"___Version___":{
+		"type":"string",
+		"value":"16.5.473"
+	}
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/attribdelete8.init"
+Content-Type: text/plain
+
+type = attribdelete
+matchesdef = 1
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/attribdelete8.def"
+Content-Type: text/plain
+
+sopflags sopflags = 
+comment ""
+position -10.1505 -20.1974
+connectornextid 2
+flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
+outputsNamed3
+{
+1 "output1"
+}
+inputsNamed3
+{
+0 	merge3 1 1 "input1"
+}
+inputs
+{
+0 	merge3 0 1
+}
+stat
+{
+  create 1527103526
+  modify 1527186339
+  author GDC_Houdini@AUSTIN
+  access 0777
+}
+color UT_Color RGB 0.8 0.8 0.8 
+delscript ""
+exprlanguage hscript
+end
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/attribdelete8.parm"
+Content-Type: text/plain
+
+{
+version 0.8
+ptdel	[ 0	locks=0 ]	(	name	)
+vtxdel	[ 0	locks=0 ]	(	""	)
+primdel	[ 0	locks=0 ]	(	name	)
+dtldel	[ 0	locks=0 ]	(	""	)
+updatevar	[ 0	locks=0 ]	(	"on"	)
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/attribdelete8.userdata"
+Content-Type: text/plain
+
+{
+	"___Version___":{
+		"type":"string",
+		"value":""
+	}
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/blast2.init"
+Content-Type: text/plain
+
+type = blast
+matchesdef = 0
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/blast2.def"
+Content-Type: text/plain
+
+sopflags sopflags = 
+comment ""
+position -10.1471 -23.1974
+connectornextid 2
+flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
+outputsNamed3
+{
+0 "output1"
+}
+inputsNamed3
+{
+1 	blast1 1 1 "input1"
+}
+inputs
+{
+0 	blast1 0 1
+}
+stat
+{
+  create 1527184033
+  modify 1527196939
+  author GDC_Houdini@AUSTIN
+  access 0777
+}
+color UT_Color RGB 0.8 0.8 0.8 
+delscript ""
+exprlanguage hscript
+end
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/blast2.parm"
+Content-Type: text/plain
+
+{
+version 0.8
+group	[ 0	locks=0 ]	(	@static=1	)
+grouptype	[ 0	locks=0 ]	(	"points"	)
+computenorms	[ 0	locks=0 ]	(	"off"	)
+negate	[ 0	locks=0 ]	(	"off"	)
+fillhole	[ 0	locks=0 ]	(	"off"	)
+removegrp	[ 0	locks=0 ]	(	"off"	)
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/blast2.userdata"
+Content-Type: text/plain
+
+{
+	"___Version___":{
+		"type":"string",
+		"value":"16.5.473"
+	}
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/merge5.init"
+Content-Type: text/plain
+
+type = merge
+matchesdef = 0
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/merge5.def"
+Content-Type: text/plain
+
+sopflags sopflags = 
+comment ""
+position -16.783 -16.2076
+connectornextid 3
+flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
+outputsNamed3
+{
+2 "output1"
+}
+inputsNamed3
+{
+1 	attribwrangle42 1 1 "input1"
+0 	IN_ACTIVATE_ALL 0 1 "input2"
+}
+inputs
+{
+0 	attribwrangle42 0 1
+1 	IN_ACTIVATE_ALL 0 1
+}
+stat
+{
+  create 1527185500
+  modify 1527185670
+  author GDC_Houdini@AUSTIN
+  access 0777
+}
+color UT_Color RGB 0.8 0.8 0.8 
+delscript ""
+exprlanguage hscript
+end
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/merge5.parm"
+Content-Type: text/plain
+
+{
+version 0.8
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/merge5.userdata"
+Content-Type: text/plain
+
+{
+	"___Version___":{
+		"type":"string",
+		"value":"16.5.473"
+	}
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/IN_ACTIVATE_ALL.init"
+Content-Type: text/plain
+
+type = object_merge
+matchesdef = 0
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/IN_ACTIVATE_ALL.def"
+Content-Type: text/plain
+
+sopflags sopflags = 
+comment ""
+position -13.3366 -14.7288
+connectornextid 1
+flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
+outputsNamed3
+{
+0 "output1"
+}
+inputsNamed3
+{
+}
+inputs
+{
+}
+stat
+{
+  create 1512109453
+  modify 1527196920
+  author paula@DESKTOP-JOVQSE4
+  access 0777
+}
+color UT_Color RGB 0.8 0.8 0.8 
+delscript ""
+exprlanguage hscript
+end
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/IN_ACTIVATE_ALL.chn"
+Content-Type: text/plain
+
+{
+    channel objpath1 {
+      lefttype = extend
+      righttype = extend
+      defaultString = chsop(\"../objPrevSim\")
+      flags = 0
+      segment { length = 0 expr = chsop(\"../objPrevSim\") }
+    }
+    channel enable1 {
+      lefttype = extend
+      righttype = extend
+      default = 1
+      flags = 0
+      segment { length = 0 value = 1 1 expr = ch(\"../Activate_All\") }
+    }
+  }
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/IN_ACTIVATE_ALL.parm"
+Content-Type: text/plain
+
+{
+version 0.8
+numobj	[ 0	locks=0 ]	(	1	)
+_separator	[ 0	locks=0 ]	(	)
+xformtype	[ 0	locks=0 ]	(	"local"	)
+xformpath	[ 0	locks=0 ]	(	""	)
+invertxform	[ 0	locks=0 ]	(	"off"	)
+createptgroups	[ 0	locks=0 ]	(	"off"	)
+ptgroupprefix	[ 0	locks=0 ]	(	_ptgrp_	)
+createprimgroups	[ 0	locks=0 ]	(	"off"	)
+primgroupprefix	[ 0	locks=0 ]	(	_primgrp_	)
+verbosegroups	[ 0	locks=0 ]	(	"off"	)
+suffixfirstgroup	[ 0	locks=0 ]	(	"on"	)
+createptstring	[ 0	locks=0 ]	(	"off"	)
+createprimstring	[ 0	locks=0 ]	(	"off"	)
+pathattrib	[ 0	locks=0 ]	(	objname	)
+pack	[ 0	locks=0 ]	(	"off"	)
+pivot	[ 0	locks=0 ]	(	"centroid"	)
+viewportlod	[ 0	locks=0 ]	(	"full"	)
+addpath	[ 0	locks=0 ]	(	"on"	)
+enable1	[ 8	locks=0 ]	(	[ enable1	1 ] 	)
+objpath1	[ 8	locks=0 ]	(	[ objpath1	/obj/PhysicsPainter_Data/geo1 ] 	)
+group1	[ 0	locks=0 ]	(	""	)
+expand1	[ 0	locks=0 ]	(	"off"	)
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/IN_ACTIVATE_ALL.userdata"
+Content-Type: text/plain
+
+{
+	"___Version___":{
+		"type":"string",
+		"value":"16.5.473"
+	}
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/attribdelete9.init"
+Content-Type: text/plain
+
+type = attribdelete
+matchesdef = 1
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/attribdelete9.def"
+Content-Type: text/plain
+
+sopflags sopflags = 
+comment ""
+position -6.93067 -32.0032
+connectornextid 2
+flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
+outputsNamed3
+{
+1 "output1"
+}
+inputsNamed3
+{
+0 	attribwrangle11 1 1 "input1"
+}
+inputs
+{
+0 	attribwrangle11 0 1
+}
+stat
+{
+  create 1512111437
+  modify 1527188075
+  author paula@DESKTOP-JOVQSE4
+  access 0777
+}
+color UT_Color RGB 0.8 0.8 0.8 
+delscript ""
+exprlanguage hscript
+end
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/attribdelete9.parm"
+Content-Type: text/plain
+
+{
+version 0.8
+ptdel	[ 0	locks=0 ]	(	"* ^PaintObject ^name ^ID ^density ^computemass ^mass ^inertialtensorstiffness ^bounce ^friction ^InstanceID"	)
+vtxdel	[ 0	locks=0 ]	(	""	)
+primdel	[ 0	locks=0 ]	(	""	)
+dtldel	[ 0	locks=0 ]	(	*	)
+updatevar	[ 0	locks=0 ]	(	"on"	)
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/attribdelete9.userdata"
+Content-Type: text/plain
+
+{
+	"___Version___":{
+		"type":"string",
+		"value":""
 	}
 }
 
@@ -8565,7 +8852,7 @@ Content-Type: text/plain
 {
 	"version":1,
 	"posx":-6.71454671565789507,
-	"posy":-27.1747408514307303,
+	"posy":-27.6586441041798885,
 	"pinned":false,
 	"color":"FROMOUTPUT",
 	"input":"merge2 0 1"
@@ -8577,8 +8864,8 @@ Content-Type: text/plain
 
 {
 	"version":1,
-	"posx":-11.382519697647,
-	"posy":-53.4640832964398172,
+	"posx":-10.8046796721087368,
+	"posy":-54.7657037998348528,
 	"pinned":false,
 	"color":"FROMOUTPUT",
 	"input":"(__dot4) 0 1"
@@ -8590,8 +8877,8 @@ Content-Type: text/plain
 
 {
 	"version":1,
-	"posx":-9.98591969764699705,
-	"posy":-50.4462021470178854,
+	"posx":-9.40807967210873386,
+	"posy":-51.7478226504129282,
 	"pinned":false,
 	"color":"FROMOUTPUT",
 	"input":"attribwrangle36 0 1"
@@ -8603,8 +8890,8 @@ Content-Type: text/plain
 
 {
 	"version":1,
-	"posx":-11.382519697647,
-	"posy":-50.7808959048231117,
+	"posx":-10.8046796721087368,
+	"posy":-52.0825164082181544,
 	"pinned":false,
 	"color":"FROMOUTPUT",
 	"input":"(__dot3) 0 1"
@@ -8616,20 +8903,58 @@ Content-Type: text/plain
 
 {
 	"version":1,
-	"posx":-14.6024000100555842,
-	"posy":-41.3217450305364338,
+	"posx":-14.024559984517321,
+	"posy":-42.6233655339314765,
 	"pinned":false,
 	"color":"FROMOUTPUT",
 	"input":"attribdelete3 0 1"
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/__dot6.networkdotinit"
+Content-Type: text/plain
+
+{
+	"version":1,
+	"posx":-4.12209998798370414,
+	"posy":-14.1018784354278424,
+	"pinned":false,
+	"color":"FROMOUTPUT",
+	"input":"attribwrangle1 0 1"
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/__dot7.networkdotinit"
+Content-Type: text/plain
+
+{
+	"version":1,
+	"posx":-1.84936999999999996,
+	"posy":-14.1018784354278424,
+	"pinned":false,
+	"color":"FROMOUTPUT",
+	"input":"attribwrangle9 0 1"
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/__dot8.networkdotinit"
+Content-Type: text/plain
+
+{
+	"version":1,
+	"posx":2.87414999653361747,
+	"posy":-14.1018784354278424,
+	"pinned":false,
+	"color":"FROMOUTPUT",
+	"input":"attribwrangle43 0 1"
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
 Content-Disposition: attachment; filename="hdaroot.order"
 Content-Type: text/plain
 
-91
+94
 drawcurve1
-attribwrangle3
 dopnet1
 attribwrangle4
 clean1
@@ -8673,10 +8998,6 @@ attribdelete4
 attribwrangle1
 pack2
 fuse1
-compile_begin5
-foreach_begin1_metadata2
-bound1
-convert1
 object_merge1
 switch1
 attribwrangle8
@@ -8712,13 +9033,21 @@ attribwrangle43
 pack4
 attribwrangle37
 attribwrangle45
-normal1
-attribwrangle21
 attribpromote1
 attribdelete6
 attribpromote2
 attribpromote3
-unpack2
+attribwrangle44
+dopnet2
+merge3
+blast1
+merge4
+timeshift1
+attribdelete8
+blast2
+merge5
+IN_ACTIVATE_ALL
+attribdelete9
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
 Content-Disposition: attachment; filename="hdaroot.net"

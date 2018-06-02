@@ -32,22 +32,24 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position 4.11176 -0.813824
-connectornextid 0
+position -1.5 -1.01971
+connectornextid 1
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
 {
 }
 inputsNamed3
 {
+0 	box1 0 1 "input1"
 }
 inputs
 {
+0 	box1 0 1
 }
 stat
 {
-  create 1522705495
-  modify 1522705796
+  create 1526915750
+  modify 1526915758
   author MAINGEAR@DESKTOP-P98C1VA
   access 0777
 }
@@ -1095,7 +1097,7 @@ inputs
 stat
 {
   create 1520888104
-  modify 1520888795
+  modify 1526915788
   author MAINGEAR@DESKTOP-P98C1VA
   access 0777
 }
@@ -1142,7 +1144,7 @@ Content-Type: text/plain
 Content-Disposition: attachment; filename="hdaroot/ropnet1/rop_sketchfab1.init"
 Content-Type: text/plain
 
-type = rop_sketchfab
+type = gamedev::rop_sketchfab
 matchesdef = 1
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -1150,7 +1152,7 @@ Content-Disposition: attachment; filename="hdaroot/ropnet1/rop_sketchfab1.def"
 Content-Type: text/plain
 
 comment ""
-position -1.21735 5.73649
+position -1.78206 6.32473
 connectornextid 0
 flags =  lock off model off template off footprint off xray off bypass off display on render on highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
@@ -1164,8 +1166,8 @@ inputs
 }
 stat
 {
-  create 1520888124
-  modify 1521125669
+  create 1526915787
+  modify 1526915838
   author MAINGEAR@DESKTOP-P98C1VA
   access 0777
 }
@@ -1182,28 +1184,30 @@ Content-Type: text/plain
     channel model_title {
       lefttype = extend
       righttype = extend
-      defaultString = \"\"
       flags = 0
       segment { length = 0 expr = chs(\"../../model_title\") }
     }
     channel model_description {
       lefttype = extend
       righttype = extend
-      defaultString = \"\"
       flags = 0
       segment { length = 0 expr = chs(\"../../model_description\") }
     }
     channel model_tags {
       lefttype = extend
       righttype = extend
-      defaultString = \"\"
       flags = 0
       segment { length = 0 expr = chs(\"../../model_tags\") }
+    }
+    channel authentication_method {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = ch(\"../../authentication_method\") }
     }
     channel api_key {
       lefttype = extend
       righttype = extend
-      defaultString = \"\"
       flags = 0
       segment { length = 0 expr = chs(\"../../api_key\") }
     }
@@ -1213,16 +1217,9 @@ Content-Type: text/plain
       flags = 0
       segment { length = 0 expr = ch(\"../../launch_page\") }
     }
-    channel authentication_method {
-      lefttype = extend
-      righttype = extend
-      flags = 0
-      segment { length = 0 expr = ch(\"../../authentication_method\") }
-    }
     channel username {
       lefttype = extend
       righttype = extend
-      defaultString = \"\"
       flags = 0
       segment { length = 0 expr = chs(\"../../username\") }
     }
@@ -1242,22 +1239,22 @@ Content-Type: text/plain
 version 0.8
 execute	[ 0	locks=0 ]	(	0	)
 renderdialog	[ 0	locks=0 ]	(	0	)
-soppath	[ 0	locks=0 ]	(	`opfullpath(\"../../objnet1/geo1\")`	)
-parm	[ 0	locks=0 ]	(	""	)
-model_details	[ 0	locks=0 ]	(	0	)
-model_title	[ 0	locks=0 ]	(	[ model_title	"Catwalk Asset" ] 	)
-model_description	[ 0	locks=0 ]	(	[ model_description	"Test Upload from Houdini" ] 	)
-model_tags	[ 0	locks=0 ]	(	[ model_tags	"" ] 	)
-folder1	[ 0	locks=0 ]	(	0	)
-authentication_method	[ 0	locks=0 ]	(	[ authentication_method	1 ] 	)
-api_key	[ 0	locks=0 ]	(	[ api_key	"" ] 	)
+soppath	[ 0	locks=0	autoscope=0 ]	(	`opfullpath(\"../../objnet1/geo1\")`	)
+parm	[ 0	locks=0	autoscope=0 ]	(	""	)
+model_details	[ 0	locks=0	autoscope=0 ]	(	0	)
+model_title	[ 0	locks=0	autoscope=0 ]	(	[ model_title	"" ] 	)
+model_description	[ 0	locks=0	autoscope=0 ]	(	[ model_description	"" ] 	)
+model_tags	[ 0	locks=0	autoscope=0 ]	(	[ model_tags	"" ] 	)
+folder1	[ 0	locks=0	autoscope=0 ]	(	0	)
+authentication_method	[ 0	locks=0	autoscope=0 ]	(	[ authentication_method	1 ] 	)
+api_key	[ 0	locks=0	autoscope=0 ]	(	[ api_key	"" ] 	)
 launch_page	[ 0	locks=0 ]	(	[ launch_page	0 ] 	)
-access_token	[ 0	locks=0 ]	(	rRpIfie6B7hsh9uLQMIzgwKplhByHV	)
-username	[ 0	locks=0 ]	(	[ username	lkruel@gmail.com ] 	)
+access_token	[ 0	locks=0	autoscope=0 ]	(	rRpIfie6B7hsh9uLQMIzgwKplhByHV	)
+username	[ 0	locks=0	autoscope=0 ]	(	[ username	lkruel@gmail.com ] 	)
 login	[ 0	locks=0 ]	(	[ login	0 ] 	)
-tmp_filename	[ 0	locks=0 ]	(	c:/work/SideFX/p4/users/luiz/models/catwalk/export/catwalk_railing_metallic.tga	)
-tmp_jpg_path	[ 0	locks=0 ]	(	C:/Users/MAINGEAR\\export\\principledshader1_roughness.jpg	)
-tmp_fbx_path	[ 0	locks=0 ]	(	C:/Users/MAINGEAR\\export\\mesh.fbx	)
+tmp_filename	[ 0	locks=0	autoscope=0 ]	(	c:/work/SideFX/p4/users/luiz/models/catwalk/export/catwalk_railing_metallic.tga	)
+tmp_jpg_path	[ 0	locks=0	autoscope=0 ]	(	C:/Users/MAINGEAR\\export\\principledshader1_roughness.jpg	)
+tmp_fbx_path	[ 0	locks=0	autoscope=0 ]	(	C:/Users/MAINGEAR\\export\\mesh.fbx	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -1267,7 +1264,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":""
+		"value":".1"
 	}
 }
 

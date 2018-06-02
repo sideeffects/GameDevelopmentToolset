@@ -58,6 +58,7 @@ def doLogin(user, password, node):
         
     access_token = data.json()["access_token"]
     node.parm("access_token").set(access_token)
+    node.parm("logged_in").set(user +  " (pw)")
     hou.ui.displayMessage("Login Successful") 
     
 def onAccount():

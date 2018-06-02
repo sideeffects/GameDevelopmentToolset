@@ -79,6 +79,7 @@
             label   "Authentication Method"
             type    ordinal
             default { "0" }
+            hidewhen "{ access_token != \"\" }"
             menu {
                 "0" "API key"
                 "1" "Password"
@@ -110,19 +111,26 @@
             hidewhen "{ authentication_method != 1 }"
         }
         parm {
+            name    "logged_in"
+            label   "Logged In: "
+            type    label
+            default { "" }
+            hidewhen "{ access_token == \"\" }"
+        }
+        parm {
             name    "username"
             label   "username"
             type    string
             joinnext
             default { "" }
-            hidewhen "{ authentication_method != 1 }"
+            hidewhen "{ authentication_method != 1 } { access_token != \"\" }"
         }
         parm {
             name    "login"
             label   "Login"
             type    button
             default { "0" }
-            hidewhen "{ authentication_method != 1 }"
+            hidewhen "{ authentication_method != 1 } { access_token != \"\" }"
             parmtag { "script_callback" "hou.pwd().hdaModule().onAccount()" }
             parmtag { "script_callback_language" "python" }
         }

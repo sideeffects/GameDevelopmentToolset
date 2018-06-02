@@ -32,22 +32,24 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position -1.71176 0.697941
-connectornextid 0
-flags =  lock off model off template off footprint off xray off bypass off display on render on highlight off unload off savedata off compress on colordefault on exposed on
+position -0.8 -2.151
+connectornextid 1
+flags =  lock off model off template on footprint off xray off bypass off display on render on highlight on unload off savedata off compress on colordefault on exposed on
 outputsNamed3
 {
 }
 inputsNamed3
 {
+0 	sop_quickmaterial1 1 1 "input1"
 }
 inputs
 {
+0 	sop_quickmaterial1 0 1
 }
 stat
 {
-  create 1522783249
-  modify 1522783268
+  create 1524230325
+  modify 1524230401
   author MAINGEAR@DESKTOP-P98C1VA
   access 0777
 }
@@ -64,6 +66,14 @@ Content-Type: text/plain
 	"___Version___":{
 		"type":"string",
 		"value":"0.1"
+	},
+	"___toolcount___":{
+		"type":"string",
+		"value":"2"
+	},
+	"___toolid___":{
+		"type":"string",
+		"value":"gamedev::sop_sop_quickmaterial"
 	}
 }
 
@@ -610,7 +620,7 @@ inputs
 stat
 {
   create 1510670639
-  modify 1515013437
+  modify 1524230411
   author MAINGEAR@DESKTOP-P98C1VA
   access 0777
 }
@@ -783,11 +793,11 @@ Content-Type: text/plain
 version 0.8
 specmodel	[ 0	locks=0 ]	(	ggx	)
 coatspecmodel	[ 0	locks=0 ]	(	ggx	)
-speccolor	[ 0	locks=0 ]	(	[ speccolorr	1 ] 	[ speccolorg	1 ] 	[ speccolorb	1 ] 	)
+speccolor	[ 0	locks=0 ]	(	[ speccolorr	1 ] 	[ speccolorg	0 ] 	[ speccolorb	1 ] 	)
 specular_tint	[ 0	locks=0 ]	(	[ specular_tint	0 ] 	)
 diffuse_folder_15	[ 0	locks=0 ]	(	2	2	2	2	2	2	)
 folder7	[ 0	locks=0 ]	(	0	)
-basecolor	[ 0	locks=0 ]	(	[ basecolorr	1 ] 	[ basecolorg	1 ] 	[ basecolorb	1 ] 	)
+basecolor	[ 0	locks=0 ]	(	[ basecolorr	1 ] 	[ basecolorg	0 ] 	[ basecolorb	1 ] 	)
 basecolor_usePointColor	[ 0	locks=0 ]	(	"on"	)
 basecolor_usePackedColor	[ 0	locks=0 ]	(	"off"	)
 frontface	[ 0	locks=0 ]	(	"on"	)
@@ -833,7 +843,7 @@ fakecausticsshadow	[ 0	locks=0 ]	(	1	)
 fakecausticsopacity	[ 0	locks=0 ]	(	0	)
 folder54	[ 0	locks=0 ]	(	0	)
 basecolor_useTexture	[ 0	locks=0 ]	(	"on"	)
-basecolor_texture	[ 0	locks=0 ]	(	[ basecolor_texture	"H:/Paul Ambrosiussen/ASSET LIBRARY/FERNS/Textures/Atlas/ForestFern_4K_Albedo.jpg" ] 	)
+basecolor_texture	[ 0	locks=0 ]	(	[ basecolor_texture	"" ] 	)
 basecolor_textureIntensity	[ 0	locks=0 ]	(	1	)
 basecolor_textureWrap	[ 0	locks=0 ]	(	repeat	)
 basecolor_textureColorSpace	[ 0	locks=0 ]	(	auto	)
@@ -953,7 +963,7 @@ emitcolor_textureWrap	[ 0	locks=0 ]	(	repeat	)
 emitcolor_textureColorSpace	[ 0	locks=0 ]	(	repeat	)
 folder14	[ 0	locks=0 ]	(	0	)
 opaccolor_useTexture	[ 0	locks=0 ]	(	"on"	)
-opaccolor_texture	[ 0	locks=0 ]	(	[ opaccolor_texture	"H:/Paul Ambrosiussen/ASSET LIBRARY/FERNS/Textures/Atlas/ForestFern_4K_Opacity.jpg" ] 	)
+opaccolor_texture	[ 0	locks=0 ]	(	[ opaccolor_texture	"" ] 	)
 opaccolor_textureWrap	[ 0	locks=0 ]	(	repeat	)
 opaccolor_textureIntensity	[ 0	locks=0 ]	(	1	)
 opaccolor_textureColorSpace	[ 0	locks=0 ]	(	repeat	)
@@ -968,7 +978,7 @@ baseBumpAndNormal_enable	[ 0	locks=0 ]	(	"on"	)
 baseBumpAndNormal_type	[ 0	locks=0 ]	(	normal	)
 baseBump_colorSpace	[ 0	locks=0 ]	(	linear	)
 baseBump_bumpScale	[ 0	locks=0 ]	(	0.050000000000000003	)
-baseBump_bumpTexture	[ 0	locks=0 ]	(	[ baseBump_bumpTexture	C:/Users/MAINGEAR/Downloads/insta/01_hp_Normal.jpg ] 	)
+baseBump_bumpTexture	[ 0	locks=0 ]	(	[ baseBump_bumpTexture	"" ] 	)
 baseBump_wrap	[ 0	locks=0 ]	(	repeat	)
 baseBump_filter	[ 0	locks=0 ]	(	gauss	)
 baseBump_filterWidth	[ 0	locks=0 ]	(	1	)
@@ -1182,7 +1192,7 @@ inputs
 stat
 {
   create 1510670635
-  modify 1522783270
+  modify 1524230345
   author MAINGEAR@DESKTOP-P98C1VA
   access 0777
 }
@@ -1202,7 +1212,7 @@ uselabels	[ 0	locks=0 ]	(	"uselabels"	)
 createstylesheets	[ 0	locks=0 ]	(	"off"	)
 fullpath	[ 0	locks=0 ]	(	"on"	)
 num_materials	[ 0	locks=0 ]	(	1	)
-group1	[ 0	locks=0 ]	(	""	)
+group1	[ 0	locks=0 ]	(	`chs(\"../group1\")`	)
 shop_materialpath1	[ 0	locks=0 ]	(	../matnet1/principledshader1	)
 localvar1	[ 0	locks=0 ]	(	"off"	)
 mergeoverride1	[ 0	locks=0 ]	(	"off"	)

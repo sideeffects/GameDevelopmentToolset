@@ -1,0 +1,68 @@
+# Dialog script for gamedev::sop_delight automatically generated
+
+{
+    name	gamedev::sop_delight
+    script	gamedev::sop_delight
+    label	"GameDev Delight"
+
+    help {
+	""
+    }
+
+    inputlabel	1	"Sub-Network Input #1"
+    inputlabel	2	"Sub-Network Input #2"
+    inputlabel	3	"Sub-Network Input #3"
+    inputlabel	4	"Sub-Network Input #4"
+
+    parm {
+        name    "samples"
+        label   "Number of Samples"
+        type    integer
+        default { "10" }
+        range   { 1! 1000 }
+        parmtag { "autoscope" "0000000000000000" }
+    }
+    parm {
+        name    "iterations"
+        label   "Blurring Iterations"
+        type    integer
+        default { "100" }
+        range   { 0 100 }
+        parmtag { "autoscope" "0000000000000000" }
+    }
+    parm {
+        name    "grouptype"
+        label   "Group Type"
+        type    ordinal
+        invisible
+        default { "prims" }
+        menu {
+            "guess"         "Guess from Group"
+            "breakpoints"   "Breakpoints"
+            "edges"         "Edges"
+            "points"        "Points"
+            "prims"         "Primitives"
+        }
+        parmtag { "autoscope" "0000000000000000" }
+    }
+    parm {
+        name    "multi_color_object"
+        label   "Multi Color Object"
+        type    toggle
+        default { "0" }
+    }
+    parm {
+        name    "vis_lighting"
+        label   "Visualize Lighting"
+        type    toggle
+        default { "0" }
+    }
+    parm {
+        name    "lighting_exposure"
+        label   "Lighting Exposure"
+        type    float
+        default { "0" }
+        disablewhen "{ vis_lighting == 0 }"
+        range   { -10 10 }
+    }
+}

@@ -12,24 +12,10 @@ Also, if you forked the respository and suddenly it stopped pulling, that's due 
 
 
 
-## Instructions - Method 1
-Download the repository using the green Clone or Download Button and unzip contents into the following folders depending on your operating system:
+## Instructions - Method 1 (Recommended)
+Use the built in Updater in Houdini 16.5 to download the latest releases from Github. You can find more information [here](https://www.sidefx.com/tutorials/game-dev-toolset-installation/)
 
-Windows
-
-    C:\Users\[username]\Documents\houdini[ver#]
-
-OSX
-
-    /Users/[username]/Library/Preferences/houdini/[ver#]
-
-Linux
-
-    ~/houdini[ver#]
-
-Be sure to merge as needed! If you're copying and not cloning, the files shouldn't overwrite anything that doesn't involve the toolset.
-
-## Instructions - Method 2
+## Instructions - Method 2 (Cutting Edge)
 Download the repository using the green Clone or Download Button and unzip contents into the folder of your choosing
 
 Edit the houdini.env file found at the topmost directory 
@@ -59,9 +45,7 @@ We haven't done a lot in this Github in a while, but we are changing that. The o
 But we saw a lot of value in having this experimental testbed for tools, so we will continue to develop our tools live and as they mature they will move into the main Houdini Build.
 
 ## Live Development
-We're actively working on building up the Houdini 16.0 branch of the toolset to match what's curently in the build.
-Currently we are moving tools over as bugs are indentified and fixed, and are placed here until they get added into the main Houdini build.
-We will also develop new tools moving forward using GitHub as our version control, so in the near future the 16.0 branch will become the default branch
+We're actively developing the tools in this Repository. The [Releases](https://github.com/sideeffects/GameDevelopmentToolset/releases) provide safe checkpoints in the code for you to download. The internal Houdini Updater uses the releases to install the tools.  
 
 ## Expanded HDAs
 All of the HDAs are now using the new expanded format that was introduced in H16. This allows better diffing of the tools so you can see what our changes are doing and choose to integrate them back into your production.
@@ -70,8 +54,7 @@ All of the HDAs are now using the new expanded format that was introduced in H16
 Instead of tying the examples as HDAs, we will be generating separate hip files that show how the tools should work in context
 
 ## Branched Development
-The *Development* branch is where we'll be working from. This is where the latest and greatest will live
+The *Development* branch is where we'll be working from. This is where the latest and greatest will live. The HoudiniXX are for archival purposes and we'll keep working on the latest release and will branch off when we make HDAs that use new functionality. 
 
-Once an HDA is deemed ready, we will move it over to the Houdini XX branch where it will be more easily discovered by the population at large
-
+The Stable branch will be soon deprecated as the Releases workflow provides the same gating functionality. 
 

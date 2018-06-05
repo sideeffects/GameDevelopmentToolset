@@ -9,7 +9,7 @@
 	""
     }
 
-    inputlabel	1	"Sub-Network Input #1"
+    inputlabel	1	"Geometry to Measure"
     inputlabel	2	"Sub-Network Input #2"
     inputlabel	3	"Sub-Network Input #3"
     inputlabel	4	"Sub-Network Input #4"
@@ -18,22 +18,6 @@
         name    "folder0"
         label   "Curvature Values"
 
-        parm {
-            name    "curvature_min_max"
-            label   "Min Max"
-            type    vector2
-            size    2
-            default { "0" "0" }
-            range   { -1 1 }
-        }
-        parm {
-            name    "auto_calculate"
-            label   "Auto Calculate"
-            type    button
-            default { "0" }
-            parmtag { "script_callback" "hou.pwd().hdaModule().populate_min_max(hou.pwd())" }
-            parmtag { "script_callback_language" "python" }
-        }
         parm {
             name    "per_piece"
             label   "Calculate Per Piece"

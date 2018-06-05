@@ -9,7 +9,7 @@
 	""
     }
 
-    inputlabel	1	"Sub-Network Input #1"
+    inputlabel	1	"Geometry To Add Material To"
     inputlabel	2	"Sub-Network Input #2"
     inputlabel	3	"Sub-Network Input #3"
     inputlabel	4	"Sub-Network Input #4"
@@ -56,12 +56,28 @@
     }
 
     groupsimple {
+        name    "folder4"
+        label   "Opacity"
+
+        parm {
+            name    "opaccolor_texture"
+            label   "Opacity Texture"
+            type    image
+            default { "" }
+            parmtag { "autoscope" "0000000000000000" }
+            parmtag { "ogl_opacitymap" "1" }
+            parmtag { "parmvop" "1" }
+            parmtag { "shaderparmcontexts" "surface" }
+        }
+    }
+
+    groupsimple {
         name    "folder2"
         label   "Normal"
 
         parm {
             name    "baseBump_bumpTexture"
-            label   "Texture"
+            label   "Normal Texture"
             type    image
             default { "" }
             parmtag { "autoscope" "0000000000000000" }
@@ -163,7 +179,7 @@
 
         parm {
             name    "metallic_texture"
-            label   "Texture"
+            label   "Metallic Texture"
             type    image
             default { "" }
             parmtag { "autoscope" "0000000000000000" }

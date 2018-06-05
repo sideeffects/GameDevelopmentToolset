@@ -23,7 +23,7 @@ Cop2
 Content-Disposition: attachment; filename="hdaroot.init"
 Content-Type: text/plain
 
-type = normal_map
+type = gamedev::normal_map
 matchesdef = 0
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -31,25 +31,23 @@ Content-Disposition: attachment; filename="hdaroot.def"
 Content-Type: text/plain
 
 comment ""
-position 0.564356 -0.24901
-connectornextid 1
+position -3.0996 -0.359163
+connectornextid 0
 flags =  lock off model off template off footprint off xray off bypass off display on render on highlight off unload off savedata off compress off colordefault on exposed on
 outputsNamed3
 {
 }
 inputsNamed3
 {
-0 	font1 0 1 "input1"
 }
 inputs
 {
-0 	font1 0 1
 }
 stat
 {
-  create 1500394975
-  modify 1500395086
-  author Luiz@Luiz-PC
+  create 1522782532
+  modify 1522782544
+  author MAINGEAR@DESKTOP-P98C1VA
   access 0777
 }
 color UT_Color RGB 0.8 0.8 0.8 
@@ -64,7 +62,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":""
+		"value":"0.1"
 	}
 }
 
@@ -113,7 +111,7 @@ inputs
 stat
 {
   create 1475086517
-  modify 1500394977
+  modify 1522782539
   author Luiz@Luiz-PC
   access 0777
 }
@@ -156,7 +154,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.0.600"
+		"value":"16.5.412"
 	}
 }
 
@@ -255,7 +253,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.0.600"
+		"value":"16.5.412"
 	}
 }
 
@@ -330,7 +328,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.0.600"
+		"value":"16.5.412"
 	}
 }
 
@@ -637,6 +635,7 @@ Content-Type: text/plain
 version 0.8
 signature	[ 0	locks=0 ]	(	default	)
 vec	[ 0	locks=0 ]	(	1	0	0	)
+vec_u	[ 0	locks=0 ]	(	1	0	)
 vec_p	[ 0	locks=0 ]	(	1	0	0	)
 vec_v	[ 0	locks=0 ]	(	1	0	0	)
 vec_v4	[ 0	locks=0 ]	(	0	0	0	1	)
@@ -700,144 +699,147 @@ Content-Disposition: attachment; filename="hdaroot/vopcop2filter1.spareparmdef"
 Content-Type: text/plain
 
     group {
-	name	"stdswitcher4"
-	label	"Compiler"
+        name    "stdswitcher4"
+        label   "Compiler"
 
-	parm {
-	    name	"vop_compiler"
-	    baseparm
-	    label	"Compiler"
-	    export	none
-	}
-	parm {
-	    name	"vop_forcecompile"
-	    baseparm
-	    label	"Force Compile"
-	    export	none
-	}
+        parm {
+            name    "vop_compiler"
+            baseparm
+            label   "Compiler"
+            export  none
+        }
+        parm {
+            name    "vop_forcecompile"
+            baseparm
+            label   "Force Compile"
+            export  none
+        }
     }
 
     group {
-	name	"stdswitcher4_1"
-	label	"Mask"
+        name    "stdswitcher4_1"
+        label   "Mask"
 
-	parm {
-	    name	"effectamount"
-	    baseparm
-	    label	"Effect Amount"
-	    export	none
-	}
-	parm {
-	    name	"maskinput"
-	    baseparm
-	    label	"Operation Mask"
-	    joinnext
-	    export	none
-	}
-	parm {
-	    name	"maskplane"
-	    baseparm
-	    label	""
-	    export	none
-	}
-	parm {
-	    name	"maskresize"
-	    baseparm
-	    label	"Resize Mask to Fit Image"
-	    export	none
-	}
-	parm {
-	    name	"maskinvert"
-	    baseparm
-	    label	"Invert Mask"
-	    export	none
-	}
-	parm {
-	    name	"scopergba"
-	    baseparm
-	    label	"Plane Scope"
-	    joinnext
-	    export	all
-	}
-	parm {
-	    name	"pscope"
-	    baseparm
-	    label	""
-	    export	all
-	}
+        parm {
+            name    "effectamount"
+            baseparm
+            label   "Effect Amount"
+            export  none
+        }
+        parm {
+            name    "maskinput"
+            baseparm
+            label   "Operation Mask"
+            joinnext
+            export  none
+        }
+        parm {
+            name    "maskplane"
+            baseparm
+            label   ""
+            nolabel
+            export  none
+        }
+        parm {
+            name    "maskresize"
+            baseparm
+            label   "Resize Mask to Fit Image"
+            export  none
+        }
+        parm {
+            name    "maskinvert"
+            baseparm
+            label   "Invert Mask"
+            export  none
+        }
+        parm {
+            name    "scopergba"
+            baseparm
+            label   "Plane Scope"
+            joinnext
+            export  all
+        }
+        parm {
+            name    "pscope"
+            baseparm
+            label   ""
+            nolabel
+            export  all
+        }
     }
 
     group {
-	name	"stdswitcher4_2"
-	label	"Frame Scope"
+        name    "stdswitcher4_2"
+        label   "Frame Scope"
 
-	parm {
-	    name	"fscope"
-	    baseparm
-	    label	"Frame Scope"
-	    export	none
-	}
-	parm {
-	    name	"frange"
-	    baseparm
-	    label	"Frame Range"
-	    export	none
-	}
-	parm {
-	    name	"fdropoff"
-	    baseparm
-	    label	"Frame Dropoff"
-	    joinnext
-	    export	none
-	}
-	parm {
-	    name	"fdropfunc"
-	    baseparm
-	    label	""
-	    export	none
-	}
-	parm {
-	    name	"foutside"
-	    baseparm
-	    label	"Non-scoped Effect"
-	    export	none
-	}
-	parm {
-	    name	"flist"
-	    baseparm
-	    label	"Frame List"
-	    joinnext
-	    export	none
-	}
-	parm {
-	    name	"fmenu"
-	    baseparm
-	    label	""
-	    export	none
-	}
-	parm {
-	    name	"fautoadjust"
-	    baseparm
-	    label	"Automatically Adjust for Length Changes"
-	    export	none
-	}
-	parm {
-	    name	"currange"
-	    baseparm
-	    label	""
-	    invisible
-	    export	none
-	}
+        parm {
+            name    "fscope"
+            baseparm
+            label   "Frame Scope"
+            export  none
+        }
+        parm {
+            name    "frange"
+            baseparm
+            label   "Frame Range"
+            export  none
+        }
+        parm {
+            name    "fdropoff"
+            baseparm
+            label   "Frame Dropoff"
+            joinnext
+            export  none
+        }
+        parm {
+            name    "fdropfunc"
+            baseparm
+            label   ""
+            nolabel
+            export  none
+        }
+        parm {
+            name    "foutside"
+            baseparm
+            label   "Non-scoped Effect"
+            export  none
+        }
+        parm {
+            name    "flist"
+            baseparm
+            label   "Frame List"
+            joinnext
+            export  none
+        }
+        parm {
+            name    "fmenu"
+            baseparm
+            label   ""
+            export  none
+        }
+        parm {
+            name    "fautoadjust"
+            baseparm
+            label   "Automatically Adjust for Length Changes"
+            export  none
+        }
+        parm {
+            name    "currange"
+            baseparm
+            label   ""
+            invisible
+            export  none
+        }
     }
 
     parm {
-	name	"multiplier"
-	label	"multiplier"
-	type	float
-	default	{ "0" }
-	range	{ 0 1 }
-	parmtag	{ "parmvop" "1" }
-	parmtag	{ "shaderparmcontexts" "cop2" }
+        name    "multiplier"
+        label   "multiplier"
+        type    float
+        default { "0" }
+        range   { 0 1 }
+        parmtag { "parmvop" "1" }
+        parmtag { "shaderparmcontexts" "cop2" }
     }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -876,7 +878,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.0.600"
+		"value":"16.5.412"
 	}
 }
 
@@ -975,7 +977,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.0.600"
+		"value":"16.5.412"
 	}
 }
 
@@ -1050,7 +1052,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.0.600"
+		"value":"16.5.412"
 	}
 }
 
@@ -1180,7 +1182,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.0.600"
+		"value":"16.5.412"
 	}
 }
 
@@ -1309,7 +1311,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.0.600"
+		"value":"16.5.412"
 	}
 }
 
@@ -1412,7 +1414,7 @@ inputs
 stat
 {
   create 1475103098
-  modify 1475103431
+  modify 1522782539
   author Luiz@Luiz-PC
   access 0777
 }
@@ -1426,144 +1428,147 @@ Content-Disposition: attachment; filename="hdaroot/vopcop2filter5.spareparmdef"
 Content-Type: text/plain
 
     group {
-	name	"stdswitcher4"
-	label	"Compiler"
+        name    "stdswitcher4"
+        label   "Compiler"
 
-	parm {
-	    name	"vop_compiler"
-	    baseparm
-	    label	"Compiler"
-	    export	none
-	}
-	parm {
-	    name	"vop_forcecompile"
-	    baseparm
-	    label	"Force Compile"
-	    export	none
-	}
+        parm {
+            name    "vop_compiler"
+            baseparm
+            label   "Compiler"
+            export  none
+        }
+        parm {
+            name    "vop_forcecompile"
+            baseparm
+            label   "Force Compile"
+            export  none
+        }
     }
 
     group {
-	name	"stdswitcher4_1"
-	label	"Mask"
+        name    "stdswitcher4_1"
+        label   "Mask"
 
-	parm {
-	    name	"effectamount"
-	    baseparm
-	    label	"Effect Amount"
-	    export	none
-	}
-	parm {
-	    name	"maskinput"
-	    baseparm
-	    label	"Operation Mask"
-	    joinnext
-	    export	none
-	}
-	parm {
-	    name	"maskplane"
-	    baseparm
-	    label	""
-	    export	none
-	}
-	parm {
-	    name	"maskresize"
-	    baseparm
-	    label	"Resize Mask to Fit Image"
-	    export	none
-	}
-	parm {
-	    name	"maskinvert"
-	    baseparm
-	    label	"Invert Mask"
-	    export	none
-	}
-	parm {
-	    name	"scopergba"
-	    baseparm
-	    label	"Plane Scope"
-	    joinnext
-	    export	all
-	}
-	parm {
-	    name	"pscope"
-	    baseparm
-	    label	""
-	    export	all
-	}
+        parm {
+            name    "effectamount"
+            baseparm
+            label   "Effect Amount"
+            export  none
+        }
+        parm {
+            name    "maskinput"
+            baseparm
+            label   "Operation Mask"
+            joinnext
+            export  none
+        }
+        parm {
+            name    "maskplane"
+            baseparm
+            label   ""
+            nolabel
+            export  none
+        }
+        parm {
+            name    "maskresize"
+            baseparm
+            label   "Resize Mask to Fit Image"
+            export  none
+        }
+        parm {
+            name    "maskinvert"
+            baseparm
+            label   "Invert Mask"
+            export  none
+        }
+        parm {
+            name    "scopergba"
+            baseparm
+            label   "Plane Scope"
+            joinnext
+            export  all
+        }
+        parm {
+            name    "pscope"
+            baseparm
+            label   ""
+            nolabel
+            export  all
+        }
     }
 
     group {
-	name	"stdswitcher4_2"
-	label	"Frame Scope"
+        name    "stdswitcher4_2"
+        label   "Frame Scope"
 
-	parm {
-	    name	"fscope"
-	    baseparm
-	    label	"Frame Scope"
-	    export	none
-	}
-	parm {
-	    name	"frange"
-	    baseparm
-	    label	"Frame Range"
-	    export	none
-	}
-	parm {
-	    name	"fdropoff"
-	    baseparm
-	    label	"Frame Dropoff"
-	    joinnext
-	    export	none
-	}
-	parm {
-	    name	"fdropfunc"
-	    baseparm
-	    label	""
-	    export	none
-	}
-	parm {
-	    name	"foutside"
-	    baseparm
-	    label	"Non-scoped Effect"
-	    export	none
-	}
-	parm {
-	    name	"flist"
-	    baseparm
-	    label	"Frame List"
-	    joinnext
-	    export	none
-	}
-	parm {
-	    name	"fmenu"
-	    baseparm
-	    label	""
-	    export	none
-	}
-	parm {
-	    name	"fautoadjust"
-	    baseparm
-	    label	"Automatically Adjust for Length Changes"
-	    export	none
-	}
-	parm {
-	    name	"currange"
-	    baseparm
-	    label	""
-	    invisible
-	    export	none
-	}
+        parm {
+            name    "fscope"
+            baseparm
+            label   "Frame Scope"
+            export  none
+        }
+        parm {
+            name    "frange"
+            baseparm
+            label   "Frame Range"
+            export  none
+        }
+        parm {
+            name    "fdropoff"
+            baseparm
+            label   "Frame Dropoff"
+            joinnext
+            export  none
+        }
+        parm {
+            name    "fdropfunc"
+            baseparm
+            label   ""
+            nolabel
+            export  none
+        }
+        parm {
+            name    "foutside"
+            baseparm
+            label   "Non-scoped Effect"
+            export  none
+        }
+        parm {
+            name    "flist"
+            baseparm
+            label   "Frame List"
+            joinnext
+            export  none
+        }
+        parm {
+            name    "fmenu"
+            baseparm
+            label   ""
+            export  none
+        }
+        parm {
+            name    "fautoadjust"
+            baseparm
+            label   "Automatically Adjust for Length Changes"
+            export  none
+        }
+        parm {
+            name    "currange"
+            baseparm
+            label   ""
+            invisible
+            export  none
+        }
     }
 
     parm {
-	name	"multiplier"
-	label	"multiplier"
-	type	float
-	default	{ "0" }
-	range	{ 0 1 }
-	parmtag	{ "parmvop" "1" }
-	parmtag	{ "shaderparmcontexts" "cop2" }
+        name    "multiplier"
+        label   "multiplier"
+        type    float
+        default { "0" }
+        range   { 0 1 }
+        parmtag { "parmvop" "1" }
+        parmtag { "shaderparmcontexts" "cop2" }
     }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -1602,7 +1607,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.0.600"
+		"value":"16.5.412"
 	}
 }
 
@@ -1701,7 +1706,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.0.600"
+		"value":"16.5.412"
 	}
 }
 
@@ -1776,7 +1781,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.0.600"
+		"value":"16.5.412"
 	}
 }
 
@@ -1906,7 +1911,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.0.600"
+		"value":"16.5.412"
 	}
 }
 
@@ -2035,7 +2040,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.0.600"
+		"value":"16.5.412"
 	}
 }
 
@@ -2152,144 +2157,147 @@ Content-Disposition: attachment; filename="hdaroot/multiply.spareparmdef"
 Content-Type: text/plain
 
     group {
-	name	"stdswitcher4"
-	label	"Compiler"
+        name    "stdswitcher4"
+        label   "Compiler"
 
-	parm {
-	    name	"vop_compiler"
-	    baseparm
-	    label	"Compiler"
-	    export	none
-	}
-	parm {
-	    name	"vop_forcecompile"
-	    baseparm
-	    label	"Force Compile"
-	    export	none
-	}
+        parm {
+            name    "vop_compiler"
+            baseparm
+            label   "Compiler"
+            export  none
+        }
+        parm {
+            name    "vop_forcecompile"
+            baseparm
+            label   "Force Compile"
+            export  none
+        }
     }
 
     group {
-	name	"stdswitcher4_1"
-	label	"Mask"
+        name    "stdswitcher4_1"
+        label   "Mask"
 
-	parm {
-	    name	"effectamount"
-	    baseparm
-	    label	"Effect Amount"
-	    export	none
-	}
-	parm {
-	    name	"maskinput"
-	    baseparm
-	    label	"Operation Mask"
-	    joinnext
-	    export	none
-	}
-	parm {
-	    name	"maskplane"
-	    baseparm
-	    label	""
-	    export	none
-	}
-	parm {
-	    name	"maskresize"
-	    baseparm
-	    label	"Resize Mask to Fit Image"
-	    export	none
-	}
-	parm {
-	    name	"maskinvert"
-	    baseparm
-	    label	"Invert Mask"
-	    export	none
-	}
-	parm {
-	    name	"scopergba"
-	    baseparm
-	    label	"Plane Scope"
-	    joinnext
-	    export	all
-	}
-	parm {
-	    name	"pscope"
-	    baseparm
-	    label	""
-	    export	all
-	}
+        parm {
+            name    "effectamount"
+            baseparm
+            label   "Effect Amount"
+            export  none
+        }
+        parm {
+            name    "maskinput"
+            baseparm
+            label   "Operation Mask"
+            joinnext
+            export  none
+        }
+        parm {
+            name    "maskplane"
+            baseparm
+            label   ""
+            nolabel
+            export  none
+        }
+        parm {
+            name    "maskresize"
+            baseparm
+            label   "Resize Mask to Fit Image"
+            export  none
+        }
+        parm {
+            name    "maskinvert"
+            baseparm
+            label   "Invert Mask"
+            export  none
+        }
+        parm {
+            name    "scopergba"
+            baseparm
+            label   "Plane Scope"
+            joinnext
+            export  all
+        }
+        parm {
+            name    "pscope"
+            baseparm
+            label   ""
+            nolabel
+            export  all
+        }
     }
 
     group {
-	name	"stdswitcher4_2"
-	label	"Frame Scope"
+        name    "stdswitcher4_2"
+        label   "Frame Scope"
 
-	parm {
-	    name	"fscope"
-	    baseparm
-	    label	"Frame Scope"
-	    export	none
-	}
-	parm {
-	    name	"frange"
-	    baseparm
-	    label	"Frame Range"
-	    export	none
-	}
-	parm {
-	    name	"fdropoff"
-	    baseparm
-	    label	"Frame Dropoff"
-	    joinnext
-	    export	none
-	}
-	parm {
-	    name	"fdropfunc"
-	    baseparm
-	    label	""
-	    export	none
-	}
-	parm {
-	    name	"foutside"
-	    baseparm
-	    label	"Non-scoped Effect"
-	    export	none
-	}
-	parm {
-	    name	"flist"
-	    baseparm
-	    label	"Frame List"
-	    joinnext
-	    export	none
-	}
-	parm {
-	    name	"fmenu"
-	    baseparm
-	    label	""
-	    export	none
-	}
-	parm {
-	    name	"fautoadjust"
-	    baseparm
-	    label	"Automatically Adjust for Length Changes"
-	    export	none
-	}
-	parm {
-	    name	"currange"
-	    baseparm
-	    label	""
-	    invisible
-	    export	none
-	}
+        parm {
+            name    "fscope"
+            baseparm
+            label   "Frame Scope"
+            export  none
+        }
+        parm {
+            name    "frange"
+            baseparm
+            label   "Frame Range"
+            export  none
+        }
+        parm {
+            name    "fdropoff"
+            baseparm
+            label   "Frame Dropoff"
+            joinnext
+            export  none
+        }
+        parm {
+            name    "fdropfunc"
+            baseparm
+            label   ""
+            nolabel
+            export  none
+        }
+        parm {
+            name    "foutside"
+            baseparm
+            label   "Non-scoped Effect"
+            export  none
+        }
+        parm {
+            name    "flist"
+            baseparm
+            label   "Frame List"
+            joinnext
+            export  none
+        }
+        parm {
+            name    "fmenu"
+            baseparm
+            label   ""
+            export  none
+        }
+        parm {
+            name    "fautoadjust"
+            baseparm
+            label   "Automatically Adjust for Length Changes"
+            export  none
+        }
+        parm {
+            name    "currange"
+            baseparm
+            label   ""
+            invisible
+            export  none
+        }
     }
 
     parm {
-	name	"strength"
-	label	"strength"
-	type	float
-	default	{ "0" }
-	range	{ 0 1 }
-	parmtag	{ "parmvop" "1" }
-	parmtag	{ "shaderparmcontexts" "cop2" }
+        name    "strength"
+        label   "strength"
+        type    float
+        default { "0" }
+        range   { 0 1 }
+        parmtag { "parmvop" "1" }
+        parmtag { "shaderparmcontexts" "cop2" }
     }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -2341,7 +2349,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.0.600"
+		"value":"16.5.412"
 	}
 }
 
@@ -2440,7 +2448,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.0.600"
+		"value":"16.5.412"
 	}
 }
 
@@ -2515,7 +2523,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.0.600"
+		"value":"16.5.412"
 	}
 }
 
@@ -2645,7 +2653,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.0.600"
+		"value":"16.5.412"
 	}
 }
 
@@ -2774,7 +2782,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.0.600"
+		"value":"16.5.412"
 	}
 }
 
@@ -2891,144 +2899,147 @@ Content-Disposition: attachment; filename="hdaroot/multiply1.spareparmdef"
 Content-Type: text/plain
 
     group {
-	name	"stdswitcher4"
-	label	"Compiler"
+        name    "stdswitcher4"
+        label   "Compiler"
 
-	parm {
-	    name	"vop_compiler"
-	    baseparm
-	    label	"Compiler"
-	    export	none
-	}
-	parm {
-	    name	"vop_forcecompile"
-	    baseparm
-	    label	"Force Compile"
-	    export	none
-	}
+        parm {
+            name    "vop_compiler"
+            baseparm
+            label   "Compiler"
+            export  none
+        }
+        parm {
+            name    "vop_forcecompile"
+            baseparm
+            label   "Force Compile"
+            export  none
+        }
     }
 
     group {
-	name	"stdswitcher4_1"
-	label	"Mask"
+        name    "stdswitcher4_1"
+        label   "Mask"
 
-	parm {
-	    name	"effectamount"
-	    baseparm
-	    label	"Effect Amount"
-	    export	none
-	}
-	parm {
-	    name	"maskinput"
-	    baseparm
-	    label	"Operation Mask"
-	    joinnext
-	    export	none
-	}
-	parm {
-	    name	"maskplane"
-	    baseparm
-	    label	""
-	    export	none
-	}
-	parm {
-	    name	"maskresize"
-	    baseparm
-	    label	"Resize Mask to Fit Image"
-	    export	none
-	}
-	parm {
-	    name	"maskinvert"
-	    baseparm
-	    label	"Invert Mask"
-	    export	none
-	}
-	parm {
-	    name	"scopergba"
-	    baseparm
-	    label	"Plane Scope"
-	    joinnext
-	    export	all
-	}
-	parm {
-	    name	"pscope"
-	    baseparm
-	    label	""
-	    export	all
-	}
+        parm {
+            name    "effectamount"
+            baseparm
+            label   "Effect Amount"
+            export  none
+        }
+        parm {
+            name    "maskinput"
+            baseparm
+            label   "Operation Mask"
+            joinnext
+            export  none
+        }
+        parm {
+            name    "maskplane"
+            baseparm
+            label   ""
+            nolabel
+            export  none
+        }
+        parm {
+            name    "maskresize"
+            baseparm
+            label   "Resize Mask to Fit Image"
+            export  none
+        }
+        parm {
+            name    "maskinvert"
+            baseparm
+            label   "Invert Mask"
+            export  none
+        }
+        parm {
+            name    "scopergba"
+            baseparm
+            label   "Plane Scope"
+            joinnext
+            export  all
+        }
+        parm {
+            name    "pscope"
+            baseparm
+            label   ""
+            nolabel
+            export  all
+        }
     }
 
     group {
-	name	"stdswitcher4_2"
-	label	"Frame Scope"
+        name    "stdswitcher4_2"
+        label   "Frame Scope"
 
-	parm {
-	    name	"fscope"
-	    baseparm
-	    label	"Frame Scope"
-	    export	none
-	}
-	parm {
-	    name	"frange"
-	    baseparm
-	    label	"Frame Range"
-	    export	none
-	}
-	parm {
-	    name	"fdropoff"
-	    baseparm
-	    label	"Frame Dropoff"
-	    joinnext
-	    export	none
-	}
-	parm {
-	    name	"fdropfunc"
-	    baseparm
-	    label	""
-	    export	none
-	}
-	parm {
-	    name	"foutside"
-	    baseparm
-	    label	"Non-scoped Effect"
-	    export	none
-	}
-	parm {
-	    name	"flist"
-	    baseparm
-	    label	"Frame List"
-	    joinnext
-	    export	none
-	}
-	parm {
-	    name	"fmenu"
-	    baseparm
-	    label	""
-	    export	none
-	}
-	parm {
-	    name	"fautoadjust"
-	    baseparm
-	    label	"Automatically Adjust for Length Changes"
-	    export	none
-	}
-	parm {
-	    name	"currange"
-	    baseparm
-	    label	""
-	    invisible
-	    export	none
-	}
+        parm {
+            name    "fscope"
+            baseparm
+            label   "Frame Scope"
+            export  none
+        }
+        parm {
+            name    "frange"
+            baseparm
+            label   "Frame Range"
+            export  none
+        }
+        parm {
+            name    "fdropoff"
+            baseparm
+            label   "Frame Dropoff"
+            joinnext
+            export  none
+        }
+        parm {
+            name    "fdropfunc"
+            baseparm
+            label   ""
+            nolabel
+            export  none
+        }
+        parm {
+            name    "foutside"
+            baseparm
+            label   "Non-scoped Effect"
+            export  none
+        }
+        parm {
+            name    "flist"
+            baseparm
+            label   "Frame List"
+            joinnext
+            export  none
+        }
+        parm {
+            name    "fmenu"
+            baseparm
+            label   ""
+            export  none
+        }
+        parm {
+            name    "fautoadjust"
+            baseparm
+            label   "Automatically Adjust for Length Changes"
+            export  none
+        }
+        parm {
+            name    "currange"
+            baseparm
+            label   ""
+            invisible
+            export  none
+        }
     }
 
     parm {
-	name	"strength"
-	label	"strength"
-	type	float
-	default	{ "0" }
-	range	{ 0 1 }
-	parmtag	{ "parmvop" "1" }
-	parmtag	{ "shaderparmcontexts" "cop2" }
+        name    "strength"
+        label   "strength"
+        type    float
+        default { "0" }
+        range   { 0 1 }
+        parmtag { "parmvop" "1" }
+        parmtag { "shaderparmcontexts" "cop2" }
     }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -3080,7 +3091,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.0.600"
+		"value":"16.5.412"
 	}
 }
 
@@ -3179,7 +3190,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.0.600"
+		"value":"16.5.412"
 	}
 }
 
@@ -3254,7 +3265,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.0.600"
+		"value":"16.5.412"
 	}
 }
 
@@ -3384,7 +3395,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.0.600"
+		"value":"16.5.412"
 	}
 }
 
@@ -3513,7 +3524,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.0.600"
+		"value":"16.5.412"
 	}
 }
 
@@ -3724,7 +3735,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.0.600"
+		"value":"16.5.412"
 	}
 }
 
@@ -3848,7 +3859,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.0.600"
+		"value":"16.5.412"
 	}
 }
 
@@ -3966,7 +3977,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.0.600"
+		"value":"16.5.412"
 	}
 }
 
@@ -4077,7 +4088,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.0.600"
+		"value":"16.5.412"
 	}
 }
 
@@ -4182,7 +4193,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.0.600"
+		"value":"16.5.412"
 	}
 }
 
@@ -4287,7 +4298,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.0.600"
+		"value":"16.5.412"
 	}
 }
 
@@ -4353,7 +4364,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.0.600"
+		"value":"16.5.412"
 	}
 }
 
@@ -4407,18 +4418,18 @@ Content-Disposition: attachment; filename="hdaroot/CONTROLS.spareparmdef"
 Content-Type: text/plain
 
     parm {
-	name	"radius"
-	label	"Radius"
-	type	float
-	default	{ "1" }
-	range	{ 0 10 }
+        name    "radius"
+        label   "Radius"
+        type    float
+        default { "1" }
+        range   { 0 10 }
     }
     parm {
-	name	"strength"
-	label	"Strength"
-	type	float
-	default	{ "1" }
-	range	{ 0 10 }
+        name    "strength"
+        label   "Strength"
+        type    float
+        default { "1" }
+        range   { 0 10 }
     }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -4452,7 +4463,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.0.600"
+		"value":"16.5.412"
 	}
 }
 
@@ -4558,7 +4569,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.0.600"
+		"value":"16.5.412"
 	}
 }
 
@@ -4683,7 +4694,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.0.600"
+		"value":"16.5.412"
 	}
 }
 
@@ -4801,7 +4812,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.0.600"
+		"value":"16.5.412"
 	}
 }
 
@@ -4932,7 +4943,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.0.600"
+		"value":"16.5.412"
 	}
 }
 
@@ -5056,7 +5067,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.0.600"
+		"value":"16.5.412"
 	}
 }
 
@@ -5161,7 +5172,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.0.600"
+		"value":"16.5.412"
 	}
 }
 
@@ -5266,7 +5277,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.0.600"
+		"value":"16.5.412"
 	}
 }
 
@@ -5371,7 +5382,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.0.600"
+		"value":"16.5.412"
 	}
 }
 
@@ -5476,7 +5487,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.0.600"
+		"value":"16.5.412"
 	}
 }
 
@@ -5581,7 +5592,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.0.600"
+		"value":"16.5.412"
 	}
 }
 
@@ -5686,7 +5697,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.0.600"
+		"value":"16.5.412"
 	}
 }
 
@@ -5791,7 +5802,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.0.600"
+		"value":"16.5.412"
 	}
 }
 
@@ -5896,7 +5907,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.0.600"
+		"value":"16.5.412"
 	}
 }
 
@@ -5986,7 +5997,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.0.600"
+		"value":"16.5.412"
 	}
 }
 
@@ -6056,7 +6067,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.0.600"
+		"value":"16.5.412"
 	}
 }
 
@@ -6214,7 +6225,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.0.600"
+		"value":"16.5.412"
 	}
 }
 
@@ -6294,7 +6305,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.0.600"
+		"value":"16.5.412"
 	}
 }
 
@@ -6378,7 +6389,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.0.600"
+		"value":"16.5.412"
 	}
 }
 
@@ -6464,7 +6475,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.0.600"
+		"value":"16.5.412"
 	}
 }
 
@@ -6544,7 +6555,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.0.600"
+		"value":"16.5.412"
 	}
 }
 
@@ -6627,7 +6638,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.0.600"
+		"value":"16.5.412"
 	}
 }
 

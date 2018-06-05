@@ -34,7 +34,7 @@ roptoolutils.createRenderNode("gamedev::rop_games_baker")
   <tool name="rop_texture_sheets0" label="Texture Sheets" icon="COP2_mosaic">
     <helpURL>operator:Driver/rop_texture_sheets</helpURL>
     <script scriptType="python"><![CDATA[import roptoolutils
-roptoolutils.createRenderNode("gamedev::rop_texture_sheets")
+roptoolutils.createRenderNode("gamedev::rop_texture_sheets::2.0")
 ]]></script>
   </tool>
 
@@ -122,14 +122,11 @@ soptoolutils.genericTool(kwargs, 'gamedev::sop_osm_import')]]></script>
   <tool name="sop_instant_meshes" label="Instant Meshes" icon="opdef:/gamedev::Sop/sop_instant_meshes?IconImage">
     <helpURL>operator:Sop/sop_instant_meshes_bridge</helpURL>
     <script scriptType="python"><![CDATA[import soptoolutils
-soptoolutils.genericTool(kwargs, 'sop_instant_meshes_bridge')]]></script>
+soptoolutils.genericTool(kwargs, 'gamedev::sop_instant_meshes')]]></script>
   </tool>
 
-  <tool name="vertex_animation_textures" label="Vertex Animation Textures" icon="NODEFLAGS_output">
+  <tool name="vertex_animation_textures" label="GameDev Vertex Animation Textures" icon="NODEFLAGS_output">
     <helpURL>operator:Driver/vertex_animation_textures?namespace=gamedev</helpURL>
-    <toolMenuContext name="network">
-      <contextOpType>gamedev::Driver/vertex_animation_textures</contextOpType>
-    </toolMenuContext>
     <script scriptType="python"><![CDATA[import roptoolutils
 roptoolutils.createRenderNode("gamedev::vertex_animation_textures")
 ]]></script>

@@ -10,17 +10,18 @@ def createAnimationCOPNetwork(hda, frames):
         composite = xform.createOutputNode('composite')
         
         #file node changes
-        unexpandedPath = hda.parm('output_sequence').unexpandedString()
+        unexpandedPath = hda.parm('anim_output_sequence').unexpandedString()
         #filePath = unexpandedPath.replace('$HIP', hou.expandString('$HIP'))
         filePath = unexpandedPath.replace('${OS}', hda.name())
-        rot = (360/(frames - 1)) * slice
-        wedge = '_wedge_rotation_%s.000000' % rot
+        rot = (360.0/(frames - 1)) * slice
+        rot = '%.6f' % rot
+        wedge = '_wedge_rotation_%s' % rot
         filePath = filePath.replace('${WEDGE}', wedge)
         read.parm('filename1').set(filePath)
         
         #mosaic node changes
         mosaic.parm('numperline').set(1)
-        totalFrames = hda.parm('anim_framesy').eval() - hda.parm('anim_framesx').eval()
+        totalFrames = hda.parm('anim_framesy').eval() - hda.parm('anim_framesx').eval() + 1
         mosaic.parm('imagelimit').set(totalFrames)
         
         #crop node changes

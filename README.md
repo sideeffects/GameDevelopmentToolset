@@ -15,7 +15,7 @@ Also, if you forked the respository and suddenly it stopped pulling, that's due 
 ## Instructions - Method 1 (Recommended)
 Use the built in Updater in Houdini 16.5 to download the latest releases from Github. You can find more information [here](https://www.sidefx.com/tutorials/game-dev-toolset-installation/)
 
-## Instructions - Method 2 (Cutting Edge)
+# Instructions - Method 2 (Cutting Edge)
 Download the repository using the green Clone or Download Button and unzip contents into the folder of your choosing
 
 Edit the houdini.env file found at the topmost directory 

@@ -46,7 +46,7 @@ inputs
 stat
 {
   create 1528765255
-  modify 1528765731
+  modify 1528769092
   author mikel@mikembp-sesi.hitronhub.home
   access 0777
 }
@@ -170,7 +170,7 @@ inputs
 stat
 {
   create 1495467310
-  modify 1528765396
+  modify 1528769092
   author mike@mikembp.local
   access 0777
 }
@@ -10612,7 +10612,7 @@ inputs
 stat
 {
   create 1495466742
-  modify 1528765974
+  modify 1528769347
   author mike@mikembp.local
   access 0777
 }
@@ -12617,6 +12617,20 @@ Content-Type: text/plain
       flags = 0
       segment { length = 0 expr = ch(\"../render_sequence\") }
     }
+    channel res_overridex {
+      lefttype = extend
+      righttype = extend
+      default = 1280
+      flags = 0
+      segment { length = 0 value = 1280 1280 expr = int(ch(\"../atlas_resx\")/ch(\"../numperline\")) }
+    }
+    channel res_overridey {
+      lefttype = extend
+      righttype = extend
+      default = 720
+      flags = 0
+      segment { length = 0 value = 720 720 expr = int(ch(\"../atlas_resy\")/(((ch(\"../f2\")-ch(\"../f1\"))/ch(\"../f3\")+1)/ch(\"../numperline\"))) }
+    }
   }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -12633,9 +12647,9 @@ trange	[ 0	locks=0 ]	(	"normal"	)
 f	[ 0	locks=0 ]	(	[ f1	13 ] 	[ f2	45 ] 	1	)
 take	[ 0	locks=0 ]	(	_current_	)
 camera	[ 8	locks=0 ]	(	../objnet1/cam1	)
-override_camerares	[ 0	locks=0 ]	(	"off"	)
-res_fraction	[ 0	locks=0 ]	(	0.5	)
-res_override	[ 0	locks=0 ]	(	1280	720	)
+override_camerares	[ 0	locks=0 ]	(	"on"	)
+res_fraction	[ 0	locks=0 ]	(	specific	)
+res_override	[ 8	locks=0 ]	(	[ res_overridex	256 ] 	[ res_overridey	256 ] 	)
 res_overrideMenu	[ 0	locks=0 ]	(	0	)
 aspect_override	[ 0	locks=0 ]	(	1	)
 images	[ 0	locks=0 ]	(	0	0	0	0	0	)
@@ -12643,7 +12657,7 @@ soho_program	[ 0	locks=0 ]	(	IFD.py	)
 soho_shopstyle	[ 0	locks=0 ]	(	VMantra	)
 soho_ipr_support	[ 0	locks=0 ]	(	"on"	)
 soho_previewsupport	[ 0	locks=0 ]	(	"on"	)
-vm_picture	[ 0	locks=0	autoscope=1 ]	(	[ vm_picture	/Users/mikel/Documents/projects/GDC/hip/render/explosion_fireball_165_v04.increment_test_magnus_mv.0045.exr ] 	)
+vm_picture	[ 0	locks=0	autoscope=1 ]	(	[ vm_picture	/Users/mikel/Documents/projects/GDC/hip/render/explosion_fireball_165_v04.increment_test_magnus_mv.0001.exr ] 	)
 vm_device	[ 0	locks=0 ]	(	""	)
 soho_mkpath	[ 0	locks=0 ]	(	"on"	)
 soho_skip_frame	[ 0	locks=0 ]	(	no	)

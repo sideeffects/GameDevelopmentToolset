@@ -46,7 +46,7 @@ inputs
 stat
 {
   create 1528765255
-  modify 1528769092
+  modify 1528911635
   author mikel@mikembp-sesi.hitronhub.home
   access 0777
 }
@@ -170,7 +170,7 @@ inputs
 stat
 {
   create 1495467310
-  modify 1528769092
+  modify 1528911427
   author mike@mikembp.local
   access 0777
 }
@@ -3808,7 +3808,7 @@ inputs
 stat
 {
   create 1495666506
-  modify 1528765362
+  modify 1528911393
   author mike@mikembp.local
   access 0777
 }
@@ -6071,7 +6071,7 @@ inputs
 stat
 {
   create 1495480877
-  modify 1528765361
+  modify 1528911392
   author mike@mikembp.local
   access 0777
 }
@@ -6539,7 +6539,7 @@ inputs
 stat
 {
   create 1495471556
-  modify 1528768356
+  modify 1528911392
   author mike@mikembp.local
   access 0777
 }
@@ -7048,7 +7048,7 @@ inputs
 stat
 {
   create 1495471556
-  modify 1528768353
+  modify 1528911392
   author mike@mikembp.local
   access 0777
 }
@@ -8484,7 +8484,7 @@ inputs
 stat
 {
   create 1496109101
-  modify 1528765265
+  modify 1528863024
   author mikel@mikembp-sesi.local
   access 0777
 }
@@ -8518,7 +8518,7 @@ pivot	[ 0	locks=0 ]	(	"centroid"	)
 viewportlod	[ 0	locks=0 ]	(	"full"	)
 addpath	[ 0	locks=0 ]	(	"on"	)
 enable1	[ 0	locks=0 ]	(	"on"	)
-objpath1	[ 8	locks=0 ]	(	`chsop(\"../../../export_node\")`	)
+objpath1	[ 8	locks=0 ]	(	`chsop(\"../../../export_node\")`/__render_sop__	)
 group1	[ 0	locks=0 ]	(	""	)
 expand1	[ 0	locks=0 ]	(	"off"	)
 }
@@ -10151,7 +10151,7 @@ xOrd	[ 0	locks=0 ]	(	"srt"	)
 rOrd	[ 0	locks=0 ]	(	"xyz"	)
 t	[ 0	locks=0 ]	(	0	0	0	)
 r	[ 0	locks=0 ]	(	0	0	0	)
-s	[ 0	locks=0 ]	(	[ sx	0.82842797040939331 ] 	[ sy	0.82842797040939331 ] 	1	)
+s	[ 0	locks=0 ]	(	[ sx	0 ] 	[ sy	0 ] 	1	)
 shear	[ 0	locks=0 ]	(	0	0	0	)
 scale	[ 0	locks=0 ]	(	1	)
 parmgroup_pivotxform	[ 0	locks=0 ]	(	0	)
@@ -10612,7 +10612,7 @@ inputs
 stat
 {
   create 1495466742
-  modify 1528769347
+  modify 1528911949
   author mike@mikembp.local
   access 0777
 }
@@ -12695,7 +12695,7 @@ soho_compression	[ 0	locks=0 ]	(	ext	)
 soho_foreground	[ 0	locks=0 ]	(	"off"	)
 soho_initsim	[ 0	locks=0 ]	(	"off"	)
 soho_viewport_menu	[ 0	locks=0 ]	(	"on"	)
-images6	[ 0	locks=0 ]	(	0	0	0	0	0	)
+images6	[ 0	locks=0 ]	(	1	1	1	1	1	)
 output6	[ 0	locks=0 ]	(	0	0	0	0	)
 vm_pfilter	[ 0	locks=0 ]	(	"gaussian -w 2"	)
 vm_sfilter	[ 0	locks=0 ]	(	alpha	)
@@ -12758,7 +12758,7 @@ shutteroffset	[ 0	locks=0 ]	(	1	)
 vm_traceblur	[ 0	locks=0 ]	(	"off"	)
 sampling7	[ 0	locks=0 ]	(	0	0	0	0	0	0	)
 vm_samples	[ 0	locks=0 ]	(	3	3	)
-vm_dorayvariance	[ 0	locks=0 ]	(	"on"	)
+vm_dorayvariance	[ 0	locks=0 ]	(	"off"	)
 vm_colorspace	[ 0	locks=0 ]	(	gamma	)
 vm_maxnumberofindirectsamples	[ 0	locks=0 ]	(	"Maximum number of indirect samples: `floor(ch(vm_maxraysamples) * (ch(vm_globalquality) * (ch(vm_diffusequality) + ch(vm_sssquality) + ch(vm_reflectionquality) + ch(vm_refractionquality) ) + 1) )`"	)
 vm_minraysamples	[ 0	locks=0 ]	(	1	)
@@ -14264,7 +14264,7 @@ Content-Type: text/plain
 version 0.8
 stdswitcher	[ 0	locks=0 ]	(	0	)
 scaletype	[ 0	locks=0 ]	(	"res"	)
-imageres	[ 8	locks=0 ]	(	[ imageres1	256 ] 	[ imageres2	256 ] 	)
+imageres	[ 0	locks=0 ]	(	[ imageres1	256 ] 	[ imageres2	256 ] 	)
 imagefract	[ 0	locks=0 ]	(	0.5	0.25	)
 imageaspect	[ 0	locks=0 ]	(	1	)
 keepaspect	[ 0	locks=0 ]	(	"off"	)
@@ -14737,7 +14737,7 @@ inputs
 stat
 {
   create 1496170384
-  modify 1528767468
+  modify 1528911397
   author mikel@mikembp-sesi.local
   access 0777
 }
@@ -14771,20 +14771,6 @@ Content-Type: text/plain
       flags = 0
       segment { length = 0 value = 64 64 expr = "ch(\"../../f2\") - ch(\"../../f1\") + 1" }
     }
-    channel size1 {
-      lefttype = extend
-      righttype = extend
-      default = 512
-      flags = 0
-      segment { length = 0 value = 512 512 expr = ch(\"../../objnet1/cam1/resx\") }
-    }
-    channel size2 {
-      lefttype = extend
-      righttype = extend
-      default = 512
-      flags = 0
-      segment { length = 0 value = 512 512 expr = ch(\"../../objnet1/cam1/resy\") }
-    }
   }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -14798,8 +14784,8 @@ filename	[ 0	locks=0 ]	(	$TEMP/mv/motion_vectors_comped.$F4.exr	"cinspace lin ci
 nodename	[ 0	locks=0 ]	(	"userdef"	)
 reload	[ 0	locks=0 ]	(	0	)
 subframes	[ 0	locks=0 ]	(	"off"	)
-overridesize	[ 0	locks=0 ]	(	"size"	)
-size	[ 0	locks=0 ]	(	[ size1	1024 ] 	[ size2	1024 ] 	)
+overridesize	[ 0	locks=0 ]	(	"natural"	)
+size	[ 0	locks=0 ]	(	256	256	)
 sizemenu	[ 0	locks=0 ]	(	0	)
 filter	[ 0	locks=0 ]	(	box	)
 overrideaspect	[ 0	locks=0 ]	(	"off"	)

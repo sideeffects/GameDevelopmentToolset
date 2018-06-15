@@ -246,7 +246,7 @@ class GameDevelopmentUpdater(object):
 
             # For older versions we want to grab the Development branch of that version by default
             if "Development" in url and "zip" in url:
-                backup = url
+                backup = asset["browser_download_url"]
 
         return backup
 
@@ -263,8 +263,7 @@ class GameDevelopmentUpdater(object):
             self.current_version = None
 
     def store_settings(self):
-        settings = {"current_version": self.desired_version, "current_branch":"Development"}
-
+        settings = {"current_version": self.desired_version, "current_branch": "Development"}
         with open(SETTINGS_FILE, 'w') as fp:
             json.dump(settings, fp)
 

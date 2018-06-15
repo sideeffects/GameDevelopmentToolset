@@ -43,6 +43,8 @@
                 "0" "Full 3D Impostor"
                 "1" "Single Rotation Axis"
                 "2" "Animation"
+                "3" "Hemi-Octahedron"
+                "4" "Full-Octahedron"
             }
         }
         parm {
@@ -67,14 +69,38 @@
             type    vector2
             size    2
             default { "128" "128" }
+            hidewhen "{ imposter_enum > 2 }"
             range   { -1 1 }
         }
         parm {
             name    "frames"
-            label   "Frames Around Z Rotation"
+            label   "XY Frames"
             type    integer
             default { "8" }
             range   { 0 10 }
+        }
+        parm {
+            name    "fOctResolution"
+            label   "Atlas Resolution"
+            type    ordinal
+            default { "4" }
+            hidewhen "{ imposter_enum < 3 }"
+            menu {
+                "256"   "256^2"
+                "512"   "512^2"
+                "1024"  "1024^2"
+                "2048"  "2048^2"
+                "4096"  "4096^2"
+                "8192"  "8192^2"
+            }
+        }
+        parm {
+            name    "fOctZoom"
+            label   "Octahedron Zoom"
+            type    float
+            default { "0.9" }
+            hidewhen "{ imposter_enum < 3 }"
+            range   { 0.001 2 }
         }
         parm {
             name    "anim_frames"

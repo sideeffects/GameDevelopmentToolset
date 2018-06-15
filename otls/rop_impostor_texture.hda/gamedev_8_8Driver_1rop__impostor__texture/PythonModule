@@ -1,3 +1,9 @@
+def forcecookSDF():
+    hou.node("../objnet1/SourceGeometry_SDF/cop2net1/file").parm("reload").pressButton()
+    hou.node("../objnet1/SourceGeometry_SDF/trace1").cook(force=True,frame_range=(1,1))
+    hou.node("../objnet1/SourceGeometry_SDF/output2").cook(force=True,frame_range=(1,1))
+    hou.node("../cop2net1/sopimport1").cook(force=True,frame_range=(1,1))
+
 def createAnimationCOPNetwork(hda, frames):
     cop = hda.node("animation_cop")
     

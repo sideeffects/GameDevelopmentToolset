@@ -158,4 +158,27 @@
         }
     }
 
+    parm {
+        name    "spacer"
+        label   "Label"
+        type    label
+        nolabel
+        default { "" }
+    }
+    parm {
+        name    "spacer2"
+        label   "Label"
+        type    label
+        nolabel
+        joinnext
+        default { "" }
+    }
+    parm {
+        name    "like_btn"
+        label   "Like This Tool"
+        type    button
+        default { "0" }
+        parmtag { "script_callback" "import gamedevutils;gamedevutils.like_node(hou.pwd())" }
+        parmtag { "script_callback_language" "python" }
+    }
 }

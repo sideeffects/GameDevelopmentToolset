@@ -32,22 +32,24 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position -1.57647 1.16853
-connectornextid 0
-flags =  lock off model off template off footprint off xray off bypass off display on render on highlight off unload off savedata off compress on colordefault on exposed on
+position 5.55112e-17 -0.866765
+connectornextid 1
+flags =  lock off model off template on footprint off xray off bypass off display on render on highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
 {
 }
 inputsNamed3
 {
+0 	file1 0 1 "input1"
 }
 inputs
 {
+0 	file1 0 1
 }
 stat
 {
-  create 1528160646
-  modify 1528160682
+  create 1529072075
+  modify 1529076038
   author MAINGEAR@DESKTOP-P98C1VA
   access 0777
 }
@@ -216,7 +218,7 @@ version 0.8
 group	[ 0	locks=0 ]	(	""	)
 attributes	[ 0	locks=0 ]	(	Cd	)
 method	[ 0	locks=0 ]	(	"uniform"	)
-iterations	[ 8	locks=0 ]	(	[ iterations	200 ] 	)
+iterations	[ 8	locks=0 ]	(	[ iterations	50 ] 	)
 mode	[ 0	locks=0 ]	(	"laplacian"	)
 frequency	[ 0	locks=0 ]	(	0.10000000000000001	)
 stepsize	[ 0	locks=0 ]	(	0.5	)
@@ -253,7 +255,7 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position -1.90216 -13.9807
+position -2.15515 -11.1346
 connectornextid 3
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
@@ -273,7 +275,7 @@ inputs
 stat
 {
   create 1523045046
-  modify 1528122517
+  modify 1529075015
   author MAINGEAR@DESKTOP-P98C1VA
   access 0777
 }
@@ -333,7 +335,7 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position -0.468403 -12.0766
+position -0.53165 -10.0211
 connectornextid 3
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
@@ -343,17 +345,17 @@ outputsNamed3
 inputsNamed3
 {
 0 	attribblur1 1 1 "input1"
-1 	switch1 2 1 "input2"
+1 	attribpromote2 1 1 "input2"
 }
 inputs
 {
 0 	attribblur1 0 1
-1 	switch1 0 1
+1 	attribpromote2 0 1
 }
 stat
 {
   create 1523045046
-  modify 1528122461
+  modify 1529072291
   author MAINGEAR@DESKTOP-P98C1VA
   access 0777
 }
@@ -544,504 +546,6 @@ vex_selectiongroup	[ 0	locks=0 ]	(	""	)
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
 Content-Disposition: attachment; filename="hdaroot/normalize_mesh.userdata"
-Content-Type: text/plain
-
-{
-	"___Version___":{
-		"type":"string",
-		"value":""
-	}
-}
-
---HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot/pointwrangle8.init"
-Content-Type: text/plain
-
-type = attribwrangle
-matchesdef = 1
-
---HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot/pointwrangle8.def"
-Content-Type: text/plain
-
-sopflags sopflags = 
-comment ""
-position 3.08497 2.15774
-connectornextid 2
-flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
-outputsNamed3
-{
-1 "output1"
-}
-inputsNamed3
-{
-0 	normal2 1 1 "input1"
-}
-inputs
-{
-0 	normal2 0 1
-}
-stat
-{
-  create 1526934113
-  modify 1527088306
-  author MAINGEAR@DESKTOP-P98C1VA
-  access 0777
-}
-color UT_Color RGB 0.8 0.8 0.8 
-delscript ""
-exprlanguage hscript
-end
-
---HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot/pointwrangle8.parm"
-Content-Type: text/plain
-
-{
-version 0.8
-folder0	[ 0	locks=0 ]	(	0	0	)
-group	[ 0	locks=0 ]	(	""	)
-grouptype	[ 0	locks=0 ]	(	"guess"	)
-class	[ 0	locks=0 ]	(	"point"	)
-vex_numcount	[ 0	locks=0 ]	(	10	)
-vex_threadjobsize	[ 0	locks=0 ]	(	1024	)
-snippet	[ 0	locks=0 ]	(	"f@density=1;
-"	)
-exportlist	[ 0	locks=0 ]	(	*	)
-vex_strict	[ 0	locks=0 ]	(	"off"	)
-autobind	[ 0	locks=0 ]	(	"on"	)
-bindings	[ 0	locks=0 ]	(	0	)
-groupautobind	[ 0	locks=0 ]	(	"on"	)
-groupbindings	[ 0	locks=0 ]	(	0	)
-vex_cwdpath	[ 0	locks=0 ]	(	.	)
-vex_outputmask	[ 0	locks=0 ]	(	*	)
-vex_updatenmls	[ 0	locks=0 ]	(	"off"	)
-vex_matchattrib	[ 0	locks=0 ]	(	id	)
-vex_inplace	[ 0	locks=0 ]	(	"off"	)
-vex_selectiongroup	[ 0	locks=0 ]	(	""	)
-}
-
---HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot/pointwrangle8.userdata"
-Content-Type: text/plain
-
-{
-	"___Version___":{
-		"type":"string",
-		"value":""
-	}
-}
-
---HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot/attribblur3.init"
-Content-Type: text/plain
-
-type = attribblur
-matchesdef = 1
-
---HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot/attribblur3.def"
-Content-Type: text/plain
-
-sopflags sopflags = 
-comment ""
-position 3.17118 -4.32422
-connectornextid 2
-flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
-outputsNamed3
-{
-1 "output1"
-}
-inputsNamed3
-{
-0 	attribtransfer2 2 1 "input1"
-}
-inputs
-{
-0 	attribtransfer2 0 1
-}
-stat
-{
-  create 1526934427
-  modify 1527105804
-  author MAINGEAR@DESKTOP-P98C1VA
-  access 0777
-}
-color UT_Color RGB 0.8 0.8 0.8 
-delscript ""
-exprlanguage hscript
-end
-
---HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot/attribblur3.chn"
-Content-Type: text/plain
-
-{
-    channel iterations {
-      lefttype = extend
-      righttype = extend
-      default = 10
-      flags = 0
-      segment { length = 0 value = 10 10 expr = ch(\"../iterations\")*10 }
-    }
-  }
-
---HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot/attribblur3.parm"
-Content-Type: text/plain
-
-{
-version 0.8
-group	[ 0	locks=0 ]	(	""	)
-attributes	[ 0	locks=0 ]	(	Cd	)
-method	[ 0	locks=0 ]	(	"uniform"	)
-iterations	[ 8	locks=0 ]	(	[ iterations	100 ] 	)
-mode	[ 0	locks=0 ]	(	"laplacian"	)
-frequency	[ 0	locks=0 ]	(	0.10000000000000001	)
-stepsize	[ 0	locks=0 ]	(	0.5	)
-oddstepsize	[ 0	locks=0 ]	(	0.5	)
-evenstepsize	[ 0	locks=0 ]	(	0.5	)
-weightattrib	[ 0	locks=0 ]	(	""	)
-pinborder	[ 0	locks=0 ]	(	"on"	)
-influencetype	[ 0	locks=0 ]	(	"proximity"	)
-proxrad	[ 0	locks=0 ]	(	0.5	)
-maxneigh	[ 0	locks=0 ]	(	20	)
-}
-
---HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot/attribblur3.userdata"
-Content-Type: text/plain
-
-{
-	"___Version___":{
-		"type":"string",
-		"value":"1.0"
-	}
-}
-
---HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot/attribblur4.init"
-Content-Type: text/plain
-
-type = attribblur
-matchesdef = 1
-
---HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot/attribblur4.def"
-Content-Type: text/plain
-
-sopflags sopflags = 
-comment ""
-position 4.93486 -1.39986
-connectornextid 2
-flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
-outputsNamed3
-{
-1 "output1"
-}
-inputsNamed3
-{
-0 	pointwrangle9 2 1 "input1"
-}
-inputs
-{
-0 	pointwrangle9 0 1
-}
-stat
-{
-  create 1526934427
-  modify 1527101796
-  author MAINGEAR@DESKTOP-P98C1VA
-  access 0777
-}
-color UT_Color RGB 0.8 0.8 0.8 
-delscript ""
-exprlanguage hscript
-end
-
---HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot/attribblur4.parm"
-Content-Type: text/plain
-
-{
-version 0.8
-group	[ 0	locks=0 ]	(	""	)
-attributes	[ 0	locks=0 ]	(	Cd	)
-method	[ 0	locks=0 ]	(	"uniform"	)
-iterations	[ 0	locks=0 ]	(	3	)
-mode	[ 0	locks=0 ]	(	"laplacian"	)
-frequency	[ 0	locks=0 ]	(	0.10000000000000001	)
-stepsize	[ 0	locks=0 ]	(	0.5	)
-oddstepsize	[ 0	locks=0 ]	(	0.5	)
-evenstepsize	[ 0	locks=0 ]	(	0.5	)
-weightattrib	[ 0	locks=0 ]	(	""	)
-pinborder	[ 0	locks=0 ]	(	"on"	)
-influencetype	[ 0	locks=0 ]	(	"proximity"	)
-proxrad	[ 0	locks=0 ]	(	1	)
-maxneigh	[ 0	locks=0 ]	(	20	)
-}
-
---HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot/attribblur4.userdata"
-Content-Type: text/plain
-
-{
-	"___Version___":{
-		"type":"string",
-		"value":"1.0"
-	}
-}
-
---HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot/pointwrangle9.init"
-Content-Type: text/plain
-
-type = attribwrangle
-matchesdef = 1
-
---HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot/pointwrangle9.def"
-Content-Type: text/plain
-
-sopflags sopflags = 
-comment ""
-position 6.84758 -0.36196
-connectornextid 3
-flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
-outputsNamed3
-{
-2 "output1"
-}
-inputsNamed3
-{
-0 	scatter2 1 1 "input1"
-1 	normal2 1 1 "input2"
-}
-inputs
-{
-0 	scatter2 0 1
-1 	normal2 0 1
-}
-stat
-{
-  create 1527007041
-  modify 1527088214
-  author MAINGEAR@DESKTOP-P98C1VA
-  access 0777
-}
-color UT_Color RGB 0.8 0.8 0.8 
-delscript ""
-exprlanguage hscript
-end
-
---HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot/pointwrangle9.spareparmdef"
-Content-Type: text/plain
-
-    group {
-        name    "folder1"
-        label   "Code"
-
-        parm {
-            name    "group"
-            baseparm
-            label   "Group"
-            export  none
-            bindselector points "Modify Points"
-                "Select the points to affect and press Enter to complete."
-                0 1 0xffffffff 0 grouptype 0
-        }
-        parm {
-            name    "grouptype"
-            baseparm
-            label   "Group Type"
-            export  none
-        }
-        parm {
-            name    "class"
-            baseparm
-            label   "Run Over"
-            export  none
-        }
-        parm {
-            name    "vex_numcount"
-            baseparm
-            label   "Number Count"
-            export  none
-        }
-        parm {
-            name    "vex_threadjobsize"
-            baseparm
-            label   "Thread Job Size"
-            export  none
-        }
-        parm {
-            name    "snippet"
-            baseparm
-            label   "VEXpression"
-            export  all
-        }
-        parm {
-            name    "exportlist"
-            baseparm
-            label   "Attributes to Create"
-            export  none
-        }
-        parm {
-            name    "vex_strict"
-            baseparm
-            label   "Enforce Prototypes"
-            export  none
-        }
-    }
-
-    group {
-        name    "folder1_1"
-        label   "Bindings"
-
-        parm {
-            name    "autobind"
-            baseparm
-            label   "Autobind by Name"
-            export  none
-        }
-        multiparm {
-            name    "bindings"
-            label    "Number of Bindings"
-            baseparm
-            default 0
-            parmtag { "autoscope" "0000000000000000" }
-            parmtag { "multistartoffset" "1" }
-
-            parm {
-                name    "bindname#"
-                baseparm
-                label   "Attribute Name"
-                export  none
-            }
-            parm {
-                name    "bindparm#"
-                baseparm
-                label   "VEX Parameter"
-                export  none
-            }
-        }
-
-        parm {
-            name    "groupautobind"
-            baseparm
-            label   "Autobind Groups by Name"
-            export  none
-        }
-        multiparm {
-            name    "groupbindings"
-            label    "Group Bindings"
-            baseparm
-            default 0
-            parmtag { "autoscope" "0000000000000000" }
-            parmtag { "multistartoffset" "1" }
-
-            parm {
-                name    "bindgroupname#"
-                baseparm
-                label   "Group Name"
-                export  none
-            }
-            parm {
-                name    "bindgroupparm#"
-                baseparm
-                label   "VEX Parameter"
-                export  none
-            }
-        }
-
-        parm {
-            name    "vex_cwdpath"
-            baseparm
-            label   "Evaluation Node Path"
-            export  none
-        }
-        parm {
-            name    "vex_outputmask"
-            baseparm
-            label   "Export Parameters"
-            export  none
-        }
-        parm {
-            name    "vex_updatenmls"
-            baseparm
-            label   "Update Normals If Displaced"
-            export  none
-        }
-        parm {
-            name    "vex_matchattrib"
-            baseparm
-            label   "Attribute to Match"
-            export  none
-        }
-        parm {
-            name    "vex_inplace"
-            baseparm
-            label   "Compute Results In Place"
-            export  none
-        }
-        parm {
-            name    "vex_selectiongroup"
-            baseparm
-            label   "Output Selection Group"
-            export  none
-        }
-    }
-
-    parm {
-        name    "maxdist"
-        label   "Maxdist"
-        type    float
-        default { "0" }
-        range   { 0 1 }
-    }
-
---HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot/pointwrangle9.parm"
-Content-Type: text/plain
-
-{
-version 0.8
-folder0	[ 0	locks=0 ]	(	0	0	)
-group	[ 0	locks=0 ]	(	""	)
-grouptype	[ 0	locks=0 ]	(	"guess"	)
-class	[ 0	locks=0 ]	(	"point"	)
-vex_numcount	[ 0	locks=0 ]	(	10	)
-vex_threadjobsize	[ 0	locks=0 ]	(	1024	)
-snippet	[ 0	locks=0 ]	(	"float maxdist = ch('maxdist');
-int maxpoints = 100;
-int pts[] = nearpoints(1,@P, maxdist, maxpoints);
-int pt ;
-vector tmp_Cd = 0;
-foreach  (pt;pts) 
-{
-    tmp_Cd += point(1, 'Cd', pt);
-    
-}
-v@Cd = tmp_Cd/len(pts);"	)
-exportlist	[ 0	locks=0 ]	(	*	)
-vex_strict	[ 0	locks=0 ]	(	"off"	)
-autobind	[ 0	locks=0 ]	(	"on"	)
-bindings	[ 0	locks=0 ]	(	0	)
-groupautobind	[ 0	locks=0 ]	(	"on"	)
-groupbindings	[ 0	locks=0 ]	(	0	)
-vex_cwdpath	[ 0	locks=0 ]	(	.	)
-vex_outputmask	[ 0	locks=0 ]	(	*	)
-vex_updatenmls	[ 0	locks=0 ]	(	"off"	)
-vex_matchattrib	[ 0	locks=0 ]	(	id	)
-vex_inplace	[ 0	locks=0 ]	(	"off"	)
-vex_selectiongroup	[ 0	locks=0 ]	(	""	)
-folder1	[ 0	locks=0 ]	(	0	0	)
-maxdist	[ 0	locks=0 ]	(	100	)
-}
-
---HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot/pointwrangle9.userdata"
 Content-Type: text/plain
 
 {
@@ -1591,7 +1095,7 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position 0.088673 -13.8552
+position 0.752762 -12.527
 connectornextid 2
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
@@ -1609,7 +1113,7 @@ inputs
 stat
 {
   create 1528122323
-  modify 1528122939
+  modify 1529072293
   author MAINGEAR@DESKTOP-P98C1VA
   access 0777
 }
@@ -1647,6 +1151,655 @@ vex_selectiongroup	[ 0	locks=0 ]	(	""	)
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
 Content-Disposition: attachment; filename="hdaroot/pointwrangle1.userdata"
+Content-Type: text/plain
+
+{
+	"___Version___":{
+		"type":"string",
+		"value":""
+	}
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/sop_calculate_occlusion1.init"
+Content-Type: text/plain
+
+type = gamedev::sop_calculate_occlusion
+matchesdef = 1
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/sop_calculate_occlusion1.def"
+Content-Type: text/plain
+
+sopflags sopflags = 
+comment ""
+position -8.03561 -13.5788
+connectornextid 2
+flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
+outputsNamed3
+{
+1 "output1"
+}
+inputsNamed3
+{
+0 	(__dot5) "" 1 "input1"
+}
+inputs
+{
+0 	(__dot5) 0 1
+}
+stat
+{
+  create 1529072297
+  modify 1529075490
+  author MAINGEAR@DESKTOP-P98C1VA
+  access 0777
+}
+color UT_Color RGB 0.8 0.8 0.8 
+delscript ""
+exprlanguage hscript
+end
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/sop_calculate_occlusion1.chn"
+Content-Type: text/plain
+
+{
+    channel intensity {
+      lefttype = extend
+      righttype = extend
+      default = 1
+      flags = 0
+      segment { length = 0 value = 1 1 expr = ch(\"../ao_strength\") }
+    }
+  }
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/sop_calculate_occlusion1.parm"
+Content-Type: text/plain
+
+{
+version 0.8
+occ_settings	[ 0	locks=0 ]	(	0	)
+sepparm2	[ 0	locks=0 ]	(	)
+raycount	[ 0	locks=0 ]	(	5	)
+maxdist	[ 0	locks=0 ]	(	1	)
+raybbias	[ 0	locks=0 ]	(	0.01	)
+intensity	[ 8	locks=0 ]	(	[ intensity	2 ] 	)
+occ_output	[ 0	locks=0 ]	(	0	)
+colorout	[ 0	locks=0 ]	(	"on"	)
+occattr	[ 0	locks=0 ]	(	occlusion	)
+outputramp	[ 0	locks=0 ]	(	2	)
+sepparm	[ 0	locks=0 ]	(	)
+sepparm3	[ 0	locks=0 ]	(	)
+folder1	[ 0	locks=0 ]	(	0	)
+method	[ 0	locks=0 ]	(	"edgelength"	)
+influencetype	[ 0	locks=0 ]	(	"connectivity"	)
+iterations2	[ 0	locks=0 ]	(	2	)
+blur	[ 0	locks=0 ]	(	0.5	)
+spacer	[ 0	locks=0 ]	(	""	)
+spacer2	[ 0	locks=0 ]	(	""	)
+like_btn	[ 0	locks=0 ]	(	0	)
+outputramp1pos	[ 0	locks=0 ]	(	0	)
+outputramp1value	[ 0	locks=0 ]	(	0	)
+outputramp1interp	[ 0	locks=0 ]	(	"linear"	)
+outputramp2pos	[ 0	locks=0 ]	(	1	)
+outputramp2value	[ 0	locks=0 ]	(	1	)
+outputramp2interp	[ 0	locks=0 ]	(	"linear"	)
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/sop_calculate_occlusion1.userdata"
+Content-Type: text/plain
+
+{
+	"___Version___":{
+		"type":"string",
+		"value":"0.2"
+	}
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/pointwrangle8.init"
+Content-Type: text/plain
+
+type = attribwrangle
+matchesdef = 1
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/pointwrangle8.def"
+Content-Type: text/plain
+
+sopflags sopflags = 
+comment ""
+position -6.25104 -14.2817
+connectornextid 2
+flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
+outputsNamed3
+{
+1 "output1"
+}
+inputsNamed3
+{
+0 	attribpromote2 1 1 "input1"
+}
+inputs
+{
+0 	attribpromote2 0 1
+}
+stat
+{
+  create 1529073089
+  modify 1529074176
+  author MAINGEAR@DESKTOP-P98C1VA
+  access 0777
+}
+color UT_Color RGB 0.8 0.8 0.8 
+delscript ""
+exprlanguage hscript
+end
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/pointwrangle8.spareparmdef"
+Content-Type: text/plain
+
+    group {
+        name    "folder1"
+        label   "Code"
+
+        parm {
+            name    "group"
+            baseparm
+            label   "Group"
+            export  none
+            bindselector points "Modify Points"
+                "Select the points to affect and press Enter to complete."
+                0 1 0xffffffff 0 grouptype 0
+        }
+        parm {
+            name    "grouptype"
+            baseparm
+            label   "Group Type"
+            export  none
+        }
+        parm {
+            name    "class"
+            baseparm
+            label   "Run Over"
+            export  none
+        }
+        parm {
+            name    "vex_numcount"
+            baseparm
+            label   "Number Count"
+            export  none
+        }
+        parm {
+            name    "vex_threadjobsize"
+            baseparm
+            label   "Thread Job Size"
+            export  none
+        }
+        parm {
+            name    "snippet"
+            baseparm
+            label   "VEXpression"
+            export  all
+        }
+        parm {
+            name    "exportlist"
+            baseparm
+            label   "Attributes to Create"
+            export  none
+        }
+        parm {
+            name    "vex_strict"
+            baseparm
+            label   "Enforce Prototypes"
+            export  none
+        }
+    }
+
+    group {
+        name    "folder1_1"
+        label   "Bindings"
+
+        parm {
+            name    "autobind"
+            baseparm
+            label   "Autobind by Name"
+            export  none
+        }
+        multiparm {
+            name    "bindings"
+            label    "Number of Bindings"
+            baseparm
+            default 0
+            parmtag { "autoscope" "0000000000000000" }
+            parmtag { "multistartoffset" "1" }
+
+            parm {
+                name    "bindname#"
+                baseparm
+                label   "Attribute Name"
+                export  none
+            }
+            parm {
+                name    "bindparm#"
+                baseparm
+                label   "VEX Parameter"
+                export  none
+            }
+        }
+
+        parm {
+            name    "groupautobind"
+            baseparm
+            label   "Autobind Groups by Name"
+            export  none
+        }
+        multiparm {
+            name    "groupbindings"
+            label    "Group Bindings"
+            baseparm
+            default 0
+            parmtag { "autoscope" "0000000000000000" }
+            parmtag { "multistartoffset" "1" }
+
+            parm {
+                name    "bindgroupname#"
+                baseparm
+                label   "Group Name"
+                export  none
+            }
+            parm {
+                name    "bindgroupparm#"
+                baseparm
+                label   "VEX Parameter"
+                export  none
+            }
+        }
+
+        parm {
+            name    "vex_cwdpath"
+            baseparm
+            label   "Evaluation Node Path"
+            export  none
+        }
+        parm {
+            name    "vex_outputmask"
+            baseparm
+            label   "Export Parameters"
+            export  none
+        }
+        parm {
+            name    "vex_updatenmls"
+            baseparm
+            label   "Update Normals If Displaced"
+            export  none
+        }
+        parm {
+            name    "vex_matchattrib"
+            baseparm
+            label   "Attribute to Match"
+            export  none
+        }
+        parm {
+            name    "vex_inplace"
+            baseparm
+            label   "Compute Results In Place"
+            export  none
+        }
+        parm {
+            name    "vex_selectiongroup"
+            baseparm
+            label   "Output Selection Group"
+            export  none
+        }
+    }
+
+    parm {
+        name    "hue"
+        label   "Hue"
+        type    float
+        default { "0" }
+        range   { 0 1 }
+    }
+    parm {
+        name    "saturation"
+        label   "Saturation"
+        type    float
+        default { "0" }
+        range   { 0 1 }
+    }
+    parm {
+        name    "value"
+        label   "Value"
+        type    float
+        default { "0" }
+        range   { 0 1 }
+    }
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/pointwrangle8.parm"
+Content-Type: text/plain
+
+{
+version 0.8
+folder0	[ 0	locks=0 ]	(	0	0	)
+group	[ 0	locks=0 ]	(	""	)
+grouptype	[ 0	locks=0 ]	(	"guess"	)
+class	[ 0	locks=0 ]	(	"point"	)
+vex_numcount	[ 0	locks=0 ]	(	10	)
+vex_threadjobsize	[ 0	locks=0 ]	(	1024	)
+snippet	[ 0	locks=0 ]	(	"v@Cd = rgbtohsv(v@Cd);
+v@Cd.r += ch(\"hue\");
+v@Cd.g += ch(\"saturation\");
+v@Cd.b += ch(\"value\");
+v@Cd = hsvtorgb(v@Cd);"	)
+exportlist	[ 0	locks=0 ]	(	*	)
+vex_strict	[ 0	locks=0 ]	(	"off"	)
+autobind	[ 0	locks=0 ]	(	"on"	)
+bindings	[ 0	locks=0 ]	(	0	)
+groupautobind	[ 0	locks=0 ]	(	"on"	)
+groupbindings	[ 0	locks=0 ]	(	0	)
+vex_cwdpath	[ 0	locks=0 ]	(	.	)
+vex_outputmask	[ 0	locks=0 ]	(	*	)
+vex_updatenmls	[ 0	locks=0 ]	(	"off"	)
+vex_matchattrib	[ 0	locks=0 ]	(	id	)
+vex_inplace	[ 0	locks=0 ]	(	"off"	)
+vex_selectiongroup	[ 0	locks=0 ]	(	""	)
+folder1	[ 0	locks=0 ]	(	0	0	)
+hue	[ 0	locks=0 ]	(	0	)
+saturation	[ 0	locks=0 ]	(	0	)
+value	[ 0	locks=0 ]	(	0	)
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/pointwrangle8.userdata"
+Content-Type: text/plain
+
+{
+	"___Version___":{
+		"type":"string",
+		"value":""
+	}
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/pointwrangle11.init"
+Content-Type: text/plain
+
+type = attribwrangle
+matchesdef = 1
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/pointwrangle11.def"
+Content-Type: text/plain
+
+sopflags sopflags = 
+comment ""
+position -7.66187 -16.5267
+connectornextid 4
+flags =  lock off model off template on footprint off xray off bypass off display on render on highlight off unload off savedata off compress on colordefault on exposed on
+outputsNamed3
+{
+3 "output1"
+}
+inputsNamed3
+{
+0 	(__dot4) "" 1 "input1"
+1 	sop_calculate_occlusion1 1 1 "input2"
+2 	pointwrangle8 1 1 "input3"
+}
+inputs
+{
+0 	(__dot4) 0 1
+1 	sop_calculate_occlusion1 0 1
+2 	pointwrangle8 0 1
+}
+stat
+{
+  create 1529072413
+  modify 1529075833
+  author MAINGEAR@DESKTOP-P98C1VA
+  access 0777
+}
+color UT_Color RGB 0.8 0.8 0.8 
+delscript ""
+exprlanguage hscript
+end
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/pointwrangle11.spareparmdef"
+Content-Type: text/plain
+
+    group {
+        name    "folder1"
+        label   "Code"
+
+        parm {
+            name    "group"
+            baseparm
+            label   "Group"
+            export  none
+            bindselector points "Modify Points"
+                "Select the points to affect and press Enter to complete."
+                0 1 0xffffffff 0 grouptype 0
+        }
+        parm {
+            name    "grouptype"
+            baseparm
+            label   "Group Type"
+            export  none
+        }
+        parm {
+            name    "class"
+            baseparm
+            label   "Run Over"
+            export  none
+        }
+        parm {
+            name    "vex_numcount"
+            baseparm
+            label   "Number Count"
+            export  none
+        }
+        parm {
+            name    "vex_threadjobsize"
+            baseparm
+            label   "Thread Job Size"
+            export  none
+        }
+        parm {
+            name    "snippet"
+            baseparm
+            label   "VEXpression"
+            export  all
+        }
+        parm {
+            name    "exportlist"
+            baseparm
+            label   "Attributes to Create"
+            export  none
+        }
+        parm {
+            name    "vex_strict"
+            baseparm
+            label   "Enforce Prototypes"
+            export  none
+        }
+    }
+
+    group {
+        name    "folder1_1"
+        label   "Bindings"
+
+        parm {
+            name    "autobind"
+            baseparm
+            label   "Autobind by Name"
+            export  none
+        }
+        multiparm {
+            name    "bindings"
+            label    "Number of Bindings"
+            baseparm
+            default 0
+            parmtag { "autoscope" "0000000000000000" }
+            parmtag { "multistartoffset" "1" }
+
+            parm {
+                name    "bindname#"
+                baseparm
+                label   "Attribute Name"
+                export  none
+            }
+            parm {
+                name    "bindparm#"
+                baseparm
+                label   "VEX Parameter"
+                export  none
+            }
+        }
+
+        parm {
+            name    "groupautobind"
+            baseparm
+            label   "Autobind Groups by Name"
+            export  none
+        }
+        multiparm {
+            name    "groupbindings"
+            label    "Group Bindings"
+            baseparm
+            default 0
+            parmtag { "autoscope" "0000000000000000" }
+            parmtag { "multistartoffset" "1" }
+
+            parm {
+                name    "bindgroupname#"
+                baseparm
+                label   "Group Name"
+                export  none
+            }
+            parm {
+                name    "bindgroupparm#"
+                baseparm
+                label   "VEX Parameter"
+                export  none
+            }
+        }
+
+        parm {
+            name    "vex_cwdpath"
+            baseparm
+            label   "Evaluation Node Path"
+            export  none
+        }
+        parm {
+            name    "vex_outputmask"
+            baseparm
+            label   "Export Parameters"
+            export  none
+        }
+        parm {
+            name    "vex_updatenmls"
+            baseparm
+            label   "Update Normals If Displaced"
+            export  none
+        }
+        parm {
+            name    "vex_matchattrib"
+            baseparm
+            label   "Attribute to Match"
+            export  none
+        }
+        parm {
+            name    "vex_inplace"
+            baseparm
+            label   "Compute Results In Place"
+            export  none
+        }
+        parm {
+            name    "vex_selectiongroup"
+            baseparm
+            label   "Output Selection Group"
+            export  none
+        }
+    }
+
+    parm {
+        name    "ao_strength"
+        label   "Ao Strength"
+        type    float
+        default { "0" }
+        range   { 0 1 }
+    }
+    parm {
+        name    "ao_tint"
+        label   "Ao Tint"
+        type    float
+        default { "0" }
+        range   { 0 1 }
+    }
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/pointwrangle11.chn"
+Content-Type: text/plain
+
+{
+    channel ao_strength {
+      lefttype = extend
+      righttype = extend
+      default = 1
+      flags = 0
+      segment { length = 0 value = 1 1 expr = ch(\"../ao_blend_strength\") }
+    }
+    channel ao_tint {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = ch(\"../ao_tint\") }
+    }
+  }
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/pointwrangle11.parm"
+Content-Type: text/plain
+
+{
+version 0.8
+folder0	[ 0	locks=0 ]	(	0	0	)
+group	[ 0	locks=0 ]	(	""	)
+grouptype	[ 0	locks=0 ]	(	"guess"	)
+class	[ 0	locks=0 ]	(	"point"	)
+vex_numcount	[ 0	locks=0 ]	(	10	)
+vex_threadjobsize	[ 0	locks=0 ]	(	1024	)
+snippet	[ 0	locks=0 ]	(	"vector AO = point(1, \"Cd\", @ptnum);
+float lum = luminance(v@Cd);
+v@Cd = lerp(  lerp(v@Cd/clamp(AO+lum,0,1),point(2, \"Cd\", @ptnum),ch(\"ao_tint\")), v@Cd, lerp(1, clamp(lum + AO, 0,1), ch(\"ao_strength\"))) ;
+
+"	)
+exportlist	[ 0	locks=0 ]	(	*	)
+vex_strict	[ 0	locks=0 ]	(	"off"	)
+autobind	[ 0	locks=0 ]	(	"on"	)
+bindings	[ 0	locks=0 ]	(	0	)
+groupautobind	[ 0	locks=0 ]	(	"on"	)
+groupbindings	[ 0	locks=0 ]	(	0	)
+vex_cwdpath	[ 0	locks=0 ]	(	.	)
+vex_outputmask	[ 0	locks=0 ]	(	*	)
+vex_updatenmls	[ 0	locks=0 ]	(	"off"	)
+vex_matchattrib	[ 0	locks=0 ]	(	id	)
+vex_inplace	[ 0	locks=0 ]	(	"off"	)
+vex_selectiongroup	[ 0	locks=0 ]	(	""	)
+folder1	[ 0	locks=0 ]	(	0	0	)
+ao_strength	[ 0	locks=0 ]	(	[ ao_strength	1 ] 	)
+ao_tint	[ 8	locks=0 ]	(	[ ao_tint	0.29999999999999999 ] 	)
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/pointwrangle11.userdata"
 Content-Type: text/plain
 
 {
@@ -1783,7 +1936,7 @@ version 0.8
 group	[ 0	locks=0 ]	(	""	)
 stdswitcher	[ 0	locks=0 ]	(	0	0	)
 generateby	[ 0	locks=0 ]	(	"bydensity"	)
-densityscale	[ 8	locks=0 ]	(	[ densityscale	5 ] 	)
+densityscale	[ 8	locks=0 ]	(	[ densityscale	50 ] 	)
 usedensityattrib	[ 0	locks=0 ]	(	"on"	)
 densityattrib	[ 0	locks=0 ]	(	density	)
 useareaattrib	[ 0	locks=0 ]	(	"off"	)
@@ -1926,7 +2079,7 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position -1.09756 -18.165
+position -0.824335 -21.216
 connectornextid 3
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
@@ -1946,7 +2099,7 @@ inputs
 stat
 {
   create 1520786081
-  modify 1528122302
+  modify 1529073973
   author MAINGEAR@DESKTOP-P98C1VA
   access 0777
 }
@@ -1991,7 +2144,7 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position -1.09756 -19.7697
+position -0.824335 -22.8207
 connectornextid 1
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
@@ -2008,7 +2161,7 @@ inputs
 stat
 {
   create 1527002500
-  modify 1527102814
+  modify 1529074885
   author MAINGEAR@DESKTOP-P98C1VA
   access 0777
 }
@@ -2028,185 +2181,6 @@ outputidx	[ 0	locks=0 ]	(	0	)
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
 Content-Disposition: attachment; filename="hdaroot/output1.userdata"
-Content-Type: text/plain
-
-{
-	"___Version___":{
-		"type":"string",
-		"value":"16.5.412"
-	}
-}
-
---HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot/attribtransfer2.init"
-Content-Type: text/plain
-
-type = attribtransfer
-matchesdef = 0
-
---HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot/attribtransfer2.def"
-Content-Type: text/plain
-
-sopflags sopflags = 
-comment ""
-position 3.54681 -2.65505
-connectornextid 3
-flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
-outputsNamed3
-{
-2 "output1"
-}
-inputsNamed3
-{
-0 	pointwrangle8 1 1 "input1"
-1 	attribblur4 1 1 "input2"
-}
-inputs
-{
-0 	pointwrangle8 0 1
-1 	attribblur4 0 1
-}
-stat
-{
-  create 1526934412
-  modify 1527101751
-  author MAINGEAR@DESKTOP-P98C1VA
-  access 0777
-}
-color UT_Color RGB 0.8 0.8 0.8 
-delscript ""
-exprlanguage hscript
-end
-
---HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot/attribtransfer2.parm"
-Content-Type: text/plain
-
-{
-version 0.8
-srcgroups	[ 0	locks=0 ]	(	""	)
-srcgrouptype	[ 0	locks=0 ]	(	"primitive"	)
-dstgroups	[ 0	locks=0 ]	(	""	)
-dstgrouptype	[ 0	locks=0 ]	(	"primitive"	)
-cardswitcher	[ 0	locks=0 ]	(	0	0	)
-detailattribs	[ 0	locks=0 ]	(	"off"	)
-detailattriblist	[ 0	locks=0 ]	(	""	)
-primitiveattribs	[ 0	locks=0 ]	(	"on"	)
-primattriblist	[ 0	locks=0 ]	(	""	)
-pointattribs	[ 0	locks=0 ]	(	"on"	)
-pointattriblist	[ 0	locks=0 ]	(	""	)
-vertexattribs	[ 0	locks=0 ]	(	"off"	)
-vertexattriblist	[ 0	locks=0 ]	(	""	)
-copyvariable	[ 0	locks=0 ]	(	"on"	)
-matchpattrib	[ 0	locks=0 ]	(	"off"	)
-kernel	[ 0	locks=0 ]	(	elendt	)
-kernelradius	[ 0	locks=0 ]	(	10	)
-maxsamplecount	[ 0	locks=0 ]	(	1	)
-threshold	[ 0	locks=0 ]	(	"on"	)
-thresholddist	[ 0	locks=0 ]	(	10	)
-blendwidth	[ 0	locks=0 ]	(	0	)
-uniformbias	[ 0	locks=0 ]	(	0.5	)
-}
-
---HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot/attribtransfer2.userdata"
-Content-Type: text/plain
-
-{
-	"___Version___":{
-		"type":"string",
-		"value":"16.5.412"
-	}
-}
-
---HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot/scatter2.init"
-Content-Type: text/plain
-
-type = scatter::2.0
-matchesdef = 0
-
---HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot/scatter2.def"
-Content-Type: text/plain
-
-sopflags sopflags = 
-comment ""
-position 4.6289 0.619279
-connectornextid 2
-flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
-outputsNamed3
-{
-1 "output1"
-}
-inputsNamed3
-{
-0 	pointwrangle8 1 1 "input1"
-}
-inputs
-{
-0 	pointwrangle8 0 1
-}
-stat
-{
-  create 1526934397
-  modify 1527101638
-  author MAINGEAR@DESKTOP-P98C1VA
-  access 0777
-}
-color UT_Color RGB 0.8 0.8 0.8 
-delscript ""
-exprlanguage hscript
-end
-
---HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot/scatter2.parm"
-Content-Type: text/plain
-
-{
-version 0.8
-group	[ 0	locks=0 ]	(	""	)
-stdswitcher	[ 0	locks=0 ]	(	0	0	)
-generateby	[ 0	locks=0 ]	(	"bydensity"	)
-densityscale	[ 8	locks=0 ]	(	10	)
-usedensityattrib	[ 0	locks=0 ]	(	"on"	)
-densityattrib	[ 0	locks=0 ]	(	density	)
-useareaattrib	[ 0	locks=0 ]	(	"off"	)
-areaattrib	[ 0	locks=0 ]	(	area	)
-forcetotal	[ 0	locks=0 ]	(	"off"	)
-npts	[ 0	locks=0 ]	(	2000	)
-usedensitytexture	[ 0	locks=0 ]	(	"off"	)
-densitytexture	[ 0	locks=0 ]	(	default.pic	)
-primcountattrib	[ 0	locks=0 ]	(	count	)
-useemergencylimit	[ 0	locks=0 ]	(	"on"	)
-emergencylimit	[ 0	locks=0 ]	(	1000000	)
-seed	[ 0	locks=0 ]	(	0	)
-overrideprimseed	[ 0	locks=0 ]	(	"off"	)
-primseedattrib	[ 0	locks=0 ]	(	primid	)
-randomizeorder	[ 0	locks=0 ]	(	"on"	)
-relaxpoints	[ 0	locks=0 ]	(	"on"	)
-relaxiterations	[ 0	locks=0 ]	(	10	)
-scaleradiiby	[ 0	locks=0 ]	(	1	)
-usemaxradius	[ 0	locks=0 ]	(	"on"	)
-maxradius	[ 0	locks=0 ]	(	10	)
-useprimnumattrib	[ 0	locks=0 ]	(	"off"	)
-primnumattrib	[ 0	locks=0 ]	(	sourceprim	)
-useprimuvwattrib	[ 0	locks=0 ]	(	"off"	)
-primuvwattrib	[ 0	locks=0 ]	(	sourceprimuv	)
-useoutputdensityattrib	[ 0	locks=0 ]	(	"off"	)
-outputdensityattrib	[ 0	locks=0 ]	(	density	)
-useoutputradiusattrib	[ 0	locks=0 ]	(	"off"	)
-outputradiusattrib	[ 0	locks=0 ]	(	pscale	)
-radiusintexturespace	[ 0	locks=0 ]	(	"off"	)
-pointattribs	[ 0	locks=0 ]	(	*	)
-vertattribs	[ 0	locks=0 ]	(	""	)
-primattribs	[ 0	locks=0 ]	(	""	)
-detailattribs	[ 0	locks=0 ]	(	""	)
-}
-
---HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot/scatter2.userdata"
 Content-Type: text/plain
 
 {
@@ -2313,7 +2287,7 @@ inputs
 stat
 {
   create 1527101693
-  modify 1527105793
+  modify 1529073066
   author MAINGEAR@DESKTOP-P98C1VA
   access 0777
 }
@@ -2349,82 +2323,6 @@ Content-Type: text/plain
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot/switch1.init"
-Content-Type: text/plain
-
-type = switch
-matchesdef = 0
-
---HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot/switch1.def"
-Content-Type: text/plain
-
-sopflags sopflags = 
-comment ""
-position 1.81167 -9.12175
-connectornextid 3
-flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
-outputsNamed3
-{
-2 "output1"
-}
-inputsNamed3
-{
-0 	attribpromote2 1 1 "input1"
-1 	attribblur3 1 1 "input2"
-}
-inputs
-{
-0 	attribpromote2 0 1
-1 	attribblur3 0 1
-}
-stat
-{
-  create 1527101728
-  modify 1528122081
-  author MAINGEAR@DESKTOP-P98C1VA
-  access 0777
-}
-color UT_Color RGB 0.8 1 0.7 
-delscript ""
-exprlanguage hscript
-end
-
---HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot/switch1.chn"
-Content-Type: text/plain
-
-{
-    channel input {
-      lefttype = extend
-      righttype = extend
-      default = 1
-      flags = 0
-      segment { length = 0 value = 1 1 expr = ch(\"../multi_color_object\") }
-    }
-  }
-
---HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot/switch1.parm"
-Content-Type: text/plain
-
-{
-version 0.8
-input	[ 8	locks=0 ]	(	[ input	0 ] 	)
-}
-
---HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot/switch1.userdata"
-Content-Type: text/plain
-
-{
-	"___Version___":{
-		"type":"string",
-		"value":"16.5.412"
-	}
-}
-
---HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
 Content-Disposition: attachment; filename="hdaroot/switch2.init"
 Content-Type: text/plain
 
@@ -2437,27 +2335,27 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position -1.52528 -16.2855
+position -1.25205 -19.3365
 connectornextid 2
-flags =  lock off model off template on footprint off xray off bypass off display on render on highlight off unload off savedata off compress on colordefault on exposed on
+flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
 {
 1 "output1"
 }
 inputsNamed3
 {
-0 	pointwrangle5 2 1 "input1"
+0 	switch1 1 1 "input1"
 3 	pointwrangle1 1 1 "input2"
 }
 inputs
 {
-0 	pointwrangle5 0 1
+0 	switch1 0 1
 1 	pointwrangle1 0 1
 }
 stat
 {
   create 1528122301
-  modify 1528122939
+  modify 1529074137
   author MAINGEAR@DESKTOP-P98C1VA
   access 0777
 }
@@ -2500,6 +2398,81 @@ Content-Type: text/plain
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/switch1.init"
+Content-Type: text/plain
+
+type = switch
+matchesdef = 0
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/switch1.def"
+Content-Type: text/plain
+
+sopflags sopflags = 
+comment ""
+position -3.22154 -18.3065
+connectornextid 3
+flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
+outputsNamed3
+{
+1 "output1"
+}
+inputsNamed3
+{
+0 	pointwrangle5 2 1 "input1"
+2 	pointwrangle11 3 1 "input2"
+}
+inputs
+{
+0 	pointwrangle5 0 1
+1 	pointwrangle11 0 1
+}
+stat
+{
+  create 1529073975
+  modify 1529075033
+  author MAINGEAR@DESKTOP-P98C1VA
+  access 0777
+}
+color UT_Color RGB 0.8 1 0.7 
+delscript ""
+exprlanguage hscript
+end
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/switch1.chn"
+Content-Type: text/plain
+
+{
+    channel input {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = ch(\"../ao_brightening\") }
+    }
+  }
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/switch1.parm"
+Content-Type: text/plain
+
+{
+version 0.8
+input	[ 8	locks=0 ]	(	[ input	1 ] 	)
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/switch1.userdata"
+Content-Type: text/plain
+
+{
+	"___Version___":{
+		"type":"string",
+		"value":"16.5.412"
+	}
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
 Content-Disposition: attachment; filename="hdaroot/__dot1.networkdotinit"
 Content-Type: text/plain
 
@@ -2526,10 +2499,49 @@ Content-Type: text/plain
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/__dot3.networkdotinit"
+Content-Type: text/plain
+
+{
+	"version":1,
+	"posx":-8.9139024142015959,
+	"posy":-12.3760224393029503,
+	"pinned":false,
+	"color":"FROMOUTPUT",
+	"input":"(__dot5) 0 1"
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/__dot4.networkdotinit"
+Content-Type: text/plain
+
+{
+	"version":1,
+	"posx":-8.62661081317923895,
+	"posy":-15.0890589987477988,
+	"pinned":false,
+	"color":"FROMOUTPUT",
+	"input":"(__dot3) 0 1"
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/__dot5.networkdotinit"
+Content-Type: text/plain
+
+{
+	"version":1,
+	"posx":-6.99537781734079012,
+	"posy":-11.4529572941706697,
+	"pinned":false,
+	"color":"FROMOUTPUT",
+	"input":"pointwrangle5 0 1"
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
 Content-Disposition: attachment; filename="hdaroot.order"
 Content-Type: text/plain
 
-24
+21
 normal2
 pointwrangle4
 scatter1
@@ -2541,19 +2553,16 @@ attribblur2
 normalize_mesh
 matchsize1u
 output1
-pointwrangle8
-attribblur3
-attribblur4
-attribtransfer2
-scatter2
-pointwrangle9
 pointwrangle10
 attribpromote1
 attribpromote2
-switch1
 attribwrangle1
 switch2
 pointwrangle1
+sop_calculate_occlusion1
+pointwrangle8
+switch1
+pointwrangle11
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
 Content-Disposition: attachment; filename="hdaroot.net"

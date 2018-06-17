@@ -18,7 +18,7 @@
         name    "samples"
         label   "Number of Samples"
         type    integer
-        default { "10" }
+        default { "50" }
         range   { 1! 1000 }
         parmtag { "autoscope" "0000000000000000" }
     }
@@ -26,7 +26,7 @@
         name    "iterations"
         label   "Blurring Iterations"
         type    integer
-        default { "100" }
+        default { "30" }
         range   { 0 100 }
         parmtag { "autoscope" "0000000000000000" }
     }
@@ -46,10 +46,34 @@
         parmtag { "autoscope" "0000000000000000" }
     }
     parm {
-        name    "multi_color_object"
-        label   "Multi Color Object"
+        name    "ao_brightening"
+        label   "AO Brightening"
         type    toggle
         default { "0" }
+    }
+    parm {
+        name    "ao_strength"
+        label   "AO Strength"
+        type    float
+        default { "1" }
+        disablewhen "{ ao_brightening == 0 }"
+        range   { 0 10 }
+    }
+    parm {
+        name    "ao_blend_strength"
+        label   "AO Blend Strength"
+        type    float
+        default { "0.75" }
+        disablewhen "{ ao_brightening == 0 }"
+        range   { 0 10 }
+    }
+    parm {
+        name    "ao_tint"
+        label   "AO Tint"
+        type    float
+        default { "0.75" }
+        disablewhen "{ ao_brightening == 0 }"
+        range   { 0 10 }
     }
     parm {
         name    "vis_lighting"
@@ -64,5 +88,28 @@
         default { "0" }
         disablewhen "{ vis_lighting == 0 }"
         range   { -10 10 }
+    }
+    parm {
+        name    "spacer"
+        label   "Label"
+        type    label
+        nolabel
+        default { "" }
+    }
+    parm {
+        name    "spacer2"
+        label   "Label"
+        type    label
+        nolabel
+        joinnext
+        default { "" }
+    }
+    parm {
+        name    "like_btn"
+        label   "Like This Tool"
+        type    button
+        default { "0" }
+        parmtag { "script_callback" "import gamedevutils;gamedevutils.like_node(hou.pwd())" }
+        parmtag { "script_callback_language" "python" }
     }
 }

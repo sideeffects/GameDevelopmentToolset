@@ -35,7 +35,7 @@ def export(node):
        
         # write the first line, which is the header with all of the attributes 
         # I'm also adding a # column for the point number 
-        attributes = ["#"]
+        attributes = []
         
         # grab all of the point attributes, and if it's a vector attribute, add multiples
         for point_attr in geo.pointAttribs():
@@ -53,7 +53,8 @@ def export(node):
         for point in geo.points():
         
             # build an array of data, starting with point number 
-            point_data = [point.number()]
+            #point_data = [point.number()]
+            point_data = []
             
             # iterate through all attributes breaking up vector attributes if needed
             for point_attr in geo.pointAttribs():

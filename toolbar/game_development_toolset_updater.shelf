@@ -81,7 +81,7 @@ class UpdateDialog(QDialog):
         update_version_label = QLabel("Release:")
 
         self.version_combo = QComboBox(self)
-        for release in self.updater_object.production_releases[-10:]:
+        for release in self.updater_object.production_releases[:10]:
             self.version_combo.addItem(release)
 
         self.production_builds_check = QCheckBox("Production Builds Only")
@@ -114,10 +114,10 @@ class UpdateDialog(QDialog):
     def on_production_check(self, state=None):
         self.version_combo.clear()
         if self.production_builds_check.isChecked():
-            for release in self.updater_object.production_releases[-10:]:
+            for release in self.updater_object.production_releases[:10]:
                 self.version_combo.addItem(release)
         else:
-            for release in self.updater_object.releases[-10:]:
+            for release in self.updater_object.releases[:10]:
                 self.version_combo.addItem(release)
 
     def on_updatebtn_press(self):

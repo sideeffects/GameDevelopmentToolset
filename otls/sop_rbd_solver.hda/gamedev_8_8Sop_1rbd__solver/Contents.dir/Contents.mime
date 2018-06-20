@@ -34,7 +34,7 @@ sopflags sopflags =
 comment ""
 position -0.78276 -7.50883
 connectornextid 2
-flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault off exposed on
+flags =  lock off model off template off footprint off xray off bypass off display on render on highlight off unload off savedata off compress on colordefault off exposed on
 outputsNamed3
 {
 1 "output1"
@@ -50,7 +50,7 @@ inputs
 stat
 {
   create 1529104112
-  modify 1529422402
+  modify 1529510231
   author mikel@mikembp-sesi.local
   access 0777
 }
@@ -108,7 +108,7 @@ inputs
 stat
 {
   create 1480289650
-  modify 1529106687
+  modify 1529509952
   author mike@mikembp.local
   access 0777
 }
@@ -202,8 +202,8 @@ Content-Disposition: attachment; filename="hdaroot/dopnet2/rigidbodysolver1.def"
 Content-Type: text/plain
 
 comment ""
-position 0.304745 4.30081
-connectornextid 2
+position 1.21516 4.45912
+connectornextid 1
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault off exposed on
 outputsNamed3
 {
@@ -211,16 +211,14 @@ outputsNamed3
 }
 inputsNamed3
 {
-1 	merge2 0 1 "input1"
 }
 inputs
 {
-0 	merge2 0 1
 }
 stat
 {
   create 1472247301
-  modify 1480289658
+  modify 1529509472
   author mike@mikembp.local
   access 0777
 }
@@ -465,14 +463,14 @@ Content-Type: text/plain
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot/dopnet2/groundplane2.init"
+Content-Disposition: attachment; filename="hdaroot/dopnet2/groundplane1.init"
 Content-Type: text/plain
 
 type = groundplane
 matchesdef = 1
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot/dopnet2/groundplane2.def"
+Content-Disposition: attachment; filename="hdaroot/dopnet2/groundplane1.def"
 Content-Type: text/plain
 
 comment ""
@@ -492,7 +490,7 @@ inputs
 stat
 {
   create 1510046695
-  modify 1529105468
+  modify 1529509546
   author mikel@mikembp-sesi.local
   access 0777
 }
@@ -502,7 +500,7 @@ exprlanguage hscript
 end
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot/dopnet2/groundplane2.chn"
+Content-Disposition: attachment; filename="hdaroot/dopnet2/groundplane1.chn"
 Content-Type: text/plain
 
 {
@@ -555,7 +553,7 @@ Content-Type: text/plain
   }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot/dopnet2/groundplane2.parm"
+Content-Disposition: attachment; filename="hdaroot/dopnet2/groundplane1.parm"
 Content-Type: text/plain
 
 {
@@ -576,7 +574,7 @@ temperature	[ 0	locks=0 ]	(	0	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot/dopnet2/groundplane2.userdata"
+Content-Disposition: attachment; filename="hdaroot/dopnet2/groundplane1.userdata"
 Content-Type: text/plain
 
 {
@@ -595,6 +593,92 @@ Content-Type: text/plain
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/dopnet2/popforce1.init"
+Content-Type: text/plain
+
+type = popforce
+matchesdef = 1
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/dopnet2/popforce1.def"
+Content-Type: text/plain
+
+comment ""
+position 2.63436 5.42716
+connectornextid 0
+flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
+outputsNamed3
+{
+1 "output1"
+}
+inputsNamed3
+{
+}
+inputs
+{
+}
+stat
+{
+  create 1529509392
+  modify 1529509418
+  author mikel@mikembp-sesi.local
+  access 0777
+}
+color UT_Color RGB 0.8 0.8 0.8 
+delscript ""
+exprlanguage hscript
+end
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/dopnet2/popforce1.parm"
+Content-Type: text/plain
+
+{
+version 0.8
+activate	[ 0	locks=0 ]	(	1	)
+usegroup	[ 0	locks=0 ]	(	"off"	)
+partgroup	[ 0	locks=0 ]	(	""	)
+showguide	[ 0	locks=0 ]	(	"off"	)
+guidecolor	[ 0	locks=0 ]	(	1	0	0	)
+force	[ 0	locks=0 ]	(	0	-9.8000000000000007	0	)
+ignoremass	[ 0	locks=0 ]	(	"on"	)
+uselocalforce	[ 0	locks=0 ]	(	"off"	)
+localforceexpression	[ 0	locks=0 ]	(	""	)
+folder0	[ 0	locks=0 ]	(	0	0	)
+amp	[ 0	locks=0 ]	(	0	)
+swirlsize	[ 0	locks=0 ]	(	1	)
+swirlscale	[ 0	locks=0 ]	(	1	1	1	)
+pulselength	[ 0	locks=0 ]	(	1	)
+rough	[ 0	locks=0 ]	(	0.5	)
+atten	[ 0	locks=0 ]	(	1	)
+turb	[ 0	locks=0 ]	(	3	)
+offset	[ 0	locks=0 ]	(	0	0	0	0	)
+uselocalnoise	[ 0	locks=0 ]	(	"off"	)
+localnoiseexpression	[ 0	locks=0 ]	(	""	)
+bindgeo	[ 0	locks=0 ]	(	Geometry	)
+vex_cwdpath	[ 0	locks=0 ]	(	.	)
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/dopnet2/popforce1.userdata"
+Content-Type: text/plain
+
+{
+	"___Version___":{
+		"type":"string",
+		"value":""
+	},
+	"___toolcount___":{
+		"type":"string",
+		"value":"2"
+	},
+	"___toolid___":{
+		"type":"string",
+		"value":"dynamics_popforce"
+	}
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
 Content-Disposition: attachment; filename="hdaroot/dopnet2/output.init"
 Content-Type: text/plain
 
@@ -606,7 +690,7 @@ Content-Disposition: attachment; filename="hdaroot/dopnet2/output.def"
 Content-Type: text/plain
 
 comment ""
-position -1.10725 1.06291
+position -0.840106 -1.81129
 connectornextid 2
 flags =  lock off model off template off footprint off xray off bypass off display on render off highlight off unload off savedata off compress off colordefault off exposed on
 outputsNamed3
@@ -624,7 +708,7 @@ inputs
 stat
 {
   create 1472247301
-  modify 1529104030
+  modify 1529509964
   author mike@mikembp.local
   access 0777
 }
@@ -700,7 +784,7 @@ Content-Disposition: attachment; filename="hdaroot/dopnet2/gravity1.def"
 Content-Type: text/plain
 
 comment ""
-position -1.10725 2.19241
+position -0.840106 -0.681787
 connectornextid 2
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault off exposed on
 outputsNamed3
@@ -718,7 +802,7 @@ inputs
 stat
 {
   create 1472247301
-  modify 1529105589
+  modify 1529509964
   author mike@mikembp.local
   access 0777
 }
@@ -800,7 +884,7 @@ Content-Disposition: attachment; filename="hdaroot/dopnet2/merge1.def"
 Content-Type: text/plain
 
 comment ""
-position -1.10725 3.32191
+position -0.840106 0.447713
 connectornextid 3
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault off exposed on
 outputsNamed3
@@ -810,17 +894,17 @@ outputsNamed3
 inputsNamed3
 {
 2 	switch1 2 1 "input1"
-1 	rigidbodysolver1 0 1 "input2"
+1 	multisolver1 2 1 "input2"
 }
 inputs
 {
 0 	switch1 0 1
-1 	rigidbodysolver1 0 1
+1 	multisolver1 0 1
 }
 stat
 {
   create 1472247301
-  modify 1529104199
+  modify 1529509964
   author mike@mikembp.local
   access 0777
 }
@@ -1050,11 +1134,11 @@ outputsNamed3
 }
 inputsNamed3
 {
-1 	groundplane2 0 1 "input1"
+1 	groundplane1 0 1 "input1"
 }
 inputs
 {
-0 	groundplane2 0 1
+0 	groundplane1 0 1
 }
 stat
 {
@@ -1244,10 +1328,313 @@ Content-Type: text/plain
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/dopnet2/multisolver1.init"
+Content-Type: text/plain
+
+type = multisolver
+matchesdef = 0
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/dopnet2/multisolver1.def"
+Content-Type: text/plain
+
+comment ""
+position 0.502941 1.49068
+connectornextid 4
+flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
+outputsNamed3
+{
+2 "output1"
+}
+inputsNamed3
+{
+0 	merge2 0 1 "input1"
+1 	rigidbodysolver1 0 1 "input2"
+3 	switch2 2 1 "input3"
+}
+inputs
+{
+0 	merge2 0 1
+1 	rigidbodysolver1 0 1
+2 	switch2 0 1
+}
+stat
+{
+  create 1529509458
+  modify 1529510053
+  author mikel@mikembp-sesi.local
+  access 0777
+}
+color UT_Color RGB 0.8 0.8 0.8 
+delscript ""
+exprlanguage hscript
+end
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/dopnet2/multisolver1.parm"
+Content-Type: text/plain
+
+{
+version 0.8
+parmop_primarysolver	[ 0	locks=0 ]	(	"default"	)
+primarysolver	[ 0	locks=0 ]	(	0	)
+defaultparmop	[ 0	locks=0 ]	(	"initial"	)
+addaffectors	[ 0	locks=0 ]	(	"on"	)
+group	[ 0	locks=0 ]	(	*	)
+dataname	[ 0	locks=0 ]	(	Solver	)
+uniquedataname	[ 0	locks=0 ]	(	"off"	)
+solverperobject	[ 0	locks=0 ]	(	"off"	)
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/dopnet2/multisolver1.userdata"
+Content-Type: text/plain
+
+{
+	"___Version___":{
+		"type":"string",
+		"value":"16.5.496"
+	}
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/dopnet2/impactanalysis1.init"
+Content-Type: text/plain
+
+type = impactanalysis
+matchesdef = 0
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/dopnet2/impactanalysis1.def"
+Content-Type: text/plain
+
+comment ""
+position 4.93455 3.91116
+connectornextid 1
+flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
+outputsNamed3
+{
+0 "output1"
+}
+inputsNamed3
+{
+}
+inputs
+{
+}
+stat
+{
+  create 1512420551
+  modify 1529510190
+  author mikel@mikembp-sesi.local
+  access 0777
+}
+color UT_Color RGB 0.8 0.8 0.8 
+delscript ""
+exprlanguage hscript
+end
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/dopnet2/impactanalysis1.chn"
+Content-Type: text/plain
+
+{
+    channel time_threshold {
+      lefttype = extend
+      righttype = extend
+      default = 0.10000000000000001
+      flags = 0
+      segment { length = 0 value = 0.10000000000000001 0.10000000000000001 expr = ch(\"../../CONTROLS/timethreshold\") }
+    }
+    channel impact_threshold {
+      lefttype = extend
+      righttype = extend
+      default = 10
+      flags = 0
+      segment { length = 0 value = 10 10 expr = ch(\"../../CONTROLS/impactthreshold\") }
+    }
+    channel distance_threshold {
+      lefttype = extend
+      righttype = extend
+      default = 0.050000000000000003
+      flags = 0
+      segment { length = 0 value = 0.050000000000000003 0.050000000000000003 expr = ch(\"../../CONTROLS/distancethreshold\") }
+    }
+  }
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/dopnet2/impactanalysis1.parm"
+Content-Type: text/plain
+
+{
+version 0.8
+addaffectors	[ 0	locks=0 ]	(	"on"	)
+group	[ 0	locks=0 ]	(	*	)
+dataname	[ 0	locks=0 ]	(	ImpactAnalysis	)
+uniquedataname	[ 0	locks=0 ]	(	"on"	)
+solverperobject	[ 0	locks=0 ]	(	"off"	)
+display	[ 8	locks=0 ]	(	"on"	)
+time_threshold	[ 0	locks=0 ]	(	[ time_threshold	0.10000000000000001 ] 	)
+impact_threshold	[ 0	locks=0 ]	(	[ impact_threshold	10 ] 	)
+distance_threshold	[ 0	locks=0 ]	(	[ distance_threshold	0.050000000000000003 ] 	)
+force_object	[ 0	locks=0 ]	(	`chs(\"../../CONTROLS/forceimpactobject\")`	)
+sepparm	[ 0	locks=0 ]	(	)
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/dopnet2/impactanalysis1.userdata"
+Content-Type: text/plain
+
+{
+	"___Version___":{
+		"type":"string",
+		"value":""
+	},
+	"___toolcount___":{
+		"type":"string",
+		"value":"3"
+	},
+	"___toolid___":{
+		"type":"string",
+		"value":"dynamics_impactanalysis"
+	}
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/dopnet2/switch2.init"
+Content-Type: text/plain
+
+type = switch
+matchesdef = 0
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/dopnet2/switch2.def"
+Content-Type: text/plain
+
+comment ""
+position 3.93369 2.72866
+connectornextid 3
+flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
+outputsNamed3
+{
+2 "output1"
+}
+inputsNamed3
+{
+0 	null2 0 1 "input1"
+1 	impactanalysis1 0 1 "input2"
+}
+inputs
+{
+0 	null2 0 1
+1 	impactanalysis1 0 1
+}
+stat
+{
+  create 1529509949
+  modify 1529510053
+  author mikel@mikembp-sesi.local
+  access 0777
+}
+color UT_Color RGB 0.8 1 0.7 
+delscript ""
+exprlanguage hscript
+end
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/dopnet2/switch2.chn"
+Content-Type: text/plain
+
+{
+    channel input {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = ch(\"../../CONTROLS/calculateimpacts\") }
+    }
+  }
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/dopnet2/switch2.parm"
+Content-Type: text/plain
+
+{
+version 0.8
+input	[ 0	locks=0 ]	(	[ input	1 ] 	)
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/dopnet2/switch2.userdata"
+Content-Type: text/plain
+
+{
+	"___Version___":{
+		"type":"string",
+		"value":"16.5.496"
+	}
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/dopnet2/null2.init"
+Content-Type: text/plain
+
+type = null
+matchesdef = 1
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/dopnet2/null2.def"
+Content-Type: text/plain
+
+comment ""
+position 2.88526 3.90616
+connectornextid 1
+flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
+outputsNamed3
+{
+0 "output1"
+}
+inputsNamed3
+{
+}
+inputs
+{
+}
+stat
+{
+  create 1529509952
+  modify 1529510053
+  author mikel@mikembp-sesi.local
+  access 0777
+}
+color UT_Color RGB 0.65 0.75 0.9 
+delscript ""
+exprlanguage hscript
+end
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/dopnet2/null2.parm"
+Content-Type: text/plain
+
+{
+version 0.8
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/dopnet2/null2.userdata"
+Content-Type: text/plain
+
+{
+	"___Version___":{
+		"type":"string",
+		"value":""
+	}
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
 Content-Disposition: attachment; filename="hdaroot/dopnet2.order"
 Content-Type: text/plain
 
-11
+16
 rigidbodysolver1
 output
 gravity1
@@ -1256,9 +1643,14 @@ merge2
 staticsolver1
 merge3
 rbdpackedobject1
-groundplane2
+groundplane1
 switch1
 null1
+popforce1
+multisolver1
+impactanalysis1
+switch2
+null2
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
 Content-Disposition: attachment; filename="hdaroot/dopnet2.net"
@@ -1294,7 +1686,7 @@ inputs
 stat
 {
   create 1529104167
-  modify 1529422401
+  modify 1529510071
   author mikel@mikembp-sesi.local
   access 0777
 }
@@ -1401,6 +1793,51 @@ Content-Type: text/plain
         }
     }
 
+    group {
+        name    "groundplanefolder_1"
+        label   "Impact Data"
+
+        parm {
+            name    "calculateimpacts"
+            label   "Generate Impacts"
+            type    toggle
+            default { "0" }
+        }
+        parm {
+            name    "displayimpact"
+            label   "Display Impacts"
+            type    toggle
+            default { "0" }
+        }
+        parm {
+            name    "timethreshold"
+            label   "Time Threshold"
+            type    float
+            default { "0.1" }
+            range   { 0 10 }
+        }
+        parm {
+            name    "impactthreshold"
+            label   "Impact Threshold"
+            type    float
+            default { "10" }
+            range   { 0 10 }
+        }
+        parm {
+            name    "distancethreshold"
+            label   "Distance Threshold"
+            type    float
+            default { "0.05" }
+            range   { 0 10 }
+        }
+        parm {
+            name    "forceimpactobject"
+            label   "Force Impact Object"
+            type    string
+            default { "groundplane1" }
+        }
+    }
+
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
 Content-Disposition: attachment; filename="hdaroot/CONTROLS.chn"
@@ -1494,6 +1931,52 @@ Content-Type: text/plain
       flags = 0
       segment { length = 0 expr = ch(\"../positionz\") }
     }
+    channel choosegeo {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = ch(\"../choosegeo\") }
+    }
+    channel calculateimpacts {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = ch(\"../calculateimpacts\") }
+    }
+    channel displayimpact {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = ch(\"../displayimpact\") }
+    }
+    channel timethreshold {
+      lefttype = extend
+      righttype = extend
+      default = 0.10000000000000001
+      flags = 0
+      segment { length = 0 value = 0.10000000000000001 0.10000000000000001 expr = ch(\"../timethreshold\") }
+    }
+    channel impactthreshold {
+      lefttype = extend
+      righttype = extend
+      default = 10
+      flags = 0
+      segment { length = 0 value = 10 10 expr = ch(\"../impactthreshold\") }
+    }
+    channel distancethreshold {
+      lefttype = extend
+      righttype = extend
+      default = 0.050000000000000003
+      flags = 0
+      segment { length = 0 value = 0.050000000000000003 0.050000000000000003 expr = ch(\"../distancethreshold\") }
+    }
+    channel forceimpactobject {
+      lefttype = extend
+      righttype = extend
+      defaultString = \"groundplane1\"
+      flags = 0
+      segment { length = 0 expr = chs(\"../forceimpactobject\") }
+    }
   }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -1504,18 +1987,24 @@ Content-Type: text/plain
 version 0.8
 copyinput	[ 0	locks=0 ]	(	"on"	)
 cacheinput	[ 0	locks=0 ]	(	"off"	)
-choosegeo	[ 0	locks=0 ]	(	"off"	)
+choosegeo	[ 0	locks=0 ]	(	[ choosegeo	0 ] 	)
 resetsim	[ 0	locks=0 ]	(	[ resetsim	0 ] 	)
 bounce	[ 0	locks=0 ]	(	[ bounce	0.5 ] 	)
 friction	[ 0	locks=0 ]	(	[ friction	1 ] 	)
 density	[ 0	locks=0 ]	(	[ density	1000 ] 	)
 gravity	[ 0	locks=0 ]	(	[ gravity	-9.8066499999999994 ] 	)
-groundplanefolder	[ 0	locks=0 ]	(	0	)
+groundplanefolder	[ 0	locks=0 ]	(	1	1	)
 groundplane	[ 0	locks=0 ]	(	[ groundplane	1 ] 	)
 gpbounce	[ 0	locks=0 ]	(	[ gpbounce	0.5 ] 	)
 gpfriction	[ 0	locks=0 ]	(	[ gpfriction	1 ] 	)
 gridsize	[ 0	locks=0 ]	(	[ gridsizex	20 ] 	[ gridsizey	20 ] 	)
 position	[ 0	locks=0 ]	(	[ positionx	0 ] 	[ positiony	0 ] 	[ positionz	0 ] 	)
+calculateimpacts	[ 0	locks=0 ]	(	[ calculateimpacts	1 ] 	)
+displayimpact	[ 0	locks=0 ]	(	[ displayimpact	1 ] 	)
+timethreshold	[ 0	locks=0 ]	(	[ timethreshold	0.10000000000000001 ] 	)
+impactthreshold	[ 0	locks=0 ]	(	[ impactthreshold	10 ] 	)
+distancethreshold	[ 0	locks=0 ]	(	[ distancethreshold	0.050000000000000003 ] 	)
+forceimpactobject	[ 0	locks=0 ]	(	[ forceimpactobject	groundplane1 ] 	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -1542,7 +2031,7 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position -0.675011 -0.122864
+position -0.450355 -3.13695
 connectornextid 1
 flags =  lock off model off template off footprint off xray off bypass off display on render on highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
@@ -1550,16 +2039,16 @@ outputsNamed3
 }
 inputsNamed3
 {
-0 	dopnet2 4 1 "input1"
+0 	switch1 2 1 "input1"
 }
 inputs
 {
-0 	dopnet2 0 1
+0 	switch1 0 1
 }
 stat
 {
   create 1529106036
-  modify 1529106466
+  modify 1529510179
   author mikel@mikembp-sesi.local
   access 0777
 }
@@ -1589,13 +2078,244 @@ Content-Type: text/plain
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/dopimport1.init"
+Content-Type: text/plain
+
+type = dopimport
+matchesdef = 0
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/dopimport1.def"
+Content-Type: text/plain
+
+sopflags sopflags = 
+comment ""
+position 1.18051 0.498713
+connectornextid 1
+flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
+outputsNamed3
+{
+0 "output1"
+}
+inputsNamed3
+{
+}
+inputs
+{
+}
+stat
+{
+  create 1529510116
+  modify 1529510179
+  author mikel@mikembp-sesi.local
+  access 0777
+}
+color UT_Color RGB 0.8 0.8 0.8 
+delscript ""
+exprlanguage hscript
+end
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/dopimport1.chn"
+Content-Type: text/plain
+
+{
+    channel integrateovertime {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = 1/$FPS }
+    }
+  }
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/dopimport1.parm"
+Content-Type: text/plain
+
+{
+version 0.8
+doppath	[ 0	locks=0 ]	(	/obj/rbd_workflow_demo2/rbd_solver1/dopnet2	)
+objpattern	[ 0	locks=0 ]	(	*	)
+singleobject	[ 0	locks=0 ]	(	"off"	)
+importstyle	[ 0	locks=0 ]	(	"fetch"	)
+pivot	[ 0	locks=0 ]	(	"centroid"	)
+viewportlod	[ 0	locks=0 ]	(	"full"	)
+importbyname	[ 0	locks=0 ]	(	"on"	)
+objectnames	[ 0	locks=0 ]	(	"objid"	)
+geodatapath	[ 0	locks=0 ]	(	ImpactAnalysis	)
+inverseop	[ 0	locks=0 ]	(	"off"	)
+doposxform	[ 0	locks=0 ]	(	"on"	)
+doxform	[ 0	locks=0 ]	(	"on"	)
+keepworldspacepos	[ 0	locks=0 ]	(	"on"	)
+centeratpivot	[ 0	locks=0 ]	(	"on"	)
+addname	[ 0	locks=0 ]	(	"off"	)
+adddopobjectname	[ 0	locks=0 ]	(	"on"	)
+adddopobjectid	[ 0	locks=0 ]	(	"off"	)
+addtoexistingvel	[ 0	locks=0 ]	(	"on"	)
+deleteabandoned	[ 0	locks=0 ]	(	"on"	)
+pointvels	[ 0	locks=0 ]	(	"instant"	)
+integrateovertime	[ 0	locks=0 ]	(	[ integrateovertime	0.041666666666666664 ] 	)
+donotsim	[ 0	locks=0 ]	(	"off"	)
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/dopimport1.userdata"
+Content-Type: text/plain
+
+{
+	"___Version___":{
+		"type":"string",
+		"value":"16.5.496"
+	}
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/merge1.init"
+Content-Type: text/plain
+
+type = merge
+matchesdef = 0
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/merge1.def"
+Content-Type: text/plain
+
+sopflags sopflags = 
+comment ""
+position 0.459054 -0.719747
+connectornextid 3
+flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
+outputsNamed3
+{
+2 "output1"
+}
+inputsNamed3
+{
+0 	dopnet2 4 1 "input1"
+1 	dopimport1 0 1 "input2"
+}
+inputs
+{
+0 	dopnet2 0 1
+1 	dopimport1 0 1
+}
+stat
+{
+  create 1529510159
+  modify 1529510174
+  author mikel@mikembp-sesi.local
+  access 0777
+}
+color UT_Color RGB 0.8 0.8 0.8 
+delscript ""
+exprlanguage hscript
+end
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/merge1.parm"
+Content-Type: text/plain
+
+{
+version 0.8
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/merge1.userdata"
+Content-Type: text/plain
+
+{
+	"___Version___":{
+		"type":"string",
+		"value":"16.5.496"
+	}
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/switch1.init"
+Content-Type: text/plain
+
+type = switch
+matchesdef = 0
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/switch1.def"
+Content-Type: text/plain
+
+sopflags sopflags = 
+comment ""
+position -0.450355 -1.82598
+connectornextid 3
+flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
+outputsNamed3
+{
+2 "output1"
+}
+inputsNamed3
+{
+0 	dopnet2 4 1 "input1"
+1 	merge1 2 1 "input2"
+}
+inputs
+{
+0 	dopnet2 0 1
+1 	merge1 0 1
+}
+stat
+{
+  create 1529510165
+  modify 1529510205
+  author mikel@mikembp-sesi.local
+  access 0777
+}
+color UT_Color RGB 0.8 1 0.7 
+delscript ""
+exprlanguage hscript
+end
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/switch1.chn"
+Content-Type: text/plain
+
+{
+    channel input {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = ch(\"../CONTROLS/displayimpact\") }
+    }
+  }
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/switch1.parm"
+Content-Type: text/plain
+
+{
+version 0.8
+input	[ 8	locks=0 ]	(	[ input	1 ] 	)
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/switch1.userdata"
+Content-Type: text/plain
+
+{
+	"___Version___":{
+		"type":"string",
+		"value":"16.5.496"
+	}
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
 Content-Disposition: attachment; filename="hdaroot.order"
 Content-Type: text/plain
 
-3
+6
 dopnet2
 CONTROLS
 output1
+dopimport1
+merge1
+switch1
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
 Content-Disposition: attachment; filename="hdaroot.net"

@@ -100,4 +100,55 @@
         }
     }
 
+    group {
+        name    "groundplanefolder2"
+        label   "Impact Data"
+
+        parm {
+            name    "calculateimpacts"
+            label   "Generate Impacts"
+            type    toggle
+            default { "off" }
+            parmtag { "autoscope" "0000000000000000" }
+        }
+        parm {
+            name    "displayimpact"
+            label   "Display Impacts"
+            type    toggle
+            default { "off" }
+            parmtag { "autoscope" "0000000000000000" }
+        }
+        parm {
+            name    "timethreshold"
+            label   "Time Threshold"
+            type    float
+            default { "0.1" }
+            range   { 0 10 }
+            parmtag { "autoscope" "0000000000000000" }
+        }
+        parm {
+            name    "impactthreshold"
+            label   "Impact Threshold"
+            type    float
+            default { "10" }
+            range   { 0 10 }
+            parmtag { "autoscope" "0000000000000000" }
+        }
+        parm {
+            name    "distancethreshold"
+            label   "Distance Threshold"
+            type    float
+            default { "0.05" }
+            range   { 0 10 }
+            parmtag { "autoscope" "0000000000000000" }
+        }
+        parm {
+            name    "forceimpactobject"
+            label   "Force Impact Object"
+            type    string
+            default { "groundplane1" }
+            parmtag { "autoscope" "0000000000000000" }
+        }
+    }
+
 }

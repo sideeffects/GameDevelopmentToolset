@@ -32,30 +32,28 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position 3.74187 -1.93618
-connectornextid 5
-flags =  lock off model off template off footprint off xray off bypass off display on render off highlight off unload off savedata off compress on colordefault on exposed on
+position -1.27966 0.832567
+connectornextid 3
+flags =  lock off model off template off footprint off xray off bypass off display on render on highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
 {
-1 "output1"
-2 "output2"
 }
 inputsNamed3
 {
-0 	(__dot1) "" 1 "input1"
-3 	transform6 1 1 "input2"
-4 	transform5 1 1 "input3"
+0 	object_merge2 0 1 "input1"
+1 	transform1 1 1 "input2"
+2 	transform2 1 1 "input3"
 }
 inputs
 {
-0 	(__dot1) 0 1
-1 	transform6 0 1
-2 	transform5 0 1
+0 	object_merge2 0 1
+1 	transform1 0 1
+2 	transform2 0 1
 }
 stat
 {
-  create 1528938880
-  modify 1529101221
+  create 1529521397
+  modify 1529530620
   author mikel@mikembp-sesi.local
   access 0777
 }
@@ -93,7 +91,7 @@ Content-Type: text/plain
 }
 {
   create 1527608932
-  modify 1529091356
+  modify 1529521416
   author MAINGEAR@DESKTOP-P98C1VA
   access 0777
 }
@@ -116,7 +114,7 @@ Content-Type: text/plain
 }
 {
   create 1527622014
-  modify 1529091341
+  modify 1529521399
   author MAINGEAR@DESKTOP-P98C1VA
   access 0777
 }
@@ -139,7 +137,7 @@ Content-Type: text/plain
 }
 {
   create 1527627302
-  modify 1529091347
+  modify 1529521407
   author MAINGEAR@DESKTOP-P98C1VA
   access 0777
 }
@@ -162,7 +160,7 @@ Content-Type: text/plain
 }
 {
   create 1527627753
-  modify 1529101058
+  modify 1529521769
   author MAINGEAR@DESKTOP-P98C1VA
   access 0777
 }
@@ -185,7 +183,7 @@ Content-Type: text/plain
 }
 {
   create 1527627762
-  modify 1529091354
+  modify 1529521413
   author MAINGEAR@DESKTOP-P98C1VA
   access 0777
 }
@@ -443,7 +441,7 @@ fusedist	[ 0	locks=0 ]	(	0.001	)
 addinteriordetail	[ 8	locks=0 ]	(	"off"	)
 viznoisescale	[ 0	locks=0 ]	(	"off"	)
 planar	[ 0	locks=0 ]	(	"off"	)
-detailsize	[ 0	locks=0 ]	(	[ detailsize	0.029999999999999999 ] 	)
+detailsize	[ 0	locks=0 ]	(	[ detailsize	0.25 ] 	)
 intnoiseamp	[ 0	locks=0 ]	(	[ intnoiseamp	0.51300000000000001 ] 	)
 intnoisetype	[ 0	locks=0 ]	(	snoise	)
 intnoisefreq	[ 8	locks=0 ]	(	[ intnoisefreqx	2.5 ] 	[ intnoisefreqy	2.5 ] 	[ intnoisefreqz	2.5 ] 	)
@@ -848,7 +846,7 @@ Content-Type: text/plain
 }
 {
   create 1527617518
-  modify 1529091339
+  modify 1529521398
   author MAINGEAR@DESKTOP-P98C1VA
   access 0777
 }
@@ -955,7 +953,7 @@ inputs
 stat
 {
   create 1527276709
-  modify 1529077286
+  modify 1529522819
   author MAINGEAR@DESKTOP-P98C1VA
   access 0777
 }
@@ -1551,7 +1549,7 @@ inputs
 stat
 {
   create 1527276709
-  modify 1529022556
+  modify 1529522818
   author MAINGEAR@DESKTOP-P98C1VA
   access 0777
 }
@@ -1664,7 +1662,7 @@ inputs
 stat
 {
   create 1527277596
-  modify 1529022545
+  modify 1529522796
   author MAINGEAR@DESKTOP-P98C1VA
   access 0777
 }
@@ -1822,7 +1820,7 @@ inputs
 stat
 {
   create 1527277611
-  modify 1529022547
+  modify 1529522800
   author MAINGEAR@DESKTOP-P98C1VA
   access 0777
 }
@@ -1882,7 +1880,7 @@ inputs
 stat
 {
   create 1527277629
-  modify 1529022546
+  modify 1529522798
   author MAINGEAR@DESKTOP-P98C1VA
   access 0777
 }
@@ -2037,7 +2035,7 @@ inputs
 stat
 {
   create 1527705993
-  modify 1529022546
+  modify 1529522798
   author MAINGEAR@DESKTOP-P98C1VA
   access 0777
 }
@@ -2136,7 +2134,7 @@ inputs
 stat
 {
   create 1528482236
-  modify 1529022546
+  modify 1529522798
   author MAINGEAR@DESKTOP-P98C1VA
   access 0777
 }
@@ -2812,7 +2810,7 @@ inputs
 stat
 {
   create 1528207748
-  modify 1529100095
+  modify 1529521776
   author MAINGEAR@DESKTOP-P98C1VA
   access 0777
 }
@@ -7879,7 +7877,7 @@ inputs
 stat
 {
   create 1267425357
-  modify 1529094962
+  modify 1529521660
   author johner@treenix
   access 0777
 }
@@ -9442,7 +9440,7 @@ inputs
 stat
 {
   create 1251510651
-  modify 1529095027
+  modify 1529521660
   author johner@treenix
   access 0777
 }
@@ -14751,7 +14749,7 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment "Points with nprims > 2 are the interior surface that has just been brickered, specifically not including the edges between inside and outside.  So depth will only be sampled for interior points, all others will by default be zero.  This is important since SDF's (unless very high res) are not accurate enough to guarantee depth of 0 at the surface points, which is a condition we want to enforce before adding noise based on depth."
-position -1.31915 -12.8645
+position -1.69513 -13.842
 connectornextid 3
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload on savedata off compress on colordefault off exposed on
 outputsNamed3
@@ -14771,7 +14769,7 @@ inputs
 stat
 {
   create 1251510651
-  modify 1529100815
+  modify 1529521821
   author johner@treenix
   access 0777
 }
@@ -15124,7 +15122,7 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position -1.25319 -14.1047
+position -1.62917 -15.0822
 connectornextid 2
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload on savedata off compress on colordefault off exposed on
 outputsNamed3
@@ -15142,7 +15140,7 @@ inputs
 stat
 {
   create 1251248946
-  modify 1529103003
+  modify 1529530623
   author johner@treenix
   access 0777
 }
@@ -15427,11 +15425,27 @@ depthnoisescaleramp	[ 0	locks=0 ]	(	2	)
 depthnoisescaleramp1pos	[ 0	locks=0 ]	(	0	)
 depthnoisescaleramp1value	[ 0	locks=0 ]	(	0	)
 depthnoisescaleramp1interp	[ 0	locks=0 ]	(	"catmull-rom"	)
-maxdepth	[ 0	locks=0 ]	(	[ maxdepth	-0.093750029802322388 ] 	)
+maxdepth	[ 0	locks=0 ]	(	[ maxdepth	-0.50110715627670288 ] 	)
 noisescalevisramp	[ 0	locks=0 ]	(	6	)
 noisescalevisramp1pos	[ 0	locks=0 ]	(	0	)
 noisescalevisramp1c	[ 0	locks=0 ]	(	0.20000000300000001	0	1	)
 noisescalevisramp1interp	[ 0	locks=0 ]	(	"catmull-rom"	)
+viznoisescale	[ 0	locks=0 ]	(	"off"	)
+__depth	[ 0	locks=0 ]	(	0	)
+amp	[ 8	locks=0 ]	(	[ amp	0.10000000000000001 ] 	)
+type	[ 0	locks=0 ]	(	snoise	)
+freq	[ 8	locks=0 ]	(	[ freq1	2.5 ] 	[ freq2	2.5 ] 	[ freq3	2.5 ] 	)
+offset	[ 8	locks=0 ]	(	[ offset1	0 ] 	[ offset2	0 ] 	[ offset3	0 ] 	)
+rough	[ 0	locks=0 ]	(	0.5	)
+atten	[ 0	locks=0 ]	(	1	)
+turb	[ 0	locks=0 ]	(	3	)
+clampmaxdisp	[ 0	locks=0 ]	(	"on"	)
+clampdepthpct	[ 0	locks=0 ]	(	0.90000000000000002	)
+depthnoisecscalebias	[ 0	locks=0 ]	(	0.84999999999999998	)
+usedepthnoisescaleramp	[ 0	locks=0 ]	(	"off"	)
+depthnoisescaleramp2pos	[ 0	locks=0 ]	(	1	)
+depthnoisescaleramp2value	[ 0	locks=0 ]	(	1	)
+depthnoisescaleramp2interp	[ 0	locks=0 ]	(	"catmull-rom"	)
 noisescalevisramp2pos	[ 0	locks=0 ]	(	0.057000000000000002	)
 noisescalevisramp2c	[ 0	locks=0 ]	(	0	0	1	)
 noisescalevisramp2interp	[ 0	locks=0 ]	(	"catmull-rom"	)
@@ -15447,22 +15461,6 @@ noisescalevisramp5interp	[ 0	locks=0 ]	(	"catmull-rom"	)
 noisescalevisramp6pos	[ 0	locks=0 ]	(	1	)
 noisescalevisramp6c	[ 0	locks=0 ]	(	1	0	0	)
 noisescalevisramp6interp	[ 0	locks=0 ]	(	"catmull-rom"	)
-viznoisescale	[ 0	locks=0 ]	(	"off"	)
-__depth	[ 0	locks=0 ]	(	0	)
-amp	[ 8	locks=0 ]	(	[ amp	0.070199999999999999 ] 	)
-type	[ 0	locks=0 ]	(	snoise	)
-freq	[ 8	locks=0 ]	(	[ freq1	9.5 ] 	[ freq2	9.5 ] 	[ freq3	9.5 ] 	)
-offset	[ 8	locks=0 ]	(	[ offset1	0 ] 	[ offset2	0 ] 	[ offset3	0 ] 	)
-rough	[ 0	locks=0 ]	(	0.5	)
-atten	[ 0	locks=0 ]	(	1	)
-turb	[ 0	locks=0 ]	(	3	)
-clampmaxdisp	[ 0	locks=0 ]	(	"on"	)
-clampdepthpct	[ 0	locks=0 ]	(	0.90000000000000002	)
-depthnoisecscalebias	[ 0	locks=0 ]	(	0.84999999999999998	)
-usedepthnoisescaleramp	[ 0	locks=0 ]	(	"off"	)
-depthnoisescaleramp2pos	[ 0	locks=0 ]	(	1	)
-depthnoisescaleramp2value	[ 0	locks=0 ]	(	1	)
-depthnoisescaleramp2interp	[ 0	locks=0 ]	(	"catmull-rom"	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -19770,7 +19768,7 @@ densityattrib	[ 0	locks=0 ]	(	density	)
 useareaattrib	[ 0	locks=0 ]	(	"off"	)
 areaattrib	[ 0	locks=0 ]	(	area	)
 forcetotal	[ 0	locks=0 ]	(	"on"	)
-npts	[ 8	locks=0 ]	(	[ npts	200 ] 	)
+npts	[ 8	locks=0 ]	(	[ npts	100 ] 	)
 usedensitytexture	[ 0	locks=0 ]	(	"off"	)
 densitytexture	[ 0	locks=0 ]	(	default.pic	)
 primcountattrib	[ 0	locks=0 ]	(	count	)
@@ -20198,7 +20196,7 @@ inputs
 stat
 {
   create 1527108024
-  modify 1529091997
+  modify 1529522787
   author MAINGEAR@DESKTOP-P98C1VA
   access 0777
 }
@@ -20373,7 +20371,7 @@ inputs
 stat
 {
   create 1527107863
-  modify 1529091997
+  modify 1529522787
   author MAINGEAR@DESKTOP-P98C1VA
   access 0777
 }
@@ -20440,7 +20438,7 @@ inputs
 stat
 {
   create 1527108286
-  modify 1529091997
+  modify 1529522787
   author MAINGEAR@DESKTOP-P98C1VA
   access 0777
 }
@@ -20509,7 +20507,7 @@ inputs
 stat
 {
   create 1527172695
-  modify 1529100894
+  modify 1529522194
   author MAINGEAR@DESKTOP-P98C1VA
   access 0777
 }
@@ -20591,7 +20589,7 @@ inputs
 stat
 {
   create 1527172696
-  modify 1529101876
+  modify 1529530964
   author MAINGEAR@DESKTOP-P98C1VA
   access 0777
 }
@@ -20843,7 +20841,7 @@ Content-Type: text/plain
 {
 version 0.8
 group	[ 0	locks=0 ]	(	""	)
-scale	[ 8	locks=0 ]	(	[ scale	0.16 ] 	)
+scale	[ 8	locks=0 ]	(	[ scale	0 ] 	)
 overridecenter	[ 0	locks=0 ]	(	"off"	)
 t	[ 0	locks=0 ]	(	0	0	0	)
 labelparm	[ 0	locks=0 ]	(	""	)
@@ -21326,7 +21324,7 @@ inputs
 stat
 {
   create 1527293519
-  modify 1529101243
+  modify 1529530623
   author MAINGEAR@DESKTOP-P98C1VA
   access 0777
 }
@@ -21391,7 +21389,7 @@ inputs
 stat
 {
   create 1527293519
-  modify 1529100901
+  modify 1529522226
   author MAINGEAR@DESKTOP-P98C1VA
   access 0777
 }
@@ -21611,7 +21609,7 @@ inputs
 stat
 {
   create 1527293652
-  modify 1529077609
+  modify 1529522787
   author MAINGEAR@DESKTOP-P98C1VA
   access 0777
 }
@@ -21866,7 +21864,7 @@ Content-Type: text/plain
 
 {
 version 0.8
-input	[ 8	locks=0 ]	(	[ input	266 ] 	)
+input	[ 8	locks=0 ]	(	[ input	162 ] 	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -23484,7 +23482,7 @@ densityattrib	[ 0	locks=0 ]	(	density	)
 useareaattrib	[ 0	locks=0 ]	(	"off"	)
 areaattrib	[ 0	locks=0 ]	(	area	)
 forcetotal	[ 0	locks=0 ]	(	"on"	)
-npts	[ 8	locks=0 ]	(	[ npts	200 ] 	)
+npts	[ 8	locks=0 ]	(	[ npts	300 ] 	)
 usedensitytexture	[ 0	locks=0 ]	(	"off"	)
 densitytexture	[ 0	locks=0 ]	(	default.pic	)
 primcountattrib	[ 0	locks=0 ]	(	count	)
@@ -23645,7 +23643,7 @@ inputs
 stat
 {
   create 1527622492
-  modify 1529077609
+  modify 1529522787
   author MAINGEAR@DESKTOP-P98C1VA
   access 0777
 }
@@ -23999,7 +23997,7 @@ Content-Type: text/plain
 {
 version 0.8
 group	[ 0	locks=0 ]	(	""	)
-scale	[ 8	locks=0 ]	(	[ scale	0 ] 	)
+scale	[ 8	locks=0 ]	(	[ scale	0.92000000000000004 ] 	)
 overridecenter	[ 0	locks=0 ]	(	"off"	)
 t	[ 0	locks=0 ]	(	0	0	0	)
 labelparm	[ 0	locks=0 ]	(	""	)
@@ -24804,7 +24802,7 @@ s	[ 8	locks=0 ]	(	[ sx	1 ] 	[ sy	1 ] 	[ sz	1 ] 	)
 shear	[ 0	locks=0 ]	(	0	0	0	)
 scale	[ 0	locks=0 ]	(	1	)
 parmgroup_pivotxform	[ 0	locks=0 ]	(	1	)
-p	[ 8	locks=0 ]	(	[ px	0 ] 	[ py	1 ] 	[ pz	0 ] 	)
+p	[ 8	locks=0 ]	(	[ px	0 ] 	[ py	2.0799989700317383 ] 	[ pz	0.47999995946884155 ] 	)
 pr	[ 0	locks=0 ]	(	0	0	0	)
 parmgroup_prexform	[ 0	locks=0 ]	(	0	)
 prexform_xOrd	[ 0	locks=0 ]	(	"srt"	)
@@ -25279,17 +25277,17 @@ outputsNamed3
 inputsNamed3
 {
 0 	mountain1 1 1 "input1"
-1 	split1 1 1 "input2"
+1 	null1 1 1 "input2"
 }
 inputs
 {
 0 	mountain1 0 1
-1 	split1 0 1
+1 	null1 0 1
 }
 stat
 {
   create 1528207434
-  modify 1529094071
+  modify 1529521717
   author MAINGEAR@DESKTOP-P98C1VA
   access 0777
 }
@@ -25764,7 +25762,7 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position -2.05842 4.84143
+position -2.54983 5.08659
 connectornextid 3
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
@@ -25783,7 +25781,7 @@ inputs
 stat
 {
   create 1528208098
-  modify 1529092164
+  modify 1529521724
   author MAINGEAR@DESKTOP-P98C1VA
   access 0777
 }
@@ -25834,7 +25832,7 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position -2.55098 3.39935
+position -2.71104 3.89468
 connectornextid 3
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
@@ -25854,7 +25852,7 @@ inputs
 stat
 {
   create 1528208102
-  modify 1529092170
+  modify 1529521740
   author MAINGEAR@DESKTOP-P98C1VA
   access 0777
 }
@@ -26005,7 +26003,7 @@ inputs
 stat
 {
   create 1528219933
-  modify 1529100882
+  modify 1529521881
   author MAINGEAR@DESKTOP-P98C1VA
   access 0777
 }
@@ -26770,7 +26768,7 @@ s	[ 8	locks=0 ]	(	[ sx	1 ] 	[ sy	1 ] 	[ sz	1 ] 	)
 shear	[ 0	locks=0 ]	(	0	0	0	)
 scale	[ 0	locks=0 ]	(	1	)
 parmgroup_pivotxform	[ 0	locks=0 ]	(	1	)
-p	[ 8	locks=0 ]	(	[ px	0 ] 	[ py	1 ] 	[ pz	0 ] 	)
+p	[ 8	locks=0 ]	(	[ px	0 ] 	[ py	2.0799989700317383 ] 	[ pz	0.47999995946884155 ] 	)
 pr	[ 0	locks=0 ]	(	0	0	0	)
 parmgroup_prexform	[ 0	locks=0 ]	(	0	)
 prexform_xOrd	[ 0	locks=0 ]	(	"srt"	)
@@ -27319,11 +27317,11 @@ xOrd	[ 0	locks=0 ]	(	"srt"	)
 rOrd	[ 0	locks=0 ]	(	"xyz"	)
 t	[ 0	locks=0 ]	(	0	0	0	)
 r	[ 0	locks=0 ]	(	0	0	0	)
-s	[ 8	locks=0 ]	(	[ sx	1 ] 	[ sy	0.10000000000000001 ] 	[ sz	1 ] 	)
+s	[ 8	locks=0 ]	(	[ sx	1 ] 	[ sy	1 ] 	[ sz	1 ] 	)
 shear	[ 0	locks=0 ]	(	0	0	0	)
 scale	[ 0	locks=0 ]	(	1	)
 parmgroup_pivotxform	[ 0	locks=0 ]	(	1	)
-p	[ 8	locks=0 ]	(	[ px	0 ] 	[ py	1 ] 	[ pz	0 ] 	)
+p	[ 8	locks=0 ]	(	[ px	0 ] 	[ py	2.0799989700317383 ] 	[ pz	0.47999995946884155 ] 	)
 pr	[ 0	locks=0 ]	(	0	0	0	)
 parmgroup_prexform	[ 0	locks=0 ]	(	0	)
 prexform_xOrd	[ 0	locks=0 ]	(	"srt"	)
@@ -27510,11 +27508,11 @@ xOrd	[ 0	locks=0 ]	(	"srt"	)
 rOrd	[ 0	locks=0 ]	(	"xyz"	)
 t	[ 0	locks=0 ]	(	0	0	0	)
 r	[ 0	locks=0 ]	(	0	0	0	)
-s	[ 8	locks=0 ]	(	[ sx	1 ] 	[ sy	0.10000000000000001 ] 	[ sz	1 ] 	)
+s	[ 8	locks=0 ]	(	[ sx	1 ] 	[ sy	1 ] 	[ sz	1 ] 	)
 shear	[ 0	locks=0 ]	(	0	0	0	)
 scale	[ 0	locks=0 ]	(	1	)
 parmgroup_pivotxform	[ 0	locks=0 ]	(	1	)
-p	[ 8	locks=0 ]	(	[ px	0 ] 	[ py	1 ] 	[ pz	0 ] 	)
+p	[ 8	locks=0 ]	(	[ px	0 ] 	[ py	2.0799989700317383 ] 	[ pz	0.47999995946884155 ] 	)
 pr	[ 0	locks=0 ]	(	0	0	0	)
 parmgroup_prexform	[ 0	locks=0 ]	(	0	)
 prexform_xOrd	[ 0	locks=0 ]	(	"srt"	)
@@ -27555,24 +27553,25 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position -0.970753 3.91738
-connectornextid 1
+position -0.49265 3.88653
+connectornextid 2
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
 {
+1 "output1"
 }
 inputsNamed3
 {
-0 	split1 2 1 "input1"
+0 	split1 1 1 "input1"
 }
 inputs
 {
-0 	split1 1 1
+0 	split1 0 1
 }
 stat
 {
   create 1529092050
-  modify 1529101018
+  modify 1529521713
   author mikel@mikembp-sesi.local
   access 0777
 }
@@ -27686,7 +27685,7 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position -1.5136 -8.50837
+position -1.88958 -9.48592
 connectornextid 2
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
@@ -27695,16 +27694,16 @@ outputsNamed3
 }
 inputsNamed3
 {
-0 	clean2 1 1 "input1"
+0 	switch18 2 1 "input1"
 }
 inputs
 {
-0 	clean2 0 1
+0 	switch18 0 1
 }
 stat
 {
   create 1529094830
-  modify 1529101018
+  modify 1529521821
   author mikel@mikembp-sesi.local
   access 0777
 }
@@ -27759,7 +27758,7 @@ smooth	[ 0	locks=0 ]	(	"off"	)
 weight	[ 0	locks=0 ]	(	1	0.5	)
 divs	[ 0	locks=0 ]	(	1	)
 brick	[ 0	locks=0 ]	(	"on"	)
-size	[ 0	locks=0 ]	(	[ sizex	0.029999999999999999 ] 	[ sizey	0.029999999999999999 ] 	[ sizez	0.029999999999999999 ] 	)
+size	[ 0	locks=0 ]	(	[ sizex	0.25 ] 	[ sizey	0.25 ] 	[ sizez	0.25 ] 	)
 offset	[ 0	locks=0 ]	(	0	0	0	)
 angle	[ 0	locks=0 ]	(	0	0	0	)
 fixsharededges	[ 0	locks=0 ]	(	"on"	)
@@ -43238,7 +43237,7 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position 0.0930809 -10.9433
+position -0.282899 -11.9208
 connectornextid 1
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
@@ -43254,7 +43253,7 @@ inputs
 stat
 {
   create 1529095071
-  modify 1529100830
+  modify 1529522970
   author mikel@mikembp-sesi.local
   access 0777
 }
@@ -43288,7 +43287,7 @@ pivot	[ 0	locks=0 ]	(	"centroid"	)
 viewportlod	[ 0	locks=0 ]	(	"full"	)
 addpath	[ 0	locks=0 ]	(	"on"	)
 enable1	[ 0	locks=0 ]	(	"on"	)
-objpath1	[ 0	locks=0 ]	(	/obj/wrecking_ball/sop_rbd_fracture1/BEFORE_FRACTURE	)
+objpath1	[ 0	locks=0 ]	(	../BEFORE_FRACTURE	)
 group1	[ 0	locks=0 ]	(	""	)
 expand1	[ 0	locks=0 ]	(	"off"	)
 }
@@ -43323,7 +43322,7 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position 0.0943309 -12.1496
+position -0.281649 -13.1271
 connectornextid 2
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
@@ -43341,7 +43340,7 @@ inputs
 stat
 {
   create 1529095249
-  modify 1529101018
+  modify 1529522974
   author mikel@mikembp-sesi.local
   access 0777
 }
@@ -43365,10 +43364,10 @@ buildpolysoup	[ 0	locks=0 ]	(	"off"	)
 switcher	[ 0	locks=0 ]	(	0	0	0	)
 uniformsamples	[ 0	locks=0 ]	(	"max"	)
 samplediv	[ 0	locks=0 ]	(	80	)
-divs	[ 0	locks=0 ]	(	10	10	10	)
+divs	[ 0	locks=0 ]	(	1	1	1	)
 divsize	[ 0	locks=0 ]	(	0.10000000000000001	)
 overrideoutput	[ 0	locks=0 ]	(	"off"	)
-isodiv	[ 0	locks=0 ]	(	10	10	10	)
+isodiv	[ 0	locks=0 ]	(	1	1	1	)
 overridebounds	[ 0	locks=0 ]	(	"off"	)
 padbounds	[ 0	locks=0 ]	(	"off"	)
 min	[ 0	locks=0 ]	(	-1	-1	-1	)
@@ -43415,7 +43414,7 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position -1.51705 -10.0016
+position -1.89303 -10.9791
 connectornextid 2
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
@@ -43433,7 +43432,7 @@ inputs
 stat
 {
   create 1529095294
-  modify 1529101018
+  modify 1529521821
   author mikel@mikembp-sesi.local
   access 0777
 }
@@ -43499,7 +43498,7 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position -1.51705 -11.4012
+position -1.89303 -12.3787
 connectornextid 2
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
@@ -43517,7 +43516,7 @@ inputs
 stat
 {
   create 1529095705
-  modify 1529101018
+  modify 1529521821
   author mikel@mikembp-sesi.local
   access 0777
 }
@@ -43691,7 +43690,7 @@ inputs
 stat
 {
   create 1529099947
-  modify 1529101243
+  modify 1529522855
   author mikel@mikembp-sesi.local
   access 0777
 }
@@ -43712,6 +43711,13 @@ Content-Type: text/plain
       flags = 0
       segment { length = 0 value = 50 50 expr = ch(\"../reduce_interior_detail\") }
     }
+    channel attribenabled1 {
+      lefttype = extend
+      righttype = extend
+      default = 1
+      flags = 0
+      segment { length = 0 value = 1 1 expr = ch(\"../addinteriordetail\") }
+    }
   }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -43723,7 +43729,7 @@ version 0.8
 group	[ 0	locks=0 ]	(	inside	)
 reductiontarget	[ 0	locks=0 ]	(	0	)
 target	[ 0	locks=0 ]	(	"poly_percent"	)
-percentage	[ 8	locks=0 ]	(	[ percentage	50 ] 	)
+percentage	[ 0	locks=0 ]	(	[ percentage	50 ] 	)
 finalcount	[ 0	locks=0 ]	(	1000	)
 reducepassedtarget	[ 0	locks=0 ]	(	"off"	)
 qualitytolerance	[ 0	locks=0 ]	(	1.0000000000000001e-05	)
@@ -43758,7 +43764,7 @@ usefrontfacingfalloff	[ 0	locks=0 ]	(	"off"	)
 frontfacingfalloffdist	[ 0	locks=0 ]	(	1	)
 decimationcontrol	[ 0	locks=0 ]	(	0	)
 controlattribs	[ 0	locks=0 ]	(	1	)
-attribenabled1	[ 0	locks=0 ]	(	"on"	)
+attribenabled1	[ 8	locks=0 ]	(	[ attribenabled1	1 ] 	)
 attribname1	[ 0	locks=0 ]	(	__depth	)
 attribweight1	[ 0	locks=0 ]	(	1	)
 }
@@ -43793,7 +43799,7 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position -2.84607 -17.1878
+position -3.22205 -16.9873
 connectornextid 3
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
@@ -43802,18 +43808,18 @@ outputsNamed3
 }
 inputsNamed3
 {
-0 	clean2 1 1 "input1"
+0 	switch18 2 1 "input1"
 1 	calculate_scale_add_noise_visualize 1 1 "input2"
 }
 inputs
 {
-0 	clean2 0 1
+0 	switch18 0 1
 1 	calculate_scale_add_noise_visualize 0 1
 }
 stat
 {
   create 1529100836
-  modify 1529101018
+  modify 1529521823
   author mikel@mikembp-sesi.local
   access 0777
 }
@@ -43894,7 +43900,7 @@ inputs
 stat
 {
   create 1529101058
-  modify 1529101234
+  modify 1529522199
   author mikel@mikembp-sesi.local
   access 0777
 }
@@ -43922,7 +43928,7 @@ Content-Type: text/plain
 
 {
 version 0.8
-input	[ 8	locks=0 ]	(	[ input	1 ] 	)
+input	[ 0	locks=0 ]	(	[ input	1 ] 	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -43933,6 +43939,88 @@ __netbox7
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
 Content-Disposition: attachment; filename="hdaroot/switch17.userdata"
+Content-Type: text/plain
+
+{
+	"___Version___":{
+		"type":"string",
+		"value":"16.5.496"
+	}
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/switch18.init"
+Content-Type: text/plain
+
+type = switch
+matchesdef = 0
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/switch18.def"
+Content-Type: text/plain
+
+sopflags sopflags = 
+comment ""
+position -3.34867 -7.75747
+connectornextid 3
+flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
+outputsNamed3
+{
+2 "output1"
+}
+inputsNamed3
+{
+0 	(__dot12) "" 1 "input1"
+1 	clean2 1 1 "input2"
+}
+inputs
+{
+0 	(__dot12) 0 1
+1 	clean2 0 1
+}
+stat
+{
+  create 1529521727
+  modify 1529522779
+  author mikel@mikembp-sesi.local
+  access 0777
+}
+color UT_Color RGB 0.8 1 0.7 
+delscript ""
+exprlanguage hscript
+end
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/switch18.chn"
+Content-Type: text/plain
+
+{
+    channel input {
+      lefttype = extend
+      righttype = extend
+      default = 1
+      flags = 0
+      segment { length = 0 value = 1 1 expr = ch(\"../do_edge_detail\") }
+    }
+  }
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/switch18.parm"
+Content-Type: text/plain
+
+{
+version 0.8
+input	[ 8	locks=0 ]	(	[ input	0 ] 	)
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/switch18.netbox"
+Content-Type: text/plain
+
+__netbox7
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/switch18.userdata"
 Content-Type: text/plain
 
 {
@@ -44086,10 +44174,23 @@ Content-Type: text/plain
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/__dot12.networkdotinit"
+Content-Type: text/plain
+
+{
+	"version":1,
+	"posx":-3.13241900477535795,
+	"posy":3.08747877905077051,
+	"pinned":false,
+	"color":"FROMOUTPUT",
+	"input":"merge1 0 1"
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
 Content-Disposition: attachment; filename="hdaroot.order"
 Content-Type: text/plain
 
-116
+117
 sweep1
 circle1
 resample2
@@ -44206,6 +44307,7 @@ calculate_scale_add_noise_visualize
 polyreduce1
 switch16
 switch17
+switch18
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
 Content-Disposition: attachment; filename="hdaroot.net"

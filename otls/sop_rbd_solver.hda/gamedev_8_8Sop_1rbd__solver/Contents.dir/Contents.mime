@@ -32,29 +32,29 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position -0.78276 -7.50883
+position -1.11074 -4.37446
 connectornextid 2
-flags =  lock off model off template off footprint off xray off bypass off display on render on highlight off unload off savedata off compress on colordefault off exposed on
+flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
 {
 1 "output1"
 }
 inputsNamed3
 {
-0 	merge1 2 1 "input1"
+0 	rbd_director1 1 1 "input1"
 }
 inputs
 {
-0 	merge1 0 1
+0 	rbd_director1 0 1
 }
 stat
 {
-  create 1529104112
-  modify 1529510231
+  create 1529617753
+  modify 1529619438
   author mikel@mikembp-sesi.local
   access 0777
 }
-color UT_Color RGB 0.475 0.812 0.204 
+color UT_Color RGB 0.8 0.8 0.8 
 delscript ""
 exprlanguage hscript
 end
@@ -675,6 +675,86 @@ Content-Type: text/plain
 	"___toolid___":{
 		"type":"string",
 		"value":"dynamics_popforce"
+	}
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/attribwrangle1.init"
+Content-Type: text/plain
+
+type = attribwrangle
+matchesdef = 1
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/attribwrangle1.def"
+Content-Type: text/plain
+
+sopflags sopflags = 
+comment ""
+position -1.35053 -3.06965
+connectornextid 3
+flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
+outputsNamed3
+{
+1 "output1"
+}
+inputsNamed3
+{
+0 	switch1 2 1 "input1"
+2 	dopnet2 4 1 "input2"
+}
+inputs
+{
+0 	switch1 0 1
+1 	dopnet2 0 1
+}
+stat
+{
+  create 1529618117
+  modify 1529618206
+  author mikel@mikembp-sesi.local
+  access 0777
+}
+color UT_Color RGB 0.8 0.8 0.8 
+delscript ""
+exprlanguage hscript
+end
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/attribwrangle1.parm"
+Content-Type: text/plain
+
+{
+version 0.8
+folder0	[ 0	locks=0 ]	(	0	0	)
+group	[ 0	locks=0 ]	(	""	)
+grouptype	[ 0	locks=0 ]	(	"guess"	)
+class	[ 0	locks=0 ]	(	"detail"	)
+vex_numcount	[ 0	locks=0 ]	(	10	)
+vex_threadjobsize	[ 0	locks=0 ]	(	1024	)
+snippet	[ 0	locks=0 ]	(	"s@dopnetpath = opfullpath(\"../dopnet2\");"	)
+exportlist	[ 0	locks=0 ]	(	*	)
+vex_strict	[ 0	locks=0 ]	(	"off"	)
+autobind	[ 0	locks=0 ]	(	"on"	)
+bindings	[ 0	locks=0 ]	(	0	)
+groupautobind	[ 0	locks=0 ]	(	"on"	)
+groupbindings	[ 0	locks=0 ]	(	0	)
+vex_cwdpath	[ 0	locks=0 ]	(	.	)
+vex_outputmask	[ 0	locks=0 ]	(	*	)
+vex_updatenmls	[ 0	locks=0 ]	(	"off"	)
+vex_matchattrib	[ 0	locks=0 ]	(	id	)
+vex_inplace	[ 0	locks=0 ]	(	"off"	)
+vex_selectiongroup	[ 0	locks=0 ]	(	""	)
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/attribwrangle1.userdata"
+Content-Type: text/plain
+
+{
+	"___Version___":{
+		"type":"string",
+		"value":""
 	}
 }
 
@@ -2002,7 +2082,7 @@ position	[ 0	locks=0 ]	(	[ positionx	0 ] 	[ positiony	0 ] 	[ positionz	0 ] 	)
 calculateimpacts	[ 0	locks=0 ]	(	[ calculateimpacts	1 ] 	)
 displayimpact	[ 0	locks=0 ]	(	[ displayimpact	1 ] 	)
 timethreshold	[ 0	locks=0 ]	(	[ timethreshold	0.10000000000000001 ] 	)
-impactthreshold	[ 0	locks=0 ]	(	[ impactthreshold	10 ] 	)
+impactthreshold	[ 0	locks=0 ]	(	[ impactthreshold	0.16 ] 	)
 distancethreshold	[ 0	locks=0 ]	(	[ distancethreshold	0.050000000000000003 ] 	)
 forceimpactobject	[ 0	locks=0 ]	(	[ forceimpactobject	groundplane1 ] 	)
 }
@@ -2031,7 +2111,7 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position -0.450355 -3.13695
+position -1.34753 -4.36588
 connectornextid 1
 flags =  lock off model off template off footprint off xray off bypass off display on render on highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
@@ -2039,16 +2119,16 @@ outputsNamed3
 }
 inputsNamed3
 {
-0 	switch1 2 1 "input1"
+0 	attribwrangle1 1 1 "input1"
 }
 inputs
 {
-0 	switch1 0 1
+0 	attribwrangle1 0 1
 }
 stat
 {
   create 1529106036
-  modify 1529510179
+  modify 1529618155
   author mikel@mikembp-sesi.local
   access 0777
 }
@@ -2106,7 +2186,7 @@ inputs
 stat
 {
   create 1529510116
-  modify 1529510179
+  modify 1529617876
   author mikel@mikembp-sesi.local
   access 0777
 }
@@ -2134,7 +2214,7 @@ Content-Type: text/plain
 
 {
 version 0.8
-doppath	[ 0	locks=0 ]	(	/obj/rbd_workflow_demo2/rbd_solver1/dopnet2	)
+doppath	[ 0	locks=0 ]	(	../dopnet2	)
 objpattern	[ 0	locks=0 ]	(	*	)
 singleobject	[ 0	locks=0 ]	(	"off"	)
 importstyle	[ 0	locks=0 ]	(	"fetch"	)
@@ -2309,13 +2389,14 @@ Content-Type: text/plain
 Content-Disposition: attachment; filename="hdaroot.order"
 Content-Type: text/plain
 
-6
+7
 dopnet2
 CONTROLS
 output1
 dopimport1
 merge1
 switch1
+attribwrangle1
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
 Content-Disposition: attachment; filename="hdaroot.net"

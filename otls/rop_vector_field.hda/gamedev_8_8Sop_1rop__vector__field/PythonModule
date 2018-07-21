@@ -17,18 +17,33 @@ def renderFGA():
     fgaText += "%f,%f,%f,\n" % (minvec[0], minvec[2], minvec[1])
     fgaText += "%f,%f,%f,\n" % (maxvec[0], maxvec[2], maxvec[1])
 
-    voxelValues = ""
-    for y in range(resolution[1]):
-        for z in range(resolution[2]):
-            for x in range(resolution[0]):
-                #print "%d,%d,%d" % (x,y,z)
-                voxelValues += "%f,%f,%f,\n" % (velx.voxel((x,y,z)), velz.voxel((x,y,z)), vely.voxel((x,y,z)))
-                #print "(%f,%f,%f)" % (x,y,z)
-            
-    fgaText += voxelValues
-
-    #print fgaText
-
     file = open(fgaFile, "w")
-    file.write(fgaText)
+    with hou.InterruptableOperation("Saving FGA", long_operation_name ="Saving vector field", open_interrupt_dialog = True) as operation:
+        try:
+            file.write(fgaText)
+
+            outlist = []
+            written_this_block = 0
+            total_to_write=resolution[0]*resolution[1]*resolution[2]
+            total_written=0
+            for y in range(resolution[1]):
+                for z in range(resolution[2]):
+                    for x in range(resolution[0]):
+                        outlist.append("%f,%f,%f,\n" % (velx.voxel((x,y,z)), velz.voxel((x,y,z)), vely.voxel((x,y,z))))
+                        written_this_block += 1
+                        total_written += 1
+                        if written_this_block > 1000000:
+                            file.write("".join(outlist))
+                            outlist = []
+                            written_this_block = 0
+                            percent = float(total_written) / float(total_to_write)
+                            operation.updateProgress(percent)
+
+            if written_this_block > 0:
+                file.write("".join(outlist))
+        except hou.OperationInterrupted:
+            print "User cancelled vector file save"
+        except:
+            print "exception thrown while saving vector file"
+
     file.close()

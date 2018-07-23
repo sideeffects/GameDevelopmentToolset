@@ -56,12 +56,26 @@
             parmtag { "oprelative" "." }
         }
         parm {
+            name    "source_geo_full_path"
+            label   "Source Geo Full Path"
+            type    string
+            invisible
+            default { [ "opfullpath(chs(\"source_geo\"))" hscript-expr ] }
+        }
+        parm {
             name    "camera_rig"
             label   "Camera Rig"
             type    oppath
             default { "" }
             parmtag { "opfilter" "!!OBJ/CAMERA!!" }
             parmtag { "oprelative" "." }
+        }
+        parm {
+            name    "camera_rig_full_path"
+            label   "Camera Rig Full Path"
+            type    string
+            invisible
+            default { [ "opfullpath(chs(\"camera_rig\"))" hscript-expr ] }
         }
         parm {
             name    "sprite_res"

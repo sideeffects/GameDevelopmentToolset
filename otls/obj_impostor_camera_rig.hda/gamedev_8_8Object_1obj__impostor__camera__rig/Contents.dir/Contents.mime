@@ -33,7 +33,7 @@ Content-Type: text/plain
 objflags objflags =  origin off
 pretransform UT_DMatrix4 1 0 0 0 0 1 0 0 0 0 1 0 0 0 0 1
 comment ""
-position -0.0598822 1.40738
+position -18.5374 -4.7174
 connectornextid 0
 flags =  lock off model off template off footprint off xray off bypass off display on render off highlight off unload off savedata off compress on colordefault on exposed on selectable on
 outputsNamed3
@@ -47,9 +47,9 @@ inputs
 }
 stat
 {
-  create 1524086961
-  modify 1529067438
-  author GDC_Houdini@AUSTIN
+  create 1532365820
+  modify 1532367784
+  author mikel@mikembp-sesi.local
   access 0777
 }
 color UT_Color RGB 0.8 0.8 0.8 
@@ -99,7 +99,7 @@ inputs
 stat
 {
   create 1503548785
-  modify 1528121560
+  modify 1532367262
   author mikel@mikembp-sesi.local
   access 0777
 }
@@ -642,27 +642,27 @@ Content-Type: text/plain
       righttype = extend
       default = 512
       flags = 0
-      segment { length = 0 value = 512 512 expr = ch(strcat(chs(\"../impostor_rop\"),\"/sprite_resx\")) }
+      segment { length = 0 value = 512 512 expr = ch(strcat(chs(\"../impostor_rop_full_path\"),\"/sprite_resx\")) }
     }
     channel resy {
       lefttype = extend
       righttype = extend
       default = 512
       flags = 0
-      segment { length = 0 value = 512 512 expr = ch(strcat(chs(\"../impostor_rop\"),\"/sprite_resy\")) }
+      segment { length = 0 value = 512 512 expr = ch(strcat(chs(\"../impostor_rop_full_path\"),\"/sprite_resy\")) }
     }
     channel tz {
       lefttype = extend
       righttype = extend
       flags = 0
-      segment { length = 0 expr = "max(bbox(chs(strcat(chs(\"../impostor_rop\"),\"/source_geo\")), D_XSIZE), max(bbox(chs(strcat(chs(\"../impostor_rop\"),\"/source_geo\")), D_YSIZE),bbox(chs(strcat(chs(\"../impostor_rop\"),\"/source_geo\")), D_ZSIZE))) * 1.1" }
+      segment { length = 0 expr = "max(bbox(chs(strcat(chs(\"../impostor_rop_full_path\"),\"/source_geo_full_path\")), D_XSIZE), max(bbox(chs(strcat(chs(\"../impostor_rop_full_path\"),\"/source_geo_full_path\")), D_YSIZE),bbox(chs(strcat(chs(\"../impostor_rop_full_path\"),\"/source_geo_full_path\")), D_ZSIZE))) * 1.1" }
     }
     channel orthowidth {
       lefttype = extend
       righttype = extend
       default = 6.193371738585431
       flags = 0
-      segment { length = 0 value = 6.193371738585431 6.193371738585431 expr = "max(bbox(chs(strcat(chs(\"../impostor_rop\"),\"/source_geo\")), D_XSIZE), max(bbox(chs(strcat(chs(\"../impostor_rop\"),\"/source_geo\")), D_YSIZE),bbox(chs(strcat(chs(\"../impostor_rop\"),\"/source_geo\")), D_ZSIZE))) * 1.1" }
+      segment { length = 0 value = 6.193371738585431 6.193371738585431 expr = "max(bbox(chs(strcat(chs(\"../impostor_rop_full_path\"),\"/source_geo_full_path\")), D_XSIZE), max(bbox(chs(strcat(chs(\"../impostor_rop_full_path\"),\"/source_geo_full_path\")), D_YSIZE),bbox(chs(strcat(chs(\"../impostor_rop_full_path\"),\"/source_geo_full_path\")), D_ZSIZE))) * 1.1" }
     }
   }
 
@@ -675,7 +675,7 @@ version 0.8
 stdswitcher	[ 0	locks=0 ]	(	0	0	)
 xOrd	[ 0	locks=0 ]	(	"srt"	)
 rOrd	[ 0	locks=0 ]	(	"xyz"	)
-t	[ 8	locks=0 ]	(	0	0	[ tz	4.0822772502899172 ] 	)
+t	[ 0	locks=0 ]	(	0	0	[ tz	2.2267277479171756 ] 	)
 r	[ 0	locks=0 ]	(	0	0	0	)
 s	[ 0	locks=0 ]	(	[ sx	1 ] 	[ sy	1 ] 	[ sz	1 ] 	)
 p	[ 8	locks=0 ]	(	0	0	0	)
@@ -713,7 +713,7 @@ vm_lensshader	[ 0	locks=0 ]	(	""	)
 focal	[ 0	locks=0 ]	(	50	)
 focalunits	[ 0	locks=0 ]	(	mm	)
 aperture	[ 0	locks=0 ]	(	41.421399999999998	)
-orthowidth	[ 0	locks=0 ]	(	[ orthowidth	4.0822772502899172 ] 	)
+orthowidth	[ 0	locks=0 ]	(	[ orthowidth	2.2267277479171756 ] 	)
 near	[ 0	locks=0 ]	(	0.001	)
 far	[ 0	locks=0 ]	(	10000	)
 vm_bgenable	[ 0	locks=0 ]	(	"on"	)
@@ -1079,7 +1079,7 @@ inputs
 stat
 {
   create 1503548861
-  modify 1528121560
+  modify 1532366176
   author mikel@mikembp-sesi.local
   access 0777
 }
@@ -1200,7 +1200,7 @@ inputs
 stat
 {
   create 1503548861
-  modify 1506030037
+  modify 1532366176
   author mikel@mikembp-sesi.local
   access 0777
 }
@@ -1414,7 +1414,7 @@ inputs
 stat
 {
   create 1503616514
-  modify 1528121560
+  modify 1532366176
   author mikel@mikembp-sesi.local
   access 0777
 }
@@ -1529,7 +1529,7 @@ inputs
 stat
 {
   create 1503616514
-  modify 1506030037
+  modify 1532366176
   author mikel@mikembp-sesi.local
   access 0777
 }
@@ -1741,7 +1741,7 @@ inputs
 stat
 {
   create 1503548861
-  modify 1528121560
+  modify 1532367300
   author mikel@mikembp-sesi.local
   access 0777
 }
@@ -1760,13 +1760,13 @@ Content-Type: text/plain
       righttype = extend
       default = 40
       flags = 0
-      segment { length = 0 value = 40 40 expr = "($F * (360/(ch(strcat(chs(\"../impostor_rop\"),\"/frames\"))^2))) - (360/(ch(strcat(chs(\"../impostor_rop\"),\"/frames\"))^2))" }
+      segment { length = 0 value = 40 40 expr = "($F * (360/(ch(strcat(chs(\"../impostor_rop_full_path\"),\"/frames\"))^2))) - (360/(ch(strcat(chs(\"../impostor_rop_full_path\"),\"/frames\"))^2))" }
     }
     channel ty {
       lefttype = extend
       righttype = extend
       flags = 0
-      segment { length = 0 expr = "centroid(chs(strcat(chs(\"../impostor_rop\"),\"/source_geo\")), D_Y)" }
+      segment { length = 0 expr = "centroid(chs(strcat(chs(\"../impostor_rop_full_path\"),\"/source_geo_full_path\")), D_Y)" }
     }
   }
 
@@ -1862,7 +1862,7 @@ inputs
 stat
 {
   create 1503548861
-  modify 1506030037
+  modify 1532366176
   author mikel@mikembp-sesi.local
   access 0777
 }
@@ -2075,7 +2075,7 @@ inputs
 stat
 {
   create 1503548785
-  modify 1528121560
+  modify 1532367476
   author mikel@mikembp-sesi.local
   access 0777
 }
@@ -2618,28 +2618,28 @@ Content-Type: text/plain
       righttype = extend
       default = 512
       flags = 0
-      segment { length = 0 value = 512 512 expr = ch(strcat(chs(\"../impostor_rop\"),\"/sprite_resx\")) }
+      segment { length = 0 value = 512 512 expr = ch(strcat(chs(\"../impostor_rop_full_path\"),\"/sprite_resx\")) }
     }
     channel resy {
       lefttype = extend
       righttype = extend
       default = 512
       flags = 0
-      segment { length = 0 value = 512 512 expr = ch(strcat(chs(\"../impostor_rop\"),\"/sprite_resy\")) }
+      segment { length = 0 value = 512 512 expr = ch(strcat(chs(\"../impostor_rop_full_path\"),\"/sprite_resy\")) }
     }
     channel orthowidth {
       lefttype = extend
       righttype = extend
       default = 6.193371738585431
       flags = 0
-      segment { length = 0 value = 6.193371738585431 6.193371738585431 expr = "max(bbox(chs(strcat(chs(\"../impostor_rop\"),\"/source_geo\")), D_XSIZE), max(bbox(chs(strcat(chs(\"../impostor_rop\"),\"/source_geo\")), D_YSIZE),bbox(chs(strcat(chs(\"../impostor_rop\"),\"/source_geo\")), D_ZSIZE))) * 1.1" }
+      segment { length = 0 value = 6.193371738585431 6.193371738585431 expr = "max(bbox(chs(strcat(chs(\"../impostor_rop_full_path\"),\"/source_geo_full_path\")), D_XSIZE), max(bbox(chs(strcat(chs(\"../impostor_rop_full_path\"),\"/source_geo_full_path\")), D_YSIZE),bbox(chs(strcat(chs(\"../impostor_rop_full_path\"),\"/source_geo_full_path\")), D_ZSIZE))) * 1.1" }
     }
     channel tz {
       lefttype = extend
       righttype = extend
       default = 6.5898704528808603
       flags = 0
-      segment { length = 0 value = 6.5898704528808603 6.5898704528808603 expr = "max(bbox(chs(strcat(chs(\"../impostor_rop\"),\"/source_geo\")), D_XSIZE), max(bbox(chs(strcat(chs(\"../impostor_rop\"),\"/source_geo\")), D_YSIZE),bbox(chs(strcat(chs(\"../impostor_rop\"),\"/source_geo\")), D_ZSIZE))) * 1.1" }
+      segment { length = 0 value = 6.5898704528808603 6.5898704528808603 expr = "max(bbox(chs(strcat(chs(\"../impostor_rop_full_path\"),\"/source_geo_full_path\")), D_XSIZE), max(bbox(chs(strcat(chs(\"../impostor_rop_full_path\"),\"/source_geo_full_path\")), D_YSIZE),bbox(chs(strcat(chs(\"../impostor_rop_full_path\"),\"/source_geo_full_path\")), D_ZSIZE))) * 1.1" }
     }
   }
 
@@ -2680,7 +2680,7 @@ dcolor	[ 0	locks=0 ]	(	1	1	1	)
 picking	[ 0	locks=0 ]	(	"on"	)
 pickscript	[ 0	locks=0 ]	(	""	)
 caching	[ 0	locks=0 ]	(	"on"	)
-stdswitcher3	[ 0	locks=0 ]	(	0	0	0	0	)
+stdswitcher3	[ 0	locks=0 ]	(	2	2	2	2	)
 iconscale	[ 0	locks=0 ]	(	1	)
 res	[ 0	locks=0 ]	(	[ resx	128 ] 	[ resy	128 ] 	)
 resMenu	[ 0	locks=0 ]	(	0	)
@@ -3056,7 +3056,7 @@ inputs
 stat
 {
   create 1503548861
-  modify 1528121560
+  modify 1532367505
   author mikel@mikembp-sesi.local
   access 0777
 }
@@ -3074,7 +3074,7 @@ Content-Type: text/plain
       lefttype = extend
       righttype = extend
       flags = 0
-      segment { length = 0 expr = "centroid(chs(strcat(chs(\"../impostor_rop\"),\"/source_geo\")), D_Y)" }
+      segment { length = 0 expr = "centroid(chs(strcat(chs(\"../impostor_rop_full_path\"),\"/source_geo_full_path\")), D_Y)" }
     }
   }
 
@@ -3087,7 +3087,7 @@ version 0.8
 stdswitcher	[ 0	locks=0 ]	(	0	0	0	)
 xOrd	[ 0	locks=0 ]	(	"srt"	)
 rOrd	[ 0	locks=0 ]	(	"xyz"	)
-t	[ 8	locks=0 ]	(	0	[ ty	0 ] 	0	)
+t	[ 8	locks=0 ]	(	0	[ ty	0.55851495265960693 ] 	0	)
 r	[ 0	locks=0	autoscope=7 ]	(	0	0	0	)
 s	[ 0	locks=0 ]	(	1	1	1	)
 p	[ 0	locks=0 ]	(	0	0	0	)
@@ -3170,7 +3170,7 @@ inputs
 stat
 {
   create 1503548861
-  modify 1511379542
+  modify 1532366176
   author mikel@mikembp-sesi.local
   access 0777
 }
@@ -3383,7 +3383,7 @@ inputs
 stat
 {
   create 1503548785
-  modify 1528121560
+  modify 1532367542
   author mikel@mikembp-sesi.local
   access 0777
 }
@@ -3947,7 +3947,7 @@ Content-Type: text/plain
       righttype = extend
       default = 6.5898704528808603
       flags = 0
-      segment { length = 0 value = 6.5898704528808603 6.5898704528808603 expr = "max(bbox(chs(strcat(chs(\"../impostor_rop\"),\"/source_geo\")), D_XSIZE), max(bbox(chs(strcat(chs(\"../impostor_rop\"),\"/source_geo\")), D_YSIZE),bbox(chs(strcat(chs(\"../impostor_rop\"),\"/source_geo\")), D_ZSIZE))) * 1.1" }
+      segment { length = 0 value = 6.5898704528808603 6.5898704528808603 expr = "max(bbox(chs(strcat(chs(\"../impostor_rop_full_path\"),\"/source_geo_full_path\")), D_XSIZE), max(bbox(chs(strcat(chs(\"../impostor_rop_full_path\"),\"/source_geo_full_path\")), D_YSIZE),bbox(chs(strcat(chs(\"../impostor_rop_full_path\"),\"/source_geo_full_path\")), D_ZSIZE))) * 1.1" }
     }
   }
 
@@ -3960,7 +3960,7 @@ version 0.8
 stdswitcher	[ 0	locks=0 ]	(	0	0	)
 xOrd	[ 0	locks=0 ]	(	"srt"	)
 rOrd	[ 0	locks=0 ]	(	"xyz"	)
-t	[ 8	locks=0 ]	(	0	0	[ tz	4.0822772502899172 ] 	)
+t	[ 8	locks=0 ]	(	0	0	[ tz	2.2267277479171756 ] 	)
 r	[ 0	locks=0 ]	(	0	0	0	)
 s	[ 0	locks=0 ]	(	[ sx	1 ] 	[ sy	1 ] 	[ sz	1 ] 	)
 p	[ 8	locks=0 ]	(	0	0	0	)
@@ -3988,9 +3988,9 @@ dcolor	[ 0	locks=0 ]	(	1	1	1	)
 picking	[ 0	locks=0 ]	(	"on"	)
 pickscript	[ 0	locks=0 ]	(	""	)
 caching	[ 0	locks=0 ]	(	"on"	)
-stdswitcher3	[ 0	locks=0 ]	(	3	3	3	3	)
+stdswitcher3	[ 0	locks=0 ]	(	0	0	0	0	)
 iconscale	[ 0	locks=0 ]	(	1	)
-res	[ 0	locks=0 ]	(	[ resx	128 ] 	[ resy	128 ] 	)
+res	[ 0	locks=0 ]	(	[ resx	0 ] 	[ resy	0 ] 	)
 resMenu	[ 0	locks=0 ]	(	0	)
 aspect	[ 0	locks=0 ]	(	1	)
 projection	[ 0	locks=0 ]	(	"ortho"	)
@@ -3998,7 +3998,7 @@ vm_lensshader	[ 0	locks=0 ]	(	""	)
 focal	[ 0	locks=0 ]	(	50	)
 focalunits	[ 0	locks=0 ]	(	mm	)
 aperture	[ 0	locks=0 ]	(	41.421399999999998	)
-orthowidth	[ 0	locks=0 ]	(	[ orthowidth	4.0822772502899172 ] 	)
+orthowidth	[ 0	locks=0 ]	(	[ orthowidth	0 ] 	)
 near	[ 0	locks=0 ]	(	0.001	)
 far	[ 0	locks=0 ]	(	10000	)
 vm_bgenable	[ 0	locks=0 ]	(	"on"	)
@@ -4416,7 +4416,7 @@ inputs
 stat
 {
   create 1511379716
-  modify 1511388156
+  modify 1532367655
   author mikel@mikembp-sesi.local
   access 0777
 }
@@ -4434,25 +4434,25 @@ Content-Type: text/plain
       lefttype = extend
       righttype = extend
       flags = 0
-      segment { length = 0 expr = ch(strcat(chs(\"../../impostor_rop\"),\"/imposter_enum\")) }
+      segment { length = 0 expr = ch(strcat(chs(\"../../impostor_rop_full_path\"),\"/imposter_enum\")) }
     }
     channel rows {
       lefttype = extend
       righttype = extend
       flags = 0
-      segment { length = 0 value = 2 2 expr = ch(strcat(chs(\"../../impostor_rop\"),\"/frames\")) }
+      segment { length = 0 value = 2 2 expr = ch(strcat(chs(\"../../impostor_rop_full_path\"),\"/frames\")) }
     }
     channel columns {
       lefttype = extend
       righttype = extend
       flags = 0
-      segment { length = 0 value = 2 2 expr = ch(strcat(chs(\"../../impostor_rop\"),\"/frames\")) }
+      segment { length = 0 value = 2 2 expr = ch(strcat(chs(\"../../impostor_rop_full_path\"),\"/frames\")) }
     }
     channel camera_width {
       lefttype = extend
       righttype = extend
       flags = 0
-      segment { length = 0 value = 1 1 expr = "max(bbox(chs(strcat(chs(\"../../impostor_rop\"),\"/source_geo\")), D_XSIZE), max(bbox(chs(strcat(chs(\"../../impostor_rop\"),\"/source_geo\")), D_YSIZE),bbox(chs(strcat(chs(\"../../impostor_rop\"),\"/source_geo\")), D_ZSIZE))) * 0.55" }
+      segment { length = 0 value = 1 1 expr = "max(bbox(chs(strcat(chs(\"../../impostor_rop_full_path\"),\"/source_geo_full_path\")), D_XSIZE), max(bbox(chs(strcat(chs(\"../../impostor_rop_full_path\"),\"/source_geo_full_path\")), D_YSIZE),bbox(chs(strcat(chs(\"../../impostor_rop_full_path\"),\"/source_geo_full_path\")), D_ZSIZE))) * 0.55" }
     }
   }
 
@@ -4462,11 +4462,11 @@ Content-Type: text/plain
 
 {
 version 0.8
-fixed_z	[ 0	locks=0	autoscope=0 ]	(	[ fixed_z	3 ] 	)
+fixed_z	[ 0	locks=0	autoscope=0 ]	(	[ fixed_z	1 ] 	)
 fov	[ 0	locks=0 ]	(	180	)
-rows	[ 8	locks=0	autoscope=0 ]	(	[ rows	8 ] 	)
-columns	[ 8	locks=0	autoscope=0 ]	(	[ columns	8 ] 	)
-camera_width	[ 8	locks=0	autoscope=0 ]	(	[ camera_width	2.0411386251449586 ] 	)
+rows	[ 0	locks=0	autoscope=0 ]	(	[ rows	8 ] 	)
+columns	[ 0	locks=0	autoscope=0 ]	(	[ columns	8 ] 	)
+camera_width	[ 0	locks=0	autoscope=0 ]	(	[ camera_width	1.1133638739585878 ] 	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -4507,7 +4507,7 @@ inputs
 stat
 {
   create 1528105014
-  modify 1528727809
+  modify 1532367710
   author paula@DESKTOP-5213MPP
   access 0777
 }
@@ -4542,21 +4542,21 @@ else:
       righttype = extend
       default = 6
       flags = 0
-      segment { length = 0 value = 6 6 expr = ch(strcat(chs(\"../../impostor_rop\"),\"/frames\")) }
+      segment { length = 0 value = 6 6 expr = ch(strcat(chs(\"../../impostor_rop_full_path\"),\"/frames\")) }
     }
     channel camera_width {
       lefttype = extend
       righttype = extend
       default = 11.9
       flags = 0
-      segment { length = 0 value = 11.9 11.9 expr = "max(bbox(chs(strcat(chs(\"../../impostor_rop\"),\"/source_geo\")), D_XSIZE), max(bbox(chs(strcat(chs(\"../../impostor_rop\"),\"/source_geo\")), D_YSIZE),bbox(chs(strcat(chs(\"../../impostor_rop\"),\"/source_geo\")), D_ZSIZE)))* 0.3" }
+      segment { length = 0 value = 11.9 11.9 expr = "max(bbox(chs(strcat(chs(\"../../impostor_rop_full_path\"),\"/source_geo_full_path\")), D_XSIZE), max(bbox(chs(strcat(chs(\"../../impostor_rop_full_path\"),\"/source_geo_full_path\")), D_YSIZE),bbox(chs(strcat(chs(\"../../impostor_rop_full_path\"),\"/source_geo_full_path\")), D_ZSIZE)))* 0.3" }
     }
     channel camera_zoom {
       lefttype = extend
       righttype = extend
       default = 0.93000000000000005
       flags = 0
-      segment { length = 0 value = 0.93000000000000005 0.93000000000000005 expr = ch(strcat(chs(\"../../impostor_rop\"),\"/fOctZoom\")) }
+      segment { length = 0 value = 0.93000000000000005 0.93000000000000005 expr = ch(strcat(chs(\"../../impostor_rop_full_path\"),\"/fOctZoom\")) }
     }
   }
 
@@ -4566,11 +4566,11 @@ Content-Type: text/plain
 
 {
 version 0.8
-xy_size	[ 8	locks=0 ]	(	[ xy_size	16 ] 	)
-camera_width	[ 0	locks=0 ]	(	[ camera_width	1.113348340988159 ] 	)
-camera_zoom	[ 8	locks=0 ]	(	[ camera_zoom	0.90000000000000002 ] 	)
+xy_size	[ 0	locks=0 ]	(	[ xy_size	8 ] 	)
+camera_width	[ 0	locks=0 ]	(	[ camera_width	0.60728938579559322 ] 	)
+camera_zoom	[ 0	locks=0 ]	(	[ camera_zoom	0.90000000000000002 ] 	)
 imposter_mode	[ 0	locks=0 ]	(	`chs(\"parm\")`	)
-parm	[ 0	locks=0 ]	(	[ parm	hemi ] 	)
+parm	[ 0	locks=0 ]	(	[ parm	"" ] 	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -4628,7 +4628,7 @@ inputs
 stat
 {
   create 1503548861
-  modify 1528121560
+  modify 1532366176
   author mikel@mikembp-sesi.local
   access 0777
 }
@@ -4659,7 +4659,7 @@ version 0.8
 stdswitcher	[ 0	locks=0 ]	(	0	0	0	)
 xOrd	[ 0	locks=0 ]	(	"srt"	)
 rOrd	[ 0	locks=0 ]	(	"xyz"	)
-t	[ 8	locks=0 ]	(	0	[ ty	0 ] 	0	)
+t	[ 8	locks=0 ]	(	0	[ ty	0.55851495265960693 ] 	0	)
 r	[ 8	locks=0	autoscope=7 ]	(	0	0	0	)
 s	[ 0	locks=0 ]	(	1	1	1	)
 p	[ 0	locks=0 ]	(	0	0	0	)
@@ -4742,7 +4742,7 @@ inputs
 stat
 {
   create 1503548861
-  modify 1506030037
+  modify 1532366176
   author mikel@mikembp-sesi.local
   access 0777
 }
@@ -4955,7 +4955,7 @@ inputs
 stat
 {
   create 1503548785
-  modify 1528121560
+  modify 1532366176
   author mikel@mikembp-sesi.local
   access 0777
 }
@@ -5548,7 +5548,7 @@ pickscript	[ 0	locks=0 ]	(	""	)
 caching	[ 0	locks=0 ]	(	"on"	)
 stdswitcher3	[ 0	locks=0 ]	(	2	2	2	2	)
 iconscale	[ 0	locks=0 ]	(	1	)
-res	[ 8	locks=0 ]	(	[ resx	640 ] 	[ resy	640 ] 	)
+res	[ 8	locks=0 ]	(	[ resx	1024 ] 	[ resy	1024 ] 	)
 resMenu	[ 0	locks=0 ]	(	0	)
 aspect	[ 0	locks=0 ]	(	1	)
 projection	[ 0	locks=0 ]	(	"lens"	)
@@ -6023,7 +6023,7 @@ inputs
 stat
 {
   create 1503548861
-  modify 1506030037
+  modify 1532366176
   author mikel@mikembp-sesi.local
   access 0777
 }
@@ -6236,7 +6236,7 @@ inputs
 stat
 {
   create 1503548785
-  modify 1528820316
+  modify 1532367577
   author mikel@mikembp-sesi.local
   access 0777
 }
@@ -6779,7 +6779,7 @@ Content-Type: text/plain
       righttype = extend
       default = 1024
       flags = 0
-      segment { length = 0 value = 3 3 expr = pow(2,ch(strcat(chs(\"../impostor_rop\"),\"/fOctResolution\"))+8) }
+      segment { length = 0 value = 3 3 expr = pow(2,ch(strcat(chs(\"../impostor_rop_full_path\"),\"/fOctResolution\"))+8) }
     }
     channel resy {
       lefttype = extend
@@ -6827,9 +6827,9 @@ dcolor	[ 0	locks=0 ]	(	1	1	1	)
 picking	[ 0	locks=0 ]	(	"on"	)
 pickscript	[ 0	locks=0 ]	(	""	)
 caching	[ 0	locks=0 ]	(	"on"	)
-stdswitcher3	[ 0	locks=0 ]	(	2	2	2	2	)
+stdswitcher3	[ 0	locks=0 ]	(	0	0	0	0	)
 iconscale	[ 0	locks=0 ]	(	1	)
-res	[ 0	locks=0 ]	(	[ resx	2048 ] 	[ resy	2048 ] 	)
+res	[ 8	locks=0 ]	(	[ resx	4096 ] 	[ resy	4096 ] 	)
 resMenu	[ 0	locks=0 ]	(	0	)
 aspect	[ 0	locks=0 ]	(	1	)
 projection	[ 0	locks=0 ]	(	"lens"	)

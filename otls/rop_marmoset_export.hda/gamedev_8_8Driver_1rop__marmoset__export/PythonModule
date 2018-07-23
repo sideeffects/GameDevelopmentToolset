@@ -25,7 +25,7 @@ def CollectSceneInfo():
 
         Camera = hou.node(Node.parm("camera").evalAsString())
         FrameType = Node.parm("iFrameType").evalAsInt()
-        FrameRange = [Node.parm("uFrameRangex").evalAsInt(), Node.parm("uFrameRangey").evalAsInt()]
+        FrameRange = [Node.parm("uFrameRangex").evalAsInt(), Node.parm("uFrameRangey").evalAsInt()] if FrameType == 1 else [hou.intFrame(), hou.intFrame()]
         Objects = Node.parm("vobject").evalAsNodes()
         bSkyLight = Node.parm("bCustomSkyLight").evalAsInt()
         SkyLightPreset = Node.parm("mSkyLightPreset").evalAsString()
@@ -131,8 +131,10 @@ class MarmosetViewer(object):
         FBXRop = hou.node('/out').createNode('filmboxfbx')
         FBXRop.parm('sopoutput').set(JSONDir+"\\MHoudini\\MarmosetMesh.fbx")
         FBXRop.parm('trange').set("normal")
+        FBXRop.parm('f1').deleteAllKeyframes()
+        FBXRop.parm('f2').deleteAllKeyframes()
         FBXRop.parm('f1').set(frameRange[0])
-        FBXRop.parm('f1').set(frameRange[1])
+        FBXRop.parm('f2').set(frameRange[1])
         FBXRop.parm('startnode').set(exportNode.path())
         return FBXRop
 

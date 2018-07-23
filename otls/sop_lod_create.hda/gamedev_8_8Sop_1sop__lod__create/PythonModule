@@ -1,0 +1,78 @@
+import hou, json
+
+
+def SetPreset():
+        Node = hou.pwd()
+        LODData = json.loads(Node.type().definition().sections()['LODPresets.json'].contents())
+
+        LODPreset = Node.parm("mPreset").evalAsString()
+        
+        # Query Preset Values
+        LastLODImpostor = LODData[LODPreset]["IsLastLODImpostor"]
+        NumberLODs = LODData[LODPreset]["NumberLODs"]
+        ReductionSettings = LODData[LODPreset]["PercentageTriangles"]
+        ConsolidateShaders = LODData[LODPreset]["ConsolidateShaders"]
+        ThresholdDistance = LODData[LODPreset]["ThresholdDistance"]
+
+        # Set Parm based on Presets
+        NumLODParm = Node.parm("lods").set(NumberLODs)
+        Node.parm("bLastLODImpostor").set(LastLODImpostor)
+
+        LODContainer = hou.node(hou.pwd().path()+"/objnet1/LOD-Export/")
+        LODGroup = hou.node(LODContainer.path()+"/LODGroup")
+        LODGroup.replaceSpareParmTuple('fbx_lod_display_levels', hou.FloatParmTemplate('fbx_lod_display_levels', 'fbx_lod_display_levels', NumberLODs))
+        LODGroup.replaceSpareParmTuple('fbx_lod_thresholds', hou.FloatParmTemplate('fbx_lod_thresholds', 'fbx_lod_thresholds', NumberLODs-1, default_value=tuple(ThresholdDistance[1:])))
+
+        for x in range(NumberLODs):
+                hou.parm("fPercentTriangles%s" % (x+1)).set(ReductionSettings[x])
+                hou.parm("fThresholdDistance%s" % (x+1)).set(ThresholdDistance[x])
+                hou.parm("bConsolidateShaders%s" % (x+1)).set(ConsolidateShaders[x])
+
+
+def Export():
+
+        Node = hou.pwd()
+        NumLODs = Node.parm("lods").evalAsInt()
+
+        LODContainer = hou.node(hou.pwd().path()+"/objnet1/LOD-Export/")
+        LODGroup = hou.node(LODContainer.path()+"/LODGroup")
+        LODName = hou.pwd().parm("sMeshName").evalAsString()
+        
+        LODObjects = []
+
+        for x in range(NumLODs):
+                Geometry = LODContainer.createNode("geo", "mesh_LOD%s" % x)
+                Geometry.setNextInput(LODGroup)
+                ObjMerge = Geometry.createNode("object_merge")
+                ObjMerge.parm("objpath1").set("../../../../OUT_ALL_LOD")
+                ObjMerge.parm("group1").set("@LOD=%s" % x)
+                ObjMerge.parm("xformtype").set("local")
+                Output = Geometry.createNode("output")
+                Output.setNextInput(ObjMerge)
+                Output.moveToGoodPosition()
+                Output.setDisplayFlag(True)
+                Output.setRenderFlag(True)
+
+                #Subnet = LODContainer.collapseIntoSubnet([Geometry], subnet_name="mesh_LOD%s" % x, subnet_type=None)
+                #Subnet.moveToGoodPosition()
+                LODObjects.append(Geometry)
+
+        LODGroup.setName(LODName, False)
+
+        hou.node(hou.pwd().path()+"/objnet1/ropnet1/filmboxfbx1").parm("startnode").set(LODGroup.path())
+        hou.node(hou.pwd().path()+"/objnet1/ropnet1/filmboxfbx1").parm("execute").pressButton()
+        LODGroup.setName("LODGroup", False)
+        LODContainer.deleteItems(LODObjects)
+
+        # Render ConsolidateShaders
+        LODData = json.loads(Node.type().definition().sections()['LODPresets.json'].contents())
+        LODPreset = Node.parm("mPreset").evalAsString()
+        ConsolidateShaders = LODData[LODPreset]["ConsolidateShaders"]
+
+        # Shader Consolidation
+        if Node.parm("bConsolidateShaders").evalAsInt() == 1 and 1 in ConsolidateShaders:
+                hou.node(hou.pwd().path()+"/sop_simple_baker1/").parm("execute").pressButton()
+
+        # Impostor Generation
+        if Node.parm("bLastLODImpostor").evalAsInt() == 1:
+                hou.node(hou.pwd().path()+"/objnet1/ropnet1/rop_impostor_texture1").parm("execute").pressButton()

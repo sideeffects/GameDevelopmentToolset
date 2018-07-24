@@ -20,7 +20,29 @@
         type    string
         default { "" }
         menutoggle {
-            [ "opmenu -l dissolve1 group" ]
+            [ "def build_menu_from_group(groups, menu):" ]
+            [ "    if len(groups):" ]
+            [ "        menu.extend((\"-\", \"\"))" ]
+            [ "        " ]
+            [ "    for group in groups:" ]
+            [ "        name = group.name()" ]
+            [ "        menu.extend((name, name))" ]
+            [ "    " ]
+            [ "    return menu" ]
+            [ "    " ]
+            [ "sopnode = hou.pwd()" ]
+            [ "# List of tokens/labels to return." ]
+            [ "menu = []" ]
+            [ "# Make sure there is an input node before asking for its geometry." ]
+            [ "if sopnode.inputs():" ]
+            [ "    # Optionally add in '*' for all groups." ]
+            [ "    menu.extend((\"*\", \"*\"))" ]
+            [ "    geo = sopnode.inputs()[0].geometry()" ]
+            [ "    " ]
+            [ "    menu = build_menu_from_group(geo.edgeGroups(), menu)" ]
+            [ "        " ]
+            [ "return menu" ]
+            language python
         }
         parmtag { "autoscope" "0000000000000000" }
         parmtag { "script_action" "import soputils\nkwargs['geometrytype'] = (hou.geometryType.Primitives,hou.geometryType.Edges,)\nkwargs['inputindex'] = 0\nsoputils.selectGroupParm(kwargs)" }

@@ -19,6 +19,17 @@
         label   "Method"
 
         parm {
+            name    "uvattrib"
+            label   "UV Attribute"
+            type    string
+            default { "uv" }
+            menureplace {
+                [ "opmenu -l uvflatten4 uvattrib" ]
+            }
+            parmtag { "autoscope" "0000000000000000" }
+            parmtag { "sidefx::attrib_access" "write" }
+        }
+        parm {
             name    "method"
             label   "Method"
             type    ordinal

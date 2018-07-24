@@ -15,6 +15,17 @@
     inputlabel	4	"Sub-Network Input #4"
 
     parm {
+        name    "uvattrib"
+        label   "UV Attribute"
+        type    string
+        default { "uv" }
+        menureplace {
+            [ "opmenu -l uvflatten7 uvattrib" ]
+        }
+        parmtag { "autoscope" "0000000000000000" }
+        parmtag { "sidefx::attrib_access" "write" }
+    }
+    parm {
         name    "fFuseDist"
         label   "Initial Fuse Dist"
         type    log

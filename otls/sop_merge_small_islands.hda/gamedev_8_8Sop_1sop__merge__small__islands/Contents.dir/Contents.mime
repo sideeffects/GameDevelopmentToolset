@@ -32,7 +32,7 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position 4.50269 -33.749
+position 4.46621 -38.5102
 connectornextid 2
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
@@ -50,7 +50,7 @@ inputs
 stat
 {
   create 1522864009
-  modify 1527271846
+  modify 1532462034
   author MAINGEAR@DESKTOP-P98C1VA
   access 0777
 }
@@ -75,7 +75,7 @@ Content-Disposition: attachment; filename="hdaroot.inp"
 Content-Type: text/plain
 
 1
-0 0.038341904006380823 9.9875580166635896 2 0 __NO_OWNER_NETWORK_BOX__ "FROMOUTPUT"
+0 0.077697484913549011 12.427604032908018 2 0 __NO_OWNER_NETWORK_BOX__ "FROMOUTPUT"
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
 Content-Disposition: attachment; filename="hdaroot/attribwrangle7.init"
@@ -415,7 +415,7 @@ vex_matchattrib	[ 0	locks=0 ]	(	id	)
 vex_inplace	[ 0	locks=0 ]	(	"off"	)
 vex_selectiongroup	[ 0	locks=0 ]	(	""	)
 folder1	[ 0	locks=0 ]	(	0	0	)
-cutoff	[ 0	locks=0 ]	(	[ cutoff	10 ] 	)
+cutoff	[ 0	locks=0 ]	(	[ cutoff	0.01 ] 	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -442,7 +442,7 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position -3.0787 -9.6007
+position -3.0833 -10.1018
 connectornextid 2
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
@@ -460,7 +460,7 @@ inputs
 stat
 {
   create 1508887784
-  modify 1520213086
+  modify 1532461717
   author jlait@dunedin.sidefx.com
   access 0777
 }
@@ -896,7 +896,7 @@ inputs
 stat
 {
   create 1522694409
-  modify 1523282686
+  modify 1532461780
   author MAINGEAR@DESKTOP-P98C1VA
   access 0777
 }
@@ -1264,7 +1264,7 @@ inputs
 stat
 {
   create 1508888423
-  modify 1527275350
+  modify 1532462223
   author jlait@dunedin.sidefx.com
   access 0777
 }
@@ -1566,7 +1566,7 @@ Content-Type: text/plain
 version 0.8
 itermethod	[ 0	locks=0 ]	(	"count"	)
 method	[ 0	locks=0 ]	(	"feedback"	)
-iterations	[ 8	locks=0 ]	(	[ iterations	100 ] 	)
+iterations	[ 8	locks=0 ]	(	[ iterations	0 ] 	)
 startvalue	[ 0	locks=0 ]	(	1	)
 increment	[ 0	locks=0 ]	(	1	)
 class	[ 0	locks=0 ]	(	"point"	)
@@ -1625,7 +1625,7 @@ inputs
 stat
 {
   create 1508888214
-  modify 1527351129
+  modify 1532463478
   author jlait@dunedin.sidefx.com
   access 0777
 }
@@ -1672,7 +1672,7 @@ sopflags sopflags =
 comment ""
 position -3.0803 -22.7649
 connectornextid 2
-flags =  lock off model off template off footprint off xray off bypass off display off render off highlight on unload off savedata off compress on colordefault on exposed on
+flags =  lock off model off template on footprint off xray off bypass off display off render off highlight on unload off savedata off compress on colordefault on exposed on
 outputsNamed3
 {
 1 "output1"
@@ -1688,7 +1688,7 @@ inputs
 stat
 {
   create 1508944264
-  modify 1527272103
+  modify 1532462115
   author MAINGEAR@DESKTOP-P98C1VA
   access 0777
 }
@@ -1914,7 +1914,7 @@ inputs
 stat
 {
   create 1520173153
-  modify 1520210065
+  modify 1532462092
   author Luiz@LAPTOP-LKBBB5D4
   access 0777
 }
@@ -1935,7 +1935,7 @@ createvarmap	[ 0	locks=0 ]	(	"off"	)
 varname	[ 0	locks=0 ]	(	""	)
 seamgroup	[ 0	locks=0 ]	(	""	)
 byuv	[ 0	locks=0 ]	(	"on"	)
-uvattrib	[ 0	locks=0 ]	(	uv	)
+uvattrib	[ 0	locks=0 ]	(	`chs(\"../uvattrib\")`	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -1980,7 +1980,7 @@ inputs
 stat
 {
   create 1517588187
-  modify 1527272127
+  modify 1532462065
   author MAINGEAR@DESKTOP-P98C1VA
   access 0777
 }
@@ -2001,6 +2001,13 @@ Content-Type: text/plain
       flags = 0
       segment { length = 0 value = 1 1 expr = ch(\"../method\") }
     }
+    channel uvattrib {
+      lefttype = extend
+      righttype = extend
+      defaultString = \"uv\"
+      flags = 0
+      segment { length = 0 expr = chs(\"../uvattrib\") }
+    }
   }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -2010,7 +2017,7 @@ Content-Type: text/plain
 {
 version 0.8
 group	[ 0	locks=0 ]	(	""	)
-uvattrib	[ 0	locks=0 ]	(	uv	)
+uvattrib	[ 0	locks=0 ]	(	[ uvattrib	uv2 ] 	)
 method	[ 0	locks=0 ]	(	[ method	1 ] 	)
 existinguvs	[ 0	locks=0 ]	(	0	)
 keepexistingseams	[ 0	locks=0 ]	(	"off"	)
@@ -2082,17 +2089,17 @@ outputsNamed3
 inputsNamed3
 {
 0 	grouptransfer1 2 1 "input1"
-2 	(0) "" 1 "input2"
+2 	(__dot3) "" 1 "input2"
 }
 inputs
 {
 0 	grouptransfer1 0 1
-1 	(0) 0 1
+1 	(__dot3) 0 1
 }
 stat
 {
   create 1520174708
-  modify 1527272025
+  modify 1532462053
   author Luiz@LAPTOP-LKBBB5D4
   access 0777
 }
@@ -2139,7 +2146,7 @@ sopflags sopflags =
 comment ""
 position -3.0803 -27.3738
 connectornextid 1
-flags =  lock off model off template on footprint off xray off bypass off display on render on highlight off unload off savedata off compress on colordefault on exposed on
+flags =  lock off model off template off footprint off xray off bypass off display on render on highlight off unload off savedata off compress on colordefault off exposed on
 outputsNamed3
 {
 }
@@ -2154,11 +2161,11 @@ inputs
 stat
 {
   create 1520174721
-  modify 1527272129
+  modify 1532462115
   author Luiz@LAPTOP-LKBBB5D4
   access 0777
 }
-color UT_Color RGB 0.8 0.8 0.8 
+color UT_Color RGB 0.565 0.494 0.863 
 delscript ""
 exprlanguage hscript
 end
@@ -2180,6 +2187,10 @@ Content-Type: text/plain
 	"___Version___":{
 		"type":"string",
 		"value":"16.5.412"
+	},
+	"nodeshape":{
+		"type":"string",
+		"value":"circle"
 	}
 }
 
@@ -2415,7 +2426,7 @@ Content-Type: text/plain
 version 0.8
 itermethod	[ 0	locks=0 ]	(	"count"	)
 method	[ 0	locks=0 ]	(	"feedback"	)
-iterations	[ 8	locks=0 ]	(	[ iterations	100 ] 	)
+iterations	[ 8	locks=0 ]	(	[ iterations	0 ] 	)
 startvalue	[ 0	locks=0 ]	(	1	)
 increment	[ 0	locks=0 ]	(	1	)
 class	[ 0	locks=0 ]	(	"point"	)
@@ -2474,7 +2485,7 @@ inputs
 stat
 {
   create 1508888214
-  modify 1527350829
+  modify 1532463552
   author jlait@dunedin.sidefx.com
   access 0777
 }
@@ -2567,7 +2578,7 @@ Content-Type: text/plain
 
 {
 version 0.8
-input	[ 8	locks=0 ]	(	[ input	0 ] 	)
+input	[ 8	locks=0 ]	(	[ input	1 ] 	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -2605,6 +2616,19 @@ Content-Type: text/plain
 	"pinned":false,
 	"color":"FROMOUTPUT",
 	"input":"normalize_mesh 0 1"
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/__dot3.networkdotinit"
+Content-Type: text/plain
+
+{
+	"version":1,
+	"posx":-0.341765188256820895,
+	"posy":-22.6148999940395363,
+	"pinned":false,
+	"color":"FROMOUTPUT",
+	"input":"(0) 0 1"
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY

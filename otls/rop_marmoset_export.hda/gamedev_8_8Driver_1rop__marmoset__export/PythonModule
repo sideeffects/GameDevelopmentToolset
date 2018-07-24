@@ -1,0 +1,336 @@
+## Questions: paula@sidefx.com
+## Last Update: 20-June-2018
+
+import hou, subprocess, os, shutil, json, threading, sys, tempfile
+from SimpleHTTPServer import SimpleHTTPRequestHandler
+from BaseHTTPServer import HTTPServer as BaseHTTPServer
+from PySide2.QtWebEngineWidgets import QWebEngineView
+from PySide2.QtCore import *
+from PySide2.QtGui import *
+from PySide2.QtWidgets import *
+
+# Parms
+Camera, FrameType, FrameRange, Objects, bSkyLight, SkyLightPreset, CustomSkyLight, JSONDir = tuple(range(8)) 
+MarmosetInstall, OpenMarmoset, MviewLocation, Resolution, RenderLocation, SampleNum, Transparent, MarmosetProcessor  = tuple(range(8)) 
+
+# Get Parm Values
+def CollectSceneInfo():
+        global Camera, FrameType, FrameRange, Objects, bSkyLight, SkyLightPreset, CustomSkyLight, JSONDir
+        global MarmosetInstall, OpenMarmoset, MviewLocation, Resolution, RenderLocation, SampleNum, Transparent, MarmosetProcessor
+        
+        # Running from Shell?
+        Node = hou.pwd()
+        if Node.name() == "shell1":
+                Node = Node.parent()
+
+        Camera = hou.node(Node.parm("camera").evalAsString())
+        FrameType = Node.parm("iFrameType").evalAsInt()
+        FrameRange = [Node.parm("uFrameRangex").evalAsInt(), Node.parm("uFrameRangey").evalAsInt()] if FrameType == 1 else [hou.intFrame(), hou.intFrame()]
+        Objects = Node.parm("vobject").evalAsNodes()
+        bSkyLight = Node.parm("bCustomSkyLight").evalAsInt()
+        SkyLightPreset = Node.parm("mSkyLightPreset").evalAsString()
+        CustomSkyLight = Node.parm("sCustomSkyLight").evalAsString()
+        MarmosetInstall = hou.getenv('MARMOSET_TOOLBAG_LOCATION', Node.parm("sMarmosetInstall").evalAsString())
+        OpenMarmoset = Node.parm("bOpenMarmoset").evalAsInt()
+        MviewLocation = Node.parm("vm_picture2").evalAsString()
+        Resolution = [Node.parm("res_overridex").evalAsInt(), Node.parm("res_overridey").evalAsInt()]
+        RenderLocation = Node.parm("vm_picture").evalAsString()
+        SampleNum = Node.parm("mSampling").evalAsInt()
+        Transparent = Node.parm("bTransparentBg").evalAsInt()
+        JSONDir = "\\".join(tempfile.gettempdir().split("\\")[:-1])
+        MarmosetProcessor = MarmosetViewer()
+
+# Save embedded file in HDA to disk
+def SaveHDASectionToFile(section, fileName):
+        SectionFile = file(fileName, "wb")
+        SectionFile.write(section.contents())
+        SectionFile.close()
+
+# Check if directory exists, if not.. Create
+def ValidateDir(directory):
+    if not os.path.exists(directory):
+        os.makedirs(directory)
+
+# Save all Embedded Files to disk
+def InitializeProcess():
+        Node = hou.pwd()
+        if Node.name() == "shell1":
+                Node = Node.parent()
+        NodeDef = Node.type().definition()
+
+        if NodeDef.hasSection("MarmosetExport.py"):
+                SaveHDASectionToFile(NodeDef.sections().get("MarmosetExport.py"), str(JSONDir+'\\MHoudini\\MarmosetExport.py'))
+        if NodeDef.hasSection("index.html"):
+                SaveHDASectionToFile(NodeDef.sections().get("index.html"), str(JSONDir+'\\MHoudini\\index.html'))
+
+# Render MView
+def MviewRender():
+        CollectSceneInfo()
+        MarmosetProcessor.RefreshMarmosetData(Export=0, Nodes=Objects)
+
+        # Open MView?
+        if OpenMarmoset:
+                StartThreadWithHTTP()
+                MarmosetViewerUI(hou.ui.mainQtWindow()).show()
+
+# Render Image / Video
+def ImageRender():
+        CollectSceneInfo()
+        MarmosetProcessor.RefreshMarmosetData(Export=1, Nodes=Objects)
+
+# Simple HTTPHandler using SimpleHTTPServer Module
+class HTTPHandler(SimpleHTTPRequestHandler):
+    def translate_path(self, path):
+        path = SimpleHTTPRequestHandler.translate_path(self, path)
+        relpath = os.path.relpath(path, os.getcwd())
+        fullpath = os.path.join(self.server.basePath, relpath)
+        return fullpath
+    def log_message(self, format, *args):
+        return
+
+# Simple HTTPServer using BaseHTTPServer Module
+class HTTPServer(BaseHTTPServer):
+    def __init__(self, basePath, serverAddress, requestHandlerClass=HTTPHandler):
+        self.basePath = basePath
+        BaseHTTPServer.__init__(self, serverAddress, requestHandlerClass)
+
+# Target Function for HTTP Thread
+def ThreadProcess():
+    HTTPServer(JSONDir+"\\MHoudini\\", ("", 8000)).serve_forever()
+
+# Starting a new Thread
+def StartThreadWithHTTP():
+    SimpleThread = threading.Thread(name='child procs', target=ThreadProcess)
+    SimpleThread.start()
+
+# Marmoset Viewer UI Class
+class MarmosetViewerUI(QDialog):
+    def __init__(self, parent):
+       super(MarmosetViewerUI, self).__init__(parent)
+       self.setAttribute(Qt.WA_DeleteOnClose)
+       # UI Title
+       self.setWindowTitle("Houdini - Marmoset Toolbag Viewer")
+
+       # Constructing UI
+       windowUILayout = QVBoxLayout()
+
+       self.webViewer = QWebEngineView()
+       self.webViewer.load(QUrl("http://localhost:8000"))
+       windowUILayout.addWidget(self.webViewer)
+       self.setLayout(windowUILayout)
+       self.activateWindow()
+
+# Marmoset Viewer Processing Class
+class MarmosetViewer(object):
+    def __init__(self):
+        #self.showDialog()
+        self.ProcessedTextureFiles = []
+
+    # Construct FBX Export ROP
+    def CreateFBXRop(self, exportNode, frameRange):
+        FBXRop = hou.node('/out').createNode('filmboxfbx')
+        FBXRop.parm('sopoutput').set(JSONDir+"\\MHoudini\\MarmosetMesh.fbx")
+        FBXRop.parm('trange').set("normal")
+        FBXRop.parm('f1').deleteAllKeyframes()
+        FBXRop.parm('f2').deleteAllKeyframes()
+        FBXRop.parm('f1').set(frameRange[0])
+        FBXRop.parm('f2').set(frameRange[1])
+        FBXRop.parm('startnode').set(exportNode.path())
+        return FBXRop
+
+    # Construct Texture Export ROPs
+    def CreateTextureRopnets(self):
+        ROPNet = hou.node('/out').createNode('comp')
+        ROPNet.parm('coppath').set('../tempCOPnet/copfile')
+        ROPNet.parm('convertcolorspace').set(0)
+        ROPNetCOP = hou.node('/out').createNode('comp')
+        ROPNetCOP.parm('convertcolorspace').set(0)
+        ROPNetCOP.parm('trange').set('off')
+        COPNet = hou.node('/out').createNode('cop2net', 'tempCOPnet')
+        File = COPNet.createNode('file', 'copfile')
+        return [ROPNet, File, COPNet, ROPNetCOP]
+
+    # Get Filtered Textures in Material
+    def GetTexturesInMat(self, materialNode):
+        if not materialNode:
+            return 
+
+        MaterialParms = {"basecolor_texture":"basecolor_useTexture",
+                "baseNormal_texture":"baseBumpAndNormal_enable",
+                "rough_texture":"rough_useTexture",
+                "metallic_texture":"metallic_useTexture",
+                "baseColorMap":"useColorMap" }
+
+        MaterialTextureDict = {}
+        for parm in MaterialParms:
+            materialParm = materialNode.parm(MaterialParms[parm])
+            if materialParm and materialParm.eval():
+                MaterialTextureDict[parm] = materialNode.parm(parm).eval()
+
+        return MaterialTextureDict
+
+    # Return /obj level node of node argument
+    def GetObjLevelNameOfNode(self, node):
+        tempNode = node.parent()
+        while tempNode.type().category() != hou.objNodeTypeCategory():
+            tempNode = tempNode.parent()
+        return tempNode.name()
+
+    # Convert and Export Textures - Files will become jpg if not yet
+    def ConvertAndExportTexture(self, node, material, textures, ropOutput, fileImport, ropOutputCOPs):
+
+        TextureDict = {}
+        TextureDict["Mesh"] = self.GetObjLevelNameOfNode(node)
+        TextureDict["Material"] = material.name()
+
+        CleanTextureNameDict = {"basecolor_texture":"Albedo",
+            "baseNormal_texture":"Normal",
+            "rough_texture":"Roughness",
+            "metallic_texture":"Metallic",
+            "baseColorMap":"BaseColor"}
+
+        for texture in textures:
+            
+            TexturePath = textures[texture]
+            if TexturePath != "":
+                JPGPath = ""
+
+                # Deal with COPs "Textures"
+                if TexturePath.startswith("op:"):
+                    if hou.node(TexturePath).type().category().name() == "Cop2":
+                        JPGPath = JSONDir+'\\MHoudini\\' + TextureDict['Mesh'] +'_'+ TextureDict['Material'] +'_'+os.path.basename(TexturePath)+'.jpg'
+                        ropOutputCOPs.parm('coppath').set(TexturePath)
+                        ropOutputCOPs.parm("copoutput").set(JPGPath)
+                        ropOutputCOPs.render()
+
+                # Deal with HDA Stored "Textures"
+                elif TexturePath.startswith("opdef:"):
+                    print 'Skipping Texture [%s] stored inside an HDA. Please export to regular texture or load in COPs.' % TexturePath
+
+                # Deal with Regular Textures
+                else:
+                    JPGPath = JSONDir+'\\MHoudini\\' + os.path.basename(TexturePath)
+                    if TexturePath not in self.ProcessedTextureFiles:
+                        self.ProcessedTextureFiles.append(TexturePath)
+
+                        if TexturePath.upper().endswith("JPG"):
+                            shutil.copy(TexturePath, JPGPath)
+                        elif TexturePath != "":    
+                            fileImport.parm("filename2").set(TexturePath)
+                            ropOutput.parm("copoutput").set(JPGPath)
+                            ropOutput.render()
+
+                TextureDict[CleanTextureNameDict[texture]] = JPGPath
+
+        return TextureDict
+      
+    # Main Function to Prepare Houdini Data for Marmoset Toolbag
+    def RefreshMarmosetData(self, Export, Nodes):
+
+
+        ################### GEOMETRY EXPORT #########################
+        # Get the selected Nodes in network view
+        SelectedNodes = [x for x in Nodes if x.type().name() in ['geo', 'hlight::2.0']]
+        
+        # Create Temporary Directory for Files
+        ValidateDir(JSONDir+'\\MHoudini\\')
+        
+        # Clean Temporary Directory
+        folder = JSONDir+'\\MHoudini\\'
+        for the_file in os.listdir(folder):
+            file_path = os.path.join(folder, the_file)
+            if os.path.isfile(file_path):
+                os.unlink(file_path)
+            elif os.path.isdir(file_path): shutil.rmtree(file_path)
+
+        InitializeProcess()
+
+        # Parent all selected objects to SceneNull
+        SceneNull = hou.node("/obj").createNode("null")
+        for node in SelectedNodes:
+            node.setFirstInput(SceneNull)
+        if Camera != None:
+            Camera.setFirstInput(SceneNull)
+
+        # Export FBX with SceneNull and Children
+        FBXRop = self.CreateFBXRop(SceneNull, FrameRange)
+        FBXRop.render()
+        FBXRop.destroy()
+        SceneNull.destroy()
+
+
+
+        ################### MATERIALS EXPORT #########################
+        # Create temporary Texture Export ROPNets
+        TextureROPsList = self.CreateTextureRopnets()
+        TextureROPNetRoot = TextureROPsList[0]
+        TextureROPNetFileIn = TextureROPsList[1]
+        TextureROPNetCOP = TextureROPsList[3]
+
+        # Get all Geometry Type Nodes in Selection
+        GeometryNodes = [x.renderNode() for x in SelectedNodes if x.type().name() == "geo"]
+        
+        # Create List of all materials assigned to geometry.
+        Materials = [] # - [[GeometryNode, [MaterialPath, MaterialPath, ...]]]
+        for geoNode in GeometryNodes:
+            Materials.append([geoNode, list(set(geoNode.geometry().primStringAttribValues("shop_materialpath"))) if geoNode.geometry().findPrimAttrib("shop_materialpath") else []])
+
+        # Create a list of all textures for each material
+        Texturesets = [] # - [[GeometryNode, MaterialPath, {'baseNormal_texture': 'path'}], ... ]
+        for MaterialData in Materials:
+            for MaterialPath in MaterialData[1]:
+                TextureDict = self.GetTexturesInMat(hou.node(MaterialPath))
+                if TextureDict != None:
+                    Texturesets.append([MaterialData[0], MaterialPath, TextureDict])
+
+        # Create Dictionary Structure JSON Export
+        MaterialDataJSONDict = {}
+        MaterialDataJSONDict['TEXDATA'] = {}
+        MaterialDataJSONDict['CAMERA'] = Camera.name() if Camera != None else ""
+        MaterialDataJSONDict['SKYLIGHT'] = {}
+        MaterialDataJSONDict['SKYLIGHT']['UseCustom'] = bSkyLight
+        MaterialDataJSONDict['SKYLIGHT']['CustomSkyLight'] = CustomSkyLight
+        MaterialDataJSONDict['SKYLIGHT']['Preset'] = SkyLightPreset
+        MaterialDataJSONDict['RENDERTYPE'] = 3 if Export == 0 else FrameType
+        MaterialDataJSONDict['RESOLUTION'] = Resolution
+        MaterialDataJSONDict['MVIEWLOCATION'] = MviewLocation
+        MaterialDataJSONDict['RENDERLOCATION'] = RenderLocation
+        MaterialDataJSONDict['FRAMERANGE'] = FrameRange
+        MaterialDataJSONDict['PIXELSAMPLES'] = SampleNum
+        MaterialDataJSONDict['TRANSPARENT'] = Transparent
+        MaterialDataJSONDict['CURRENTFRAME'] = hou.intFrame()
+
+        # Add Entry in JSON file for each materialtextureset, and export textures to tempdir
+        for i, textureset in enumerate(Texturesets):
+            MaterialDataJSONDict["TEXDATA"]['Index_%s'% i]  = self.ConvertAndExportTexture(textureset[0], hou.node(textureset[1]), textureset[2], TextureROPNetRoot, TextureROPNetFileIn, TextureROPNetCOP)
+
+        # Clear ProcessedTextureFiles list to ensure we can export next operation
+        self.ProcessedTextureFiles = []
+
+        # Clean all temporary ROPs
+        for nodeobject in TextureROPsList:
+          nodeobject.destroy()
+
+
+
+        ################### JSON EXPORT #########################
+        # Write JSONDict to JSONFile. Creates if non-existent
+        with open(JSONDir+'\\MHoudini\\MaterialStylesheet.json', 'w') as JSONFile:  
+            json.dump(MaterialDataJSONDict, JSONFile, indent=4)
+
+
+
+        ################### GENERATE MVIEW #########################
+        # Launch Marmoset through subprocess.call() with Custom .py script as argument
+        script = JSONDir+'\\MHoudini\\MarmosetExport.py'
+        FNull = open(os.devnull, 'w')
+
+        # Disable Marmoset GUI -- Toolbag ignores the startupinfo in 3.04, but will be added in next patch 
+        StartupInfo = None
+        if os.name == 'nt':
+            StartupInfo = subprocess.STARTUPINFO()
+            subprocess.STARTF_USESHOWWINDOW = 1
+            StartupInfo.dwFlags |= subprocess.STARTF_USESHOWWINDOW
+
+        # Actually Open Marmoset
+        subprocess.call([MarmosetInstall, script], stdout=FNull, startupinfo=StartupInfo)

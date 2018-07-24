@@ -267,22 +267,19 @@ class GameDevelopmentUpdater(object):
         with open(SETTINGS_FILE, 'w') as fp:
             json.dump(settings, fp)
 
-    def show_success_dialog(self, mode):
-        msg = QMessageBox()
-        msg.setIcon(QMessageBox.Information)
-
+    def show_success_dialog(self, mode):        
+        message = ""
+        
         if mode == "change":
-            msg.setText("Game Development Toolset Updated Successfully")
-            msg.setInformativeText("Please Restart Houdini to load all of the new tools")
-            msg.setWindowTitle("Success")
-
+            message = "Game Development Toolset Updated Successfully"
+            message += "\n Please Restart Houdini to load all of the new tools"
+        
         elif mode == "uninstall":
-            msg.setText("Game Development Toolset Uninstalled Successfully")
-            msg.setInformativeText("Please Restart Houdini for changes to take effect")
-            msg.setWindowTitle("Success")
-
-        retval = msg.exec_()
-
+            message = "Game Development Toolset Uninstalled Successfully"
+            message += "\n Please Restart Houdini for changes to take effect"
+        
+        hou.ui.displayMessage(message, title="Success")
+        
     def on_dialog_close(self, version, mode):
         """ Call back from the Updater Dialog """
         self.desired_version = version

@@ -1,4 +1,5 @@
 import hou
+import random 
 
 def export(node):
     if len(node.inputs()):
@@ -71,7 +72,11 @@ class FractureExporter(object):
         self.gather_parent_scale()
         self.build_individual_nodes()
         self.animate_individual_nodes()
-
+        
+        # Hack to get around some aggressive caching, we're naming the 
+        # transform node something random and then renaming it to what we actually want 
+        self.transform_node.setName("TRANSFORM_NODE")
+        
     def get_selection(self, export_node = None):
 
         if not export_node:
@@ -116,7 +121,12 @@ class FractureExporter(object):
         container_node = hou.pwd().parent().node("objnet1")
         self.parent_node = hou.node(container_node.path() + '/FBX_EXPORT')
 
-        self.transform_node = self.parent_node.createNode('subnet', node_name="TRANSFORM_NODE", run_init_scripts=False)
+        # Hack to get around some aggressive caching, we're naming the 
+        # transform node something random and then renaming it to what we actually want 
+        
+        node_name = "transform_" + str(int(random.random() * 10000))
+        
+        self.transform_node = self.parent_node.createNode('subnet', node_name=node_name, run_init_scripts=False)
 
         self.transform_node.parm('tx').setExpression('ch("../../../tx")')
         self.transform_node.parm('ty').setExpression('ch("../../../ty")')

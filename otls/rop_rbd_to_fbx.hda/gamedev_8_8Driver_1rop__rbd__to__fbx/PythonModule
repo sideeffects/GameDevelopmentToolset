@@ -180,6 +180,8 @@ class FractureExporter(object):
             
     def build_individual_nodes(self):
 
+        export_as_transforms = hou.pwd().parent().parm('bExportEmptyTransforms').evalAsInt()
+
         for export_object in self.export_objects:
             name = export_object.name
 
@@ -239,8 +241,13 @@ class FractureExporter(object):
             switchNode.setNextInput(transformNode)
             switchNode.moveToGoodPosition()
 
-            switchNode.setDisplayFlag(True)
-            switchNode.setRenderFlag(True)
+            if export_as_transforms == 1:
+                output_node = geo_node.createNode('output')
+                output_node.setDisplayFlag(True)
+                output_node.setRenderFlag(True)
+            else:
+                switchNode.setDisplayFlag(True)
+                switchNode.setRenderFlag(True)
 
             # cache the hou node
             export_object.hou_node = geo_node

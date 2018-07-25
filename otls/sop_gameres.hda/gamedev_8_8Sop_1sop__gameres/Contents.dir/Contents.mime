@@ -32,7 +32,7 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position 1.90588 -0.737353
+position 0.523529 0.909706
 connectornextid 1
 flags =  lock off model off template on footprint off xray off bypass off display on render on highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
@@ -40,16 +40,16 @@ outputsNamed3
 }
 inputsNamed3
 {
-0 	file1 0 1 "input1"
+0 	testgeometry_pighead1 0 1 "input1"
 }
 inputs
 {
-0 	file1 0 1
+0 	testgeometry_pighead1 0 1
 }
 stat
 {
-  create 1526916229
-  modify 1526916370
+  create 1532526547
+  modify 1532526975
   author MAINGEAR@DESKTOP-P98C1VA
   access 0777
 }
@@ -74,7 +74,7 @@ Content-Disposition: attachment; filename="hdaroot.inp"
 Content-Type: text/plain
 
 1
-0 2.83895148478127 7.3707556417684224 2 0 __NO_OWNER_NETWORK_BOX__ "FROMOUTPUT"
+0 1.8426098997901357 9.2323412347781737 2 0 __NO_OWNER_NETWORK_BOX__ "FROMOUTPUT"
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
 Content-Disposition: attachment; filename="hdaroot/sop_autouv1.init"
@@ -247,6 +247,7 @@ Content-Type: text/plain
 {
 version 0.8
 folder1	[ 0	locks=0 ]	(	0	)
+uvattrib	[ 0	locks=0 ]	(	uv	)
 method	[ 0	locks=0 ]	(	[ method	3 ] 	)
 fuse_distance	[ 0	locks=0 ]	(	[ fuse_distance	0.01 ] 	)
 num_points	[ 0	locks=0 ]	(	[ num_points	25 ] 	)
@@ -417,7 +418,7 @@ Content-Disposition: attachment; filename="hdaroot/sop_simple_baker1.init"
 Content-Type: text/plain
 
 type = gamedev::sop_simple_baker
-matchesdef = 1
+matchesdef = 0
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
 Content-Disposition: attachment; filename="hdaroot/sop_simple_baker1.def"
@@ -427,7 +428,7 @@ sopflags sopflags =
 comment ""
 position 1.96396 -0.842379
 connectornextid 3
-flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
+flags =  lock off model off template on footprint off xray off bypass off display on render on highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
 {
 0 "output1"
@@ -445,7 +446,7 @@ inputs
 stat
 {
   create 1522851965
-  modify 1526916399
+  modify 1532527034
   author MAINGEAR@DESKTOP-P98C1VA
   access 0777
 }
@@ -753,6 +754,7 @@ Content-Type: text/plain
 {
 version 0.8
 render	[ 0	locks=0 ]	(	[ render	0 ] 	)
+execute	[ 0	locks=0 ]	(	0	)
 folder0	[ 0	locks=0 ]	(	0	0	)
 vm_uvunwrapres	[ 0	locks=0	autoscope=0 ]	(	[ vm_uvunwrapresx	512 ] 	[ vm_uvunwrapresy	512 ] 	)
 uvresmenu	[ 0	locks=0 ]	(	0	)
@@ -805,9 +807,81 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"0.1"
+		"value":"0.2"
 	}
 }
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/sop_simple_baker1.inp"
+Content-Type: text/plain
+
+2
+0 -2.9101721032986916e-14 8.3283330997106866 2 0 __NO_OWNER_NETWORK_BOX__ "FROMOUTPUT"
+1 3 6.5 2 0 __NO_OWNER_NETWORK_BOX__ "FROMOUTPUT"
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/sop_simple_baker1/ropnet1.init"
+Content-Type: text/plain
+
+type = ropnet
+matchesdef = 0
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/sop_simple_baker1/ropnet1.def"
+Content-Type: text/plain
+
+comment ""
+position 1.86044 0.743844
+connectornextid 0
+flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
+outputsNamed3
+{
+}
+inputsNamed3
+{
+}
+inputs
+{
+}
+stat
+{
+  create 1509395633
+  modify 1522783370
+  author MAINGEAR@DESKTOP-P98C1VA
+  access 0777
+}
+color UT_Color RGB 0.55 0.3 0.4 
+delscript ""
+exprlanguage hscript
+end
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/sop_simple_baker1/ropnet1.parm"
+Content-Type: text/plain
+
+{
+version 0.8
+execute	[ 0	locks=0 ]	(	0	)
+renderdialog	[ 0	locks=0 ]	(	0	)
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/sop_simple_baker1/ropnet1.userdata"
+Content-Type: text/plain
+
+{
+	"___Version___":{
+		"type":"string",
+		"value":"16.5.503"
+	}
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/sop_simple_baker1/ropnet1/rop_games_baker.init"
+Content-Type: text/plain
+
+type = gamedev::rop_games_baker
+matchesdef = 1
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
 Content-Disposition: attachment; filename="hdaroot/sop_simple_baker1/ropnet1/rop_games_baker.def"
@@ -1209,7 +1283,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.412"
+		"value":"16.5.503"
 	}
 }
 
@@ -1264,7 +1338,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.412"
+		"value":"16.5.503"
 	}
 }
 
@@ -2930,7 +3004,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.412"
+		"value":"16.5.503"
 	}
 }
 
@@ -3177,6 +3251,1011 @@ Content-Type: text/plain
 	"___Version___":{
 		"type":"string",
 		"value":""
+	}
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/sop_simple_baker1/matnet1.init"
+Content-Type: text/plain
+
+type = matnet
+matchesdef = 0
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/sop_simple_baker1/matnet1.def"
+Content-Type: text/plain
+
+comment ""
+position 1.86044 -0.21693
+connectornextid 0
+flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
+outputsNamed3
+{
+}
+inputsNamed3
+{
+}
+inputs
+{
+}
+stat
+{
+  create 1509396296
+  modify 1522783370
+  author MAINGEAR@DESKTOP-P98C1VA
+  access 0777
+}
+color UT_Color RGB 0.3 0.5 0.65 
+delscript ""
+exprlanguage hscript
+end
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/sop_simple_baker1/matnet1.parm"
+Content-Type: text/plain
+
+{
+version 0.8
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/sop_simple_baker1/matnet1.userdata"
+Content-Type: text/plain
+
+{
+	"___Version___":{
+		"type":"string",
+		"value":"16.5.503"
+	}
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/sop_simple_baker1/matnet1/principledshader1.init"
+Content-Type: text/plain
+
+type = principledshader::2.0
+matchesdef = 1
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/sop_simple_baker1/matnet1/principledshader1.def"
+Content-Type: text/plain
+
+comment ""
+position 3.13535 4.28458
+connectornextid 227
+flags =  lock off model off template off footprint off xray off bypass off display on render on highlight off unload off savedata off compress on colordefault on exposed on lowdetail off mediumdetail off highdetail on material on
+outputsNamed3
+{
+}
+inputsNamed3
+{
+0 	"" "" 1 "uv"
+1 	"" "" 1 "basecolor"
+2 	"" "" 1 "basecolor_usePointColor"
+3 	"" "" 1 "basecolor_usePackedColor"
+4 	"" "" 1 "frontface"
+5 	"" "" 1 "ior"
+6 	"" "" 1 "rough"
+7 	"" "" 1 "aniso"
+8 	"" "" 1 "anisodir"
+9 	"" "" 1 "metallic"
+10 	"" "" 1 "reflect"
+11 	"" "" 1 "reflecttint"
+12 	"" "" 1 "coat"
+13 	"" "" 1 "coatrough"
+14 	"" "" 1 "transparency"
+15 	"" "" 1 "transcolor"
+16 	"" "" 1 "transdist"
+17 	"" "" 1 "dispersion"
+18 	"" "" 1 "priority"
+19 	"" "" 1 "sss"
+20 	"" "" 1 "sssmodel"
+21 	"" "" 1 "sssdist"
+22 	"" "" 1 "ssscolor"
+23 	"" "" 1 "sssphase"
+24 	"" "" 1 "sheen"
+25 	"" "" 1 "sheentint"
+26 	"" "" 1 "emitcolor"
+27 	"" "" 1 "emitint"
+28 	"" "" 1 "emitillum"
+29 	"" "" 1 "opac"
+30 	"" "" 1 "opaccolor"
+31 	"" "" 1 "fakecausticsenabled"
+32 	"" "" 1 "fakecausticstransmit"
+33 	"" "" 1 "fakecausticsshadow"
+34 	"" "" 1 "fakecausticsopacity"
+35 	"" "" 1 "basecolor_useTexture"
+36 	"" "" 1 "basecolor_texture"
+37 	"" "" 1 "basecolor_textureIntensity"
+38 	"" "" 1 "basecolor_textureWrap"
+39 	"" "" 1 "basecolor_textureColorSpace"
+40 	"" "" 1 "metallic_useTexture"
+41 	"" "" 1 "metallic_texture"
+42 	"" "" 1 "metallic_monoChannel"
+43 	"" "" 1 "metallic_textureWrap"
+44 	"" "" 1 "metallic_textureColorSpace"
+45 	"" "" 1 "transparency_useTexture"
+46 	"" "" 1 "transparency_texture"
+47 	"" "" 1 "transparency_monoChannel"
+48 	"" "" 1 "transparency_textureWrap"
+49 	"" "" 1 "transparency_textureColorSpace"
+50 	"" "" 1 "ior_useTexture"
+51 	"" "" 1 "ior_texture"
+52 	"" "" 1 "ior_monoChannel"
+53 	"" "" 1 "ior_textureWrap"
+54 	"" "" 1 "ior_textureColorSpace"
+55 	"" "" 1 "transcolor_useTexture"
+56 	"" "" 1 "transcolor_texture"
+57 	"" "" 1 "transcolor_textureIntensity"
+58 	"" "" 1 "transcolor_textureWrap"
+59 	"" "" 1 "transcolor_textureColorSpace"
+60 	"" "" 1 "transdist_useTexture"
+61 	"" "" 1 "transdist_texture"
+62 	"" "" 1 "transdist_monoChannel"
+63 	"" "" 1 "transdist_textureWrap"
+64 	"" "" 1 "transdist_textureColorSpace"
+65 	"" "" 1 "dispersion_useTexture"
+66 	"" "" 1 "dispersion_texture"
+67 	"" "" 1 "dispersion_monoChannel"
+68 	"" "" 1 "dispersion_textureWrap"
+69 	"" "" 1 "dispersion_textureColorSpace"
+70 	"" "" 1 "reflect_useTexture"
+71 	"" "" 1 "reflect_texture"
+72 	"" "" 1 "reflect_monoChannel"
+73 	"" "" 1 "reflect_textureWrap"
+74 	"" "" 1 "reflect_textureColorSpace"
+75 	"" "" 1 "reflecttint_useTexture"
+76 	"" "" 1 "reflecttint_texture"
+77 	"" "" 1 "reflecttint_monoChannel"
+78 	"" "" 1 "reflecttint_textureWrap"
+79 	"" "" 1 "reflecttint_textureColorSpace"
+80 	"" "" 1 "rough_useTexture"
+81 	"" "" 1 "rough_texture"
+82 	"" "" 1 "rough_monoChannel"
+83 	"" "" 1 "rough_textureWrap"
+84 	"" "" 1 "rough_textureColorSpace"
+85 	"" "" 1 "aniso_useTexture"
+86 	"" "" 1 "aniso_texture"
+87 	"" "" 1 "aniso_monoChannel"
+88 	"" "" 1 "aniso_textureWrap"
+89 	"" "" 1 "aniso_textureColorSpace"
+90 	"" "" 1 "anisodir_useTexture"
+91 	"" "" 1 "anisodir_texture"
+92 	"" "" 1 "anisodir_monoChannel"
+93 	"" "" 1 "anisodir_textureWrap"
+94 	"" "" 1 "anisodir_textureColorSpace"
+95 	"" "" 1 "anisodir_textureFilter"
+96 	"" "" 1 "sss_useTexture"
+97 	"" "" 1 "sss_texture"
+98 	"" "" 1 "sss_monoChannel"
+99 	"" "" 1 "sss_textureWrap"
+100 	"" "" 1 "sss_textureColorSpace"
+101 	"" "" 1 "sssdist_useTexture"
+102 	"" "" 1 "sssdist_texture"
+103 	"" "" 1 "sssdist_monoChannel"
+104 	"" "" 1 "sssdist_textureWrap"
+105 	"" "" 1 "sssdist_textureColorSpace"
+106 	"" "" 1 "ssscolor_useTexture"
+107 	"" "" 1 "ssscolor_texture"
+108 	"" "" 1 "ssscolor_textureWrap"
+109 	"" "" 1 "ssscolor_textureColorSpace"
+110 	"" "" 1 "sheen_useTexture"
+111 	"" "" 1 "sheen_texture"
+112 	"" "" 1 "sheen_monoChannel"
+113 	"" "" 1 "sheen_textureWrap"
+114 	"" "" 1 "sheen_textureColorSpace"
+115 	"" "" 1 "sheentint_useTexture"
+116 	"" "" 1 "sheentint_texture"
+117 	"" "" 1 "sheentint_monoChannel"
+118 	"" "" 1 "sheentint_textureWrap"
+119 	"" "" 1 "sheentint_textureColorSpace"
+120 	"" "" 1 "coat_useTexture"
+121 	"" "" 1 "coat_texture"
+122 	"" "" 1 "coat_monoChannel"
+123 	"" "" 1 "coat_textureWrap"
+124 	"" "" 1 "coat_textureColorSpace"
+125 	"" "" 1 "coatrough_useTexture"
+126 	"" "" 1 "coatrough_texture"
+127 	"" "" 1 "coatrough_monoChannel"
+128 	"" "" 1 "coatrough_textureWrap"
+129 	"" "" 1 "coatrough_textureColorSpace"
+130 	"" "" 1 "emitcolor_useTexture"
+131 	"" "" 1 "emitcolor_texture"
+132 	"" "" 1 "emitcolor_textureIntensity"
+133 	"" "" 1 "emitcolor_textureWrap"
+134 	"" "" 1 "emitcolor_textureColorSpace"
+135 	"" "" 1 "opaccolor_useTexture"
+136 	"" "" 1 "opaccolor_texture"
+137 	"" "" 1 "opaccolor_textureWrap"
+138 	"" "" 1 "opaccolor_textureIntensity"
+139 	"" "" 1 "opaccolor_textureColorSpace"
+140 	"" "" 1 "surface_textureFilter"
+141 	"" "" 1 "surface_textureFilterWidth"
+142 	"" "" 1 "baseBumpAndNormal_enable"
+143 	"" "" 1 "baseBumpAndNormal_type"
+144 	"" "" 1 "baseBump_colorSpace"
+145 	"" "" 1 "baseBump_bumpScale"
+146 	"" "" 1 "baseBump_bumpTexture"
+147 	"" "" 1 "baseBump_wrap"
+148 	"" "" 1 "baseBump_filter"
+149 	"" "" 1 "baseBump_filterWidth"
+150 	"" "" 1 "baseBump_channel"
+151 	"" "" 1 "baseBump_imagePlane"
+152 	"" "" 1 "baseNormal_colorspace"
+153 	"" "" 1 "baseNormal_vectorSpace"
+154 	"" "" 1 "baseNormal_scale"
+155 	"" "" 1 "baseNormal_texture"
+156 	"" "" 1 "baseNormal_wrap"
+157 	"" "" 1 "baseNormal_filter"
+158 	"" "" 1 "baseNormal_filterWidth"
+159 	"" "" 1 "baseNormal_channel"
+160 	"" "" 1 "baseNormal_imagePlane"
+161 	"" "" 1 "baseNormal_space"
+162 	"" "" 1 "baseNormal_flipX"
+163 	"" "" 1 "baseNormal_flipY"
+164 	"" "" 1 "separateCoatNormals"
+165 	"" "" 1 "coatBumpAndNormal_enable"
+166 	"" "" 1 "coatBumpAndNormal_type"
+167 	"" "" 1 "coatBump_colorSpace"
+168 	"" "" 1 "coatBump_bumpScale"
+169 	"" "" 1 "coatBump_bumpTexture"
+170 	"" "" 1 "coatBump_wrap"
+171 	"" "" 1 "coatBump_filter"
+172 	"" "" 1 "coatBump_filterWidth"
+173 	"" "" 1 "coatBump_channel"
+174 	"" "" 1 "coatBump_imagePlane"
+175 	"" "" 1 "coatNormal_colorspace"
+176 	"" "" 1 "coatNormal_vectorSpace"
+177 	"" "" 1 "coatNormal_scale"
+178 	"" "" 1 "coatNormal_texture"
+179 	"" "" 1 "coatNormal_wrap"
+180 	"" "" 1 "coatNormal_filter"
+181 	"" "" 1 "coatNormal_filterWidth"
+182 	"" "" 1 "coatNormal_channel"
+183 	"" "" 1 "coatNormal_imagePlane"
+184 	"" "" 1 "coatNormal_space"
+185 	"" "" 1 "coatNormal_flipX"
+186 	"" "" 1 "coatNormal_flipY"
+187 	"" "" 1 "dispInput_enable"
+188 	"" "" 1 "dispInput_max"
+189 	"" "" 1 "dispInput_vectorspace"
+190 	"" "" 1 "dispTex_enable"
+191 	"" "" 1 "dispTex_type"
+192 	"" "" 1 "dispTex_colorSpace"
+193 	"" "" 1 "dispTex_vectorSpace"
+194 	"" "" 1 "dispTex_channelOrder"
+195 	"" "" 1 "dispTex_offset"
+196 	"" "" 1 "dispTex_scale"
+197 	"" "" 1 "dispTex_texture"
+198 	"" "" 1 "dispTex_channel"
+199 	"" "" 1 "dispTex_wrap"
+200 	"" "" 1 "dispTex_filter"
+201 	"" "" 1 "dispTex_filterWidth"
+202 	"" "" 1 "dispNoise_enable"
+203 	"" "" 1 "dispNoise_type"
+204 	"" "" 1 "dispNoise_freq"
+205 	"" "" 1 "dispNoise_offset"
+206 	"" "" 1 "dispNoise_amp"
+207 	"" "" 1 "dispNoise_rough"
+208 	"" "" 1 "dispNoise_atten"
+209 	"" "" 1 "dispNoise_turb"
+210 	"" "" 1 "difflabel"
+211 	"" "" 1 "refllabel"
+212 	"" "" 1 "refractlabel"
+213 	"" "" 1 "coatlabel"
+214 	"" "" 1 "ssslabel"
+215 	"" "" 1 "uvtrans"
+216 	"" "" 1 "uvrot"
+217 	"" "" 1 "uvscale"
+218 	"" "" 1 "baseN"
+219 	"" "" 1 "coatN"
+220 	"" "" 1 "disp"
+221 	"" "" 1 "vdisp"
+222 	"" "" 1 "opacpointalpha"
+223 	"" "" 1 "roundedEdge_enable"
+224 	"" "" 1 "roundedEdge_radius"
+225 	"" "" 1 "roundedEdge_mode"
+226 	"" "" 1 "opacpackedalpha"
+}
+inputs
+{
+0 	"" 0 1
+1 	"" 0 1
+2 	"" 0 1
+3 	"" 0 1
+4 	"" 0 1
+5 	"" 0 1
+6 	"" 0 1
+7 	"" 0 1
+8 	"" 0 1
+9 	"" 0 1
+10 	"" 0 1
+11 	"" 0 1
+12 	"" 0 1
+13 	"" 0 1
+14 	"" 0 1
+15 	"" 0 1
+16 	"" 0 1
+17 	"" 0 1
+18 	"" 0 1
+19 	"" 0 1
+20 	"" 0 1
+21 	"" 0 1
+22 	"" 0 1
+23 	"" 0 1
+24 	"" 0 1
+25 	"" 0 1
+26 	"" 0 1
+27 	"" 0 1
+28 	"" 0 1
+29 	"" 0 1
+30 	"" 0 1
+31 	"" 0 1
+32 	"" 0 1
+33 	"" 0 1
+34 	"" 0 1
+35 	"" 0 1
+36 	"" 0 1
+37 	"" 0 1
+38 	"" 0 1
+39 	"" 0 1
+40 	"" 0 1
+41 	"" 0 1
+42 	"" 0 1
+43 	"" 0 1
+44 	"" 0 1
+45 	"" 0 1
+46 	"" 0 1
+47 	"" 0 1
+48 	"" 0 1
+49 	"" 0 1
+50 	"" 0 1
+51 	"" 0 1
+52 	"" 0 1
+53 	"" 0 1
+54 	"" 0 1
+55 	"" 0 1
+56 	"" 0 1
+57 	"" 0 1
+58 	"" 0 1
+59 	"" 0 1
+60 	"" 0 1
+61 	"" 0 1
+62 	"" 0 1
+63 	"" 0 1
+64 	"" 0 1
+65 	"" 0 1
+66 	"" 0 1
+67 	"" 0 1
+68 	"" 0 1
+69 	"" 0 1
+70 	"" 0 1
+71 	"" 0 1
+72 	"" 0 1
+73 	"" 0 1
+74 	"" 0 1
+75 	"" 0 1
+76 	"" 0 1
+77 	"" 0 1
+78 	"" 0 1
+79 	"" 0 1
+80 	"" 0 1
+81 	"" 0 1
+82 	"" 0 1
+83 	"" 0 1
+84 	"" 0 1
+85 	"" 0 1
+86 	"" 0 1
+87 	"" 0 1
+88 	"" 0 1
+89 	"" 0 1
+90 	"" 0 1
+91 	"" 0 1
+92 	"" 0 1
+93 	"" 0 1
+94 	"" 0 1
+95 	"" 0 1
+96 	"" 0 1
+97 	"" 0 1
+98 	"" 0 1
+99 	"" 0 1
+100 	"" 0 1
+101 	"" 0 1
+102 	"" 0 1
+103 	"" 0 1
+104 	"" 0 1
+105 	"" 0 1
+106 	"" 0 1
+107 	"" 0 1
+108 	"" 0 1
+109 	"" 0 1
+110 	"" 0 1
+111 	"" 0 1
+112 	"" 0 1
+113 	"" 0 1
+114 	"" 0 1
+115 	"" 0 1
+116 	"" 0 1
+117 	"" 0 1
+118 	"" 0 1
+119 	"" 0 1
+120 	"" 0 1
+121 	"" 0 1
+122 	"" 0 1
+123 	"" 0 1
+124 	"" 0 1
+125 	"" 0 1
+126 	"" 0 1
+127 	"" 0 1
+128 	"" 0 1
+129 	"" 0 1
+130 	"" 0 1
+131 	"" 0 1
+132 	"" 0 1
+133 	"" 0 1
+134 	"" 0 1
+135 	"" 0 1
+136 	"" 0 1
+137 	"" 0 1
+138 	"" 0 1
+139 	"" 0 1
+140 	"" 0 1
+141 	"" 0 1
+142 	"" 0 1
+143 	"" 0 1
+144 	"" 0 1
+145 	"" 0 1
+146 	"" 0 1
+147 	"" 0 1
+148 	"" 0 1
+149 	"" 0 1
+150 	"" 0 1
+151 	"" 0 1
+152 	"" 0 1
+153 	"" 0 1
+154 	"" 0 1
+155 	"" 0 1
+156 	"" 0 1
+157 	"" 0 1
+158 	"" 0 1
+159 	"" 0 1
+160 	"" 0 1
+161 	"" 0 1
+162 	"" 0 1
+163 	"" 0 1
+164 	"" 0 1
+165 	"" 0 1
+166 	"" 0 1
+167 	"" 0 1
+168 	"" 0 1
+169 	"" 0 1
+170 	"" 0 1
+171 	"" 0 1
+172 	"" 0 1
+173 	"" 0 1
+174 	"" 0 1
+175 	"" 0 1
+176 	"" 0 1
+177 	"" 0 1
+178 	"" 0 1
+179 	"" 0 1
+180 	"" 0 1
+181 	"" 0 1
+182 	"" 0 1
+183 	"" 0 1
+184 	"" 0 1
+185 	"" 0 1
+186 	"" 0 1
+187 	"" 0 1
+188 	"" 0 1
+189 	"" 0 1
+190 	"" 0 1
+191 	"" 0 1
+192 	"" 0 1
+193 	"" 0 1
+194 	"" 0 1
+195 	"" 0 1
+196 	"" 0 1
+197 	"" 0 1
+198 	"" 0 1
+199 	"" 0 1
+200 	"" 0 1
+201 	"" 0 1
+202 	"" 0 1
+203 	"" 0 1
+204 	"" 0 1
+205 	"" 0 1
+206 	"" 0 1
+207 	"" 0 1
+208 	"" 0 1
+209 	"" 0 1
+210 	"" 0 1
+211 	"" 0 1
+212 	"" 0 1
+213 	"" 0 1
+214 	"" 0 1
+215 	"" 0 1
+216 	"" 0 1
+217 	"" 0 1
+218 	"" 0 1
+219 	"" 0 1
+220 	"" 0 1
+221 	"" 0 1
+222 	"" 0 1
+223 	"" 0 1
+224 	"" 0 1
+225 	"" 0 1
+226 	"" 0 1
+}
+stat
+{
+  create 1509396313
+  modify 1532527040
+  author MAINGEAR@DESKTOP-P98C1VA
+  access 0777
+}
+color UT_Color RGB 0.8 0.8 0.8 
+delscript ""
+exprlanguage hscript
+end
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/sop_simple_baker1/matnet1/principledshader1.chn"
+Content-Type: text/plain
+
+{
+    channel speccolorr {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = ch(\"basecolorr\") }
+    }
+    channel speccolorg {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = ch(\"basecolorg\") }
+    }
+    channel speccolorb {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = ch(\"basecolorb\") }
+    }
+    channel specular_tint {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = ch(\"metallic\")+(1-ch(\"metallic\"))*ch(\"reflecttint\") }
+    }
+    channel baseBump_useTexture {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = "ch(\"baseBumpAndNormal_enable\") && strcmp(chs(\"baseBumpAndNormal_type\"), \"bump\") == 0" }
+    }
+    channel baseNormal_useTexture {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = "ch(\"baseBumpAndNormal_enable\") && strcmp(chs(\"baseBumpAndNormal_type\"), \"normal\") == 0" }
+    }
+    channel shop_disable_displace_shader {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = "!ch(\"dispInput_enable\") && !ch(\"dispTex_enable\") && !ch(\"dispNoise_enable\")" }
+    }
+    channel vm_displacebound {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = "1.01*ch(\"dispInput_enable\")*ch(\"dispInput_max\") + ch(\"dispTex_enable\")*max(abs((1.0+ch(\"dispTex_offset\"))*ch(\"dispTex_scale\")), abs(ch(\"dispTex_offset\")*ch(\"dispTex_scale\"))) + ch(\"dispNoise_enable\")*abs(ch(\"dispNoise_amp\"))" }
+    }
+    channel basecolorr {
+      lefttype = extend
+      righttype = extend
+      default = 0.40000000000000002
+      flags = 0
+      segment { length = 0 value = 0.40000000000000002 0.40000000000000002 expr = ch(\"../../basecolorr\") }
+    }
+    channel basecolorg {
+      lefttype = extend
+      righttype = extend
+      default = 0.40000000000000002
+      flags = 0
+      segment { length = 0 value = 0.40000000000000002 0.40000000000000002 expr = ch(\"../../basecolorg\") }
+    }
+    channel basecolorb {
+      lefttype = extend
+      righttype = extend
+      default = 0.40000000000000002
+      flags = 0
+      segment { length = 0 value = 0.40000000000000002 0.40000000000000002 expr = ch(\"../../basecolorb\") }
+    }
+    channel ior {
+      lefttype = extend
+      righttype = extend
+      default = 1.52
+      flags = 0
+      segment { length = 0 value = 1.52 1.52 expr = ch(\"../../ior\") }
+    }
+    channel rough {
+      lefttype = extend
+      righttype = extend
+      default = 0.51800000000000002
+      flags = 0
+      segment { length = 0 value = 0.51800000000000002 0.51800000000000002 expr = ch(\"../../rough\") }
+    }
+  }
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/sop_simple_baker1/matnet1/principledshader1.parm"
+Content-Type: text/plain
+
+{
+version 0.8
+specmodel	[ 0	locks=0 ]	(	ggx	)
+coatspecmodel	[ 0	locks=0 ]	(	ggx	)
+speccolor	[ 0	locks=0 ]	(	[ speccolorr	0.40000000000000002 ] 	[ speccolorg	0.40000000000000002 ] 	[ speccolorb	0.40000000000000002 ] 	)
+specular_tint	[ 0	locks=0 ]	(	[ specular_tint	0 ] 	)
+diffuse_folder_15	[ 0	locks=0 ]	(	3	3	3	3	3	3	)
+folder7	[ 0	locks=0 ]	(	0	)
+basecolor	[ 0	locks=0 ]	(	[ basecolorr	0.40000000000000002 ] 	[ basecolorg	0.40000000000000002 ] 	[ basecolorb	0.40000000000000002 ] 	)
+basecolor_usePointColor	[ 0	locks=0 ]	(	"on"	)
+basecolor_usePackedColor	[ 0	locks=0 ]	(	"off"	)
+frontface	[ 0	locks=0 ]	(	"on"	)
+folder4	[ 0	locks=0 ]	(	0	)
+ior	[ 0	locks=0 ]	(	[ ior	1.52 ] 	)
+rough	[ 0	locks=0 ]	(	[ rough	0.51800000000000002 ] 	)
+aniso	[ 0	locks=0 ]	(	0	)
+anisodir	[ 0	locks=0 ]	(	0	)
+folder12	[ 0	locks=0 ]	(	0	)
+metallic	[ 0	locks=0 ]	(	0	)
+reflect	[ 0	locks=0 ]	(	1	)
+reflecttint	[ 0	locks=0 ]	(	0	)
+coat	[ 0	locks=0 ]	(	0	)
+coatrough	[ 0	locks=0 ]	(	0	)
+folder13	[ 0	locks=0 ]	(	0	)
+transparency	[ 0	locks=0 ]	(	0	)
+transcolor	[ 0	locks=0 ]	(	1	1	1	)
+transdist	[ 0	locks=0 ]	(	0.10000000000000001	)
+dispersion	[ 0	locks=0 ]	(	0	)
+priority	[ 0	locks=0 ]	(	0	)
+folder8	[ 0	locks=0 ]	(	0	)
+sss	[ 0	locks=0 ]	(	0	)
+sssmodel	[ 0	locks=0 ]	(	pbrsss	)
+sssdist	[ 0	locks=0 ]	(	0.10000000000000001	)
+ssscolor	[ 0	locks=0 ]	(	1	1	1	)
+sssphase	[ 0	locks=0 ]	(	0	)
+folder11	[ 0	locks=0 ]	(	0	)
+sheen	[ 0	locks=0 ]	(	0	)
+sheentint	[ 0	locks=0 ]	(	0	)
+folder9	[ 0	locks=0 ]	(	0	)
+emitcolor	[ 0	locks=0 ]	(	0	0	0	)
+emitint	[ 0	locks=0 ]	(	1	)
+emitillum	[ 0	locks=0 ]	(	"on"	)
+folder15	[ 0	locks=0 ]	(	0	)
+opac	[ 0	locks=0 ]	(	1	)
+opaccolor	[ 0	locks=0 ]	(	1	1	1	)
+opacpointalpha	[ 0	locks=0 ]	(	"on"	)
+opacpackedalpha	[ 0	locks=0 ]	(	"off"	)
+folder6	[ 0	locks=0 ]	(	0	)
+fakecausticsenabled	[ 0	locks=0 ]	(	"off"	)
+fakecausticstransmit	[ 0	locks=0 ]	(	1	)
+fakecausticsshadow	[ 0	locks=0 ]	(	1	)
+fakecausticsopacity	[ 0	locks=0 ]	(	0	)
+folder54	[ 0	locks=0 ]	(	0	)
+basecolor_useTexture	[ 0	locks=0 ]	(	"on"	)
+basecolor_texture	[ 8	locks=0 ]	(	"`strreplace(chs(\"../../base_path\"), \"$(CHANNEL)\", chs(\"../../visualize_channel\"))`"	)
+basecolor_textureIntensity	[ 8	locks=0 ]	(	0	)
+basecolor_textureWrap	[ 0	locks=0 ]	(	repeat	)
+basecolor_textureColorSpace	[ 0	locks=0 ]	(	auto	)
+folder1	[ 0	locks=0 ]	(	0	)
+ior_useTexture	[ 0	locks=0 ]	(	"off"	)
+ior_texture	[ 0	locks=0 ]	(	""	)
+ior_monoChannel	[ 0	locks=0 ]	(	0	)
+ior_textureWrap	[ 0	locks=0 ]	(	repeat	)
+ior_textureColorSpace	[ 0	locks=0 ]	(	linear	)
+folder227	[ 0	locks=0 ]	(	0	)
+rough_useTexture	[ 0	locks=0 ]	(	"off"	)
+rough_texture	[ 0	locks=0 ]	(	""	)
+rough_monoChannel	[ 0	locks=0 ]	(	0	)
+rough_textureWrap	[ 0	locks=0 ]	(	repeat	)
+rough_textureColorSpace	[ 0	locks=0 ]	(	linear	)
+folder228	[ 0	locks=0 ]	(	0	)
+aniso_useTexture	[ 0	locks=0 ]	(	"off"	)
+aniso_texture	[ 0	locks=0 ]	(	""	)
+aniso_monoChannel	[ 0	locks=0 ]	(	0	)
+aniso_textureWrap	[ 0	locks=0 ]	(	repeat	)
+aniso_textureColorSpace	[ 0	locks=0 ]	(	linear	)
+folder229	[ 0	locks=0 ]	(	0	)
+anisodir_useTexture	[ 0	locks=0 ]	(	"off"	)
+anisodir_texture	[ 0	locks=0 ]	(	""	)
+anisodir_monoChannel	[ 0	locks=0 ]	(	0	)
+anisodir_textureWrap	[ 0	locks=0 ]	(	repeat	)
+anisodir_textureColorSpace	[ 0	locks=0 ]	(	linear	)
+anisodir_textureFilter	[ 0	locks=0 ]	(	point	)
+folder55	[ 0	locks=0 ]	(	0	)
+metallic_useTexture	[ 0	locks=0 ]	(	"off"	)
+metallic_texture	[ 0	locks=0 ]	(	""	)
+metallic_monoChannel	[ 0	locks=0 ]	(	0	)
+metallic_textureWrap	[ 0	locks=0 ]	(	repeat	)
+metallic_textureColorSpace	[ 0	locks=0 ]	(	linear	)
+folder16	[ 0	locks=0 ]	(	0	)
+reflect_useTexture	[ 0	locks=0 ]	(	"off"	)
+reflect_texture	[ 0	locks=0 ]	(	""	)
+reflect_monoChannel	[ 0	locks=0 ]	(	0	)
+reflect_textureWrap	[ 0	locks=0 ]	(	repeat	)
+reflect_textureColorSpace	[ 0	locks=0 ]	(	linear	)
+folder226	[ 0	locks=0 ]	(	0	)
+reflecttint_useTexture	[ 0	locks=0 ]	(	"off"	)
+reflecttint_texture	[ 0	locks=0 ]	(	""	)
+reflecttint_monoChannel	[ 0	locks=0 ]	(	0	)
+reflecttint_textureWrap	[ 0	locks=0 ]	(	repeat	)
+reflecttint_textureColorSpace	[ 0	locks=0 ]	(	linear	)
+folder233	[ 0	locks=0 ]	(	0	)
+coat_useTexture	[ 0	locks=0 ]	(	"off"	)
+coat_texture	[ 0	locks=0 ]	(	""	)
+coat_monoChannel	[ 0	locks=0 ]	(	0	)
+coat_textureWrap	[ 0	locks=0 ]	(	repeat	)
+coat_textureColorSpace	[ 0	locks=0 ]	(	linear	)
+folder234	[ 0	locks=0 ]	(	0	)
+coatrough_useTexture	[ 0	locks=0 ]	(	"off"	)
+coatrough_texture	[ 0	locks=0 ]	(	""	)
+coatrough_monoChannel	[ 0	locks=0 ]	(	0	)
+coatrough_textureWrap	[ 0	locks=0 ]	(	repeat	)
+coatrough_textureColorSpace	[ 0	locks=0 ]	(	linear	)
+folder2	[ 0	locks=0 ]	(	0	)
+transparency_useTexture	[ 0	locks=0 ]	(	"off"	)
+transparency_texture	[ 0	locks=0 ]	(	""	)
+transparency_monoChannel	[ 0	locks=0 ]	(	0	)
+transparency_textureWrap	[ 0	locks=0 ]	(	repeat	)
+transparency_textureColorSpace	[ 0	locks=0 ]	(	linear	)
+folder5	[ 0	locks=0 ]	(	0	)
+transcolor_useTexture	[ 0	locks=0 ]	(	"off"	)
+transcolor_texture	[ 0	locks=0 ]	(	""	)
+transcolor_textureIntensity	[ 0	locks=0 ]	(	1	)
+transcolor_textureWrap	[ 0	locks=0 ]	(	repeat	)
+transcolor_textureColorSpace	[ 0	locks=0 ]	(	auto	)
+folder5_1	[ 0	locks=0 ]	(	0	)
+transdist_useTexture	[ 0	locks=0 ]	(	"off"	)
+transdist_texture	[ 0	locks=0 ]	(	""	)
+transdist_monoChannel	[ 0	locks=0 ]	(	0	)
+transdist_textureWrap	[ 0	locks=0 ]	(	repeat	)
+transdist_textureColorSpace	[ 0	locks=0 ]	(	linear	)
+folder5_2	[ 0	locks=0 ]	(	0	)
+dispersion_useTexture	[ 0	locks=0 ]	(	"off"	)
+dispersion_texture	[ 0	locks=0 ]	(	""	)
+dispersion_monoChannel	[ 0	locks=0 ]	(	0	)
+dispersion_textureWrap	[ 0	locks=0 ]	(	repeat	)
+dispersion_textureColorSpace	[ 0	locks=0 ]	(	linear	)
+folder230	[ 0	locks=0 ]	(	0	)
+sss_useTexture	[ 0	locks=0 ]	(	"off"	)
+sss_texture	[ 0	locks=0 ]	(	""	)
+sss_monoChannel	[ 0	locks=0 ]	(	0	)
+sss_textureWrap	[ 0	locks=0 ]	(	repeat	)
+sss_textureColorSpace	[ 0	locks=0 ]	(	linear	)
+folder3	[ 0	locks=0 ]	(	0	)
+sssdist_useTexture	[ 0	locks=0 ]	(	"off"	)
+sssdist_texture	[ 0	locks=0 ]	(	""	)
+sssdist_monoChannel	[ 0	locks=0 ]	(	0	)
+sssdist_textureWrap	[ 0	locks=0 ]	(	repeat	)
+sssdist_textureColorSpace	[ 0	locks=0 ]	(	linear	)
+folder3_1	[ 0	locks=0 ]	(	0	)
+ssscolor_useTexture	[ 0	locks=0 ]	(	"off"	)
+ssscolor_texture	[ 0	locks=0 ]	(	""	)
+ssscolor_textureWrap	[ 0	locks=0 ]	(	repeat	)
+ssscolor_textureColorSpace	[ 0	locks=0 ]	(	linear	)
+folder231	[ 0	locks=0 ]	(	0	)
+sheen_useTexture	[ 0	locks=0 ]	(	"off"	)
+sheen_texture	[ 0	locks=0 ]	(	""	)
+sheen_monoChannel	[ 0	locks=0 ]	(	0	)
+sheen_textureWrap	[ 0	locks=0 ]	(	repeat	)
+sheen_textureColorSpace	[ 0	locks=0 ]	(	linear	)
+folder232	[ 0	locks=0 ]	(	0	)
+sheentint_useTexture	[ 0	locks=0 ]	(	"off"	)
+sheentint_texture	[ 0	locks=0 ]	(	""	)
+sheentint_monoChannel	[ 0	locks=0 ]	(	0	)
+sheentint_textureWrap	[ 0	locks=0 ]	(	repeat	)
+sheentint_textureColorSpace	[ 0	locks=0 ]	(	linear	)
+diffuse_folder_14_3	[ 0	locks=0 ]	(	0	)
+emitcolor_useTexture	[ 0	locks=0 ]	(	"off"	)
+emitcolor_texture	[ 0	locks=0 ]	(	""	)
+emitcolor_textureIntensity	[ 0	locks=0 ]	(	1	)
+emitcolor_textureWrap	[ 0	locks=0 ]	(	repeat	)
+emitcolor_textureColorSpace	[ 0	locks=0 ]	(	repeat	)
+folder14	[ 0	locks=0 ]	(	0	)
+opaccolor_useTexture	[ 0	locks=0 ]	(	"off"	)
+opaccolor_texture	[ 0	locks=0 ]	(	""	)
+opaccolor_textureWrap	[ 0	locks=0 ]	(	repeat	)
+opaccolor_textureIntensity	[ 0	locks=0 ]	(	1	)
+opaccolor_textureColorSpace	[ 0	locks=0 ]	(	repeat	)
+folder235	[ 0	locks=0 ]	(	0	)
+surface_textureFilter	[ 0	locks=0 ]	(	catrom	)
+surface_textureFilterWidth	[ 0	locks=0 ]	(	1	)
+roundedEdge_enable	[ 0	locks=0 ]	(	"off"	)
+roundedEdge_radius	[ 0	locks=0 ]	(	0.01	)
+roundedEdge_mode	[ 0	locks=0 ]	(	0	)
+shading_16	[ 0	locks=0 ]	(	0	0	)
+baseBumpAndNormal_enable	[ 0	locks=0 ]	(	"on"	)
+baseBumpAndNormal_type	[ 0	locks=0 ]	(	normal	)
+baseBump_colorSpace	[ 0	locks=0 ]	(	linear	)
+baseBump_bumpScale	[ 0	locks=0 ]	(	0.050000000000000003	)
+baseBump_bumpTexture	[ 0	locks=0 ]	(	""	)
+baseBump_wrap	[ 0	locks=0 ]	(	repeat	)
+baseBump_filter	[ 0	locks=0 ]	(	gauss	)
+baseBump_filterWidth	[ 0	locks=0 ]	(	1	)
+baseBump_channel	[ 0	locks=0 ]	(	0	)
+baseBump_imagePlane	[ 0	locks=0 ]	(	""	)
+baseNormal_colorspace	[ 0	locks=0 ]	(	linear	)
+baseNormal_vectorSpace	[ 0	locks=0 ]	(	uvtangent	)
+baseNormal_scale	[ 0	locks=0 ]	(	1	)
+baseNormal_texture	[ 0	locks=0 ]	(	"`strreplace(chs(\"../../base_path\"), \"$(CHANNEL)\", \"normal\")`"	)
+baseNormal_wrap	[ 0	locks=0 ]	(	repeat	)
+baseNormal_filter	[ 0	locks=0 ]	(	gauss	)
+baseNormal_filterWidth	[ 0	locks=0 ]	(	1	)
+baseNormal_channel	[ 0	locks=0 ]	(	0	)
+baseNormal_imagePlane	[ 0	locks=0 ]	(	""	)
+baseNormal_space	[ 0	locks=0 ]	(	0	)
+baseNormal_flipX	[ 0	locks=0 ]	(	"off"	)
+baseNormal_flipY	[ 0	locks=0 ]	(	"on"	)
+baseBump_useTexture	[ 0	locks=0 ]	(	[ baseBump_useTexture	0 ] 	)
+baseNormal_useTexture	[ 0	locks=0 ]	(	[ baseNormal_useTexture	1 ] 	)
+separateCoatNormals	[ 0	locks=0 ]	(	"off"	)
+coatBumpAndNormal_enable	[ 0	locks=0 ]	(	"on"	)
+coatBumpAndNormal_type	[ 0	locks=0 ]	(	normal	)
+coatBump_colorSpace	[ 0	locks=0 ]	(	linear	)
+coatBump_bumpScale	[ 0	locks=0 ]	(	0.050000000000000003	)
+coatBump_bumpTexture	[ 0	locks=0 ]	(	""	)
+coatBump_wrap	[ 0	locks=0 ]	(	repeat	)
+coatBump_filter	[ 0	locks=0 ]	(	gauss	)
+coatBump_filterWidth	[ 0	locks=0 ]	(	1	)
+coatBump_channel	[ 0	locks=0 ]	(	0	)
+coatBump_imagePlane	[ 0	locks=0 ]	(	""	)
+coatNormal_colorspace	[ 0	locks=0 ]	(	linear	)
+coatNormal_vectorSpace	[ 0	locks=0 ]	(	uvtangent	)
+coatNormal_scale	[ 0	locks=0 ]	(	1	)
+coatNormal_texture	[ 0	locks=0 ]	(	""	)
+coatNormal_wrap	[ 0	locks=0 ]	(	repeat	)
+coatNormal_filter	[ 0	locks=0 ]	(	gauss	)
+coatNormal_filterWidth	[ 0	locks=0 ]	(	1	)
+coatNormal_channel	[ 0	locks=0 ]	(	0	)
+coatNormal_imagePlane	[ 0	locks=0 ]	(	""	)
+coatNormal_space	[ 0	locks=0 ]	(	0	)
+coatNormal_flipX	[ 0	locks=0 ]	(	"off"	)
+coatNormal_flipY	[ 0	locks=0 ]	(	"off"	)
+shop_disable_displace_shader	[ 0	locks=0 ]	(	[ shop_disable_displace_shader	1 ] 	)
+folder236	[ 0	locks=0 ]	(	0	)
+vm_displacebound	[ 0	locks=0 ]	(	[ vm_displacebound	0 ] 	)
+vm_truedisplace	[ 0	locks=0 ]	(	"on"	)
+vm_bumpraydisplace	[ 0	locks=0 ]	(	"on"	)
+folder10	[ 0	locks=0 ]	(	0	)
+dispInput_enable	[ 0	locks=0 ]	(	"off"	)
+dispInput_max	[ 0	locks=0 ]	(	1	)
+dispInput_vectorspace	[ 0	locks=0 ]	(	uvtangent	)
+folder237	[ 0	locks=0 ]	(	0	)
+dispTex_enable	[ 0	locks=0 ]	(	"off"	)
+dispTex_type	[ 0	locks=0 ]	(	disp	)
+dispTex_colorSpace	[ 0	locks=0 ]	(	linear	)
+dispTex_vectorSpace	[ 0	locks=0 ]	(	uvtangent	)
+dispTex_channelOrder	[ 0	locks=0 ]	(	xyz	)
+dispTex_offset	[ 0	locks=0 ]	(	-0.5	)
+dispTex_scale	[ 0	locks=0 ]	(	0.050000000000000003	)
+dispTex_texture	[ 0	locks=0 ]	(	""	)
+dispTex_channel	[ 0	locks=0 ]	(	0	)
+dispTex_wrap	[ 0	locks=0 ]	(	repeat	)
+dispTex_filter	[ 0	locks=0 ]	(	gauss	)
+dispTex_filterWidth	[ 0	locks=0 ]	(	1	)
+folder238	[ 0	locks=0 ]	(	0	)
+dispNoise_enable	[ 0	locks=0 ]	(	"off"	)
+dispNoise_type	[ 0	locks=0 ]	(	xnoise	)
+dispNoise_freq	[ 0	locks=0 ]	(	10	10	10	)
+dispNoise_offset	[ 0	locks=0 ]	(	0	0	0	)
+dispNoise_amp	[ 0	locks=0 ]	(	1	)
+dispNoise_rough	[ 0	locks=0 ]	(	0.5	)
+dispNoise_atten	[ 0	locks=0 ]	(	1	)
+dispNoise_turb	[ 0	locks=0 ]	(	5	)
+folder239	[ 0	locks=0 ]	(	0	)
+difflabel	[ 0	locks=0 ]	(	diffuse	)
+refllabel	[ 0	locks=0 ]	(	reflect	)
+refractlabel	[ 0	locks=0 ]	(	refract	)
+coatlabel	[ 0	locks=0 ]	(	coat	)
+ssslabel	[ 0	locks=0 ]	(	sss	)
+folder0	[ 0	locks=0 ]	(	0	)
+uvtrans	[ 0	locks=0 ]	(	0	0	)
+uvrot	[ 0	locks=0 ]	(	0	)
+uvscale	[ 0	locks=0 ]	(	1	1	)
+Cd	[ 0	locks=0 ]	(	1	1	1	)
+Alpha	[ 0	locks=0 ]	(	1	)
+layer	[ 0	locks=0 ]	(	""	)
+direct	[ 0	locks=0 ]	(	0	0	0	)
+indirect	[ 0	locks=0 ]	(	0	0	0	)
+Ce	[ 0	locks=0 ]	(	0	0	0	)
+direct_emission	[ 0	locks=0 ]	(	0	0	0	)
+all_emission	[ 0	locks=0 ]	(	0	0	0	)
+all	[ 0	locks=0 ]	(	0	0	0	)
+indirect_emission	[ 0	locks=0 ]	(	0	0	0	)
+direct_comp	[ 0	locks=0 ]	(	""	)
+indirect_comp	[ 0	locks=0 ]	(	""	)
+all_comp	[ 0	locks=0 ]	(	""	)
+direct_noshadow	[ 0	locks=0 ]	(	0	0	0	)
+direct_shadow	[ 0	locks=0 ]	(	0	0	0	)
+indirect_noshadow	[ 0	locks=0 ]	(	0	0	0	)
+indirect_shadow	[ 0	locks=0 ]	(	0	0	0	)
+level	[ 0	locks=0 ]	(	0	)
+diffuselevel	[ 0	locks=0 ]	(	0	)
+specularlevel	[ 0	locks=0 ]	(	0	)
+volumelevel	[ 0	locks=0 ]	(	0	)
+direct_samples	[ 0	locks=0 ]	(	0	)
+indirect_samples	[ 0	locks=0 ]	(	0	)
+nlights	[ 0	locks=0 ]	(	0	)
+direct_noshadow_comp	[ 0	locks=0 ]	(	""	)
+indirect_noshadow_comp	[ 0	locks=0 ]	(	""	)
+nddispersion	[ 0	locks=0 ]	(	0	)
+ndpriority	[ 0	locks=0 ]	(	0	)
+ndior	[ 0	locks=0 ]	(	0	)
+absorption	[ 0	locks=0 ]	(	0	0	0	)
+Oc	[ 0	locks=0 ]	(	0	0	0	)
+Cv	[ 0	locks=0 ]	(	0	0	0	)
+Th	[ 0	locks=0 ]	(	0	0	0	)
+Ab	[ 0	locks=0 ]	(	0	0	0	)
+Cu	[ 0	locks=0 ]	(	0	0	0	)
+Vd	[ 0	locks=0 ]	(	0	0	0	)
+Nt	[ 0	locks=0 ]	(	0	0	0	)
+Ds	[ 0	locks=0 ]	(	0	0	0	)
+pre_disp_P	[ 0	locks=0 ]	(	0	0	0	)
+pre_disp_utan	[ 0	locks=0 ]	(	0	0	0	)
+pre_disp_vtan	[ 0	locks=0 ]	(	0	0	0	)
+pre_disp_N	[ 0	locks=0 ]	(	0	0	0	)
+disp	[ 0	locks=0 ]	(	0	)
+vdisp	[ 0	locks=0 ]	(	0	0	0	)
+Dt	[ 0	locks=0 ]	(	0	0	0	)
+Vdt	[ 0	locks=0 ]	(	0	0	0	)
+baseN	[ 0	locks=0 ]	(	0	0	0	)
+coatN	[ 0	locks=0 ]	(	0	0	0	)
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/sop_simple_baker1/matnet1/principledshader1.userdata"
+Content-Type: text/plain
+
+{
+	"___Version___":{
+		"type":"string",
+		"value":""
+	},
+	"___toolcount___":{
+		"type":"string",
+		"value":"176"
+	},
+	"___toolid___":{
+		"type":"string",
+		"value":"convertGallery"
+	},
+	"__inputgroup_Bump & Normals":{
+		"type":"string",
+		"value":"collapsed"
+	},
+	"__inputgroup_Displacement":{
+		"type":"string",
+		"value":"collapsed"
+	},
+	"__inputgroup_Opacity":{
+		"type":"string",
+		"value":"collapsed"
+	},
+	"__inputgroup_Settings":{
+		"type":"string",
+		"value":"collapsed"
+	},
+	"__inputgroup_Surface":{
+		"type":"string",
+		"value":"collapsed"
+	},
+	"__inputgroup_Textures":{
+		"type":"string",
+		"value":"collapsed"
 	}
 }
 
@@ -4086,7 +5165,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.412"
+		"value":"16.5.503"
 	}
 }
 
@@ -4119,7 +5198,7 @@ inputs
 stat
 {
   create 1496780594
-  modify 1526916330
+  modify 1532527035
   author Luiz@Luiz-PC
   access 0777
 }
@@ -4165,7 +5244,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.412"
+		"value":"16.5.503"
 	}
 }
 
@@ -4239,7 +5318,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.412"
+		"value":"16.5.503"
 	}
 }
 
@@ -4314,7 +5393,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.412"
+		"value":"16.5.503"
 	}
 }
 
@@ -4380,7 +5459,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.412"
+		"value":"16.5.503"
 	}
 }
 
@@ -4444,7 +5523,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.412"
+		"value":"16.5.503"
 	}
 }
 
@@ -5222,7 +6301,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.412"
+		"value":"16.5.503"
 	}
 }
 
@@ -5301,7 +6380,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.412"
+		"value":"16.5.503"
 	}
 }
 
@@ -5376,7 +6455,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.412"
+		"value":"16.5.503"
 	}
 }
 
@@ -5409,7 +6488,7 @@ inputs
 stat
 {
   create 1496780594
-  modify 1526916330
+  modify 1532527035
   author Luiz@Luiz-PC
   access 0777
 }
@@ -5455,7 +6534,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.412"
+		"value":"16.5.503"
 	}
 }
 
@@ -5530,7 +6609,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.412"
+		"value":"16.5.503"
 	}
 }
 
@@ -5595,7 +6674,7 @@ Content-Type: text/plain
 
 {
 version 0.8
-input	[ 8	locks=0 ]	(	[ input	1 ] 	)
+input	[ 8	locks=0 ]	(	[ input	0 ] 	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -5605,7 +6684,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.412"
+		"value":"16.5.503"
 	}
 }
 
@@ -5671,7 +6750,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.412"
+		"value":"16.5.503"
 	}
 }
 
@@ -5735,7 +6814,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.412"
+		"value":"16.5.503"
 	}
 }
 
@@ -5804,7 +6883,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.412"
+		"value":"16.5.503"
 	}
 }
 
@@ -5868,7 +6947,7 @@ Content-Type: text/plain
 
 {
 version 0.8
-input	[ 8	locks=0 ]	(	[ input	0 ] 	)
+input	[ 8	locks=0 ]	(	[ input	1 ] 	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -5878,7 +6957,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.412"
+		"value":"16.5.503"
 	}
 }
 
@@ -6547,7 +7626,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.412"
+		"value":"16.5.503"
 	}
 }
 
@@ -6622,7 +7701,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.412"
+		"value":"16.5.503"
 	}
 }
 
@@ -6708,7 +7787,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.412"
+		"value":"16.5.503"
 	}
 }
 
@@ -6804,7 +7883,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.412"
+		"value":"16.5.503"
 	}
 }
 
@@ -6904,7 +7983,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.412"
+		"value":"16.5.503"
 	}
 }
 
@@ -6979,7 +8058,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.412"
+		"value":"16.5.503"
 	}
 }
 
@@ -7058,7 +8137,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.412"
+		"value":"16.5.503"
 	}
 }
 
@@ -7116,7 +8195,7 @@ inputs
 stat
 {
   create 1496776162
-  modify 1526916348
+  modify 1532527045
   author Luiz@Luiz-PC
   access 0777
 }
@@ -8772,24 +9851,6 @@ vm_quickplane_metallic	[ 8	locks=0 ]	(	[ vm_quickplane_metallic	0 ] 	)
 vm_quickplane_specrough	[ 8	locks=0 ]	(	[ vm_quickplane_specrough	0 ] 	)
 vm_showextraplaneparms	[ 0	locks=0 ]	(	"off"	)
 vm_numaux	[ 0	locks=0 ]	(	1	)
-vm_disable_plane1	[ 0	locks=0 ]	(	"off"	)
-vm_excludedcm_plane1	[ 0	locks=0 ]	(	"off"	)
-vm_variable_plane1	[ 0	locks=0 ]	(	Af	)
-vm_vextype_plane1	[ 0	locks=0 ]	(	float	)
-vm_channel_plane1	[ 0	locks=0 ]	(	alpha	)
-vm_usefile_plane1	[ 0	locks=0 ]	(	"off"	)
-vm_filename_plane1	[ 0	locks=0 ]	(	""	)
-vm_quantize_plane1	[ 0	locks=0 ]	(	half	)
-vm_sfilter_plane1	[ 0	locks=0 ]	(	alpha	)
-vm_pfilter_plane1	[ 0	locks=0 ]	(	""	)
-vm_gamma_plane1	[ 0	locks=0 ]	(	1	)
-vm_gain_plane1	[ 0	locks=0 ]	(	1	)
-vm_dither_plane1	[ 0	locks=0 ]	(	0.5	)
-vm_whitepoint_plane1	[ 0	locks=0 ]	(	1	)
-vm_componentexport1	[ 0	locks=0 ]	(	"off"	)
-vm_lightexport1	[ 0	locks=0 ]	(	0	)
-vm_lightexport_scope1	[ 0	locks=0 ]	(	*	)
-vm_lightexport_select1	[ 0	locks=0 ]	(	*	)
 vm_extractseparator	[ 0	locks=0 ]	(	_	)
 vm_channel_names_seperator_bar	[ 0	locks=0 ]	(	)
 vm_quickplane_Nt_channel	[ 0	locks=0 ]	(	Nt	)
@@ -8841,6 +9902,24 @@ vm_extractlinearplanes	[ 0	locks=0 ]	(	`propertys('vm_quickplane_Nt_channel','Nt
 vm_inlinestorage	[ 0	locks=0 ]	(	"off"	)
 declare_stylesheets	[ 0	locks=0 ]	(	*	)
 apply_stylesheets	[ 0	locks=0 ]	(	opdef:..?stylesheet.json	)
+vm_disable_plane1	[ 0	locks=0 ]	(	"off"	)
+vm_excludedcm_plane1	[ 0	locks=0 ]	(	"off"	)
+vm_variable_plane1	[ 0	locks=0 ]	(	Af	)
+vm_vextype_plane1	[ 0	locks=0 ]	(	float	)
+vm_channel_plane1	[ 0	locks=0 ]	(	alpha	)
+vm_usefile_plane1	[ 0	locks=0 ]	(	"off"	)
+vm_filename_plane1	[ 0	locks=0 ]	(	""	)
+vm_quantize_plane1	[ 0	locks=0 ]	(	half	)
+vm_sfilter_plane1	[ 0	locks=0 ]	(	alpha	)
+vm_pfilter_plane1	[ 0	locks=0 ]	(	""	)
+vm_gamma_plane1	[ 0	locks=0 ]	(	1	)
+vm_gain_plane1	[ 0	locks=0 ]	(	1	)
+vm_dither_plane1	[ 0	locks=0 ]	(	0.5	)
+vm_whitepoint_plane1	[ 0	locks=0 ]	(	1	)
+vm_componentexport1	[ 0	locks=0 ]	(	"off"	)
+vm_lightexport1	[ 0	locks=0 ]	(	0	)
+vm_lightexport_scope1	[ 0	locks=0 ]	(	*	)
+vm_lightexport_select1	[ 0	locks=0 ]	(	*	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -8898,7 +9977,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.412"
+		"value":"16.5.503"
 	}
 }
 
@@ -8930,7 +10009,7 @@ inputs
 stat
 {
   create 1496798847
-  modify 1526916351
+  modify 1532527045
   author Luiz@Luiz-PC
   access 0777
 }
@@ -9013,7 +10092,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.412"
+		"value":"16.5.503"
 	}
 }
 
@@ -9022,7 +10101,7 @@ Content-Disposition: attachment; filename="hdaroot/sop_simple_baker1/ropnet1/rop
 Content-Type: text/plain
 
 2
-731
+720
 0
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -9108,7 +10187,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.412"
+		"value":"16.5.503"
 	}
 }
 
@@ -9178,7 +10257,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.412"
+		"value":"16.5.503"
 	}
 }
 
@@ -9280,7 +10359,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.412"
+		"value":"16.5.503"
 	}
 }
 
@@ -9385,7 +10464,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.412"
+		"value":"16.5.503"
 	}
 }
 
@@ -9477,7 +10556,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.412"
+		"value":"16.5.503"
 	}
 }
 
@@ -9582,7 +10661,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.412"
+		"value":"16.5.503"
 	}
 }
 
@@ -9722,7 +10801,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.412"
+		"value":"16.5.503"
 	}
 }
 
@@ -9827,7 +10906,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.412"
+		"value":"16.5.503"
 	}
 }
 
@@ -9893,7 +10972,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.412"
+		"value":"16.5.503"
 	}
 }
 
@@ -9959,7 +11038,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.412"
+		"value":"16.5.503"
 	}
 }
 
@@ -10050,7 +11129,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.412"
+		"value":"16.5.503"
 	}
 }
 
@@ -10155,7 +11234,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.412"
+		"value":"16.5.503"
 	}
 }
 
@@ -10260,7 +11339,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.412"
+		"value":"16.5.503"
 	}
 }
 
@@ -10365,7 +11444,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.412"
+		"value":"16.5.503"
 	}
 }
 
@@ -10431,7 +11510,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.412"
+		"value":"16.5.503"
 	}
 }
 
@@ -10497,7 +11576,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.412"
+		"value":"16.5.503"
 	}
 }
 
@@ -10575,7 +11654,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.412"
+		"value":"16.5.503"
 	}
 }
 
@@ -10653,7 +11732,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.412"
+		"value":"16.5.503"
 	}
 }
 
@@ -10733,7 +11812,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.412"
+		"value":"16.5.503"
 	}
 }
 
@@ -10810,7 +11889,7 @@ inputs
 stat
 {
   create 1496798868
-  modify 1526916385
+  modify 1532527074
   author Luiz@Luiz-PC
   access 0777
 }
@@ -10904,7 +11983,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.412"
+		"value":"16.5.503"
 	}
 }
 
@@ -12548,7 +13627,7 @@ inputs
 stat
 {
   create 1496798844
-  modify 1526916347
+  modify 1532527042
   author Luiz@Luiz-PC
   access 0777
 }
@@ -12572,7 +13651,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.412"
+		"value":"16.5.503"
 	}
 }
 
@@ -12603,7 +13682,7 @@ inputs
 stat
 {
   create 1496798868
-  modify 1526916360
+  modify 1532527048
   author Luiz@Luiz-PC
   access 0777
 }
@@ -12697,7 +13776,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.412"
+		"value":"16.5.503"
 	}
 }
 
@@ -12722,7 +13801,7 @@ inputs
 stat
 {
   create 1496776162
-  modify 1522865016
+  modify 1522863677
   author Luiz@Luiz-PC
   access 0777
 }
@@ -14167,7 +15246,7 @@ f	[ 8	locks=0 ]	(	1	10	1	)
 take	[ 0	locks=0 ]	(	_current_	)
 camera	[ 0	locks=0 ]	(	"`opfullpath(\"..\") + \"/objnet/cam1\"`"	)
 vm_uvtype	[ 0	locks=0 ]	(	udim	)
-vm_uvunwrapres	[ 8	locks=0 ]	(	[ vm_uvunwrapresx	2048 ] 	[ vm_uvunwrapresy	2048 ] 	)
+vm_uvunwrapres	[ 8	locks=0 ]	(	[ vm_uvunwrapresx	512 ] 	[ vm_uvunwrapresy	512 ] 	)
 uvresmenu	[ 0	locks=0 ]	(	[ uvresmenu	0 ] 	)
 vm_ptexmapminres	[ 0	locks=0 ]	(	8	8	)
 vm_uvptexminresmenu	[ 0	locks=0 ]	(	0	)
@@ -14259,24 +15338,6 @@ vm_quickplane_metallic	[ 0	locks=0 ]	(	"off"	)
 vm_quickplane_specrough	[ 0	locks=0 ]	(	"off"	)
 vm_showextraplaneparms	[ 0	locks=0 ]	(	"off"	)
 vm_numaux	[ 0	locks=0 ]	(	1	)
-vm_disable_plane1	[ 0	locks=0 ]	(	"off"	)
-vm_excludedcm_plane1	[ 0	locks=0 ]	(	"off"	)
-vm_variable_plane1	[ 0	locks=0 ]	(	Af	)
-vm_vextype_plane1	[ 0	locks=0 ]	(	float	)
-vm_channel_plane1	[ 0	locks=0 ]	(	alpha	)
-vm_usefile_plane1	[ 0	locks=0 ]	(	"off"	)
-vm_filename_plane1	[ 0	locks=0 ]	(	""	)
-vm_quantize_plane1	[ 0	locks=0 ]	(	half	)
-vm_sfilter_plane1	[ 0	locks=0 ]	(	alpha	)
-vm_pfilter_plane1	[ 0	locks=0 ]	(	""	)
-vm_gamma_plane1	[ 0	locks=0 ]	(	1	)
-vm_gain_plane1	[ 0	locks=0 ]	(	1	)
-vm_dither_plane1	[ 0	locks=0 ]	(	0.5	)
-vm_whitepoint_plane1	[ 0	locks=0 ]	(	1	)
-vm_componentexport1	[ 0	locks=0 ]	(	"off"	)
-vm_lightexport1	[ 0	locks=0 ]	(	0	)
-vm_lightexport_scope1	[ 0	locks=0 ]	(	*	)
-vm_lightexport_select1	[ 0	locks=0 ]	(	*	)
 vm_extractseparator	[ 0	locks=0 ]	(	_	)
 vm_channel_names_seperator_bar	[ 0	locks=0 ]	(	)
 vm_quickplane_Nt_channel	[ 0	locks=0 ]	(	Nt	)
@@ -14326,6 +15387,24 @@ vm_imageblur	[ 0	locks=0 ]	(	"on"	)
 objects4	[ 0	locks=0 ]	(	2	2	2	)
 vm_extractlinearplanes	[ 0	locks=0 ]	(	`propertys('vm_quickplane_Nt_channel','Nt')`,`propertys('vm_quickplane_Ds_channel','Ds')`,`propertys('vm_quickplane_Vd_channel','Vd')`,`propertys('vm_quickplane_Vdt_channel','Vdt')`,`propertys('vm_quickplane_Cv_channel','Cv')`,`propertys('vm_quickplane_Th_channel','Th')`,`propertys('vm_quickplane_Cu_channel','Cu')`,`propertys('vm_quickplane_N_channel','N')`,`propertys('vm_quickplane_P_channel','P')`	)
 vm_inlinestorage	[ 0	locks=0 ]	(	"off"	)
+vm_disable_plane1	[ 0	locks=0 ]	(	"off"	)
+vm_excludedcm_plane1	[ 0	locks=0 ]	(	"off"	)
+vm_variable_plane1	[ 0	locks=0 ]	(	Af	)
+vm_vextype_plane1	[ 0	locks=0 ]	(	float	)
+vm_channel_plane1	[ 0	locks=0 ]	(	alpha	)
+vm_usefile_plane1	[ 0	locks=0 ]	(	"off"	)
+vm_filename_plane1	[ 0	locks=0 ]	(	""	)
+vm_quantize_plane1	[ 0	locks=0 ]	(	half	)
+vm_sfilter_plane1	[ 0	locks=0 ]	(	alpha	)
+vm_pfilter_plane1	[ 0	locks=0 ]	(	""	)
+vm_gamma_plane1	[ 0	locks=0 ]	(	1	)
+vm_gain_plane1	[ 0	locks=0 ]	(	1	)
+vm_dither_plane1	[ 0	locks=0 ]	(	0.5	)
+vm_whitepoint_plane1	[ 0	locks=0 ]	(	1	)
+vm_componentexport1	[ 0	locks=0 ]	(	"off"	)
+vm_lightexport1	[ 0	locks=0 ]	(	0	)
+vm_lightexport_scope1	[ 0	locks=0 ]	(	*	)
+vm_lightexport_select1	[ 0	locks=0 ]	(	*	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -14338,6 +15417,804 @@ Content-Type: text/plain
 		"value":""
 	}
 }
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/sop_simple_baker1/ropnet1.net"
+Content-Type: text/plain
+
+1
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/sop_simple_baker1/matnet1.net"
+Content-Type: text/plain
+
+1
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/sop_simple_baker1/LOW.init"
+Content-Type: text/plain
+
+type = null
+matchesdef = 0
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/sop_simple_baker1/LOW.def"
+Content-Type: text/plain
+
+sopflags sopflags = 
+comment ""
+position -0.00852317 4.29987
+connectornextid 2
+flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
+outputsNamed3
+{
+1 "output1"
+}
+inputsNamed3
+{
+0 	switch2 1 1 "input1"
+}
+inputs
+{
+0 	switch2 0 1
+}
+stat
+{
+  create 1509395733
+  modify 1522783364
+  author MAINGEAR@DESKTOP-P98C1VA
+  access 0777
+}
+color UT_Color RGB 0.6 0.7 0.77 
+delscript ""
+exprlanguage hscript
+end
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/sop_simple_baker1/LOW.parm"
+Content-Type: text/plain
+
+{
+version 0.8
+copyinput	[ 0	locks=0 ]	(	"on"	)
+cacheinput	[ 0	locks=0 ]	(	"off"	)
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/sop_simple_baker1/LOW.userdata"
+Content-Type: text/plain
+
+{
+	"___Version___":{
+		"type":"string",
+		"value":"16.5.503"
+	}
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/sop_simple_baker1/HIGH.init"
+Content-Type: text/plain
+
+type = null
+matchesdef = 0
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/sop_simple_baker1/HIGH.def"
+Content-Type: text/plain
+
+sopflags sopflags = 
+comment ""
+position 3.14813 2.22896
+connectornextid 1
+flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
+outputsNamed3
+{
+}
+inputsNamed3
+{
+0 	switch1 0 1 "input1"
+}
+inputs
+{
+0 	switch1 0 1
+}
+stat
+{
+  create 1509395733
+  modify 1511887435
+  author MAINGEAR@DESKTOP-P98C1VA
+  access 0777
+}
+color UT_Color RGB 0.6 0.7 0.77 
+delscript ""
+exprlanguage hscript
+end
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/sop_simple_baker1/HIGH.parm"
+Content-Type: text/plain
+
+{
+version 0.8
+copyinput	[ 0	locks=0 ]	(	"on"	)
+cacheinput	[ 0	locks=0 ]	(	"off"	)
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/sop_simple_baker1/HIGH.userdata"
+Content-Type: text/plain
+
+{
+	"___Version___":{
+		"type":"string",
+		"value":"16.5.503"
+	}
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/sop_simple_baker1/material1.init"
+Content-Type: text/plain
+
+type = material
+matchesdef = 0
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/sop_simple_baker1/material1.def"
+Content-Type: text/plain
+
+sopflags sopflags = 
+comment ""
+position -0.00852317 2.92507
+connectornextid 2
+flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
+outputsNamed3
+{
+1 "output1"
+}
+inputsNamed3
+{
+0 	LOW 1 1 "input1"
+}
+inputs
+{
+0 	LOW 0 1
+}
+stat
+{
+  create 1509396298
+  modify 1522783367
+  author MAINGEAR@DESKTOP-P98C1VA
+  access 0777
+}
+color UT_Color RGB 0.8 0.8 0.8 
+delscript ""
+exprlanguage hscript
+end
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/sop_simple_baker1/material1.parm"
+Content-Type: text/plain
+
+{
+version 0.8
+style	[ 0	locks=0 ]	(	primitive	)
+uselabels	[ 0	locks=0 ]	(	"uselabels"	)
+createstylesheets	[ 0	locks=0 ]	(	"off"	)
+fullpath	[ 0	locks=0 ]	(	"on"	)
+num_materials	[ 0	locks=0 ]	(	1	)
+group1	[ 0	locks=0 ]	(	""	)
+shop_materialpath1	[ 0	locks=0 ]	(	../matnet1/principledshader1	)
+localvar1	[ 0	locks=0 ]	(	"off"	)
+mergeoverride1	[ 0	locks=0 ]	(	"off"	)
+num_local1	[ 0	locks=0 ]	(	0	)
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/sop_simple_baker1/material1.userdata"
+Content-Type: text/plain
+
+{
+	"___Version___":{
+		"type":"string",
+		"value":"16.5.503"
+	}
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/sop_simple_baker1/rop_fbx1.init"
+Content-Type: text/plain
+
+type = rop_fbx
+matchesdef = 0
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/sop_simple_baker1/rop_fbx1.def"
+Content-Type: text/plain
+
+comment ""
+position -2.28893 2.01177
+connectornextid 1
+flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
+outputsNamed3
+{
+}
+inputsNamed3
+{
+0 	low 1 1 "input1"
+}
+inputs
+{
+0 	low 0 1
+}
+stat
+{
+  create 1510953715
+  modify 1511888107
+  author MAINGEAR@DESKTOP-P98C1VA
+  access 0777
+}
+color UT_Color RGB 0.65 0.4 0.5 
+delscript ""
+exprlanguage hscript
+end
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/sop_simple_baker1/rop_fbx1.chn"
+Content-Type: text/plain
+
+{
+    channel f1 {
+      lefttype = extend
+      righttype = extend
+      default = 1
+      flags = 0
+      segment { length = 0 value = 1 1 expr = $FSTART }
+    }
+    channel f2 {
+      lefttype = extend
+      righttype = extend
+      default = 240
+      flags = 0
+      segment { length = 0 value = 240 240 expr = $FEND }
+    }
+  }
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/sop_simple_baker1/rop_fbx1.parm"
+Content-Type: text/plain
+
+{
+version 0.8
+execute	[ 0	locks=0 ]	(	0	)
+renderdialog	[ 0	locks=0 ]	(	0	)
+trange	[ 0	locks=0 ]	(	"off"	)
+f	[ 0	locks=0 ]	(	[ f1	1 ] 	[ f2	240 ] 	1	)
+take	[ 0	locks=0 ]	(	_current_	)
+sopoutput	[ 0	locks=0 ]	(	`chs(\"../fbx_path\")`	)
+mkpath	[ 0	locks=0 ]	(	"on"	)
+startnode	[ 0	locks=0 ]	(	""	)
+createsubnetroot	[ 0	locks=0 ]	(	"on"	)
+exportkind	[ 0	locks=0 ]	(	"off"	)
+sdkversion	[ 0	locks=0 ]	(	"FBX | FBX201400"	)
+vcformat	[ 0	locks=0 ]	(	"mayaformat"	)
+invisobj	[ 0	locks=0 ]	(	"nullnodes"	)
+polylod	[ 0	locks=0 ]	(	1	)
+detectconstpointobjs	[ 0	locks=0 ]	(	"on"	)
+convertsurfaces	[ 0	locks=0 ]	(	"off"	)
+conservemem	[ 0	locks=0 ]	(	"off"	)
+deformsasvcs	[ 0	locks=0 ]	(	"off"	)
+forceblendshape	[ 0	locks=0 ]	(	"off"	)
+forceskindeform	[ 0	locks=0 ]	(	"off"	)
+exportendeffectors	[ 0	locks=0 ]	(	"on"	)
+tprerender	[ 0	locks=0 ]	(	"on"	)
+prerender	[ 0	locks=0 ]	(	""	)
+lprerender	[ 0	locks=0 ]	(	hscript	)
+tpreframe	[ 0	locks=0 ]	(	"on"	)
+preframe	[ 0	locks=0 ]	(	""	)
+lpreframe	[ 0	locks=0 ]	(	hscript	)
+tpostframe	[ 0	locks=0 ]	(	"on"	)
+postframe	[ 0	locks=0 ]	(	""	)
+lpostframe	[ 0	locks=0 ]	(	hscript	)
+tpostrender	[ 0	locks=0 ]	(	"on"	)
+postrender	[ 0	locks=0 ]	(	""	)
+lpostrender	[ 0	locks=0 ]	(	hscript	)
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/sop_simple_baker1/rop_fbx1.userdata"
+Content-Type: text/plain
+
+{
+	"___Version___":{
+		"type":"string",
+		"value":"16.5.503"
+	}
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/sop_simple_baker1/switch1.init"
+Content-Type: text/plain
+
+type = switch
+matchesdef = 0
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/sop_simple_baker1/switch1.def"
+Content-Type: text/plain
+
+sopflags sopflags = 
+comment ""
+position 3.14813 3.39362
+connectornextid 3
+flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
+outputsNamed3
+{
+0 "output1"
+}
+inputsNamed3
+{
+1 	LOW 1 1 "input1"
+2 	IN_HIGH 1 1 "input2"
+}
+inputs
+{
+0 	LOW 0 1
+1 	IN_HIGH 0 1
+}
+stat
+{
+  create 1511369678
+  modify 1511887435
+  author MAINGEAR@DESKTOP-P98C1VA
+  access 0777
+}
+color UT_Color RGB 0.8 1 0.7 
+delscript ""
+exprlanguage hscript
+end
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/sop_simple_baker1/switch1.chn"
+Content-Type: text/plain
+
+{
+    channel input {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = "npoints(\"../IN_HIGH\") > 0" }
+    }
+  }
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/sop_simple_baker1/switch1.parm"
+Content-Type: text/plain
+
+{
+version 0.8
+input	[ 8	locks=0 ]	(	[ input	1 ] 	)
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/sop_simple_baker1/switch1.userdata"
+Content-Type: text/plain
+
+{
+	"___Version___":{
+		"type":"string",
+		"value":"16.5.503"
+	}
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/sop_simple_baker1/IN_HIGH.init"
+Content-Type: text/plain
+
+type = null
+matchesdef = 0
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/sop_simple_baker1/IN_HIGH.def"
+Content-Type: text/plain
+
+sopflags sopflags = 
+comment ""
+position 3.15665 4.98396
+connectornextid 2
+flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
+outputsNamed3
+{
+1 "output1"
+}
+inputsNamed3
+{
+0 	(1) "" 1 "input1"
+}
+inputs
+{
+0 	(1) 0 1
+}
+stat
+{
+  create 1511369771
+  modify 1522767594
+  author MAINGEAR@DESKTOP-P98C1VA
+  access 0777
+}
+color UT_Color RGB 0.6 0.7 0.77 
+delscript ""
+exprlanguage hscript
+end
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/sop_simple_baker1/IN_HIGH.parm"
+Content-Type: text/plain
+
+{
+version 0.8
+copyinput	[ 0	locks=0 ]	(	"on"	)
+cacheinput	[ 0	locks=0 ]	(	"off"	)
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/sop_simple_baker1/IN_HIGH.userdata"
+Content-Type: text/plain
+
+{
+	"___Version___":{
+		"type":"string",
+		"value":"16.5.503"
+	}
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/sop_simple_baker1/IN_LOW.init"
+Content-Type: text/plain
+
+type = null
+matchesdef = 0
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/sop_simple_baker1/IN_LOW.def"
+Content-Type: text/plain
+
+sopflags sopflags = 
+comment ""
+position -1.11759e-08 7.15903
+connectornextid 2
+flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
+outputsNamed3
+{
+1 "output1"
+}
+inputsNamed3
+{
+0 	(0) "" 1 "input1"
+}
+inputs
+{
+0 	(0) 0 1
+}
+stat
+{
+  create 1511887422
+  modify 1511887718
+  author MAINGEAR@DESKTOP-P98C1VA
+  access 0777
+}
+color UT_Color RGB 0.6 0.7 0.77 
+delscript ""
+exprlanguage hscript
+end
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/sop_simple_baker1/IN_LOW.parm"
+Content-Type: text/plain
+
+{
+version 0.8
+copyinput	[ 0	locks=0 ]	(	"on"	)
+cacheinput	[ 0	locks=0 ]	(	"off"	)
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/sop_simple_baker1/IN_LOW.userdata"
+Content-Type: text/plain
+
+{
+	"___Version___":{
+		"type":"string",
+		"value":"16.5.503"
+	}
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/sop_simple_baker1/switch2.init"
+Content-Type: text/plain
+
+type = switch
+matchesdef = 0
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/sop_simple_baker1/switch2.def"
+Content-Type: text/plain
+
+sopflags sopflags = 
+comment ""
+position -0.00852318 5.24138
+connectornextid 3
+flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
+outputsNamed3
+{
+1 "output1"
+}
+inputsNamed3
+{
+2 	uvunwrap1 1 1 "input1"
+0 	IN_LOW 1 1 "input2"
+}
+inputs
+{
+0 	uvunwrap1 0 1
+1 	IN_LOW 0 1
+}
+stat
+{
+  create 1511887434
+  modify 1511887718
+  author MAINGEAR@DESKTOP-P98C1VA
+  access 0777
+}
+color UT_Color RGB 0.8 1 0.7 
+delscript ""
+exprlanguage hscript
+end
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/sop_simple_baker1/switch2.chn"
+Content-Type: text/plain
+
+{
+    channel input {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = "haspointattrib(\"../IN_LOW\", \"uv\")||hasvertexattrib(\"../IN_LOW\", \"uv\")" }
+    }
+  }
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/sop_simple_baker1/switch2.parm"
+Content-Type: text/plain
+
+{
+version 0.8
+input	[ 8	locks=0 ]	(	[ input	1 ] 	)
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/sop_simple_baker1/switch2.userdata"
+Content-Type: text/plain
+
+{
+	"___Version___":{
+		"type":"string",
+		"value":"16.5.503"
+	}
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/sop_simple_baker1/uvunwrap1.init"
+Content-Type: text/plain
+
+type = uvunwrap
+matchesdef = 0
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/sop_simple_baker1/uvunwrap1.def"
+Content-Type: text/plain
+
+sopflags sopflags = 
+comment ""
+position -1.47756 6.18476
+connectornextid 2
+flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
+outputsNamed3
+{
+1 "output1"
+}
+inputsNamed3
+{
+0 	IN_LOW 1 1 "input1"
+}
+inputs
+{
+0 	IN_LOW 0 1
+}
+stat
+{
+  create 1511887476
+  modify 1511887718
+  author MAINGEAR@DESKTOP-P98C1VA
+  access 0777
+}
+color UT_Color RGB 0.8 0.8 0.8 
+delscript ""
+exprlanguage hscript
+end
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/sop_simple_baker1/uvunwrap1.parm"
+Content-Type: text/plain
+
+{
+version 0.8
+uvattrib	[ 0	locks=0 ]	(	uv	)
+group	[ 0	locks=0 ]	(	""	)
+planegroup	[ 0	locks=0 ]	(	""	)
+nplanes	[ 0	locks=0 ]	(	"planes6"	)
+layout	[ 0	locks=0 ]	(	"square"	)
+scale	[ 0	locks=0 ]	(	"uniform"	)
+spacing	[ 0	locks=0 ]	(	2	)
+rOrd	[ 0	locks=0 ]	(	"xyz"	)
+r	[ 0	locks=0 ]	(	0	0	0	)
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/sop_simple_baker1/uvunwrap1.userdata"
+Content-Type: text/plain
+
+{
+	"___Version___":{
+		"type":"string",
+		"value":"16.5.503"
+	}
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/sop_simple_baker1/low.init"
+Content-Type: text/plain
+
+type = null
+matchesdef = 0
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/sop_simple_baker1/low.def"
+Content-Type: text/plain
+
+sopflags sopflags = 
+comment ""
+position -2.28893 2.92007
+connectornextid 2
+flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
+outputsNamed3
+{
+1 "output1"
+}
+inputsNamed3
+{
+0 	LOW 1 1 "input1"
+}
+inputs
+{
+0 	LOW 0 1
+}
+stat
+{
+  create 1511888105
+  modify 1511888127
+  author MAINGEAR@DESKTOP-P98C1VA
+  access 0777
+}
+color UT_Color RGB 0.6 0.7 0.77 
+delscript ""
+exprlanguage hscript
+end
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/sop_simple_baker1/low.parm"
+Content-Type: text/plain
+
+{
+version 0.8
+copyinput	[ 0	locks=0 ]	(	"on"	)
+cacheinput	[ 0	locks=0 ]	(	"off"	)
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/sop_simple_baker1/low.userdata"
+Content-Type: text/plain
+
+{
+	"___Version___":{
+		"type":"string",
+		"value":"16.5.503"
+	}
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/sop_simple_baker1/output1.init"
+Content-Type: text/plain
+
+type = output
+matchesdef = 0
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/sop_simple_baker1/output1.def"
+Content-Type: text/plain
+
+sopflags sopflags = 
+comment ""
+position -0.00852317 1.88779
+connectornextid 1
+flags =  lock off model off template on footprint off xray off bypass off display on render on highlight off unload off savedata off compress on colordefault on exposed on
+outputsNamed3
+{
+}
+inputsNamed3
+{
+0 	material1 1 1 "input1"
+}
+inputs
+{
+0 	material1 0 1
+}
+stat
+{
+  create 1522783354
+  modify 1522783370
+  author MAINGEAR@DESKTOP-P98C1VA
+  access 0777
+}
+color UT_Color RGB 0.8 0.8 0.8 
+delscript ""
+exprlanguage hscript
+end
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/sop_simple_baker1/output1.parm"
+Content-Type: text/plain
+
+{
+version 0.8
+outputidx	[ 0	locks=0 ]	(	0	)
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/sop_simple_baker1/output1.userdata"
+Content-Type: text/plain
+
+{
+	"___Version___":{
+		"type":"string",
+		"value":"16.5.503"
+	}
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/sop_simple_baker1.order"
+Content-Type: text/plain
+
+13
+ropnet1
+matnet1
+LOW
+HIGH
+material1
+rop_fbx1
+switch1
+IN_HIGH
+IN_LOW
+switch2
+uvunwrap1
+low
+output1
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/sop_simple_baker1.net"
+Content-Type: text/plain
+
+1
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
 Content-Disposition: attachment; filename="hdaroot/polyreduce1.init"
@@ -14478,7 +16355,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.412"
+		"value":"16.5.503"
 	}
 }
 
@@ -14542,7 +16419,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.412"
+		"value":"16.5.503"
 	}
 }
 
@@ -14579,7 +16456,7 @@ inputs
 stat
 {
   create 1520971976
-  modify 1521229248
+  modify 1532526623
   author MAINGEAR@DESKTOP-P98C1VA
   access 0777
 }
@@ -14617,7 +16494,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.412"
+		"value":"16.5.503"
 	}
 }
 
@@ -14636,7 +16513,7 @@ sopflags sopflags =
 comment ""
 position 1.96396 -3.20319
 connectornextid 3
-flags =  lock off model off template on footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
+flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
 {
 2 "output1"
@@ -14654,7 +16531,7 @@ inputs
 stat
 {
   create 1520972602
-  modify 1526916395
+  modify 1532526584
   author MAINGEAR@DESKTOP-P98C1VA
   access 0777
 }
@@ -14692,7 +16569,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.412"
+		"value":"16.5.503"
 	}
 }
 
@@ -14758,7 +16635,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.412"
+		"value":"16.5.503"
 	}
 }
 
@@ -14829,7 +16706,7 @@ Content-Type: text/plain
 
 {
 version 0.8
-input	[ 8	locks=0 ]	(	[ input	3 ] 	)
+input	[ 8	locks=0 ]	(	[ input	4 ] 	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -14839,7 +16716,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.412"
+		"value":"16.5.503"
 	}
 }
 
@@ -14858,7 +16735,7 @@ sopflags sopflags =
 comment ""
 position -6.37272 -8.67871
 connectornextid 1
-flags =  lock off model off template off footprint off xray off bypass off display on render on highlight off unload off savedata off compress on colordefault on exposed on
+flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
 {
 }
@@ -14873,7 +16750,7 @@ inputs
 stat
 {
   create 1520973515
-  modify 1526916392
+  modify 1532526629
   author MAINGEAR@DESKTOP-P98C1VA
   access 0777
 }
@@ -14898,7 +16775,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.412"
+		"value":"16.5.503"
 	}
 }
 

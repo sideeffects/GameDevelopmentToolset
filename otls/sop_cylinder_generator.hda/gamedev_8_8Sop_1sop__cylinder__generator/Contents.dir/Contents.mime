@@ -32,26 +32,23 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position -2.12101 -0.532995
-connectornextid 2
+position -5.67647 2.08618
+connectornextid 0
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
 {
-0 "output1"
 }
 inputsNamed3
 {
-1 	edit1 0 1 "input1"
 }
 inputs
 {
-0 	edit1 0 1
 }
 stat
 {
-  create 1525273212
-  modify 1525447139
-  author mikel@mikembp-sesi.local
+  create 1532527071
+  modify 1532527094
+  author MAINGEAR@DESKTOP-P98C1VA
   access 0777
 }
 color UT_Color RGB 0.8 0.8 0.8 
@@ -132,7 +129,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.438"
+		"value":"16.5.503"
 	}
 }
 
@@ -1806,44 +1803,6 @@ Content-Type: text/plain
       flags = 0
       segment { length = 0 value = 1 1 expr = ch(\"../CONTROL/rampmult\") }
     }
-    channel dispRamp3pos {
-      lefttype = extend
-      righttype = extend
-      flags = 0
-      segment { length = 0 expr = ch(\"../CONTROL/curveramp3pos\") }
-    }
-    channel dispRamp3value {
-      lefttype = extend
-      righttype = extend
-      flags = 0
-      segment { length = 0 expr = ch(\"../CONTROL/curveramp3value\") }
-    }
-    channel dispRamp3interp {
-      lefttype = extend
-      righttype = extend
-      default = 1
-      flags = 0
-      segment { length = 0 value = 1 1 expr = ch(\"../CONTROL/curveramp3interp\") }
-    }
-    channel dispRamp4pos {
-      lefttype = extend
-      righttype = extend
-      flags = 0
-      segment { length = 0 expr = ch(\"../CONTROL/curveramp4pos\") }
-    }
-    channel dispRamp4value {
-      lefttype = extend
-      righttype = extend
-      flags = 0
-      segment { length = 0 expr = ch(\"../CONTROL/curveramp4value\") }
-    }
-    channel dispRamp4interp {
-      lefttype = extend
-      righttype = extend
-      default = 1
-      flags = 0
-      segment { length = 0 value = 1 1 expr = ch(\"../CONTROL/curveramp4interp\") }
-    }
   }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -1879,21 +1838,15 @@ vex_matchattrib	[ 0	locks=0 ]	(	id	)
 vex_inplace	[ 0	locks=0 ]	(	"off"	)
 vex_selectiongroup	[ 0	locks=0 ]	(	""	)
 folder1	[ 0	locks=0 ]	(	0	0	)
-dispRamp	[ 8	locks=0 ]	(	[ dispRamp	4 ] 	)
+dispRamp	[ 8	locks=0 ]	(	[ dispRamp	2 ] 	)
 dispRamp1pos	[ 0	locks=0 ]	(	[ dispRamp1pos	0 ] 	)
 dispRamp1value	[ 0	locks=0 ]	(	[ dispRamp1value	0.13609467446804047 ] 	)
 dispRamp1interp	[ 0	locks=0 ]	(	[ dispRamp1interp	1 ] 	)
+rampMult	[ 8	locks=0 ]	(	[ rampMult	1 ] 	)
+twist	[ 8	locks=0 ]	(	0	)
 dispRamp2pos	[ 0	locks=0 ]	(	[ dispRamp2pos	0.39687195420265198 ] 	)
 dispRamp2value	[ 0	locks=0 ]	(	[ dispRamp2value	0.20710058510303497 ] 	)
 dispRamp2interp	[ 0	locks=0 ]	(	[ dispRamp2interp	1 ] 	)
-rampMult	[ 8	locks=0 ]	(	[ rampMult	1 ] 	)
-twist	[ 8	locks=0 ]	(	0	)
-dispRamp3pos	[ 0	locks=0 ]	(	[ dispRamp3pos	0.81720429658889771 ] 	)
-dispRamp3value	[ 0	locks=0 ]	(	[ dispRamp3value	0.36094674468040466 ] 	)
-dispRamp3interp	[ 0	locks=0 ]	(	[ dispRamp3interp	1 ] 	)
-dispRamp4pos	[ 0	locks=0 ]	(	[ dispRamp4pos	0.99902248382568359 ] 	)
-dispRamp4value	[ 0	locks=0 ]	(	[ dispRamp4value	0.63017749786376953 ] 	)
-dispRamp4interp	[ 0	locks=0 ]	(	[ dispRamp4interp	1 ] 	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -3240,7 +3193,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.438"
+		"value":"16.5.503"
 	},
 	"wirestyle":{
 		"type":"string",
@@ -3467,7 +3420,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.438"
+		"value":"16.5.503"
 	}
 }
 
@@ -3571,7 +3524,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.438"
+		"value":"16.5.503"
 	}
 }
 
@@ -3631,7 +3584,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.438"
+		"value":"16.5.503"
 	}
 }
 
@@ -3901,7 +3854,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.438"
+		"value":"16.5.503"
 	}
 }
 
@@ -4028,7 +3981,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.438"
+		"value":"16.5.503"
 	}
 }
 
@@ -4155,7 +4108,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.438"
+		"value":"16.5.503"
 	}
 }
 
@@ -4764,10 +4717,10 @@ ramp	[ 8	locks=0 ]	(	[ ramp	2 ] 	)
 ramp1pos	[ 0	locks=0 ]	(	[ ramp1pos	0 ] 	)
 ramp1c	[ 0	locks=0 ]	(	[ ramp1cr	0 ] 	[ ramp1cg	0 ] 	[ ramp1cb	0 ] 	)
 ramp1interp	[ 0	locks=0 ]	(	[ ramp1interp	1 ] 	)
+cddirection	[ 8	locks=0 ]	(	[ cddirection	0 ] 	)
 ramp2pos	[ 0	locks=0 ]	(	[ ramp2pos	1 ] 	)
 ramp2c	[ 0	locks=0 ]	(	[ ramp2cr	1 ] 	[ ramp2cg	1 ] 	[ ramp2cb	1 ] 	)
 ramp2interp	[ 0	locks=0 ]	(	[ ramp2interp	1 ] 	)
-cddirection	[ 8	locks=0 ]	(	[ cddirection	0 ] 	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -4777,7 +4730,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.438"
+		"value":"16.5.503"
 	}
 }
 
@@ -4986,7 +4939,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.438"
+		"value":"16.5.503"
 	}
 }
 
@@ -5089,7 +5042,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.438"
+		"value":"16.5.503"
 	}
 }
 
@@ -5153,7 +5106,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.438"
+		"value":"16.5.503"
 	}
 }
 
@@ -5348,7 +5301,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.438"
+		"value":"16.5.503"
 	}
 }
 
@@ -5664,25 +5617,6 @@ Content-Type: text/plain
       flags = 0
       segment { length = 0 value = 1 1 expr = ch(\"../curveramp1interp\") }
     }
-    channel curveramp2pos {
-      lefttype = extend
-      righttype = extend
-      flags = 0
-      segment { length = 0 expr = ch(\"../curveramp2pos\") }
-    }
-    channel curveramp2value {
-      lefttype = extend
-      righttype = extend
-      flags = 0
-      segment { length = 0 expr = ch(\"../curveramp2value\") }
-    }
-    channel curveramp2interp {
-      lefttype = extend
-      righttype = extend
-      default = 1
-      flags = 0
-      segment { length = 0 value = 1 1 expr = ch(\"../curveramp2interp\") }
-    }
     channel colourramp1pos {
       lefttype = extend
       righttype = extend
@@ -5713,6 +5647,25 @@ Content-Type: text/plain
       default = 1
       flags = 0
       segment { length = 0 value = 1 1 expr = ch(\"../colourramp1interp\") }
+    }
+    channel curveramp2pos {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = ch(\"../curveramp2pos\") }
+    }
+    channel curveramp2value {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = ch(\"../curveramp2value\") }
+    }
+    channel curveramp2interp {
+      lefttype = extend
+      righttype = extend
+      default = 1
+      flags = 0
+      segment { length = 0 value = 1 1 expr = ch(\"../curveramp2interp\") }
     }
     channel colourramp2pos {
       lefttype = extend
@@ -6002,44 +5955,6 @@ Content-Type: text/plain
       flags = 0
       segment { length = 0 value = 2 2 expr = ch(\"../colourramp\") }
     }
-    channel curveramp3pos {
-      lefttype = extend
-      righttype = extend
-      flags = 0
-      segment { length = 0 expr = ch(\"../curveramp3pos\") }
-    }
-    channel curveramp3value {
-      lefttype = extend
-      righttype = extend
-      flags = 0
-      segment { length = 0 expr = ch(\"../curveramp3value\") }
-    }
-    channel curveramp3interp {
-      lefttype = extend
-      righttype = extend
-      default = 1
-      flags = 0
-      segment { length = 0 value = 1 1 expr = ch(\"../curveramp3interp\") }
-    }
-    channel curveramp4pos {
-      lefttype = extend
-      righttype = extend
-      flags = 0
-      segment { length = 0 expr = ch(\"../curveramp4pos\") }
-    }
-    channel curveramp4value {
-      lefttype = extend
-      righttype = extend
-      flags = 0
-      segment { length = 0 expr = ch(\"../curveramp4value\") }
-    }
-    channel curveramp4interp {
-      lefttype = extend
-      righttype = extend
-      default = 1
-      flags = 0
-      segment { length = 0 value = 1 1 expr = ch(\"../curveramp4interp\") }
-    }
   }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -6066,13 +5981,10 @@ urangepow	[ 0	locks=0 ]	(	[ urangepowx	0 ] 	[ urangepowy	1 ] 	[ urangepowz	1 ] 	
 vrangepow	[ 0	locks=0 ]	(	[ vrangepowx	0 ] 	[ vrangepowy	1 ] 	[ vrangepowz	1 ] 	)
 normalcuspangle	[ 0	locks=0 ]	(	[ normalcuspangle	60 ] 	)
 rampmult	[ 0	locks=0 ]	(	[ rampmult	1 ] 	)
-curveramp	[ 0	locks=0 ]	(	[ curveramp	4 ] 	)
+curveramp	[ 0	locks=0 ]	(	[ curveramp	2 ] 	)
 curveramp1pos	[ 0	locks=0 ]	(	[ curveramp1pos	0 ] 	)
 curveramp1value	[ 0	locks=0 ]	(	[ curveramp1value	0.13609467446804047 ] 	)
 curveramp1interp	[ 0	locks=0 ]	(	[ curveramp1interp	1 ] 	)
-curveramp2pos	[ 0	locks=0 ]	(	[ curveramp2pos	0.39687195420265198 ] 	)
-curveramp2value	[ 0	locks=0 ]	(	[ curveramp2value	0.20710058510303497 ] 	)
-curveramp2interp	[ 0	locks=0 ]	(	[ curveramp2interp	1 ] 	)
 noisefolder	[ 0	locks=0 ]	(	1	1	)
 addnoise	[ 0	locks=0 ]	(	[ addnoise	1 ] 	)
 centernoise	[ 0	locks=0 ]	(	[ centernoise	1 ] 	)
@@ -6089,15 +6001,12 @@ colourramp	[ 0	locks=0 ]	(	[ colourramp	2 ] 	)
 colourramp1pos	[ 0	locks=0 ]	(	[ colourramp1pos	0 ] 	)
 colourramp1c	[ 0	locks=0 ]	(	[ colourramp1cr	0 ] 	[ colourramp1cg	0 ] 	[ colourramp1cb	0 ] 	)
 colourramp1interp	[ 0	locks=0 ]	(	[ colourramp1interp	1 ] 	)
+curveramp2pos	[ 0	locks=0 ]	(	[ curveramp2pos	0.39687195420265198 ] 	)
+curveramp2value	[ 0	locks=0 ]	(	[ curveramp2value	0.20710058510303497 ] 	)
+curveramp2interp	[ 0	locks=0 ]	(	[ curveramp2interp	1 ] 	)
 colourramp2pos	[ 0	locks=0 ]	(	[ colourramp2pos	1 ] 	)
 colourramp2c	[ 0	locks=0 ]	(	[ colourramp2cr	1 ] 	[ colourramp2cg	1 ] 	[ colourramp2cb	1 ] 	)
 colourramp2interp	[ 0	locks=0 ]	(	[ colourramp2interp	1 ] 	)
-curveramp3pos	[ 0	locks=0 ]	(	[ curveramp3pos	0.81720429658889771 ] 	)
-curveramp3value	[ 0	locks=0 ]	(	[ curveramp3value	0.36094674468040466 ] 	)
-curveramp3interp	[ 0	locks=0 ]	(	[ curveramp3interp	1 ] 	)
-curveramp4pos	[ 0	locks=0 ]	(	[ curveramp4pos	0.99902248382568359 ] 	)
-curveramp4value	[ 0	locks=0 ]	(	[ curveramp4value	0.63017749786376953 ] 	)
-curveramp4interp	[ 0	locks=0 ]	(	[ curveramp4interp	1 ] 	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -6107,7 +6016,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.438"
+		"value":"16.5.503"
 	}
 }
 
@@ -6189,7 +6098,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.438"
+		"value":"16.5.503"
 	}
 }
 
@@ -6283,7 +6192,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.438"
+		"value":"16.5.503"
 	}
 }
 
@@ -6353,7 +6262,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.438"
+		"value":"16.5.503"
 	}
 }
 
@@ -6435,7 +6344,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.438"
+		"value":"16.5.503"
 	}
 }
 
@@ -6510,7 +6419,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.438"
+		"value":"16.5.503"
 	}
 }
 
@@ -6573,7 +6482,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.438"
+		"value":"16.5.503"
 	}
 }
 
@@ -6670,7 +6579,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.438"
+		"value":"16.5.503"
 	}
 }
 
@@ -6739,7 +6648,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.438"
+		"value":"16.5.503"
 	}
 }
 
@@ -6805,7 +6714,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.438"
+		"value":"16.5.503"
 	}
 }
 
@@ -6874,7 +6783,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.438"
+		"value":"16.5.503"
 	}
 }
 
@@ -6973,7 +6882,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.438"
+		"value":"16.5.503"
 	}
 }
 
@@ -7051,7 +6960,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.438"
+		"value":"16.5.503"
 	}
 }
 
@@ -7120,7 +7029,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.438"
+		"value":"16.5.503"
 	}
 }
 
@@ -7204,7 +7113,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.438"
+		"value":"16.5.503"
 	}
 }
 
@@ -7302,7 +7211,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.438"
+		"value":"16.5.503"
 	}
 }
 
@@ -7400,7 +7309,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.438"
+		"value":"16.5.503"
 	}
 }
 
@@ -7484,7 +7393,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.438"
+		"value":"16.5.503"
 	}
 }
 
@@ -7543,7 +7452,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.438"
+		"value":"16.5.503"
 	}
 }
 
@@ -7621,7 +7530,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.438"
+		"value":"16.5.503"
 	}
 }
 
@@ -7703,7 +7612,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.438"
+		"value":"16.5.503"
 	}
 }
 
@@ -7774,7 +7683,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.438"
+		"value":"16.5.503"
 	}
 }
 
@@ -7857,7 +7766,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.438"
+		"value":"16.5.503"
 	}
 }
 
@@ -7935,7 +7844,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.438"
+		"value":"16.5.503"
 	}
 }
 
@@ -8010,7 +7919,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.438"
+		"value":"16.5.503"
 	}
 }
 
@@ -8094,7 +8003,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.438"
+		"value":"16.5.503"
 	}
 }
 
@@ -8169,7 +8078,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.438"
+		"value":"16.5.503"
 	}
 }
 
@@ -8247,7 +8156,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.438"
+		"value":"16.5.503"
 	}
 }
 
@@ -8322,7 +8231,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.438"
+		"value":"16.5.503"
 	}
 }
 
@@ -8400,7 +8309,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.438"
+		"value":"16.5.503"
 	}
 }
 
@@ -8496,7 +8405,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.438"
+		"value":"16.5.503"
 	}
 }
 
@@ -8591,7 +8500,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.438"
+		"value":"16.5.503"
 	}
 }
 

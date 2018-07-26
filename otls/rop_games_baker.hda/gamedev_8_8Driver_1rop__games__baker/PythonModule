@@ -28,6 +28,8 @@ def pre_bake(node):
     file_path = node.parm("base_path").eval()
     dir_path = os.path.dirname(file_path)
 
+    bake_texture.parm("vm_bake_normalizep").set(0)
+
     if not os.path.exists(dir_path):
         os.makedirs(dir_path)
 

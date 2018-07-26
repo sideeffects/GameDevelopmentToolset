@@ -43,7 +43,7 @@ def pre_bake(node):
         else:
             high_node.parm("objpath1").set(node.node(low_mesh).path())
 
-        exr_path = dir_path + "/" + low_mesh.split("/")[-1] + "_tmp.exr"
+        exr_path = dir_path + "/" + low_mesh.split("/")[-1] + "_tmp_%s.exr" % hou.intFrame()
         if i == 0:
             bake_texture.parm("vm_uvpostprocess").set("diffusefill")
         else:
@@ -79,7 +79,7 @@ def pre_bake(node):
 
         previous_file = file
 
-    exr_path = os.path.join(dir_path, "tmp.exr")
+    exr_path = os.path.join(dir_path, "_tmp_%s.exr" % hou.intFrame())
     composite_rop.parm("copoutput").set(exr_path)
     composite_rop.parm("scopeplanes").set("*")
     composite_rop.bypass(0)
@@ -132,7 +132,7 @@ def pre_bake(node):
             low_node.parm("objpath1").set(node.node(low_mesh).path())
             high_node.parm("objpath1").set(node.node(high_mesh).path())
 
-            exr_path = os.path.join(dir_path, low_mesh.split("/")[-1] + "_tmp.exr")
+            exr_path = os.path.join(dir_path, low_mesh.split("/")[-1] + "_tmp_%s.exr" % hou.intFrame())
 
             if j == 0:
                 custom_bake_node.parm("vm_uvpostprocess").set("Diffuse Fill")
@@ -179,7 +179,7 @@ def pre_bake(node):
         custom_channel = node.parm("custom_attribute_name_" + str(i+1)).eval()
         point_wrangle_node.parm("channel").set(custom_channel)
         
-        exr_path = os.path.join(dir_path, "tmp.exr")
+        exr_path = os.path.join(dir_path, "_tmp_%s.exr" % hou.intFrame())
         composite_rop.parm("copoutput").set(exr_path)
         composite_rop.bypass(0)
         composite_rop.render()
@@ -215,7 +215,7 @@ def pre_bake(node):
             low_node.parm("objpath1").set(node.node(low_mesh).path())
             high_node.parm("objpath1").set(node.node(high_mesh).path())
 
-            exr_path = os.path.join(dir_path, low_mesh.split("/")[-1] + "_tmp.exr")
+            exr_path = os.path.join(dir_path, low_mesh.split("/")[-1] + "_tmp_%s.exr" % hou.intFrame())
 
             alpha_bake_node.parm("vm_uvpostprocess").set("Border Expansion")
             
@@ -256,7 +256,7 @@ def pre_bake(node):
         suffix = node.parm("alpha_suffix").eval()
         new_path = file_path.replace("$(CHANNEL)", suffix)
         
-        exr_path = os.path.join(dir_path, "tmp.exr")
+        exr_path = os.path.join(dir_path, "_tmp_%s.exr" % hou.intFrame())
         composite_rop.parm("copoutput").set(exr_path)
         composite_rop.bypass(0)
         composite_rop.render()
@@ -284,6 +284,6 @@ def post_bake(node):
     file_path = node.parm("base_path").eval()
     dir_path = os.path.dirname(file_path)
 
-    exr_path = os.path.join(dir_path, "tmp.exr")
+    exr_path = os.path.join(dir_path, "_tmp_%s.exr" % hou.intFrame())
     os.remove(exr_path)
     hou.hscript("glcache -c;") #refresh textures

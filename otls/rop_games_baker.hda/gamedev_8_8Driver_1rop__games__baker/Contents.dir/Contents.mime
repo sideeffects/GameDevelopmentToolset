@@ -31,7 +31,7 @@ Content-Disposition: attachment; filename="hdaroot.def"
 Content-Type: text/plain
 
 comment ""
-position -3.61428 -3.81013
+position -3.49505 1.77244
 connectornextid 0
 flags =  lock off model off template off footprint off xray off bypass off display on render on highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
@@ -45,9 +45,9 @@ inputs
 }
 stat
 {
-  create 1510086161
-  modify 1522864700
-  author MAINGEAR@DESKTOP-P98C1VA
+  create 1532594141
+  modify 1532595914
+  author paula@DESKTOP-5213MPP
   access 0777
 }
 color UT_Color RGB 0.8 0.8 0.8 
@@ -62,7 +62,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"0.1"
+		"value":"0.2"
 	}
 }
 
@@ -163,7 +163,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.412"
+		"value":"16.5.536"
 	}
 }
 
@@ -218,7 +218,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.412"
+		"value":"16.5.536"
 	}
 }
 
@@ -1884,7 +1884,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.412"
+		"value":"16.5.536"
 	}
 }
 
@@ -2162,7 +2162,7 @@ inputs
 stat
 {
   create 1496776162
-  modify 1522864654
+  modify 1532595901
   author Luiz@Luiz-PC
   access 0777
 }
@@ -3726,7 +3726,7 @@ f	[ 8	locks=0 ]	(	1	10	1	)
 take	[ 0	locks=0 ]	(	_current_	)
 camera	[ 0	locks=0 ]	(	"`opfullpath(\"..\") + \"/objnet/cam1\"`"	)
 vm_uvtype	[ 0	locks=0 ]	(	udim	)
-vm_uvunwrapres	[ 8	locks=0 ]	(	[ vm_uvunwrapresx	1024 ] 	[ vm_uvunwrapresy	1024 ] 	)
+vm_uvunwrapres	[ 8	locks=0 ]	(	[ vm_uvunwrapresx	2048 ] 	[ vm_uvunwrapresy	2048 ] 	)
 uvresmenu	[ 0	locks=0 ]	(	[ uvresmenu	0 ] 	)
 vm_ptexmapminres	[ 0	locks=0 ]	(	8	8	)
 vm_uvptexminresmenu	[ 0	locks=0 ]	(	0	)
@@ -3747,7 +3747,7 @@ soho_previewsupport	[ 0	locks=0 ]	(	"on"	)
 main	[ 0	locks=0 ]	(	0	0	)
 vm_uv_unwrap_method	[ 0	locks=0 ]	(	1	)
 vm_uvattribute	[ 0	locks=0 ]	(	uv	)
-vm_uv_ray_bias	[ 8	locks=0 ]	(	[ vm_uv_ray_bias	0.01 ] 	)
+vm_uv_ray_bias	[ 8	locks=0 ]	(	[ vm_uv_ray_bias	0.10000000000000001 ] 	)
 vm_uv_ray_maxdist	[ 8	locks=0 ]	(	[ vm_uv_ray_maxdist	-1 ] 	)
 vm_uv_flip_normal	[ 0	locks=0 ]	(	"off"	)
 vm_uvpostprocess	[ 0	locks=0 ]	(	diffusefill	)
@@ -3793,8 +3793,8 @@ vm_uvobjectenable1	[ 0	locks=0 ]	(	"on"	)
 vm_uvobject1	[ 0	locks=0 ]	(	"`opfullpath(\"..\") + \"/objnet/low\"`"	)
 vm_uvcageobject1	[ 8	locks=0 ]	(	`chsop(\"../vm_uvcageobject1\")`	)
 vm_uvhires1	[ 0	locks=0 ]	(	"`opfullpath(\"..\") + \"/objnet/high\"`"	)
-vm_uvoutputpicture1	[ 0	locks=0 ]	(	C:/Users/MAINGEAR/render/LOW_tmp.exr	)
-images6	[ 0	locks=0 ]	(	0	0	0	0	0	)
+vm_uvoutputpicture1	[ 0	locks=0 ]	(	$HIP/render/${HIPNAME}_${OS}_%(CHANNEL)s.%(UDIM)d.rat	)
+images6	[ 0	locks=0 ]	(	3	3	3	3	3	)
 main3	[ 0	locks=0 ]	(	0	0	)
 vm_bake_normalizep	[ 0	locks=0 ]	(	"on"	)
 vm_extractimageplanes	[ 0	locks=0 ]	(	"off"	)
@@ -3803,7 +3803,7 @@ vm_quickplane_Nt	[ 8	locks=0 ]	(	[ vm_quickplane_Nt	1 ] 	)
 vm_quickplane_Ds	[ 8	locks=0 ]	(	[ vm_quickplane_Ds	0 ] 	)
 vm_quickplane_Vd	[ 0	locks=0 ]	(	"off"	)
 vm_quickplane_Vdt	[ 0	locks=0 ]	(	"off"	)
-vm_quickplane_Oc	[ 8	locks=0 ]	(	[ vm_quickplane_Oc	1 ] 	)
+vm_quickplane_Oc	[ 8	locks=0 ]	(	[ vm_quickplane_Oc	0 ] 	)
 vm_quickplane_Cv	[ 0	locks=0 ]	(	"off"	)
 vm_quickplane_Th	[ 8	locks=0 ]	(	[ vm_quickplane_Th	0 ] 	)
 vm_quickplane_Cu	[ 8	locks=0 ]	(	[ vm_quickplane_Cu	0 ] 	)
@@ -3832,7 +3832,7 @@ vm_quickplane_P_channel	[ 0	locks=0 ]	(	P	)
 vm_quickplane_N_channel	[ 0	locks=0 ]	(	N	)
 vm_bake_skipcf	[ 0	locks=0 ]	(	"on"	)
 vm_bake_layerexport	[ 0	locks=0 ]	(	"on"	)
-vm_bake_samples	[ 8	locks=0 ]	(	[ vm_bake_samples	4 ] 	)
+vm_bake_samples	[ 8	locks=0 ]	(	[ vm_bake_samples	8 ] 	)
 vm_bake_usemikkt	[ 0	locks=0 ]	(	[ vm_bake_usemikkt	1 ] 	)
 vm_bake_tangentnormalflipx	[ 0	locks=0 ]	(	"off"	)
 vm_bake_tangentnormalflipy	[ 0	locks=0 ]	(	[ vm_bake_tangentnormalflipy	0 ] 	)
@@ -3897,6 +3897,18 @@ Content-Type: text/plain
 	"___Version___":{
 		"type":"string",
 		"value":""
+	},
+	"sidefx::parm_filter_raw_value_pattern":{
+		"type":"string",
+		"value":"tmp"
+	},
+	"sidefx::parm_filter_text_pattern":{
+		"type":"string",
+		"value":"tmp"
+	},
+	"sidefx::parm_filter_visibility_option":{
+		"type":"string",
+		"value":"raw_value_or_expr"
 	}
 }
 
@@ -4657,7 +4669,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.412"
+		"value":"16.5.536"
 	}
 }
 
@@ -4736,7 +4748,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.412"
+		"value":"16.5.536"
 	}
 }
 
@@ -4810,7 +4822,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.412"
+		"value":"16.5.536"
 	}
 }
 
@@ -4885,7 +4897,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.412"
+		"value":"16.5.536"
 	}
 }
 
@@ -4951,7 +4963,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.412"
+		"value":"16.5.536"
 	}
 }
 
@@ -5015,7 +5027,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.412"
+		"value":"16.5.536"
 	}
 }
 
@@ -5793,7 +5805,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.412"
+		"value":"16.5.536"
 	}
 }
 
@@ -5872,7 +5884,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.412"
+		"value":"16.5.536"
 	}
 }
 
@@ -5947,7 +5959,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.412"
+		"value":"16.5.536"
 	}
 }
 
@@ -6026,7 +6038,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.412"
+		"value":"16.5.536"
 	}
 }
 
@@ -6101,7 +6113,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.412"
+		"value":"16.5.536"
 	}
 }
 
@@ -6176,7 +6188,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.412"
+		"value":"16.5.536"
 	}
 }
 
@@ -6242,7 +6254,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.412"
+		"value":"16.5.536"
 	}
 }
 
@@ -6306,7 +6318,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.412"
+		"value":"16.5.536"
 	}
 }
 
@@ -6375,7 +6387,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.412"
+		"value":"16.5.536"
 	}
 }
 
@@ -6449,7 +6461,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.412"
+		"value":"16.5.536"
 	}
 }
 
@@ -7118,7 +7130,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.412"
+		"value":"16.5.536"
 	}
 }
 
@@ -7193,7 +7205,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.412"
+		"value":"16.5.536"
 	}
 }
 
@@ -7279,7 +7291,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.412"
+		"value":"16.5.536"
 	}
 }
 
@@ -7375,7 +7387,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.412"
+		"value":"16.5.536"
 	}
 }
 
@@ -7475,7 +7487,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.412"
+		"value":"16.5.536"
 	}
 }
 
@@ -7550,7 +7562,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.412"
+		"value":"16.5.536"
 	}
 }
 
@@ -7629,7 +7641,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.412"
+		"value":"16.5.536"
 	}
 }
 
@@ -7774,7 +7786,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.412"
+		"value":"16.5.536"
 	}
 }
 
@@ -7829,7 +7841,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.412"
+		"value":"16.5.536"
 	}
 }
 
@@ -7944,7 +7956,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.412"
+		"value":"16.5.536"
 	}
 }
 
@@ -8039,7 +8051,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.412"
+		"value":"16.5.536"
 	}
 }
 
@@ -8109,7 +8121,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.412"
+		"value":"16.5.536"
 	}
 }
 
@@ -8211,7 +8223,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.412"
+		"value":"16.5.536"
 	}
 }
 
@@ -8316,7 +8328,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.412"
+		"value":"16.5.536"
 	}
 }
 
@@ -8408,7 +8420,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.412"
+		"value":"16.5.536"
 	}
 }
 
@@ -8513,7 +8525,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.412"
+		"value":"16.5.536"
 	}
 }
 
@@ -8621,7 +8633,7 @@ maskplane	[ 0	locks=0 ]	(	C	)
 maskresize	[ 0	locks=0 ]	(	"off"	)
 maskinvert	[ 0	locks=0 ]	(	"off"	)
 overridesize	[ 0	locks=0 ]	(	"on"	)
-size	[ 8	locks=0 ]	(	[ size1	256 ] 	[ size2	256 ] 	)
+size	[ 8	locks=0 ]	(	[ size1	1 ] 	[ size2	1 ] 	)
 sizemenu	[ 0	locks=0 ]	(	0	)
 overrideaspect	[ 0	locks=0 ]	(	"off"	)
 aspect	[ 0	locks=0 ]	(	[ aspect	1 ] 	)
@@ -8653,7 +8665,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.412"
+		"value":"16.5.536"
 	}
 }
 
@@ -8758,7 +8770,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.412"
+		"value":"16.5.536"
 	}
 }
 
@@ -8824,7 +8836,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.412"
+		"value":"16.5.536"
 	}
 }
 
@@ -8890,7 +8902,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.412"
+		"value":"16.5.536"
 	}
 }
 
@@ -8981,7 +8993,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.412"
+		"value":"16.5.536"
 	}
 }
 
@@ -9086,7 +9098,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.412"
+		"value":"16.5.536"
 	}
 }
 
@@ -9191,7 +9203,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.412"
+		"value":"16.5.536"
 	}
 }
 
@@ -9296,7 +9308,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.412"
+		"value":"16.5.536"
 	}
 }
 
@@ -9362,7 +9374,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.412"
+		"value":"16.5.536"
 	}
 }
 
@@ -9428,7 +9440,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.412"
+		"value":"16.5.536"
 	}
 }
 
@@ -9506,7 +9518,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.412"
+		"value":"16.5.536"
 	}
 }
 
@@ -9584,7 +9596,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.412"
+		"value":"16.5.536"
 	}
 }
 
@@ -9664,7 +9676,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.412"
+		"value":"16.5.536"
 	}
 }
 
@@ -9748,7 +9760,7 @@ inputs
 stat
 {
   create 1496798868
-  modify 1522864685
+  modify 1532595913
   author Luiz@Luiz-PC
   access 0777
 }
@@ -9773,7 +9785,7 @@ coppath	[ 0	locks=0 ]	(	../extract_net/base_image	)
 tres	[ 0	locks=0 ]	(	"natural"	)
 res	[ 0	locks=0 ]	(	1024	1024	)
 resmenu	[ 0	locks=0 ]	(	0	)
-copoutput	[ 0	locks=0 ]	(	C:/Users/MAINGEAR/render/untitled_ao.tga	)
+copoutput	[ 0	locks=0 ]	(	md	)
 mkpath	[ 0	locks=0 ]	(	"on"	)
 color	[ 0	locks=0 ]	(	Oc	)
 alpha	[ 0	locks=0 ]	(	A	)
@@ -9842,7 +9854,15 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.412"
+		"value":"16.5.536"
+	},
+	"sidefx::parm_filter_raw_value_pattern":{
+		"type":"string",
+		"value":"tmp"
+	},
+	"sidefx::parm_filter_visibility_option":{
+		"type":"string",
+		"value":"raw_value_or_expr"
 	}
 }
 
@@ -9874,7 +9894,7 @@ inputs
 stat
 {
   create 1496776162
-  modify 1522863679
+  modify 1532594729
   author Luiz@Luiz-PC
   access 0777
 }
@@ -11319,7 +11339,7 @@ f	[ 8	locks=0 ]	(	1	10	1	)
 take	[ 0	locks=0 ]	(	_current_	)
 camera	[ 0	locks=0 ]	(	"`opfullpath(\"..\") + \"/objnet/cam1\"`"	)
 vm_uvtype	[ 0	locks=0 ]	(	udim	)
-vm_uvunwrapres	[ 8	locks=0 ]	(	[ vm_uvunwrapresx	512 ] 	[ vm_uvunwrapresy	512 ] 	)
+vm_uvunwrapres	[ 8	locks=0 ]	(	[ vm_uvunwrapresx	2048 ] 	[ vm_uvunwrapresy	2048 ] 	)
 uvresmenu	[ 0	locks=0 ]	(	[ uvresmenu	0 ] 	)
 vm_ptexmapminres	[ 0	locks=0 ]	(	8	8	)
 vm_uvptexminresmenu	[ 0	locks=0 ]	(	0	)
@@ -11340,7 +11360,7 @@ soho_previewsupport	[ 0	locks=0 ]	(	"on"	)
 main	[ 0	locks=0 ]	(	0	0	)
 vm_uv_unwrap_method	[ 0	locks=0 ]	(	1	)
 vm_uvattribute	[ 8	locks=0 ]	(	uv	)
-vm_uv_ray_bias	[ 8	locks=0 ]	(	[ vm_uv_ray_bias	0.01 ] 	)
+vm_uv_ray_bias	[ 8	locks=0 ]	(	[ vm_uv_ray_bias	0.10000000000000001 ] 	)
 vm_uv_ray_maxdist	[ 8	locks=0 ]	(	[ vm_uv_ray_maxdist	-1 ] 	)
 vm_uv_flip_normal	[ 0	locks=0 ]	(	"off"	)
 vm_uvpostprocess	[ 0	locks=0 ]	(	borderfill	)
@@ -11387,7 +11407,7 @@ vm_uvobject1	[ 0	locks=0 ]	(	"`opfullpath(\"..\") + \"/objnet/low\"`"	)
 vm_uvcageobject1	[ 0	locks=0 ]	(	`chsop(\"../vm_uvcageobject1\")`	)
 vm_uvhires1	[ 0	locks=0 ]	(	"`opfullpath(\"..\") + \"/objnet/custom_export\"`"	)
 vm_uvoutputpicture1	[ 0	locks=0 ]	(	""	)
-images6	[ 0	locks=0 ]	(	0	0	0	0	0	)
+images6	[ 0	locks=0 ]	(	2	2	2	2	2	)
 main3	[ 0	locks=0 ]	(	0	0	)
 vm_bake_normalizep	[ 0	locks=0 ]	(	"on"	)
 vm_extractimageplanes	[ 0	locks=0 ]	(	"off"	)
@@ -11425,7 +11445,7 @@ vm_quickplane_P_channel	[ 0	locks=0 ]	(	P	)
 vm_quickplane_N_channel	[ 0	locks=0 ]	(	N	)
 vm_bake_skipcf	[ 0	locks=0 ]	(	"on"	)
 vm_bake_layerexport	[ 0	locks=0 ]	(	"on"	)
-vm_bake_samples	[ 8	locks=0 ]	(	[ vm_bake_samples	4 ] 	)
+vm_bake_samples	[ 8	locks=0 ]	(	[ vm_bake_samples	8 ] 	)
 vm_bake_usemikkt	[ 0	locks=0 ]	(	"on"	)
 vm_bake_tangentnormalflipx	[ 0	locks=0 ]	(	"off"	)
 vm_bake_tangentnormalflipy	[ 0	locks=0 ]	(	"off"	)
@@ -11457,7 +11477,7 @@ vm_transparentsamples	[ 0	locks=0 ]	(	4	)
 vm_samplelock	[ 0	locks=0 ]	(	"off"	)
 vm_randomseed	[ 0	locks=0 ]	(	0	)
 vm_imageblur	[ 0	locks=0 ]	(	"on"	)
-objects4	[ 0	locks=0 ]	(	2	2	2	)
+objects4	[ 0	locks=0 ]	(	1	1	1	)
 vm_extractlinearplanes	[ 0	locks=0 ]	(	`propertys('vm_quickplane_Nt_channel','Nt')`,`propertys('vm_quickplane_Ds_channel','Ds')`,`propertys('vm_quickplane_Vd_channel','Vd')`,`propertys('vm_quickplane_Vdt_channel','Vdt')`,`propertys('vm_quickplane_Cv_channel','Cv')`,`propertys('vm_quickplane_Th_channel','Th')`,`propertys('vm_quickplane_Cu_channel','Cu')`,`propertys('vm_quickplane_N_channel','N')`,`propertys('vm_quickplane_P_channel','P')`	)
 vm_inlinestorage	[ 0	locks=0 ]	(	"off"	)
 }
@@ -11470,6 +11490,14 @@ Content-Type: text/plain
 	"___Version___":{
 		"type":"string",
 		"value":""
+	},
+	"sidefx::parm_filter_raw_value_pattern":{
+		"type":"string",
+		"value":"tmp"
+	},
+	"sidefx::parm_filter_visibility_option":{
+		"type":"string",
+		"value":"raw_value_or_expr"
 	}
 }
 
@@ -11524,7 +11552,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.412"
+		"value":"16.5.536"
 	}
 }
 
@@ -11562,7 +11590,7 @@ inputs
 stat
 {
   create 1496798868
-  modify 1522864659
+  modify 1532595905
   author Luiz@Luiz-PC
   access 0777
 }
@@ -11587,7 +11615,7 @@ coppath	[ 0	locks=0 ]	(	../composite_net	)
 tres	[ 0	locks=0 ]	(	"natural"	)
 res	[ 0	locks=0 ]	(	1024	1024	)
 resmenu	[ 0	locks=0 ]	(	0	)
-copoutput	[ 0	locks=0 ]	(	C:/Users/MAINGEAR/render\\tmp.exr	)
+copoutput	[ 0	locks=0 ]	(	md	)
 mkpath	[ 0	locks=0 ]	(	"on"	)
 color	[ 0	locks=0 ]	(	Nt	)
 alpha	[ 0	locks=0 ]	(	A	)
@@ -11656,7 +11684,15 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.412"
+		"value":"16.5.536"
+	},
+	"sidefx::parm_filter_raw_value_pattern":{
+		"type":"string",
+		"value":"tmp"
+	},
+	"sidefx::parm_filter_visibility_option":{
+		"type":"string",
+		"value":"raw_value_or_expr"
 	}
 }
 
@@ -11688,7 +11724,7 @@ inputs
 stat
 {
   create 1496776162
-  modify 1522863677
+  modify 1532595917
   author Luiz@Luiz-PC
   access 0777
 }
@@ -13133,7 +13169,7 @@ f	[ 8	locks=0 ]	(	1	10	1	)
 take	[ 0	locks=0 ]	(	_current_	)
 camera	[ 0	locks=0 ]	(	"`opfullpath(\"..\") + \"/objnet/cam1\"`"	)
 vm_uvtype	[ 0	locks=0 ]	(	udim	)
-vm_uvunwrapres	[ 8	locks=0 ]	(	[ vm_uvunwrapresx	1024 ] 	[ vm_uvunwrapresy	1024 ] 	)
+vm_uvunwrapres	[ 8	locks=0 ]	(	[ vm_uvunwrapresx	2048 ] 	[ vm_uvunwrapresy	2048 ] 	)
 uvresmenu	[ 0	locks=0 ]	(	[ uvresmenu	0 ] 	)
 vm_ptexmapminres	[ 0	locks=0 ]	(	8	8	)
 vm_uvptexminresmenu	[ 0	locks=0 ]	(	0	)
@@ -13154,7 +13190,7 @@ soho_previewsupport	[ 0	locks=0 ]	(	"on"	)
 main	[ 0	locks=0 ]	(	0	0	)
 vm_uv_unwrap_method	[ 0	locks=0 ]	(	1	)
 vm_uvattribute	[ 8	locks=0 ]	(	uv	)
-vm_uv_ray_bias	[ 8	locks=0 ]	(	[ vm_uv_ray_bias	0.01 ] 	)
+vm_uv_ray_bias	[ 8	locks=0 ]	(	[ vm_uv_ray_bias	0.10000000000000001 ] 	)
 vm_uv_ray_maxdist	[ 8	locks=0 ]	(	[ vm_uv_ray_maxdist	-1 ] 	)
 vm_uv_flip_normal	[ 0	locks=0 ]	(	"off"	)
 vm_uvpostprocess	[ 0	locks=0 ]	(	"Border Expansion"	)
@@ -13200,8 +13236,8 @@ vm_uvobjectenable1	[ 0	locks=0 ]	(	"on"	)
 vm_uvobject1	[ 0	locks=0 ]	(	"`opfullpath(\"..\") + \"/objnet/low\"`"	)
 vm_uvcageobject1	[ 0	locks=0 ]	(	`chsop(\"../vm_uvcageobject1\")`	)
 vm_uvhires1	[ 0	locks=0 ]	(	"`opfullpath(\"..\") + \"/objnet/custom_export\"`"	)
-vm_uvoutputpicture1	[ 0	locks=0 ]	(	C:/Users/MAINGEAR/render\\LOW_tmp.exr	)
-images6	[ 0	locks=0 ]	(	2	2	2	2	2	)
+vm_uvoutputpicture1	[ 0	locks=0 ]	(	$HIP/render/${HIPNAME}_${OS}_%(CHANNEL)s.%(UDIM)d.rat	)
+images6	[ 0	locks=0 ]	(	1	1	1	1	1	)
 main3	[ 0	locks=0 ]	(	0	0	)
 vm_bake_normalizep	[ 0	locks=0 ]	(	"on"	)
 vm_extractimageplanes	[ 0	locks=0 ]	(	"off"	)
@@ -13239,7 +13275,7 @@ vm_quickplane_P_channel	[ 0	locks=0 ]	(	P	)
 vm_quickplane_N_channel	[ 0	locks=0 ]	(	N	)
 vm_bake_skipcf	[ 0	locks=0 ]	(	"on"	)
 vm_bake_layerexport	[ 0	locks=0 ]	(	"on"	)
-vm_bake_samples	[ 8	locks=0 ]	(	[ vm_bake_samples	4 ] 	)
+vm_bake_samples	[ 8	locks=0 ]	(	[ vm_bake_samples	8 ] 	)
 vm_bake_usemikkt	[ 0	locks=0 ]	(	"on"	)
 vm_bake_tangentnormalflipx	[ 0	locks=0 ]	(	"off"	)
 vm_bake_tangentnormalflipy	[ 0	locks=0 ]	(	"off"	)
@@ -13271,7 +13307,7 @@ vm_transparentsamples	[ 0	locks=0 ]	(	4	)
 vm_samplelock	[ 0	locks=0 ]	(	"off"	)
 vm_randomseed	[ 0	locks=0 ]	(	0	)
 vm_imageblur	[ 0	locks=0 ]	(	"on"	)
-objects4	[ 0	locks=0 ]	(	2	2	2	)
+objects4	[ 0	locks=0 ]	(	1	1	1	)
 vm_extractlinearplanes	[ 0	locks=0 ]	(	`propertys('vm_quickplane_Nt_channel','Nt')`,`propertys('vm_quickplane_Ds_channel','Ds')`,`propertys('vm_quickplane_Vd_channel','Vd')`,`propertys('vm_quickplane_Vdt_channel','Vdt')`,`propertys('vm_quickplane_Cv_channel','Cv')`,`propertys('vm_quickplane_Th_channel','Th')`,`propertys('vm_quickplane_Cu_channel','Cu')`,`propertys('vm_quickplane_N_channel','N')`,`propertys('vm_quickplane_P_channel','P')`	)
 vm_inlinestorage	[ 0	locks=0 ]	(	"off"	)
 vm_disable_plane1	[ 0	locks=0 ]	(	"off"	)
@@ -13302,6 +13338,14 @@ Content-Type: text/plain
 	"___Version___":{
 		"type":"string",
 		"value":""
+	},
+	"sidefx::parm_filter_raw_value_pattern":{
+		"type":"string",
+		"value":"tmp"
+	},
+	"sidefx::parm_filter_visibility_option":{
+		"type":"string",
+		"value":"raw_value_or_expr"
 	}
 }
 

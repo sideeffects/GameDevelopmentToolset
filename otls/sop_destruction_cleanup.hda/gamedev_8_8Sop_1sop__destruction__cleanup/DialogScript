@@ -49,6 +49,7 @@
         name    "inputMode"
         label   "Input Mode"
         type    integer
+        invisible
         default { "0" }
         help    "The input mode specifies what kind of data is being fed into the tool. If you get displaced objects on the first frame, select another option."
         menu {
@@ -100,12 +101,6 @@
             default { "" }
             range   { 0 1 }
         }
-        parm {
-            name    "sepparm3"
-            label   "Separator"
-            type    separator
-            default { "" }
-        }
         groupradio {
             name    "tab_"
             label   "Proximity Based"
@@ -130,50 +125,30 @@
                 type    float
                 default { "0.21" }
                 help    "The cluster search radius specifies the maximum difference in units between chunks in a simulation. A lower value means chunks have to be closer to eachother throughout their animation to be batched together, while a higher value will increase the allowed distance."
-                range   { 0.0001 1 }
-            }
-            parm {
-                name    "sepparm12"
-                label   "Separator"
-                type    separator
-                default { "" }
+                range   { 0.0001! 1 }
             }
         }
 
         groupradio {
             name    "tab__1"
             label   "Constraint Based"
+            tabbreak
 
             parm {
-                name    "sepparm13"
+                name    "sepparm"
                 label   "Separator"
                 type    separator
                 default { "" }
             }
             parm {
-                name    "label_1"
-                label   "Cluster Search Radius"
-                type    string
+                name    "labelparm"
+                label   "Label"
+                type    label
+                nolabel
                 default { "USES CONSTRAINT NETWORK FROM INPUT 4" }
-                disablewhen "{ alwaysTrue == 1 }"
-                range   { 0 10 }
-                parmtag { "editor" "0" }
-                parmtag { "export_disable" "1" }
-            }
-            parm {
-                name    "sepparm14"
-                label   "Separator"
-                type    separator
-                default { "" }
             }
         }
 
-        parm {
-            name    "sepparm"
-            label   "Separator"
-            type    separator
-            default { "" }
-        }
     }
 
     groupsimple {
@@ -181,27 +156,79 @@
         label   "Shared Settings"
 
         parm {
+            name    "sepparm16"
+            label   "Separator"
+            type    separator
+            default { "" }
+        }
+        parm {
+            name    "bFuseSurface"
+            label   "Fuse"
+            type    toggle
+            default { "1" }
+            help    "This controls if surface points should be fused together. This will also trigger the removal of inside faces."
+            range   { 0 1 }
+        }
+        parm {
+            name    "fuseDistance"
+            label   "Fuse Distance"
+            type    float
+            default { "0.001" }
+            help    "This controls the fusing threshold in units for surface points close to eachother"
+            disablewhen "{ bFuseSurface == 0 }"
+            range   { 0 0.005 }
+        }
+        parm {
+            name    "removeInline"
+            label   "Remove Inline Points"
+            type    toggle
+            default { "0" }
+            disablewhen "{ bFuseSurface == 0 }"
+        }
+        parm {
             name    "sepparm9"
             label   "Separator"
             type    separator
             default { "" }
         }
         parm {
-            name    "bVisChunks"
-            label   "Visualize Chunks"
+            name    "bFreezeThreshold"
+            label   "Freeze Threshold"
+            type    toggle
+            default { "0" }
+            help    "This controls the freeze threshold optimization. Chunks that move less than the specified threshold will be batched together."
+        }
+        parm {
+            name    "freezeThreshold"
+            label   "Freeze Threshold"
+            type    float
+            default { "0" }
+            help    "This is the threshold in units used to determine freezing of chunks. See checkbox tooltip for more."
+            disablewhen "{ bFreezeThreshold == 0 }"
+            range   { 0 10 }
+        }
+        parm {
+            name    "sepparm8"
+            label   "Separator"
+            type    separator
+            default { "" }
+        }
+        parm {
+            name    "bCuspPolygons"
+            label   "Cusp Polygons"
             type    toggle
             default { "1" }
-            help    "This controls whether or not unique chunks should be colorcoded."
+            help    "This controls if polygon cusping should be applied to the newly generated geometry."
             range   { 0 1 }
         }
         parm {
-            name    "explodeView"
-            label   "Explode View"
-            type    float
-            default { "0" }
-            help    "NOTE: Requires Output Mode to be set to \"Static Optimized Geometry\". This parameter controls the scale at which each piece has to be expanded from the geometry it's center."
-            disablewhen "{ bVisChunks == 0 } { outputMode != 1 }"
-            range   { 0 3 }
+            name    "cuspAngle"
+            label   "Cusp Angle"
+            type    angle
+            default { "30" }
+            help    "This controls the polygon cusping angle."
+            disablewhen "{ bCuspPolygons == 0 }"
+            range   { 0 180 }
         }
         parm {
             name    "sepparm4"
@@ -231,43 +258,21 @@
             default { "" }
         }
         parm {
-            name    "bFreezeThreshold"
-            label   "Freeze Threshold"
-            type    toggle
-            default { "0" }
-            help    "This controls the freeze threshold optimization. Chunks that move less than the specified threshold will be batched together."
-        }
-        parm {
-            name    "freezeThreshold"
-            label   "Freeze Threshold"
-            type    float
-            default { "0" }
-            help    "This is the threshold in units used to determine freezing of chunks. See checkbox tooltip for more."
-            disablewhen "{ bFreezeThreshold == 0 }"
-            range   { 0 10 }
-        }
-        parm {
-            name    "sepparm16"
-            label   "Separator"
-            type    separator
-            default { "" }
-        }
-        parm {
-            name    "bFuseSurface"
-            label   "Fuse"
+            name    "bVisChunks"
+            label   "Visualize Chunks"
             type    toggle
             default { "1" }
-            help    "This controls if surface points should be fused together. This will also trigger the removal of inside faces."
+            help    "This controls whether or not unique chunks should be colorcoded."
             range   { 0 1 }
         }
         parm {
-            name    "fuseDistance"
-            label   "Fuse Distance"
+            name    "explodeView"
+            label   "Explode View"
             type    float
-            default { "0.001" }
-            help    "This controls the fusing threshold in units for surface points close to eachother"
-            disablewhen "{ bFuseSurface == 0 }"
-            range   { 0 0.1 }
+            default { "0" }
+            help    "NOTE: Requires Output Mode to be set to \"Static Optimized Geometry\". This parameter controls the scale at which each piece has to be expanded from the geometry it's center."
+            disablewhen "{ bVisChunks == 0 } { outputMode != 1 }"
+            range   { 0 3 }
         }
         parm {
             name    "sepparm7"
@@ -293,83 +298,6 @@
             help    "This controls the where bound clamped chunks will be moved to."
             disablewhen "{ bBoundsAdjust == 0 } { thirdinput == 0 }"
             range   { -1 1 }
-        }
-        parm {
-            name    "sepparm8"
-            label   "Separator"
-            type    separator
-            default { "" }
-        }
-        parm {
-            name    "bCuspPolygons"
-            label   "Cusp Polygons"
-            type    toggle
-            default { "1" }
-            help    "This controls if polygon cusping should be applied to the newly generated geometry."
-            range   { 0 1 }
-        }
-        parm {
-            name    "cuspAngle"
-            label   "Cusp Angle"
-            type    angle
-            default { "30" }
-            help    "This controls the polygon cusping angle."
-            disablewhen "{ bCuspPolygons == 0 }"
-            range   { 0 180 }
-        }
-        parm {
-            name    "sepparm10"
-            label   "Separator"
-            type    separator
-            default { "" }
-        }
-        parm {
-            name    "label_2"
-            label   "Attributes to Delete"
-            type    label
-            default { "" }
-        }
-        parm {
-            name    "pointAttr"
-            label   "Point Attributes"
-            type    string
-            joinnext
-            default { "" }
-            help    "Any attributes listed here will be deleted from the points."
-            menutoggle {
-                [ "result = []" ]
-                [ "geo = hou.pwd().geometry()" ]
-                [ "" ]
-                [ "for attr in geo.pointAttribs():" ]
-                [ "        result.append(attr.name())" ]
-                [ "        result.append(attr.name())" ]
-                [ "return result" ]
-                language python
-            }
-        }
-        parm {
-            name    "primAttr"
-            label   "Primitive Attributes"
-            type    string
-            joinnext
-            default { "" }
-            help    "Any attributes listed here will be deleted from the primitives."
-            menutoggle {
-                [ "result = []" ]
-                [ "geo = hou.pwd().geometry()" ]
-                [ "" ]
-                [ "for attr in geo.primAttribs():" ]
-                [ "        result.append(attr.name())" ]
-                [ "        result.append(attr.name())" ]
-                [ "return result" ]
-                language python
-            }
-        }
-        parm {
-            name    "sepparm15"
-            label   "Separator"
-            type    separator
-            default { "" }
         }
     }
 

@@ -27,6 +27,7 @@ def can_send_anonymous_stats():
 
 
 def track_event(category, action, label=None, value=0):
+
     data = {
         'v': '1',  # API Version.
         'tid': GA_TRACKING_ID,  # Tracking ID / Property ID.
@@ -42,12 +43,19 @@ def track_event(category, action, label=None, value=0):
 
     try:
         response = requests.post(
-            'http://www.google-analytics.com/collect', data=data, timeout=0.001)
+            'http://www.google-analytics.com/collect', data=data, timeout=0.1)
+
     except:
         pass
+
 
 def like_node(node):
     if can_send_anonymous_stats():
         track_event("Like Events", "liked node", str(node.type().name()))
         hou.ui.displayMessage("Thanks!\n We're glad you like using this tool.\n"
                               " Letting us know will help us prioritize which tools get focused on. ")
+
+
+def send_on_create_analytics(node):
+    if can_send_anonymous_stats():
+        track_event("Node Created", str(node.type().name()))

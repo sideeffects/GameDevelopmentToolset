@@ -1,0 +1,168 @@
+# Dialog script for gamedev::sop_quickmaterial automatically generated
+
+{
+    name	gamedev::sop_quickmaterial
+    script	gamedev::sop_quickmaterial
+    label	"GameDev Quick Material"
+
+    help {
+	""
+    }
+
+    inputlabel	1	"Geometry To Add Material To"
+    inputlabel	2	"Sub-Network Input #2"
+    inputlabel	3	"Sub-Network Input #3"
+    inputlabel	4	"Sub-Network Input #4"
+
+    multiswitcher {
+        name    "mMaterialEntries"
+        label    "Materials"
+        parmtag { "script_callback" "kwargs['node'].hm().OnMultiparmChange()" }
+        parmtag { "script_callback_language" "python" }
+
+        parm {
+            name    "materialname_#"
+            label   "Material Name"
+            type    string
+            default { "Material_#" }
+            parmtag { "script_callback" "kwargs['node'].hm().OnMultiparmChange()" }
+            parmtag { "script_callback_language" "python" }
+        }
+        parm {
+            name    "groupselection_#"
+            label   "Group"
+            type    string
+            default { "" }
+            menutoggle {
+                [ "opmenu -l material1 group1" ]
+            }
+            parmtag { "script_action" "import soputils\nsoputils.selectMaterialGroupParm(kwargs)\n" }
+            parmtag { "script_action_icon" "BUTTONS_reselect" }
+        }
+        groupsimple {
+            name    "basecolorfolder_#"
+            label   "Base Color"
+
+            parm {
+                name    "basecolor_texture_#"
+                label   "BaseColor Texture"
+                type    image
+                default { "" }
+            }
+            parm {
+                name    "basecolor_#"
+                label   "Tint"
+                type    color
+                size    3
+                default { "1" "1" "1" }
+                range   { 0 1 }
+            }
+        }
+
+        groupsimple {
+            name    "opacityfolder_#"
+            label   "Opacity"
+
+            parm {
+                name    "opaccolor_texture_#"
+                label   "Opacity Texture"
+                type    image
+                default { "" }
+            }
+        }
+
+        groupsimple {
+            name    "normalfolder_#"
+            label   "Normal"
+
+            parm {
+                name    "baseBump_bumpTexture_#"
+                label   "Label"
+                type    image
+                default { "" }
+            }
+            parm {
+                name    "baseNormal_flipY_#"
+                label   "Flip Y"
+                type    toggle
+                default { "0" }
+            }
+            parm {
+                name    "roundedEdge_enable_#"
+                label   "Rounded Edge"
+                type    toggle
+                joinnext
+                default { "0" }
+            }
+            parm {
+                name    "roundedEdge_radius_#"
+                label   "Radius"
+                type    float
+                joinnext
+                default { "0" }
+                disablewhen "{ roundedEdge_enable_# == 0 }"
+                range   { 0 0.1 }
+            }
+            parm {
+                name    "roundedEdge_mode_#"
+                label   "Mode"
+                type    integer
+                default { "0" }
+                disablewhen "{ roundedEdge_enable_# == 0 }"
+                menu {
+                    "both"      "Concave and Convex Edges"
+                    "concave"   "Concave Edges"
+                    "convex"    "Convex Edges"
+                }
+                range   { 0 10 }
+            }
+        }
+
+        groupsimple {
+            name    "roughnessfolder_#"
+            label   "Roughness"
+
+            parm {
+                name    "rough_texture_#"
+                label   "Roughness Texture"
+                type    image
+                default { "" }
+            }
+            parm {
+                name    "rough_#"
+                label   "Roughness"
+                type    float
+                default { "0.652" }
+                range   { 0 1 }
+            }
+            parm {
+                name    "ior_#"
+                label   "IOR"
+                type    float
+                default { "1.1" }
+                range   { 0 3 }
+            }
+        }
+
+        groupsimple {
+            name    "metallicfolder_#"
+            label   "Metallic"
+
+            parm {
+                name    "metallic_texture_#"
+                label   "Metallic Texture"
+                type    image
+                default { "" }
+            }
+            parm {
+                name    "metallic_#"
+                label   "Metallic"
+                type    float
+                default { "0" }
+                range   { 0 1 }
+            }
+        }
+
+    }
+
+}

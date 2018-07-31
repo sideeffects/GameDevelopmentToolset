@@ -1,0 +1,49 @@
+import hou
+
+def OnMultiparmChange():
+        HDA = hou.pwd()
+        MaterialNetwork = hou.node(HDA.path()+'/matnet2/')
+        NumberMaterials = HDA.parm('mMaterialEntries').evalAsInt()
+        MaterialAssignment = HDA.node(HDA.path()+'/materialassignment/')
+
+        MaterialNetwork.deleteItems(MaterialNetwork.children())
+        Materials = []
+
+        for x in range(NumberMaterials):
+                val = x+1
+                MaterialName = HDA.parm('materialname_%s' % val).evalAsString()
+                NewMaterial = MaterialNetwork.createNode('principledshader::2.0', MaterialName)
+                NewMaterial.moveToGoodPosition()
+                MaterialAssignment.parm('shop_materialpath%s' % val).set("../matnet2/%s" % HDA.parm('materialname_%s' % val).evalAsString())
+                MaterialAssignment.parm('group%s' % val).set(HDA.parm('groupselection_%s' % val), follow_parm_reference=False)
+
+                # basecolor
+                NewMaterial.parm('basecolor_useTexture').set(1)
+                NewMaterial.parm('basecolor_texture').set(HDA.parm('basecolor_texture_%s' % val))
+                NewMaterial.parm('basecolorr').set(HDA.parm('basecolor_%sr' % val))
+                NewMaterial.parm('basecolorg').set(HDA.parm('basecolor_%sg' % val))
+                NewMaterial.parm('basecolorb').set(HDA.parm('basecolor_%sb' % val))
+
+                # opacity
+                NewMaterial.parm('opaccolor_useTexture').set(1)
+                NewMaterial.parm('opaccolor_texture').set(HDA.parm('opaccolor_texture_%s' % val))
+
+                # normal
+                NewMaterial.parm('baseBumpAndNormal_enable').set(1)
+                NewMaterial.parm('baseNormal_texture').set(HDA.parm('baseBump_bumpTexture_%s' % val))
+                NewMaterial.parm('baseNormal_flipY').set(HDA.parm('baseNormal_flipY_%s' % val))
+                NewMaterial.parm('roundedEdge_enable').set(HDA.parm('roundedEdge_enable_%s' % val))
+                NewMaterial.parm('roundedEdge_radius').set(HDA.parm('roundedEdge_radius_%s' % val))
+                NewMaterial.parm('roundedEdge_mode').set(HDA.parm('roundedEdge_mode_%s' % val))
+
+                # roughness
+                NewMaterial.parm('rough_useTexture').set(1)
+                NewMaterial.parm('rough_texture').set(HDA.parm('rough_texture_%s' % val))
+
+                NewMaterial.parm('rough').set(HDA.parm('rough_%s' % val))
+                NewMaterial.parm('ior').set(HDA.parm('ior_%s' % val))
+
+                # Metallic
+                NewMaterial.parm('metallic_useTexture').set(1)
+                NewMaterial.parm('metallic_texture').set(HDA.parm('metallic_texture_%s' % val))
+                NewMaterial.parm('metallic').set(HDA.parm('metallic_1%s' % val))

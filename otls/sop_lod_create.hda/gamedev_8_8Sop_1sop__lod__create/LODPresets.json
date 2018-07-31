@@ -1,57 +1,55 @@
 {
-    "Level Architecture": {
-        "IsLastLODImpostor": 0,
-        "NumberLODs": 4,  
-        "PercentageTriangles": [100, 50, 25, 12.5],
-        "ConsolidateShaders": [0, 0, 1, 1],
-        "ThresholdDistance": [0, 20, 30, 40]
-    },
-
-    "High Detail": {
-        "IsLastLODImpostor": 0,
-        "NumberLODs": 6,  
-        "PercentageTriangles": [100, 50, 25, 12.5, 6.25, 3.125],
-        "ConsolidateShaders": [0, 0, 1, 1, 1, 1],
-        "ThresholdDistance": [0, 20, 30, 40, 70, 90]
-    },
-
-    "Large Prop": {
+    "Large Object": {
+        "MenuPriority": 1,
         "IsLastLODImpostor": 1,
-        "NumberLODs": 4,  
+        "NumberLODs": 4,
+        "ConsolidateShadersFrom": 2, 
         "PercentageTriangles": [100, 50, 25, 12.5],
-        "ConsolidateShaders": [0, 0, 1, 1],
         "ThresholdDistance": [0, 20, 30, 40]
     },
 
-    "Small Prop": {
+    "Medium Object": {
+        "MenuPriority": 2,
         "IsLastLODImpostor": 0,
-        "NumberLODs": 4,  
-        "PercentageTriangles": [100, 50, 25, 12.5],
-        "ConsolidateShaders": [0, 0, 1, 1],
-        "ThresholdDistance": [0, 20, 30, 40]
+        "NumberLODs": 3,
+        "ConsolidateShadersFrom": 2,
+        "PercentageTriangles": [100, 50, 25],
+        "ThresholdDistance": [0, 20, 30]
     },
 
-    "Deco": {
+    "Small Object": {
+        "MenuPriority": 3,
         "IsLastLODImpostor": 0,
-        "NumberLODs": 4,  
-        "PercentageTriangles": [100, 50, 25, 12.5],
-        "ConsolidateShaders": [0, 0, 1, 1],
-        "ThresholdDistance": [0, 20, 30, 40]
-    },
-
-    "Vista": {
-        "IsLastLODImpostor": 0,
-        "NumberLODs": 2,  
+        "NumberLODs": 2,
+        "ConsolidateShadersFrom": 1,  
         "PercentageTriangles": [100, 50],
-        "ConsolidateShaders": [0, 1],
         "ThresholdDistance": [0, 20]
     },
 
-    "Foliage": {
+    "Large Foliage": {
+        "MenuPriority": 4,
+        "IsLastLODImpostor": 1,
+        "NumberLODs": 3,
+        "ConsolidateShadersFrom": 1,  
+        "PercentageTriangles": [100, 50, 25],
+        "ThresholdDistance": [0, 20, 30]
+    },
+
+    "Small Foliage": {
+        "MenuPriority": 5,
         "IsLastLODImpostor": 0,
-        "NumberLODs": 2,  
-        "PercentageTriangles": [100, 40],
-        "ConsolidateShaders": [0, 1],
+        "NumberLODs": 2,
+        "ConsolidateShadersFrom": 1,  
+        "PercentageTriangles": [100, 25],
         "ThresholdDistance": [0, 20]
+    },
+
+    "Distant Object": {
+        "MenuPriority": 6,
+        "IsLastLODImpostor": 1,
+        "NumberLODs": 2,
+        "ConsolidateShadersFrom": 0, 
+        "PercentageTriangles": [100, 100],
+        "ThresholdDistance": [0, 50]
     }
 }

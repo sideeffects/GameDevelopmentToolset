@@ -49,19 +49,36 @@
         label   "Settings"
 
         parm {
+            name    "bDebugCamera"
+            label   "Debug Camera"
+            type    toggle
+            nolabel
+            joinnext
+            default { "0" }
+        }
+        parm {
+            name    "oDebugCamera"
+            label   "Debug Camera"
+            type    oppath
+            default { "" }
+            parmtag { "opfilter" "!!OBJ/CAMERA!!" }
+            parmtag { "oprelative" "." }
+        }
+        parm {
             name    "bVisualize"
             label   "Visualize"
             type    toggle
             nolabel
             joinnext
             default { "on" }
+            disablewhen "{ bDebugCamera == 1 }"
         }
         parm {
             name    "iVisibleLOD"
             label   "Visible LOD"
             type    integer
             default { "0" }
-            disablewhen "{ bVisualize == 0 }"
+            disablewhen "{ bVisualize == 0 } { bDebugCamera == 1 }"
             range   { 0 10 }
         }
         parm {
@@ -76,27 +93,47 @@
                 [ "LODData = json.loads(Node.type().definition().sections()['LODPresets.json'].contents())" ]
                 [ "Entries = []" ]
                 [ "" ]
-                [ "for key in LODData.keys():" ]
-                [ "    Entries.append(key)" ]
-                [ "    Entries.append(key)" ]
+                [ "SortedList = sorted([[x, LODData[x][\"MenuPriority\"]] for x  in LODData.keys()], key=lambda x: x[1])" ]
+                [ "" ]
+                [ "for key in SortedList:" ]
+                [ "    Entries.append(key[0])" ]
+                [ "    Entries.append(key[0])" ]
+                [ "    " ]
+                [ "return Entries" ]
+                language python
+            }
+            parmtag { "script_callback" "kwargs['node'].hm().SetPreset()" }
+            parmtag { "script_callback_language" "python" }
+        }
+        parm {
+            name    "mConsolidateShader"
+            label   "Consolidate Shader At"
+            type    ordinal
+            default { "0" }
+            menu {
+                [ "import hou, json" ]
+                [ "Node = hou.pwd()" ]
+                [ "LODData = json.loads(Node.type().definition().sections()['LODPresets.json'].contents())" ]
+                [ "LODPreset = Node.parm(\"mPreset\").evalAsString()" ]
+                [ "NumLODs = LODData[LODPreset][\"NumberLODs\"]" ]
+                [ "" ]
+                [ "Entries = []" ]
+                [ "Entries.append(-1)" ]
+                [ "Entries.append('No Consolidation')" ]
+                [ "" ]
+                [ "for x in range(NumLODs):" ]
+                [ "    Entries.append(x)" ]
+                [ "    Entries.append('LOD%s' % x)" ]
                 [ "    " ]
                 [ "return Entries" ]
                 language python
             }
         }
         parm {
-            name    "btnApplyPreset"
-            label   "Apply Preset"
-            type    button
-            default { "0" }
-            parmtag { "script_callback" "kwargs['node'].hm().SetPreset()" }
-            parmtag { "script_callback_language" "python" }
-        }
-        parm {
-            name    "bConsolidateShaders"
-            label   "Consolidate Shaders"
+            name    "bRemoveInsides"
+            label   "Remove Insides"
             type    toggle
-            default { "0" }
+            default { "1" }
         }
         parm {
             name    "bLastLODImpostor"
@@ -221,13 +258,6 @@
                 disablewhen "{ bBool == 1 }"
                 range   { 0 100 }
             }
-            parm {
-                name    "bConsolidateShaders#"
-                label   "Consolidate Shaders"
-                type    toggle
-                default { "0" }
-                disablewhen "{ bBool == 1 }"
-            }
         }
 
     }
@@ -242,6 +272,7 @@
             type    button
             invisible
             default { "0" }
+            disablewhen "{ sHAPI != -1 }"
             parmtag { "autoscope" "0000000000000000" }
             parmtag { "script_callback_language" "python" }
         }
@@ -273,46 +304,12 @@
                 parmtag { "autoscope" "0000000000000000" }
             }
             parm {
-                name    "bake_Nt"
-                label   "Normal Map"
-                type    toggle
-                nolabel
-                joinnext
-                default { "on" }
-                parmtag { "autoscope" "0000000000000000" }
-            }
-            parm {
-                name    "Nt_suffix"
-                label   "Normal Map"
-                type    string
-                default { "normal" }
-                disablewhen "{ bake_Nt == 0 }"
-                parmtag { "autoscope" "0000000000000000" }
-            }
-            parm {
-                name    "bake_alpha"
-                label   "Opacity"
-                type    toggle
-                nolabel
-                joinnext
-                default { "off" }
-                parmtag { "autoscope" "0000000000000000" }
-            }
-            parm {
-                name    "alpha_suffix"
-                label   "Opacity Map"
-                type    string
-                default { "alpha" }
-                disablewhen "{ bake_alpha == 0 }"
-                parmtag { "autoscope" "0000000000000000" }
-            }
-            parm {
                 name    "bake_specrough"
                 label   "Roughness Map"
                 type    toggle
                 nolabel
                 joinnext
-                default { "off" }
+                default { "on" }
                 parmtag { "autoscope" "0000000000000000" }
             }
             parm {
@@ -329,7 +326,7 @@
                 type    toggle
                 nolabel
                 joinnext
-                default { "off" }
+                default { "on" }
                 parmtag { "autoscope" "0000000000000000" }
             }
             parm {
@@ -341,20 +338,20 @@
                 parmtag { "autoscope" "0000000000000000" }
             }
             parm {
-                name    "bake_N"
-                label   "World Normal Map"
+                name    "bake_Nt"
+                label   "Normal Map"
                 type    toggle
                 nolabel
                 joinnext
-                default { "off" }
+                default { "on" }
                 parmtag { "autoscope" "0000000000000000" }
             }
             parm {
-                name    "N_suffix"
-                label   "World Normal"
+                name    "Nt_suffix"
+                label   "Normal Map"
                 type    string
-                default { "worldnormal" }
-                disablewhen "{ bake_N == 0 }"
+                default { "normal" }
+                disablewhen "{ bake_Nt == 0 }"
                 parmtag { "autoscope" "0000000000000000" }
             }
             parm {
@@ -375,8 +372,8 @@
                 parmtag { "autoscope" "0000000000000000" }
             }
             parm {
-                name    "bake_Cu"
-                label   "Curvature"
+                name    "bake_alpha"
+                label   "Opacity"
                 type    toggle
                 nolabel
                 joinnext
@@ -384,62 +381,11 @@
                 parmtag { "autoscope" "0000000000000000" }
             }
             parm {
-                name    "Cu_suffix"
-                label   "Curvature"
+                name    "alpha_suffix"
+                label   "Opacity Map"
                 type    string
-                default { "curvature" }
-                disablewhen "{ bake_Cu == 0 }"
-                parmtag { "autoscope" "0000000000000000" }
-            }
-            parm {
-                name    "bake_Th"
-                label   "Thickness"
-                type    toggle
-                nolabel
-                joinnext
-                default { "off" }
-                parmtag { "autoscope" "0000000000000000" }
-            }
-            parm {
-                name    "Th_suffix"
-                label   "Thickness"
-                type    string
-                default { "thickness" }
-                disablewhen "{ bake_Th == 0 }"
-                parmtag { "autoscope" "0000000000000000" }
-            }
-            parm {
-                name    "bake_P"
-                label   "Position"
-                type    toggle
-                nolabel
-                joinnext
-                default { "off" }
-                parmtag { "autoscope" "0000000000000000" }
-            }
-            parm {
-                name    "P_suffix"
-                label   "Position"
-                type    string
-                default { "position" }
-                disablewhen "{ bake_P == 0 }"
-                parmtag { "autoscope" "0000000000000000" }
-            }
-            parm {
-                name    "bake_Ds"
-                label   "Height"
-                type    toggle
-                nolabel
-                joinnext
-                default { "off" }
-                parmtag { "autoscope" "0000000000000000" }
-            }
-            parm {
-                name    "Ds_suffix"
-                label   "Height"
-                type    string
-                default { "height" }
-                disablewhen "{ bake_Ds == 0 }"
+                default { "alpha" }
+                disablewhen "{ bake_alpha == 0 }"
                 parmtag { "autoscope" "0000000000000000" }
             }
             multiparm {
@@ -468,115 +414,120 @@
             name    "channels_1"
             label   "Advanced"
 
-            parm {
-                name    "vm_bake_usemikkt"
-                label   "Use MikkT Tangent Space"
-                type    toggle
-                default { "on" }
-                parmtag { "autoscope" "0000000000000000" }
-                parmtag { "mantra_class" "renderer" }
-                parmtag { "mantra_name" "bake_usemikkt" }
-                parmtag { "spare_category" "Baking" }
-            }
-            parm {
-                name    "vm_bake_tangentnormalflipy"
-                label   "Tangent Normal Flip Y"
-                type    toggle
-                default { "off" }
-                parmtag { "autoscope" "0000000000000000" }
-                parmtag { "spare_category" "Baking" }
-            }
-            parm {
-                name    "vm_uvcageobject1"
-                label   "Cage Mesh"
-                type    oppath
-                default { "" }
-                help    "Optional cage mesh. Must have the same topology and UVs as the UV Object. Typically a dupicate of UV Object whose vertices are slightly pushed outward. Used to determine the projection direction."
-                parmtag { "autoscope" "0000000000000000" }
-                parmtag { "opfilter" "!!OBJ/GEOMETRY!!" }
-                parmtag { "opfullpath" "on" }
-                parmtag { "oprelative" "/obj" }
-            }
-            parm {
-                name    "border_padding"
-                label   "Border Padding"
-                type    integer
-                default { "2" }
-                range   { 0 10 }
-                parmtag { "autoscope" "0000000000000000" }
-            }
-            parm {
-                name    "baking_samples"
-                label   "Baking Samples"
-                type    integer
-                default { "8" }
-                range   { 0 10 }
-                parmtag { "autoscope" "0000000000000000" }
-            }
-            parm {
-                name    "ray_bias"
-                label   "Ray Bias"
-                type    float
-                default { "0.01" }
-                range   { 0 10 }
-                parmtag { "autoscope" "0000000000000000" }
-            }
-            parm {
-                name    "ray_distance"
-                label   "Ray Distance"
-                type    float
-                default { "-1" }
-                range   { 0 10 }
-                parmtag { "autoscope" "0000000000000000" }
-            }
-        }
+            groupsimple {
+                name    "folder10"
+                label   "Baking"
 
-        group {
-            name    "channels_2"
-            label   "Material"
-            invisibletab
+                parm {
+                    name    "vm_bake_usemikkt"
+                    label   "Use MikkT Tangent Space"
+                    type    toggle
+                    default { "on" }
+                    parmtag { "autoscope" "0000000000000000" }
+                    parmtag { "mantra_class" "renderer" }
+                    parmtag { "mantra_name" "bake_usemikkt" }
+                    parmtag { "spare_category" "Baking" }
+                }
+                parm {
+                    name    "vm_bake_tangentnormalflipy"
+                    label   "Tangent Normal Flip Y"
+                    type    toggle
+                    default { "off" }
+                    parmtag { "autoscope" "0000000000000000" }
+                    parmtag { "spare_category" "Baking" }
+                }
+                parm {
+                    name    "vm_uvcageobject1"
+                    label   "Cage Mesh"
+                    type    oppath
+                    default { "" }
+                    help    "Optional cage mesh. Must have the same topology and UVs as the UV Object. Typically a dupicate of UV Object whose vertices are slightly pushed outward. Used to determine the projection direction."
+                    parmtag { "autoscope" "0000000000000000" }
+                    parmtag { "opfilter" "!!OBJ/GEOMETRY!!" }
+                    parmtag { "opfullpath" "on" }
+                    parmtag { "oprelative" "/obj" }
+                }
+                parm {
+                    name    "border_padding"
+                    label   "Border Padding"
+                    type    integer
+                    default { "2" }
+                    range   { 0 10 }
+                    parmtag { "autoscope" "0000000000000000" }
+                }
+                parm {
+                    name    "baking_samples"
+                    label   "Baking Samples"
+                    type    integer
+                    default { "8" }
+                    range   { 0 10 }
+                    parmtag { "autoscope" "0000000000000000" }
+                }
+                parm {
+                    name    "ray_bias"
+                    label   "Ray Bias"
+                    type    float
+                    default { "0.01" }
+                    range   { 0 10 }
+                    parmtag { "autoscope" "0000000000000000" }
+                }
+                parm {
+                    name    "ray_distance"
+                    label   "Ray Distance"
+                    type    float
+                    default { "-1" }
+                    range   { 0 10 }
+                    parmtag { "autoscope" "0000000000000000" }
+                }
+            }
 
-            parm {
-                name    "basecolor"
-                label   "Base Color"
-                type    color
-                size    3
-                default { "1" "1" "1" }
-                range   { 0 1 }
-                parmtag { "autoscope" "0000000000000000" }
-                parmtag { "ogl_diff" "1" }
-                parmtag { "parmvop" "1" }
-                parmtag { "shaderparmcontexts" "surface" }
+            groupsimple {
+                name    "channels_2"
+                label   "Material"
+
+                parm {
+                    name    "basecolor"
+                    label   "Base Color"
+                    type    color
+                    size    3
+                    default { "1" "1" "1" }
+                    range   { 0 1 }
+                    parmtag { "autoscope" "0000000000000000" }
+                    parmtag { "ogl_diff" "1" }
+                    parmtag { "parmvop" "1" }
+                    parmtag { "shaderparmcontexts" "surface" }
+                }
+                parm {
+                    name    "ior"
+                    label   "IOR"
+                    type    float
+                    default { "1.52" }
+                    range   { 1 3 }
+                    parmtag { "autoscope" "0000000000000000" }
+                    parmtag { "ogl_ior" "1" }
+                    parmtag { "parmvop" "1" }
+                    parmtag { "shaderparmcontexts" "surface" }
+                }
+                parm {
+                    name    "rough"
+                    label   "Roughness"
+                    type    float
+                    default { "0.518" }
+                    range   { 0 1 }
+                    parmtag { "autoscope" "0000000000000000" }
+                    parmtag { "ogl_rough" "1" }
+                    parmtag { "parmvop" "1" }
+                    parmtag { "shaderparmcontexts" "surface" }
+                }
+                parm {
+                    name    "visualize_channel"
+                    label   "Diffuse Map"
+                    type    string
+                    default { "basecolor" }
+                    parmtag { "autoscope" "0000000000000000" }
+                }
             }
-            parm {
-                name    "ior"
-                label   "IOR"
-                type    float
-                default { "1.52" }
-                range   { 1 3 }
-                parmtag { "autoscope" "0000000000000000" }
-                parmtag { "ogl_ior" "1" }
-                parmtag { "parmvop" "1" }
-                parmtag { "shaderparmcontexts" "surface" }
-            }
-            parm {
-                name    "rough"
-                label   "Roughness"
-                type    float
-                default { "0.518" }
-                range   { 0 1 }
-                parmtag { "autoscope" "0000000000000000" }
-                parmtag { "ogl_rough" "1" }
-                parmtag { "parmvop" "1" }
-                parmtag { "shaderparmcontexts" "surface" }
-            }
-            parm {
-                name    "visualize_channel"
-                label   "Diffuse Map"
-                type    string
-                default { "basecolor" }
-                parmtag { "autoscope" "0000000000000000" }
-            }
+
         }
 
     }
@@ -985,7 +936,7 @@
                 name    "sopoutput"
                 label   "Output"
                 type    file
-                default { "$HIP/lodexport/MeshLOD.fbx" }
+                default { "$HIP/lodexport/${OS}.fbx" }
                 menureplace {
                     [ "opmenu -l objnet1/ropnet1/filmboxfbx1 sopoutput" ]
                 }
@@ -1003,7 +954,7 @@
                 name    "base_path"
                 label   "Output"
                 type    image
-                default { "$HIP/lodexport/${HIPNAME}_$(CHANNEL).tga" }
+                default { "$HIP/lodexport/${OS}_LOD_$(CHANNEL).tga" }
                 parmtag { "autoscope" "0000000000000000" }
             }
             parm {
@@ -1058,7 +1009,7 @@
                 name    "beauty_atlas"
                 label   "Beauty Atlas"
                 type    image
-                default { "$HIP/lodexport/${OS}_beauty.exr" }
+                default { "$HIP/lodexport/${OS}_Impostor_beauty.tga" }
                 disablewhen "{ beauty_toggle == 0 }"
                 parmtag { "autoscope" "0000000000000000" }
             }
@@ -1075,7 +1026,7 @@
                 name    "base_color_atlas"
                 label   "Base Color Atlas"
                 type    image
-                default { "$HIP/lodexport/${OS}_basecolour.exr" }
+                default { "$HIP/lodexport/${OS}_Impostor_basecolor.tga" }
                 disablewhen "{ base_color_toggle == 0 }"
                 parmtag { "autoscope" "0000000000000000" }
             }
@@ -1092,7 +1043,7 @@
                 name    "normals_atlas"
                 label   "Normals Atlas"
                 type    image
-                default { "$HIP/lodexport/${OS}_N.exr" }
+                default { "$HIP/lodexport/${OS}_Impostor_normal.tga" }
                 disablewhen "{ normals_toggle == 0 }"
                 parmtag { "autoscope" "0000000000000000" }
             }

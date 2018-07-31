@@ -11,22 +11,22 @@ def SetPreset():
         LastLODImpostor = LODData[LODPreset]["IsLastLODImpostor"]
         NumberLODs = LODData[LODPreset]["NumberLODs"]
         ReductionSettings = LODData[LODPreset]["PercentageTriangles"]
-        ConsolidateShaders = LODData[LODPreset]["ConsolidateShaders"]
+        ConsolidateShaders = LODData[LODPreset]["ConsolidateShadersFrom"] + 1 if not None else 0
         ThresholdDistance = LODData[LODPreset]["ThresholdDistance"]
 
         # Set Parm based on Presets
         NumLODParm = Node.parm("lods").set(NumberLODs)
         Node.parm("bLastLODImpostor").set(LastLODImpostor)
+        Node.parm("mConsolidateShader").set(ConsolidateShaders)
 
         LODContainer = hou.node(hou.pwd().path()+"/objnet1/LOD-Export/")
         LODGroup = hou.node(LODContainer.path()+"/LODGroup")
         LODGroup.replaceSpareParmTuple('fbx_lod_display_levels', hou.FloatParmTemplate('fbx_lod_display_levels', 'fbx_lod_display_levels', NumberLODs))
-        LODGroup.replaceSpareParmTuple('fbx_lod_thresholds', hou.FloatParmTemplate('fbx_lod_thresholds', 'fbx_lod_thresholds', NumberLODs-1, default_value=tuple(ThresholdDistance[1:])))
+        LODGroup.replaceSpareParmTuple('fbx_lod_thresholds', hou.FloatParmTemplate('fbx_lod_thresholds', 'fbx_lod_thresholds', max(0, NumberLODs-1), default_value=tuple(ThresholdDistance[1:])))
 
         for x in range(NumberLODs):
                 hou.parm("fPercentTriangles%s" % (x+1)).set(ReductionSettings[x])
                 hou.parm("fThresholdDistance%s" % (x+1)).set(ThresholdDistance[x])
-                hou.parm("bConsolidateShaders%s" % (x+1)).set(ConsolidateShaders[x])
 
 
 def Export():
@@ -52,9 +52,6 @@ def Export():
                 Output.moveToGoodPosition()
                 Output.setDisplayFlag(True)
                 Output.setRenderFlag(True)
-
-                #Subnet = LODContainer.collapseIntoSubnet([Geometry], subnet_name="mesh_LOD%s" % x, subnet_type=None)
-                #Subnet.moveToGoodPosition()
                 LODObjects.append(Geometry)
 
         LODGroup.setName(LODName, False)
@@ -64,13 +61,8 @@ def Export():
         LODGroup.setName("LODGroup", False)
         LODContainer.deleteItems(LODObjects)
 
-        # Render ConsolidateShaders
-        LODData = json.loads(Node.type().definition().sections()['LODPresets.json'].contents())
-        LODPreset = Node.parm("mPreset").evalAsString()
-        ConsolidateShaders = LODData[LODPreset]["ConsolidateShaders"]
-
         # Shader Consolidation
-        if Node.parm("bConsolidateShaders").evalAsInt() == 1 and 1 in ConsolidateShaders:
+        if Node.parm("mConsolidateShader").evalAsInt() > 0:#Node.parm("bConsolidateShaders").evalAsInt() == 1 and 1 in ConsolidateShaders:
                 hou.node(hou.pwd().path()+"/sop_simple_baker1/").parm("execute").pressButton()
 
         # Impostor Generation

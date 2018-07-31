@@ -5,6 +5,7 @@ def OnMultiparmChange():
         MaterialNetwork = hou.node(HDA.path()+'/matnet2/')
         NumberMaterials = HDA.parm('mMaterialEntries').evalAsInt()
         MaterialAssignment = HDA.node(HDA.path()+'/materialassignment/')
+        MaterialAssignment.parm('num_materials').set(NumberMaterials)
 
         MaterialNetwork.deleteItems(MaterialNetwork.children())
         Materials = []

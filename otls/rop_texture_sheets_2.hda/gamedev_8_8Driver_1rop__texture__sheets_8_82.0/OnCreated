@@ -22,3 +22,12 @@ else:
     hda.parm('external_frames3').deleteAllKeyframes()
     hda.parm('external_frames3').set(1)
     hda.parm('camera_label').set("")
+    
+# track creation usage. For more info, including how to disable this please see
+# https://www.sidefx.com/legal/houdini-anonymous-usage-statistics/
+
+try:
+    import gamedevutils 
+    gamedevutils.send_on_create_analytics(kwargs["node"])
+except:
+    pass

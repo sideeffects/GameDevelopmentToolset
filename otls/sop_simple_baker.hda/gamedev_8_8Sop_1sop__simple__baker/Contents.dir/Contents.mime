@@ -32,27 +32,22 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position 1.96396 -0.842379
-connectornextid 3
-flags =  lock off model off template on footprint off xray off bypass off display on render on highlight off unload off savedata off compress on colordefault on exposed on
+position -20.7941 -19.3844
+connectornextid 0
+flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
 {
-0 "output1"
 }
 inputsNamed3
 {
-1 	color1 1 1 "input1"
-2 	(0) "" 1 "input2"
 }
 inputs
 {
-0 	color1 0 1
-1 	(0) 0 1
 }
 stat
 {
-  create 1522851965
-  modify 1532526859
+  create 1533241908
+  modify 1533241951
   author MAINGEAR@DESKTOP-P98C1VA
   access 0777
 }
@@ -457,7 +452,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"0.1"
+		"value":"0.3"
 	}
 }
 
@@ -8941,7 +8936,7 @@ vm_uvhires1	[ 0	locks=0 ]	(	"`opfullpath(\"..\") + \"/objnet/high\"`"	)
 vm_uvoutputpicture1	[ 0	locks=0 ]	(	C:/Users/MAINGEAR/render/LOW_tmp.exr	)
 images6	[ 0	locks=0 ]	(	0	0	0	0	0	)
 main3	[ 0	locks=0 ]	(	0	0	)
-vm_bake_normalizep	[ 0	locks=0 ]	(	"on"	)
+vm_bake_normalizep	[ 8	locks=0 ]	(	"on"	)
 vm_extractimageplanes	[ 0	locks=0 ]	(	"off"	)
 vm_extractimageplanesformat	[ 0	locks=0 ]	(	Targa	)
 vm_quickplane_Nt	[ 8	locks=0 ]	(	[ vm_quickplane_Nt	1 ] 	)
@@ -8963,6 +8958,24 @@ vm_quickplane_metallic	[ 8	locks=0 ]	(	[ vm_quickplane_metallic	0 ] 	)
 vm_quickplane_specrough	[ 8	locks=0 ]	(	[ vm_quickplane_specrough	0 ] 	)
 vm_showextraplaneparms	[ 0	locks=0 ]	(	"off"	)
 vm_numaux	[ 0	locks=0 ]	(	1	)
+vm_disable_plane1	[ 0	locks=0 ]	(	"off"	)
+vm_excludedcm_plane1	[ 0	locks=0 ]	(	"off"	)
+vm_variable_plane1	[ 0	locks=0 ]	(	Af	)
+vm_vextype_plane1	[ 0	locks=0 ]	(	float	)
+vm_channel_plane1	[ 0	locks=0 ]	(	alpha	)
+vm_usefile_plane1	[ 0	locks=0 ]	(	"off"	)
+vm_filename_plane1	[ 0	locks=0 ]	(	""	)
+vm_quantize_plane1	[ 0	locks=0 ]	(	half	)
+vm_sfilter_plane1	[ 0	locks=0 ]	(	alpha	)
+vm_pfilter_plane1	[ 0	locks=0 ]	(	""	)
+vm_gamma_plane1	[ 0	locks=0 ]	(	1	)
+vm_gain_plane1	[ 0	locks=0 ]	(	1	)
+vm_dither_plane1	[ 0	locks=0 ]	(	0.5	)
+vm_whitepoint_plane1	[ 0	locks=0 ]	(	1	)
+vm_componentexport1	[ 0	locks=0 ]	(	"off"	)
+vm_lightexport1	[ 0	locks=0 ]	(	0	)
+vm_lightexport_scope1	[ 0	locks=0 ]	(	*	)
+vm_lightexport_select1	[ 0	locks=0 ]	(	*	)
 vm_extractseparator	[ 0	locks=0 ]	(	_	)
 vm_channel_names_seperator_bar	[ 0	locks=0 ]	(	)
 vm_quickplane_Nt_channel	[ 0	locks=0 ]	(	Nt	)
@@ -9014,24 +9027,6 @@ vm_extractlinearplanes	[ 0	locks=0 ]	(	`propertys('vm_quickplane_Nt_channel','Nt
 vm_inlinestorage	[ 0	locks=0 ]	(	"off"	)
 declare_stylesheets	[ 0	locks=0 ]	(	*	)
 apply_stylesheets	[ 0	locks=0 ]	(	opdef:..?stylesheet.json	)
-vm_disable_plane1	[ 0	locks=0 ]	(	"off"	)
-vm_excludedcm_plane1	[ 0	locks=0 ]	(	"off"	)
-vm_variable_plane1	[ 0	locks=0 ]	(	Af	)
-vm_vextype_plane1	[ 0	locks=0 ]	(	float	)
-vm_channel_plane1	[ 0	locks=0 ]	(	alpha	)
-vm_usefile_plane1	[ 0	locks=0 ]	(	"off"	)
-vm_filename_plane1	[ 0	locks=0 ]	(	""	)
-vm_quantize_plane1	[ 0	locks=0 ]	(	half	)
-vm_sfilter_plane1	[ 0	locks=0 ]	(	alpha	)
-vm_pfilter_plane1	[ 0	locks=0 ]	(	""	)
-vm_gamma_plane1	[ 0	locks=0 ]	(	1	)
-vm_gain_plane1	[ 0	locks=0 ]	(	1	)
-vm_dither_plane1	[ 0	locks=0 ]	(	0.5	)
-vm_whitepoint_plane1	[ 0	locks=0 ]	(	1	)
-vm_componentexport1	[ 0	locks=0 ]	(	"off"	)
-vm_lightexport1	[ 0	locks=0 ]	(	0	)
-vm_lightexport_scope1	[ 0	locks=0 ]	(	*	)
-vm_lightexport_select1	[ 0	locks=0 ]	(	*	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -14450,6 +14445,24 @@ vm_quickplane_metallic	[ 0	locks=0 ]	(	"off"	)
 vm_quickplane_specrough	[ 0	locks=0 ]	(	"off"	)
 vm_showextraplaneparms	[ 0	locks=0 ]	(	"off"	)
 vm_numaux	[ 0	locks=0 ]	(	1	)
+vm_disable_plane1	[ 0	locks=0 ]	(	"off"	)
+vm_excludedcm_plane1	[ 0	locks=0 ]	(	"off"	)
+vm_variable_plane1	[ 0	locks=0 ]	(	Af	)
+vm_vextype_plane1	[ 0	locks=0 ]	(	float	)
+vm_channel_plane1	[ 0	locks=0 ]	(	alpha	)
+vm_usefile_plane1	[ 0	locks=0 ]	(	"off"	)
+vm_filename_plane1	[ 0	locks=0 ]	(	""	)
+vm_quantize_plane1	[ 0	locks=0 ]	(	half	)
+vm_sfilter_plane1	[ 0	locks=0 ]	(	alpha	)
+vm_pfilter_plane1	[ 0	locks=0 ]	(	""	)
+vm_gamma_plane1	[ 0	locks=0 ]	(	1	)
+vm_gain_plane1	[ 0	locks=0 ]	(	1	)
+vm_dither_plane1	[ 0	locks=0 ]	(	0.5	)
+vm_whitepoint_plane1	[ 0	locks=0 ]	(	1	)
+vm_componentexport1	[ 0	locks=0 ]	(	"off"	)
+vm_lightexport1	[ 0	locks=0 ]	(	0	)
+vm_lightexport_scope1	[ 0	locks=0 ]	(	*	)
+vm_lightexport_select1	[ 0	locks=0 ]	(	*	)
 vm_extractseparator	[ 0	locks=0 ]	(	_	)
 vm_channel_names_seperator_bar	[ 0	locks=0 ]	(	)
 vm_quickplane_Nt_channel	[ 0	locks=0 ]	(	Nt	)
@@ -14499,24 +14512,6 @@ vm_imageblur	[ 0	locks=0 ]	(	"on"	)
 objects4	[ 0	locks=0 ]	(	2	2	2	)
 vm_extractlinearplanes	[ 0	locks=0 ]	(	`propertys('vm_quickplane_Nt_channel','Nt')`,`propertys('vm_quickplane_Ds_channel','Ds')`,`propertys('vm_quickplane_Vd_channel','Vd')`,`propertys('vm_quickplane_Vdt_channel','Vdt')`,`propertys('vm_quickplane_Cv_channel','Cv')`,`propertys('vm_quickplane_Th_channel','Th')`,`propertys('vm_quickplane_Cu_channel','Cu')`,`propertys('vm_quickplane_N_channel','N')`,`propertys('vm_quickplane_P_channel','P')`	)
 vm_inlinestorage	[ 0	locks=0 ]	(	"off"	)
-vm_disable_plane1	[ 0	locks=0 ]	(	"off"	)
-vm_excludedcm_plane1	[ 0	locks=0 ]	(	"off"	)
-vm_variable_plane1	[ 0	locks=0 ]	(	Af	)
-vm_vextype_plane1	[ 0	locks=0 ]	(	float	)
-vm_channel_plane1	[ 0	locks=0 ]	(	alpha	)
-vm_usefile_plane1	[ 0	locks=0 ]	(	"off"	)
-vm_filename_plane1	[ 0	locks=0 ]	(	""	)
-vm_quantize_plane1	[ 0	locks=0 ]	(	half	)
-vm_sfilter_plane1	[ 0	locks=0 ]	(	alpha	)
-vm_pfilter_plane1	[ 0	locks=0 ]	(	""	)
-vm_gamma_plane1	[ 0	locks=0 ]	(	1	)
-vm_gain_plane1	[ 0	locks=0 ]	(	1	)
-vm_dither_plane1	[ 0	locks=0 ]	(	0.5	)
-vm_whitepoint_plane1	[ 0	locks=0 ]	(	1	)
-vm_componentexport1	[ 0	locks=0 ]	(	"off"	)
-vm_lightexport1	[ 0	locks=0 ]	(	0	)
-vm_lightexport_scope1	[ 0	locks=0 ]	(	*	)
-vm_lightexport_select1	[ 0	locks=0 ]	(	*	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY

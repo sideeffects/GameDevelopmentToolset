@@ -1,2 +1,8 @@
-import hou
-kwargs['node'].parm('mMaterialEntries').set(1)
+# track creation usage. For more info, including how to disable this please see
+# https://www.sidefx.com/legal/houdini-anonymous-usage-statistics/
+
+try:
+    import gamedevutils 
+    gamedevutils.send_on_create_analytics(kwargs["node"])
+except:
+    pass

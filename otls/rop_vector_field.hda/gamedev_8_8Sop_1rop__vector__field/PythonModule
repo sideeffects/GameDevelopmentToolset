@@ -1,3 +1,15 @@
+import io
+import struct
+
+def renderFile():
+    node = hou.pwd()
+    file_name = node.parm("outputFile").eval()
+    if file_name.endswith("fga"):
+        renderFGA()
+    else:
+        renderFGB()
+
+
 def renderFGA():
     node = hou.pwd()
     OUT = hou.node("%s/OUT" % node.path())
@@ -45,5 +57,50 @@ def renderFGA():
             print "User cancelled vector file save"
         except:
             print "exception thrown while saving vector file"
+        finally:
+            file.close()
 
-    file.close()
+
+def renderFGB():
+    node = hou.pwd()
+    OUT = hou.node("%s/OUT" % node.path())
+    geo = OUT.geometry()
+    fgaFile = node.parm("outputFile").eval()
+
+    vel_x = geo.prims()[0]
+    vel_y = geo.prims()[1]
+    vel_z = geo.prims()[2]
+
+    resolution = vel_x.resolution()
+    bounds = vel_x.boundingBox()
+    min_vec = bounds.minvec() * 100
+    max_vec = bounds.maxvec() * 100
+
+    header = struct.pack('3i6f', resolution[0], resolution[2], resolution[1],
+                         min_vec[0], min_vec[2], min_vec[1],
+                         max_vec[0], max_vec[2], max_vec[1])
+
+    out_stream = io.open(fgaFile,'wb')
+    out_stream.write(header)
+
+    with hou.InterruptableOperation("Saving FGA", long_operation_name="Saving vector field",
+                                    open_interrupt_dialog=True) as operation:
+        try:
+            total_to_write = resolution[0] * resolution[1] * resolution[2]
+            total_written = 0
+            for y in range(resolution[1]):
+                for z in range(resolution[2]):
+                    for x in range(resolution[0]):
+                        value = struct.pack('3f', vel_x.voxel((x, y, z)), vel_z.voxel((x, y, z)), vel_y.voxel((x, y, z)))
+                        out_stream.write(value)
+                        total_written += 1
+                        if total_written % 1000 == 0:
+                            percent = float(total_written) / float(total_to_write)
+                            operation.updateProgress(percent)
+
+        except hou.OperationInterrupted:
+            print "User cancelled vector file save"
+        except:
+            print "exception thrown while saving vector file"
+        finally:
+            out_stream.close()

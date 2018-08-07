@@ -103,6 +103,7 @@ def renderFGB():
                             out_stream.write(buffer)
                             total_in_buffer = 0
                             percent = float(total_written) / float(total_to_write)
+                            print("percent complete = " + str(int(percent*100)))
                             operation.updateProgress(percent)
 
             if total_in_buffer > 0:

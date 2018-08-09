@@ -58,4 +58,4 @@ def like_node(node):
 
 def send_on_create_analytics(node):
     if can_send_anonymous_stats():
-        track_event("Node Created", str(node.type().name()))
+        track_event("Node Created", str(node.type().name()), str(node.type().definition().version()))

@@ -30,6 +30,8 @@ mset.newScene()
 #     }
 # }
 
+
+
 Data = ''
 with open(WorkDir + "MaterialStylesheet.json","r") as f:
         Data = f.read()
@@ -64,9 +66,12 @@ for item in Items['TEXDATA']:
 
         if 'Albedo' in MaterialTextures:
                 Material.albedo.setField('Albedo Map', mset.Texture(Items['TEXDATA'][item]['Albedo']))
-        Material.albedo.setField('Color', [1.0,1.0,1.0])
+        if 'MaterialTint' in MaterialTextures:
+                Material.albedo.setField('Color', Items['TEXDATA'][item]['MaterialTint'])
         if 'Normal' in MaterialTextures:
                 Material.surface.setField('Normal Map', mset.Texture(Items['TEXDATA'][item]['Normal']))
+        if 'FlipNormalY' in MaterialTextures:
+                Material.surface.setField('Flip Y', True if Items['TEXDATA'][item]['FlipNormalY'] == 1 else False)
         if 'Roughness' in MaterialTextures:
                 Material.microsurface.setField('Gloss Map', mset.Texture(Items['TEXDATA'][item]['Roughness']))
                 Material.microsurface.setField('Invert', True)

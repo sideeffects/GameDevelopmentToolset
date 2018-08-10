@@ -213,10 +213,10 @@ class MarmosetViewer(object):
                     if TexturePath not in self.ProcessedTextureFiles:
                         self.ProcessedTextureFiles.append(TexturePath)
 
-                        if TexturePath.upper().endswith("JPG"):
+                        if os.path.splitext(TexturePath)[1][1:].upper() in ['TGA', 'PNG', 'JPG']:
                             shutil.copy(TexturePath, JPGPath)
                         elif TexturePath != "":    
-                            fileImport.parm("filename2").set(TexturePath)
+                            fileImport.parm("filename1").set(TexturePath)
                             ropOutput.parm("copoutput").set(JPGPath)
                             ropOutput.render()
 
@@ -308,8 +308,8 @@ class MarmosetViewer(object):
         self.ProcessedTextureFiles = []
 
         # Clean all temporary ROPs
-        for nodeobject in TextureROPsList:
-          nodeobject.destroy()
+        #for nodeobject in TextureROPsList:
+         # nodeobject.destroy()
 
 
 

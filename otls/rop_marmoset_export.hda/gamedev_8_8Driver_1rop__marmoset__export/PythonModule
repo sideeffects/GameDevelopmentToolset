@@ -177,11 +177,13 @@ class MarmosetViewer(object):
         return tempNode.name()
 
     # Convert and Export Textures - Files will become jpg if not yet
-    def ConvertAndExportTexture(self, node, material, textures, ropOutput, fileImport, ropOutputCOPs):
+    def ConvertAndExportTexture(self, node, material, textures, ropOutput, fileImport, ropOutputCOPs, materialTint, flipNormalY):
 
         TextureDict = {}
         TextureDict["Mesh"] = self.GetObjLevelNameOfNode(node)
         TextureDict["Material"] = material.name()
+        TextureDict["MaterialTint"] = materialTint
+        TextureDict["FlipNormalY"] = flipNormalY
 
         CleanTextureNameDict = {"basecolor_texture":"Albedo",
             "baseNormal_texture":"Normal",
@@ -213,10 +215,10 @@ class MarmosetViewer(object):
                     if TexturePath not in self.ProcessedTextureFiles:
                         self.ProcessedTextureFiles.append(TexturePath)
 
-                        if TexturePath.upper().endswith("JPG"):
+                        if os.path.splitext(TexturePath)[1][1:].upper() in ['TGA', 'PNG', 'JPG']:
                             shutil.copy(TexturePath, JPGPath)
                         elif TexturePath != "":    
-                            fileImport.parm("filename2").set(TexturePath)
+                            fileImport.parm("filename1").set(TexturePath)
                             ropOutput.parm("copoutput").set(JPGPath)
                             ropOutput.render()
 
@@ -276,12 +278,15 @@ class MarmosetViewer(object):
             Materials.append([geoNode, list(set(geoNode.geometry().primStringAttribValues("shop_materialpath"))) if geoNode.geometry().findPrimAttrib("shop_materialpath") else []])
 
         # Create a list of all textures for each material
-        Texturesets = [] # - [[GeometryNode, MaterialPath, {'baseNormal_texture': 'path'}], ... ]
+        Texturesets = [] # - [[GeometryNode, MaterialPath, {'baseNormal_texture': 'path'}], [Tint.r, Tint.g, Tint.b], ... ]
         for MaterialData in Materials:
             for MaterialPath in MaterialData[1]:
-                TextureDict = self.GetTexturesInMat(hou.node(MaterialPath))
+                MaterialNode = hou.node(MaterialPath)
+                TextureDict = self.GetTexturesInMat(MaterialNode)
+                MaterialTint = [MaterialNode.parm('basecolorr').evalAsFloat(), MaterialNode.parm('basecolorg').evalAsFloat(), MaterialNode.parm('basecolorb').evalAsFloat()]
+                MaterialFlipNormalY = MaterialNode.parm('baseNormal_flipY').evalAsInt()
                 if TextureDict != None:
-                    Texturesets.append([MaterialData[0], MaterialPath, TextureDict])
+                    Texturesets.append([MaterialData[0], MaterialPath, TextureDict, MaterialTint, MaterialFlipNormalY])
 
         # Create Dictionary Structure JSON Export
         MaterialDataJSONDict = {}
@@ -302,7 +307,7 @@ class MarmosetViewer(object):
 
         # Add Entry in JSON file for each materialtextureset, and export textures to tempdir
         for i, textureset in enumerate(Texturesets):
-            MaterialDataJSONDict["TEXDATA"]['Index_%s'% i]  = self.ConvertAndExportTexture(textureset[0], hou.node(textureset[1]), textureset[2], TextureROPNetRoot, TextureROPNetFileIn, TextureROPNetCOP)
+            MaterialDataJSONDict["TEXDATA"]['Index_%s'% i]  = self.ConvertAndExportTexture(textureset[0], hou.node(textureset[1]), textureset[2], TextureROPNetRoot, TextureROPNetFileIn, TextureROPNetCOP, textureset[3], textureset[4])
 
         # Clear ProcessedTextureFiles list to ensure we can export next operation
         self.ProcessedTextureFiles = []

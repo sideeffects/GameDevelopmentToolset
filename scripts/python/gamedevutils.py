@@ -1,6 +1,13 @@
 import os
 import requests
 import hou
+import uuid
+
+try:
+    from PySide2.QtCore import QSettings
+    settings = QSettings("SideFX", "GameDevToolset")
+except:
+    settings = None
 
 home = os.environ["HOUDINI_USER_PREF_DIR"]
 config = os.path.join(home, "hcommon.pref")
@@ -28,12 +35,21 @@ def can_send_anonymous_stats():
 
 def track_event(category, action, label=None, value=0):
 
+    # Generate a random user ID and store it as a setting per Google's guidelines
+    hou_uuid = uuid.uuid4()
+    if settings:
+        if settings.value("uuid"):
+            hou_uuid = settings.value("uuid")
+        else:
+            hou_uuid = uuid.uuid4()
+            settings.setValue("uuid", hou_uuid)
+
     data = {
         'v': '1',  # API Version.
         'tid': GA_TRACKING_ID,  # Tracking ID / Property ID.
         # Anonymous Client Identifier. Ideally, this should be a UUID that
         # is associated with particular user, device, or browser instance.
-        'cid': '555',
+        'cid': hou_uuid,
         't': 'event',  # Event hit type.
         'ec': category,  # Event category.
         'ea': action,  # Event action.

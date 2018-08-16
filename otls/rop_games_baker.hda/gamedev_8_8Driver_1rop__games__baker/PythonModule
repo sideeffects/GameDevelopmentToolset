@@ -38,7 +38,7 @@ def pre_bake(node):
     for i in range(meshes_count):
         low_mesh = node.parm("target_mesh_" + str(i+1)).eval()
         high_mesh = node.parm("source_mesh_" + str(i+1)).eval()
-
+        
         low_node.parm("objpath1").set(node.node(low_mesh).path())
         if high_mesh:
             high_node.parm("objpath1").set(node.node(high_mesh).path())

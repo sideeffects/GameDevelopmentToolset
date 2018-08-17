@@ -18,7 +18,7 @@ class TestStringMethods(unittest.TestCase):
             if demo_file.endswith(".hip"):
                 print "opening", demo_file
                 try:
-                    hou.hipFile.load(os.path.join("..", "hip", demo_file).replace("\\", "/"))
+                    hou.hipFile.load(os.path.join(os.path.dirname(local_dir), "hip", demo_file).replace("\\", "/"))
                 except Exception, e:
                     print str(e)
                     pass

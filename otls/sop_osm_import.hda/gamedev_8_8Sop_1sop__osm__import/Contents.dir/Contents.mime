@@ -32,9 +32,9 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position -21.1118 -13.4903
+position -2.55844 0.93461
 connectornextid 0
-flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
+flags =  lock off model off template on footprint off xray off bypass off display on render on highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
 {
 }
@@ -46,9 +46,9 @@ inputs
 }
 stat
 {
-  create 1533241707
-  modify 1533241709
-  author MAINGEAR@DESKTOP-P98C1VA
+  create 1534500114
+  modify 1534501020
+  author Paul_Ambrosiussen@LAPTOP-P8R7FBPF
   access 0777
 }
 color UT_Color RGB 0.8 0.8 0.8 
@@ -63,7 +63,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"0.1"
+		"value":"0.2"
 	}
 }
 
@@ -96,7 +96,7 @@ inputs
 stat
 {
   create 1500592402
-  modify 1522783216
+  modify 1534500908
   author Luiz@Luiz-PC
   access 0777
 }
@@ -252,16 +252,27 @@ class OSMParser(object):
         if not geo.findPrimAttrib(\"hou_node\"):
             geo.addAttrib(hou.attribType.Prim, \"hou_node\", 0)
 
+        if not geo.findPointAttrib(\"latitude\"):
+            geo.addAttrib(hou.attribType.Point, \"latitude\", 0.0)
+
+        if not geo.findPointAttrib(\"longitude\"):
+            geo.addAttrib(hou.attribType.Point, \"longitude\", 0.0)
 
         for way in self.ways:
             positions = []
+            latlongs = []
             for node_id in way.nodes:
                 node = self.nodes[node_id]
                 pos_xy = self.get_relative_coordinates([float(node.lat), float(node.lon)])
                 positions.append((pos_xy[0], 0, pos_xy[1]))
+                latlongs.append([float(node.lat), float(node.lon)])
 
             points = geo.createPoints(positions)
             poly = geo.createPolygon()
+
+            for x, point in enumerate(points):
+                point.setAttribValue(\"latitude\", latlongs[x][0])
+                point.setAttribValue(\"longitude\", latlongs[x][1])
 
             if \"building\" not in way.tags and \"buildingpart\" not in way.tags:
                 poly.setIsClosed(0)
@@ -363,7 +374,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.503"
+		"value":"16.5.496"
 	}
 }
 
@@ -426,7 +437,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.503"
+		"value":"16.5.496"
 	}
 }
 
@@ -500,7 +511,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.503"
+		"value":"16.5.496"
 	}
 }
 
@@ -563,7 +574,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.503"
+		"value":"16.5.496"
 	}
 }
 
@@ -691,7 +702,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.503"
+		"value":"16.5.496"
 	}
 }
 
@@ -752,7 +763,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.503"
+		"value":"16.5.496"
 	}
 }
 
@@ -788,7 +799,7 @@ sopflags sopflags =
 comment ""
 position -2.68731 6.09934
 connectornextid 1
-flags =  lock off model off template on footprint off xray off bypass off display on render on highlight off unload off savedata off compress on colordefault on exposed on
+flags =  lock off model off template off footprint off xray off bypass off display on render on highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
 {
 }
@@ -803,7 +814,7 @@ inputs
 stat
 {
   create 1522783210
-  modify 1522783226
+  modify 1534500910
   author MAINGEAR@DESKTOP-P98C1VA
   access 0777
 }
@@ -828,7 +839,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.503"
+		"value":"16.5.496"
 	}
 }
 

@@ -147,6 +147,12 @@ class GameDevelopmentUpdater(object):
 
         self.desired_version = None
 
+        # bail if not allowed in pipelines
+        disabling_message = os.getenv("GAMEDEVTOOLSET_NOINSTALL_MESSAGE")
+        if disabling_message:
+            hou.ui.displayMessage(disabling_message)
+            return
+
         self.cleanup_old_installs()
         self.load_settings()
         self.get_releases()

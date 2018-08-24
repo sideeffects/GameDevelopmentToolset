@@ -23,7 +23,7 @@ Sop
 Content-Disposition: attachment; filename="hdaroot.init"
 Content-Type: text/plain
 
-type = gamedev::color_adjustment_sop
+type = gamedev::sop_color_adjustment
 matchesdef = 0
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -32,22 +32,24 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position -2.81765 -0.135294
-connectornextid 0
-flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
+position -0.741176 -6.04912
+connectornextid 1
+flags =  lock off model off template on footprint off xray off bypass off display on render on highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
 {
 }
 inputsNamed3
 {
+0 	sop_color_gradient1 1 1 "input1"
 }
 inputs
 {
+0 	sop_color_gradient1 0 1
 }
 stat
 {
-  create 1534270017
-  modify 1534270164
+  create 1534775391
+  modify 1534776045
   author MAINGEAR@DESKTOP-P98C1VA
   access 0777
 }
@@ -105,7 +107,7 @@ inputs
 stat
 {
   create 1534168338
-  modify 1534183467
+  modify 1534775476
   author MAINGEAR@DESKTOP-P98C1VA
   access 0777
 }
@@ -169,6 +171,8 @@ if (ch(\"../do_clamp\"))
 if (ch(\"../invert\"))
     current_val = 1-current_val;
     
+current_val = pow(current_val, ch(\"../gamma\"));
+
 setpointattrib(0, attribute, @ptnum, current_val);"	)
 exportlist	[ 0	locks=0 ]	(	*	)
 vex_strict	[ 0	locks=0 ]	(	"off"	)
@@ -250,7 +254,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.552"
+		"value":"16.5.565"
 	}
 }
 

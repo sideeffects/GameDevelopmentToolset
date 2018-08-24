@@ -32,22 +32,24 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position -11.7118 -2.64324
-connectornextid 0
-flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
+position 1.91765 -4.80794
+connectornextid 1
+flags =  lock off model off template on footprint off xray off bypass off display on render on highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
 {
 }
 inputsNamed3
 {
+0 	normal1 1 1 "input1"
 }
 inputs
 {
+0 	normal1 0 1
 }
 stat
 {
-  create 1533238989
-  modify 1533239001
+  create 1534603367
+  modify 1534603384
   author MAINGEAR@DESKTOP-P98C1VA
   access 0777
 }
@@ -105,7 +107,7 @@ inputs
 stat
 {
   create 1527279329
-  modify 1527283141
+  modify 1534603485
   author MAINGEAR@DESKTOP-P98C1VA
   access 0777
 }
@@ -127,10 +129,22 @@ class	[ 0	locks=0 ]	(	"point"	)
 vex_numcount	[ 0	locks=0 ]	(	10	)
 vex_threadjobsize	[ 0	locks=0 ]	(	1024	)
 snippet	[ 0	locks=0 ]	(	"int count = nuniqueval(0, \"point\", chs(\"../attribute_name\"));
+
+int attrib_type = attribtype(0, \"point\", chs(\"../attribute_name\"));
+
 for (int i = 0; i < count; i++) {
-    int foo = uniqueval(0, \"point\", chs(\"../attribute_name\"), i);
-    setpointgroup(0, chs(\"../group_prefix\")+itoa(foo), @ptnum, 1);
-}"	)
+    // int or float
+    if (attrib_type == 0 || attrib_type == 1)
+    {
+        int value = uniqueval(0, \"point\", chs(\"../attribute_name\"), i);
+        setpointgroup(0,  chs(\"../group_prefix\")+itoa(value),  @ptnum, 1);
+    }
+
+    if (attrib_type == 2)
+    {
+        string value = uniqueval(0, \"point\", chs(\"../attribute_name\"), i);
+        setpointgroup(0,  chs(\"../group_prefix\")+((re_replace(\"/\", \"\", value)),  @ptnum, 1);
+    }}"	)
 exportlist	[ 0	locks=0 ]	(	*	)
 vex_strict	[ 0	locks=0 ]	(	"off"	)
 autobind	[ 0	locks=0 ]	(	"on"	)
@@ -171,7 +185,7 @@ sopflags sopflags =
 comment ""
 position -1.35594 4.69955
 connectornextid 2
-flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
+flags =  lock off model off template on footprint off xray off bypass off display on render on highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
 {
 1 "output1"
@@ -187,7 +201,7 @@ inputs
 stat
 {
   create 1527279329
-  modify 1527283051
+  modify 1534603460
   author MAINGEAR@DESKTOP-P98C1VA
   access 0777
 }
@@ -209,9 +223,29 @@ class	[ 0	locks=0 ]	(	"primitive"	)
 vex_numcount	[ 0	locks=0 ]	(	10	)
 vex_threadjobsize	[ 0	locks=0 ]	(	1024	)
 snippet	[ 0	locks=0 ]	(	"int count = nuniqueval(0, \"prim\", chs(\"../attribute_name\"));
-for (int i = 0; i < count; i++) {
-    int foo = uniqueval(0, \"prim\", chs(\"../attribute_name\"), i);
-    setprimgroup(0,  chs(\"../group_prefix\")+itoa(foo),  @primnum, 1);
+
+int attrib_type = attribtype(0, \"prim\", chs(\"../attribute_name\"));
+
+for (int i = 0; i < count; i++) 
+{
+
+    // int or float
+    if (attrib_type == 0 || attrib_type == 1)
+    {
+        int value = uniqueval(0, \"prim\", chs(\"../attribute_name\"), i);
+        int cur_val = getattrib(0, \"prim\", chs(\"../attribute_name\"), @primnum, 0);
+        if (value == cur_val)
+            setprimgroup(0,  chs(\"../group_prefix\")+itoa(value),  @primnum, 1);
+    }
+
+    if (attrib_type == 2)
+    {
+        string value = uniqueval(0, \"prim\", chs(\"../attribute_name\"), i);
+        string cur_val = getattrib(0, \"prim\", chs(\"../attribute_name\"), @primnum, 0);
+        if (value == cur_val)
+            setprimgroup(0,  chs(\"../group_prefix\")+(re_replace(\"/\", \"\", value)),  @primnum, 1);
+    }
+
 }"	)
 exportlist	[ 0	locks=0 ]	(	*	)
 vex_strict	[ 0	locks=0 ]	(	"off"	)
@@ -309,7 +343,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.503"
+		"value":"16.5.566"
 	}
 }
 
@@ -328,7 +362,7 @@ sopflags sopflags =
 comment ""
 position 0.147059 1.50268
 connectornextid 1
-flags =  lock off model off template on footprint off xray off bypass off display on render on highlight off unload off savedata off compress on colordefault on exposed on
+flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
 {
 }
@@ -343,7 +377,7 @@ inputs
 stat
 {
   create 1527283133
-  modify 1527283149
+  modify 1534464174
   author MAINGEAR@DESKTOP-P98C1VA
   access 0777
 }
@@ -368,7 +402,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.503"
+		"value":"16.5.566"
 	}
 }
 

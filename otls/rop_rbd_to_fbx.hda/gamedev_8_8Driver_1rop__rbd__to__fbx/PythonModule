@@ -105,10 +105,10 @@ class FractureExporter(object):
             raise hou.Error("Please select a packed primitive object to export")
 
     def get_time_range(self):
-        playback_range = hou.playbar.playbackRange()
-
-        self.start_frame = int(playback_range[0])
-        self.end_frame = int(playback_range[1])
+        
+        
+        self.start_frame = int(hou.pwd().parent().parm("f1").eval())
+        self.end_frame = int(hou.pwd().parent().parm("f2").eval())
 
         hou.setFrame(self.start_frame)
 

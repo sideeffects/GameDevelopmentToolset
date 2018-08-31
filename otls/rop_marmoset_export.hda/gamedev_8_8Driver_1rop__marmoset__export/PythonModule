@@ -189,7 +189,7 @@ class MarmosetViewer(object):
             "baseNormal_texture":"Normal",
             "rough_texture":"Roughness",
             "metallic_texture":"Metallic",
-            "baseColorMap":"BaseColor"}
+            "baseColorMap":"Albedo"}
 
         for texture in textures:
             
@@ -208,6 +208,21 @@ class MarmosetViewer(object):
                 # Deal with HDA Stored "Textures"
                 elif TexturePath.startswith("opdef:"):
                     print 'Skipping Texture [%s] stored inside an HDA. Please export to regular texture or load in COPs.' % TexturePath
+                    
+                    # Logic is here, but functionality is not. Keeping warning message   
+                    HDADef = TexturePath[7:].split('?')[0].split('/')[-1]
+                    HDATextureFile = TexturePath[7:].split('?')[-1]
+                    HDAInstance = None
+                    JPGPath = JSONDir+'\\MHoudini\\' + TextureDict['Mesh'] +'_'+ TextureDict['Material'] +'_'+ HDATextureFile
+
+                    for node in hou.node('/').allSubChildren():
+                        if node.type().name() == HDADef:
+                            HDAInstance = node
+                            break
+                    if HDAInstance.type().definition().hasSection(HDATextureFile):
+                        SectionFile = file(JPGPath, "wb")
+                        SectionFile.write(HDAInstance.type().definition().sections().get(HDATextureFile).contents())
+                        SectionFile.close()
 
                 # Deal with Regular Textures
                 else:
@@ -229,10 +244,36 @@ class MarmosetViewer(object):
     # Main Function to Prepare Houdini Data for Marmoset Toolbag
     def RefreshMarmosetData(self, Export, Nodes):
 
-
+        SupportedNodeTypes = ['geo', 'hlight::2.0', 'instance']
         ################### GEOMETRY EXPORT #########################
         # Get the selected Nodes in network view
-        SelectedNodes = [x for x in Nodes if x.type().name() in ['geo', 'hlight::2.0']]
+        SelectedNodes = [x for x in Nodes if x.type().name() in SupportedNodeTypes]
+        Subnets = [x for x in Nodes if x.type().name() == 'subnet']
+
+        # Unpack any nested Subnets
+        ##############################
+        t_ReturnList = []
+        t_Stack = []
+        for subnet in Subnets:
+            t_Stack.extend(subnet.children())
+
+        while len(t_Stack) > 0:
+            t_Node = t_Stack.pop(0)
+
+            if t_Node not in t_ReturnList and t_Node.type().name() in SupportedNodeTypes:
+                t_ReturnList.append(t_Node)
+
+            t_SubnetNodes = t_Node.children() if t_Node.type().name() == 'subnet' and t_Node.isDisplayFlagSet() else []
+
+            if len(t_SubnetNodes) != 0:
+                for child in t_SubnetNodes:
+                    if child not in t_ReturnList:
+                        t_Stack.append(child)
+
+        SelectedNodes.extend(t_ReturnList)
+        SelectedNodes = list(set(SelectedNodes))
+        SelectedNodes = [x for x in SelectedNodes if x.isObjectDisplayed()]
+        ###################
         
         # Create Temporary Directory for Files
         ValidateDir(JSONDir+'\\MHoudini\\')
@@ -247,21 +288,49 @@ class MarmosetViewer(object):
 
         InitializeProcess()
 
-        # Parent all selected objects to SceneNull
-        SceneNull = hou.node("/obj").createNode("null")
+        # Parent all selected objects In GeoContainer
+        GeoContainer = hou.node("/obj").createNode("geo", "ToolbagExport")
+        GarbageNodes = []
+        ExportObjNet = GeoContainer.createNode('objnet')
+        ExportNodes = []
         for node in SelectedNodes:
-            node.setFirstInput(SceneNull)
-        if Camera != None:
-            Camera.setFirstInput(SceneNull)
+            if node.type().name() == "geo":                
+                TempGeo = node.parent().copyItems((node,),relative_references = True)
+                TempGeo[0].renderNode().setHardLocked(True)
+                GarbageNodes.append(TempGeo[0])
+                ExportObjNet.copyItems((TempGeo[0],), relative_references = True)
+                ExportNodes.append(TempGeo[0])
+                
+            elif node.type().name() == "instance":
+                TempGeo = node.parent().createNode('geo', node.name())
+                ObjectMerge = TempGeo.createNode('object_merge')
+                ObjectMerge.parm('objpath1').set(node.path())
+                Wrangle = TempGeo.createNode('attribwrangle')
+                Wrangle.setNextInput(ObjectMerge)
+                Wrangle.parm('snippet').set('s@instance = "op:" + opfullpath(s@instance);')
+                Instance = TempGeo.createNode('instance')
+                Instance.setNextInput(Wrangle)
+                Instance.parm('instanceattrib').set('instance')
+                Unpack = TempGeo.createNode('unpack')
+                Unpack.setNextInput(Instance)
+                Unpack.setDisplayFlag(True)
+                Unpack.setRenderFlag(True)
+                Unpack.setHardLocked(True)
+                GarbageNodes.append(TempGeo)
+                ExportNodes.append(TempGeo)
+                ExportObjNet.copyItems((TempGeo,), relative_references = True)
+            else:
+                ExportNodes.append(node)
+                ExportObjNet.copyItems((node,), relative_references = True)
 
-        # Export FBX with SceneNull and Children
-        FBXRop = self.CreateFBXRop(SceneNull, FrameRange)
+        if Camera != None:
+            ExportObjNet.copyItems((Camera,))
+
+        # Export FBX with ContainerGeo and Children
+        FBXRop = self.CreateFBXRop(ExportObjNet, FrameRange)
         FBXRop.render()
         FBXRop.destroy()
-        SceneNull.destroy()
-
-
-
+        
         ################### MATERIALS EXPORT #########################
         # Create temporary Texture Export ROPNets
         TextureROPsList = self.CreateTextureRopnets()
@@ -270,7 +339,7 @@ class MarmosetViewer(object):
         TextureROPNetCOP = TextureROPsList[3]
 
         # Get all Geometry Type Nodes in Selection
-        GeometryNodes = [x.renderNode() for x in SelectedNodes if x.type().name() == "geo"]
+        GeometryNodes = [x.renderNode() for x in ExportNodes if x.type().name() == "geo"]
         
         # Create List of all materials assigned to geometry.
         Materials = [] # - [[GeometryNode, [MaterialPath, MaterialPath, ...]]]
@@ -283,8 +352,14 @@ class MarmosetViewer(object):
             for MaterialPath in MaterialData[1]:
                 MaterialNode = hou.node(MaterialPath)
                 TextureDict = self.GetTexturesInMat(MaterialNode)
-                MaterialTint = [MaterialNode.parm('basecolorr').evalAsFloat(), MaterialNode.parm('basecolorg').evalAsFloat(), MaterialNode.parm('basecolorb').evalAsFloat()]
-                MaterialFlipNormalY = MaterialNode.parm('baseNormal_flipY').evalAsInt()
+                MaterialTint, MaterialFlipNormalY = None, None
+                try:
+                    MaterialTint = [MaterialNode.parm('basecolorr').evalAsFloat(), MaterialNode.parm('basecolorg').evalAsFloat(), MaterialNode.parm('basecolorb').evalAsFloat()]
+                    MaterialFlipNormalY = MaterialNode.parm('baseNormal_flipY').evalAsInt()
+                except:
+                    MaterialTint = [1.0, 1.0, 1.0]
+                    MaterialFlipNormalY = 0
+
                 if TextureDict != None:
                     Texturesets.append([MaterialData[0], MaterialPath, TextureDict, MaterialTint, MaterialFlipNormalY])
 
@@ -316,7 +391,10 @@ class MarmosetViewer(object):
         for nodeobject in TextureROPsList:
           nodeobject.destroy()
 
-
+        GeoContainer.destroy()
+        for node in GarbageNodes:
+            if node != None:
+                node.destroy()
 
         ################### JSON EXPORT #########################
         # Write JSONDict to JSONFile. Creates if non-existent

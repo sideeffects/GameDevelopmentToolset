@@ -32,7 +32,7 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position -2.55844 0.93461
+position -2.27647 1.945
 connectornextid 0
 flags =  lock off model off template on footprint off xray off bypass off display on render on highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
@@ -46,9 +46,9 @@ inputs
 }
 stat
 {
-  create 1534500114
-  modify 1534501020
-  author Paul_Ambrosiussen@LAPTOP-P8R7FBPF
+  create 1537307525
+  modify 1537307574
+  author MAINGEAR@DESKTOP-P98C1VA
   access 0777
 }
 color UT_Color RGB 0.8 0.8 0.8 
@@ -82,7 +82,7 @@ sopflags sopflags =
 comment ""
 position -2.68731 8.21972
 connectornextid 1
-flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
+flags =  lock off model off template on footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
 {
 0 "output1"
@@ -96,7 +96,7 @@ inputs
 stat
 {
   create 1500592402
-  modify 1534500908
+  modify 1537307882
   author Luiz@Luiz-PC
   access 0777
 }
@@ -195,14 +195,14 @@ class OSMParser(object):
     def __init__(self, osm_file):
         self.osm_file = osm_file
 
-        self.min_lat = 0
-        self.max_lat = 0
+        self.min_lat = -1
+        self.max_lat = 1
 
-        self.min_lon = 0
-        self.max_lon = 0
+        self.min_lon = -1
+        self.max_lon = 1
 
-        self.length = 0
-        self.height = 0
+        self.length = 500  
+        self.height = 500
 
         self.ways = []
         self.nodes = {}
@@ -214,6 +214,8 @@ class OSMParser(object):
         self.height = latlong_distance([self.min_lat, self.min_lon], [self.min_lat, self.max_lon])
 
     def get_relative_coordinates(self, lat_long):
+    
+    
         rel_lat = (lat_long[0] - self.min_lat) / (self.max_lat - self.min_lat) * self.length
         rel_lon = (lat_long[1] - self.min_lon) / (self.max_lon - self.min_lon) * self.height
 
@@ -374,7 +376,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.496"
+		"value":"16.5.595"
 	}
 }
 
@@ -437,7 +439,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.496"
+		"value":"16.5.595"
 	}
 }
 
@@ -511,7 +513,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.496"
+		"value":"16.5.595"
 	}
 }
 
@@ -574,7 +576,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.496"
+		"value":"16.5.595"
 	}
 }
 
@@ -702,7 +704,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.496"
+		"value":"16.5.595"
 	}
 }
 
@@ -763,7 +765,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.496"
+		"value":"16.5.595"
 	}
 }
 
@@ -814,7 +816,7 @@ inputs
 stat
 {
   create 1522783210
-  modify 1534500910
+  modify 1537307882
   author MAINGEAR@DESKTOP-P98C1VA
   access 0777
 }
@@ -839,7 +841,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.496"
+		"value":"16.5.595"
 	}
 }
 

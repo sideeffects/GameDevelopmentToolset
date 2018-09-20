@@ -147,6 +147,22 @@
             label   "Scale Attribute"
             type    string
             default { "pscale" }
+            disablewhen "{ bCustomTransformations == 0 }"
+        }
+        parm {
+            name    "bOverrideName"
+            label   "Override Name"
+            type    toggle
+            default { "0" }
+        }
+        parm {
+            name    "sNameOverride"
+            label   "Name Override"
+            type    string
+            default { "piece_" }
+            disablewhen "{ bOverrideName == 0 }"
+            range   { 0 1 }
+            parmtag { "autoscope" "0000000000000000" }
         }
     }
 

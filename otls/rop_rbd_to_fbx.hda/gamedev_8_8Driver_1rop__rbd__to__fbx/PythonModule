@@ -145,10 +145,7 @@ class FractureExporter(object):
 
         for prim in frame_prims:
             point = prim.vertices()[0].point()
-            try:
-                packed_name = prim.attribValue("name")
-            except:
-                packed_name = point.attribValue("name")
+            packed_name = prim.attribValue("name")
 
             new_object = PackedObject()
 

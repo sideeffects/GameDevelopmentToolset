@@ -53,7 +53,7 @@
 
     groupsimple {
         name    "folder1"
-        label   "Seam Smoothing"
+        label   "Seam"
 
         parm {
             name    "strength"
@@ -62,6 +62,22 @@
             default { "50" }
             range   { 0! 50 }
             parmtag { "autoscope" "0000000000000000" }
+        }
+        parm {
+            name    "bSeamMaterial"
+            label   "Override Seam Material"
+            type    toggle
+            default { "1" }
+        }
+        parm {
+            name    "shop_materialpath1"
+            label   "Seam Material"
+            type    oppath
+            default { "" }
+            disablewhen "{ bSeamMaterial == 0 }"
+            parmtag { "autoscope" "0000000000000000" }
+            parmtag { "opfilter" "!!CUSTOM/MATERIAL!!" }
+            parmtag { "oprelative" "." }
         }
     }
 

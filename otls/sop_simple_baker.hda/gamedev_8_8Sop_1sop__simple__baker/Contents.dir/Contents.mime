@@ -32,9 +32,9 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position 0 0
+position 2.7 0.392059
 connectornextid 0
-flags =  lock off model off template off footprint off xray off bypass off display on render on highlight on unload off savedata off compress on colordefault on exposed on
+flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
 {
 }
@@ -46,8 +46,8 @@ inputs
 }
 stat
 {
-  create 1537565349
-  modify 1537565379
+  create 1537905308
+  modify 1537905390
   author MAINGEAR@DESKTOP-P98C1VA
   access 0777
 }
@@ -136,7 +136,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.343"
+		"value":"16.5.603"
 	}
 }
 
@@ -486,7 +486,7 @@ inputs
 stat
 {
   create 1496780578
-  modify 1537565358
+  modify 1537905318
   author Luiz@Luiz-PC
   access 0777
 }
@@ -547,7 +547,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.343"
+		"value":"16.5.603"
 	}
 }
 
@@ -602,7 +602,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.343"
+		"value":"16.5.603"
 	}
 }
 
@@ -3174,12 +3174,37 @@ Content-Type: text/plain
         default { "0" }
         range   { 0 10 }
     }
+    parm {
+        name    "speccolor"
+        baseparm
+        label   "OpenGL Specular Color"
+        invisible
+        export  none
+    }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
 Content-Disposition: attachment; filename="hdaroot/ropnet1/rop_games_baker/objnet/matnet/plain_white.chn"
 Content-Type: text/plain
 
 {
+    channel speccolorr {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = ch(\"basecolorr\") }
+    }
+    channel speccolorg {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = ch(\"basecolorg\") }
+    }
+    channel speccolorb {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = ch(\"basecolorb\") }
+    }
     channel specular_tint {
       lefttype = extend
       righttype = extend
@@ -3210,24 +3235,6 @@ Content-Type: text/plain
       flags = 0
       segment { length = 0 expr = "1.01*ch(\"dispInput_enable\")*ch(\"dispInput_max\") + ch(\"dispTex_enable\")*max(abs((1.0+ch(\"dispTex_offset\"))*ch(\"dispTex_scale\")), abs(ch(\"dispTex_offset\")*ch(\"dispTex_scale\"))) + ch(\"dispNoise_enable\")*abs(ch(\"dispNoise_amp\"))" }
     }
-    channel speccolorr {
-      lefttype = extend
-      righttype = extend
-      flags = 0
-      segment { length = 0 expr = ch(\"basecolorr\") }
-    }
-    channel speccolorg {
-      lefttype = extend
-      righttype = extend
-      flags = 0
-      segment { length = 0 expr = ch(\"basecolorg\") }
-    }
-    channel speccolorb {
-      lefttype = extend
-      righttype = extend
-      flags = 0
-      segment { length = 0 expr = ch(\"basecolorb\") }
-    }
   }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -3238,6 +3245,7 @@ Content-Type: text/plain
 version 0.8
 specmodel	[ 0	locks=0 ]	(	ggx	)
 coatspecmodel	[ 0	locks=0 ]	(	ggx	)
+speccolor	[ 0	locks=0 ]	(	[ speccolorr	0 ] 	[ speccolorg	0 ] 	[ speccolorb	0 ] 	)
 specular_tint	[ 0	locks=0 ]	(	[ specular_tint	0 ] 	)
 diffuse_folder_15	[ 0	locks=0 ]	(	0	0	0	0	0	0	)
 folder7	[ 0	locks=0 ]	(	0	)
@@ -4398,7 +4406,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.343"
+		"value":"16.5.603"
 	}
 }
 
@@ -4699,7 +4707,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.343"
+		"value":"16.5.603"
 	}
 }
 
@@ -7281,12 +7289,37 @@ Content-Type: text/plain
         default { "0" }
         range   { 0 10 }
     }
+    parm {
+        name    "speccolor"
+        baseparm
+        label   "OpenGL Specular Color"
+        invisible
+        export  none
+    }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
 Content-Disposition: attachment; filename="hdaroot/matnet1/principledshader1.chn"
 Content-Type: text/plain
 
 {
+    channel speccolorr {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = ch(\"basecolorr\") }
+    }
+    channel speccolorg {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = ch(\"basecolorg\") }
+    }
+    channel speccolorb {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = ch(\"basecolorb\") }
+    }
     channel specular_tint {
       lefttype = extend
       righttype = extend
@@ -7316,24 +7349,6 @@ Content-Type: text/plain
       righttype = extend
       flags = 0
       segment { length = 0 expr = "1.01*ch(\"dispInput_enable\")*ch(\"dispInput_max\") + ch(\"dispTex_enable\")*max(abs((1.0+ch(\"dispTex_offset\"))*ch(\"dispTex_scale\")), abs(ch(\"dispTex_offset\")*ch(\"dispTex_scale\"))) + ch(\"dispNoise_enable\")*abs(ch(\"dispNoise_amp\"))" }
-    }
-    channel speccolorr {
-      lefttype = extend
-      righttype = extend
-      flags = 0
-      segment { length = 0 expr = ch(\"basecolorr\") }
-    }
-    channel speccolorg {
-      lefttype = extend
-      righttype = extend
-      flags = 0
-      segment { length = 0 expr = ch(\"basecolorg\") }
-    }
-    channel speccolorb {
-      lefttype = extend
-      righttype = extend
-      flags = 0
-      segment { length = 0 expr = ch(\"basecolorb\") }
     }
     channel basecolorr {
       lefttype = extend
@@ -7380,6 +7395,7 @@ Content-Type: text/plain
 version 0.8
 specmodel	[ 0	locks=0 ]	(	ggx	)
 coatspecmodel	[ 0	locks=0 ]	(	ggx	)
+speccolor	[ 0	locks=0 ]	(	[ speccolorr	0 ] 	[ speccolorg	0 ] 	[ speccolorb	0 ] 	)
 specular_tint	[ 0	locks=0 ]	(	[ specular_tint	0 ] 	)
 diffuse_folder_15	[ 0	locks=0 ]	(	3	3	3	3	3	3	)
 folder7	[ 0	locks=0 ]	(	0	)
@@ -8540,7 +8556,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.343"
+		"value":"16.5.603"
 	}
 }
 
@@ -8619,7 +8635,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.343"
+		"value":"16.5.603"
 	}
 }
 
@@ -8693,7 +8709,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.343"
+		"value":"16.5.603"
 	}
 }
 
@@ -8768,7 +8784,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.343"
+		"value":"16.5.603"
 	}
 }
 
@@ -8821,8 +8837,6 @@ version 0.8
 inname	[ 0	locks=0 ]	(	N	)
 inclass	[ 0	locks=0 ]	(	"point"	)
 outclass	[ 0	locks=0 ]	(	"vertex"	)
-usepieceattrib	[ 0	locks=0 ]	(	"off"	)
-pieceattrib	[ 0	locks=0 ]	(	name	)
 method	[ 0	locks=0 ]	(	"mean"	)
 useoutname	[ 0	locks=0 ]	(	"off"	)
 outname	[ 0	locks=0 ]	(	""	)
@@ -8836,7 +8850,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.343"
+		"value":"16.5.603"
 	}
 }
 
@@ -8900,7 +8914,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.343"
+		"value":"16.5.603"
 	}
 }
 
@@ -9678,7 +9692,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.343"
+		"value":"16.5.603"
 	}
 }
 
@@ -9757,7 +9771,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.343"
+		"value":"16.5.603"
 	}
 }
 
@@ -9832,7 +9846,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.343"
+		"value":"16.5.603"
 	}
 }
 
@@ -9911,7 +9925,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.343"
+		"value":"16.5.603"
 	}
 }
 
@@ -9986,7 +10000,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.343"
+		"value":"16.5.603"
 	}
 }
 
@@ -10061,7 +10075,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.343"
+		"value":"16.5.603"
 	}
 }
 
@@ -10114,8 +10128,6 @@ version 0.8
 inname	[ 0	locks=0 ]	(	N	)
 inclass	[ 0	locks=0 ]	(	"point"	)
 outclass	[ 0	locks=0 ]	(	"vertex"	)
-usepieceattrib	[ 0	locks=0 ]	(	"off"	)
-pieceattrib	[ 0	locks=0 ]	(	name	)
 method	[ 0	locks=0 ]	(	"mean"	)
 useoutname	[ 0	locks=0 ]	(	"off"	)
 outname	[ 0	locks=0 ]	(	""	)
@@ -10129,7 +10141,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.343"
+		"value":"16.5.603"
 	}
 }
 
@@ -10193,7 +10205,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.343"
+		"value":"16.5.603"
 	}
 }
 
@@ -10262,7 +10274,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.343"
+		"value":"16.5.603"
 	}
 }
 
@@ -10336,7 +10348,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.343"
+		"value":"16.5.603"
 	}
 }
 
@@ -11005,7 +11017,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.343"
+		"value":"16.5.603"
 	}
 }
 
@@ -11080,7 +11092,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.343"
+		"value":"16.5.603"
 	}
 }
 
@@ -11157,8 +11169,6 @@ cachesize	[ 0	locks=0 ]	(	0	)
 prefetch	[ 0	locks=0 ]	(	"off"	)
 f	[ 0	locks=0 ]	(	1	24	)
 index	[ 0	locks=0 ]	(	[ index	0 ] 	)
-wrap	[ 0	locks=0 ]	(	"cycle"	)
-retry	[ 0	locks=0 ]	(	0	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -11168,7 +11178,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.343"
+		"value":"16.5.603"
 	}
 }
 
@@ -11255,9 +11265,6 @@ updatenmls	[ 0	locks=0 ]	(	"off"	)
 updateaffectednmls	[ 0	locks=0 ]	(	"on"	)
 vlength	[ 0	locks=0 ]	(	"on"	)
 invertxform	[ 0	locks=0 ]	(	"off"	)
-addattrib	[ 0	locks=0 ]	(	"off"	)
-outputattrib	[ 0	locks=0 ]	(	xform	)
-outputmerge	[ 0	locks=0 ]	(	"post"	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -11267,7 +11274,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.343"
+		"value":"16.5.603"
 	}
 }
 
@@ -11367,7 +11374,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.343"
+		"value":"16.5.603"
 	}
 }
 
@@ -11442,7 +11449,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.343"
+		"value":"16.5.603"
 	}
 }
 
@@ -11521,7 +11528,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.343"
+		"value":"16.5.603"
 	}
 }
 
@@ -12298,7 +12305,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.343"
+		"value":"16.5.603"
 	}
 }
 
@@ -12377,7 +12384,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.343"
+		"value":"16.5.603"
 	}
 }
 
@@ -12482,7 +12489,7 @@ Content-Type: text/plain
     parm {
         name    "take"
         baseparm
-        label   "Render with Take"
+        label   "Render With Take"
         export  none
     }
     parm {
@@ -14202,7 +14209,7 @@ inputs
 stat
 {
   create 1496798844
-  modify 1537565358
+  modify 1537905318
   author Luiz@Luiz-PC
   access 0777
 }
@@ -14226,7 +14233,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.343"
+		"value":"16.5.603"
 	}
 }
 
@@ -14341,7 +14348,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.343"
+		"value":"16.5.603"
 	}
 }
 
@@ -14436,7 +14443,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.343"
+		"value":"16.5.603"
 	}
 }
 
@@ -14506,7 +14513,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.343"
+		"value":"16.5.603"
 	}
 }
 
@@ -14608,7 +14615,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.343"
+		"value":"16.5.603"
 	}
 }
 
@@ -14713,7 +14720,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.343"
+		"value":"16.5.603"
 	}
 }
 
@@ -14805,7 +14812,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.343"
+		"value":"16.5.603"
 	}
 }
 
@@ -14910,7 +14917,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.343"
+		"value":"16.5.603"
 	}
 }
 
@@ -15050,7 +15057,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.343"
+		"value":"16.5.603"
 	}
 }
 
@@ -15155,7 +15162,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.343"
+		"value":"16.5.603"
 	}
 }
 
@@ -15221,7 +15228,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.343"
+		"value":"16.5.603"
 	}
 }
 
@@ -15287,7 +15294,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.343"
+		"value":"16.5.603"
 	}
 }
 
@@ -15378,7 +15385,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.343"
+		"value":"16.5.603"
 	}
 }
 
@@ -15483,7 +15490,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.343"
+		"value":"16.5.603"
 	}
 }
 
@@ -15588,7 +15595,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.343"
+		"value":"16.5.603"
 	}
 }
 
@@ -15693,7 +15700,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.343"
+		"value":"16.5.603"
 	}
 }
 
@@ -15759,7 +15766,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.343"
+		"value":"16.5.603"
 	}
 }
 
@@ -15825,7 +15832,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.343"
+		"value":"16.5.603"
 	}
 }
 
@@ -15903,7 +15910,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.343"
+		"value":"16.5.603"
 	}
 }
 
@@ -15981,7 +15988,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.343"
+		"value":"16.5.603"
 	}
 }
 
@@ -16061,7 +16068,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.343"
+		"value":"16.5.603"
 	}
 }
 
@@ -16138,7 +16145,7 @@ inputs
 stat
 {
   create 1496798868
-  modify 1537565358
+  modify 1537905318
   author Luiz@Luiz-PC
   access 0777
 }
@@ -16210,7 +16217,7 @@ vm_image_mplay_gamma	[ 0	locks=0 ]	(	1	)
 vm_image_jpeg_quality	[ 0	locks=0 ]	(	100	)
 vm_image_tiff_compression	[ 0	locks=0 ]	(	"LZW"	)
 vm_image_exr_compression	[ 0	locks=0 ]	(	"piz"	)
-pngtga_alpha_multiplication	[ 0	locks=0 ]	(	"premult"	)
+png_alpha_multiplication	[ 0	locks=0 ]	(	"premult"	)
 tprerender	[ 0	locks=0 ]	(	"on"	)
 prerender	[ 0	locks=0 ]	(	""	)
 lprerender	[ 0	locks=0 ]	(	hscript	)
@@ -16232,7 +16239,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.343"
+		"value":"16.5.603"
 	},
 	"sidefx::parm_filter_raw_value_pattern":{
 		"type":"string",
@@ -16321,7 +16328,7 @@ Content-Type: text/plain
     parm {
         name    "take"
         baseparm
-        label   "Render with Take"
+        label   "Render With Take"
         export  none
     }
     parm {
@@ -17892,7 +17899,7 @@ inputs
 stat
 {
   create 1496798844
-  modify 1537565358
+  modify 1537905318
   author Luiz@Luiz-PC
   access 0777
 }
@@ -17916,7 +17923,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.343"
+		"value":"16.5.603"
 	}
 }
 
@@ -17947,7 +17954,7 @@ inputs
 stat
 {
   create 1496798868
-  modify 1537565358
+  modify 1537905318
   author Luiz@Luiz-PC
   access 0777
 }
@@ -18019,7 +18026,7 @@ vm_image_mplay_gamma	[ 0	locks=0 ]	(	1	)
 vm_image_jpeg_quality	[ 0	locks=0 ]	(	100	)
 vm_image_tiff_compression	[ 0	locks=0 ]	(	"LZW"	)
 vm_image_exr_compression	[ 0	locks=0 ]	(	"piz"	)
-pngtga_alpha_multiplication	[ 0	locks=0 ]	(	"premult"	)
+png_alpha_multiplication	[ 0	locks=0 ]	(	"premult"	)
 tprerender	[ 0	locks=0 ]	(	"on"	)
 prerender	[ 0	locks=0 ]	(	""	)
 lprerender	[ 0	locks=0 ]	(	hscript	)
@@ -18041,7 +18048,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.343"
+		"value":"16.5.603"
 	},
 	"sidefx::parm_filter_raw_value_pattern":{
 		"type":"string",
@@ -18130,7 +18137,7 @@ Content-Type: text/plain
     parm {
         name    "take"
         baseparm
-        label   "Render with Take"
+        label   "Render With Take"
         export  none
     }
     parm {
@@ -19768,7 +19775,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.343"
+		"value":"16.5.603"
 	}
 }
 
@@ -19828,7 +19835,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.343"
+		"value":"16.5.603"
 	}
 }
 
@@ -19897,7 +19904,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.343"
+		"value":"16.5.603"
 	}
 }
 
@@ -20008,7 +20015,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.343"
+		"value":"16.5.603"
 	}
 }
 
@@ -20083,7 +20090,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.343"
+		"value":"16.5.603"
 	}
 }
 
@@ -20144,7 +20151,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.343"
+		"value":"16.5.603"
 	}
 }
 
@@ -20205,7 +20212,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.343"
+		"value":"16.5.603"
 	}
 }
 
@@ -20280,7 +20287,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.343"
+		"value":"16.5.603"
 	}
 }
 
@@ -20348,7 +20355,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.343"
+		"value":"16.5.603"
 	}
 }
 
@@ -20409,7 +20416,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.343"
+		"value":"16.5.603"
 	}
 }
 
@@ -20468,7 +20475,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.343"
+		"value":"16.5.603"
 	}
 }
 

@@ -33,7 +33,7 @@ Content-Type: text/plain
 objflags objflags =  origin off
 pretransform UT_DMatrix4 1 0 0 0 0 1 0 0 0 0 1 0 0 0 0 1
 comment ""
-position -5.3506 1.75239
+position -1.35013 2.95426
 connectornextid 0
 flags =  lock off model off template off footprint off xray off bypass off display on render off highlight off unload off savedata off compress on colordefault on exposed on selectable on
 outputsNamed3
@@ -47,8 +47,8 @@ inputs
 }
 stat
 {
-  create 1533238478
-  modify 1533238484
+  create 1537563607
+  modify 1537563678
   author MAINGEAR@DESKTOP-P98C1VA
   access 0777
 }
@@ -840,7 +840,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.503"
+		"value":"17.0.343"
 	},
 	"___toolcount___":{
 		"type":"string",
@@ -1292,7 +1292,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.503"
+		"value":"17.0.343"
 	},
 	"___toolcount___":{
 		"type":"string",
@@ -1430,7 +1430,7 @@ Content-Type: text/plain
 
 {
 version 0.8
-combustion_1	[ 0	locks=0 ]	(	4	4	4	4	4	)
+combustion_1	[ 0	locks=0 ]	(	4	4	4	4	4	0	)
 timescale	[ 0	locks=0 ]	(	1	)
 temp_diffusion	[ 0	locks=0 ]	(	0.045833333395421505	)
 cooling_rate	[ 0	locks=0 ]	(	0.90000000000000002	)
@@ -1567,6 +1567,21 @@ conf_control_field_ramp2	[ 0	locks=0 ]	(	2	)
 conf_cleartemp	[ 0	locks=0 ]	(	"on"	)
 conf_vel	[ 0	locks=0 ]	(	vel	)
 conf_confinement	[ 0	locks=0 ]	(	confinement	)
+enable_color_dissipation	[ 0	locks=0 ]	(	"off"	)
+color_evap	[ 0	locks=0 ]	(	0.10000000000000001	)
+enable_color_blur	[ 0	locks=0 ]	(	"off"	)
+color_blur	[ 0	locks=0 ]	(	1	)
+enable_color_sharpening	[ 0	locks=0 ]	(	"off"	)
+color_sharpening	[ 0	locks=0 ]	(	0.5	)
+folder2	[ 0	locks=0 ]	(	0	0	0	)
+use_color_dissipation_field	[ 0	locks=0 ]	(	"off"	)
+color_dissipation_field	[ 0	locks=0 ]	(	temperature	)
+color_dissipation_controlrange	[ 0	locks=0 ]	(	0	1	)
+color_remap_dissipation	[ 0	locks=0 ]	(	2	)
+color_blur_radius	[ 0	locks=0 ]	(	1	)
+color_blur_filter	[ 0	locks=0 ]	(	"2"	)
+color_sharpen_radius	[ 0	locks=0 ]	(	1	)
+color_sharpen_threshold	[ 0	locks=0 ]	(	0.050000000000000003	)
 enable_relationships	[ 0	locks=0 ]	(	"on"	)
 std_switcher_0_6	[ 0	locks=0 ]	(	3	3	3	3	)
 enable_source_relationship	[ 0	locks=0 ]	(	"off"	)
@@ -1618,6 +1633,7 @@ advect_cfl	[ 0	locks=0 ]	(	1.5	)
 timescale_burn_influence	[ 0	locks=0 ]	(	0	)
 heat_influence	[ 0	locks=0 ]	(	0.29999999999999999	)
 correctcollision	[ 0	locks=0 ]	(	"on"	)
+correctcollisionfields	[ 0	locks=0 ]	(	"density fuel"	)
 feedbackscale	[ 0	locks=0 ]	(	0	)
 fieldsclear	[ 0	locks=0 ]	(	"none"	)
 extraclear	[ 0	locks=0 ]	(	""	)
@@ -1673,6 +1689,12 @@ conf_control_field_ramp2_1interp	[ 0	locks=0 ]	(	"linear"	)
 conf_control_field_ramp2_2pos	[ 0	locks=0 ]	(	1	)
 conf_control_field_ramp2_2value	[ 0	locks=0 ]	(	1	)
 conf_control_field_ramp2_2interp	[ 0	locks=0 ]	(	"linear"	)
+color_remap_dissipation1pos	[ 0	locks=0 ]	(	0	)
+color_remap_dissipation1value	[ 0	locks=0 ]	(	1	)
+color_remap_dissipation1interp	[ 0	locks=0 ]	(	"monotonecubic"	)
+color_remap_dissipation2pos	[ 0	locks=0 ]	(	1	)
+color_remap_dissipation2value	[ 0	locks=0 ]	(	0	)
+color_remap_dissipation2interp	[ 0	locks=0 ]	(	"constant"	)
 remap_cooldown_time3pos	[ 0	locks=0 ]	(	0.30630600000000002	)
 remap_cooldown_time3value	[ 0	locks=0 ]	(	0.79000000000000004	)
 remap_cooldown_time3interp	[ 0	locks=0 ]	(	"catmull-rom"	)
@@ -2098,6 +2120,7 @@ velocity_soppath	[ 0	locks=0 ]	(	""	)
 velocity_scalevalue	[ 0	locks=0 ]	(	1	)
 usetransform	[ 0	locks=0 ]	(	"on"	)
 velocity_direction	[ 0	locks=0 ]	(	0	0	0	)
+defcolor	[ 0	locks=0 ]	(	1	1	1	)
 border	[ 0	locks=0 ]	(	"constant"	)
 restfield	[ 0	locks=0 ]	(	"off"	)
 restresscale	[ 0	locks=0 ]	(	0.5	)
@@ -2114,6 +2137,7 @@ enablepressure	[ 0	locks=0 ]	(	"on"	)
 enablerest	[ 0	locks=0 ]	(	"on"	)
 enableconfinement	[ 0	locks=0 ]	(	"on"	)
 enableheat	[ 0	locks=0 ]	(	"on"	)
+enablecolor	[ 0	locks=0 ]	(	"off"	)
 enablesource	[ 0	locks=0 ]	(	"on"	)
 enablesourceindex	[ 0	locks=0 ]	(	"on"	)
 enablesink	[ 0	locks=0 ]	(	"on"	)
@@ -2444,7 +2468,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.503"
+		"value":"17.0.343"
 	}
 }
 
@@ -2811,7 +2835,7 @@ inputs
 stat
 {
   create 1496865993
-  modify 1526311328
+  modify 1537563646
   author mikel@mikembp-sesi.local
   access 0777
 }
@@ -3637,7 +3661,7 @@ inputs
 stat
 {
   create 1496865993
-  modify 1526311328
+  modify 1537563646
   author mikel@mikembp-sesi.local
   access 0777
 }
@@ -4301,7 +4325,7 @@ inputs
 stat
 {
   create 1496865993
-  modify 1526311328
+  modify 1537563646
   author mikel@mikembp-sesi.local
   access 0777
 }
@@ -4995,7 +5019,7 @@ inputs
 stat
 {
   create 1496865993
-  modify 1526311328
+  modify 1537563647
   author mikel@mikembp-sesi.local
   access 0777
 }
@@ -5659,7 +5683,7 @@ inputs
 stat
 {
   create 1496865993
-  modify 1526311328
+  modify 1537563647
   author mikel@mikembp-sesi.local
   access 0777
 }
@@ -6170,6 +6194,7 @@ type	[ 0	locks=0 ]	(	"polymesh"	)
 surftype	[ 0	locks=0 ]	(	"quads"	)
 rad	[ 0	locks=0 ]	(	0.5	0.5	0.5	)
 t	[ 0	locks=0 ]	(	0	0	0	)
+r	[ 0	locks=0 ]	(	0	0	0	)
 scale	[ 0	locks=0 ]	(	1	)
 orient	[ 0	locks=0 ]	(	"y"	)
 freq	[ 0	locks=0 ]	(	2	)
@@ -6190,7 +6215,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.503"
+		"value":"17.0.343"
 	},
 	"___toolcount___":{
 		"type":"string",
@@ -6258,7 +6283,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.503"
+		"value":"17.0.343"
 	},
 	"___toolcount___":{
 		"type":"string",
@@ -6324,7 +6349,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.503"
+		"value":"17.0.343"
 	},
 	"___toolcount___":{
 		"type":"string",
@@ -6407,7 +6432,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.503"
+		"value":"17.0.343"
 	}
 }
 
@@ -6486,7 +6511,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.503"
+		"value":"17.0.343"
 	}
 }
 
@@ -6596,6 +6621,9 @@ updatenmls	[ 0	locks=0 ]	(	"off"	)
 updateaffectednmls	[ 0	locks=0 ]	(	"on"	)
 vlength	[ 0	locks=0 ]	(	"on"	)
 invertxform	[ 0	locks=0 ]	(	"off"	)
+addattrib	[ 0	locks=0 ]	(	"off"	)
+outputattrib	[ 0	locks=0 ]	(	xform	)
+outputmerge	[ 0	locks=0 ]	(	"post"	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -6605,7 +6633,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.503"
+		"value":"17.0.343"
 	}
 }
 
@@ -6727,7 +6755,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.503"
+		"value":"17.0.343"
 	}
 }
 
@@ -6780,6 +6808,7 @@ surftype	[ 0	locks=0 ]	(	"quads"	)
 orient	[ 0	locks=0 ]	(	"zx"	)
 size	[ 0	locks=0 ]	(	10	10	)
 t	[ 0	locks=0 ]	(	0	0	0	)
+r	[ 0	locks=0 ]	(	0	0	0	)
 rows	[ 0	locks=0 ]	(	10	)
 cols	[ 0	locks=0 ]	(	10	)
 orderu	[ 0	locks=0 ]	(	4	)
@@ -6795,7 +6824,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.503"
+		"value":"17.0.343"
 	}
 }
 
@@ -6870,7 +6899,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.503"
+		"value":"17.0.343"
 	}
 }
 
@@ -7070,7 +7099,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.503"
+		"value":"17.0.343"
 	},
 	"___toolcount___":{
 		"type":"string",
@@ -7154,7 +7183,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.503"
+		"value":"17.0.343"
 	},
 	"___toolcount___":{
 		"type":"string",
@@ -7297,7 +7326,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.503"
+		"value":"17.0.343"
 	}
 }
 
@@ -7377,7 +7406,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.503"
+		"value":"17.0.343"
 	}
 }
 
@@ -8177,7 +8206,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.503"
+		"value":"17.0.343"
 	},
 	"___toolcount___":{
 		"type":"string",
@@ -8276,7 +8305,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.503"
+		"value":"17.0.343"
 	},
 	"___toolcount___":{
 		"type":"string",
@@ -9245,7 +9274,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.503"
+		"value":"17.0.343"
 	}
 }
 
@@ -9306,7 +9335,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.503"
+		"value":"17.0.343"
 	}
 }
 
@@ -9464,7 +9493,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.503"
+		"value":"17.0.343"
 	}
 }
 
@@ -9587,6 +9616,7 @@ shop_materialpath	[ 0	locks=0 ]	(	""	)
 shop_materialopts	[ 0	locks=0 ]	(	0	)
 vport_shadeopen	[ 0	locks=0 ]	(	"off"	)
 vport_displayassubdiv	[ 0	locks=0 ]	(	"off"	)
+vport_onionskin	[ 0	locks=0 ]	(	"off"	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -9596,7 +9626,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.503"
+		"value":"17.0.343"
 	}
 }
 
@@ -9647,6 +9677,7 @@ type	[ 0	locks=0 ]	(	"prim"	)
 surftype	[ 0	locks=0 ]	(	"quads"	)
 rad	[ 0	locks=0 ]	(	0.10000000000000001	0.10000000000000001	0.10000000000000001	)
 t	[ 0	locks=0 ]	(	0	0	0	)
+r	[ 0	locks=0 ]	(	0	0	0	)
 scale	[ 0	locks=0 ]	(	1	)
 orient	[ 0	locks=0 ]	(	"y"	)
 freq	[ 0	locks=0 ]	(	2	)
@@ -9667,7 +9698,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.503"
+		"value":"17.0.343"
 	}
 }
 
@@ -9742,7 +9773,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.503"
+		"value":"17.0.343"
 	}
 }
 

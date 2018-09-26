@@ -1333,6 +1333,18 @@
                 disablewhen "{ normals_toggle == 0 }"
                 parmtag { "autoscope" "0000000000000000" }
             }
+            parm {
+                name    "sopoutput2"
+                label   "Output Geo"
+                type    file
+                default { "$HIP/export/${OS}.fbx" }
+                hidewhen "{ imposter_enum < 3 }"
+                menureplace {
+                    [ "opmenu -l objnet1/ropnet1/rop_impostor_texture1 sopoutput" ]
+                }
+                parmtag { "autoscope" "0000000000000000" }
+                parmtag { "filechooser_mode" "write" }
+            }
         }
 
     }

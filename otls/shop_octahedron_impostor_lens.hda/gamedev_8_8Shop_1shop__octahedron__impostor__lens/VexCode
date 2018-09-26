@@ -1,5 +1,5 @@
-;_name	fisheyelens
-; ModuleID = 'fisheyelens'
+;_name	octahedronimpostor
+; ModuleID = 'octahedronimpostor'
 
 @0 = private constant [5 x i8] c"hemi\00"
 @P = external global <3 x double>
@@ -7,95 +7,89 @@
 @1 = private constant [2 x i8] c"P\00"
 @2 = private constant [2 x i8] c"I\00"
 
-define void @fisheyelens(double %x, double %y, double %Time, double %dofx, double %dofy, double %aspect, <3 x double> %P, <3 x double> %I, double %xy_size, double %camera_width, double %camera_zoom, i8* %imposter_mode) nounwind {
+define void @octahedronimpostor(double %x, double %y, double %Time, double %dofx, double %dofy, double %aspect, <3 x double> %P, <3 x double> %I, double %xy_size, double %camera_width, double %camera_zoom, i8* %imposter_mode) nounwind {
 entry:
   %0 = alloca <2 x double>
   %1 = alloca i32
   %return = call i32 @"eq@ISS"(i8* %imposter_mode, i8* getelementptr inbounds ([5 x i8]* @0, i32 0, i32 0))
   %2 = icmp ne i32 %return, 0
   %. = select i1 %2, i32 2, i32 1
-  %return6 = call i32 @"neg@II"(i32 1)
-  %cast7 = sitofp i32 %return6 to double
-  %return8 = call double @"fit@FFFFFF"(double %x, double %cast7, double 1.000000e+00, double 0.000000e+00, double 1.000000e+00)
-  %return12 = call double @"fit@FFFFFF"(double %y, double %cast7, double 1.000000e+00, double 1.000000e+00, double 0.000000e+00)
-  %output13 = fsub double 1.000000e+00, %return12
-  %output16 = fmul double %return8, %xy_size
-  %output19 = fmul double %output13, %xy_size
-  %return22 = call double @"trunc@FF"(double %output16)
-  %output23 = fsub double %xy_size, %return22
-  %output24 = fsub double %output23, 1.000000e+00
-  %output26 = fsub double %xy_size, 1.000000e+00
-  %return27 = call double @"clamp@FFFF"(double %output24, double 0.000000e+00, double %output26)
-  %return30 = call double @"trunc@FF"(double %output19)
-  %output31 = fsub double %xy_size, %return30
-  %output32 = fsub double %output31, 1.000000e+00
-  %return35 = call double @"clamp@FFFF"(double %output32, double 0.000000e+00, double %output26)
-  %cast37 = fptosi double %return35 to i32
-  %cast39 = fptosi double %return27 to i32
-  %return41 = call double @"frac@FF"(double %output16)
-  %return43 = call double @"frac@FF"(double %output19)
-  %output45 = fmul double %return41, 2.000000e+00
-  %output46 = fsub double %output45, 1.000000e+00
-  %output48 = fmul double %output46, %camera_width
-  %output50 = fmul double %return43, 2.000000e+00
-  %output51 = fsub double %output50, 1.000000e+00
-  %output53 = fmul double %output51, %camera_width
-  %cast55 = sitofp i32 %cast39 to double
-  %output58 = call double @"div@FF"(double %cast55, double %output26)
-  %return59 = call { double, <2 x double> } @"setcomp@FUFI"(<2 x double> zeroinitializer, double %output58, i32 0)
-  %output61 = extractvalue { double, <2 x double> } %return59, 1
-  %cast63 = sitofp i32 %cast37 to double
-  %output66 = call double @"div@FF"(double %cast63, double %output26)
-  %return68 = call { double, <2 x double> } @"setcomp@FUFI"(<2 x double> %output61, double %output66, i32 1)
-  %output70 = extractvalue { double, <2 x double> } %return68, 1
-  store <2 x double> %output70, <2 x double>* %0
+  %return5 = call i32 @"neg@II"(i32 1)
+  %cast6 = sitofp i32 %return5 to double
+  %return7 = call double @"fit@FFFFFF"(double %x, double %cast6, double 1.000000e+00, double 0.000000e+00, double 1.000000e+00)
+  %output9 = fmul double %return7, %xy_size
+  %return13 = call double @"fit@FFFFFF"(double %y, double %cast6, double 1.000000e+00, double 1.000000e+00, double 0.000000e+00)
+  %output14 = fsub double 1.000000e+00, %return13
+  %output16 = fmul double %output14, %xy_size
+  %return19 = call double @"trunc@FF"(double %output9)
+  %output20 = fsub double %xy_size, %return19
+  %output21 = fsub double %output20, 1.000000e+00
+  %output23 = fsub double %xy_size, 1.000000e+00
+  %return24 = call double @"clamp@FFFF"(double %output21, double 0.000000e+00, double %output23)
+  %return27 = call double @"trunc@FF"(double %output16)
+  %output28 = fsub double %xy_size, %return27
+  %output29 = fsub double %output28, 1.000000e+00
+  %return32 = call double @"clamp@FFFF"(double %output29, double 0.000000e+00, double %output23)
+  %return34 = call double @"frac@FF"(double %output9)
+  %output35 = fmul double %return34, 2.000000e+00
+  %output36 = fsub double %output35, 1.000000e+00
+  %output38 = fmul double %output36, %camera_width
+  %return40 = call double @"frac@FF"(double %output16)
+  %output41 = fmul double %return40, 2.000000e+00
+  %output42 = fsub double %output41, 1.000000e+00
+  %output44 = fmul double %output42, %camera_width
+  %cast46 = fptosi double %return24 to i32
+  %cast47 = sitofp i32 %cast46 to double
+  %output50 = call double @"div@FF"(double %cast47, double %output23)
+  %cast52 = fptosi double %return32 to i32
+  %cast53 = sitofp i32 %cast52 to double
+  %output56 = call double @"div@FF"(double %cast53, double %output23)
+  %return57 = call <2 x double> @"set@UFF"(double %output50, double %output56)
+  store <2 x double> %return57, <2 x double>* %0
   store i32 %., i32* %1
-  %ImpostorGridVector = call <3 x double> @"ImpostorGridVector@VUI"(<2 x double>* %0, i32* %1)
-  %return74 = call double @"getcomp@FVI"(<3 x double> %ImpostorGridVector, i32 0)
-  %return76 = call double @"getcomp@FVI"(<3 x double> %ImpostorGridVector, i32 2)
-  %return78 = call double @"getcomp@FVI"(<3 x double> %ImpostorGridVector, i32 1)
-  %return79 = call <3 x double> @"set@VFFF"(double %return74, double %return76, double %return78)
-  %return81 = call <3 x double> @"normalize@VV"(<3 x double> %return79)
-  %return82 = call <3 x double> @"neg@VV"(<3 x double> %return81)
-  %return85 = call <2 x double> @"set@UFF"(double %return27, double %return35)
-  %return86 = call <3 x double> @"set@VFFF"(double 0.000000e+00, double 1.000000e+00, double 0.000000e+00)
-  %return88 = call <3 x double> @"cross@VVV"(<3 x double> %return86, <3 x double> %return82)
-  %return89 = call <3 x double> @"normalize@VV"(<3 x double> %return88)
-  %return91 = call double @"mod@FFF"(double %xy_size, double 2.000000e+00)
-  %return92 = fcmp oeq double %return91, 1.000000e+00
-  br i1 %return92, label %true94, label %end95
+  %ImpostorVector = call <3 x double> @"ImpostorVector@VUI"(<2 x double>* %0, i32* %1)
+  %return60 = call <3 x double> @"swizzle@VVIII"(<3 x double> %ImpostorVector, i32 0, i32 2, i32 1)
+  %return62 = call <3 x double> @"normalize@VV"(<3 x double> %return60)
+  %return63 = call <3 x double> @"neg@VV"(<3 x double> %return62)
+  %return66 = call <2 x double> @"set@UFF"(double %return24, double %return32)
+  %return67 = call <3 x double> @"set@VFFF"(double 0.000000e+00, double 1.000000e+00, double 0.000000e+00)
+  %return69 = call <3 x double> @"cross@VVV"(<3 x double> %return67, <3 x double> %return63)
+  %return70 = call <3 x double> @"normalize@VV"(<3 x double> %return69)
+  %return72 = call double @"mod@FFF"(double %xy_size, double 2.000000e+00)
+  %return73 = fcmp oeq double %return72, 1.000000e+00
+  br i1 %return73, label %true75, label %end76
 
-true94:                                           ; preds = %entry
-  %output99 = call double @"div@FF"(double %output26, double 2.000000e+00)
-  %return100 = call double @"ceil@FF"(double %output99)
-  %return105 = call <2 x double> @"set@UFF"(double %return100, double %return100)
-  %return106 = call i32 @"eq@IUU"(<2 x double> %return85, <2 x double> %return105)
-  %3 = icmp ne i32 %return106, 0
-  br i1 %3, label %true107, label %end95
+true75:                                           ; preds = %entry
+  %output80 = call double @"div@FF"(double %output23, double 2.000000e+00)
+  %return81 = call double @"ceil@FF"(double %output80)
+  %return86 = call <2 x double> @"set@UFF"(double %return81, double %return81)
+  %return87 = call i32 @"eq@IUU"(<2 x double> %return66, <2 x double> %return86)
+  %3 = icmp ne i32 %return87, 0
+  br i1 %3, label %true88, label %end76
 
-end95:                                            ; preds = %true94, %true107, %entry
-  %XDir.0 = phi <3 x double> [ %return111, %true107 ], [ %return89, %true94 ], [ %return89, %entry ]
-  %return114 = call <3 x double> @"cross@VVV"(<3 x double> %XDir.0, <3 x double> %return82)
-  %return115 = call <3 x double> @"normalize@VV"(<3 x double> %return114)
-  %cast119 = call <3 x double> @"set@VF"(double %output48)
-  %output120 = call <3 x double> @"mul@VV"(<3 x double> %XDir.0, <3 x double> %cast119)
-  %return123 = call double @"neg@FF"(double %output53)
-  %cast124 = call <3 x double> @"set@VF"(double %return123)
-  %output125 = call <3 x double> @"mul@VV"(<3 x double> %return115, <3 x double> %cast124)
-  %output126 = call <3 x double> @"add@VV"(<3 x double> %output120, <3 x double> %output125)
-  %output127 = call <3 x double> @"add@VV"(<3 x double> %return79, <3 x double> %output126)
-  %cast131 = call <3 x double> @"set@VF"(double %camera_zoom)
-  %output132 = call <3 x double> @"mul@VV"(<3 x double> %output127, <3 x double> %cast131)
-  %output133 = call <3 x double> @"add@VV"(<3 x double> %output127, <3 x double> %output132)
-  %gvalue = call <3 x double> @"_export@VSV"(i8* getelementptr inbounds ([2 x i8]* @1, i32 0, i32 0), <3 x double> %output133) nounwind readonly
-  %gvalue136 = call <3 x double> @"_export@VSV"(i8* getelementptr inbounds ([2 x i8]* @2, i32 0, i32 0), <3 x double> %return82) nounwind readonly
+end76:                                            ; preds = %true75, %true88, %entry
+  %XDir.0 = phi <3 x double> [ %return92, %true88 ], [ %return70, %true75 ], [ %return70, %entry ]
+  %return95 = call <3 x double> @"cross@VVV"(<3 x double> %XDir.0, <3 x double> %return63)
+  %return96 = call <3 x double> @"normalize@VV"(<3 x double> %return95)
+  %cast100 = call <3 x double> @"set@VF"(double %output38)
+  %output101 = call <3 x double> @"mul@VV"(<3 x double> %XDir.0, <3 x double> %cast100)
+  %return104 = call double @"neg@FF"(double %output44)
+  %cast105 = call <3 x double> @"set@VF"(double %return104)
+  %output106 = call <3 x double> @"mul@VV"(<3 x double> %return96, <3 x double> %cast105)
+  %output107 = call <3 x double> @"add@VV"(<3 x double> %output101, <3 x double> %output106)
+  %output108 = call <3 x double> @"add@VV"(<3 x double> %return60, <3 x double> %output107)
+  %cast112 = call <3 x double> @"set@VF"(double %camera_zoom)
+  %output113 = call <3 x double> @"mul@VV"(<3 x double> %output108, <3 x double> %cast112)
+  %output114 = call <3 x double> @"add@VV"(<3 x double> %output108, <3 x double> %output113)
+  %gvalue = call <3 x double> @"_export@VSV"(i8* getelementptr inbounds ([2 x i8]* @1, i32 0, i32 0), <3 x double> %output114) nounwind readonly
+  %gvalue117 = call <3 x double> @"_export@VSV"(i8* getelementptr inbounds ([2 x i8]* @2, i32 0, i32 0), <3 x double> %return63) nounwind readonly
   store <3 x double> %gvalue, <3 x double>* @P
-  store <3 x double> %gvalue136, <3 x double>* @I
+  store <3 x double> %gvalue117, <3 x double>* @I
   ret void
 
-true107:                                          ; preds = %true94
-  %return111 = call <3 x double> @"set@VFFF"(double %cast7, double 0.000000e+00, double 0.000000e+00)
-  br label %end95
+true88:                                           ; preds = %true75
+  %return92 = call <3 x double> @"set@VFFF"(double %cast6, double 0.000000e+00, double 0.000000e+00)
+  br label %end76
 }
 
 declare i32 @"eq@ISS"(i8*, i8*) nounwind readnone
@@ -110,7 +104,7 @@ declare double @"clamp@FFFF"(double, double, double) nounwind
 
 declare double @"frac@FF"(double) nounwind readnone
 
-define private <3 x double> @"ImpostorGridVector@VUI"(<2 x double>* %Coord, i32* %Mode) nounwind alwaysinline {
+define private <3 x double> @"ImpostorVector@VUI"(<2 x double>* %Coord, i32* %Mode) nounwind alwaysinline {
 entry:
   %Coord1 = load <2 x double>* %Coord
   %return = call double @"getcomp@FUI"(<2 x double> %Coord1, i32 0)
@@ -147,8 +141,8 @@ false:                                            ; preds = %entry
   br i1 %1, label %true80, label %end
 
 end:                                              ; preds = %false, %true80, %end53, %false37
-  %LightGrid.0 = phi <3 x double> [ %return71, %end53 ], [ %return77, %false37 ], [ %output119, %true80 ], [ zeroinitializer, %false ]
-  %return121 = call <3 x double> @"normalize@VV"(<3 x double> %LightGrid.0)
+  %ImpostorRenderVector.0 = phi <3 x double> [ %return71, %end53 ], [ %return77, %false37 ], [ %output119, %true80 ], [ zeroinitializer, %false ]
+  %return121 = call <3 x double> @"normalize@VV"(<3 x double> %ImpostorRenderVector.0)
   ret <3 x double> %return121
 
 true36:                                           ; preds = %true
@@ -252,7 +246,7 @@ declare <3 x double> @"normalize@VV"(<3 x double>) nounwind
 
 declare double @"div@FF"(double, double) nounwind readnone
 
-declare double @"getcomp@FVI"(<3 x double>, i32) nounwind readnone
+declare <3 x double> @"swizzle@VVIII"(<3 x double>, i32, i32, i32) nounwind
 
 declare <3 x double> @"neg@VV"(<3 x double>) nounwind readnone
 
@@ -274,7 +268,7 @@ declare <3 x double> @"_export@VSV"(i8*, <3 x double>)
 
 define void @__shader_default_arguments() {
 entry:
-  call void @fisheyelens(double 0.000000e+00, double 0.000000e+00, double 0.000000e+00, double 0.000000e+00, double 0.000000e+00, double 1.000000e+00, <3 x double> zeroinitializer, <3 x double> zeroinitializer, double 6.000000e+00, double 2.500000e-01, double 5.000000e-01, i8* getelementptr inbounds ([5 x i8]* @0, i32 0, i32 0))
+  call void @octahedronimpostor(double 0.000000e+00, double 0.000000e+00, double 0.000000e+00, double 0.000000e+00, double 0.000000e+00, double 1.000000e+00, <3 x double> zeroinitializer, <3 x double> zeroinitializer, double 6.000000e+00, double 2.500000e-01, double 5.000000e-01, i8* getelementptr inbounds ([5 x i8]* @0, i32 0, i32 0))
   ret void
 }
 
@@ -282,6 +276,6 @@ entry:
 !version = !{!1}
 
 !0 = metadata !{metadata !"cvex"}
-!1 = metadata !{metadata !"16.5.503"}
+!1 = metadata !{metadata !"16.5.587"}
 
 ;_code_end

@@ -1,4 +1,4 @@
-#pragma opname          fisheyelens
+#pragma opname          octahedronimpostor
 #pragma oplabel         "Fisheye Lens"
  
 #pragma hint    x       hidden
@@ -19,8 +19,8 @@
 #include "math.h"
  
 cvex
-fisheyelens(
-        // Inputs
+octahedronimpostor(
+    // Inputs
     float x = 0;
     float y = 0;
     float Time = 0;
@@ -40,29 +40,19 @@ fisheyelens(
     )
 {
  
-    float xy_size_adjusted = xy_size;
-    int nFrames = int(xy_size_adjusted * xy_size_adjusted);
+    int nFrames = int(xy_size * xy_size);
     int ImpostorMode = (imposter_mode == "hemi") ? 2 : 1;
  
-    float fx = fit(x, -1, 1, 0, 1);
-    float fy = 1 - fit(y, -1, 1, 1, 0);
+    float fx = fit(x, -1, 1, 0, 1) * float(xy_size);
+    float fy = (1 - fit(y, -1, 1, 1, 0)) * float(xy_size);
 
-    fx = fx * float(xy_size_adjusted);
-    fy = fy * float(xy_size_adjusted);
+    float floorx = clamp(float(xy_size) - trunc(fx) - 1.0, 0, xy_size-1);
+    float floory = clamp(float(xy_size) - trunc(fy) - 1.0, 0, xy_size-1);
 
-    float floorx = clamp(float(xy_size_adjusted) - trunc(fx) - 1.0, 0, xy_size_adjusted-1);
-    float floory = clamp(float(xy_size_adjusted) - trunc(fy) - 1.0, 0, xy_size_adjusted-1);
-
-    int curY =  int(floory);
-    int curX = int(floorx);
-
-    float fracx = frac(fx);
-    float fracy = frac(fy);
-
-    fracx = (fracx * 2.0 - 1) * camera_width;
-    fracy = (fracy * 2.0 - 1) * camera_width;
+    float fracx = (frac(fx) * 2.0 - 1) * camera_width;
+    float fracy = (frac(fy) * 2.0 - 1) * camera_width;
  
-    vector ImpostorGridVector(vector2 Coord; int Mode){
+    vector ImpostorVector(vector2 Coord; int Mode){
 
         vector2 CoordModify = Coord;
         CoordModify.x *= 2.0;
@@ -70,7 +60,7 @@ fisheyelens(
         CoordModify.y *= 2.0;
         CoordModify.y -= 1.0;
 
-        vector LightGrid;
+        vector ImpostorRenderVector;
 
         // Octahedron
         if(Mode == 1){
@@ -85,11 +75,11 @@ fisheyelens(
                 XComponent *= (1.0 - abs(CoordModify.y));
                 YComponent *= (1.0 - abs(CoordModify.x));
 
-                LightGrid = set(XComponent, YComponent, ZComponent);
+                ImpostorRenderVector = set(XComponent, YComponent, ZComponent);
 
             } else {
 
-                 LightGrid = set(CoordModify.x, CoordModify.y, ZComponent);
+                 ImpostorRenderVector = set(CoordModify.x, CoordModify.y, ZComponent);
 
             }
 
@@ -101,55 +91,31 @@ fisheyelens(
             vector2 HemiOct = set(CoordModify.x + CoordModify.y, CoordModify.x - CoordModify.y);
             HemiOct.x *= 0.5;
             HemiOct.y *= 0.5;
-            LightGrid = set(HemiOct.x, HemiOct.y, 0);
-            LightGrid.z = 1.0 - dot(abs(HemiOct), {1.0, 1.0});
+            ImpostorRenderVector = set(HemiOct.x, HemiOct.y, 0);
+            ImpostorRenderVector.z = 1.0 - dot(abs(HemiOct), {1.0, 1.0});
         }
 
-        return normalize(LightGrid);
+        return normalize(ImpostorRenderVector);
 
     }
  
-    vector2 Input;
-    Input.x = float(curX) / float(xy_size_adjusted-1);
-    Input.y = float(curY) / float(xy_size_adjusted-1);
-    P = ImpostorGridVector(Input, ImpostorMode);
-    P = set(P.x, P.z, P.y);
- 
- 
-    vector XDir;
-    vector N;
-    N = -normalize(P);
-
+    vector2 Input = set(float(int(floorx)) / float(xy_size-1), float(int(floory)) / float(xy_size-1));
+    P = swizzle(ImpostorVector(Input, ImpostorMode), 0, 2, 1);
+    
+    vector N = -normalize(P);
     vector2 Coord = set(floorx, floory);
-    XDir = normalize(cross(set(0,1,0), N));
+    vector XDir = normalize(cross(set(0,1,0), N));
 
-    if (xy_size_adjusted%2==1) {
+    if (xy_size%2==1) {
 
-        if(Coord == set(ceil(float(xy_size_adjusted-1)/2.0), ceil(float(xy_size_adjusted-1)/2.0)))
+        if(Coord == set(ceil(float(xy_size-1)/2.0), ceil(float(xy_size-1)/2.0)))
             XDir = set(-1,0,0);
     }
-
- 
-    // if (Coord == set(0, xy_size_adjusted-1)) {
-    // XDir = set(-1,0,0);
-    // } else if (Coord == set(xy_size_adjusted-1,0) ) {
-    //     XDir = set(1,0,0);
-    // } else if (Coord == set(xy_size_adjusted-1, xy_size_adjusted-1)) {
-    //     XDir = set(0,0,-1);
-    // } else if (Coord == set(0,0)) {
-    //     XDir = set(0,0,1);
-    // }
  
     vector YDir = normalize(cross(XDir, N));
     
     P += ((XDir*fracx) + (YDir*-fracy));
     P = P + (P * camera_zoom);
     I = N;
-
- 
-    //P += XDir*fracx + YDir*-fracy;
-    //P = P + (P * camera_zoom);
-    //N *= -1;
-    //I = N;
  
 }

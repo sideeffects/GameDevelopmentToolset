@@ -136,8 +136,20 @@
             name    "anim_output_sequence"
             label   "Output Picture"
             type    image
-            default { "$HIP/render/${OS}_${WEDGE}.$F4.exr" }
+            default { "$HIP/render/$OS.$F4.exr" }
             hidewhen "{ imposter_enum != 2 }"
+        }
+        parm {
+            name    "sopoutput"
+            label   "Output Geo"
+            type    file
+            default { "$HIP/export/${OS}.fbx" }
+            hidewhen "{ imposter_enum < 3 }"
+            menureplace {
+                [ "opmenu -l filmboxfbx1 sopoutput" ]
+            }
+            parmtag { "autoscope" "0000000000000000" }
+            parmtag { "filechooser_mode" "write" }
         }
         parm {
             name    "sepparm"

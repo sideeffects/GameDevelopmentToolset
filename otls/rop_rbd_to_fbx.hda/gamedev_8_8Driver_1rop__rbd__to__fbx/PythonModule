@@ -12,7 +12,7 @@ def export(node):
     if exportparm_val[:3] == "../":
         export_path = "../"+exportparm_val
     
-    export_node = hou.node('../objnet2/COPY').path()
+    export_node = hou.node('../Import/COPY').path()
 
     # If Not /obj level node selected, get /obj level parent
     if hou.node(export_node).type().category() != hou.objNodeTypeCategory():
@@ -30,7 +30,7 @@ def export(node):
 
 def cleanup():
 
-    container_node = hou.pwd().parent().node("objnet1")
+    container_node = hou.pwd().parent().node("Export")
     parent_node = hou.node(container_node.path() + '/FBX_EXPORT')
     for child in parent_node.children():
         child.destroy()
@@ -116,7 +116,7 @@ class FractureExporter(object):
         hou.setFrame(self.start_frame)
 
     def create_parent_node(self):
-        container_node = hou.pwd().parent().node("objnet1")
+        container_node = hou.pwd().parent().node("Export")
         self.parent_node = hou.node(container_node.path() + '/FBX_EXPORT')
         
         self.transform_node = self.parent_node.createNode('subnet', node_name="TRANSFORM_NODE", run_init_scripts=False)

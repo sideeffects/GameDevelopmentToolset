@@ -1,4 +1,4 @@
-import hou, json, os, shutil
+import hou, json, os, shutil, subprocess
 
 
 def SetPreset(a_Node):
@@ -104,6 +104,7 @@ def ConvertAndExportTexture(node, material, textures, ropOutput, fileImport, rop
                                 
                         TextureExportComponents = os.path.split(a_Node.parm('exportDir').evalAsString())
                         TextureExportName = TextureExportComponents[1].replace("$(CHANNEL)", CleanTextureNameDict[texture])
+                        TextureExportName = TextureExportName.replace("$(MATERIAL)", material.name())
                         TextureExportExtension = TextureExportName.split('.')[-1]
                         FilePath = TextureExportDir + '/' + TextureExportName
 
@@ -116,13 +117,23 @@ def ConvertAndExportTexture(node, material, textures, ropOutput, fileImport, rop
                                         ropOutputCOPs.render()
 
                         # Deal with Regular Textures
+                        # https://www.sidefx.com/forum/topic/6680/?page=1#post-31658
+                        # https://www.sidefx.com/forum/topic/6680/?page=1#post-31658
+                        # https://www.sidefx.com/forum/topic/6680/?page=1#post-31658
                         else:
                                 if os.path.splitext(TexturePath)[1][1:].upper() == TextureExportExtension.upper():
                                         shutil.copy(TexturePath, FilePath)
-                                elif TexturePath != "":    
-                                        fileImport.parm("filename1").set(TexturePath)
-                                        ropOutput.parm("copoutput").set(FilePath)
-                                        ropOutput.render()
+                                elif TexturePath != "":
+                                        # import os, os.path
+                                        # for file in os.listdir('.'):
+                                        #     base, ext = os.path.splitext(file)
+                                        #     new = base + “.rat”
+                                        with open(os.devnull, 'wb') as devnull:
+                                            subprocess.call("icp %s %s" % (TexturePath, FilePath), shell=True)
+                                        #os.system("icp %s %s" % (TexturePath, FilePath)) 
+                                        # fileImport.parm("filename1").set(TexturePath)
+                                        # ropOutput.parm("copoutput").set(FilePath)
+                                        # ropOutput.render()
                                 if ConvertEmbedded:
                                         os.unlink(TexturePath)
         return
@@ -147,9 +158,12 @@ def ExtractLOD0Textures(a_Node):
         for MaterialData in Materials:
             for MaterialPath in MaterialData[1]:
                 MaterialNode = hou.node(MaterialPath)
-                TextureDict = GetTexturesInMat(MaterialNode)
-                if TextureDict != None:
-                    Texturesets.append([MaterialData[0], MaterialPath, TextureDict])
+                if MaterialNode.type().name() in ['principledshader::2.0']:
+                    TextureDict = GetTexturesInMat(MaterialNode)
+                    if TextureDict != None:
+                        Texturesets.append([MaterialData[0], MaterialPath, TextureDict])
+                else:
+                    print 'Texture extraction is not supported for the type of material used by %s' % MaterialNode.path()
 
         # Add Entry in JSON file for each materialtextureset, and export textures to tempdir
         for i, textureset in enumerate(Texturesets):
@@ -203,5 +217,9 @@ def Export(a_Node):
         # Impostor Generation
         if Node.parm("bLastLODImpostor").evalAsInt() == 1:
                 hou.node(Node.path()+"/objnet1/ropnet1/rop_impostor_texture1").parm("execute").pressButton()
+
+        if Node.parm("bUniqueLODNormal").evalAsInt() == 1:
+                hou.node(Node.path()+'/foreach_end2').cook(force=True)#parm('resetcookpass').pressButton()
+
 
         

@@ -186,6 +186,41 @@
             }
 
             groupsimple {
+                name    "folder19"
+                label   "Normals"
+
+                parm {
+                    name    "bRecalcNormals"
+                    label   "Recalculate Normals"
+                    type    toggle
+                    default { "0" }
+                }
+                parm {
+                    name    "cuspangle"
+                    label   "Cusp Angle"
+                    type    float
+                    default { "20" }
+                    disablewhen "{ bRecalcNormals == 0 }"
+                    range   { 0! 180! }
+                    parmtag { "autoscope" "0000000000000000" }
+                }
+                parm {
+                    name    "method2"
+                    label   "Weighting Method"
+                    type    integer
+                    default { "1" }
+                    disablewhen "{ bRecalcNormals == 0 }"
+                    menu {
+                        "uniform"   "Each Vertex Equally"
+                        "angle"     "By Vertex Angle"
+                        "area"      "By Face Area"
+                    }
+                    range   { 0! 2! }
+                    parmtag { "autoscope" "0000000000000000" }
+                }
+            }
+
+            groupsimple {
                 name    "folder4"
                 label   "Retain Density by Attribute"
 
@@ -462,7 +497,6 @@
                     label   "Unique Normal Map per LOD"
                     type    toggle
                     default { "0" }
-                    disablewhen "{ bAlwaysTrue == 1 }"
                 }
             }
 
@@ -1192,7 +1226,7 @@
                 name    "exportDir"
                 label   "Output"
                 type    directory
-                default { "$HIP/lodexport/${OS}_Source_$(CHANNEL).tga" }
+                default { "$HIP/lodexport/${OS}_Source_$(MATERIAL)_$(CHANNEL).tga" }
                 disablewhen "{ bExportLOD0Tex == 0 }"
             }
         }
@@ -1298,6 +1332,18 @@
                 default { "$HIP/lodexport/${OS}_Impostor_normal.tga" }
                 disablewhen "{ normals_toggle == 0 }"
                 parmtag { "autoscope" "0000000000000000" }
+            }
+            parm {
+                name    "sopoutput2"
+                label   "Output Geo"
+                type    file
+                default { "$HIP/export/${OS}.fbx" }
+                hidewhen "{ imposter_enum < 3 }"
+                menureplace {
+                    [ "opmenu -l objnet1/ropnet1/rop_impostor_texture1 sopoutput" ]
+                }
+                parmtag { "autoscope" "0000000000000000" }
+                parmtag { "filechooser_mode" "write" }
             }
         }
 

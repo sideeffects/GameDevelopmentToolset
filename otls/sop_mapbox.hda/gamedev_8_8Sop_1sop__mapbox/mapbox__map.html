@@ -1,0 +1,12 @@
+<!DOCTYPE html><html lang="en">    <head>        <meta charset="UTF-8">        <title>Title</title>        <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.45.0/mapbox-gl.js'></script>        <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.45.0/mapbox-gl.css' rel='stylesheet' />    </head>    <body>        <div id='map' style='width:512px; height:512px;'></div>        <script>
+            mapboxgl.accessToken = location.hash.split(",")[3];            var map = new mapboxgl.Map({                container: 'map',                center:[ location.hash.split(",")[0].split("#")[1], location.hash.split(",")[1]],                maxZoom:14,                scrollZoom:false,                boxZoom:false,                doubleClickZoom:false,                zoom:location.hash.split(",")[2],                style: 'mapbox://styles/mapbox/satellite-streets-v10'            });
+            var nav = new mapboxgl.NavigationControl({showCompass:false});
+            map.addControl(nav, 'top-left');
+            map.on('load', function() {                map.on('moveend', function() {                    var center = map.getCenter();                    var zoom = map.getZoom();
+                    if (zoom != parseInt(zoom))                    {                        map.setZoom(parseInt(zoom));                    }
+                    bounds = map.getBounds();
+                    location.hash = center.lng +"," + center.lat + "," + parseInt(zoom) + "," + bounds._ne.lat + "," + bounds._ne.lng + "," + bounds._sw.lat+ "," + bounds._sw.lng;                });               var center = map.getCenter();                var zoom = map.getZoom();                if (zoom != parseInt(zoom))                {                    map.setZoom(parseInt(zoom));                }                bounds = map.getBounds();                location.hash = center.lng +"," + center.lat + "," + parseInt(zoom) + "," + bounds._ne.lat + "," + bounds._ne.lng + "," + bounds._sw.lat+ "," + bounds._sw.lng;
+            });
+ 
+        </script>    </body>
+</html>

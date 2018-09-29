@@ -67,29 +67,84 @@ true75:                                           ; preds = %entry
   %3 = icmp ne i32 %return87, 0
   br i1 %3, label %true88, label %end76
 
-end76:                                            ; preds = %true75, %true88, %entry
-  %XDir.0 = phi <3 x double> [ %return92, %true88 ], [ %return70, %true75 ], [ %return70, %entry ]
-  %return95 = call <3 x double> @"cross@VVV"(<3 x double> %XDir.0, <3 x double> %return63)
-  %return96 = call <3 x double> @"normalize@VV"(<3 x double> %return95)
-  %cast100 = call <3 x double> @"set@VF"(double %output38)
-  %output101 = call <3 x double> @"mul@VV"(<3 x double> %XDir.0, <3 x double> %cast100)
-  %return104 = call double @"neg@FF"(double %output44)
-  %cast105 = call <3 x double> @"set@VF"(double %return104)
-  %output106 = call <3 x double> @"mul@VV"(<3 x double> %return96, <3 x double> %cast105)
-  %output107 = call <3 x double> @"add@VV"(<3 x double> %output101, <3 x double> %output106)
-  %output108 = call <3 x double> @"add@VV"(<3 x double> %return60, <3 x double> %output107)
-  %cast112 = call <3 x double> @"set@VF"(double %camera_zoom)
-  %output113 = call <3 x double> @"mul@VV"(<3 x double> %output108, <3 x double> %cast112)
-  %output114 = call <3 x double> @"add@VV"(<3 x double> %output108, <3 x double> %output113)
-  %gvalue = call <3 x double> @"_export@VSV"(i8* getelementptr inbounds ([2 x i8]* @1, i32 0, i32 0), <3 x double> %output114) nounwind readonly
-  %gvalue117 = call <3 x double> @"_export@VSV"(i8* getelementptr inbounds ([2 x i8]* @2, i32 0, i32 0), <3 x double> %return63) nounwind readonly
-  store <3 x double> %gvalue, <3 x double>* @P
-  store <3 x double> %gvalue117, <3 x double>* @I
-  ret void
+end76:                                            ; preds = %true92, %false93, %true75, %entry
+  %XDir.0 = phi <3 x double> [ %return97, %true92 ], [ %return98, %false93 ], [ %return70, %true75 ], [ %return70, %entry ]
+  %return100 = call i32 @"eq@III"(i32 %., i32 1)
+  %4 = icmp ne i32 %return100, 0
+  br i1 %4, label %true101, label %end102
 
 true88:                                           ; preds = %true75
-  %return92 = call <3 x double> @"set@VFFF"(double %cast6, double 0.000000e+00, double 0.000000e+00)
+  %return91 = call i32 @"eq@III"(i32 %., i32 2)
+  %5 = icmp ne i32 %return91, 0
+  br i1 %5, label %true92, label %false93
+
+true92:                                           ; preds = %true88
+  %return97 = call <3 x double> @"set@VFFF"(double %cast6, double 0.000000e+00, double 0.000000e+00)
   br label %end76
+
+false93:                                          ; preds = %true88
+  %return98 = call <3 x double> @"set@VFFF"(double 0.000000e+00, double 0.000000e+00, double 1.000000e+00)
+  br label %end76
+
+true101:                                          ; preds = %end76
+  %return104 = call <2 x double> @"set@UFF"(double 0.000000e+00, double 0.000000e+00)
+  %return105 = call i32 @"eq@IUU"(<2 x double> %return66, <2 x double> %return104)
+  %6 = icmp ne i32 %return105, 0
+  br i1 %6, label %true106, label %false107
+
+end102:                                           ; preds = %false125, %true135, %true124, %true115, %true106, %end76
+  %XDir.1 = phi <3 x double> [ %return109, %true106 ], [ %return118, %true115 ], [ %return127, %true124 ], [ %return137, %true135 ], [ %XDir.0, %false125 ], [ %XDir.0, %end76 ]
+  %return140 = call <3 x double> @"cross@VVV"(<3 x double> %XDir.1, <3 x double> %return63)
+  %return141 = call <3 x double> @"normalize@VV"(<3 x double> %return140)
+  %cast145 = call <3 x double> @"set@VF"(double %output38)
+  %output146 = call <3 x double> @"mul@VV"(<3 x double> %XDir.1, <3 x double> %cast145)
+  %return149 = call double @"neg@FF"(double %output44)
+  %cast150 = call <3 x double> @"set@VF"(double %return149)
+  %output151 = call <3 x double> @"mul@VV"(<3 x double> %return141, <3 x double> %cast150)
+  %output152 = call <3 x double> @"add@VV"(<3 x double> %output146, <3 x double> %output151)
+  %output153 = call <3 x double> @"add@VV"(<3 x double> %return60, <3 x double> %output152)
+  %cast157 = call <3 x double> @"set@VF"(double %camera_zoom)
+  %output158 = call <3 x double> @"mul@VV"(<3 x double> %output153, <3 x double> %cast157)
+  %output159 = call <3 x double> @"add@VV"(<3 x double> %output153, <3 x double> %output158)
+  %gvalue = call <3 x double> @"_export@VSV"(i8* getelementptr inbounds ([2 x i8]* @1, i32 0, i32 0), <3 x double> %output159) nounwind readonly
+  %gvalue162 = call <3 x double> @"_export@VSV"(i8* getelementptr inbounds ([2 x i8]* @2, i32 0, i32 0), <3 x double> %return63) nounwind readonly
+  store <3 x double> %gvalue, <3 x double>* @P
+  store <3 x double> %gvalue162, <3 x double>* @I
+  ret void
+
+true106:                                          ; preds = %true101
+  %return109 = call <3 x double> @"set@VFFF"(double 0.000000e+00, double 0.000000e+00, double 1.000000e+00)
+  br label %end102
+
+false107:                                         ; preds = %true101
+  %return113 = call <2 x double> @"set@UFF"(double 0.000000e+00, double %output23)
+  %return114 = call i32 @"eq@IUU"(<2 x double> %return66, <2 x double> %return113)
+  %7 = icmp ne i32 %return114, 0
+  br i1 %7, label %true115, label %false116
+
+true115:                                          ; preds = %false107
+  %return118 = call <3 x double> @"set@VFFF"(double 0.000000e+00, double 0.000000e+00, double 1.000000e+00)
+  br label %end102
+
+false116:                                         ; preds = %false107
+  %return122 = call <2 x double> @"set@UFF"(double %output23, double 0.000000e+00)
+  %return123 = call i32 @"eq@IUU"(<2 x double> %return66, <2 x double> %return122)
+  %8 = icmp ne i32 %return123, 0
+  br i1 %8, label %true124, label %false125
+
+true124:                                          ; preds = %false116
+  %return127 = call <3 x double> @"set@VFFF"(double 0.000000e+00, double 0.000000e+00, double 1.000000e+00)
+  br label %end102
+
+false125:                                         ; preds = %false116
+  %return133 = call <2 x double> @"set@UFF"(double %output23, double %output23)
+  %return134 = call i32 @"eq@IUU"(<2 x double> %return66, <2 x double> %return133)
+  %9 = icmp ne i32 %return134, 0
+  br i1 %9, label %true135, label %end102
+
+true135:                                          ; preds = %false125
+  %return137 = call <3 x double> @"set@VFFF"(double 0.000000e+00, double 0.000000e+00, double 1.000000e+00)
+  br label %end102
 }
 
 declare i32 @"eq@ISS"(i8*, i8*) nounwind readnone

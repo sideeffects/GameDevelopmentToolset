@@ -108,8 +108,28 @@ octahedronimpostor(
 
     if (xy_size%2==1) {
 
+        
         if(Coord == set(ceil(float(xy_size-1)/2.0), ceil(float(xy_size-1)/2.0)))
-            XDir = set(-1,0,0);
+            if (ImpostorMode == 2) {
+                XDir = set(-1,0,0);
+            } else {
+                XDir = set(0,0,1);
+            }
+    }
+
+    if (ImpostorMode == 1)  {
+
+        if (Coord == set(0, 0)){
+            XDir = set(0, 0, 1);
+        } else if (Coord == set(0, xy_size-1)) {
+            XDir = set(0, 0, 1);
+        } else if (Coord == set(xy_size-1, 0)) {
+            XDir = set(0, 0, 1);
+        } else if (Coord == set(xy_size-1, xy_size-1)){
+            XDir = set(0, 0, 1); 
+        }
+
+
     }
  
     vector YDir = normalize(cross(XDir, N));

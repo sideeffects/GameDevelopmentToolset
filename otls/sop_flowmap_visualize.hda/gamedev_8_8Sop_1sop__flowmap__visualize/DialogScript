@@ -49,4 +49,13 @@
         disablewhen "{ mode == 0 }"
         parmtag { "autoscope" "0000000000000000" }
     }
+    parm {
+        name    "time"
+        label   "Time"
+        type    float
+        invisible
+        default { [ "$T" hscript-expr ] }
+        range   { 0 10 }
+        parmtag { "autoscope" "0000000000000000" }
+    }
 }

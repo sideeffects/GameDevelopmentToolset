@@ -1,0 +1,52 @@
+# Dialog script for gamedev::sop_flowmap_visualize automatically generated
+
+{
+    name	gamedev::sop_flowmap_visualize
+    script	gamedev::sop_flowmap_visualize
+    label	"GameDev Flowmap Visualize"
+
+    help {
+	""
+    }
+
+    inputlabel	1	"Sub-Network Input #1"
+    inputlabel	2	"Sub-Network Input #2"
+    inputlabel	3	"Sub-Network Input #3"
+    inputlabel	4	"Sub-Network Input #4"
+
+    parm {
+        name    "diffTexture2"
+        label   "Diffuse Texture"
+        type    image
+        default { "opdef:../..?flowmap_visualize.tga" }
+        parmtag { "autoscope" "0000000000000000" }
+    }
+    parm {
+        name    "speed"
+        label   "Speed"
+        type    float
+        default { "0.33" }
+        range   { 0 1 }
+        parmtag { "autoscope" "0000000000000000" }
+    }
+    parm {
+        name    "mode"
+        label   "Flowmap Mode"
+        type    integer
+        default { "0" }
+        menu {
+            "0" "Color"
+            "1" "Texture"
+        }
+        range   { 0 10 }
+        parmtag { "autoscope" "0000000000000000" }
+    }
+    parm {
+        name    "flowmapTexture"
+        label   "Flowmap Texture"
+        type    image
+        default { "" }
+        disablewhen "{ mode == 0 }"
+        parmtag { "autoscope" "0000000000000000" }
+    }
+}

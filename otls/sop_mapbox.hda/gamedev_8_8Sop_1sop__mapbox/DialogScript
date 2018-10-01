@@ -52,12 +52,18 @@
         parmtag { "script_callback" "hou.pwd().hdaModule().launch_map()" }
         parmtag { "script_callback_language" "python" }
     }
-    parm {
-        name    "api_key"
-        label   "Mapbox API Key"
-        type    string
-        default { "" }
+    groupcollapsible {
+        name    "folder3"
+        label   "API Key"
+
+        parm {
+            name    "api_key"
+            label   "Mapbox API Key"
+            type    string
+            default { "" }
+        }
     }
+
     groupsimple {
         name    "folder1"
         label   "Base Settings"
@@ -93,7 +99,7 @@
             label   "Resolution Scale"
             type    float
             default { "1" }
-            range   { 0 10 }
+            range   { 0 1 }
         }
         parm {
             name    "terrain_mode"

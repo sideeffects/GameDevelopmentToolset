@@ -32,11 +32,12 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position -1.16471 4.445
-connectornextid 0
+position 6.83065 4.53726
+connectornextid 1
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
 {
+0 "output1"
 }
 inputsNamed3
 {
@@ -46,8 +47,8 @@ inputs
 }
 stat
 {
-  create 1537483518
-  modify 1537483533
+  create 1528468569
+  modify 1538167339
   author MAINGEAR@DESKTOP-P98C1VA
   access 0777
 }
@@ -96,7 +97,7 @@ inputs
 stat
 {
   create 1500592402
-  modify 1537307882
+  modify 1538169371
   author Luiz@Luiz-PC
   access 0777
 }
@@ -276,7 +277,7 @@ class OSMParser(object):
                 point.setAttribValue(\"latitude\", latlongs[x][0])
                 point.setAttribValue(\"longitude\", latlongs[x][1])
 
-            if \"building\" not in way.tags and \"buildingpart\" not in way.tags:
+            if \"building\" not in way.tags and \"buildingpart\" not in way.tags and \"building_part\" not in way.tags: 
                 poly.setIsClosed(0)
 
             if READ_BUILDING_COLORS:
@@ -376,7 +377,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.595"
+		"value":"16.5.607"
 	}
 }
 
@@ -439,7 +440,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.595"
+		"value":"16.5.607"
 	}
 }
 
@@ -513,7 +514,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.595"
+		"value":"16.5.607"
 	}
 }
 
@@ -576,7 +577,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.595"
+		"value":"16.5.607"
 	}
 }
 
@@ -704,7 +705,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.595"
+		"value":"16.5.607"
 	}
 }
 
@@ -765,7 +766,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.595"
+		"value":"16.5.607"
 	}
 }
 
@@ -841,7 +842,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.595"
+		"value":"16.5.607"
 	}
 }
 

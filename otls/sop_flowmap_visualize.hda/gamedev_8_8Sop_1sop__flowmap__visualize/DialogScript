@@ -18,14 +18,31 @@
         name    "diffTexture2"
         label   "Diffuse Texture"
         type    image
-        default { "opdef:../..?flowmap_visualize.tga" }
+        default { "opdef:../..?flowmap_visualize.jpg" }
+        parmtag { "autoscope" "0000000000000000" }
+    }
+    parm {
+        name    "uvtiling"
+        label   "Diffuse Tiling"
+        type    vector2
+        size    2
+        default { "1" "1" }
+        range   { -1 1 }
         parmtag { "autoscope" "0000000000000000" }
     }
     parm {
         name    "speed"
         label   "Speed"
         type    float
-        default { "0.33" }
+        default { "5" }
+        range   { 0 10 }
+        parmtag { "autoscope" "0000000000000000" }
+    }
+    parm {
+        name    "distortion"
+        label   "Distortion Amount"
+        type    float
+        default { "0.2" }
         range   { 0 1 }
         parmtag { "autoscope" "0000000000000000" }
     }

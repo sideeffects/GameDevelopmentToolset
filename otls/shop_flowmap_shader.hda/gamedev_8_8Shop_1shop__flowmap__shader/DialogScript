@@ -18,6 +18,14 @@
         default { "" }
     }
     parm {
+        name    "uvtiling"
+        label   "Diffuse Tiling"
+        type    vector2
+        size    2
+        default { "1" "1" }
+        range   { -1 1 }
+    }
+    parm {
         name    "mode"
         label   "Flowmap Mode"
         type    integer
@@ -65,4 +73,11 @@
         }
     }
 
+    parm {
+        name    "distortion"
+        label   "Distortion"
+        type    float
+        default { "0.2" }
+        range   { 0 10 }
+    }
 }

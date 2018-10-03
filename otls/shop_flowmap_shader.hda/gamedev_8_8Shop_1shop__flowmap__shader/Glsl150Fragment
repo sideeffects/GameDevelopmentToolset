@@ -136,7 +136,9 @@ vec4 HOUwireColor(vec3 edges, int edgeflags, float selected);
 uniform int mode;
 uniform float speed;
 uniform float time;
+uniform float distortion;
 uniform vec2 panningdir;
+uniform vec2 uvtiling;
 uniform sampler2D    diffTexture;
 uniform sampler2D   flowmapTexture;
 
@@ -173,14 +175,16 @@ void main()
     // ----------------------------
     // MY LOGIC
     // ----------------------------
-    float timespeed = time * speed;
+    float timespeed = time * 0.01 * speed;
+    vec2 tilingUV = vec2(fsIn.texcoord0.x * uvtiling.x, fsIn.texcoord0.y * uvtiling.y); 
     vec2 flowmap = (mode == 0) ? fsIn.color.rg * 2.0 - 1.0 : texture(flowmapTexture, fsIn.texcoord0).rg * 2.0 - 1.0;
     //vec2 flowmap = texture(flowmapTexture, fsIn.texcoord0).rg * 2.0 - 1.0;
     //vec2 flowmap = fsIn.color.rg * 2.0 - 1.0;
     flowmap *= -1.0;//vec2(1.0, 1.0);
+    flowmap *= distortion;
 
-    vec2 uvtex1 = (fsIn.texcoord0 + (flowmap * fract(timespeed))) ;
-    vec2 uvtex2 = (fsIn.texcoord0 + (flowmap * fract((timespeed-0.5))));
+    vec2 uvtex1 = (tilingUV + (flowmap * fract(timespeed))) ;
+    vec2 uvtex2 = (tilingUV + (flowmap * fract((timespeed-0.5))));
 
     vec3 tex1 = texture(diffTexture, uvtex1).rgb;
     vec3 tex2 = texture(diffTexture, uvtex2).rgb;

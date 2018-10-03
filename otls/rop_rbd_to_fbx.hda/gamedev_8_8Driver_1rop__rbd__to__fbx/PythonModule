@@ -218,11 +218,11 @@ class FractureExporter(object):
             transformNode.parm('ty').setExpression('-$CEY')
             transformNode.parm('tz').setExpression('-$CEZ')
 
-            transformNode.parm('sx').set(self.scale_x)
-            transformNode.parm('sy').set(self.scale_y)
-            transformNode.parm('sz').set(self.scale_z)
-            transformNode.parm('scale').set(self.uniform_scale)
-            
+            # This caused the top parms to essentially do scale = scale*scale..... Major bug
+            #transformNode.parm('sx').set(self.scale_x)
+            #transformNode.parm('sy').set(self.scale_y)
+            #transformNode.parm('sz').set(self.scale_z)
+            #transformNode.parm('scale').set(self.uniform_scale)
             
             transformNode.setNextInput(timeShift)
             transformNode.moveToGoodPosition()

@@ -32,7 +32,7 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position -10.4691 -2.33015
+position -10.4691 -2.59398
 connectornextid 3
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
@@ -52,7 +52,7 @@ inputs
 stat
 {
   create 1538435198
-  modify 1538435897
+  modify 1538707896
   author MAINGEAR@DESKTOP-P98C1VA
   access 0777
 }
@@ -120,9 +120,9 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position 0.946047 2.3836
+position 1.44805 1.78096
 connectornextid 3
-flags =  lock off model off template on footprint off xray off bypass off display on render on highlight off unload off savedata off compress on colordefault on exposed on
+flags =  lock off model off template off footprint off xray off bypass off display on render on highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
 {
 2 "output1"
@@ -140,7 +140,7 @@ inputs
 stat
 {
   create 1538421559
-  modify 1538435436
+  modify 1538708024
   author MAINGEAR@DESKTOP-P98C1VA
   access 0777
 }
@@ -699,7 +699,7 @@ Content-Disposition: attachment; filename="hdaroot/pointvop1/geometryvopoutput1.
 Content-Type: text/plain
 
 comment ""
-position 18.974 2.44181
+position 25.6858 2.53278
 connectornextid 5
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on lowdetail off mediumdetail off highdetail on material off
 outputsNamed3
@@ -708,23 +708,23 @@ outputsNamed3
 inputsNamed3
 {
 0 	"" "" 1 "P"
-1 	mix1 3 1 "v"
+1 	add1 2 1 "v"
 2 	"" "" 1 "force"
-3 	mix1 3 1 "Cd"
+3 	"" "" 1 "Cd"
 4 	"" "" 1 "N"
 }
 inputs
 {
 0 	"" 0 1
-1 	mix1 0 1
+1 	add1 0 1
 2 	"" 0 1
-3 	mix1 0 1
+3 	"" 0 1
 4 	"" 0 1
 }
 stat
 {
   create 1538421559
-  modify 1538425159
+  modify 1538707505
   author MAINGEAR@DESKTOP-P98C1VA
   access 0777
 }
@@ -764,7 +764,7 @@ Content-Disposition: attachment; filename="hdaroot/pointvop1/volumegradientfile1
 Content-Type: text/plain
 
 comment ""
-position 6.38992 2.48383
+position 5.22697 -0.503037
 connectornextid 4
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on lowdetail off mediumdetail off highdetail on material off
 outputsNamed3
@@ -786,7 +786,7 @@ inputs
 stat
 {
   create 1538421570
-  modify 1538423679
+  modify 1538706632
   author MAINGEAR@DESKTOP-P98C1VA
   access 0777
 }
@@ -832,7 +832,7 @@ Content-Disposition: attachment; filename="hdaroot/pointvop1/multiply1.def"
 Content-Type: text/plain
 
 comment ""
-position 8.4481 -1.04766
+position 8.7076 -1.35435
 connectornextid 3
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on lowdetail off mediumdetail off highdetail on material off
 outputsNamed3
@@ -852,7 +852,7 @@ inputs
 stat
 {
   create 1538421725
-  modify 1538425159
+  modify 1538707505
   author MAINGEAR@DESKTOP-P98C1VA
   access 0777
 }
@@ -908,7 +908,7 @@ inputs
 stat
 {
   create 1538421730
-  modify 1538425158
+  modify 1538707401
   author MAINGEAR@DESKTOP-P98C1VA
   access 0777
 }
@@ -938,7 +938,7 @@ Content-Type: text/plain
 {
 version 0.8
 consttype	[ 0	locks=0 ]	(	"float"	)
-floatdef	[ 8	locks=0 ]	(	[ floatdef	3 ] 	)
+floatdef	[ 8	locks=0 ]	(	[ floatdef	6.4199999999999999 ] 	)
 intdef	[ 0	locks=0 ]	(	0	)
 toggledef	[ 0	locks=0 ]	(	"off"	)
 angledef	[ 0	locks=0 ]	(	0	)
@@ -992,124 +992,38 @@ Content-Type: text/plain
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot/pointvop1/mix1.init"
+Content-Disposition: attachment; filename="hdaroot/pointvop1/add1.init"
 Content-Type: text/plain
 
-type = mix
+type = add
 matchesdef = 0
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot/pointvop1/mix1.def"
+Content-Disposition: attachment; filename="hdaroot/pointvop1/add1.def"
 Content-Type: text/plain
 
 comment ""
-position 15.995 1.35594
-connectornextid 4
+position 15.4118 2.34209
+connectornextid 3
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on lowdetail off mediumdetail off highdetail on material off
 outputsNamed3
 {
-3 "blend"
+2 "sum"
 }
 inputsNamed3
 {
-0 	geometryvopglobal1 1 1 "input1"
-1 	multiply1 2 1 "input2"
-2 	length1 1 1 "bias"
-}
-inputs
-{
-0 	geometryvopglobal1 1 1
-1 	multiply1 0 1
-2 	length1 0 1
-}
-stat
-{
-  create 1538421831
-  modify 1538425159
-  author MAINGEAR@DESKTOP-P98C1VA
-  access 0777
-}
-color UT_Color RGB 0.8 0.8 0.8 
-delscript ""
-exprlanguage hscript
-end
-
---HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot/pointvop1/mix1.parm"
-Content-Type: text/plain
-
-{
-version 0.8
-signature	[ 0	locks=0 ]	(	v	)
-bias	[ 0	locks=0 ]	(	0.5	)
-input1	[ 0	locks=0 ]	(	0	)
-input2	[ 0	locks=0 ]	(	1	)
-input1_u	[ 0	locks=0 ]	(	0	0	)
-input2_u	[ 0	locks=0 ]	(	1	1	)
-input1_v	[ 0	locks=0 ]	(	0	0	0	)
-input2_v	[ 0	locks=0 ]	(	1	1	1	)
-input1_p	[ 0	locks=0 ]	(	0	0	0	)
-input2_p	[ 0	locks=0 ]	(	1	1	1	)
-input1_n	[ 0	locks=0 ]	(	0	0	0	)
-input2_n	[ 0	locks=0 ]	(	1	1	1	)
-input1_c	[ 0	locks=0 ]	(	0	0	0	)
-input2_c	[ 0	locks=0 ]	(	1	1	1	)
-input1_v4	[ 0	locks=0 ]	(	0	0	0	0	)
-input2_v4	[ 0	locks=0 ]	(	1	1	1	1	)
-input1_uf	[ 0	locks=0 ]	(	0	)
-input2_uf	[ 0	locks=0 ]	(	1	)
-input1_uv	[ 0	locks=0 ]	(	0	0	0	)
-input2_uv	[ 0	locks=0 ]	(	1	1	1	)
-input1_up	[ 0	locks=0 ]	(	0	0	0	)
-input2_up	[ 0	locks=0 ]	(	1	1	1	)
-input1_un	[ 0	locks=0 ]	(	0	0	0	)
-input2_un	[ 0	locks=0 ]	(	1	1	1	)
-input1_uc	[ 0	locks=0 ]	(	0	0	0	)
-input2_uc	[ 0	locks=0 ]	(	1	1	1	)
-}
-
---HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot/pointvop1/mix1.userdata"
-Content-Type: text/plain
-
-{
-	"___Version___":{
-		"type":"string",
-		"value":""
-	}
-}
-
---HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot/pointvop1/length1.init"
-Content-Type: text/plain
-
-type = length
-matchesdef = 0
-
---HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot/pointvop1/length1.def"
-Content-Type: text/plain
-
-comment ""
-position 11.9239 -2.25607
-connectornextid 2
-flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on lowdetail off mediumdetail off highdetail on material off
-outputsNamed3
-{
-1 "len"
-}
-inputsNamed3
-{
-0 	multiply1 2 1 "vec"
+0 	multiply1 2 1 "input1"
+1 	geometryvopglobal1 1 1 "input2"
 }
 inputs
 {
 0 	multiply1 0 1
+1 	geometryvopglobal1 1 1
 }
 stat
 {
-  create 1538421957
-  modify 1538425158
+  create 1538706517
+  modify 1538707505
   author MAINGEAR@DESKTOP-P98C1VA
   access 0777
 }
@@ -1119,30 +1033,21 @@ exprlanguage hscript
 end
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot/pointvop1/length1.parm"
+Content-Disposition: attachment; filename="hdaroot/pointvop1/add1.parm"
 Content-Type: text/plain
 
 {
 version 0.8
-signature	[ 0	locks=0 ]	(	default	)
-vec	[ 0	locks=0 ]	(	1	1	1	)
-vec_u	[ 0	locks=0 ]	(	1	1	)
-vec_p	[ 0	locks=0 ]	(	1	1	1	)
-vec_n	[ 0	locks=0 ]	(	1	1	1	)
-vec_v4	[ 0	locks=0 ]	(	1	1	1	1	)
-vec_uv	[ 0	locks=0 ]	(	1	1	1	)
-vec_up	[ 0	locks=0 ]	(	1	1	1	)
-vec_un	[ 0	locks=0 ]	(	1	1	1	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot/pointvop1/length1.userdata"
+Content-Disposition: attachment; filename="hdaroot/pointvop1/add1.userdata"
 Content-Type: text/plain
 
 {
 	"___Version___":{
 		"type":"string",
-		"value":""
+		"value":"16.5.611"
 	}
 }
 
@@ -1159,7 +1064,7 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position 1.68455 1.5922
+position 1.68455 0.778189
 connectornextid 2
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
@@ -1177,7 +1082,7 @@ inputs
 stat
 {
   create 1538423474
-  modify 1538424819
+  modify 1538706813
   author MAINGEAR@DESKTOP-P98C1VA
   access 0777
 }
@@ -1209,7 +1114,7 @@ version 0.8
 group	[ 0	locks=0 ]	(	""	)
 attributes	[ 0	locks=0 ]	(	v	)
 method	[ 0	locks=0 ]	(	"uniform"	)
-iterations	[ 8	locks=0 ]	(	[ iterations	0 ] 	)
+iterations	[ 8	locks=0 ]	(	[ iterations	2.0800000000000001 ] 	)
 mode	[ 0	locks=0 ]	(	"laplacian"	)
 frequency	[ 0	locks=0 ]	(	0.034299999999999997	)
 stepsize	[ 0	locks=0 ]	(	0.5	)
@@ -1246,7 +1151,7 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position 1.60688 0.442079
+position 1.60688 -0.371932
 connectornextid 1
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
@@ -1263,7 +1168,7 @@ inputs
 stat
 {
   create 1522780516
-  modify 1538423898
+  modify 1538706813
   author MAINGEAR@DESKTOP-P98C1VA
   access 0777
 }
@@ -1305,7 +1210,7 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position 2.45998 5.86917
+position 2.38353 6.35845
 connectornextid 2
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
@@ -1323,7 +1228,7 @@ inputs
 stat
 {
   create 1538421547
-  modify 1538424823
+  modify 1538706772
   author MAINGEAR@DESKTOP-P98C1VA
   access 0777
 }
@@ -1363,7 +1268,7 @@ exteriorbandvoxels	[ 0	locks=0 ]	(	3	)
 interiorbandvoxels	[ 0	locks=0 ]	(	3	)
 exteriorband	[ 0	locks=0 ]	(	1	)
 interiorband	[ 0	locks=0 ]	(	1	)
-fillinterior	[ 0	locks=0 ]	(	"off"	)
+fillinterior	[ 0	locks=0 ]	(	"on"	)
 unsigneddist	[ 0	locks=0 ]	(	"off"	)
 numattrib	[ 0	locks=0 ]	(	0	)
 }
@@ -1383,14 +1288,13 @@ Content-Type: text/plain
 Content-Disposition: attachment; filename="hdaroot/pointvop1.order"
 Content-Type: text/plain
 
-7
+6
 geometryvopglobal1
 geometryvopoutput1
 volumegradientfile1
 multiply1
 const1
-mix1
-length1
+add1
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
 Content-Disposition: attachment; filename="hdaroot/pointvop1.net"
@@ -1466,7 +1370,7 @@ radius	[ 0	locks=0 ]	(	1	)
 iterations	[ 0	locks=0 ]	(	4	)
 halfwidth	[ 0	locks=0 ]	(	3	)
 useworldspaceunits	[ 0	locks=0 ]	(	"off"	)
-voxeloffset	[ 8	locks=0 ]	(	[ voxeloffset	1.6299999999999999 ] 	)
+voxeloffset	[ 8	locks=0 ]	(	[ voxeloffset	1.48 ] 	)
 accuracy	[ 0	locks=0 ]	(	"upwind first"	)
 invert	[ 0	locks=0 ]	(	"off"	)
 minmask	[ 0	locks=0 ]	(	0	)
@@ -1497,7 +1401,7 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position 2.26457 3.67967
+position 2.26457 2.86566
 connectornextid 3
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
@@ -1517,7 +1421,7 @@ inputs
 stat
 {
   create 1538423794
-  modify 1538423869
+  modify 1538706831
   author MAINGEAR@DESKTOP-P98C1VA
   access 0777
 }
@@ -1572,9 +1476,9 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position 4.35619 4.65044
+position 3.89749 4.92566
 connectornextid 2
-flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
+flags =  lock off model off template on footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
 {
 1 "output1"
@@ -1590,7 +1494,7 @@ inputs
 stat
 {
   create 1538423707
-  modify 1538424830
+  modify 1538706810
   author MAINGEAR@DESKTOP-P98C1VA
   access 0777
 }
@@ -1609,7 +1513,7 @@ Content-Type: text/plain
       righttype = extend
       default = 3
       flags = 0
-      segment { length = 0 value = 3 3 expr = ch(\"../dilate_volume\") }
+      segment { length = 0 value = 86.099999999999994 86.099999999999994 expr = ch(\"../dilate_volume\") }
     }
   }
 
@@ -1627,7 +1531,7 @@ radius	[ 0	locks=0 ]	(	1	)
 iterations	[ 0	locks=0 ]	(	4	)
 halfwidth	[ 0	locks=0 ]	(	3	)
 useworldspaceunits	[ 0	locks=0 ]	(	"off"	)
-voxeloffset	[ 8	locks=0 ]	(	[ voxeloffset	0 ] 	)
+voxeloffset	[ 8	locks=0 ]	(	[ voxeloffset	0.070000000000000007 ] 	)
 accuracy	[ 0	locks=0 ]	(	"upwind first"	)
 invert	[ 0	locks=0 ]	(	"off"	)
 minmask	[ 0	locks=0 ]	(	0	)

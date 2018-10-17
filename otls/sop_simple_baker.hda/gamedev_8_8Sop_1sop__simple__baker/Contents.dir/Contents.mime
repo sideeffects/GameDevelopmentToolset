@@ -32,9 +32,9 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position -0.288235 1.03912
+position -4.72961 4.47676
 connectornextid 0
-flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
+flags =  lock off model off template off footprint off xray off bypass off display on render on highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
 {
 }
@@ -46,8 +46,8 @@ inputs
 }
 stat
 {
-  create 1538075989
-  modify 1538075995
+  create 1539802432
+  modify 1539802440
   author MAINGEAR@DESKTOP-P98C1VA
   access 0777
 }
@@ -64,14 +64,6 @@ Content-Type: text/plain
 	"___Version___":{
 		"type":"string",
 		"value":"0.2"
-	},
-	"___toolcount___":{
-		"type":"string",
-		"value":"2"
-	},
-	"___toolid___":{
-		"type":"string",
-		"value":"gamedev::sop_simple_baker"
 	}
 }
 
@@ -136,7 +128,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.603"
+		"value":"17.0.373"
 	}
 }
 
@@ -167,7 +159,7 @@ inputs
 stat
 {
   create 1510086161
-  modify 1534442034
+  modify 1534538528
   author MAINGEAR@DESKTOP-P98C1VA
   access 0777
 }
@@ -413,9 +405,9 @@ version 0.8
 execute	[ 0	locks=0 ]	(	0	)
 renderdialog	[ 0	locks=0 ]	(	0	)
 meshes	[ 0	locks=0	autoscope=0 ]	(	1	)
-vm_uvunwrapres	[ 8	locks=0 ]	(	[ vm_uvunwrapresx	2048 ] 	[ vm_uvunwrapresy	2048 ] 	)
+vm_uvunwrapres	[ 8	locks=0 ]	(	[ vm_uvunwrapresx	512 ] 	[ vm_uvunwrapresy	512 ] 	)
 uvresmenu	[ 0	locks=0 ]	(	0	)
-base_path	[ 0	locks=0	autoscope=0 ]	(	[ base_path	C:/Users/MAINGEAR/render/untitled_$(CHANNEL).tga ] 	)
+base_path	[ 0	locks=0	autoscope=0 ]	(	[ base_path	D:/work/SideFX/GameDevelopmentToolset/hip/render/Elbow_Crab_$(CHANNEL).tga ] 	)
 channels	[ 0	locks=0 ]	(	1	1	)
 bake_basecolor	[ 0	locks=0	autoscope=0 ]	(	[ bake_basecolor	1 ] 	)
 basecolor_suffix	[ 0	locks=0	autoscope=0 ]	(	[ basecolor_suffix	basecolor ] 	)
@@ -486,7 +478,7 @@ inputs
 stat
 {
   create 1496780578
-  modify 1537905318
+  modify 1539802268
   author Luiz@Luiz-PC
   access 0777
 }
@@ -547,7 +539,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.603"
+		"value":"17.0.373"
 	}
 }
 
@@ -602,7 +594,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.603"
+		"value":"17.0.373"
 	}
 }
 
@@ -1077,7 +1069,7 @@ inputs
 stat
 {
   create 1496848225
-  modify 1497629664
+  modify 1534538528
   author Luiz@Luiz-PC
   access 0777
 }
@@ -3174,37 +3166,12 @@ Content-Type: text/plain
         default { "0" }
         range   { 0 10 }
     }
-    parm {
-        name    "speccolor"
-        baseparm
-        label   "OpenGL Specular Color"
-        invisible
-        export  none
-    }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
 Content-Disposition: attachment; filename="hdaroot/ropnet1/rop_games_baker/objnet/matnet/plain_white.chn"
 Content-Type: text/plain
 
 {
-    channel speccolorr {
-      lefttype = extend
-      righttype = extend
-      flags = 0
-      segment { length = 0 expr = ch(\"basecolorr\") }
-    }
-    channel speccolorg {
-      lefttype = extend
-      righttype = extend
-      flags = 0
-      segment { length = 0 expr = ch(\"basecolorg\") }
-    }
-    channel speccolorb {
-      lefttype = extend
-      righttype = extend
-      flags = 0
-      segment { length = 0 expr = ch(\"basecolorb\") }
-    }
     channel specular_tint {
       lefttype = extend
       righttype = extend
@@ -3235,6 +3202,24 @@ Content-Type: text/plain
       flags = 0
       segment { length = 0 expr = "1.01*ch(\"dispInput_enable\")*ch(\"dispInput_max\") + ch(\"dispTex_enable\")*max(abs((1.0+ch(\"dispTex_offset\"))*ch(\"dispTex_scale\")), abs(ch(\"dispTex_offset\")*ch(\"dispTex_scale\"))) + ch(\"dispNoise_enable\")*abs(ch(\"dispNoise_amp\"))" }
     }
+    channel speccolorr {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = ch(\"basecolorr\") }
+    }
+    channel speccolorg {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = ch(\"basecolorg\") }
+    }
+    channel speccolorb {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = ch(\"basecolorb\") }
+    }
   }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -3245,7 +3230,6 @@ Content-Type: text/plain
 version 0.8
 specmodel	[ 0	locks=0 ]	(	ggx	)
 coatspecmodel	[ 0	locks=0 ]	(	ggx	)
-speccolor	[ 0	locks=0 ]	(	[ speccolorr	0 ] 	[ speccolorg	0 ] 	[ speccolorb	0 ] 	)
 specular_tint	[ 0	locks=0 ]	(	[ specular_tint	0 ] 	)
 diffuse_folder_15	[ 0	locks=0 ]	(	0	0	0	0	0	0	)
 folder7	[ 0	locks=0 ]	(	0	)
@@ -3678,7 +3662,7 @@ inputs
 stat
 {
   create 1496780581
-  modify 1512055948
+  modify 1534538528
   author Luiz@Luiz-PC
   access 0777
 }
@@ -4406,7 +4390,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.603"
+		"value":"17.0.373"
 	}
 }
 
@@ -4441,7 +4425,7 @@ inputs
 stat
 {
   create 1496867646
-  modify 1504556123
+  modify 1534538528
   author Luiz@Luiz-PC
   access 0777
 }
@@ -4707,7 +4691,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.603"
+		"value":"17.0.373"
 	}
 }
 
@@ -7289,37 +7273,12 @@ Content-Type: text/plain
         default { "0" }
         range   { 0 10 }
     }
-    parm {
-        name    "speccolor"
-        baseparm
-        label   "OpenGL Specular Color"
-        invisible
-        export  none
-    }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
 Content-Disposition: attachment; filename="hdaroot/matnet1/principledshader1.chn"
 Content-Type: text/plain
 
 {
-    channel speccolorr {
-      lefttype = extend
-      righttype = extend
-      flags = 0
-      segment { length = 0 expr = ch(\"basecolorr\") }
-    }
-    channel speccolorg {
-      lefttype = extend
-      righttype = extend
-      flags = 0
-      segment { length = 0 expr = ch(\"basecolorg\") }
-    }
-    channel speccolorb {
-      lefttype = extend
-      righttype = extend
-      flags = 0
-      segment { length = 0 expr = ch(\"basecolorb\") }
-    }
     channel specular_tint {
       lefttype = extend
       righttype = extend
@@ -7349,6 +7308,24 @@ Content-Type: text/plain
       righttype = extend
       flags = 0
       segment { length = 0 expr = "1.01*ch(\"dispInput_enable\")*ch(\"dispInput_max\") + ch(\"dispTex_enable\")*max(abs((1.0+ch(\"dispTex_offset\"))*ch(\"dispTex_scale\")), abs(ch(\"dispTex_offset\")*ch(\"dispTex_scale\"))) + ch(\"dispNoise_enable\")*abs(ch(\"dispNoise_amp\"))" }
+    }
+    channel speccolorr {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = ch(\"basecolorr\") }
+    }
+    channel speccolorg {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = ch(\"basecolorg\") }
+    }
+    channel speccolorb {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = ch(\"basecolorb\") }
     }
     channel basecolorr {
       lefttype = extend
@@ -7395,7 +7372,6 @@ Content-Type: text/plain
 version 0.8
 specmodel	[ 0	locks=0 ]	(	ggx	)
 coatspecmodel	[ 0	locks=0 ]	(	ggx	)
-speccolor	[ 0	locks=0 ]	(	[ speccolorr	0 ] 	[ speccolorg	0 ] 	[ speccolorb	0 ] 	)
 specular_tint	[ 0	locks=0 ]	(	[ specular_tint	0 ] 	)
 diffuse_folder_15	[ 0	locks=0 ]	(	3	3	3	3	3	3	)
 folder7	[ 0	locks=0 ]	(	0	)
@@ -8556,7 +8532,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.603"
+		"value":"17.0.373"
 	}
 }
 
@@ -8635,7 +8611,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.603"
+		"value":"17.0.373"
 	}
 }
 
@@ -8671,7 +8647,7 @@ inputs
 stat
 {
   create 1504474956
-  modify 1504475241
+  modify 1534538528
   author Luiz@Luiz-PC
   access 0777
 }
@@ -8709,7 +8685,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.603"
+		"value":"17.0.373"
 	}
 }
 
@@ -8746,7 +8722,7 @@ inputs
 stat
 {
   create 1504475028
-  modify 1504475241
+  modify 1534538528
   author Luiz@Luiz-PC
   access 0777
 }
@@ -8784,7 +8760,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.603"
+		"value":"17.0.373"
 	}
 }
 
@@ -8837,6 +8813,8 @@ version 0.8
 inname	[ 0	locks=0 ]	(	N	)
 inclass	[ 0	locks=0 ]	(	"point"	)
 outclass	[ 0	locks=0 ]	(	"vertex"	)
+usepieceattrib	[ 0	locks=0 ]	(	"off"	)
+pieceattrib	[ 0	locks=0 ]	(	name	)
 method	[ 0	locks=0 ]	(	"mean"	)
 useoutname	[ 0	locks=0 ]	(	"off"	)
 outname	[ 0	locks=0 ]	(	""	)
@@ -8850,7 +8828,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.603"
+		"value":"17.0.373"
 	}
 }
 
@@ -8914,7 +8892,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.603"
+		"value":"17.0.373"
 	}
 }
 
@@ -9692,7 +9670,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.603"
+		"value":"17.0.373"
 	}
 }
 
@@ -9725,7 +9703,7 @@ inputs
 stat
 {
   create 1496780594
-  modify 1504548321
+  modify 1534538528
   author Luiz@Luiz-PC
   access 0777
 }
@@ -9771,7 +9749,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.603"
+		"value":"17.0.373"
 	}
 }
 
@@ -9808,7 +9786,7 @@ inputs
 stat
 {
   create 1496782511
-  modify 1504475266
+  modify 1534538528
   author Luiz@Luiz-PC
   access 0777
 }
@@ -9846,7 +9824,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.603"
+		"value":"17.0.373"
 	}
 }
 
@@ -9925,7 +9903,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.603"
+		"value":"17.0.373"
 	}
 }
 
@@ -9962,7 +9940,7 @@ inputs
 stat
 {
   create 1504474956
-  modify 1509742009
+  modify 1534538528
   author Luiz@Luiz-PC
   access 0777
 }
@@ -10000,7 +9978,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.603"
+		"value":"17.0.373"
 	}
 }
 
@@ -10037,7 +10015,7 @@ inputs
 stat
 {
   create 1504475028
-  modify 1504475351
+  modify 1534538528
   author Luiz@Luiz-PC
   access 0777
 }
@@ -10075,7 +10053,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.603"
+		"value":"17.0.373"
 	}
 }
 
@@ -10128,6 +10106,8 @@ version 0.8
 inname	[ 0	locks=0 ]	(	N	)
 inclass	[ 0	locks=0 ]	(	"point"	)
 outclass	[ 0	locks=0 ]	(	"vertex"	)
+usepieceattrib	[ 0	locks=0 ]	(	"off"	)
+pieceattrib	[ 0	locks=0 ]	(	name	)
 method	[ 0	locks=0 ]	(	"mean"	)
 useoutname	[ 0	locks=0 ]	(	"off"	)
 outname	[ 0	locks=0 ]	(	""	)
@@ -10141,7 +10121,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.603"
+		"value":"17.0.373"
 	}
 }
 
@@ -10205,7 +10185,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.603"
+		"value":"17.0.373"
 	}
 }
 
@@ -10240,7 +10220,7 @@ inputs
 stat
 {
   create 1509741512
-  modify 1509743708
+  modify 1534538528
   author MAINGEAR@DESKTOP-P98C1VA
   access 0777
 }
@@ -10274,7 +10254,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.603"
+		"value":"17.0.373"
 	}
 }
 
@@ -10310,7 +10290,7 @@ inputs
 stat
 {
   create 1509741521
-  modify 1522863722
+  modify 1534538528
   author MAINGEAR@DESKTOP-P98C1VA
   access 0777
 }
@@ -10348,7 +10328,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.603"
+		"value":"17.0.373"
 	}
 }
 
@@ -11017,7 +10997,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.603"
+		"value":"17.0.373"
 	}
 }
 
@@ -11092,7 +11072,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.603"
+		"value":"17.0.373"
 	}
 }
 
@@ -11169,6 +11149,8 @@ cachesize	[ 0	locks=0 ]	(	0	)
 prefetch	[ 0	locks=0 ]	(	"off"	)
 f	[ 0	locks=0 ]	(	1	24	)
 index	[ 0	locks=0 ]	(	[ index	0 ] 	)
+wrap	[ 0	locks=0 ]	(	"cycle"	)
+retry	[ 0	locks=0 ]	(	0	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -11178,7 +11160,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.603"
+		"value":"17.0.373"
 	}
 }
 
@@ -11265,6 +11247,9 @@ updatenmls	[ 0	locks=0 ]	(	"off"	)
 updateaffectednmls	[ 0	locks=0 ]	(	"on"	)
 vlength	[ 0	locks=0 ]	(	"on"	)
 invertxform	[ 0	locks=0 ]	(	"off"	)
+addattrib	[ 0	locks=0 ]	(	"off"	)
+outputattrib	[ 0	locks=0 ]	(	xform	)
+outputmerge	[ 0	locks=0 ]	(	"post"	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -11274,7 +11259,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.603"
+		"value":"17.0.373"
 	}
 }
 
@@ -11328,7 +11313,7 @@ inputs
 stat
 {
   create 1496780594
-  modify 1504553455
+  modify 1534538528
   author Luiz@Luiz-PC
   access 0777
 }
@@ -11374,7 +11359,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.603"
+		"value":"17.0.373"
 	}
 }
 
@@ -11411,7 +11396,7 @@ inputs
 stat
 {
   create 1496782511
-  modify 1497629664
+  modify 1534538528
   author Luiz@Luiz-PC
   access 0777
 }
@@ -11449,7 +11434,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.603"
+		"value":"17.0.373"
 	}
 }
 
@@ -11482,7 +11467,7 @@ inputs
 stat
 {
   create 1496780594
-  modify 1504553421
+  modify 1534538528
   author Luiz@Luiz-PC
   access 0777
 }
@@ -11528,7 +11513,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.603"
+		"value":"17.0.373"
 	}
 }
 
@@ -12305,7 +12290,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.603"
+		"value":"17.0.373"
 	}
 }
 
@@ -12338,7 +12323,7 @@ inputs
 stat
 {
   create 1496780594
-  modify 1534441707
+  modify 1534538528
   author Luiz@Luiz-PC
   access 0777
 }
@@ -12384,7 +12369,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.603"
+		"value":"17.0.373"
 	}
 }
 
@@ -12433,7 +12418,7 @@ inputs
 stat
 {
   create 1496776162
-  modify 1538075999
+  modify 1534538528
   author Luiz@Luiz-PC
   access 0777
 }
@@ -12489,7 +12474,7 @@ Content-Type: text/plain
     parm {
         name    "take"
         baseparm
-        label   "Render With Take"
+        label   "Render with Take"
         export  none
     }
     parm {
@@ -14024,7 +14009,7 @@ soho_previewsupport	[ 0	locks=0 ]	(	"on"	)
 main	[ 0	locks=0 ]	(	0	0	)
 vm_uv_unwrap_method	[ 0	locks=0 ]	(	1	)
 vm_uvattribute	[ 0	locks=0 ]	(	uv	)
-vm_uv_ray_bias	[ 8	locks=0 ]	(	[ vm_uv_ray_bias	0.01 ] 	)
+vm_uv_ray_bias	[ 8	locks=0 ]	(	[ vm_uv_ray_bias	0.10000000000000001 ] 	)
 vm_uv_ray_maxdist	[ 8	locks=0 ]	(	[ vm_uv_ray_maxdist	-1 ] 	)
 vm_uv_flip_normal	[ 0	locks=0 ]	(	"off"	)
 vm_uvpostprocess	[ 0	locks=0 ]	(	diffusefill	)
@@ -14068,7 +14053,7 @@ soho_initsim	[ 0	locks=0 ]	(	"off"	)
 soho_viewport_menu	[ 0	locks=0 ]	(	"off"	)
 vm_uvobjectenable1	[ 0	locks=0 ]	(	"on"	)
 vm_uvobject1	[ 0	locks=0 ]	(	"`opfullpath(\"..\") + \"/objnet/low\"`"	)
-vm_uvcageobject1	[ 8	locks=0 ]	(	"`ifs(strcmp(chsop(\"../vm_uvcageobject1\"),\"\"),opfullpath(\"..\") + \"/objnet/cage\",\"\")`"	)
+vm_uvcageobject1	[ 8	locks=0 ]	(	"`opfullpath(\"..\") + \"/objnet/cage\"`"	)
 vm_uvhires1	[ 0	locks=0 ]	(	"`opfullpath(\"..\") + \"/objnet/high\"`"	)
 vm_uvoutputpicture1	[ 0	locks=0 ]	(	$HIP/render/${HIPNAME}_${OS}_%(CHANNEL)s.%(UDIM)d.rat	)
 images6	[ 0	locks=0 ]	(	0	0	0	0	0	)
@@ -14080,7 +14065,7 @@ vm_quickplane_Nt	[ 8	locks=0 ]	(	[ vm_quickplane_Nt	1 ] 	)
 vm_quickplane_Ds	[ 8	locks=0 ]	(	[ vm_quickplane_Ds	0 ] 	)
 vm_quickplane_Vd	[ 0	locks=0 ]	(	"off"	)
 vm_quickplane_Vdt	[ 0	locks=0 ]	(	"off"	)
-vm_quickplane_Oc	[ 8	locks=0 ]	(	[ vm_quickplane_Oc	1 ] 	)
+vm_quickplane_Oc	[ 8	locks=0 ]	(	[ vm_quickplane_Oc	0 ] 	)
 vm_quickplane_Cv	[ 0	locks=0 ]	(	"off"	)
 vm_quickplane_Th	[ 8	locks=0 ]	(	[ vm_quickplane_Th	0 ] 	)
 vm_quickplane_Cu	[ 8	locks=0 ]	(	[ vm_quickplane_Cu	0 ] 	)
@@ -14127,7 +14112,7 @@ vm_quickplane_P_channel	[ 0	locks=0 ]	(	P	)
 vm_quickplane_N_channel	[ 0	locks=0 ]	(	N	)
 vm_bake_skipcf	[ 0	locks=0 ]	(	"on"	)
 vm_bake_layerexport	[ 0	locks=0 ]	(	"on"	)
-vm_bake_samples	[ 8	locks=0 ]	(	[ vm_bake_samples	4 ] 	)
+vm_bake_samples	[ 8	locks=0 ]	(	[ vm_bake_samples	8 ] 	)
 vm_bake_usemikkt	[ 0	locks=0 ]	(	[ vm_bake_usemikkt	1 ] 	)
 vm_bake_tangentnormalflipx	[ 0	locks=0 ]	(	"off"	)
 vm_bake_tangentnormalflipy	[ 0	locks=0 ]	(	[ vm_bake_tangentnormalflipy	0 ] 	)
@@ -14209,7 +14194,7 @@ inputs
 stat
 {
   create 1496798844
-  modify 1537905318
+  modify 1539802269
   author Luiz@Luiz-PC
   access 0777
 }
@@ -14233,7 +14218,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.603"
+		"value":"17.0.373"
 	}
 }
 
@@ -14348,7 +14333,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.603"
+		"value":"17.0.373"
 	}
 }
 
@@ -14443,7 +14428,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.603"
+		"value":"17.0.373"
 	}
 }
 
@@ -14513,7 +14498,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.603"
+		"value":"17.0.373"
 	}
 }
 
@@ -14615,7 +14600,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.603"
+		"value":"17.0.373"
 	}
 }
 
@@ -14720,7 +14705,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.603"
+		"value":"17.0.373"
 	}
 }
 
@@ -14812,7 +14797,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.603"
+		"value":"17.0.373"
 	}
 }
 
@@ -14917,7 +14902,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.603"
+		"value":"17.0.373"
 	}
 }
 
@@ -14957,7 +14942,7 @@ inputs
 stat
 {
   create 1496952905
-  modify 1504533723
+  modify 1534538528
   author mikel@mikembp-sesi.local
   access 0777
 }
@@ -15057,7 +15042,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.603"
+		"value":"17.0.373"
 	}
 }
 
@@ -15066,7 +15051,7 @@ Content-Disposition: attachment; filename="hdaroot/ropnet1/rop_games_baker/extra
 Content-Type: text/plain
 
 2
-13
+14
 0
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -15162,7 +15147,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.603"
+		"value":"17.0.373"
 	}
 }
 
@@ -15228,7 +15213,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.603"
+		"value":"17.0.373"
 	}
 }
 
@@ -15294,7 +15279,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.603"
+		"value":"17.0.373"
 	}
 }
 
@@ -15385,7 +15370,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.603"
+		"value":"17.0.373"
 	}
 }
 
@@ -15490,7 +15475,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.603"
+		"value":"17.0.373"
 	}
 }
 
@@ -15595,7 +15580,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.603"
+		"value":"17.0.373"
 	}
 }
 
@@ -15700,7 +15685,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.603"
+		"value":"17.0.373"
 	}
 }
 
@@ -15766,7 +15751,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.603"
+		"value":"17.0.373"
 	}
 }
 
@@ -15832,7 +15817,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.603"
+		"value":"17.0.373"
 	}
 }
 
@@ -15910,7 +15895,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.603"
+		"value":"17.0.373"
 	}
 }
 
@@ -15988,7 +15973,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.603"
+		"value":"17.0.373"
 	}
 }
 
@@ -16068,7 +16053,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.603"
+		"value":"17.0.373"
 	}
 }
 
@@ -16145,7 +16130,7 @@ inputs
 stat
 {
   create 1496798868
-  modify 1537905318
+  modify 1539802269
   author Luiz@Luiz-PC
   access 0777
 }
@@ -16217,7 +16202,7 @@ vm_image_mplay_gamma	[ 0	locks=0 ]	(	1	)
 vm_image_jpeg_quality	[ 0	locks=0 ]	(	100	)
 vm_image_tiff_compression	[ 0	locks=0 ]	(	"LZW"	)
 vm_image_exr_compression	[ 0	locks=0 ]	(	"piz"	)
-png_alpha_multiplication	[ 0	locks=0 ]	(	"premult"	)
+pngtga_alpha_multiplication	[ 0	locks=0 ]	(	"premult"	)
 tprerender	[ 0	locks=0 ]	(	"on"	)
 prerender	[ 0	locks=0 ]	(	""	)
 lprerender	[ 0	locks=0 ]	(	hscript	)
@@ -16239,7 +16224,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.603"
+		"value":"17.0.373"
 	},
 	"sidefx::parm_filter_raw_value_pattern":{
 		"type":"string",
@@ -16272,7 +16257,7 @@ inputs
 stat
 {
   create 1496776162
-  modify 1538076001
+  modify 1534538528
   author Luiz@Luiz-PC
   access 0777
 }
@@ -16328,7 +16313,7 @@ Content-Type: text/plain
     parm {
         name    "take"
         baseparm
-        label   "Render With Take"
+        label   "Render with Take"
         export  none
     }
     parm {
@@ -17738,7 +17723,7 @@ soho_previewsupport	[ 0	locks=0 ]	(	"on"	)
 main	[ 0	locks=0 ]	(	0	0	)
 vm_uv_unwrap_method	[ 0	locks=0 ]	(	1	)
 vm_uvattribute	[ 8	locks=0 ]	(	uv	)
-vm_uv_ray_bias	[ 8	locks=0 ]	(	[ vm_uv_ray_bias	0.01 ] 	)
+vm_uv_ray_bias	[ 8	locks=0 ]	(	[ vm_uv_ray_bias	0.10000000000000001 ] 	)
 vm_uv_ray_maxdist	[ 8	locks=0 ]	(	[ vm_uv_ray_maxdist	-1 ] 	)
 vm_uv_flip_normal	[ 0	locks=0 ]	(	"off"	)
 vm_uvpostprocess	[ 0	locks=0 ]	(	borderfill	)
@@ -17782,7 +17767,7 @@ soho_initsim	[ 0	locks=0 ]	(	"off"	)
 soho_viewport_menu	[ 0	locks=0 ]	(	"off"	)
 vm_uvobjectenable1	[ 0	locks=0 ]	(	"on"	)
 vm_uvobject1	[ 0	locks=0 ]	(	"`opfullpath(\"..\") + \"/objnet/low\"`"	)
-vm_uvcageobject1	[ 0	locks=0 ]	(	"`ifs(strcmp(chsop(\"../vm_uvcageobject1\"),\"\"),opfullpath(\"..\") + \"/objnet/cage\",\"\")`"	)
+vm_uvcageobject1	[ 0	locks=0 ]	(	"`opfullpath(\"..\") + \"/objnet/cage\"`"	)
 vm_uvhires1	[ 0	locks=0 ]	(	"`opfullpath(\"..\") + \"/objnet/custom_export\"`"	)
 vm_uvoutputpicture1	[ 0	locks=0 ]	(	""	)
 images6	[ 0	locks=0 ]	(	0	0	0	0	0	)
@@ -17823,7 +17808,7 @@ vm_quickplane_P_channel	[ 0	locks=0 ]	(	P	)
 vm_quickplane_N_channel	[ 0	locks=0 ]	(	N	)
 vm_bake_skipcf	[ 0	locks=0 ]	(	"on"	)
 vm_bake_layerexport	[ 0	locks=0 ]	(	"on"	)
-vm_bake_samples	[ 8	locks=0 ]	(	[ vm_bake_samples	4 ] 	)
+vm_bake_samples	[ 8	locks=0 ]	(	[ vm_bake_samples	8 ] 	)
 vm_bake_usemikkt	[ 0	locks=0 ]	(	"on"	)
 vm_bake_tangentnormalflipx	[ 0	locks=0 ]	(	"off"	)
 vm_bake_tangentnormalflipy	[ 0	locks=0 ]	(	"off"	)
@@ -17899,7 +17884,7 @@ inputs
 stat
 {
   create 1496798844
-  modify 1537905318
+  modify 1539802269
   author Luiz@Luiz-PC
   access 0777
 }
@@ -17923,7 +17908,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.603"
+		"value":"17.0.373"
 	}
 }
 
@@ -17954,7 +17939,7 @@ inputs
 stat
 {
   create 1496798868
-  modify 1537905318
+  modify 1539802269
   author Luiz@Luiz-PC
   access 0777
 }
@@ -18026,7 +18011,7 @@ vm_image_mplay_gamma	[ 0	locks=0 ]	(	1	)
 vm_image_jpeg_quality	[ 0	locks=0 ]	(	100	)
 vm_image_tiff_compression	[ 0	locks=0 ]	(	"LZW"	)
 vm_image_exr_compression	[ 0	locks=0 ]	(	"piz"	)
-png_alpha_multiplication	[ 0	locks=0 ]	(	"premult"	)
+pngtga_alpha_multiplication	[ 0	locks=0 ]	(	"premult"	)
 tprerender	[ 0	locks=0 ]	(	"on"	)
 prerender	[ 0	locks=0 ]	(	""	)
 lprerender	[ 0	locks=0 ]	(	hscript	)
@@ -18048,7 +18033,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.603"
+		"value":"17.0.373"
 	},
 	"sidefx::parm_filter_raw_value_pattern":{
 		"type":"string",
@@ -18081,7 +18066,7 @@ inputs
 stat
 {
   create 1496776162
-  modify 1534441569
+  modify 1534538528
   author Luiz@Luiz-PC
   access 0777
 }
@@ -18137,7 +18122,7 @@ Content-Type: text/plain
     parm {
         name    "take"
         baseparm
-        label   "Render With Take"
+        label   "Render with Take"
         export  none
     }
     parm {
@@ -19547,7 +19532,7 @@ soho_previewsupport	[ 0	locks=0 ]	(	"on"	)
 main	[ 0	locks=0 ]	(	0	0	)
 vm_uv_unwrap_method	[ 0	locks=0 ]	(	1	)
 vm_uvattribute	[ 8	locks=0 ]	(	uv	)
-vm_uv_ray_bias	[ 8	locks=0 ]	(	[ vm_uv_ray_bias	0.01 ] 	)
+vm_uv_ray_bias	[ 8	locks=0 ]	(	[ vm_uv_ray_bias	0.10000000000000001 ] 	)
 vm_uv_ray_maxdist	[ 8	locks=0 ]	(	[ vm_uv_ray_maxdist	-1 ] 	)
 vm_uv_flip_normal	[ 0	locks=0 ]	(	"off"	)
 vm_uvpostprocess	[ 0	locks=0 ]	(	"Border Expansion"	)
@@ -19650,7 +19635,7 @@ vm_quickplane_P_channel	[ 0	locks=0 ]	(	P	)
 vm_quickplane_N_channel	[ 0	locks=0 ]	(	N	)
 vm_bake_skipcf	[ 0	locks=0 ]	(	"on"	)
 vm_bake_layerexport	[ 0	locks=0 ]	(	"on"	)
-vm_bake_samples	[ 8	locks=0 ]	(	[ vm_bake_samples	4 ] 	)
+vm_bake_samples	[ 8	locks=0 ]	(	[ vm_bake_samples	8 ] 	)
 vm_bake_usemikkt	[ 0	locks=0 ]	(	"on"	)
 vm_bake_tangentnormalflipx	[ 0	locks=0 ]	(	"off"	)
 vm_bake_tangentnormalflipy	[ 0	locks=0 ]	(	"off"	)
@@ -19775,7 +19760,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.603"
+		"value":"17.0.373"
 	}
 }
 
@@ -19835,7 +19820,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.603"
+		"value":"17.0.373"
 	}
 }
 
@@ -19904,7 +19889,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.603"
+		"value":"17.0.373"
 	}
 }
 
@@ -20015,7 +20000,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.603"
+		"value":"17.0.373"
 	}
 }
 
@@ -20090,7 +20075,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.603"
+		"value":"17.0.373"
 	}
 }
 
@@ -20151,7 +20136,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.603"
+		"value":"17.0.373"
 	}
 }
 
@@ -20212,7 +20197,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.603"
+		"value":"17.0.373"
 	}
 }
 
@@ -20287,7 +20272,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.603"
+		"value":"17.0.373"
 	}
 }
 
@@ -20355,7 +20340,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.603"
+		"value":"17.0.373"
 	}
 }
 
@@ -20416,7 +20401,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.603"
+		"value":"17.0.373"
 	}
 }
 
@@ -20475,7 +20460,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.603"
+		"value":"17.0.373"
 	}
 }
 

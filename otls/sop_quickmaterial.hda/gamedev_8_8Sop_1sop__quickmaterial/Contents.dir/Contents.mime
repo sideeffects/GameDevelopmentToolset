@@ -32,25 +32,26 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position -0.8 -2.151
-connectornextid 1
-flags =  lock off model off template on footprint off xray off bypass off display on render on highlight on unload off savedata off compress on colordefault on exposed on
+position -0.98729 9.0801
+connectornextid 2
+flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
 {
+1 "output1"
 }
 inputsNamed3
 {
-0 	sop_quickmaterial1 1 1 "input1"
+0 	uvunwrap1 1 1 "input1"
 }
 inputs
 {
-0 	sop_quickmaterial1 0 1
+0 	uvunwrap1 0 1
 }
 stat
 {
-  create 1524230325
-  modify 1524230401
-  author MAINGEAR@DESKTOP-P98C1VA
+  create 1530190321
+  modify 1537960119
+  author paula@DESKTOP-5213MPP
   access 0777
 }
 color UT_Color RGB 0.8 0.8 0.8 
@@ -135,7 +136,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.412"
+		"value":"17.0.373"
 	}
 }
 
@@ -630,28 +631,2099 @@ exprlanguage hscript
 end
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/matnet1/principledshader1.spareparmdef"
+Content-Type: text/plain
+
+    parm {
+        name    "specmodel"
+        baseparm
+        label   "OpenGL Specular Model"
+        invisible
+        export  none
+    }
+    parm {
+        name    "coatspecmodel"
+        baseparm
+        label   "OpenGL Coat Specular Model"
+        invisible
+        export  none
+    }
+    parm {
+        name    "specular_tint"
+        baseparm
+        label   "OpenGL Specular Tint"
+        invisible
+        export  none
+    }
+    group {
+        name    "diffuse_folder_16"
+        label   "Surface"
+
+        groupsimple {
+            name    "folder17"
+            label   "Basic"
+
+            parm {
+                name    "basecolor"
+                baseparm
+                label   "Base Color"
+                export  none
+            }
+            parm {
+                name    "basecolor_usePointColor"
+                baseparm
+                label   "Use Point Color"
+                export  none
+            }
+            parm {
+                name    "basecolor_usePackedColor"
+                baseparm
+                label   "Use Packed Color"
+                export  none
+            }
+            parm {
+                name    "frontface"
+                baseparm
+                label   "Shade Both Sides As Front"
+                export  none
+            }
+        }
+
+        groupsimple {
+            name    "folder18"
+            label   "Specular"
+
+            parm {
+                name    "ior"
+                baseparm
+                label   "IOR"
+                export  none
+            }
+            parm {
+                name    "rough"
+                baseparm
+                label   "Roughness"
+                export  none
+            }
+            parm {
+                name    "aniso"
+                baseparm
+                label   "Anisotropy"
+                export  none
+            }
+            parm {
+                name    "anisodir"
+                baseparm
+                label   "Anisotropy Direction"
+                export  none
+            }
+            groupsimple {
+                name    "folder19"
+                label   "Reflection"
+
+                parm {
+                    name    "metallic"
+                    baseparm
+                    label   "Metallic"
+                    export  none
+                }
+                parm {
+                    name    "reflect"
+                    baseparm
+                    label   "Reflectivity"
+                    export  none
+                }
+                parm {
+                    name    "reflecttint"
+                    baseparm
+                    label   "Reflect Tint"
+                    export  none
+                }
+                parm {
+                    name    "coat"
+                    baseparm
+                    label   "Coat"
+                    export  none
+                }
+                parm {
+                    name    "coatrough"
+                    baseparm
+                    label   "Coat Roughness"
+                    export  none
+                }
+            }
+
+            groupsimple {
+                name    "folder20"
+                label   "Transparency"
+
+                parm {
+                    name    "transparency"
+                    baseparm
+                    label   "Transparency"
+                    export  none
+                }
+                parm {
+                    name    "transcolor"
+                    baseparm
+                    label   "Transmission Color"
+                    export  none
+                }
+                parm {
+                    name    "transdist"
+                    baseparm
+                    label   "At Distance"
+                    export  none
+                }
+                parm {
+                    name    "dispersion"
+                    baseparm
+                    label   "Dispersion"
+                    export  none
+                }
+                parm {
+                    name    "priority"
+                    baseparm
+                    label   "Surface Priority"
+                    export  none
+                }
+            }
+
+        }
+
+        groupsimple {
+            name    "folder21"
+            label   "Subsurface Scattering"
+
+            parm {
+                name    "sss"
+                baseparm
+                label   "Subsurface"
+                export  none
+            }
+            parm {
+                name    "sssmodel"
+                baseparm
+                label   "SSS Mode"
+                export  none
+            }
+            parm {
+                name    "sssdist"
+                baseparm
+                label   "Subsurface Distance"
+                export  none
+            }
+            parm {
+                name    "ssscolor"
+                baseparm
+                label   "Subsurface Color"
+                export  none
+            }
+            parm {
+                name    "sssphase"
+                baseparm
+                label   "Scattering Phase"
+                export  none
+            }
+        }
+
+        groupsimple {
+            name    "folder22"
+            label   "Sheen"
+
+            parm {
+                name    "sheen"
+                baseparm
+                label   "Sheen"
+                export  none
+            }
+            parm {
+                name    "sheentint"
+                baseparm
+                label   "Sheen Tint"
+                export  none
+            }
+        }
+
+        groupsimple {
+            name    "folder23"
+            label   "Emission"
+
+            parm {
+                name    "emitcolor"
+                baseparm
+                label   "Emission Color"
+                export  none
+            }
+            parm {
+                name    "emitint"
+                baseparm
+                label   "Emission Intensity"
+                export  none
+            }
+            parm {
+                name    "emitillum"
+                baseparm
+                label   "Emission Illuminates Objects"
+                export  none
+            }
+        }
+
+    }
+
+    group {
+        name    "diffuse_folder_16_1"
+        label   "Opacity"
+
+        groupsimple {
+            name    "folder24"
+            label   "Opacity"
+
+            parm {
+                name    "opac"
+                baseparm
+                label   "Opacity Scale"
+                export  none
+            }
+            parm {
+                name    "opaccolor"
+                baseparm
+                label   "Opacity Color"
+                export  none
+            }
+            parm {
+                name    "opacpointalpha"
+                baseparm
+                label   "Use Point Alpha"
+                export  none
+            }
+            parm {
+                name    "opacpackedalpha"
+                baseparm
+                label   "Use Packed Alpha"
+                export  none
+            }
+        }
+
+        groupsimple {
+            name    "folder25"
+            label   "Fake Caustics"
+
+            parm {
+                name    "fakecausticsenabled"
+                baseparm
+                label   "Enable"
+                export  none
+            }
+            parm {
+                name    "fakecausticstransmit"
+                baseparm
+                label   "Transmission Tint"
+                export  none
+            }
+            parm {
+                name    "fakecausticsshadow"
+                baseparm
+                label   "Shadow Contour"
+                export  none
+            }
+            parm {
+                name    "fakecausticsopacity"
+                baseparm
+                label   "Shadow Opacity"
+                export  none
+            }
+        }
+
+    }
+
+    group {
+        name    "diffuse_folder_16_2"
+        label   "Textures"
+
+        groupsimple {
+            name    "folder56"
+            label   "Base Color"
+            grouptag { "group_type" "simple" }
+
+            parm {
+                name    "basecolor_useTexture"
+                baseparm
+                label   "Use Texture"
+                export  none
+            }
+            parm {
+                name    "basecolor_texture"
+                baseparm
+                label   "Texture"
+                export  none
+            }
+            parm {
+                name    "basecolor_textureIntensity"
+                baseparm
+                label   "Tint Intensity"
+                export  none
+            }
+            parm {
+                name    "basecolor_textureWrap"
+                baseparm
+                label   "Wrap"
+                export  none
+            }
+            parm {
+                name    "basecolor_textureColorSpace"
+                baseparm
+                label   "Source Color Space"
+                export  none
+            }
+        }
+
+        groupsimple {
+            name    "folder26"
+            label   "IOR"
+
+            parm {
+                name    "ior_useTexture"
+                baseparm
+                label   "Use Texture"
+                export  none
+            }
+            parm {
+                name    "ior_texture"
+                baseparm
+                label   "Texture"
+                export  none
+            }
+            parm {
+                name    "ior_monoChannel"
+                baseparm
+                label   "Channel"
+                joinnext
+                export  none
+            }
+            parm {
+                name    "ior_textureWrap"
+                baseparm
+                label   "Wrap"
+                joinnext
+                export  none
+            }
+            parm {
+                name    "ior_textureColorSpace"
+                baseparm
+                label   "Source Color Space"
+                export  none
+            }
+        }
+
+        groupsimple {
+            name    "folder240"
+            label   "Roughness"
+            grouptag { "group_type" "simple" }
+
+            parm {
+                name    "rough_useTexture"
+                baseparm
+                label   "Use Texture"
+                export  none
+            }
+            parm {
+                name    "rough_texture"
+                baseparm
+                label   "Texture"
+                export  none
+            }
+            parm {
+                name    "rough_monoChannel"
+                baseparm
+                label   "Channel"
+                joinnext
+                export  none
+            }
+            parm {
+                name    "rough_textureWrap"
+                baseparm
+                label   "Wrap"
+                joinnext
+                export  none
+            }
+            parm {
+                name    "rough_textureColorSpace"
+                baseparm
+                label   "Source Color Space"
+                export  none
+            }
+        }
+
+        groupsimple {
+            name    "folder241"
+            label   "Anisotropy"
+            grouptag { "group_type" "simple" }
+
+            parm {
+                name    "aniso_useTexture"
+                baseparm
+                label   "Use Texture"
+                export  none
+            }
+            parm {
+                name    "aniso_texture"
+                baseparm
+                label   "Texture"
+                export  none
+            }
+            parm {
+                name    "aniso_monoChannel"
+                baseparm
+                label   "Channel"
+                joinnext
+                export  none
+            }
+            parm {
+                name    "aniso_textureWrap"
+                baseparm
+                label   "Wrap"
+                joinnext
+                export  none
+            }
+            parm {
+                name    "aniso_textureColorSpace"
+                baseparm
+                label   "Source Color Space"
+                export  none
+            }
+        }
+
+        groupsimple {
+            name    "folder242"
+            label   "Anisotropy Direction"
+            grouptag { "group_type" "simple" }
+
+            parm {
+                name    "anisodir_useTexture"
+                baseparm
+                label   "Use Texture"
+                export  none
+            }
+            parm {
+                name    "anisodir_texture"
+                baseparm
+                label   "Texture"
+                export  none
+            }
+            parm {
+                name    "anisodir_monoChannel"
+                baseparm
+                label   "Channel"
+                joinnext
+                export  none
+            }
+            parm {
+                name    "anisodir_textureWrap"
+                baseparm
+                label   "Wrap"
+                joinnext
+                export  none
+            }
+            parm {
+                name    "anisodir_textureColorSpace"
+                baseparm
+                label   "Source Color Space"
+                export  none
+            }
+            parm {
+                name    "anisodir_textureFilter"
+                baseparm
+                label   "Filter Type"
+                export  none
+            }
+        }
+
+        groupsimple {
+            name    "folder57"
+            label   "Metallic"
+            grouptag { "group_type" "simple" }
+
+            parm {
+                name    "metallic_useTexture"
+                baseparm
+                label   "Use Texture"
+                export  none
+            }
+            parm {
+                name    "metallic_texture"
+                baseparm
+                label   "Texture"
+                export  none
+            }
+            parm {
+                name    "metallic_monoChannel"
+                baseparm
+                label   "Channel"
+                joinnext
+                export  none
+            }
+            parm {
+                name    "metallic_textureWrap"
+                baseparm
+                label   "Wrap"
+                joinnext
+                export  none
+            }
+            parm {
+                name    "metallic_textureColorSpace"
+                baseparm
+                label   "Source Color Space"
+                export  none
+            }
+        }
+
+        groupsimple {
+            name    "folder27"
+            label   "Reflectivity"
+
+            parm {
+                name    "reflect_useTexture"
+                baseparm
+                label   "Use Texture"
+                export  none
+            }
+            parm {
+                name    "reflect_texture"
+                baseparm
+                label   "Texture"
+                export  none
+            }
+            parm {
+                name    "reflect_monoChannel"
+                baseparm
+                label   "Channel"
+                joinnext
+                export  none
+            }
+            parm {
+                name    "reflect_textureWrap"
+                baseparm
+                label   "Wrap"
+                joinnext
+                export  none
+            }
+            parm {
+                name    "reflect_textureColorSpace"
+                baseparm
+                label   "Source Color Space"
+                export  none
+            }
+        }
+
+        groupsimple {
+            name    "folder243"
+            label   "Reflect Tint"
+            grouptag { "group_type" "simple" }
+
+            parm {
+                name    "reflecttint_useTexture"
+                baseparm
+                label   "Use Texture"
+                export  none
+            }
+            parm {
+                name    "reflecttint_texture"
+                baseparm
+                label   "Texture"
+                export  none
+            }
+            parm {
+                name    "reflecttint_monoChannel"
+                baseparm
+                label   "Channel"
+                joinnext
+                export  none
+            }
+            parm {
+                name    "reflecttint_textureWrap"
+                baseparm
+                label   "Wrap"
+                joinnext
+                export  none
+            }
+            parm {
+                name    "reflecttint_textureColorSpace"
+                baseparm
+                label   "Source Color Space"
+                export  none
+            }
+        }
+
+        groupsimple {
+            name    "folder244"
+            label   "Coat"
+            grouptag { "group_type" "simple" }
+
+            parm {
+                name    "coat_useTexture"
+                baseparm
+                label   "Use Texture"
+                export  none
+            }
+            parm {
+                name    "coat_texture"
+                baseparm
+                label   "Texture"
+                export  none
+            }
+            parm {
+                name    "coat_monoChannel"
+                baseparm
+                label   "Channel"
+                joinnext
+                export  none
+            }
+            parm {
+                name    "coat_textureWrap"
+                baseparm
+                label   "Wrap"
+                joinnext
+                export  none
+            }
+            parm {
+                name    "coat_textureColorSpace"
+                baseparm
+                label   "Source Color Space"
+                export  none
+            }
+        }
+
+        groupsimple {
+            name    "folder245"
+            label   "Coat Roughness"
+            grouptag { "group_type" "simple" }
+
+            parm {
+                name    "coatrough_useTexture"
+                baseparm
+                label   "Use Texture"
+                export  none
+            }
+            parm {
+                name    "coatrough_texture"
+                baseparm
+                label   "Texture"
+                export  none
+            }
+            parm {
+                name    "coatrough_monoChannel"
+                baseparm
+                label   "Channel"
+                joinnext
+                export  none
+            }
+            parm {
+                name    "coatrough_textureWrap"
+                baseparm
+                label   "Wrap"
+                joinnext
+                export  none
+            }
+            parm {
+                name    "coatrough_textureColorSpace"
+                baseparm
+                label   "Source Color Space"
+                export  none
+            }
+        }
+
+        groupsimple {
+            name    "folder28"
+            label   "Transparency"
+
+            parm {
+                name    "transparency_useTexture"
+                baseparm
+                label   "Use Texture"
+                export  none
+            }
+            parm {
+                name    "transparency_texture"
+                baseparm
+                label   "Texture"
+                export  none
+            }
+            parm {
+                name    "transparency_monoChannel"
+                baseparm
+                label   "Channel"
+                joinnext
+                export  none
+            }
+            parm {
+                name    "transparency_textureWrap"
+                baseparm
+                label   "Wrap"
+                joinnext
+                export  none
+            }
+            parm {
+                name    "transparency_textureColorSpace"
+                baseparm
+                label   "Source Color Space"
+                export  none
+            }
+        }
+
+        groupsimple {
+            name    "folder29"
+            label   "Transmission Color"
+
+            parm {
+                name    "transcolor_useTexture"
+                baseparm
+                label   "Use Texture"
+                export  none
+            }
+            parm {
+                name    "transcolor_texture"
+                baseparm
+                label   "Texture"
+                export  none
+            }
+            parm {
+                name    "transcolor_textureIntensity"
+                baseparm
+                label   "Tint Intensity"
+                export  none
+            }
+            parm {
+                name    "transcolor_textureWrap"
+                baseparm
+                label   "Wrap"
+                export  none
+            }
+            parm {
+                name    "transcolor_textureColorSpace"
+                baseparm
+                label   "Source Color Space"
+                export  none
+            }
+        }
+
+        groupsimple {
+            name    "folder5_3"
+            label   "At Distance"
+
+            parm {
+                name    "transdist_useTexture"
+                baseparm
+                label   "Use Texture"
+                export  none
+            }
+            parm {
+                name    "transdist_texture"
+                baseparm
+                label   "Texture"
+                export  none
+            }
+            parm {
+                name    "transdist_monoChannel"
+                baseparm
+                label   "Channel"
+                joinnext
+                export  none
+            }
+            parm {
+                name    "transdist_textureWrap"
+                baseparm
+                label   "Wrap"
+                joinnext
+                export  none
+            }
+            parm {
+                name    "transdist_textureColorSpace"
+                baseparm
+                label   "Source Color Space"
+                export  none
+            }
+        }
+
+        groupsimple {
+            name    "folder5_4"
+            label   "Dispersion"
+
+            parm {
+                name    "dispersion_useTexture"
+                baseparm
+                label   "Use Texture"
+                export  none
+            }
+            parm {
+                name    "dispersion_texture"
+                baseparm
+                label   "Texture"
+                export  none
+            }
+            parm {
+                name    "dispersion_monoChannel"
+                baseparm
+                label   "Channel"
+                joinnext
+                export  none
+            }
+            parm {
+                name    "dispersion_textureWrap"
+                baseparm
+                label   "Wrap"
+                joinnext
+                export  none
+            }
+            parm {
+                name    "dispersion_textureColorSpace"
+                baseparm
+                label   "Source Color Space"
+                export  none
+            }
+        }
+
+        groupsimple {
+            name    "folder246"
+            label   "Subsurface"
+            grouptag { "group_type" "simple" }
+
+            parm {
+                name    "sss_useTexture"
+                baseparm
+                label   "Use Texture"
+                export  none
+            }
+            parm {
+                name    "sss_texture"
+                baseparm
+                label   "Texture"
+                export  none
+            }
+            parm {
+                name    "sss_monoChannel"
+                baseparm
+                label   "Channel"
+                joinnext
+                export  none
+            }
+            parm {
+                name    "sss_textureWrap"
+                baseparm
+                label   "Wrap"
+                joinnext
+                export  none
+            }
+            parm {
+                name    "sss_textureColorSpace"
+                baseparm
+                label   "Source Color Space"
+                export  none
+            }
+        }
+
+        groupsimple {
+            name    "folder30"
+            label   "Subsurface Scattering Distance"
+
+            parm {
+                name    "sssdist_useTexture"
+                baseparm
+                label   "Use Texture"
+                export  none
+            }
+            parm {
+                name    "sssdist_texture"
+                baseparm
+                label   "Texture"
+                export  none
+            }
+            parm {
+                name    "sssdist_monoChannel"
+                baseparm
+                label   "Channel"
+                joinnext
+                export  none
+            }
+            parm {
+                name    "sssdist_textureWrap"
+                baseparm
+                label   "Wrap"
+                joinnext
+                export  none
+            }
+            parm {
+                name    "sssdist_textureColorSpace"
+                baseparm
+                label   "Source Color Space"
+                export  none
+            }
+        }
+
+        groupsimple {
+            name    "folder3_2"
+            label   "Subsurface Color"
+
+            parm {
+                name    "ssscolor_useTexture"
+                baseparm
+                label   "Use Texture"
+                export  none
+            }
+            parm {
+                name    "ssscolor_texture"
+                baseparm
+                label   "Texture"
+                export  none
+            }
+            parm {
+                name    "ssscolor_textureWrap"
+                baseparm
+                label   "Wrap"
+                joinnext
+                export  none
+            }
+            parm {
+                name    "ssscolor_textureColorSpace"
+                baseparm
+                label   "Source Color Space"
+                export  none
+            }
+        }
+
+        groupsimple {
+            name    "folder247"
+            label   "Sheen"
+            grouptag { "group_type" "simple" }
+
+            parm {
+                name    "sheen_useTexture"
+                baseparm
+                label   "Use Texture"
+                export  none
+            }
+            parm {
+                name    "sheen_texture"
+                baseparm
+                label   "Texture"
+                export  none
+            }
+            parm {
+                name    "sheen_monoChannel"
+                baseparm
+                label   "Channel"
+                joinnext
+                export  none
+            }
+            parm {
+                name    "sheen_textureWrap"
+                baseparm
+                label   "Wrap"
+                joinnext
+                export  none
+            }
+            parm {
+                name    "sheen_textureColorSpace"
+                baseparm
+                label   "Source Color Space"
+                export  none
+            }
+        }
+
+        groupsimple {
+            name    "folder248"
+            label   "Sheen Tint"
+            grouptag { "group_type" "simple" }
+
+            parm {
+                name    "sheentint_useTexture"
+                baseparm
+                label   "Use Texture"
+                export  none
+            }
+            parm {
+                name    "sheentint_texture"
+                baseparm
+                label   "Map"
+                export  none
+            }
+            parm {
+                name    "sheentint_monoChannel"
+                baseparm
+                label   "Channel"
+                joinnext
+                export  none
+            }
+            parm {
+                name    "sheentint_textureWrap"
+                baseparm
+                label   "Wrap"
+                joinnext
+                export  none
+            }
+            parm {
+                name    "sheentint_textureColorSpace"
+                baseparm
+                label   "Source Color Space"
+                export  none
+            }
+        }
+
+        groupsimple {
+            name    "diffuse_folder_14_4"
+            label   "Emission"
+
+            parm {
+                name    "emitcolor_useTexture"
+                baseparm
+                label   "Use Texture"
+                export  none
+            }
+            parm {
+                name    "emitcolor_texture"
+                baseparm
+                label   "Texture"
+                export  none
+            }
+            parm {
+                name    "emitcolor_textureIntensity"
+                baseparm
+                label   "Tint Intensity"
+                export  none
+            }
+            parm {
+                name    "emitcolor_textureWrap"
+                baseparm
+                label   "Wrap"
+                export  none
+            }
+            parm {
+                name    "emitcolor_textureColorSpace"
+                baseparm
+                label   "Source Color Space"
+                export  none
+            }
+        }
+
+        groupsimple {
+            name    "folder31"
+            label   "Opacity"
+
+            parm {
+                name    "opaccolor_useTexture"
+                baseparm
+                label   "Use Texture"
+                export  none
+            }
+            parm {
+                name    "opaccolor_texture"
+                baseparm
+                label   "Texture"
+                export  none
+            }
+            parm {
+                name    "opaccolor_textureWrap"
+                baseparm
+                label   "Wrap"
+                export  none
+            }
+            parm {
+                name    "opaccolor_textureIntensity"
+                baseparm
+                label   "Tint Intensity"
+                export  none
+            }
+            parm {
+                name    "opaccolor_textureColorSpace"
+                baseparm
+                label   "Source Color Space"
+                export  none
+            }
+        }
+
+        groupsimple {
+            name    "folder249"
+            label   "Sampling"
+            grouptag { "group_type" "simple" }
+
+            parm {
+                name    "surface_textureFilter"
+                baseparm
+                label   "Filter"
+                export  none
+            }
+            parm {
+                name    "surface_textureFilterWidth"
+                baseparm
+                label   "Filter Width"
+                export  none
+            }
+        }
+
+    }
+
+    group {
+        name    "diffuse_folder_16_3"
+        label   "Bump & Normals"
+
+        parm {
+            name    "roundedEdge_enable"
+            baseparm
+            label   "roundedEdge_enable"
+            nolabel
+            joinnext
+            export  none
+        }
+        parm {
+            name    "roundedEdge_radius"
+            baseparm
+            label   "Round Edge Radius"
+            joinnext
+            export  none
+        }
+        parm {
+            name    "roundedEdge_mode"
+            baseparm
+            label   "Round Edge Mode"
+            nolabel
+            export  none
+        }
+        group {
+            name    "shading_17"
+            label   "Base"
+
+            parm {
+                name    "baseBumpAndNormal_enable"
+                baseparm
+                label   "Enable"
+                export  none
+            }
+            parm {
+                name    "baseBumpAndNormal_type"
+                baseparm
+                label   "Texture Type"
+                export  none
+            }
+            parm {
+                name    "baseBump_colorSpace"
+                baseparm
+                label   "Texture Color Space"
+                export  none
+            }
+            parm {
+                name    "baseBump_bumpScale"
+                baseparm
+                label   "Effect Scale"
+                export  none
+            }
+            parm {
+                name    "baseBump_bumpTexture"
+                baseparm
+                label   "Texture Path"
+                export  none
+            }
+            parm {
+                name    "baseBump_wrap"
+                baseparm
+                label   "Wrap"
+                joinnext
+                export  none
+            }
+            parm {
+                name    "baseBump_filter"
+                baseparm
+                label   "Filter"
+                joinnext
+                export  none
+            }
+            parm {
+                name    "baseBump_filterWidth"
+                baseparm
+                label   "Filter Width"
+                export  none
+            }
+            parm {
+                name    "baseBump_channel"
+                baseparm
+                label   "Channel"
+                export  none
+            }
+            parm {
+                name    "baseBump_imagePlane"
+                baseparm
+                label   "Image Plane"
+                export  none
+            }
+            parm {
+                name    "baseNormal_colorspace"
+                baseparm
+                label   "Texture Color Space"
+                export  none
+            }
+            parm {
+                name    "baseNormal_vectorSpace"
+                baseparm
+                label   "Vector Space"
+                export  none
+            }
+            parm {
+                name    "baseNormal_scale"
+                baseparm
+                label   "Effect Scale"
+                export  none
+            }
+            parm {
+                name    "baseNormal_texture"
+                baseparm
+                label   "Texture Path"
+                export  none
+            }
+            parm {
+                name    "baseNormal_wrap"
+                baseparm
+                label   "Wrap"
+                joinnext
+                export  none
+            }
+            parm {
+                name    "baseNormal_filter"
+                baseparm
+                label   "Filter"
+                joinnext
+                export  none
+            }
+            parm {
+                name    "baseNormal_filterWidth"
+                baseparm
+                label   "Filter Width"
+                export  none
+            }
+            parm {
+                name    "baseNormal_channel"
+                baseparm
+                label   "Channel"
+                export  none
+            }
+            parm {
+                name    "baseNormal_imagePlane"
+                baseparm
+                label   "Image Plane"
+                export  none
+            }
+            parm {
+                name    "baseNormal_space"
+                baseparm
+                label   "Normal Space"
+                export  none
+            }
+            parm {
+                name    "baseNormal_flipX"
+                baseparm
+                label   "Flip X"
+                export  none
+            }
+            parm {
+                name    "baseNormal_flipY"
+                baseparm
+                label   "Flip Y"
+                export  none
+            }
+            parm {
+                name    "baseBump_useTexture"
+                baseparm
+                label   "OpenGL Use Bump Texture"
+                invisible
+                export  none
+            }
+            parm {
+                name    "baseNormal_useTexture"
+                baseparm
+                label   "OpenGL Use Normal Texture"
+                invisible
+                export  none
+            }
+        }
+
+        group {
+            name    "shading_17_1"
+            label   "Coat"
+
+            parm {
+                name    "separateCoatNormals"
+                baseparm
+                label   "Separate Coat Normals"
+                export  none
+            }
+            parm {
+                name    "coatBumpAndNormal_enable"
+                baseparm
+                label   "Enable"
+                export  none
+            }
+            parm {
+                name    "coatBumpAndNormal_type"
+                baseparm
+                label   "Texture Type"
+                export  none
+            }
+            parm {
+                name    "coatBump_colorSpace"
+                baseparm
+                label   "Texture Color Space"
+                export  none
+            }
+            parm {
+                name    "coatBump_bumpScale"
+                baseparm
+                label   "Effect Scale"
+                export  none
+            }
+            parm {
+                name    "coatBump_bumpTexture"
+                baseparm
+                label   "Texture Path"
+                export  none
+            }
+            parm {
+                name    "coatBump_wrap"
+                baseparm
+                label   "Wrap"
+                joinnext
+                export  none
+            }
+            parm {
+                name    "coatBump_filter"
+                baseparm
+                label   "Filter"
+                joinnext
+                export  none
+            }
+            parm {
+                name    "coatBump_filterWidth"
+                baseparm
+                label   "Filter Width"
+                export  none
+            }
+            parm {
+                name    "coatBump_channel"
+                baseparm
+                label   "Channel"
+                export  none
+            }
+            parm {
+                name    "coatBump_imagePlane"
+                baseparm
+                label   "Image Plane"
+                export  none
+            }
+            parm {
+                name    "coatNormal_colorspace"
+                baseparm
+                label   "Texture Color Space"
+                export  none
+            }
+            parm {
+                name    "coatNormal_vectorSpace"
+                baseparm
+                label   "Vector Space"
+                export  none
+            }
+            parm {
+                name    "coatNormal_scale"
+                baseparm
+                label   "Effect Scale"
+                export  none
+            }
+            parm {
+                name    "coatNormal_texture"
+                baseparm
+                label   "Texture Path"
+                export  none
+            }
+            parm {
+                name    "coatNormal_wrap"
+                baseparm
+                label   "Wrap"
+                joinnext
+                export  none
+            }
+            parm {
+                name    "coatNormal_filter"
+                baseparm
+                label   "Filter"
+                joinnext
+                export  none
+            }
+            parm {
+                name    "coatNormal_filterWidth"
+                baseparm
+                label   "Filter Width"
+                export  none
+            }
+            parm {
+                name    "coatNormal_channel"
+                baseparm
+                label   "Channel"
+                export  none
+            }
+            parm {
+                name    "coatNormal_imagePlane"
+                baseparm
+                label   "Image Plane"
+                export  none
+            }
+            parm {
+                name    "coatNormal_space"
+                baseparm
+                label   "Normal Space"
+                export  none
+            }
+            parm {
+                name    "coatNormal_flipX"
+                baseparm
+                label   "Flip X"
+                export  none
+            }
+            parm {
+                name    "coatNormal_flipY"
+                baseparm
+                label   "Flip Y"
+                export  none
+            }
+        }
+
+    }
+
+    group {
+        name    "diffuse_folder_16_4"
+        label   "Displacement"
+
+        parm {
+            name    "shop_disable_displace_shader"
+            baseparm
+            label   "Disable Displace Shader"
+            invisible
+            export  none
+        }
+        groupsimple {
+            name    "folder250"
+            label   "General"
+            grouptag { "group_type" "simple" }
+
+            parm {
+                name    "vm_displacebound"
+                baseparm
+                label   "Displacement Bound"
+                export  none
+            }
+            parm {
+                name    "vm_truedisplace"
+                baseparm
+                label   "True Displacements"
+                export  none
+            }
+            parm {
+                name    "vm_bumpraydisplace"
+                baseparm
+                label   "Add Bump To Ray Traced Displacements"
+                export  none
+            }
+        }
+
+        groupsimple {
+            name    "folder32"
+            label   "Custom Input"
+
+            parm {
+                name    "dispInput_enable"
+                baseparm
+                label   "Enable Input Displacement"
+                export  none
+            }
+            parm {
+                name    "dispInput_max"
+                baseparm
+                label   "Maximum Displacement"
+                export  none
+            }
+            parm {
+                name    "dispInput_vectorspace"
+                baseparm
+                label   "Vector Space"
+                export  none
+            }
+        }
+
+        groupsimple {
+            name    "folder251"
+            label   "Texture"
+            hidewhentab "{ enableDispMap == 0 }"
+            grouptag { "group_type" "simple" }
+
+            parm {
+                name    "dispTex_enable"
+                baseparm
+                label   "Enable Texture Displacement"
+                export  none
+            }
+            parm {
+                name    "dispTex_type"
+                baseparm
+                label   "Texture Type"
+                export  none
+            }
+            parm {
+                name    "dispTex_colorSpace"
+                baseparm
+                label   "Texture Color Space"
+                export  none
+            }
+            parm {
+                name    "dispTex_vectorSpace"
+                baseparm
+                label   "Vector Space"
+                export  none
+            }
+            parm {
+                name    "dispTex_channelOrder"
+                baseparm
+                label   "Channel Order"
+                export  none
+            }
+            parm {
+                name    "dispTex_offset"
+                baseparm
+                label   "Offset"
+                export  none
+            }
+            parm {
+                name    "dispTex_scale"
+                baseparm
+                label   "Effect Scale"
+                export  none
+            }
+            parm {
+                name    "dispTex_texture"
+                baseparm
+                label   "Texture Path"
+                export  none
+            }
+            parm {
+                name    "dispTex_channel"
+                baseparm
+                label   "Channel"
+                joinnext
+                export  none
+            }
+            parm {
+                name    "dispTex_wrap"
+                baseparm
+                label   "Wrap"
+                joinnext
+                export  none
+            }
+            parm {
+                name    "dispTex_filter"
+                baseparm
+                label   "Filter"
+                export  none
+            }
+            parm {
+                name    "dispTex_filterWidth"
+                baseparm
+                label   "Filter Width"
+                export  none
+            }
+        }
+
+        groupsimple {
+            name    "folder252"
+            label   "Noise"
+            hidewhentab "{ enableNoise == 0 }"
+            grouptag { "group_type" "simple" }
+
+            parm {
+                name    "dispNoise_enable"
+                baseparm
+                label   "Enable Noise Displacement"
+                export  none
+            }
+            parm {
+                name    "dispNoise_type"
+                baseparm
+                label   "Noise Type"
+                export  none
+            }
+            parm {
+                name    "dispNoise_freq"
+                baseparm
+                label   "Frequency"
+                export  none
+            }
+            parm {
+                name    "dispNoise_offset"
+                baseparm
+                label   "Offset"
+                export  none
+            }
+            parm {
+                name    "dispNoise_amp"
+                baseparm
+                label   "Amplitude"
+                export  none
+            }
+            parm {
+                name    "dispNoise_rough"
+                baseparm
+                label   "Roughness"
+                export  none
+            }
+            parm {
+                name    "dispNoise_atten"
+                baseparm
+                label   "Attenuation"
+                export  none
+            }
+            parm {
+                name    "dispNoise_turb"
+                baseparm
+                label   "Turbulence"
+                export  none
+            }
+        }
+
+    }
+
+    group {
+        name    "diffuse_folder_16_5"
+        label   "Settings"
+
+        groupsimple {
+            name    "folder253"
+            label   "Component Labels"
+            grouptag { "group_type" "simple" }
+
+            parm {
+                name    "difflabel"
+                baseparm
+                label   "Diffuse"
+                export  none
+            }
+            parm {
+                name    "refllabel"
+                baseparm
+                label   "Reflection"
+                export  none
+            }
+            parm {
+                name    "refractlabel"
+                baseparm
+                label   "Refraction"
+                export  none
+            }
+            parm {
+                name    "coatlabel"
+                baseparm
+                label   "Coat Reflection"
+                export  none
+            }
+            parm {
+                name    "ssslabel"
+                baseparm
+                label   "Subsurface"
+                export  none
+            }
+        }
+
+        groupsimple {
+            name    "folder33"
+            label   "UV"
+
+            parm {
+                name    "uvtrans"
+                baseparm
+                label   "Translate"
+                export  none
+            }
+            parm {
+                name    "uvrot"
+                baseparm
+                label   "Rotate"
+                export  none
+            }
+            parm {
+                name    "uvscale"
+                baseparm
+                label   "Scale"
+                export  none
+            }
+        }
+
+    }
+
+    parm {
+        name    "Cd"
+        baseparm
+        label   "Attribute Color"
+        invisible
+        export  none
+    }
+    parm {
+        name    "Alpha"
+        baseparm
+        label   "Attribute Alpha"
+        invisible
+        export  none
+    }
+    parm {
+        name    "layer"
+        baseparm
+        label   "layer"
+        invisible
+        export  none
+    }
+    parm {
+        name    "direct"
+        baseparm
+        label   "direct"
+        invisible
+        export  none
+    }
+    parm {
+        name    "indirect"
+        baseparm
+        label   "indirect"
+        invisible
+        export  none
+    }
+    parm {
+        name    "Ce"
+        baseparm
+        label   "Ce"
+        invisible
+        export  none
+    }
+    parm {
+        name    "direct_emission"
+        baseparm
+        label   "direct_emission"
+        invisible
+        export  none
+    }
+    parm {
+        name    "all_emission"
+        baseparm
+        label   "all_emission"
+        invisible
+        export  none
+    }
+    parm {
+        name    "all"
+        baseparm
+        label   "all"
+        invisible
+        export  none
+    }
+    parm {
+        name    "indirect_emission"
+        baseparm
+        label   "indirect_emission"
+        invisible
+        export  none
+    }
+    parm {
+        name    "direct_comp"
+        baseparm
+        label   "direct_comp"
+        invisible
+        export  none
+    }
+    parm {
+        name    "indirect_comp"
+        baseparm
+        label   "indirect_comp"
+        invisible
+        export  none
+    }
+    parm {
+        name    "all_comp"
+        baseparm
+        label   "all_comp"
+        invisible
+        export  none
+    }
+    parm {
+        name    "direct_noshadow"
+        baseparm
+        label   "direct_noshadow"
+        invisible
+        export  none
+    }
+    parm {
+        name    "direct_shadow"
+        baseparm
+        label   "direct_shadow"
+        invisible
+        export  none
+    }
+    parm {
+        name    "indirect_noshadow"
+        baseparm
+        label   "indirect_noshadow"
+        invisible
+        export  none
+    }
+    parm {
+        name    "indirect_shadow"
+        baseparm
+        label   "indirect_shadow"
+        invisible
+        export  none
+    }
+    parm {
+        name    "level"
+        baseparm
+        label   "level"
+        invisible
+        export  none
+    }
+    parm {
+        name    "diffuselevel"
+        baseparm
+        label   "diffuselevel"
+        invisible
+        export  none
+    }
+    parm {
+        name    "specularlevel"
+        baseparm
+        label   "specularlevel"
+        invisible
+        export  none
+    }
+    parm {
+        name    "volumelevel"
+        baseparm
+        label   "volumelevel"
+        invisible
+        export  none
+    }
+    parm {
+        name    "direct_samples"
+        baseparm
+        label   "direct_samples"
+        invisible
+        export  none
+    }
+    parm {
+        name    "indirect_samples"
+        baseparm
+        label   "indirect_samples"
+        invisible
+        export  none
+    }
+    parm {
+        name    "nlights"
+        baseparm
+        label   "nlights"
+        invisible
+        export  none
+    }
+    parm {
+        name    "direct_noshadow_comp"
+        baseparm
+        label   "direct_noshadow_comp"
+        invisible
+        export  none
+    }
+    parm {
+        name    "indirect_noshadow_comp"
+        baseparm
+        label   "indirect_noshadow_comp"
+        invisible
+        export  none
+    }
+    parm {
+        name    "nddispersion"
+        baseparm
+        label   "nddispersion"
+        invisible
+        export  none
+    }
+    parm {
+        name    "ndpriority"
+        baseparm
+        label   "ndpriority"
+        invisible
+        export  none
+    }
+    parm {
+        name    "ndior"
+        baseparm
+        label   "ndior"
+        invisible
+        export  none
+    }
+    parm {
+        name    "absorption"
+        baseparm
+        label   "absorption"
+        invisible
+        export  none
+    }
+    parm {
+        name    "Oc"
+        baseparm
+        label   "Oc"
+        invisible
+        export  none
+    }
+    parm {
+        name    "Cv"
+        baseparm
+        label   "Cv"
+        invisible
+        export  none
+    }
+    parm {
+        name    "Th"
+        baseparm
+        label   "Th"
+        invisible
+        export  none
+    }
+    parm {
+        name    "Ab"
+        baseparm
+        label   "Ab"
+        invisible
+        export  none
+    }
+    parm {
+        name    "Cu"
+        baseparm
+        label   "Cu"
+        invisible
+        export  none
+    }
+    parm {
+        name    "Vd"
+        baseparm
+        label   "Vd"
+        invisible
+        export  none
+    }
+    parm {
+        name    "Nt"
+        baseparm
+        label   "Nt"
+        invisible
+        export  none
+    }
+    parm {
+        name    "Ds"
+        baseparm
+        label   "Ds"
+        invisible
+        export  none
+    }
+    parm {
+        name    "pre_disp_P"
+        baseparm
+        label   "pre_disp_P"
+        invisible
+        export  none
+    }
+    parm {
+        name    "pre_disp_utan"
+        baseparm
+        label   "pre_disp_utan"
+        invisible
+        export  none
+    }
+    parm {
+        name    "pre_disp_vtan"
+        baseparm
+        label   "pre_disp_vtan"
+        invisible
+        export  none
+    }
+    parm {
+        name    "pre_disp_N"
+        baseparm
+        label   "pre_disp_N"
+        invisible
+        export  none
+    }
+    parm {
+        name    "disp"
+        baseparm
+        label   "Normal Displacement"
+        invisible
+        export  none
+    }
+    parm {
+        name    "vdisp"
+        baseparm
+        label   "Vector Displacement"
+        invisible
+        export  none
+    }
+    parm {
+        name    "Dt"
+        baseparm
+        label   "Dt"
+        invisible
+        export  none
+    }
+    parm {
+        name    "Vdt"
+        baseparm
+        label   "Vdt"
+        invisible
+        export  none
+    }
+    parm {
+        name    "baseN"
+        baseparm
+        label   "baseN"
+        invisible
+        export  none
+    }
+    parm {
+        name    "coatN"
+        baseparm
+        label   "coatN"
+        invisible
+        export  none
+    }
+    parm {
+        name    "speccolorr"
+        label   "speccolorr"
+        type    float
+        default { "0" }
+        range   { 0 10 }
+    }
+    parm {
+        name    "speccolorg"
+        label   "speccolorg"
+        type    float
+        default { "0" }
+        range   { 0 10 }
+    }
+    parm {
+        name    "speccolorb"
+        label   "speccolorb"
+        type    float
+        default { "0" }
+        range   { 0 10 }
+    }
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
 Content-Disposition: attachment; filename="hdaroot/matnet1/principledshader1.chn"
 Content-Type: text/plain
 
 {
-    channel speccolorr {
-      lefttype = extend
-      righttype = extend
-      flags = 0
-      segment { length = 0 expr = ch(\"basecolorr\") }
-    }
-    channel speccolorg {
-      lefttype = extend
-      righttype = extend
-      flags = 0
-      segment { length = 0 expr = ch(\"basecolorg\") }
-    }
-    channel speccolorb {
-      lefttype = extend
-      righttype = extend
-      flags = 0
-      segment { length = 0 expr = ch(\"basecolorb\") }
-    }
     channel specular_tint {
       lefttype = extend
       righttype = extend
@@ -681,6 +2753,24 @@ Content-Type: text/plain
       righttype = extend
       flags = 0
       segment { length = 0 expr = "1.01*ch(\"dispInput_enable\")*ch(\"dispInput_max\") + ch(\"dispTex_enable\")*max(abs((1.0+ch(\"dispTex_offset\"))*ch(\"dispTex_scale\")), abs(ch(\"dispTex_offset\")*ch(\"dispTex_scale\"))) + ch(\"dispNoise_enable\")*abs(ch(\"dispNoise_amp\"))" }
+    }
+    channel speccolorr {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = ch(\"basecolorr\") }
+    }
+    channel speccolorg {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = ch(\"basecolorg\") }
+    }
+    channel speccolorb {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = ch(\"basecolorb\") }
     }
     channel basecolor_texture {
       lefttype = extend
@@ -793,11 +2883,10 @@ Content-Type: text/plain
 version 0.8
 specmodel	[ 0	locks=0 ]	(	ggx	)
 coatspecmodel	[ 0	locks=0 ]	(	ggx	)
-speccolor	[ 0	locks=0 ]	(	[ speccolorr	1 ] 	[ speccolorg	0 ] 	[ speccolorb	1 ] 	)
 specular_tint	[ 0	locks=0 ]	(	[ specular_tint	0 ] 	)
 diffuse_folder_15	[ 0	locks=0 ]	(	2	2	2	2	2	2	)
 folder7	[ 0	locks=0 ]	(	0	)
-basecolor	[ 0	locks=0 ]	(	[ basecolorr	1 ] 	[ basecolorg	0 ] 	[ basecolorb	1 ] 	)
+basecolor	[ 0	locks=0 ]	(	[ basecolorr	1 ] 	[ basecolorg	1 ] 	[ basecolorb	1 ] 	)
 basecolor_usePointColor	[ 0	locks=0 ]	(	"on"	)
 basecolor_usePackedColor	[ 0	locks=0 ]	(	"off"	)
 frontface	[ 0	locks=0 ]	(	"on"	)
@@ -843,7 +2932,7 @@ fakecausticsshadow	[ 0	locks=0 ]	(	1	)
 fakecausticsopacity	[ 0	locks=0 ]	(	0	)
 folder54	[ 0	locks=0 ]	(	0	)
 basecolor_useTexture	[ 0	locks=0 ]	(	"on"	)
-basecolor_texture	[ 0	locks=0 ]	(	[ basecolor_texture	"" ] 	)
+basecolor_texture	[ 0	locks=0 ]	(	[ basecolor_texture	op:/obj/geo1/cop2net1/OUT1 ] 	)
 basecolor_textureIntensity	[ 0	locks=0 ]	(	1	)
 basecolor_textureWrap	[ 0	locks=0 ]	(	repeat	)
 basecolor_textureColorSpace	[ 0	locks=0 ]	(	auto	)
@@ -1110,6 +3199,48 @@ Dt	[ 0	locks=0 ]	(	0	0	0	)
 Vdt	[ 0	locks=0 ]	(	0	0	0	)
 baseN	[ 0	locks=0 ]	(	0	0	0	)
 coatN	[ 0	locks=0 ]	(	0	0	0	)
+diffuse_folder_16	[ 0	locks=0 ]	(	0	0	0	0	0	0	)
+folder17	[ 0	locks=0 ]	(	0	)
+folder18	[ 0	locks=0 ]	(	0	)
+folder19	[ 0	locks=0 ]	(	0	)
+folder20	[ 0	locks=0 ]	(	0	)
+folder21	[ 0	locks=0 ]	(	0	)
+folder22	[ 0	locks=0 ]	(	0	)
+folder23	[ 0	locks=0 ]	(	0	)
+folder24	[ 0	locks=0 ]	(	0	)
+folder25	[ 0	locks=0 ]	(	0	)
+folder56	[ 0	locks=0 ]	(	0	)
+folder26	[ 0	locks=0 ]	(	0	)
+folder240	[ 0	locks=0 ]	(	0	)
+folder241	[ 0	locks=0 ]	(	0	)
+folder242	[ 0	locks=0 ]	(	0	)
+folder57	[ 0	locks=0 ]	(	0	)
+folder27	[ 0	locks=0 ]	(	0	)
+folder243	[ 0	locks=0 ]	(	0	)
+folder244	[ 0	locks=0 ]	(	0	)
+folder245	[ 0	locks=0 ]	(	0	)
+folder28	[ 0	locks=0 ]	(	0	)
+folder29	[ 0	locks=0 ]	(	0	)
+folder5_3	[ 0	locks=0 ]	(	0	)
+folder5_4	[ 0	locks=0 ]	(	0	)
+folder246	[ 0	locks=0 ]	(	0	)
+folder30	[ 0	locks=0 ]	(	0	)
+folder3_2	[ 0	locks=0 ]	(	0	)
+folder247	[ 0	locks=0 ]	(	0	)
+folder248	[ 0	locks=0 ]	(	0	)
+diffuse_folder_14_4	[ 0	locks=0 ]	(	0	)
+folder31	[ 0	locks=0 ]	(	0	)
+folder249	[ 0	locks=0 ]	(	0	)
+shading_17	[ 0	locks=0 ]	(	0	0	)
+folder250	[ 0	locks=0 ]	(	0	)
+folder32	[ 0	locks=0 ]	(	0	)
+folder251	[ 0	locks=0 ]	(	0	)
+folder252	[ 0	locks=0 ]	(	0	)
+folder253	[ 0	locks=0 ]	(	0	)
+folder33	[ 0	locks=0 ]	(	0	)
+speccolorr	[ 0	locks=0 ]	(	[ speccolorr	0 ] 	)
+speccolorg	[ 0	locks=0 ]	(	[ speccolorg	0 ] 	)
+speccolorb	[ 0	locks=0 ]	(	[ speccolorb	0 ] 	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -1226,7 +3357,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.412"
+		"value":"17.0.373"
 	}
 }
 
@@ -1285,7 +3416,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.412"
+		"value":"17.0.373"
 	}
 }
 

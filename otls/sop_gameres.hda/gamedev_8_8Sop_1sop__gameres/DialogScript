@@ -40,10 +40,17 @@
             parmtag { "autoscope" "0000000000000000" }
         }
         parm {
+            name    "use_instantmeshes"
+            label   "Use Instant Meshes"
+            type    toggle
+            default { "0" }
+        }
+        parm {
             name    "reducepassedtarget"
             label   "Continue Reducing Within Quality Tolerance"
             type    toggle
             default { "off" }
+            disablewhen "{ use_instantmeshes == 1 }"
             parmtag { "autoscope" "0000000000000000" }
         }
         parm {
@@ -51,7 +58,7 @@
             label   "Tolerance"
             type    float
             default { "1e-05" }
-            disablewhen "{ reducepassedtarget == 0 }"
+            disablewhen "{ reducepassedtarget == 0 } { use_instantmeshes == 1 }"
             range   { 0! 1 }
             parmtag { "autoscope" "0000000000000000" }
         }
@@ -60,6 +67,7 @@
             label   "Use Only Original Point Positions"
             type    toggle
             default { "off" }
+            disablewhen "{ use_instantmeshes == 1 }"
             parmtag { "autoscope" "0000000000000000" }
         }
         parm {
@@ -67,6 +75,7 @@
             label   "Preserve Quads"
             type    toggle
             default { "off" }
+            disablewhen "{ use_instantmeshes == 1 }"
             parmtag { "autoscope" "0000000000000000" }
         }
         parm {
@@ -74,6 +83,7 @@
             label   "Equalize Lengths"
             type    float
             default { "1e-10" }
+            disablewhen "{ use_instantmeshes == 1 }"
             range   { 0! 1 }
             parmtag { "autoscope" "0000000000000000" }
         }
@@ -187,13 +197,12 @@
                 name    "method"
                 label   "Method"
                 type    ordinal
-                default { "3" }
+                default { "4" }
                 menu {
                     "0" "Shortest Path"
                     "1" "Cluster"
-                    "2" "Axis Aligned"
                     "3" "UV Unwrap"
-                    "4" "Normal Angle"
+                    "4" "UV AutoSeam"
                 }
                 parmtag { "autoscope" "0000000000000000" }
             }
@@ -284,12 +293,21 @@
                 parmtag { "autoscope" "0000000000000000" }
             }
             parm {
-                name    "cusp_angle"
-                label   "Cusp Angle"
+                name    "graintol"
+                label   "Grain Tolerance"
                 type    float
-                default { "20" }
+                default { "0.1" }
                 hidewhen "{ method != 4 }"
-                range   { 0 10 }
+                range   { 0! 1 }
+                parmtag { "autoscope" "0000000000000000" }
+            }
+            parm {
+                name    "mergethreshold"
+                label   "Merge Threshold"
+                type    float
+                default { "0.5" }
+                hidewhen "{ method != 4 }"
+                range   { 0! 1! }
                 parmtag { "autoscope" "0000000000000000" }
             }
         }
@@ -310,7 +328,7 @@
                 name    "method2"
                 label   "Flattening Method"
                 type    ordinal
-                default { "abf" }
+                default { "scp" }
                 menu {
                     "scp"   "Spectral (SCP)"
                     "abf"   "Angle-Based (ABF)"
@@ -395,7 +413,7 @@
                 type    intvector2
                 joinnext
                 size    2
-                default { "512" "512" }
+                default { "2048" "2048" }
                 range   { -1 1 }
                 parmtag { "autoscope" "0000000000000000" }
             }

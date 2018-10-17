@@ -22,6 +22,7 @@
     <memberTool name="gamedev::rop_volume_texture"/>
     <memberTool name="gamedev::sop_detail_mesh"/>
     <memberTool name="gamedev::sop_sweep_geometry"/>
+    <memberTool name="gamedev::enable_go_z"/>
   </toolshelf>
 
   <tool name="gamedev::sop_autouv" label="Auto UV" icon="opdef:/gamedev::Sop/sop_autouv?IconSVG">
@@ -113,6 +114,26 @@ roptoolutils.createRenderNode("gamedev::rop_rbd_to_fbx")
     <helpURL>operator:Sop/rop_volume_texture?namespace=gamedev</helpURL>
     <script scriptType="python"><![CDATA[import soptoolutils
 soptoolutils.genericTool(kwargs, 'gamedev::rop_volume_texture')]]></script>
+  </tool>
+
+ <tool name="gamedev::enable_go_z" label="Start GoZ" icon="GoZBrush.png">
+    <script scriptType="python"><![CDATA[import hrpyc
+already_running = True
+
+try:
+    connection = hrpyc.rpyc.classic.connect("127.0.0.1", 18811)
+except:
+    already_running = False
+
+if already_running:
+    hou.ui.displayMessage("Go Z Already Running")
+else:
+    hrpyc.start_server()
+    hou.ui.displayMessage("Go Z Port Opened")
+
+temp_goz_node = hou.node("/obj").createNode("geo", "tmp_zbrush")
+temp_goz_node.createNode("gamedev::sop_goz_export")
+temp_goz_node.destroy()]]></script>
   </tool>
 
   <tool name="gamedev::sop_detail_mesh" label="Detail Mesh" icon="opdef:/gamedev::Sop/sop_detail_mesh?IconSVG">

@@ -61,7 +61,7 @@ def export(kwargs):
     export_node = node.node("EXPORT_NODE")
     meshes_to_send = get_unique_names_from_node(export_node)
 
-    blast_node = node.node("blast1")
+    blast_node = node.node("isolate_part")
     rop_node = node.node("OUT_MESH") 
     
     #export_path = hou.pwd().node("OUT_MESH").parm("sopoutput").eval()

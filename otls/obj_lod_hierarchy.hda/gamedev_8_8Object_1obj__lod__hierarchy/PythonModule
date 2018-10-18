@@ -29,7 +29,7 @@ def MainFunction():
 
                 Geometry.setNextInput(t_Parent)
                 Geometry.moveToGoodPosition()
-                hou.node(Geometry.path()+"/file1").destroy()
+
                 ObjMerge = Geometry.createNode("object_merge")
                 ObjMerge.parm("objpath1").set(Inputs[x].path())
                 ObjMerge.parm("xformtype").set("local")

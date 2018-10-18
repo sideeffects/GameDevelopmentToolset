@@ -21,7 +21,7 @@ Content-Type: text/plain
 objflags objflags =  origin off
 pretransform UT_DMatrix4 1 0 0 0 0 1 0 0 0 0 1 0 0 0 0 1
 comment ""
-position -4.45418 0.49741
+position -3.05976 2.33008
 connectornextid 0
 flags =  lock off model off template off footprint off xray off bypass off display on render off highlight off unload off savedata off compress on colordefault on exposed on selectable on
 outputsNamed3
@@ -35,8 +35,8 @@ inputs
 }
 stat
 {
-  create 1533238523
-  modify 1533238579
+  create 1539884148
+  modify 1539884212
   author MAINGEAR@DESKTOP-P98C1VA
   access 0777
 }
@@ -141,7 +141,7 @@ inputs
 stat
 {
   create 1514331643
-  modify 1533238531
+  modify 1539884170
   author paula@DESKTOP-JOVQSE4
   access 0777
 }
@@ -918,7 +918,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.503"
+		"value":"17.0.374"
 	}
 }
 
@@ -1012,7 +1012,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.503"
+		"value":"17.0.374"
 	}
 }
 
@@ -1106,7 +1106,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.503"
+		"value":"17.0.374"
 	}
 }
 
@@ -1532,7 +1532,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.503"
+		"value":"17.0.374"
 	}
 }
 
@@ -1630,6 +1630,63 @@ Content-Type: text/plain
       flags = 0
       segment { length = 0 expr = ch(\"../shadedmode\") }
     }
+    channel sizex {
+      lefttype = extend
+      righttype = extend
+      default = 1
+      flags = 0
+      segment { length = 0 value = 1 1 expr = ch(\"../geosizex\") }
+    }
+    channel sizey {
+      lefttype = extend
+      righttype = extend
+      default = 1
+      flags = 0
+      segment { length = 0 value = 1 1 expr = ch(\"../geosizey\") }
+    }
+    channel sizez {
+      lefttype = extend
+      righttype = extend
+      default = 1
+      flags = 0
+      segment { length = 0 value = 1 1 expr = ch(\"../geosizez\") }
+    }
+    channel tx {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = ch(\"../geocenterx\") }
+    }
+    channel ty {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = ch(\"../geocentery\") }
+    }
+    channel tz {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = ch(\"../geocenterz\") }
+    }
+    channel rx {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = ch(\"../georotatex\") }
+    }
+    channel ry {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = ch(\"../georotatey\") }
+    }
+    channel rz {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = ch(\"../georotatez\") }
+    }
   }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -1639,11 +1696,16 @@ Content-Type: text/plain
 {
 version 0.8
 color	[ 0	locks=0	autoscope=0 ]	(	[ colorr	0 ] 	[ colorg	0.75 ] 	[ colorb	0 ] 	)
+size	[ 0	locks=0 ]	(	[ sizex	1 ] 	[ sizey	1 ] 	[ sizez	1 ] 	)
+t	[ 0	locks=0 ]	(	[ tx	0 ] 	[ ty	0 ] 	[ tz	0 ] 	)
+r	[ 0	locks=0 ]	(	[ rx	0 ] 	[ ry	0 ] 	[ rz	0 ] 	)
 scale	[ 0	locks=0	autoscope=0 ]	(	[ scale	1 ] 	)
 displayicon	[ 0	locks=0	autoscope=0 ]	(	[ displayicon	0 ] 	)
 controltype	[ 0	locks=0	autoscope=0 ]	(	[ controltype	0 ] 	)
 orientation	[ 0	locks=0	autoscope=0 ]	(	[ orientation	0 ] 	)
 shadedmode	[ 0	locks=0	autoscope=0 ]	(	[ shadedmode	0 ] 	)
+packed	[ 0	locks=0 ]	(	"on"	)
+numsnappoints	[ 0	locks=0 ]	(	0	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -1653,7 +1715,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.503"
+		"value":"17.0.374"
 	}
 }
 
@@ -1728,7 +1790,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.503"
+		"value":"17.0.374"
 	}
 }
 
@@ -1817,7 +1879,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.503"
+		"value":"17.0.374"
 	}
 }
 
@@ -1954,7 +2016,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.503"
+		"value":"17.0.374"
 	}
 }
 

@@ -9,7 +9,6 @@ def Clean(a_Path):
 def CreateLocalCopy(a_Parent, a_Container):
     Geometry = a_Container.createNode("geo")
 
-    hou.node(Geometry.path()+"/file1").destroy()
     ObjMerge = Geometry.createNode("object_merge")
     ObjMerge.parm("objpath1").set(a_Parent.path()+"/OUT_POST_PHYSICSOBJECTS")
 

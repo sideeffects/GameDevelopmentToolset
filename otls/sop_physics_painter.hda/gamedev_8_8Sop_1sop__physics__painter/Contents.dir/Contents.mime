@@ -32,23 +32,27 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position 0.286853 -0.498606
-connectornextid 0
-flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
+position -40.67 -1.22194
+connectornextid 3
+flags =  lock off model off template on footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
 {
+1 "output1"
+2 "output2"
 }
 inputsNamed3
 {
+0 	mountain2 1 1 "input1"
 }
 inputs
 {
+0 	mountain2 0 1
 }
 stat
 {
-  create 1539884273
-  modify 1539884290
-  author MAINGEAR@DESKTOP-P98C1VA
+  create 1527102442
+  modify 1540152705
+  author GDC_Houdini@AUSTIN
   access 0777
 }
 color UT_Color RGB 0.8 0.8 0.8 
@@ -63,7 +67,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"0.6"
+		"value":"0.7"
 	}
 }
 
@@ -85,7 +89,7 @@ Content-Type: text/plain
 }
 {
   create 1512112232
-  modify 1539884276
+  modify 1540148481
   author paula@DESKTOP-JOVQSE4
   access 0777
 }
@@ -128,7 +132,7 @@ inputs
 stat
 {
   create 1512106792
-  modify 1531775843
+  modify 1540148370
   author paula@DESKTOP-JOVQSE4
   access 0777
 }
@@ -190,6 +194,103 @@ Content-Type: text/plain
       flags = 0
       segment { length = 0 value = 0.1061520129442215 0.1061520129442215 expr = ch(\"../stroke_radius\") }
     }
+    channel stroke1_enable {
+      lefttype = extend
+      righttype = extend
+      default = 1
+      flags = 0
+      segment { length = 0 value = 1 1 expr = ch(\"../stroke1_enable\") }
+    }
+    channel stroke1_radius {
+      lefttype = extend
+      righttype = extend
+      default = 0.10000000000000001
+      flags = 0
+      segment { length = 0 value = 0.10000000000000001 0.10000000000000001 expr = ch(\"../stroke1_radius\") }
+    }
+    channel stroke1_tool {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = ch(\"../stroke1_tool\") }
+    }
+    channel stroke1_colorr {
+      lefttype = extend
+      righttype = extend
+      default = 1
+      flags = 0
+      segment { length = 0 value = 1 1 expr = ch(\"../stroke1_colorr\") }
+    }
+    channel stroke1_colorg {
+      lefttype = extend
+      righttype = extend
+      default = 1
+      flags = 0
+      segment { length = 0 value = 1 1 expr = ch(\"../stroke1_colorg\") }
+    }
+    channel stroke1_colorb {
+      lefttype = extend
+      righttype = extend
+      default = 1
+      flags = 0
+      segment { length = 0 value = 1 1 expr = ch(\"../stroke1_colorb\") }
+    }
+    channel stroke1_opacity {
+      lefttype = extend
+      righttype = extend
+      default = 1
+      flags = 0
+      segment { length = 0 value = 1 1 expr = ch(\"../stroke1_opacity\") }
+    }
+    channel stroke1_projtype {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = ch(\"../stroke1_projtype\") }
+    }
+    channel stroke1_projcenterx {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = ch(\"../stroke1_projcenterx\") }
+    }
+    channel stroke1_projcentery {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = ch(\"../stroke1_projcentery\") }
+    }
+    channel stroke1_projcenterz {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = ch(\"../stroke1_projcenterz\") }
+    }
+    channel stroke1_projdirx {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = ch(\"../stroke1_projdirx\") }
+    }
+    channel stroke1_projdiry {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = ch(\"../stroke1_projdiry\") }
+    }
+    channel stroke1_projdirz {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = ch(\"../stroke1_projdirz\") }
+    }
+    channel stroke1_data {
+      lefttype = extend
+      righttype = extend
+      defaultString = \"0\"
+      flags = 0
+      segment { length = 0 expr = chs(\"../stroke1_data\") }
+    }
   }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -211,7 +312,16 @@ trimcurves	[ 0	locks=0 ]	(	"on"	)
 stroke_projtype	[ 0	locks=0 ]	(	[ stroke_projtype	4 ] 	)
 showguide	[ 0	locks=0 ]	(	"on"	)
 stroke_projcenter	[ 0	locks=0 ]	(	0	0	0	)
-stroke_numstrokes	[ 0	locks=0 ]	(	[ stroke_numstrokes	0 ] 	)
+stroke_numstrokes	[ 0	locks=0 ]	(	[ stroke_numstrokes	1 ] 	)
+stroke1_enable	[ 0	locks=0 ]	(	[ stroke1_enable	1 ] 	)
+stroke1_radius	[ 0	locks=0 ]	(	[ stroke1_radius	0.36821362376213074 ] 	)
+stroke1_tool	[ 0	locks=0 ]	(	[ stroke1_tool	-1 ] 	)
+stroke1_color	[ 0	locks=0 ]	(	[ stroke1_colorr	1 ] 	[ stroke1_colorg	1 ] 	[ stroke1_colorb	1 ] 	)
+stroke1_opacity	[ 0	locks=0 ]	(	[ stroke1_opacity	1 ] 	)
+stroke1_projtype	[ 0	locks=0 ]	(	[ stroke1_projtype	4 ] 	)
+stroke1_projcenter	[ 0	locks=0 ]	(	[ stroke1_projcenterx	0 ] 	[ stroke1_projcentery	0 ] 	[ stroke1_projcenterz	0 ] 	)
+stroke1_projdir	[ 0	locks=0 ]	(	[ stroke1_projdirx	-0.83445137739181519 ] 	[ stroke1_projdiry	-0.47352898120880127 ] 	[ stroke1_projdirz	-0.28188860416412354 ] 	)
+stroke1_data	[ 0	locks=0 ]	(	[ stroke1_data	20000000F20000008193D014CB755D0428CDC30414DF34FBE5AB2EEBC00FEEEB000008F30000000000004B240000000000000000011ED00C0800F8E36C6F170CB000000042077CD3D2C310F300000000100000007363D014CB755D04A9EFC3040A9344FBCA0D2EEB1541EEEB000008F3F62138C300004B2400000000000000004DA5E00C09FAF8E3C470070CB00000004DD2FFD399B0FFE30000000010000000B032D014E7805D046DBEE30408C464FB2F868EEB32A71EEB000008F3526018D300004B2400000000000000004B6BA00C0ED2F5E3227E050CB0000000C13FF0F3871AC0F30000000010000000E7E1D01482A54D0417B61404267974FBC0173FEB485A0DEB000008F321380CD300004B240000000000000000047D1FFB081E6DD3793D420C4100000007F7A3E39BFAC4F30000000010000000C602D014EBF34D04B5DA14044D0974FB9E705FEBC60EECEB000008F321380CD300004B240000000000000000818EBEFB04CE0BD3FAD0020C410000001EA3F7E333E575F300000000100000004433D014E5BD3D0447F12404915964FB0D8CAFEBE3EBBCEB000008F3000000E300004B2400000000000000008A791DFB004D76C3E506510C5100000036D7CCE339A77DC30000000010000000B826D01480D23D04A5932404609B34FB9CC220FB4AFCACEB000008F3C94C02E300004B2400000000000000000E8E6AFB0A2B41EBC760E00C51000000375B00F321027AE30000000010000000D80BD014FD942D04CD891404F46AE3FB765180FBC479ECEB000008F3065E05E300004B2400000000000000000F7485FB05284BEBED5CE00C510000004F80CFE30E85D3F300000000100000001EACD014855F1D04F1D71404B5DEC3FBE564A0FBF891FCEB000008F37D3A07E300004B240000000000000000067AB2FB08DC4DEB105EC00C51000000497C40F30F2856F30000000010000000558DD014480C1D04D4F814042011C3FB9ECAB0FB4297ECEB000008F3721388E300004B240000000000000000029EE0F303335CE3A5194CFB02000000A8C61FD3E9C9E1B30000000010000000805ED014C6161D04868324046BA5B3FBD465E0FB0DCB9CEB000008F3260189E300004B24000000000000000007D672F305FDA9E3804A1BFB02000000E3E708E343A75BD30000000010000000944ED014FBC11D049F7234047898B3FBA5E501FBD4D23CEB000008F30B278AE300004B2400000000000000000C0353F3046618E3A9B399FB02000000A9C58DE3A094C0E30000000010000000CC3DD014A5DD0D04330C4404847CC3FBF04621FB25C08BEB000008F3CE158BE300004B2400000000000000000074B3F30EAB16E3084E36FB02000000785E23F3992322E3000000001000000024CAD0149C2D0D044E7B64047B77F3FB15C031FB0445AAEB000008F3E4260DE300004B2400000000000000000C9C82F30415D6E38FD4A0FB92000000D76A16C3EF54FBD300000000100000007E48D0149C2D0D04BD988404942024FBBDB431FB20C7D9EB000008F398140EE300004B2400000000000000000A5D5DE3004920E304DE29EB82000000D18877E36B9306F3000000001000000021C4D014C0DF0D044DC9A4042CA854FB579521FBB12CE8EB000008F35C020FE300004B24000000000000000000C092D30053B9C300AF72CB820000002864BFE3B32890F30000000010000000CED2D014EBC11D041579B4042EC574FBE8A811FBE84C78EB000008F3398140F300004B24000000000000000000E20DDB0005B9C30F4611E3820000004B6B02F34D821DE30000000010000000EDB1D0149B141D040E0FB404A9B784FB891901FB3FD458EB000008F31380C0F300004B2400000000000000000020E4EB080AD0D3094204E38200000046B3B2F3ADB43AE30000000010000000D690D014DFB61D0404D3C404011A94FB5C27F0FB6B6338EB000008F35C0201F300004B24000000000000000004AEB9EB085876D3075556E382000000B99933F3C4A576E30000000010000000138EC0142F5B1D0464ECC404599AB4FB8C67D0FB52B6E7EB000008F3260181F300004B2400000000000000000CEF0FEB04700ED38CEFA9E382000000F6FB54F3FFA6C9D30000000010000000B00CC0141CF02D040FB7D404AD21E4FB8340B0FB361C47EB000008F3398142F300004B240000000000000000076485FB00D667D306312BE372000000742205F323A5D3F30000000010000000B9B8C01412472D04D979E404235115FB633380FB5CBB46EB000008F31380C2F300004B24000000000000000083E3ACFB0AED23EB87379CE372000000C17AA5F3033BF9D30000000010000000C117C01434982D04F5A8F404222725FB843870FB4A7D65EB000008F3260183F300004B2400000000000000004D2D000C058FCBEB8994AFE362000000C11A07F3D3C303F3000000001000000089D4C01434982D040EE215045DE045FB642470FB97EAE3EB000008F3398144F300004B2400000000000000000D23E9FB0E08A4E3ACB728F303000000D9DB5DE374C76CE300000000100000005E33C01459442D04FE54350433AB45FB232B80FBAECDF1EB000008F35C0205F300004B2400000000000000000C67B7FB0C52E9E34C33CBF303000000093C25F34BEAD1F3000000001000000025A2C014755F1D04481C450426B845FB0D47A0FBEC60A0EB000008F36F82C5F300004B24000000000000000004F556FB07DAA8E3778D0EF393000000C86C5AD30B0913F300000000100000005763C014D8671D040DBD5504073235FB5D68D0FBEBA83FDB000008F3721386F300004B2400000000000000000151B4FB0E54F0E3F685BFF393000000BE7D88E37D9394F300000000100000007525C014118D0D04916A650499BD05FB264711FBE792CDDB000008F3859347F300004B24000000000000000001A1F1FB000B86CB6137700493000000E9C3FCE39FEC07F30000000010000000E206C0144FD90D04575C6504B22EF4FBD0EE21FB1A478DDB000008F3260187F300004B240000000000000000014BA0FB002748DB11D29004A30000002DAABDE388CAA4C300000000100000002AD6C01402960D043A7D6504716FE4FB9A6441FB79046DDB000008F3000008F300004B24000000000000000002186DEB0406A9DB85FAA004A300000040886EE3888CBFD300000000100000007829C014F2AFFC0488796504CB5BC4FB1B6371FB1EA2DDDB000008F3398148F300004B2400000000000000000CDB10EB0034CADBC5F89004A3000000D8E6EDE30CD95CE30000000010000000A3FCC014EA08FC04801655042E5794FB80FAA1FB5F3DFFDB000008F3CAC1A8F300004B2400000000000000000CC20DE3002912D3DDA10004A300000010B5A9E3FBDAD5F300000000100000003922D01457C0FC0469C035040EE254FB2533E1FB59D512EB000008F3000009F300004B2400000000000000000B83D8F30488E8E386EFBDF3B30000005C1DF3D33A56CFE300000000100000001127D01401DCEC041543050487D114FB3A3402FB4FD4A4EB000008F3260189F300004B240000000000000000042568F30089B4BB40C3B9F32300000050C671F397E83EE30000000010000000FF1BD014EE7BEC043568D404E47BD3FBD1FF02FB9FBC07EB000008F31380C9F300004B2400000000000000000672A5F30081AAEB08FEB2F323000000C7FE5DD313DA88E300000000100000002F5FD0148C7CEC0408C2A404065E93FB648802FB375509EB000008F3A4C02AF300004B240000000000000000448468F30E9969EB08779FD3920000002A01C1F358A63EE3000000001000000028F2E0146071FC04BA876404729663FB6C51E1FBC9B8AAEB000008F326018AF300004B24000000000000000089553AF30C81EFDB01CC9EEB92000000A5456BD3670062F300000000100000007A93E014D8B6FC04984E4404AA7C53FBD3CAB1FBB5FB5BEB000008F3B741EAF300004B24000000000000000048A7E9F3082EF8DB0D39F3FB02000000094935F33E24D1F3000000001000000068C3E0147F58FC04CC964404225953FBF97EA1FB25129BEB000008F300000BF300004B2400000000000000000A46B9F308EE08DBC5A085FB020000002409D3F3F15B71F30000000010000000C0C4E0146CFDFC04B4482404CCB643FB8F6281FB51556CEB000008F339814BF300004B2400000000000000004AD529F300BA22DB2763C9FB02000000862ADCE3555770F300000000100000003FD4E014A9410D0464CB1404BD5343FB158961FBF27CBCEB000008F3CAC1ABF300004B2400000000000000000655C8F3004906CBC78D0BFB02000000E1B538E395339FE300000000100000003E35E01459930D045B9F0404163B33FBBEA651FBE8AF0DEB000008F300000CF300004B24000000000000000083CF88F300000F932C674CFB0200000046BE2FD39852DEE30000000010000000EA66E0142B370D040F75F304CDF123FBEFC531FBCCCEBDEB000008F391406CF300004B24000000000000000007A138F3000DFCAB8E6AFEFB71000000C50A05F3AB8F7DE30000000010000000BDB6E0143D880D046A3DE3040B8A13FB761A21FB70D5FDEB000008F3CAC1ACF300004B24000000000000000005C2F7F3008AFEBBC426EFFB710000009DB163F33BF4BCE3000000001000000008F6E014DA890D047437E3040A2513FB4C4121FB3ABD1EEB000008F31380CCF300004B2400000000000000000A0F87F3000366CBB22C400C710000009C1122F3E7710CE300000000100000006707E014DA890D049E76E30444F313FB100121FB1B422EEB000008F3B741ECF300004B240000000000000000029F87F3002D38CB58A5500C71000000F4DEF1F30C620CE300000000100000006707E014DA890D049E76E30444F313FB100121FB1B422EEB000008F339814DF300004B240000000000000000029F87F3002D38CB58A5500C71000000F4DEF1F30C620CE30000000010000000 ] 	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -262,7 +372,7 @@ inputs
 stat
 {
   create 1512107763
-  modify 1531775402
+  modify 1540147135
   author paula@DESKTOP-JOVQSE4
   access 0777
 }
@@ -308,7 +418,7 @@ stdswitcher	[ 0	locks=0 ]	(	1	1	1	)
 numobj	[ 0	locks=0 ]	(	1	)
 resimulate	[ 0	locks=0 ]	(	[ resimulate	0 ] 	)
 initialstate	[ 0	locks=0 ]	(	""	)
-timestep	[ 0	locks=0 ]	(	[ timestep	0.041666666666666664 ] 	)
+timestep	[ 0	locks=0 ]	(	[ timestep	0.033333333333333333 ] 	)
 substep	[ 0	locks=0 ]	(	1	)
 timeoffset	[ 0	locks=0 ]	(	[ timeoffset	0 ] 	)
 startframe	[ 0	locks=0 ]	(	1	)
@@ -346,7 +456,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.374"
+		"value":"17.0.370"
 	}
 }
 
@@ -378,7 +488,7 @@ inputs
 stat
 {
   create 1512108120
-  modify 1527189327
+  modify 1540146915
   author paula@DESKTOP-JOVQSE4
   access 0777
 }
@@ -440,7 +550,7 @@ sepparm	[ 0	locks=0 ]	(	)
 bullet_georep	[ 0	locks=0 ]	(	convexhull	)
 geo_triangulate	[ 0	locks=0 ]	(	"on"	)
 bullet_geoconvexhull	[ 0	locks=0 ]	(	"on"	)
-bullet_groupconnected	[ 0	locks=0 ]	(	"off"	)
+bullet_groupconnected	[ 0	locks=0 ]	(	"on"	)
 bullet_autofit	[ 0	locks=0 ]	(	"on"	)
 bullet_primT	[ 0	locks=0 ]	(	0	0	0	)
 bullet_primR	[ 0	locks=0 ]	(	0	0	0	)
@@ -513,7 +623,7 @@ inputs
 stat
 {
   create 1512108120
-  modify 1527189323
+  modify 1540148496
   author paula@DESKTOP-JOVQSE4
   access 0777
 }
@@ -559,7 +669,7 @@ overwritefromsop	[ 0	locks=0 ]	(	"on"	)
 overwriteattributes	[ 0	locks=0 ]	(	"active bounce computemass density friction inertialtensorstiffness mass weight"	)
 usetransform	[ 0	locks=0 ]	(	"off"	)
 active	[ 0	locks=0 ]	(	"on"	)
-display	[ 0	locks=0 ]	(	"on"	)
+display	[ 0	locks=0 ]	(	"off"	)
 displaygeo	[ 0	locks=0 ]	(	"simgeo"	)
 rendergeopath	[ 0	locks=0 ]	(	""	)
 initial_state	[ 0	locks=0 ]	(	1	1	1	)
@@ -575,7 +685,7 @@ sepparm	[ 0	locks=0 ]	(	)
 bullet_georep	[ 0	locks=0 ]	(	concave	)
 geo_triangulate	[ 0	locks=0 ]	(	"on"	)
 bullet_geoconvexhull	[ 0	locks=0 ]	(	"on"	)
-bullet_groupconnected	[ 0	locks=0 ]	(	"off"	)
+bullet_groupconnected	[ 0	locks=0 ]	(	"on"	)
 bullet_autofit	[ 0	locks=0 ]	(	"on"	)
 bullet_primT	[ 0	locks=0 ]	(	0	0	0	)
 bullet_primR	[ 0	locks=0 ]	(	0	0	0	)
@@ -975,7 +1085,7 @@ inputs
 stat
 {
   create 1512108039
-  modify 1527185119
+  modify 1540147133
   author paula@DESKTOP-JOVQSE4
   access 0777
 }
@@ -2044,7 +2154,7 @@ sopflags sopflags =
 comment ""
 position -10.1501 -4.30321
 connectornextid 3
-flags =  lock off model off template off footprint off xray off bypass off display on render on highlight off unload off savedata off compress on colordefault on exposed on
+flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
 {
 1 "output1"
@@ -2062,7 +2172,7 @@ inputs
 stat
 {
   create 1512604862
-  modify 1531775889
+  modify 1540147094
   author GDC_Houdini@AUSTIN
   access 0777
 }
@@ -2311,7 +2421,7 @@ vex_selectiongroup	[ 0	locks=0 ]	(	""	)
 folder1	[ 0	locks=0 ]	(	0	0	)
 scaleMin	[ 0	locks=0 ]	(	[ scaleMin	1 ] 	)
 scaleMax	[ 0	locks=0 ]	(	[ scaleMax	1 ] 	)
-offset	[ 0	locks=0 ]	(	[ offset	0.85199999999999998 ] 	)
+offset	[ 0	locks=0 ]	(	[ offset	0 ] 	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -3272,7 +3382,7 @@ inputs
 stat
 {
   create 1527102603
-  modify 1527186331
+  modify 1540148446
   author GDC_Houdini@AUSTIN
   access 0777
 }
@@ -3334,7 +3444,7 @@ Content-Type: text/plain
 sopflags sopflags = 
 comment ""
 position -10.1471 -21.9965
-connectornextid 2
+connectornextid 3
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
 {
@@ -3343,15 +3453,17 @@ outputsNamed3
 inputsNamed3
 {
 0 	attribdelete8 1 1 "input1"
+2 	attribdelete10 1 1 "input2"
 }
 inputs
 {
 0 	attribdelete8 0 1
+1 	attribdelete10 0 1
 }
 stat
 {
   create 1527102805
-  modify 1531775415
+  modify 1540148385
   author GDC_Houdini@AUSTIN
   access 0777
 }
@@ -3391,7 +3503,7 @@ stdswitcher	[ 0	locks=0 ]	(	1	1	1	)
 numobj	[ 0	locks=0 ]	(	1	)
 resimulate	[ 0	locks=0 ]	(	0	)
 initialstate	[ 0	locks=0 ]	(	""	)
-timestep	[ 0	locks=0 ]	(	[ timestep	0.041666666666666664 ] 	)
+timestep	[ 0	locks=0 ]	(	[ timestep	0.033333333333333333 ] 	)
 substep	[ 0	locks=0 ]	(	1	)
 timeoffset	[ 0	locks=0 ]	(	[ timeoffset	0 ] 	)
 startframe	[ 0	locks=0 ]	(	1	)
@@ -3423,7 +3535,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.374"
+		"value":"17.0.370"
 	}
 }
 
@@ -3439,7 +3551,7 @@ Content-Disposition: attachment; filename="hdaroot/dopnet2/rbdpackedobject2.def"
 Content-Type: text/plain
 
 comment ""
-position -2.14626 2.19317
+position -2.3376 3.83324
 connectornextid 1
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
@@ -3455,7 +3567,7 @@ inputs
 stat
 {
   create 1523471873
-  modify 1527192661
+  modify 1540148462
   author MAINGEAR@DESKTOP-P98C1VA
   access 0777
 }
@@ -3485,6 +3597,141 @@ Content-Type: text/plain
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
 Content-Disposition: attachment; filename="hdaroot/dopnet2/rbdpackedobject2.parm"
+Content-Type: text/plain
+
+{
+version 0.8
+usesimframe	[ 0	locks=0 ]	(	"off"	)
+createframe	[ 0	locks=0 ]	(	[ createframe	1 ] 	)
+solvefirstframe	[ 0	locks=0 ]	(	"on"	)
+object_name	[ 0	locks=0 ]	(	$OS	)
+initialstate	[ 0	locks=0 ]	(	"active"	)
+geosource	[ 0	locks=0 ]	(	"second"	)
+soppath	[ 0	locks=0 ]	(	""	)
+packtype	[ 0	locks=0 ]	(	packbyname	)
+overwritefromsop	[ 0	locks=0 ]	(	"on"	)
+overwriteattributes	[ 0	locks=0 ]	(	"active bounce computemass density friction inertialtensorstiffness mass weight"	)
+usetransform	[ 0	locks=0 ]	(	"off"	)
+active	[ 0	locks=0 ]	(	"on"	)
+display	[ 0	locks=0 ]	(	"off"	)
+displaygeo	[ 0	locks=0 ]	(	"simgeo"	)
+rendergeopath	[ 0	locks=0 ]	(	""	)
+initial_state	[ 0	locks=0 ]	(	1	1	1	)
+t	[ 0	locks=0 ]	(	0	0	0	)
+r	[ 0	locks=0 ]	(	0	0	0	)
+vel	[ 0	locks=0 ]	(	0	0	0	)
+angvel	[ 0	locks=0 ]	(	0	0	0	)
+inheritvelocity	[ 0	locks=0 ]	(	"off"	)
+showguide	[ 0	locks=0 ]	(	"on"	)
+color	[ 0	locks=0 ]	(	0	0	1	)
+bullet_deactivated_color	[ 0	locks=0 ]	(	1	0	0	)
+sepparm	[ 0	locks=0 ]	(	)
+bullet_georep	[ 0	locks=0 ]	(	concave	)
+geo_triangulate	[ 0	locks=0 ]	(	"on"	)
+bullet_geoconvexhull	[ 0	locks=0 ]	(	"on"	)
+bullet_groupconnected	[ 0	locks=0 ]	(	"on"	)
+bullet_autofit	[ 0	locks=0 ]	(	"on"	)
+bullet_primT	[ 0	locks=0 ]	(	0	0	0	)
+bullet_primR	[ 0	locks=0 ]	(	0	0	0	)
+bullet_primS	[ 0	locks=0 ]	(	1	1	1	)
+bullet_radius	[ 0	locks=0 ]	(	1	)
+bullet_length	[ 0	locks=0 ]	(	1	)
+bullet_collision_margin	[ 0	locks=0 ]	(	0	)
+bullet_adjust_geometry	[ 0	locks=0 ]	(	"off"	)
+bullet_adjust_factor	[ 0	locks=0 ]	(	1	)
+bullet_shrink_amount	[ 0	locks=0 ]	(	[ bullet_shrink_amount	0 ] 	)
+bullet_add_impact	[ 0	locks=0 ]	(	"on"	)
+bullet_want_deactivate	[ 0	locks=0 ]	(	"on"	)
+bullet_linear_sleep_threshold	[ 0	locks=0 ]	(	0.80000000000000004	)
+bullet_angular_sleep_threshold	[ 0	locks=0 ]	(	1	)
+computecom	[ 0	locks=0 ]	(	"on"	)
+inheritpivot	[ 0	locks=0 ]	(	"on"	)
+p	[ 0	locks=0 ]	(	0	0	0	)
+computemass	[ 0	locks=0 ]	(	"on"	)
+density	[ 0	locks=0 ]	(	1000	)
+mass	[ 0	locks=0 ]	(	1	)
+inertialtensorstiffness	[ 0	locks=0 ]	(	1	)
+bounce	[ 0	locks=0 ]	(	0.5	)
+friction	[ 0	locks=0 ]	(	1	)
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/dopnet2/rbdpackedobject2.userdata"
+Content-Type: text/plain
+
+{
+	"___Version___":{
+		"type":"string",
+		"value":"4"
+	},
+	"___toolcount___":{
+		"type":"string",
+		"value":"3"
+	},
+	"___toolid___":{
+		"type":"string",
+		"value":"dop_rbdpackedobject"
+	}
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/dopnet2/rbdpackedobject3.init"
+Content-Type: text/plain
+
+type = rbdpackedobject
+matchesdef = 1
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/dopnet2/rbdpackedobject3.def"
+Content-Type: text/plain
+
+comment ""
+position -5.39906 3.83324
+connectornextid 1
+flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
+outputsNamed3
+{
+0 "output1"
+}
+inputsNamed3
+{
+}
+inputs
+{
+}
+stat
+{
+  create 1523471873
+  modify 1540148463
+  author MAINGEAR@DESKTOP-P98C1VA
+  access 0777
+}
+color UT_Color RGB 0.6 0.6 0.6 
+delscript ""
+exprlanguage hscript
+end
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/dopnet2/rbdpackedobject3.chn"
+Content-Type: text/plain
+
+{
+    channel createframe {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = ch(opcreator(\".\")+\"/startframe\") }
+    }
+    channel bullet_shrink_amount {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = ch(\"bullet_collision_margin\") }
+    }
+  }
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/dopnet2/rbdpackedobject3.parm"
 Content-Type: text/plain
 
 {
@@ -3544,7 +3791,7 @@ friction	[ 0	locks=0 ]	(	1	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot/dopnet2/rbdpackedobject2.userdata"
+Content-Disposition: attachment; filename="hdaroot/dopnet2/rbdpackedobject3.userdata"
 Content-Type: text/plain
 
 {
@@ -3591,7 +3838,7 @@ inputs
 stat
 {
   create 1512107763
-  modify 1527188211
+  modify 1540148496
   author paula@DESKTOP-JOVQSE4
   access 0777
 }
@@ -3756,7 +4003,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.374"
+		"value":"17.0.370"
 	}
 }
 
@@ -3860,7 +4107,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.374"
+		"value":"17.0.370"
 	}
 }
 
@@ -3938,7 +4185,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.374"
+		"value":"17.0.370"
 	}
 }
 
@@ -4001,7 +4248,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.374"
+		"value":"17.0.370"
 	}
 }
 
@@ -4075,7 +4322,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.374"
+		"value":"17.0.370"
 	}
 }
 
@@ -4283,7 +4530,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.374"
+		"value":"17.0.370"
 	}
 }
 
@@ -4361,7 +4608,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.374"
+		"value":"17.0.370"
 	}
 }
 
@@ -4446,7 +4693,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.374"
+		"value":"17.0.370"
 	}
 }
 
@@ -4507,7 +4754,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.374"
+		"value":"17.0.370"
 	}
 }
 
@@ -4548,7 +4795,7 @@ inputs
 stat
 {
   create 1512106904
-  modify 1531775571
+  modify 1540147103
   author paula@DESKTOP-JOVQSE4
   access 0777
 }
@@ -4572,7 +4819,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.374"
+		"value":"17.0.370"
 	}
 }
 
@@ -4648,7 +4895,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.374"
+		"value":"17.0.370"
 	}
 }
 
@@ -4712,7 +4959,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.374"
+		"value":"17.0.370"
 	}
 }
 
@@ -4811,7 +5058,7 @@ inputs
 stat
 {
   create 1512109176
-  modify 1531775622
+  modify 1540147107
   author paula@DESKTOP-JOVQSE4
   access 0777
 }
@@ -4837,7 +5084,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.374"
+		"value":"17.0.370"
 	}
 }
 
@@ -4872,7 +5119,7 @@ inputs
 stat
 {
   create 1512109189
-  modify 1531775564
+  modify 1540147105
   author paula@DESKTOP-JOVQSE4
   access 0777
 }
@@ -4898,7 +5145,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.374"
+		"value":"17.0.370"
 	}
 }
 
@@ -4933,7 +5180,7 @@ inputs
 stat
 {
   create 1512109302
-  modify 1527185119
+  modify 1540147110
   author paula@DESKTOP-JOVQSE4
   access 0777
 }
@@ -4965,7 +5212,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.374"
+		"value":"17.0.370"
 	}
 }
 
@@ -5066,7 +5313,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.374"
+		"value":"17.0.370"
 	}
 }
 
@@ -5085,7 +5332,7 @@ sopflags sopflags =
 comment ""
 position -14.5246 -58.7512
 connectornextid 1
-flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
+flags =  lock off model off template off footprint off xray off bypass off display on render on highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
 {
 }
@@ -5100,7 +5347,7 @@ inputs
 stat
 {
   create 1512109476
-  modify 1531775562
+  modify 1540148503
   author paula@DESKTOP-JOVQSE4
   access 0777
 }
@@ -5125,7 +5372,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.374"
+		"value":"17.0.370"
 	}
 }
 
@@ -5257,7 +5504,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.374"
+		"value":"17.0.370"
 	}
 }
 
@@ -5321,7 +5568,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.374"
+		"value":"17.0.370"
 	}
 }
 
@@ -5384,7 +5631,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.374"
+		"value":"17.0.370"
 	}
 }
 
@@ -5448,7 +5695,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.374"
+		"value":"17.0.370"
 	}
 }
 
@@ -5511,7 +5758,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.374"
+		"value":"17.0.370"
 	}
 }
 
@@ -5593,7 +5840,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.374"
+		"value":"17.0.370"
 	}
 }
 
@@ -5659,7 +5906,7 @@ Content-Type: text/plain
 version 0.8
 itermethod	[ 0	locks=0 ]	(	"count"	)
 method	[ 0	locks=0 ]	(	"merge"	)
-iterations	[ 8	locks=0 ]	(	[ iterations	0 ] 	)
+iterations	[ 8	locks=0 ]	(	[ iterations	3 ] 	)
 startvalue	[ 0	locks=0 ]	(	1	)
 increment	[ 0	locks=0 ]	(	1	)
 class	[ 0	locks=0 ]	(	"point"	)
@@ -5683,7 +5930,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.374"
+		"value":"17.0.370"
 	}
 }
 
@@ -5745,7 +5992,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.374"
+		"value":"17.0.370"
 	}
 }
 
@@ -5824,7 +6071,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.374"
+		"value":"17.0.370"
 	}
 }
 
@@ -5857,7 +6104,7 @@ inputs
 stat
 {
   create 1512177131
-  modify 1531775926
+  modify 1540148507
   author GDC_Houdini@AUSTIN
   access 0777
 }
@@ -5886,7 +6133,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.374"
+		"value":"17.0.370"
 	}
 }
 
@@ -5954,7 +6201,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.374"
+		"value":"17.0.370"
 	}
 }
 
@@ -6078,7 +6325,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.374"
+		"value":"17.0.370"
 	}
 }
 
@@ -6210,7 +6457,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.374"
+		"value":"17.0.370"
 	}
 }
 
@@ -6277,7 +6524,7 @@ version 0.8
 group	[ 0	locks=0 ]	(	""	)
 switcher	[ 0	locks=0 ]	(	0	0	0	)
 usedist	[ 0	locks=0 ]	(	"on"	)
-dist	[ 0	locks=0 ]	(	[ dist	0.050000000000000003 ] 	)
+dist	[ 0	locks=0 ]	(	[ dist	0.57399999999999995 ] 	)
 deldegen	[ 0	locks=0 ]	(	"on"	)
 keepunusedpoints	[ 0	locks=0 ]	(	"on"	)
 keepconsolidatedpoints	[ 0	locks=0 ]	(	"off"	)
@@ -6306,7 +6553,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.374"
+		"value":"17.0.370"
 	}
 }
 
@@ -6389,7 +6636,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.374"
+		"value":"17.0.370"
 	}
 }
 
@@ -6464,7 +6711,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.374"
+		"value":"17.0.370"
 	}
 }
 
@@ -6499,7 +6746,7 @@ inputs
 stat
 {
   create 1512604050
-  modify 1531775415
+  modify 1540148376
   author GDC_Houdini@AUSTIN
   access 0777
 }
@@ -6594,7 +6841,7 @@ Content-Type: text/plain
 version 0.8
 itermethod	[ 0	locks=0 ]	(	"count"	)
 method	[ 0	locks=0 ]	(	"merge"	)
-iterations	[ 8	locks=0 ]	(	[ iterations	2 ] 	)
+iterations	[ 8	locks=0 ]	(	[ iterations	3 ] 	)
 startvalue	[ 0	locks=0 ]	(	1	)
 increment	[ 0	locks=0 ]	(	1	)
 class	[ 0	locks=0 ]	(	"point"	)
@@ -6618,7 +6865,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.374"
+		"value":"17.0.370"
 	}
 }
 
@@ -6680,7 +6927,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.374"
+		"value":"17.0.370"
 	}
 }
 
@@ -6759,7 +7006,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.374"
+		"value":"17.0.370"
 	}
 }
 
@@ -6792,7 +7039,7 @@ inputs
 stat
 {
   create 1512177131
-  modify 1527196912
+  modify 1540147493
   author GDC_Houdini@AUSTIN
   access 0777
 }
@@ -6821,7 +7068,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.374"
+		"value":"17.0.370"
 	}
 }
 
@@ -6889,7 +7136,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.374"
+		"value":"17.0.370"
 	}
 }
 
@@ -6965,7 +7212,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.374"
+		"value":"17.0.370"
 	}
 }
 
@@ -7029,7 +7276,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.374"
+		"value":"17.0.370"
 	}
 }
 
@@ -7093,7 +7340,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.374"
+		"value":"17.0.370"
 	}
 }
 
@@ -7157,7 +7404,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.374"
+		"value":"17.0.370"
 	}
 }
 
@@ -7219,7 +7466,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.374"
+		"value":"17.0.370"
 	}
 }
 
@@ -7304,7 +7551,7 @@ Content-Type: text/plain
 
 {
 version 0.8
-input	[ 8	locks=0 ]	(	[ input	0 ] 	)
+input	[ 8	locks=0 ]	(	[ input	1 ] 	)
 spare_input0	[ 0	locks=0 ]	(	../attribwrangle32	)
 }
 
@@ -7315,7 +7562,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.374"
+		"value":"17.0.370"
 	}
 }
 
@@ -7379,7 +7626,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.374"
+		"value":"17.0.370"
 	}
 }
 
@@ -7442,7 +7689,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.374"
+		"value":"17.0.370"
 	}
 }
 
@@ -7505,7 +7752,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.374"
+		"value":"17.0.370"
 	}
 }
 
@@ -7568,7 +7815,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.374"
+		"value":"17.0.370"
 	}
 }
 
@@ -7711,7 +7958,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.374"
+		"value":"17.0.370"
 	}
 }
 
@@ -7779,7 +8026,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.374"
+		"value":"17.0.370"
 	}
 }
 
@@ -7847,7 +8094,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.374"
+		"value":"17.0.370"
 	}
 }
 
@@ -7979,7 +8226,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.374"
+		"value":"17.0.370"
 	}
 }
 
@@ -8047,7 +8294,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.374"
+		"value":"17.0.370"
 	}
 }
 
@@ -8063,7 +8310,7 @@ Content-Disposition: attachment; filename="hdaroot/dopnet2/output.def"
 Content-Type: text/plain
 
 comment ""
-position -2.14626 0.193169
+position -3.80275 0.6238
 connectornextid 1
 flags =  lock off model off template off footprint off xray off bypass off display on render off highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
@@ -8080,7 +8327,7 @@ inputs
 stat
 {
   create 1527102805
-  modify 1527192664
+  modify 1540148462
   author GDC_Houdini@AUSTIN
   access 0777
 }
@@ -8148,7 +8395,7 @@ Content-Disposition: attachment; filename="hdaroot/dopnet2/bulletrbdsolver1.def"
 Content-Type: text/plain
 
 comment ""
-position -2.14971 1.19317
+position -3.8062 1.6238
 connectornextid 2
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
@@ -8157,16 +8404,16 @@ outputsNamed3
 }
 inputsNamed3
 {
-0 	rbdpackedobject2 0 1 "input1"
+0 	merge1 2 1 "input1"
 }
 inputs
 {
-0 	rbdpackedobject2 0 1
+0 	merge1 0 1
 }
 stat
 {
   create 1523471829
-  modify 1527192664
+  modify 1540148404
   author MAINGEAR@DESKTOP-P98C1VA
   access 0777
 }
@@ -8225,60 +8472,44 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.374"
+		"value":"17.0.370"
 	}
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot/dopnet2.order"
-Content-Type: text/plain
-
-3
-output
-rbdpackedobject2
-bulletrbdsolver1
-
---HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot/dopnet2.net"
-Content-Type: text/plain
-
-1
-
---HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot/merge3.init"
+Content-Disposition: attachment; filename="hdaroot/dopnet2/merge1.init"
 Content-Type: text/plain
 
 type = merge
 matchesdef = 0
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot/merge3.def"
+Content-Disposition: attachment; filename="hdaroot/dopnet2/merge1.def"
 Content-Type: text/plain
 
-sopflags sopflags = 
 comment ""
-position -10.1483 -19.9689
+position -3.8039 2.6514
 connectornextid 3
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
 {
-1 "output1"
+2 "output1"
 }
 inputsNamed3
 {
-2 	attribdelete5 1 1 "input1"
-0 	attribwrangle44 1 1 "input2"
+0 	rbdpackedobject3 0 1 "input1"
+1 	rbdpackedobject2 0 1 "input2"
 }
 inputs
 {
-0 	attribdelete5 0 1
-1 	attribwrangle44 0 1
+0 	rbdpackedobject3 0 1
+1 	rbdpackedobject2 0 1
 }
 stat
 {
-  create 1527102850
-  modify 1531775484
-  author GDC_Houdini@AUSTIN
+  create 1540148345
+  modify 1540148439
+  author Paul_Ambrosiussen@LAPTOP-P8R7FBPF
   access 0777
 }
 color UT_Color RGB 0.8 0.8 0.8 
@@ -8287,23 +8518,58 @@ exprlanguage hscript
 end
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot/merge3.parm"
+Content-Disposition: attachment; filename="hdaroot/dopnet2/merge1.chn"
+Content-Type: text/plain
+
+{
+    channel activation {
+      lefttype = extend
+      righttype = extend
+      default = 1
+      flags = 0
+      segment { length = 0 value = 1 1 expr = constant() }
+    }
+  }
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/dopnet2/merge1.parm"
 Content-Type: text/plain
 
 {
 version 0.8
+activation	[ 0	locks=0 ]	(	[ activation	1 ] 	)
+activationrules	[ 0	locks=0 ]	(	0	)
+affectortype	[ 0	locks=0 ]	(	"ordered"	)
+relationship	[ 0	locks=0 ]	(	SIM_RelationshipCollide	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot/merge3.userdata"
+Content-Disposition: attachment; filename="hdaroot/dopnet2/merge1.userdata"
 Content-Type: text/plain
 
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.374"
+		"value":"17.0.370"
 	}
 }
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/dopnet2.order"
+Content-Type: text/plain
+
+5
+output
+rbdpackedobject2
+bulletrbdsolver1
+merge1
+rbdpackedobject3
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/dopnet2.net"
+Content-Type: text/plain
+
+1
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
 Content-Disposition: attachment; filename="hdaroot/blast1.init"
@@ -8366,7 +8632,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.374"
+		"value":"17.0.370"
 	}
 }
 
@@ -8427,7 +8693,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.374"
+		"value":"17.0.370"
 	}
 }
 
@@ -8537,7 +8803,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.374"
+		"value":"17.0.370"
 	}
 }
 
@@ -8554,7 +8820,7 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position -10.1505 -20.9965
+position -11.9997 -20.9387
 connectornextid 2
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
@@ -8563,16 +8829,16 @@ outputsNamed3
 }
 inputsNamed3
 {
-0 	merge3 1 1 "input1"
+0 	(__dot10) "" 1 "input1"
 }
 inputs
 {
-0 	merge3 0 1
+0 	(__dot10) 0 1
 }
 stat
 {
   create 1527103526
-  modify 1531775519
+  modify 1540148426
   author GDC_Houdini@AUSTIN
   access 0777
 }
@@ -8666,7 +8932,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.374"
+		"value":"17.0.370"
 	}
 }
 
@@ -8727,7 +8993,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.374"
+		"value":"17.0.370"
 	}
 }
 
@@ -8827,7 +9093,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.374"
+		"value":"17.0.370"
 	}
 }
 
@@ -8910,7 +9176,7 @@ sopflags sopflags =
 comment ""
 position -7.59693 -3.45579
 connectornextid 2
-flags =  lock off model off template on footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
+flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
 {
 1 "output1"
@@ -8926,7 +9192,7 @@ inputs
 stat
 {
   create 1531775376
-  modify 1531775905
+  modify 1540147093
   author Paul_Ambrosiussen@LAPTOP-P8R7FBPF
   access 0777
 }
@@ -8955,7 +9221,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.374"
+		"value":"17.0.370"
 	}
 }
 
@@ -9023,7 +9289,71 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.374"
+		"value":"17.0.370"
+	}
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/attribdelete10.init"
+Content-Type: text/plain
+
+type = attribdelete
+matchesdef = 1
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/attribdelete10.def"
+Content-Type: text/plain
+
+sopflags sopflags = 
+comment ""
+position -8.72505 -20.9387
+connectornextid 2
+flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
+outputsNamed3
+{
+1 "output1"
+}
+inputsNamed3
+{
+0 	(__dot9) "" 1 "input1"
+}
+inputs
+{
+0 	(__dot9) 0 1
+}
+stat
+{
+  create 1527103526
+  modify 1540148422
+  author GDC_Houdini@AUSTIN
+  access 0777
+}
+color UT_Color RGB 0.8 0.8 0.8 
+delscript ""
+exprlanguage hscript
+end
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/attribdelete10.parm"
+Content-Type: text/plain
+
+{
+version 0.8
+ptdel	[ 0	locks=0 ]	(	name	)
+vtxdel	[ 0	locks=0 ]	(	""	)
+primdel	[ 0	locks=0 ]	(	name	)
+dtldel	[ 0	locks=0 ]	(	""	)
+updatevar	[ 0	locks=0 ]	(	"on"	)
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/attribdelete10.userdata"
+Content-Type: text/plain
+
+{
+	"___Version___":{
+		"type":"string",
+		"value":""
 	}
 }
 
@@ -9132,6 +9462,32 @@ Content-Type: text/plain
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/__dot9.networkdotinit"
+Content-Type: text/plain
+
+{
+	"version":1,
+	"posx":-7.56031000346638216,
+	"posy":-20.0428638189250776,
+	"pinned":false,
+	"color":"FROMOUTPUT",
+	"input":"attribwrangle44 0 1"
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/__dot10.networkdotinit"
+Content-Type: text/plain
+
+{
+	"version":1,
+	"posx":-16.2818500049293036,
+	"posy":-20.0428638189250776,
+	"pinned":false,
+	"color":"FROMOUTPUT",
+	"input":"attribdelete5 0 1"
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
 Content-Disposition: attachment; filename="hdaroot.order"
 Content-Type: text/plain
 
@@ -9221,7 +9577,6 @@ attribpromote2
 attribpromote3
 attribwrangle44
 dopnet2
-merge3
 blast1
 merge4
 timeshift1
@@ -9232,6 +9587,7 @@ IN_ACTIVATE_ALL
 attribdelete9
 normal1
 unpack2
+attribdelete10
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
 Content-Disposition: attachment; filename="hdaroot.net"

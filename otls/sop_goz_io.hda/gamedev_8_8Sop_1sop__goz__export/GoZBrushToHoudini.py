@@ -47,7 +47,8 @@ def create_new_goz_instance():
             
         else:
             go_z_node = hou.node("/obj").createNode("geo", "GoZ_Mesh")
-            go_z_node.node("file1").destroy()    
+            if go_z_node.node("file1"):
+                go_z_node.node("file1").destroy()    
             go_z_node.moveToGoodPosition()
             goz_instance = go_z_node.createNode("sop_goz_import", "GoZ_Mesh")
 

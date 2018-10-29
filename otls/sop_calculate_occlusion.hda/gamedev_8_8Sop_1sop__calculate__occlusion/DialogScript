@@ -19,16 +19,10 @@
         label   "Occlusion Settings"
 
         parm {
-            name    "sepparm2"
-            label   "Separator"
-            type    separator
-            default { "" }
-        }
-        parm {
             name    "raycount"
             label   "Number of Rays"
             type    integer
-            default { "20" }
+            default { "50" }
             range   { 0! 100 }
             parmtag { "autoscope" "0000000000000000" }
             parmtag { "parmvop" "1" }
@@ -45,18 +39,15 @@
             parmtag { "shaderparmcontexts" "cvex" }
         }
         parm {
-            name    "raybbias"
-            label   "Surface Offset"
-            type    float
-            default { "0.01" }
-            range   { 0! 1 }
-            parmtag { "autoscope" "0000000000000000" }
-            parmtag { "parmvop" "1" }
-            parmtag { "shaderparmcontexts" "cvex" }
-        }
-        parm {
             name    "intensity"
             label   "Intensity"
+            type    float
+            default { "3" }
+            range   { 0 10 }
+        }
+        parm {
+            name    "gamma"
+            label   "Gamma"
             type    float
             default { "1" }
             range   { 0 10 }
@@ -141,7 +132,7 @@
             parmtag { "autoscope" "0000000000000000" }
         }
         parm {
-            name    "iterations2"
+            name    "iterations"
             label   "Blurring Iterations"
             type    integer
             default { "2" }

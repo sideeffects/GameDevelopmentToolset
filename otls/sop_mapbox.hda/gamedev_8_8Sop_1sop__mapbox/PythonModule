@@ -29,10 +29,10 @@ def update(node):
 
 
 def url_changed(new_url):
-    print new_url
+
     url = (new_url.url())
     post_hash = url.split("#")
-    print len(post_hash[1].split(","))
+
     if len(post_hash[1].split(",")) == 7:
         
         on_button(hou.session.mapbox_web, hou.session.mapbox_node)
@@ -42,7 +42,7 @@ def on_button(test, node):
     post_hash = url.split("#")
     if len(post_hash) == 1:
         return 
-    print "ob button"
+
     lon, lat, zoom, ne_lat, ne_lon , sw_lat , sw_lon  = post_hash[1].split(",")
   
     node.parm("lat_lon_zoomx").set(float(lat))
@@ -90,7 +90,7 @@ def refresh(node, force=True):
         color_url = "https://api.mapbox.com/styles/v1/mapbox/satellite-v9/static/" + str(lon) + "," + str(lat) + "," + str((zoom+1)) + "/1024x1024@2x?access_token="+ node.parm("api_key").eval()
         osm_url = "https://overpass-api.de/api/map?bbox=" + str(sw_lon) + "," + str(sw_lat) + "," + str(ne_lon) + "," + str(ne_lat)
 
-        print color_url
+
         terrain_path = node.parm("download_path_height").eval()
         terrain_dir = os.path.dirname(terrain_path)
         if not os.path.exists(terrain_dir):
@@ -117,9 +117,7 @@ def refresh(node, force=True):
     node.node("cop2net1/input_file").parm("reload").pressButton()
     node.node("load_sat_image_as_color").parm("reload").pressButton()
     node.node('load_in_osm_data/read_in_map_data').cook(force=True)
-    node.node('load_in_osm_data').bypass(True)
-    node.node('load_in_osm_data').bypass(False)
-    
+   
     hou.hscript("glcache -c;") #refresh textures
 
 def launch_map():

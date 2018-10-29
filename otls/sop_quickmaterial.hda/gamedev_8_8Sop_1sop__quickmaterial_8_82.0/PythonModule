@@ -2,7 +2,7 @@ import hou
 
 def OnMultiparmChange():
         HDA = hou.pwd()
-        MaterialNetwork = hou.node(HDA.path()+'/matnet2/')
+        MaterialNetwork = hou.node(HDA.path()+'/matnet/')
         NumberMaterials = HDA.parm('mMaterialEntries').evalAsInt()
         MaterialAssignment = HDA.node(HDA.path()+'/materialassignment/')
         MaterialAssignment.parm('num_materials').set(NumberMaterials)
@@ -15,7 +15,7 @@ def OnMultiparmChange():
                 MaterialName = HDA.parm('materialname_%s' % val).evalAsString()
                 NewMaterial = MaterialNetwork.createNode('principledshader::2.0', MaterialName)
                 NewMaterial.moveToGoodPosition()
-                MaterialAssignment.parm('shop_materialpath%s' % val).set("../matnet2/%s" % HDA.parm('materialname_%s' % val).evalAsString())
+                MaterialAssignment.parm('shop_materialpath%s' % val).set("../matnet/%s" % HDA.parm('materialname_%s' % val).evalAsString())
                 MaterialAssignment.parm('group%s' % val).set(HDA.parm('groupselection_%s' % val), follow_parm_reference=False)
 
                 # basecolor

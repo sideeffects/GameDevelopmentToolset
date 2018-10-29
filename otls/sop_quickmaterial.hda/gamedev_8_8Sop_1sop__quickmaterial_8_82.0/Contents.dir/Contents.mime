@@ -32,25 +32,25 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position -1.20717 1.71255
+position 0 -1.35065
 connectornextid 1
-flags =  lock off model off template off footprint off xray off bypass off display on render on highlight off unload off savedata off compress on colordefault on exposed on
+flags =  lock off model off template on footprint off xray off bypass off display on render on highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
 {
 }
 inputsNamed3
 {
-0 	sphere1 0 1 "input1"
+0 	box1 0 1 "input1"
 }
 inputs
 {
-0 	sphere1 0 1
+0 	box1 0 1
 }
 stat
 {
-  create 1539801902
-  modify 1539802038
-  author MAINGEAR@DESKTOP-P98C1VA
+  create 1540846348
+  modify 1540846370
+  author Paul_Ambrosiussen@LAPTOP-P8R7FBPF
   access 0777
 }
 color UT_Color RGB 0.8 0.8 0.8 
@@ -65,7 +65,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"0.3"
+		"value":"0.4"
 	},
 	"___toolcount___":{
 		"type":"string",
@@ -95,7 +95,7 @@ Content-Type: text/plain
 }
 {
   create 1532954587
-  modify 1539801902
+  modify 1540846348
   author paula@DESKTOP-5213MPP
   access 0777
 }
@@ -118,7 +118,7 @@ Content-Type: text/plain
 }
 {
   create 1539802036
-  modify 1539802038
+  modify 1540846348
   author MAINGEAR@DESKTOP-P98C1VA
   access 0777
 }
@@ -157,7 +157,7 @@ inputs
 stat
 {
   create 1532947640
-  modify 1539802046
+  modify 1540846326
   author paula@DESKTOP-5213MPP
   access 0777
 }
@@ -187,7 +187,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.373"
+		"value":"17.0.382"
 	}
 }
 
@@ -203,7 +203,7 @@ Content-Disposition: attachment; filename="hdaroot/matnet/Material_1.def"
 Content-Type: text/plain
 
 comment ""
-position -0.0169412 0.389647
+position 0 0
 connectornextid 227
 flags =  lock off model off template off footprint off xray off bypass off display on render on highlight off unload off savedata off compress on colordefault on exposed on lowdetail off mediumdetail off highdetail on material on
 outputsNamed3
@@ -671,8 +671,8 @@ inputs
 }
 stat
 {
-  create 1533333831
-  modify 1539802021
+  create 1540846325
+  modify 1540846485
   author Paul_Ambrosiussen@LAPTOP-P8R7FBPF
   access 0777
 }
@@ -690,7 +690,7 @@ Content-Type: text/plain
       lefttype = extend
       righttype = extend
       flags = 0
-      segment { length = 0 expr = ch(\"metallic\")+(1-ch(\"metallic\"))*ch(\"reflecttint\") }
+      segment { length = 0 expr = (1-ch(\"metallic\"))*ch(\"reflecttint\") }
     }
     channel baseBump_useTexture {
       lefttype = extend
@@ -843,7 +843,9 @@ Content-Type: text/plain
       lefttype = extend
       righttype = extend
       flags = 0
-      segment { length = 0 expr = ch(\"../../metallic_1\") }
+      segment { options = {	 untie  iv ov is os ia oa }
+
+	 length = 0 expr = ch(\"../../metallic_1\") }
     }
   }
 
@@ -863,12 +865,12 @@ basecolor_usePointColor	[ 0	locks=0 ]	(	"on"	)
 basecolor_usePackedColor	[ 0	locks=0 ]	(	"off"	)
 frontface	[ 0	locks=0 ]	(	"on"	)
 folder4	[ 0	locks=0 ]	(	0	)
-ior	[ 8	locks=0 ]	(	[ ior	1.1000000000000001 ] 	)
+ior	[ 0	locks=0 ]	(	[ ior	1.1000000000000001 ] 	)
 rough	[ 0	locks=0 ]	(	[ rough	0.65200000000000002 ] 	)
 aniso	[ 0	locks=0 ]	(	0	)
 anisodir	[ 0	locks=0 ]	(	0	)
 folder12	[ 0	locks=0 ]	(	0	)
-metallic	[ 8	locks=0 ]	(	[ metallic	0 ] 	)
+metallic	[ 0	locks=0 ]	(	[ metallic	0 ] 	)
 reflect	[ 0	locks=0 ]	(	1	)
 reflecttint	[ 0	locks=0 ]	(	0	)
 coat	[ 0	locks=0 ]	(	0	)
@@ -904,7 +906,7 @@ fakecausticsshadow	[ 0	locks=0 ]	(	1	)
 fakecausticsopacity	[ 0	locks=0 ]	(	0	)
 folder54	[ 0	locks=0 ]	(	0	)
 basecolor_useTexture	[ 0	locks=0 ]	(	"on"	)
-basecolor_texture	[ 0	locks=0	autoscope=1 ]	(	[ basecolor_texture	"" ] 	)
+basecolor_texture	[ 0	locks=0	autoscope=1	autosel=4294967295 ]	(	[ basecolor_texture	"" ] 	)
 basecolor_textureIntensity	[ 0	locks=0 ]	(	1	)
 basecolor_textureWrap	[ 0	locks=0 ]	(	repeat	)
 basecolor_textureColorSpace	[ 0	locks=0 ]	(	auto	)
@@ -916,7 +918,7 @@ ior_textureWrap	[ 0	locks=0 ]	(	repeat	)
 ior_textureColorSpace	[ 0	locks=0 ]	(	linear	)
 folder227	[ 0	locks=0 ]	(	0	)
 rough_useTexture	[ 0	locks=0 ]	(	"on"	)
-rough_texture	[ 0	locks=0	autoscope=1 ]	(	[ rough_texture	"" ] 	)
+rough_texture	[ 0	locks=0	autoscope=1	autosel=4294967295 ]	(	[ rough_texture	"" ] 	)
 rough_monoChannel	[ 0	locks=0 ]	(	0	)
 rough_textureWrap	[ 0	locks=0 ]	(	repeat	)
 rough_textureColorSpace	[ 0	locks=0 ]	(	linear	)
@@ -935,7 +937,7 @@ anisodir_textureColorSpace	[ 0	locks=0 ]	(	linear	)
 anisodir_textureFilter	[ 0	locks=0 ]	(	point	)
 folder55	[ 0	locks=0 ]	(	0	)
 metallic_useTexture	[ 0	locks=0 ]	(	"on"	)
-metallic_texture	[ 0	locks=0	autoscope=1 ]	(	[ metallic_texture	"" ] 	)
+metallic_texture	[ 0	locks=0	autoscope=1	autosel=4294967295 ]	(	[ metallic_texture	"" ] 	)
 metallic_monoChannel	[ 0	locks=0 ]	(	0	)
 metallic_textureWrap	[ 0	locks=0 ]	(	repeat	)
 metallic_textureColorSpace	[ 0	locks=0 ]	(	linear	)
@@ -1024,7 +1026,7 @@ emitcolor_textureWrap	[ 0	locks=0 ]	(	repeat	)
 emitcolor_textureColorSpace	[ 0	locks=0 ]	(	repeat	)
 folder14	[ 0	locks=0 ]	(	0	)
 opaccolor_useTexture	[ 0	locks=0 ]	(	"on"	)
-opaccolor_texture	[ 0	locks=0	autoscope=1 ]	(	[ opaccolor_texture	"" ] 	)
+opaccolor_texture	[ 0	locks=0	autoscope=1	autosel=4294967295 ]	(	[ opaccolor_texture	"" ] 	)
 opaccolor_textureWrap	[ 0	locks=0 ]	(	repeat	)
 opaccolor_textureIntensity	[ 0	locks=0 ]	(	1	)
 opaccolor_textureColorSpace	[ 0	locks=0 ]	(	repeat	)
@@ -1048,7 +1050,7 @@ baseBump_imagePlane	[ 0	locks=0 ]	(	""	)
 baseNormal_colorspace	[ 0	locks=0 ]	(	linear	)
 baseNormal_vectorSpace	[ 0	locks=0 ]	(	uvtangent	)
 baseNormal_scale	[ 0	locks=0 ]	(	1	)
-baseNormal_texture	[ 0	locks=0	autoscope=1 ]	(	[ baseNormal_texture	"" ] 	)
+baseNormal_texture	[ 0	locks=0	autoscope=1	autosel=4294967295 ]	(	[ baseNormal_texture	"" ] 	)
 baseNormal_wrap	[ 0	locks=0 ]	(	repeat	)
 baseNormal_filter	[ 0	locks=0 ]	(	gauss	)
 baseNormal_filterWidth	[ 0	locks=0 ]	(	1	)
@@ -1271,7 +1273,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.373"
+		"value":"17.0.382"
 	}
 }
 
@@ -1312,7 +1314,7 @@ inputs
 stat
 {
   create 1532953615
-  modify 1539802015
+  modify 1540846352
   author paula@DESKTOP-5213MPP
   access 0777
 }
@@ -1348,7 +1350,7 @@ uselabels	[ 0	locks=0 ]	(	"uselabels"	)
 createstylesheets	[ 0	locks=0 ]	(	"off"	)
 fullpath	[ 0	locks=0 ]	(	"on"	)
 num_materials	[ 8	locks=0 ]	(	1	)
-group1	[ 0	locks=0	autoscope=1 ]	(	[ group1	"" ] 	)
+group1	[ 0	locks=0	autoscope=1	autosel=4294967295 ]	(	[ group1	"" ] 	)
 shop_materialpath1	[ 0	locks=0 ]	(	../matnet/Material_1	)
 localvar1	[ 0	locks=0 ]	(	"off"	)
 mergeoverride1	[ 0	locks=0 ]	(	"off"	)
@@ -1362,7 +1364,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.373"
+		"value":"17.0.382"
 	}
 }
 
@@ -1436,7 +1438,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.373"
+		"value":"17.0.382"
 	}
 }
 

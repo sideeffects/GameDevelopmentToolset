@@ -56,18 +56,26 @@
         label   "Settings"
 
         parm {
+            name    "bViewAllLOD"
+            label   "Debug All LOD"
+            type    toggle
+            default { "0" }
+        }
+        parm {
             name    "bDebugCamera"
             label   "Debug Camera"
             type    toggle
             nolabel
             joinnext
             default { "0" }
+            disablewhen "{ bViewAllLOD == 1 }"
         }
         parm {
             name    "oDebugCamera"
             label   "Debug Camera"
             type    oppath
             default { "" }
+            disablewhen "{ bViewAllLOD == 1 }"
             parmtag { "opfilter" "!!OBJ/CAMERA!!" }
             parmtag { "oprelative" "." }
         }
@@ -78,14 +86,14 @@
             nolabel
             joinnext
             default { "on" }
-            disablewhen "{ bDebugCamera == 1 }"
+            disablewhen "{ bDebugCamera == 1 } { bViewAllLOD == 1 }"
         }
         parm {
             name    "iVisibleLOD"
             label   "Visible LOD"
             type    integer
             default { "0" }
-            disablewhen "{ bVisualize == 0 } { bDebugCamera == 1 }"
+            disablewhen "{ bVisualize == 0 } { bDebugCamera == 1 } { bViewAllLOD == 1 }"
             range   { 0 10 }
         }
         parm {

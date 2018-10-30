@@ -317,10 +317,17 @@
             label   "Packing Options"
 
             parm {
+                name    "merge_small_islands"
+                label   "Merge Small Islands"
+                type    toggle
+                default { "0" }
+            }
+            parm {
                 name    "small_island_cutoff"
                 label   "Small Island CutOff"
                 type    float
                 default { "0.01" }
+                disablewhen "{ merge_small_islands == 0 }"
                 range   { 0 10 }
                 parmtag { "autoscope" "0000000000000000" }
             }

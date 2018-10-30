@@ -228,8 +228,8 @@ void main()
     }
 
     // Sample Texture with MotionVector Data 
-    tex.rgb = lerpv(texture(saTexture, MotionVectorForward).rgb, texture(saTexture, MotionVectorReverse).rgb, BlendPhase);
-    tex.a = 1.0;
+    tex = mix(texture(saTexture, MotionVectorForward), texture(saTexture, MotionVectorReverse), BlendPhase);
+    //tex.a = 1.0;
 
     
     nN = fsIn.normal;

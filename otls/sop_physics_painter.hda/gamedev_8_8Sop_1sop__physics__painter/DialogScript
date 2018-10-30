@@ -120,6 +120,21 @@
         label   "Quick Settings"
 
         parm {
+            name    "bPaintBucketMode"
+            label   "Paint Bucket Mode"
+            type    toggle
+            default { "0" }
+        }
+        parm {
+            name    "npts"
+            label   "Bucket Items"
+            type    integer
+            default { "10" }
+            disablewhen "{ bPaintBucketMode == 0 }"
+            range   { 1! 20 }
+            parmtag { "autoscope" "0000000000000000" }
+        }
+        parm {
             name    "fStrokePadding"
             label   "Stroke Padding"
             type    float

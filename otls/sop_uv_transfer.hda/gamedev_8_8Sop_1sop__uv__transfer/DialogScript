@@ -1,0 +1,30 @@
+# Dialog script for gamedev::sop_uv_transfer automatically generated
+
+{
+    name	gamedev::sop_uv_transfer
+    script	gamedev::sop_uv_transfer
+    label	"GameDev UV Transfer"
+
+    help {
+	""
+    }
+
+    inputlabel	1	"Target Geometry"
+    inputlabel	2	"Source Geometry"
+    inputlabel	3	"Sub-Network Input #3"
+    inputlabel	4	"Sub-Network Input #4"
+
+    parm {
+        name    "uv_attribute"
+        label   "UV Attribute"
+        type    string
+        default { "uv" }
+    }
+    parm {
+        name    "fuse_tolerance"
+        label   "Fuse Tolerance"
+        type    float
+        default { "0.01" }
+        range   { 0 10 }
+    }
+}

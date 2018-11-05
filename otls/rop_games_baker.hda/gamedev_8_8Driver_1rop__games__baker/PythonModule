@@ -94,6 +94,7 @@ def pre_bake(node):
     # Extract Maps
     bake_parms = ["bake_basecolor", "bake_Nt", "bake_specrough", "bake_metallic", "bake_N", "bake_Oc", "bake_Cu", "bake_P", "bake_Th", "bake_Ds" ]
     normalized_maps = ["Nt", "N"]
+    linear_maps = ['specrough', 'metallic', 'Oc', 'Cu', 'P', 'Th']
     for bake_parm in bake_parms:
         should_bake = node.parm(bake_parm).eval()
         if should_bake:
@@ -103,6 +104,10 @@ def pre_bake(node):
 
             if channel_name in normalized_maps:
                 singles_rop.parm("coppath").set("../extract_net/normalized")
+                singles_rop.parm("gamma").set(1)
+
+            elif channel_name in linear_maps:
+                singles_rop.parm("coppath").set("../extract_net/base_image")
                 singles_rop.parm("gamma").set(1)
             else:
                 singles_rop.parm("coppath").set("../extract_net/base_image")

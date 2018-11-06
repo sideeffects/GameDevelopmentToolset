@@ -383,10 +383,18 @@
             default { "LODGroup" }
         }
         parm {
+            name    "bOverrideNumLODs"
+            label   "Override"
+            type    toggle
+            joinnext
+            default { "0" }
+        }
+        parm {
             name    "iNumLOD"
             label   "Number LOD Levels"
             type    integer
             default { "1" }
+            disablewhen "{ bOverrideNumLODs == 0 }"
             range   { 2! 6 }
         }
     }

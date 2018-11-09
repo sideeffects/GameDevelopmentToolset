@@ -32,24 +32,22 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position -6.46322 -8.27937
-connectornextid 1
-flags =  lock off model off template on footprint off xray off bypass off display on render on highlight off unload off savedata off compress on colordefault on exposed on
+position -2.69429 0.443085
+connectornextid 0
+flags =  lock off model off template off footprint off xray off bypass off display on render on highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
 {
 }
 inputsNamed3
 {
-0 	sop_quickmaterial3 1 1 "input1"
 }
 inputs
 {
-0 	sop_quickmaterial3 0 1
 }
 stat
 {
-  create 1541454964
-  modify 1541457036
+  create 1541789565
+  modify 1541789650
   author Paul_Ambrosiussen@LAPTOP-P8R7FBPF
   access 0777
 }
@@ -65,7 +63,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"0.2"
+		"value":"0.3"
 	}
 }
 
@@ -130,7 +128,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.382"
+		"value":"17.0.393"
 	}
 }
 
@@ -161,7 +159,7 @@ inputs
 stat
 {
   create 1539889216
-  modify 1541452422
+  modify 1541789633
   author MAINGEAR@DESKTOP-P98C1VA
   access 0777
 }
@@ -390,6 +388,13 @@ Content-Type: text/plain
       flags = 0
       segment { length = 0 value = -1 -1 expr = ch(\"../../ray_distance\") }
     }
+    channel baking_samples {
+      lefttype = extend
+      righttype = extend
+      default = 4
+      flags = 0
+      segment { length = 0 value = 4 4 expr = ch(\"../../baking_samples\") }
+    }
   }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -403,7 +408,7 @@ renderdialog	[ 0	locks=0 ]	(	0	)
 meshes	[ 0	locks=0 ]	(	1	)
 vm_uvunwrapres	[ 0	locks=0 ]	(	[ vm_uvunwrapresx	512 ] 	[ vm_uvunwrapresy	512 ] 	)
 uvresmenu	[ 0	locks=0 ]	(	0	)
-base_path	[ 0	locks=0 ]	(	[ base_path	"C:/Users/Paul Ambrosiussen/Desktop/Webinar/render/LODTool_01_$(CHANNEL).tga" ] 	)
+base_path	[ 0	locks=0 ]	(	[ base_path	"C:/Users/Paul Ambrosiussen/render/untitled_$(CHANNEL).tga" ] 	)
 channels	[ 0	locks=0 ]	(	1	0	)
 bake_basecolor	[ 0	locks=0 ]	(	[ bake_basecolor	1 ] 	)
 basecolor_suffix	[ 0	locks=0 ]	(	[ basecolor_suffix	basecolor ] 	)
@@ -411,13 +416,13 @@ bake_Nt	[ 0	locks=0 ]	(	[ bake_Nt	1 ] 	)
 Nt_suffix	[ 0	locks=0 ]	(	[ Nt_suffix	normal ] 	)
 bake_alpha	[ 0	locks=0 ]	(	[ bake_alpha	0 ] 	)
 alpha_suffix	[ 0	locks=0 ]	(	[ alpha_suffix	alpha ] 	)
-bake_specrough	[ 0	locks=0 ]	(	[ bake_specrough	1 ] 	)
+bake_specrough	[ 0	locks=0 ]	(	[ bake_specrough	0 ] 	)
 specrough_suffix	[ 0	locks=0 ]	(	[ specrough_suffix	roughness ] 	)
-bake_metallic	[ 0	locks=0 ]	(	[ bake_metallic	1 ] 	)
+bake_metallic	[ 0	locks=0 ]	(	[ bake_metallic	0 ] 	)
 metallic_suffix	[ 0	locks=0 ]	(	[ metallic_suffix	metallic ] 	)
 bake_N	[ 0	locks=0 ]	(	[ bake_N	0 ] 	)
 N_suffix	[ 0	locks=0 ]	(	[ N_suffix	worldnormal ] 	)
-bake_Oc	[ 0	locks=0 ]	(	[ bake_Oc	0 ] 	)
+bake_Oc	[ 0	locks=0 ]	(	[ bake_Oc	1 ] 	)
 Oc_suffix	[ 0	locks=0 ]	(	[ Oc_suffix	ao ] 	)
 bake_Cu	[ 0	locks=0 ]	(	[ bake_Cu	0 ] 	)
 Cu_suffix	[ 0	locks=0 ]	(	[ Cu_suffix	curvature ] 	)
@@ -434,7 +439,7 @@ vm_bake_usemikkt	[ 0	locks=0 ]	(	[ vm_bake_usemikkt	1 ] 	)
 vm_bake_tangentnormalflipy	[ 0	locks=0 ]	(	[ vm_bake_tangentnormalflipy	0 ] 	)
 vm_uvcageobject1	[ 0	locks=0 ]	(	"`ifs(strcmp(chsop(\"../vm_uvcageobject1\"),\"\"),opfullpath(\"..\") + \"/objnet/cage\",\"\")`"	)
 border_padding	[ 0	locks=0 ]	(	[ border_padding	2 ] 	)
-baking_samples	[ 0	locks=0 ]	(	4	)
+baking_samples	[ 0	locks=0 ]	(	[ baking_samples	8 ] 	)
 ray_bias	[ 0	locks=0 ]	(	[ ray_bias	0.01 ] 	)
 ray_distance	[ 0	locks=0 ]	(	[ ray_distance	-1 ] 	)
 target_mesh_1	[ 0	locks=0 ]	(	../../LOW	)
@@ -535,7 +540,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.382"
+		"value":"17.0.393"
 	}
 }
 
@@ -590,7 +595,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.382"
+		"value":"17.0.393"
 	}
 }
 
@@ -4386,7 +4391,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.382"
+		"value":"17.0.393"
 	}
 }
 
@@ -4884,7 +4889,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.382"
+		"value":"17.0.393"
 	}
 }
 
@@ -6672,7 +6677,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.382"
+		"value":"17.0.393"
 	}
 }
 
@@ -6705,7 +6710,7 @@ inputs
 stat
 {
   create 1496780594
-  modify 1541456768
+  modify 1541789607
   author Luiz@Luiz-PC
   access 0777
 }
@@ -6739,7 +6744,7 @@ pivot	[ 0	locks=0 ]	(	"centroid"	)
 viewportlod	[ 0	locks=0 ]	(	"full"	)
 addpath	[ 0	locks=0 ]	(	"on"	)
 enable1	[ 0	locks=0 ]	(	"on"	)
-objpath1	[ 0	locks=0 ]	(	/obj/geo1/sop_simple_baker3/LOW	)
+objpath1	[ 0	locks=0 ]	(	""	)
 group1	[ 0	locks=0 ]	(	""	)
 expand1	[ 0	locks=0 ]	(	"off"	)
 }
@@ -6751,7 +6756,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.382"
+		"value":"17.0.393"
 	}
 }
 
@@ -6815,7 +6820,7 @@ Content-Type: text/plain
 
 {
 version 0.8
-input	[ 8	locks=0 ]	(	[ input	1 ] 	)
+input	[ 8	locks=0 ]	(	[ input	0 ] 	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -6825,7 +6830,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.382"
+		"value":"17.0.393"
 	}
 }
 
@@ -6890,7 +6895,7 @@ Content-Type: text/plain
 
 {
 version 0.8
-input	[ 8	locks=0 ]	(	[ input	1 ] 	)
+input	[ 8	locks=0 ]	(	[ input	0 ] 	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -6900,7 +6905,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.382"
+		"value":"17.0.393"
 	}
 }
 
@@ -6968,7 +6973,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.382"
+		"value":"17.0.393"
 	}
 }
 
@@ -7032,7 +7037,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.382"
+		"value":"17.0.393"
 	}
 }
 
@@ -7810,7 +7815,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.382"
+		"value":"17.0.393"
 	}
 }
 
@@ -7889,7 +7894,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.382"
+		"value":"17.0.393"
 	}
 }
 
@@ -7954,7 +7959,7 @@ Content-Type: text/plain
 
 {
 version 0.8
-input	[ 8	locks=0 ]	(	[ input	0 ] 	)
+input	[ 8	locks=0 ]	(	[ input	1 ] 	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -7964,7 +7969,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.382"
+		"value":"17.0.393"
 	}
 }
 
@@ -7997,7 +8002,7 @@ inputs
 stat
 {
   create 1496780594
-  modify 1541456768
+  modify 1541789599
   author Luiz@Luiz-PC
   access 0777
 }
@@ -8031,7 +8036,7 @@ pivot	[ 0	locks=0 ]	(	"centroid"	)
 viewportlod	[ 0	locks=0 ]	(	"full"	)
 addpath	[ 0	locks=0 ]	(	"on"	)
 enable1	[ 0	locks=0 ]	(	"on"	)
-objpath1	[ 0	locks=0 ]	(	/obj/geo1/sop_simple_baker3/HIGH	)
+objpath1	[ 0	locks=0 ]	(	""	)
 group1	[ 0	locks=0 ]	(	""	)
 expand1	[ 0	locks=0 ]	(	"off"	)
 }
@@ -8043,7 +8048,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.382"
+		"value":"17.0.393"
 	}
 }
 
@@ -8108,7 +8113,7 @@ Content-Type: text/plain
 
 {
 version 0.8
-input	[ 8	locks=0 ]	(	[ input	1 ] 	)
+input	[ 8	locks=0 ]	(	[ input	0 ] 	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -8118,7 +8123,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.382"
+		"value":"17.0.393"
 	}
 }
 
@@ -8183,7 +8188,7 @@ Content-Type: text/plain
 
 {
 version 0.8
-input	[ 8	locks=0 ]	(	[ input	1 ] 	)
+input	[ 8	locks=0 ]	(	[ input	0 ] 	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -8193,7 +8198,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.382"
+		"value":"17.0.393"
 	}
 }
 
@@ -8261,7 +8266,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.382"
+		"value":"17.0.393"
 	}
 }
 
@@ -8325,7 +8330,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.382"
+		"value":"17.0.393"
 	}
 }
 
@@ -8394,7 +8399,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.382"
+		"value":"17.0.393"
 	}
 }
 
@@ -8458,7 +8463,7 @@ Content-Type: text/plain
 
 {
 version 0.8
-input	[ 8	locks=0 ]	(	[ input	1 ] 	)
+input	[ 8	locks=0 ]	(	[ input	0 ] 	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -8468,7 +8473,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.382"
+		"value":"17.0.393"
 	}
 }
 
@@ -9137,7 +9142,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.382"
+		"value":"17.0.393"
 	}
 }
 
@@ -9212,7 +9217,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.382"
+		"value":"17.0.393"
 	}
 }
 
@@ -9300,7 +9305,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.382"
+		"value":"17.0.393"
 	}
 }
 
@@ -9399,7 +9404,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.382"
+		"value":"17.0.393"
 	}
 }
 
@@ -9499,7 +9504,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.382"
+		"value":"17.0.393"
 	}
 }
 
@@ -9564,7 +9569,7 @@ Content-Type: text/plain
 
 {
 version 0.8
-input	[ 8	locks=0 ]	(	[ input	0 ] 	)
+input	[ 8	locks=0 ]	(	[ input	1 ] 	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -9574,7 +9579,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.382"
+		"value":"17.0.393"
 	}
 }
 
@@ -9653,7 +9658,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.382"
+		"value":"17.0.393"
 	}
 }
 
@@ -10430,7 +10435,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.382"
+		"value":"17.0.393"
 	}
 }
 
@@ -10509,7 +10514,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.382"
+		"value":"17.0.393"
 	}
 }
 
@@ -10571,7 +10576,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.382"
+		"value":"17.0.393"
 	}
 }
 
@@ -12428,7 +12433,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.382"
+		"value":"17.0.393"
 	}
 }
 
@@ -12543,7 +12548,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.382"
+		"value":"17.0.393"
 	}
 }
 
@@ -12638,7 +12643,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.382"
+		"value":"17.0.393"
 	}
 }
 
@@ -12708,7 +12713,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.382"
+		"value":"17.0.393"
 	}
 }
 
@@ -12810,7 +12815,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.382"
+		"value":"17.0.393"
 	}
 }
 
@@ -12915,7 +12920,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.382"
+		"value":"17.0.393"
 	}
 }
 
@@ -13007,7 +13012,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.382"
+		"value":"17.0.393"
 	}
 }
 
@@ -13112,7 +13117,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.382"
+		"value":"17.0.393"
 	}
 }
 
@@ -13252,7 +13257,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.382"
+		"value":"17.0.393"
 	}
 }
 
@@ -13357,7 +13362,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.382"
+		"value":"17.0.393"
 	}
 }
 
@@ -13423,7 +13428,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.382"
+		"value":"17.0.393"
 	}
 }
 
@@ -13489,7 +13494,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.382"
+		"value":"17.0.393"
 	}
 }
 
@@ -13580,7 +13585,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.382"
+		"value":"17.0.393"
 	}
 }
 
@@ -13685,7 +13690,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.382"
+		"value":"17.0.393"
 	}
 }
 
@@ -13790,7 +13795,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.382"
+		"value":"17.0.393"
 	}
 }
 
@@ -13895,7 +13900,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.382"
+		"value":"17.0.393"
 	}
 }
 
@@ -13961,7 +13966,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.382"
+		"value":"17.0.393"
 	}
 }
 
@@ -14027,7 +14032,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.382"
+		"value":"17.0.393"
 	}
 }
 
@@ -14105,7 +14110,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.382"
+		"value":"17.0.393"
 	}
 }
 
@@ -14183,7 +14188,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.382"
+		"value":"17.0.393"
 	}
 }
 
@@ -14263,7 +14268,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.382"
+		"value":"17.0.393"
 	}
 }
 
@@ -14434,7 +14439,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.382"
+		"value":"17.0.393"
 	},
 	"sidefx::parm_filter_raw_value_pattern":{
 		"type":"string",
@@ -16118,7 +16123,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.382"
+		"value":"17.0.393"
 	}
 }
 
@@ -16243,7 +16248,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.382"
+		"value":"17.0.393"
 	},
 	"sidefx::parm_filter_raw_value_pattern":{
 		"type":"string",
@@ -17964,7 +17969,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.382"
+		"value":"17.0.393"
 	}
 }
 
@@ -18024,7 +18029,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.382"
+		"value":"17.0.393"
 	}
 }
 
@@ -18135,7 +18140,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.382"
+		"value":"17.0.393"
 	}
 }
 
@@ -18210,7 +18215,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.382"
+		"value":"17.0.393"
 	}
 }
 
@@ -18271,7 +18276,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.382"
+		"value":"17.0.393"
 	}
 }
 
@@ -18332,7 +18337,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.382"
+		"value":"17.0.393"
 	}
 }
 
@@ -18397,7 +18402,7 @@ Content-Type: text/plain
 
 {
 version 0.8
-input	[ 8	locks=0 ]	(	[ input	1 ] 	)
+input	[ 8	locks=0 ]	(	[ input	0 ] 	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -18407,7 +18412,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.382"
+		"value":"17.0.393"
 	}
 }
 
@@ -18475,7 +18480,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.382"
+		"value":"17.0.393"
 	}
 }
 
@@ -18536,7 +18541,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.382"
+		"value":"17.0.393"
 	}
 }
 
@@ -18595,7 +18600,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.382"
+		"value":"17.0.393"
 	}
 }
 
@@ -18679,7 +18684,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.382"
+		"value":"17.0.393"
 	}
 }
 

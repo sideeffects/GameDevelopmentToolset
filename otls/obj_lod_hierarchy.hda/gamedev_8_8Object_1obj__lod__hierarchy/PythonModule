@@ -1,6 +1,13 @@
 def MainFunction():
         Inputs = hou.pwd().inputs()
-        NumActual = min(len(Inputs), hou.pwd().parm("iNumLOD").evalAsInt())
+        OverrideLODs = hou.pwd().parm('bOverrideNumLODs').evalAsInt()
+        NumActual = None
+
+        if OverrideLODs == 1:
+            NumActual = min(len(Inputs), hou.pwd().parm("iNumLOD").evalAsInt())
+        else: 
+            NumActual = len(Inputs)
+
         LODContainer = hou.node(hou.pwd().path()+"/Container/objnet1/LOD-Export/")
         LODGroup = hou.node(LODContainer.path()+"/LODGroup")
         LODName = hou.pwd().parm("sMeshName").evalAsString()

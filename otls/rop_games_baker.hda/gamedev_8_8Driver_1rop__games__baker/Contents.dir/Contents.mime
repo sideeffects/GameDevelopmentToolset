@@ -31,9 +31,9 @@ Content-Disposition: attachment; filename="hdaroot.def"
 Content-Type: text/plain
 
 comment ""
-position -2.56897 0.720279
+position -4.92988 -2.65976
 connectornextid 0
-flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
+flags =  lock off model off template off footprint off xray off bypass off display on render on highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
 {
 }
@@ -45,9 +45,9 @@ inputs
 }
 stat
 {
-  create 1541183890
-  modify 1541184254
-  author Paul_Ambrosiussen@LAPTOP-P8R7FBPF
+  create 1539889216
+  modify 1541452417
+  author MAINGEAR@DESKTOP-P98C1VA
   access 0777
 }
 color UT_Color RGB 0.8 0.8 0.8 
@@ -693,7 +693,7 @@ inputs
 stat
 {
   create 1496848225
-  modify 1536598892
+  modify 1539889424
   author Luiz@Luiz-PC
   access 0777
 }
@@ -3286,7 +3286,7 @@ inputs
 stat
 {
   create 1496780581
-  modify 1536598892
+  modify 1539889424
   author Luiz@Luiz-PC
   access 0777
 }
@@ -4049,7 +4049,7 @@ inputs
 stat
 {
   create 1496867646
-  modify 1536598892
+  modify 1539889424
   author Luiz@Luiz-PC
   access 0777
 }
@@ -4292,7 +4292,7 @@ inputs
 stat
 {
   create 1496776162
-  modify 1541184064
+  modify 1541452340
   author Luiz@Luiz-PC
   access 0777
 }
@@ -5831,6 +5831,20 @@ Content-Type: text/plain
       flags = 0
       segment { length = 0 value = 1 1 expr = 1-ch(\"../bake_P\") }
     }
+    channel vm_uvunwrapresx {
+      lefttype = extend
+      righttype = extend
+      default = 1024
+      flags = 0
+      segment { length = 0 value = 1024 1024 expr = ch(\"../vm_uvunwrapresx\") }
+    }
+    channel vm_uvunwrapresy {
+      lefttype = extend
+      righttype = extend
+      default = 1024
+      flags = 0
+      segment { length = 0 value = 1024 1024 expr = ch(\"../vm_uvunwrapresy\") }
+    }
   }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -5848,7 +5862,7 @@ f	[ 8	locks=0 ]	(	1	10	1	)
 take	[ 0	locks=0 ]	(	_current_	)
 camera	[ 0	locks=0 ]	(	"`opfullpath(\"..\") + \"/objnet/cam1\"`"	)
 vm_uvtype	[ 0	locks=0 ]	(	udim	)
-vm_uvunwrapres	[ 8	locks=0 ]	(	1024	1024	)
+vm_uvunwrapres	[ 8	locks=0 ]	(	[ vm_uvunwrapresx	512 ] 	[ vm_uvunwrapresy	512 ] 	)
 uvresmenu	[ 0	locks=0 ]	(	[ uvresmenu	0 ] 	)
 vm_ptexmapminres	[ 0	locks=0 ]	(	8	8	)
 vm_uvptexminresmenu	[ 0	locks=0 ]	(	0	)
@@ -5869,7 +5883,7 @@ soho_previewsupport	[ 0	locks=0 ]	(	"on"	)
 main	[ 0	locks=0 ]	(	0	0	)
 vm_uv_unwrap_method	[ 0	locks=0 ]	(	1	)
 vm_uvattribute	[ 0	locks=0 ]	(	uv	)
-vm_uv_ray_bias	[ 8	locks=0 ]	(	[ vm_uv_ray_bias	0.10000000000000001 ] 	)
+vm_uv_ray_bias	[ 8	locks=0 ]	(	[ vm_uv_ray_bias	0.01 ] 	)
 vm_uv_ray_maxdist	[ 8	locks=0 ]	(	[ vm_uv_ray_maxdist	-1 ] 	)
 vm_uv_flip_normal	[ 0	locks=0 ]	(	"off"	)
 vm_uvpostprocess	[ 0	locks=0 ]	(	diffusefill	)
@@ -5915,10 +5929,10 @@ vm_uvobjectenable1	[ 0	locks=0 ]	(	"on"	)
 vm_uvobject1	[ 0	locks=0 ]	(	"`opfullpath(\"..\") + \"/objnet/low\"`"	)
 vm_uvcageobject1	[ 8	locks=0 ]	(	"`ifs(strcmp(chsop(\"../vm_uvcageobject1\"),\"\"),opfullpath(\"..\") + \"/objnet/cage\",\"\")`"	)
 vm_uvhires1	[ 0	locks=0 ]	(	"`opfullpath(\"..\") + \"/objnet/high\"`"	)
-vm_uvoutputpicture1	[ 0	locks=0 ]	(	""	)
+vm_uvoutputpicture1	[ 0	locks=0 ]	(	"C:/Users/Paul Ambrosiussen/Desktop/Webinar/render/LOW_tmp_1.exr"	)
 images6	[ 0	locks=0 ]	(	0	0	0	0	0	)
 main3	[ 0	locks=0 ]	(	0	0	)
-vm_bake_normalizep	[ 8	locks=0 ]	(	[ vm_bake_normalizep	1 ] 	)
+vm_bake_normalizep	[ 8	locks=0 ]	(	[ vm_bake_normalizep	0 ] 	)
 vm_extractimageplanes	[ 0	locks=0 ]	(	"off"	)
 vm_extractimageplanesformat	[ 0	locks=0 ]	(	Targa	)
 vm_quickplane_Nt	[ 8	locks=0 ]	(	[ vm_quickplane_Nt	1 ] 	)
@@ -5929,7 +5943,7 @@ vm_quickplane_Oc	[ 8	locks=0 ]	(	[ vm_quickplane_Oc	0 ] 	)
 vm_quickplane_Cv	[ 0	locks=0 ]	(	"off"	)
 vm_quickplane_Th	[ 8	locks=0 ]	(	[ vm_quickplane_Th	0 ] 	)
 vm_quickplane_Cu	[ 8	locks=0 ]	(	[ vm_quickplane_Cu	0 ] 	)
-vm_quickplane_P	[ 8	locks=0 ]	(	[ vm_quickplane_P	0 ] 	)
+vm_quickplane_P	[ 8	locks=0 ]	(	[ vm_quickplane_P	1 ] 	)
 vm_quickplane_N	[ 8	locks=0 ]	(	[ vm_quickplane_N	0 ] 	)
 vm_quickplane_basecolor	[ 8	locks=0 ]	(	[ vm_quickplane_basecolor	1 ] 	)
 vm_quickplane_diffcolor	[ 0	locks=0 ]	(	"off"	)
@@ -5940,6 +5954,24 @@ vm_quickplane_metallic	[ 8	locks=0 ]	(	[ vm_quickplane_metallic	0 ] 	)
 vm_quickplane_specrough	[ 8	locks=0 ]	(	[ vm_quickplane_specrough	0 ] 	)
 vm_showextraplaneparms	[ 0	locks=0 ]	(	"off"	)
 vm_numaux	[ 0	locks=0 ]	(	1	)
+vm_disable_plane1	[ 0	locks=0 ]	(	"off"	)
+vm_excludedcm_plane1	[ 0	locks=0 ]	(	"off"	)
+vm_variable_plane1	[ 0	locks=0 ]	(	Af	)
+vm_vextype_plane1	[ 0	locks=0 ]	(	float	)
+vm_channel_plane1	[ 0	locks=0 ]	(	alpha	)
+vm_usefile_plane1	[ 0	locks=0 ]	(	"off"	)
+vm_filename_plane1	[ 0	locks=0 ]	(	""	)
+vm_quantize_plane1	[ 0	locks=0 ]	(	half	)
+vm_sfilter_plane1	[ 0	locks=0 ]	(	alpha	)
+vm_pfilter_plane1	[ 0	locks=0 ]	(	""	)
+vm_gamma_plane1	[ 0	locks=0 ]	(	1	)
+vm_gain_plane1	[ 0	locks=0 ]	(	1	)
+vm_dither_plane1	[ 0	locks=0 ]	(	0.5	)
+vm_whitepoint_plane1	[ 0	locks=0 ]	(	1	)
+vm_componentexport1	[ 0	locks=0 ]	(	"off"	)
+vm_lightexport1	[ 0	locks=0 ]	(	0	)
+vm_lightexport_scope1	[ 0	locks=0 ]	(	*	)
+vm_lightexport_select1	[ 0	locks=0 ]	(	*	)
 vm_extractseparator	[ 0	locks=0 ]	(	_	)
 vm_channel_names_seperator_bar	[ 0	locks=0 ]	(	)
 vm_quickplane_Nt_channel	[ 0	locks=0 ]	(	Nt	)
@@ -5954,7 +5986,7 @@ vm_quickplane_P_channel	[ 0	locks=0 ]	(	P	)
 vm_quickplane_N_channel	[ 0	locks=0 ]	(	N	)
 vm_bake_skipcf	[ 0	locks=0 ]	(	"on"	)
 vm_bake_layerexport	[ 0	locks=0 ]	(	"on"	)
-vm_bake_samples	[ 8	locks=0 ]	(	[ vm_bake_samples	8 ] 	)
+vm_bake_samples	[ 8	locks=0 ]	(	[ vm_bake_samples	4 ] 	)
 vm_bake_usemikkt	[ 0	locks=0 ]	(	[ vm_bake_usemikkt	1 ] 	)
 vm_bake_tangentnormalflipx	[ 0	locks=0 ]	(	"off"	)
 vm_bake_tangentnormalflipy	[ 0	locks=0 ]	(	[ vm_bake_tangentnormalflipy	0 ] 	)
@@ -5991,24 +6023,6 @@ vm_extractlinearplanes	[ 0	locks=0 ]	(	`propertys('vm_quickplane_Nt_channel','Nt
 vm_inlinestorage	[ 0	locks=0 ]	(	"off"	)
 declare_stylesheets	[ 0	locks=0 ]	(	*	)
 apply_stylesheets	[ 0	locks=0 ]	(	opdef:..?stylesheet.json	)
-vm_disable_plane1	[ 0	locks=0 ]	(	"off"	)
-vm_excludedcm_plane1	[ 0	locks=0 ]	(	"off"	)
-vm_variable_plane1	[ 0	locks=0 ]	(	Af	)
-vm_vextype_plane1	[ 0	locks=0 ]	(	float	)
-vm_channel_plane1	[ 0	locks=0 ]	(	alpha	)
-vm_usefile_plane1	[ 0	locks=0 ]	(	"off"	)
-vm_filename_plane1	[ 0	locks=0 ]	(	""	)
-vm_quantize_plane1	[ 0	locks=0 ]	(	half	)
-vm_sfilter_plane1	[ 0	locks=0 ]	(	alpha	)
-vm_pfilter_plane1	[ 0	locks=0 ]	(	""	)
-vm_gamma_plane1	[ 0	locks=0 ]	(	1	)
-vm_gain_plane1	[ 0	locks=0 ]	(	1	)
-vm_dither_plane1	[ 0	locks=0 ]	(	0.5	)
-vm_whitepoint_plane1	[ 0	locks=0 ]	(	1	)
-vm_componentexport1	[ 0	locks=0 ]	(	"off"	)
-vm_lightexport1	[ 0	locks=0 ]	(	0	)
-vm_lightexport_scope1	[ 0	locks=0 ]	(	*	)
-vm_lightexport_select1	[ 0	locks=0 ]	(	*	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -6824,7 +6838,7 @@ inputs
 stat
 {
   create 1496780594
-  modify 1541184195
+  modify 1541452329
   author Luiz@Luiz-PC
   access 0777
 }
@@ -6858,7 +6872,7 @@ pivot	[ 0	locks=0 ]	(	"centroid"	)
 viewportlod	[ 0	locks=0 ]	(	"full"	)
 addpath	[ 0	locks=0 ]	(	"on"	)
 enable1	[ 0	locks=0 ]	(	"on"	)
-objpath1	[ 0	locks=0 ]	(	""	)
+objpath1	[ 0	locks=0 ]	(	/obj/geo1/sop_simple_baker1/LOW	)
 group1	[ 0	locks=0 ]	(	""	)
 expand1	[ 0	locks=0 ]	(	"off"	)
 }
@@ -6906,7 +6920,7 @@ inputs
 stat
 {
   create 1504474956
-  modify 1536598892
+  modify 1539889424
   author Luiz@Luiz-PC
   access 0777
 }
@@ -6934,7 +6948,7 @@ Content-Type: text/plain
 
 {
 version 0.8
-input	[ 8	locks=0 ]	(	[ input	0 ] 	)
+input	[ 8	locks=0 ]	(	[ input	1 ] 	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -6981,7 +6995,7 @@ inputs
 stat
 {
   create 1504475028
-  modify 1536598892
+  modify 1539889424
   author Luiz@Luiz-PC
   access 0777
 }
@@ -7009,7 +7023,7 @@ Content-Type: text/plain
 
 {
 version 0.8
-input	[ 8	locks=0 ]	(	[ input	0 ] 	)
+input	[ 8	locks=0 ]	(	[ input	1 ] 	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -7962,7 +7976,7 @@ inputs
 stat
 {
   create 1496780594
-  modify 1536598892
+  modify 1539889424
   author Luiz@Luiz-PC
   access 0777
 }
@@ -8045,7 +8059,7 @@ inputs
 stat
 {
   create 1496782511
-  modify 1536598892
+  modify 1539889424
   author Luiz@Luiz-PC
   access 0777
 }
@@ -8073,7 +8087,7 @@ Content-Type: text/plain
 
 {
 version 0.8
-input	[ 8	locks=0 ]	(	[ input	1 ] 	)
+input	[ 8	locks=0 ]	(	[ input	0 ] 	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -8102,7 +8116,7 @@ sopflags sopflags =
 comment ""
 position -3.25294 0.421471
 connectornextid 1
-flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
+flags =  lock off model off template on footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
 {
 0 "output1"
@@ -8116,7 +8130,7 @@ inputs
 stat
 {
   create 1496780594
-  modify 1541184191
+  modify 1541452329
   author Luiz@Luiz-PC
   access 0777
 }
@@ -8150,7 +8164,7 @@ pivot	[ 0	locks=0 ]	(	"centroid"	)
 viewportlod	[ 0	locks=0 ]	(	"full"	)
 addpath	[ 0	locks=0 ]	(	"on"	)
 enable1	[ 0	locks=0 ]	(	"on"	)
-objpath1	[ 0	locks=0 ]	(	""	)
+objpath1	[ 0	locks=0 ]	(	/obj/geo1/sop_simple_baker1/HIGH	)
 group1	[ 0	locks=0 ]	(	""	)
 expand1	[ 0	locks=0 ]	(	"off"	)
 }
@@ -8199,7 +8213,7 @@ inputs
 stat
 {
   create 1504474956
-  modify 1536598892
+  modify 1539889424
   author Luiz@Luiz-PC
   access 0777
 }
@@ -8227,7 +8241,7 @@ Content-Type: text/plain
 
 {
 version 0.8
-input	[ 8	locks=0 ]	(	[ input	0 ] 	)
+input	[ 8	locks=0 ]	(	[ input	1 ] 	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -8274,7 +8288,7 @@ inputs
 stat
 {
   create 1504475028
-  modify 1536598892
+  modify 1539889424
   author Luiz@Luiz-PC
   access 0777
 }
@@ -8302,7 +8316,7 @@ Content-Type: text/plain
 
 {
 version 0.8
-input	[ 8	locks=0 ]	(	[ input	0 ] 	)
+input	[ 8	locks=0 ]	(	[ input	1 ] 	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -8479,7 +8493,7 @@ inputs
 stat
 {
   create 1509741512
-  modify 1536598892
+  modify 1539889424
   author MAINGEAR@DESKTOP-P98C1VA
   access 0777
 }
@@ -8532,7 +8546,7 @@ sopflags sopflags =
 comment ""
 position -1.88716 -11.4623
 connectornextid 2
-flags =  lock off model off template on footprint off xray off bypass off display on render on highlight off unload off savedata off compress on colordefault on exposed on
+flags =  lock off model off template off footprint off xray off bypass off display on render on highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
 {
 }
@@ -8549,7 +8563,7 @@ inputs
 stat
 {
   create 1509741521
-  modify 1541184191
+  modify 1539889424
   author MAINGEAR@DESKTOP-P98C1VA
   access 0777
 }
@@ -8577,7 +8591,7 @@ Content-Type: text/plain
 
 {
 version 0.8
-input	[ 8	locks=0 ]	(	[ input	0 ] 	)
+input	[ 8	locks=0 ]	(	[ input	1 ] 	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -9572,7 +9586,7 @@ inputs
 stat
 {
   create 1496780594
-  modify 1536598892
+  modify 1539889424
   author Luiz@Luiz-PC
   access 0777
 }
@@ -9655,7 +9669,7 @@ inputs
 stat
 {
   create 1496782511
-  modify 1536598892
+  modify 1539889424
   author Luiz@Luiz-PC
   access 0777
 }
@@ -9683,7 +9697,7 @@ Content-Type: text/plain
 
 {
 version 0.8
-input	[ 8	locks=0 ]	(	[ input	1 ] 	)
+input	[ 8	locks=0 ]	(	[ input	0 ] 	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -9726,7 +9740,7 @@ inputs
 stat
 {
   create 1496780594
-  modify 1536598892
+  modify 1539889424
   author Luiz@Luiz-PC
   access 0777
 }
@@ -10582,7 +10596,7 @@ inputs
 stat
 {
   create 1496780594
-  modify 1536600111
+  modify 1539889424
   author Luiz@Luiz-PC
   access 0777
 }
@@ -10921,7 +10935,7 @@ inputs
 stat
 {
   create 1496798847
-  modify 1536610650
+  modify 1541452343
   author Luiz@Luiz-PC
   access 0777
 }
@@ -10950,12 +10964,12 @@ Content-Type: text/plain
 {
 version 0.8
 stdswitcher	[ 0	locks=0 ]	(	0	0	0	0	)
-filename	[ 0	locks=0 ]	(	/Users/mikel/Documents/projects/bugs/hip/render/_tmp_1.exr	"cinspace lin cinlut \"\" cinwhite 685 cingamma 0.6"	)
+filename	[ 0	locks=0 ]	(	"C:/Users/Paul Ambrosiussen/Desktop/Webinar/render\\_tmp_1.exr"	"cinspace lin cinlut \"\" cinwhite 685 cingamma 0.6"	)
 nodename	[ 0	locks=0 ]	(	"userdef"	)
 reload	[ 0	locks=0 ]	(	0	)
 subframes	[ 0	locks=0 ]	(	"off"	)
 overridesize	[ 0	locks=0 ]	(	"natural"	)
-size	[ 0	locks=0 ]	(	1024	1024	)
+size	[ 0	locks=0 ]	(	512	512	)
 sizemenu	[ 0	locks=0 ]	(	0	)
 filter	[ 0	locks=0 ]	(	box	)
 overrideaspect	[ 0	locks=0 ]	(	"off"	)
@@ -11013,7 +11027,7 @@ Content-Disposition: attachment; filename="hdaroot/extract_net/base_image.cop2"
 Content-Type: text/plain
 
 2
-710
+735
 0
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -11613,7 +11627,7 @@ inputs
 stat
 {
   create 1496952905
-  modify 1536598892
+  modify 1539889424
   author mikel@mikembp-sesi.local
   access 0777
 }
@@ -11722,7 +11736,7 @@ Content-Disposition: attachment; filename="hdaroot/extract_net/height_normalized
 Content-Type: text/plain
 
 2
-14
+15
 0
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -12808,7 +12822,7 @@ inputs
 stat
 {
   create 1496798868
-  modify 1536610664
+  modify 1541452377
   author Luiz@Luiz-PC
   access 0777
 }
@@ -12831,22 +12845,22 @@ take	[ 0	locks=0 ]	(	_current_	)
 copswitcher	[ 0	locks=0 ]	(	0	0	0	0	0	)
 coppath	[ 0	locks=0 ]	(	../extract_net/base_image	)
 tres	[ 0	locks=0 ]	(	"natural"	)
-res	[ 0	locks=0 ]	(	1024	1024	)
+res	[ 0	locks=0 ]	(	512	512	)
 resmenu	[ 0	locks=0 ]	(	0	)
-copoutput	[ 0	locks=0 ]	(	/Users/mikel/Documents/projects/bugs/hip/render/games_baker_test_basecolor.tga	)
+copoutput	[ 0	locks=0 ]	(	"C:/Users/Paul Ambrosiussen/Desktop/Webinar/render/LODTool_01_position.png"	)
 mkpath	[ 0	locks=0 ]	(	"on"	)
-color	[ 0	locks=0 ]	(	basecolor	)
+color	[ 0	locks=0 ]	(	P	)
 alpha	[ 0	locks=0 ]	(	A	)
 scopeplanes	[ 8	locks=0 ]	(	*	)
 convertcolorspace	[ 0	locks=0 ]	(	"off"	)
-gamma	[ 0	locks=0 ]	(	2.2000000000000002	)
+gamma	[ 0	locks=0 ]	(	1	)
 lut	[ 0	locks=0 ]	(	""	)
 framedepend	[ 0	locks=0 ]	(	"off"	)
 batchmode	[ 0	locks=0 ]	(	"off"	)
 batchsize	[ 0	locks=0 ]	(	2	)
 reloadfiles	[ 0	locks=0 ]	(	"on"	)
 outputarea	[ 0	locks=0 ]	(	"frame"	)
-pixelcrop	[ 0	locks=0 ]	(	0	0	1023	1023	)
+pixelcrop	[ 0	locks=0 ]	(	0	0	511	511	)
 uvcrop	[ 0	locks=0 ]	(	0	0	1	1	)
 limitcanvaspixels	[ 0	locks=0 ]	(	"on"	)
 canvaspixels	[ 0	locks=0 ]	(	64	)
@@ -12942,7 +12956,7 @@ inputs
 stat
 {
   create 1496776162
-  modify 1541184013
+  modify 1541201420
   author Luiz@Luiz-PC
   access 0777
 }
@@ -14356,6 +14370,20 @@ Content-Type: text/plain
       flags = 0
       segment { length = 0 value = 4 4 expr = ch(\"../baking_samples\") }
     }
+    channel vm_uvunwrapresx {
+      lefttype = extend
+      righttype = extend
+      default = 1024
+      flags = 0
+      segment { length = 0 value = 1024 1024 expr = ch(\"../vm_uvunwrapresx\") }
+    }
+    channel vm_uvunwrapresy {
+      lefttype = extend
+      righttype = extend
+      default = 1024
+      flags = 0
+      segment { length = 0 value = 1024 1024 expr = ch(\"../vm_uvunwrapresy\") }
+    }
   }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -14373,7 +14401,7 @@ f	[ 8	locks=0 ]	(	1	10	1	)
 take	[ 0	locks=0 ]	(	_current_	)
 camera	[ 0	locks=0 ]	(	"`opfullpath(\"..\") + \"/objnet/cam1\"`"	)
 vm_uvtype	[ 0	locks=0 ]	(	udim	)
-vm_uvunwrapres	[ 8	locks=0 ]	(	1024	1024	)
+vm_uvunwrapres	[ 8	locks=0 ]	(	[ vm_uvunwrapresx	4096 ] 	[ vm_uvunwrapresy	4096 ] 	)
 uvresmenu	[ 0	locks=0 ]	(	[ uvresmenu	0 ] 	)
 vm_ptexmapminres	[ 0	locks=0 ]	(	8	8	)
 vm_uvptexminresmenu	[ 0	locks=0 ]	(	0	)
@@ -14394,7 +14422,7 @@ soho_previewsupport	[ 0	locks=0 ]	(	"on"	)
 main	[ 0	locks=0 ]	(	0	0	)
 vm_uv_unwrap_method	[ 0	locks=0 ]	(	1	)
 vm_uvattribute	[ 8	locks=0 ]	(	uv	)
-vm_uv_ray_bias	[ 8	locks=0 ]	(	[ vm_uv_ray_bias	0.10000000000000001 ] 	)
+vm_uv_ray_bias	[ 8	locks=0 ]	(	[ vm_uv_ray_bias	0.01 ] 	)
 vm_uv_ray_maxdist	[ 8	locks=0 ]	(	[ vm_uv_ray_maxdist	-1 ] 	)
 vm_uv_flip_normal	[ 0	locks=0 ]	(	"off"	)
 vm_uvpostprocess	[ 0	locks=0 ]	(	borderfill	)
@@ -14479,7 +14507,7 @@ vm_quickplane_P_channel	[ 0	locks=0 ]	(	P	)
 vm_quickplane_N_channel	[ 0	locks=0 ]	(	N	)
 vm_bake_skipcf	[ 0	locks=0 ]	(	"on"	)
 vm_bake_layerexport	[ 0	locks=0 ]	(	"on"	)
-vm_bake_samples	[ 8	locks=0 ]	(	[ vm_bake_samples	8 ] 	)
+vm_bake_samples	[ 8	locks=0 ]	(	[ vm_bake_samples	4 ] 	)
 vm_bake_usemikkt	[ 0	locks=0 ]	(	"on"	)
 vm_bake_tangentnormalflipx	[ 0	locks=0 ]	(	"off"	)
 vm_bake_tangentnormalflipy	[ 0	locks=0 ]	(	"off"	)
@@ -14562,7 +14590,7 @@ inputs
 stat
 {
   create 1496798844
-  modify 1536610648
+  modify 1541452339
   author Luiz@Luiz-PC
   access 0777
 }
@@ -14624,7 +14652,7 @@ inputs
 stat
 {
   create 1496798868
-  modify 1536610661
+  modify 1541452352
   author Luiz@Luiz-PC
   access 0777
 }
@@ -14647,9 +14675,9 @@ take	[ 0	locks=0 ]	(	_current_	)
 copswitcher	[ 0	locks=0 ]	(	0	0	0	0	0	)
 coppath	[ 0	locks=0 ]	(	../composite_net	)
 tres	[ 0	locks=0 ]	(	"natural"	)
-res	[ 0	locks=0 ]	(	1024	1024	)
+res	[ 0	locks=0 ]	(	512	512	)
 resmenu	[ 0	locks=0 ]	(	0	)
-copoutput	[ 0	locks=0 ]	(	/Users/mikel/Documents/projects/bugs/hip/render/_tmp_1.exr	)
+copoutput	[ 0	locks=0 ]	(	"C:/Users/Paul Ambrosiussen/Desktop/Webinar/render\\_tmp_1.exr"	)
 mkpath	[ 0	locks=0 ]	(	"on"	)
 color	[ 0	locks=0 ]	(	Nt	)
 alpha	[ 0	locks=0 ]	(	A	)
@@ -14662,7 +14690,7 @@ batchmode	[ 0	locks=0 ]	(	"off"	)
 batchsize	[ 0	locks=0 ]	(	2	)
 reloadfiles	[ 0	locks=0 ]	(	"on"	)
 outputarea	[ 0	locks=0 ]	(	"frame"	)
-pixelcrop	[ 0	locks=0 ]	(	0	0	1023	1023	)
+pixelcrop	[ 0	locks=0 ]	(	0	0	511	511	)
 uvcrop	[ 0	locks=0 ]	(	0	0	1	1	)
 limitcanvaspixels	[ 0	locks=0 ]	(	"on"	)
 canvaspixels	[ 0	locks=0 ]	(	64	)
@@ -14758,7 +14786,7 @@ inputs
 stat
 {
   create 1496776162
-  modify 1541184017
+  modify 1541201423
   author Luiz@Luiz-PC
   access 0777
 }
@@ -16172,6 +16200,20 @@ Content-Type: text/plain
       flags = 0
       segment { length = 0 value = 4 4 expr = ch(\"../baking_samples\") }
     }
+    channel vm_uvunwrapresx {
+      lefttype = extend
+      righttype = extend
+      default = 1024
+      flags = 0
+      segment { length = 0 value = 1024 1024 expr = ch(\"../vm_uvunwrapresx\") }
+    }
+    channel vm_uvunwrapresy {
+      lefttype = extend
+      righttype = extend
+      default = 1024
+      flags = 0
+      segment { length = 0 value = 1024 1024 expr = ch(\"../vm_uvunwrapresy\") }
+    }
   }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -16189,7 +16231,7 @@ f	[ 8	locks=0 ]	(	1	10	1	)
 take	[ 0	locks=0 ]	(	_current_	)
 camera	[ 0	locks=0 ]	(	"`opfullpath(\"..\") + \"/objnet/cam1\"`"	)
 vm_uvtype	[ 0	locks=0 ]	(	udim	)
-vm_uvunwrapres	[ 8	locks=0 ]	(	1024	1024	)
+vm_uvunwrapres	[ 8	locks=0 ]	(	[ vm_uvunwrapresx	512 ] 	[ vm_uvunwrapresy	512 ] 	)
 uvresmenu	[ 0	locks=0 ]	(	[ uvresmenu	0 ] 	)
 vm_ptexmapminres	[ 0	locks=0 ]	(	8	8	)
 vm_uvptexminresmenu	[ 0	locks=0 ]	(	0	)
@@ -16210,7 +16252,7 @@ soho_previewsupport	[ 0	locks=0 ]	(	"on"	)
 main	[ 0	locks=0 ]	(	0	0	)
 vm_uv_unwrap_method	[ 0	locks=0 ]	(	1	)
 vm_uvattribute	[ 8	locks=0 ]	(	uv	)
-vm_uv_ray_bias	[ 8	locks=0 ]	(	[ vm_uv_ray_bias	0.10000000000000001 ] 	)
+vm_uv_ray_bias	[ 8	locks=0 ]	(	[ vm_uv_ray_bias	0.01 ] 	)
 vm_uv_ray_maxdist	[ 8	locks=0 ]	(	[ vm_uv_ray_maxdist	-1 ] 	)
 vm_uv_flip_normal	[ 0	locks=0 ]	(	"off"	)
 vm_uvpostprocess	[ 0	locks=0 ]	(	"Border Expansion"	)
@@ -16257,7 +16299,7 @@ vm_uvobject1	[ 0	locks=0 ]	(	"`opfullpath(\"..\") + \"/objnet/low\"`"	)
 vm_uvcageobject1	[ 0	locks=0 ]	(	"`ifs(strcmp(chsop(\"../vm_uvcageobject1\"),\"\"),opfullpath(\"..\") + \"/objnet/cage\",\"\")`"	)
 vm_uvhires1	[ 0	locks=0 ]	(	"`opfullpath(\"..\") + \"/objnet/custom_export\"`"	)
 vm_uvoutputpicture1	[ 0	locks=0 ]	(	$HIP/render/${HIPNAME}_${OS}_%(CHANNEL)s.%(UDIM)d.rat	)
-images6	[ 0	locks=0 ]	(	0	0	0	0	0	)
+images6	[ 0	locks=0 ]	(	1	1	1	1	1	)
 main3	[ 0	locks=0 ]	(	0	0	)
 vm_bake_normalizep	[ 0	locks=0 ]	(	"on"	)
 vm_extractimageplanes	[ 0	locks=0 ]	(	"off"	)
@@ -16281,6 +16323,24 @@ vm_quickplane_metallic	[ 0	locks=0 ]	(	"off"	)
 vm_quickplane_specrough	[ 0	locks=0 ]	(	"off"	)
 vm_showextraplaneparms	[ 0	locks=0 ]	(	"off"	)
 vm_numaux	[ 0	locks=0 ]	(	1	)
+vm_disable_plane1	[ 0	locks=0 ]	(	"off"	)
+vm_excludedcm_plane1	[ 0	locks=0 ]	(	"off"	)
+vm_variable_plane1	[ 0	locks=0 ]	(	Af	)
+vm_vextype_plane1	[ 0	locks=0 ]	(	float	)
+vm_channel_plane1	[ 0	locks=0 ]	(	alpha	)
+vm_usefile_plane1	[ 0	locks=0 ]	(	"off"	)
+vm_filename_plane1	[ 0	locks=0 ]	(	""	)
+vm_quantize_plane1	[ 0	locks=0 ]	(	half	)
+vm_sfilter_plane1	[ 0	locks=0 ]	(	alpha	)
+vm_pfilter_plane1	[ 0	locks=0 ]	(	""	)
+vm_gamma_plane1	[ 0	locks=0 ]	(	1	)
+vm_gain_plane1	[ 0	locks=0 ]	(	1	)
+vm_dither_plane1	[ 0	locks=0 ]	(	0.5	)
+vm_whitepoint_plane1	[ 0	locks=0 ]	(	1	)
+vm_componentexport1	[ 0	locks=0 ]	(	"off"	)
+vm_lightexport1	[ 0	locks=0 ]	(	0	)
+vm_lightexport_scope1	[ 0	locks=0 ]	(	*	)
+vm_lightexport_select1	[ 0	locks=0 ]	(	*	)
 vm_extractseparator	[ 0	locks=0 ]	(	_	)
 vm_channel_names_seperator_bar	[ 0	locks=0 ]	(	)
 vm_quickplane_Nt_channel	[ 0	locks=0 ]	(	Nt	)
@@ -16295,7 +16355,7 @@ vm_quickplane_P_channel	[ 0	locks=0 ]	(	P	)
 vm_quickplane_N_channel	[ 0	locks=0 ]	(	N	)
 vm_bake_skipcf	[ 0	locks=0 ]	(	"on"	)
 vm_bake_layerexport	[ 0	locks=0 ]	(	"on"	)
-vm_bake_samples	[ 8	locks=0 ]	(	[ vm_bake_samples	8 ] 	)
+vm_bake_samples	[ 8	locks=0 ]	(	[ vm_bake_samples	4 ] 	)
 vm_bake_usemikkt	[ 0	locks=0 ]	(	"on"	)
 vm_bake_tangentnormalflipx	[ 0	locks=0 ]	(	"off"	)
 vm_bake_tangentnormalflipy	[ 0	locks=0 ]	(	"off"	)
@@ -16330,24 +16390,6 @@ vm_imageblur	[ 0	locks=0 ]	(	"on"	)
 objects4	[ 0	locks=0 ]	(	1	1	1	)
 vm_extractlinearplanes	[ 0	locks=0 ]	(	`propertys('vm_quickplane_Nt_channel','Nt')`,`propertys('vm_quickplane_Ds_channel','Ds')`,`propertys('vm_quickplane_Vd_channel','Vd')`,`propertys('vm_quickplane_Vdt_channel','Vdt')`,`propertys('vm_quickplane_Cv_channel','Cv')`,`propertys('vm_quickplane_Th_channel','Th')`,`propertys('vm_quickplane_Cu_channel','Cu')`,`propertys('vm_quickplane_N_channel','N')`,`propertys('vm_quickplane_P_channel','P')`	)
 vm_inlinestorage	[ 0	locks=0 ]	(	"off"	)
-vm_disable_plane1	[ 0	locks=0 ]	(	"off"	)
-vm_excludedcm_plane1	[ 0	locks=0 ]	(	"off"	)
-vm_variable_plane1	[ 0	locks=0 ]	(	Af	)
-vm_vextype_plane1	[ 0	locks=0 ]	(	float	)
-vm_channel_plane1	[ 0	locks=0 ]	(	alpha	)
-vm_usefile_plane1	[ 0	locks=0 ]	(	"off"	)
-vm_filename_plane1	[ 0	locks=0 ]	(	""	)
-vm_quantize_plane1	[ 0	locks=0 ]	(	half	)
-vm_sfilter_plane1	[ 0	locks=0 ]	(	alpha	)
-vm_pfilter_plane1	[ 0	locks=0 ]	(	""	)
-vm_gamma_plane1	[ 0	locks=0 ]	(	1	)
-vm_gain_plane1	[ 0	locks=0 ]	(	1	)
-vm_dither_plane1	[ 0	locks=0 ]	(	0.5	)
-vm_whitepoint_plane1	[ 0	locks=0 ]	(	1	)
-vm_componentexport1	[ 0	locks=0 ]	(	"off"	)
-vm_lightexport1	[ 0	locks=0 ]	(	0	)
-vm_lightexport_scope1	[ 0	locks=0 ]	(	*	)
-vm_lightexport_select1	[ 0	locks=0 ]	(	*	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY

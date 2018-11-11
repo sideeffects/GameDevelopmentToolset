@@ -118,11 +118,14 @@ def ConvertAndExportTexture(node, material, textures, ropOutput, fileImport, rop
 
                         # Deal with Regular Textures
                         # https://www.sidefx.com/forum/topic/6680/?page=1#post-31658
-                        # https://www.sidefx.com/forum/topic/6680/?page=1#post-31658
-                        # https://www.sidefx.com/forum/topic/6680/?page=1#post-31658
                         else:
                                 if os.path.splitext(TexturePath)[1][1:].upper() == TextureExportExtension.upper():
+                                    try:
                                         shutil.copy(TexturePath, FilePath)
+                                    except IOError:
+                                        os.chmod(FilePath, 664)
+                                        shutil.copy(TexturePath, FilePath)
+
                                 elif TexturePath != "":
                                         # import os, os.path
                                         # for file in os.listdir('.'):

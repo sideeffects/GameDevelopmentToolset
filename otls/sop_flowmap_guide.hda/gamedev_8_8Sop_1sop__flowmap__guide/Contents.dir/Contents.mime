@@ -32,26 +32,28 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position -9.92148 -3.56136
-connectornextid 2
+position 5.64014 -15.6138
+connectornextid 3
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
 {
-1 "output1"
+2 "output1"
 }
 inputsNamed3
 {
-0 	sop_flowmap_obstacle3 1 1 "input1"
+0 	sop_flowmap1 1 1 "input1"
+1 	drawcurve1 1 1 "input2"
 }
 inputs
 {
-0 	sop_flowmap_obstacle3 0 1
+0 	sop_flowmap1 0 1
+1 	drawcurve1 0 1
 }
 stat
 {
-  create 1538435211
-  modify 1538435407
-  author MAINGEAR@DESKTOP-P98C1VA
+  create 1542229996
+  modify 1542230718
+  author Paul_Ambrosiussen@LAPTOP-P8R7FBPF
   access 0777
 }
 color UT_Color RGB 0.8 0.8 0.8 
@@ -250,7 +252,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.611"
+		"value":"17.0.399"
 	}
 }
 
@@ -287,7 +289,7 @@ inputs
 stat
 {
   create 1478103708
-  modify 1484779054
+  modify 1542230331
   author Luiz@Luiz-PC
   access 0777
 }
@@ -314,6 +316,13 @@ Content-Type: text/plain
       flags = 0
       segment { length = 0 value = 0.35999999999999999 0.35999999999999999 expr = ch(\"../effect_width\") }
     }
+    channel maxsamplecount {
+      lefttype = extend
+      righttype = extend
+      default = 1
+      flags = 0
+      segment { length = 0 value = 1 1 expr = ch(\"../maxsamplecount\") }
+    }
   }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -339,10 +348,10 @@ copyvariable	[ 0	locks=0 ]	(	"on"	)
 matchpattrib	[ 0	locks=0 ]	(	"off"	)
 kernel	[ 0	locks=0 ]	(	elendt	)
 kernelradius	[ 0	locks=0 ]	(	10	)
-maxsamplecount	[ 0	locks=0 ]	(	1	)
+maxsamplecount	[ 0	locks=0 ]	(	[ maxsamplecount	5 ] 	)
 threshold	[ 0	locks=0 ]	(	"on"	)
-thresholddist	[ 8	locks=0 ]	(	[ thresholddist	0.70999999999999996 ] 	)
-blendwidth	[ 8	locks=0 ]	(	[ blendwidth	1.1000000000000001 ] 	)
+thresholddist	[ 8	locks=0 ]	(	[ thresholddist	1.1599999999999999 ] 	)
+blendwidth	[ 8	locks=0 ]	(	[ blendwidth	0.76000000000000001 ] 	)
 uniformbias	[ 0	locks=0 ]	(	0.5	)
 }
 
@@ -353,7 +362,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.611"
+		"value":"17.0.399"
 	}
 }
 
@@ -436,7 +445,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.611"
+		"value":"17.0.399"
 	}
 }
 
@@ -495,7 +504,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.611"
+		"value":"17.0.399"
 	}
 }
 

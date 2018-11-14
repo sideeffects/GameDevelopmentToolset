@@ -1,0 +1,94 @@
+# Dialog script for gamedev::sop_terrain_layer_export automatically generated
+
+{
+    name	gamedev::sop_terrain_layer_export
+    script	HEngine_TerrainRoundtrip
+    label	"GameDev Terrain Layer Export"
+
+    help {
+	""
+    }
+
+    inputlabel	1	"HDA in HEngine"
+    inputlabel	2	"Sub-Network Input #2"
+    inputlabel	3	"Sub-Network Input #3"
+    inputlabel	4	"Sub-Network Input #4"
+
+    parm {
+        name    "execute"
+        label   "Save to Disk"
+        type    button
+        default { "0" }
+        parmtag { "autoscope" "0000000000000000" }
+        parmtag { "script_callback" "kwargs[\"node\"].hm().MainFunction()" }
+        parmtag { "script_callback_language" "python" }
+    }
+    parm {
+        name    "sPaintLayerPrefix"
+        label   "Layer Prefix"
+        type    string
+        default { "Layer" }
+    }
+    parm {
+        name    "sHeightmapName"
+        label   "Heightmap Name"
+        type    string
+        default { "Heightmap" }
+    }
+    parm {
+        name    "output"
+        label   "Export Folder"
+        type    file
+        default { "" }
+        parmtag { "autoscope" "0000000000000000" }
+        parmtag { "filechooser_mode" "read" }
+    }
+    parm {
+        name    "bExportAllLayers"
+        label   "Export All Layers"
+        type    toggle
+        default { "1" }
+    }
+    multiparm {
+        name    "folder0"
+        label    "Export Layers"
+        disablewhen "{ bExportAllLayers == 1 }"
+
+        parm {
+            name    "exportlayer_#"
+            label   "Name"
+            type    string
+            default { "" }
+        }
+    }
+
+    parm {
+        name    "sOutputHeight"
+        label   "Filename Height Inv"
+        type    image
+        invisible
+        default { "" }
+        parmtag { "autoscope" "0000000000000000" }
+        parmtag { "filechooser_mode" "write" }
+    }
+    parm {
+        name    "sOutputPaint"
+        label   "Filename Paint Inv"
+        type    image
+        invisible
+        default { "" }
+        parmtag { "autoscope" "0000000000000000" }
+        parmtag { "filechooser_mode" "write" }
+    }
+    parm {
+        name    "sOutputLayer"
+        label   "Channel Name Paint Inv"
+        type    string
+        invisible
+        default { "" }
+        menureplace {
+            [ "opmenu -l heightfield_output_mask red_channel" ]
+        }
+        parmtag { "autoscope" "0000000000000000" }
+    }
+}

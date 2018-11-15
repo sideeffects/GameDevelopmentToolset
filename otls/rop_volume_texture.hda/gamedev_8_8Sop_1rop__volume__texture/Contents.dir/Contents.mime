@@ -32,25 +32,25 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position 0 0
+position -3.33947 -1.82488
 connectornextid 1
-flags =  lock off model off template off footprint off xray off bypass off display on render on highlight on unload off savedata off compress on colordefault on exposed on
+flags =  lock off model off template off footprint off xray off bypass off display on render on highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
 {
 }
 inputsNamed3
 {
-0 	sphere1 0 1 "input1"
+0 	vdbfrompolygons1 1 1 "input1"
 }
 inputs
 {
-0 	sphere1 0 1
+0 	vdbfrompolygons1 0 1
 }
 stat
 {
-  create 1537489133
-  modify 1537489774
-  author MAINGEAR@DESKTOP-P98C1VA
+  create 1542309404
+  modify 1542309961
+  author Paul_Ambrosiussen@LAPTOP-P8R7FBPF
   access 0777
 }
 color UT_Color RGB 0.8 0.8 0.8 
@@ -65,7 +65,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"0.1"
+		"value":"0.2"
 	},
 	"___toolcount___":{
 		"type":"string",
@@ -95,7 +95,7 @@ Content-Type: text/plain
 }
 {
   create 1510877625
-  modify 1537489137
+  modify 1542309920
   author GDC_Houdini@AUSTIN
   access 0777
 }
@@ -118,7 +118,7 @@ Content-Type: text/plain
 }
 {
   create 1510877652
-  modify 1537489133
+  modify 1542309916
   author GDC_Houdini@AUSTIN
   access 0777
 }
@@ -193,6 +193,7 @@ frame	[ 0	locks=0 ]	(	[ frame	1 ] 	)
 planemask	[ 0	locks=0 ]	(	*	)
 method	[ 0	locks=0 ]	(	"volume"	)
 plane	[ 0	locks=0 ]	(	"xy"	)
+sampling	[ 0	locks=0 ]	(	"center"	)
 t	[ 0	locks=0 ]	(	0	0	0	)
 scale	[ 0	locks=0 ]	(	1	)
 visualize	[ 0	locks=0 ]	(	"on"	)
@@ -212,7 +213,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.595"
+		"value":"17.0.401"
 	}
 }
 
@@ -248,7 +249,7 @@ inputs
 stat
 {
   create 1510873462
-  modify 1510942610
+  modify 1542309958
   author GDC_Houdini@AUSTIN
   access 0777
 }
@@ -563,7 +564,7 @@ maskplane	[ 0	locks=0 ]	(	C	)
 maskresize	[ 0	locks=0 ]	(	"on"	)
 maskinvert	[ 0	locks=0 ]	(	"on"	)
 overridesize	[ 0	locks=0 ]	(	"on"	)
-size	[ 8	locks=0 ]	(	[ size1	64 ] 	[ size2	64 ] 	)
+size	[ 8	locks=0 ]	(	[ size1	128 ] 	[ size2	128 ] 	)
 sizemenu	[ 0	locks=0 ]	(	0	)
 overrideaspect	[ 0	locks=0 ]	(	"off"	)
 aspect	[ 0	locks=0 ]	(	[ aspect	1 ] 	)
@@ -587,7 +588,7 @@ prehold	[ 0	locks=0 ]	(	0	)
 postextend	[ 0	locks=0 ]	(	"black"	)
 posthold	[ 0	locks=0 ]	(	0	)
 stdswitcher5	[ 0	locks=0 ]	(	1	1	1	1	)
-MAXFRAMES	[ 0	locks=0 ]	(	[ MAXFRAMES	64 ] 	)
+MAXFRAMES	[ 0	locks=0 ]	(	[ MAXFRAMES	16 ] 	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -597,7 +598,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.595"
+		"value":"17.0.401"
 	}
 }
 
@@ -606,7 +607,7 @@ Content-Disposition: attachment; filename="hdaroot/cop2net1/GEN-Z_UP.cop2"
 Content-Type: text/plain
 
 2
-39
+41
 0
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -692,7 +693,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.595"
+		"value":"17.0.401"
 	}
 }
 
@@ -729,7 +730,7 @@ inputs
 stat
 {
   create 1510873462
-  modify 1510942609
+  modify 1542309958
   author GDC_Houdini@AUSTIN
   access 0777
 }
@@ -756,7 +757,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.595"
+		"value":"17.0.401"
 	}
 }
 
@@ -1139,7 +1140,7 @@ inputs
 stat
 {
   create 1510873551
-  modify 1510942609
+  modify 1542309958
   author GDC_Houdini@AUSTIN
   access 0777
 }
@@ -1256,8 +1257,8 @@ vectoradef	[ 0	locks=0 ]	(	)
 pointadef	[ 0	locks=0 ]	(	)
 normaladef	[ 0	locks=0 ]	(	)
 coloradef	[ 0	locks=0 ]	(	)
-float4adef	[ 0	locks=0 ]	(	)
 floatm2adef	[ 0	locks=0 ]	(	)
+float4adef	[ 0	locks=0 ]	(	)
 float9adef	[ 0	locks=0 ]	(	)
 float16adef	[ 0	locks=0 ]	(	)
 stringadef	[ 0	locks=0 ]	(	)
@@ -1297,7 +1298,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.595"
+		"value":"17.0.401"
 	}
 }
 
@@ -1335,7 +1336,7 @@ inputs
 stat
 {
   create 1510873477
-  modify 1510942609
+  modify 1542309958
   author GDC_Houdini@AUSTIN
   access 0777
 }
@@ -1403,7 +1404,7 @@ inputs
 stat
 {
   create 1510876227
-  modify 1510942609
+  modify 1542309958
   author GDC_Houdini@AUSTIN
   access 0777
 }
@@ -1442,7 +1443,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.595"
+		"value":"17.0.401"
 	}
 }
 
@@ -1601,7 +1602,7 @@ inputs
 stat
 {
   create 1510876299
-  modify 1510942609
+  modify 1542309958
   author GDC_Houdini@AUSTIN
   access 0777
 }
@@ -1660,7 +1661,7 @@ inputs
 stat
 {
   create 1510879497
-  modify 1510942609
+  modify 1542309958
   author GDC_Houdini@AUSTIN
   access 0777
 }
@@ -1830,7 +1831,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.595"
+		"value":"17.0.401"
 	}
 }
 
@@ -1883,6 +1884,8 @@ version 0.8
 group	[ 0	locks=0 ]	(	""	)
 conversion	[ 0	locks=0 ]	(	"vdb"	)
 vdbclass	[ 0	locks=0 ]	(	"none"	)
+vdbtype	[ 0	locks=0 ]	(	none	)
+vdbprecision	[ 0	locks=0 ]	(	none	)
 splitdisjointvolumes	[ 0	locks=0 ]	(	"off"	)
 isovalue	[ 0	locks=0 ]	(	0	)
 fogisovalue	[ 0	locks=0 ]	(	0.5	)
@@ -1921,7 +1924,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.595"
+		"value":"17.0.401"
 	}
 }
 
@@ -1980,7 +1983,7 @@ inputs
 stat
 {
   create 1510874573
-  modify 1510942392
+  modify 1542309941
   author GDC_Houdini@AUSTIN
   access 0777
 }
@@ -2017,13 +2020,13 @@ Content-Type: text/plain
 {
 version 0.8
 stdswitcher	[ 0	locks=0 ]	(	0	)
-numperline	[ 8	locks=0 ]	(	[ numperline	8 ] 	)
+numperline	[ 8	locks=0 ]	(	[ numperline	4 ] 	)
 stackvert	[ 0	locks=0 ]	(	"ttob"	)
 stackhorz	[ 0	locks=0 ]	(	"ltor"	)
 stackrows	[ 0	locks=0 ]	(	"on"	)
 limitperframe	[ 0	locks=0 ]	(	"on"	)
-imagelimit	[ 0	locks=0 ]	(	[ imagelimit	64 ] 	)
-fullsize	[ 0	locks=0 ]	(	"off"	)
+imagelimit	[ 0	locks=0 ]	(	[ imagelimit	16 ] 	)
+fullsize	[ 0	locks=0 ]	(	"on"	)
 backcolor	[ 0	locks=0 ]	(	0	0	0	0	)
 }
 
@@ -2034,7 +2037,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.595"
+		"value":"17.0.401"
 	}
 }
 
@@ -2160,7 +2163,7 @@ vm_image_mplay_gamma	[ 0	locks=0 ]	(	1	)
 vm_image_jpeg_quality	[ 0	locks=0 ]	(	100	)
 vm_image_tiff_compression	[ 0	locks=0 ]	(	"LZW"	)
 vm_image_exr_compression	[ 0	locks=0 ]	(	"piz"	)
-png_alpha_multiplication	[ 0	locks=0 ]	(	"premult"	)
+pngtga_alpha_multiplication	[ 0	locks=0 ]	(	"premult"	)
 tprerender	[ 0	locks=0 ]	(	"on"	)
 prerender	[ 0	locks=0 ]	(	""	)
 lprerender	[ 0	locks=0 ]	(	hscript	)
@@ -2182,7 +2185,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.595"
+		"value":"17.0.401"
 	}
 }
 
@@ -2256,7 +2259,7 @@ foutside	[ 0	locks=0 ]	(	0	)
 flist	[ 0	locks=0 ]	(	*	)
 fmenu	[ 0	locks=0 ]	(	"scopeall"	)
 fautoadjust	[ 0	locks=0 ]	(	"on"	)
-currange	[ 0	locks=0 ]	(	4	)
+currange	[ 0	locks=0 ]	(	15	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -2266,7 +2269,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.595"
+		"value":"17.0.401"
 	}
 }
 
@@ -2420,7 +2423,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.595"
+		"value":"17.0.401"
 	}
 }
 
@@ -2512,7 +2515,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.595"
+		"value":"17.0.401"
 	}
 }
 
@@ -2596,7 +2599,7 @@ xOrd	[ 0	locks=0 ]	(	"srt"	)
 rOrd	[ 0	locks=0 ]	(	"xyz"	)
 t	[ 0	locks=0 ]	(	0	0	0	)
 r	[ 0	locks=0 ]	(	0	0	0	)
-s	[ 8	locks=0 ]	(	[ sx	0.45045044464527451 ] 	[ sy	0.45045044464527451 ] 	[ sz	0.45045044464527451 ] 	)
+s	[ 8	locks=0 ]	(	[ sx	0.44247787797336191 ] 	[ sy	0.44247787797336191 ] 	[ sz	0.44247787797336191 ] 	)
 shear	[ 0	locks=0 ]	(	0	0	0	)
 scale	[ 0	locks=0 ]	(	1	)
 parmgroup_pivotxform	[ 0	locks=0 ]	(	0	)
@@ -2615,6 +2618,9 @@ updatenmls	[ 0	locks=0 ]	(	"off"	)
 updateaffectednmls	[ 0	locks=0 ]	(	"on"	)
 vlength	[ 0	locks=0 ]	(	"on"	)
 invertxform	[ 0	locks=0 ]	(	"off"	)
+addattrib	[ 0	locks=0 ]	(	"off"	)
+outputattrib	[ 0	locks=0 ]	(	xform	)
+outputmerge	[ 0	locks=0 ]	(	"post"	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -2630,7 +2636,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.595"
+		"value":"17.0.401"
 	}
 }
 
@@ -2690,7 +2696,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.595"
+		"value":"17.0.401"
 	}
 }
 
@@ -2771,7 +2777,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.595"
+		"value":"17.0.401"
 	}
 }
 
@@ -2836,7 +2842,7 @@ Content-Type: text/plain
 
 {
 version 0.8
-input	[ 8	locks=0 ]	(	[ input	0 ] 	)
+input	[ 8	locks=0 ]	(	[ input	1 ] 	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -2846,7 +2852,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.595"
+		"value":"17.0.401"
 	}
 }
 

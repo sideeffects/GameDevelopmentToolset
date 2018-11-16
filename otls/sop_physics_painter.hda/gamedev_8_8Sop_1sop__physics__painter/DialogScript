@@ -216,6 +216,23 @@
             name    "folder3"
             label   "Dynamic"
 
+            parm {
+                name    "opQuickAdd"
+                label   "Quick Add"
+                type    oplist
+                joinnext
+                default { "" }
+                parmtag { "oprelative" "/" }
+                parmtag { "script_callback" "kwargs['node'].hm().QuickAdd()" }
+                parmtag { "script_callback_language" "python" }
+            }
+            parm {
+                name    "fQuickWeight"
+                label   "Weight"
+                type    float
+                default { "1" }
+                range   { 0! 10 }
+            }
             multiparm {
                 name    "folder2"
                 label    "Paint Meshes"

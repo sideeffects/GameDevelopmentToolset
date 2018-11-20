@@ -92,21 +92,6 @@ layout(std140) uniform glH_Material
     vec4            reflection_comp;
 };
 
-void  HOUlightingModel(vec3 P, vec3 nN,
-                       vec3 m_amb,
-                       vec3 m_diff,
-                       vec3 m_spec,
-                       vec3 m_metal,
-                       inout vec3 lAmb,
-                       inout vec3 lDiff,
-                       inout vec3 lSpec,
-                       float rough,
-                       float diff_rough,
-                       float ior,
-                       float metal,
-                       int spec_model,
-                       float alpha);
-
 void HOUassignOutputs(vec3 point_color,
                       vec3 emit_color,
                       vec3 metal_color,
@@ -143,22 +128,9 @@ uniform sampler2D    diffTexture;
 uniform sampler2D   flowmapTexture;
 
 
-// ----------------------------
-// TWO CUSTOM FUNCTIONS
-// ----------------------------
-vec3 lerpv(vec3 A, vec3 B, float blend)
-{
-    return A*(1-blend) + B*blend;
-}
-
-float lerpf(float A, float B, float blend)
-{
-        return A*(1-blend) + B*blend;
-}
-
 void main()
 {
-        float rough, alpha, mtl, diff_rough;
+    float rough, alpha, mtl, diff_rough;
     vec3 nN, p, lspec, mspec, ldiff, lamb, ptcol, envmap;
     vec4 tex, wire;
     
@@ -177,10 +149,24 @@ void main()
     // ----------------------------
     float timespeed = time * 0.01 * speed;
     vec2 tilingUV = vec2(fsIn.texcoord0.x * uvtiling.x, fsIn.texcoord0.y * uvtiling.y); 
-    vec2 flowmap = (mode == 0) ? fsIn.color.rg * 2.0 - 1.0 : texture(flowmapTexture, fsIn.texcoord0).rg * 2.0 - 1.0;
-    //vec2 flowmap = texture(flowmapTexture, fsIn.texcoord0).rg * 2.0 - 1.0;
-    //vec2 flowmap = fsIn.color.rg * 2.0 - 1.0;
-    flowmap *= -1.0;//vec2(1.0, 1.0);
+    vec2 flowmap;
+
+    if (mode == 0) {
+        
+        flowmap = fsIn.color.rg;
+        //flowmap.r = pow(flowmap.r, 2.2);
+        //flowmap.g = pow(flowmap.g, 2.2);
+        flowmap = flowmap * 2.0 - 1.0;
+
+    } else if (mode == 1) {
+
+        flowmap = texture(flowmapTexture, fsIn.texcoord0).rg;
+        //flowmap.r = pow(flowmap.r, 2.2);
+        //flowmap.g = pow(flowmap.g, 2.2);
+        flowmap = flowmap * 2.0 - 1.0;
+    }
+
+    flowmap *= -1.0;
     flowmap *= distortion;
 
     vec2 uvtex1 = (tilingUV + (flowmap * fract(timespeed))) ;
@@ -190,9 +176,9 @@ void main()
     vec3 tex2 = texture(diffTexture, uvtex2).rgb;
 
     float fractime = fract(timespeed);
-    float lerpval  = lerpf(fract(fractime) * 2.0, (1.0 - fract(fractime)) * 2.0, floor(fract(fractime) * 2.0));
+    float lerpval  = mix(fract(fractime) * 2.0, (1.0 - fract(fractime)) * 2.0, floor(fract(fractime) * 2.0));
 
-    tex.rgb = lerpv(tex2, tex1, lerpval);
+    tex.rgb = mix(tex2, tex1, lerpval);
     tex.a = 1.0;
 
     
@@ -202,7 +188,7 @@ void main()
     lspec = vec3(0.0);
     ldiff = diffuse_color * tex.rgb;
     lamb = ambient_color * tex.rgb;
-    alpha = fsIn.color.a * tex.a;
+    alpha = 1.0;//fsIn.color.a * tex.a;
     wire = HOUwireColor(fsIn.edgedist,fsIn.edgeflags,fsIn.selected);
     
 

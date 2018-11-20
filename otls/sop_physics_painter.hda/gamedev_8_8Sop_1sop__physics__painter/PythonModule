@@ -59,3 +59,21 @@ def TertiaryFunction():
     hou.node(ThisNode.path()+"/IN_PREVIOUS_SIM").parm("objpath1").set("")
     ThisNode.parm('Activate_All').set(0)
     ResetCurrent()
+
+
+def QuickAdd():
+    ThisNode = hou.pwd()
+
+    Paths = ThisNode.evalParm('opQuickAdd').split()
+    ThisNode.parm('opQuickAdd').set("")
+    Weight = ThisNode.evalParm('fQuickWeight')
+
+    if Paths:
+        for i in Paths:
+            index = ThisNode.parm('folder2').evalAsInt()
+
+            relpath = ThisNode.relativePathTo(hou.node(i))
+
+            ThisNode.parm('folder2').insertMultiParmInstance(index)
+            ThisNode.parm('objObjPath'+str(index+1)).set(relpath)
+            ThisNode.parm('fChance'+str(index+1)).set(Weight)

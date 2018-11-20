@@ -97,6 +97,10 @@ def pre_bake(node):
     bake_parms = ["bake_basecolor", "bake_Nt", "bake_specrough", "bake_metallic", "bake_N", "bake_Oc", "bake_Cu", "bake_P", "bake_Th", "bake_Ds" ]
     normalized_maps = ["Nt", "N"]
     linear_maps = ['specrough', 'metallic', 'Oc', 'Cu', 'P', 'Th']
+
+    if node.parm("bBasecolorLinearSpace").evalAsInt() == 1:
+        linear_maps.append("basecolor")
+
     for bake_parm in bake_parms:
         should_bake = node.parm(bake_parm).eval()
         if should_bake:

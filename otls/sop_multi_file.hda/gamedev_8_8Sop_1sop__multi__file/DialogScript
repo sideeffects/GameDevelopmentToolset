@@ -22,22 +22,28 @@
         parmtag { "script_callback" "hou.pwd().hdaModule().on_button_click()" }
         parmtag { "script_callback_language" "python" }
     }
-    multiscroll {
-        name    "filecount"
-        label    "Files"
-
-        parm {
-            name    "file_#"
-            label   "Label"
-            type    geometry
-            default { "" }
-        }
+    parm {
+        name    "bOutputSourcePath"
+        label   "Output Source Path"
+        type    toggle
+        default { "0" }
     }
-
     parm {
         name    "visualize_parts"
         label   "Visualize Parts"
         type    toggle
         default { "0" }
     }
+    multiscroll {
+        name    "filecount"
+        label    "Files"
+
+        parm {
+            name    "file_#"
+            label   "File"
+            type    geometry
+            default { "" }
+        }
+    }
+
 }

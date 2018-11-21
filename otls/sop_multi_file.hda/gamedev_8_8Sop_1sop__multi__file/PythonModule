@@ -1,10 +1,10 @@
 from PySide2 import QtWidgets
-import os 
+import os, hou
 
 
 def on_button_click():
     fileNames = QtWidgets.QFileDialog.getOpenFileNames(None,
-        ("Open Image"), "/home/jana", ("Geometry Files (*.obj *.fbx *.bmp)"))
+        ("Open Image"), hou.getenv("HIP"), ("Geometry Files (*.obj *.fbx *.bmp)"))
         
     for filename in fileNames[0]: 
         cur_count = hou.pwd().parm("filecount").eval()

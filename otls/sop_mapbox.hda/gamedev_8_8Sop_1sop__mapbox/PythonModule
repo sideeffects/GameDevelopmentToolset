@@ -3,6 +3,7 @@ import urllib
 import os 
 from math import sin, cos, sqrt, atan2, radians
 import time 
+import platform
 # approximate radius of earth in km
 R = 6371.0
 
@@ -134,7 +135,12 @@ def launch_map():
     lat = node.parm("lat_lon_zoomx").eval()
     lon = node.parm("lat_lon_zoomy").eval()
     zoom = node.parm("lat_lon_zoomz").eval()
-    webview.setUrl(os.environ["HOUDINI_USER_PREF_DIR"] + "/mapbox/mapbox_map.html#" + str(lon) + "," + str(lat) + "," + str(zoom) + "," + node.parm("api_key").eval())
+    
+    url = os.environ["HOUDINI_USER_PREF_DIR"] + "/mapbox/mapbox_map.html?#" + str(lon) + "," + str(lat) + "," + str(zoom) + "," + node.parm("api_key").eval()
+    if platform.system() != "Windows":
+        url = "file://" + url
+        
+    webview.setUrl(url)
     
     layout.addWidget(webview)
     

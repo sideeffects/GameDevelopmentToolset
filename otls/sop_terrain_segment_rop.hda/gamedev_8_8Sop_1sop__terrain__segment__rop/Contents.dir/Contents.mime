@@ -32,23 +32,25 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position -3.71713 -0.279482
-connectornextid 0
-flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
+position 0 -2.33766
+connectornextid 1
+flags =  lock off model off template on footprint off xray off bypass off display on render on highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
 {
 }
 inputsNamed3
 {
+0 	heightfield_noise1 1 1 "input1"
 }
 inputs
 {
+0 	heightfield_noise1 0 1
 }
 stat
 {
-  create 1539884308
-  modify 1539884312
-  author MAINGEAR@DESKTOP-P98C1VA
+  create 1542827970
+  modify 1542831936
+  author Paul_Ambrosiussen@LAPTOP-P8R7FBPF
   access 0777
 }
 color UT_Color RGB 0.8 0.8 0.8 
@@ -63,7 +65,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"1.4"
+		"value":"1.5"
 	}
 }
 
@@ -1312,10 +1314,10 @@ parm	[ 0	locks=0 ]	(	[ parm	2 ] 	)
 parm1pos	[ 0	locks=0 ]	(	[ parm1pos	0 ] 	)
 parm1value	[ 0	locks=0 ]	(	[ parm1value	0 ] 	)
 parm1interp	[ 0	locks=0 ]	(	[ parm1interp	1 ] 	)
-parm2	[ 0	locks=0 ]	(	[ parm2	3 ] 	)
 parm2pos	[ 0	locks=0 ]	(	[ parm2pos	1 ] 	)
 parm2value	[ 0	locks=0 ]	(	[ parm2value	1 ] 	)
 parm2interp	[ 0	locks=0 ]	(	[ parm2interp	1 ] 	)
+parm2	[ 0	locks=0 ]	(	[ parm2	4 ] 	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -1525,7 +1527,7 @@ inputs
 stat
 {
   create 1512967746
-  modify 1513026662
+  modify 1542831771
   author paula@DESKTOP-JOVQSE4
   access 0777
 }
@@ -1555,9 +1557,19 @@ snippet	[ 0	locks=0 ]	(	"for (int i=0; i<npoints(0); i++) {
                 setpointattrib(0, \"soloPT\", i, 1, \"set\");
 
                 // Start Looking for Prim to Cut
+                int pointprims[] = pointprims(0, i);
+                string vals[];
+                foreach (int num; pointprims) {
+
+                    append(vals, itoa(num));
+                }
+
+                string groupmask = \"* ^\"+join(vals, \" ^\");
+
+
                 int Prim = -1;
                 vector UV;
-                xyzdist(0, vector(point(0, \"P\", i)), Prim, UV, 0.0001);
+                xyzdist(0, groupmask, vector(point(0, \"P\", i)), Prim, UV, 0.0001);
 
                 setpointattrib(0, \"hitPrim\", i, Prim, \"set\");
                 if (Prim != -1) {
@@ -2931,7 +2943,7 @@ Content-Type: text/plain
 {
 version 0.8
 folder1	[ 0	locks=0 ]	(	0	)
-scale	[ 8	locks=0 ]	(	[ scale	0 ] 	)
+scale	[ 8	locks=0 ]	(	[ scale	1 ] 	)
 gridscale	[ 0	locks=0 ]	(	1	)
 heightscale	[ 0	locks=0 ]	(	1	)
 heightoffset	[ 0	locks=0 ]	(	0	)
@@ -2970,7 +2982,7 @@ sopflags sopflags =
 comment ""
 position -2.64565 -65.957
 connectornextid 2
-flags =  lock off model off template off footprint off xray off bypass off display on render on highlight off unload off savedata off compress on colordefault off exposed on
+flags =  lock off model off template on footprint off xray off bypass off display on render on highlight off unload off savedata off compress on colordefault off exposed on
 outputsNamed3
 {
 1 "output1"
@@ -2986,7 +2998,7 @@ inputs
 stat
 {
   create 1506559772
-  modify 1518635642
+  modify 1542831889
   author admin@DESKTOP-PINH
   access 0777
 }
@@ -3011,7 +3023,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.374"
+		"value":"17.0.403"
 	}
 }
 
@@ -3068,7 +3080,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.374"
+		"value":"17.0.403"
 	}
 }
 
@@ -3184,7 +3196,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.374"
+		"value":"17.0.403"
 	}
 }
 
@@ -3300,7 +3312,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.374"
+		"value":"17.0.403"
 	}
 }
 
@@ -3408,7 +3420,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.374"
+		"value":"17.0.403"
 	}
 }
 
@@ -3475,7 +3487,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.374"
+		"value":"17.0.403"
 	}
 }
 
@@ -3603,7 +3615,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.374"
+		"value":"17.0.403"
 	}
 }
 
@@ -3663,7 +3675,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.374"
+		"value":"17.0.403"
 	}
 }
 
@@ -3824,8 +3836,8 @@ orient	[ 0	locks=0 ]	(	"zx"	)
 size	[ 8	locks=0 ]	(	1	1	)
 t	[ 0	locks=0 ]	(	0	0	0	)
 r	[ 0	locks=0 ]	(	0	0	0	)
-rows	[ 8	locks=0 ]	(	[ rows	1 ] 	)
-cols	[ 8	locks=0 ]	(	[ cols	1 ] 	)
+rows	[ 8	locks=0 ]	(	[ rows	13 ] 	)
+cols	[ 8	locks=0 ]	(	[ cols	13 ] 	)
 orderu	[ 0	locks=0 ]	(	4	)
 orderv	[ 0	locks=0 ]	(	4	)
 interpu	[ 0	locks=0 ]	(	"on"	)
@@ -3840,7 +3852,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.374"
+		"value":"17.0.403"
 	}
 }
 
@@ -3930,7 +3942,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.374"
+		"value":"17.0.403"
 	}
 }
 
@@ -4006,7 +4018,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.374"
+		"value":"17.0.403"
 	}
 }
 
@@ -4041,7 +4053,7 @@ inputs
 stat
 {
   create 1507237338
-  modify 1539884353
+  modify 1542831950
   author admin@DESKTOP-PINH
   access 0777
 }
@@ -4070,7 +4082,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.374"
+		"value":"17.0.403"
 	}
 }
 
@@ -4134,7 +4146,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.374"
+		"value":"17.0.403"
 	}
 }
 
@@ -4197,7 +4209,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.374"
+		"value":"17.0.403"
 	}
 }
 
@@ -4261,7 +4273,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.374"
+		"value":"17.0.403"
 	}
 }
 
@@ -4324,7 +4336,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.374"
+		"value":"17.0.403"
 	}
 }
 
@@ -4393,7 +4405,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.374"
+		"value":"17.0.403"
 	}
 }
 
@@ -4600,7 +4612,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.374"
+		"value":"17.0.403"
 	}
 }
 
@@ -4665,7 +4677,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.374"
+		"value":"17.0.403"
 	}
 }
 
@@ -4740,7 +4752,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.374"
+		"value":"17.0.403"
 	}
 }
 
@@ -4816,7 +4828,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.374"
+		"value":"17.0.403"
 	}
 }
 
@@ -4851,7 +4863,7 @@ inputs
 stat
 {
   create 1507242979
-  modify 1539884353
+  modify 1542831955
   author admin@DESKTOP-PINH
   access 0777
 }
@@ -4880,7 +4892,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.374"
+		"value":"17.0.403"
 	}
 }
 
@@ -4978,7 +4990,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.374"
+		"value":"17.0.403"
 	}
 }
 
@@ -5060,7 +5072,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.374"
+		"value":"17.0.403"
 	}
 }
 
@@ -5143,7 +5155,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.374"
+		"value":"17.0.403"
 	}
 }
 
@@ -5270,7 +5282,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.374"
+		"value":"17.0.403"
 	}
 }
 
@@ -5334,7 +5346,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.374"
+		"value":"17.0.403"
 	}
 }
 
@@ -5400,7 +5412,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.374"
+		"value":"17.0.403"
 	}
 }
 
@@ -5476,7 +5488,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.374"
+		"value":"17.0.403"
 	}
 }
 
@@ -5511,7 +5523,7 @@ inputs
 stat
 {
   create 1507747671
-  modify 1518636023
+  modify 1542832072
   author admin@DESKTOP-PINH
   access 0777
 }
@@ -5540,7 +5552,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.374"
+		"value":"17.0.403"
 	}
 }
 
@@ -5608,7 +5620,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.374"
+		"value":"17.0.403"
 	}
 }
 
@@ -5676,7 +5688,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.374"
+		"value":"17.0.403"
 	}
 }
 
@@ -5744,7 +5756,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.374"
+		"value":"17.0.403"
 	}
 }
 
@@ -5839,7 +5851,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.374"
+		"value":"17.0.403"
 	}
 }
 
@@ -5871,7 +5883,7 @@ inputs
 stat
 {
   create 1507747949
-  modify 1518636023
+  modify 1542832072
   author admin@DESKTOP-PINH
   access 0777
 }
@@ -5900,7 +5912,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.374"
+		"value":"17.0.403"
 	}
 }
 
@@ -5982,7 +5994,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.374"
+		"value":"17.0.403"
 	}
 }
 
@@ -6065,7 +6077,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.374"
+		"value":"17.0.403"
 	}
 }
 
@@ -6129,7 +6141,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.374"
+		"value":"17.0.403"
 	}
 }
 
@@ -6194,7 +6206,7 @@ Content-Type: text/plain
 
 {
 version 0.8
-input	[ 8	locks=0 ]	(	[ input	1 ] 	)
+input	[ 8	locks=0 ]	(	[ input	0 ] 	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -6204,7 +6216,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.374"
+		"value":"17.0.403"
 	}
 }
 
@@ -6303,7 +6315,7 @@ inputs
 stat
 {
   create 1507870639
-  modify 1518635642
+  modify 1542831890
   author paula@DESKTOP-JOVQSE4
   access 0777
 }
@@ -6331,7 +6343,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.374"
+		"value":"17.0.403"
 	}
 }
 
@@ -6429,7 +6441,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.374"
+		"value":"17.0.403"
 	}
 }
 
@@ -6497,7 +6509,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.374"
+		"value":"17.0.403"
 	}
 }
 
@@ -6573,7 +6585,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.374"
+		"value":"17.0.403"
 	}
 }
 
@@ -6608,7 +6620,7 @@ inputs
 stat
 {
   create 1512971926
-  modify 1518864457
+  modify 1542890773
   author paula@DESKTOP-JOVQSE4
   access 0777
 }
@@ -6637,7 +6649,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.374"
+		"value":"17.0.403"
 	}
 }
 
@@ -6715,7 +6727,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.374"
+		"value":"17.0.403"
 	}
 }
 
@@ -6797,7 +6809,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.374"
+		"value":"17.0.403"
 	}
 }
 
@@ -6879,7 +6891,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.374"
+		"value":"17.0.403"
 	}
 }
 
@@ -6958,7 +6970,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.374"
+		"value":"17.0.403"
 	}
 }
 
@@ -7037,7 +7049,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.374"
+		"value":"17.0.403"
 	}
 }
 
@@ -7135,7 +7147,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.374"
+		"value":"17.0.403"
 	}
 }
 
@@ -7203,7 +7215,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.374"
+		"value":"17.0.403"
 	}
 }
 
@@ -7279,7 +7291,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.374"
+		"value":"17.0.403"
 	}
 }
 
@@ -7343,7 +7355,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.374"
+		"value":"17.0.403"
 	}
 }
 
@@ -7421,7 +7433,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.374"
+		"value":"17.0.403"
 	}
 }
 
@@ -7497,7 +7509,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.374"
+		"value":"17.0.403"
 	}
 }
 
@@ -7532,7 +7544,7 @@ inputs
 stat
 {
   create 1513016862
-  modify 1518635693
+  modify 1542831955
   author GDC_Houdini@AUSTIN
   access 0777
 }
@@ -7561,7 +7573,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.374"
+		"value":"17.0.403"
 	}
 }
 
@@ -7627,7 +7639,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.374"
+		"value":"17.0.403"
 	}
 }
 
@@ -7710,7 +7722,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.374"
+		"value":"17.0.403"
 	}
 }
 
@@ -7792,7 +7804,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.374"
+		"value":"17.0.403"
 	}
 }
 
@@ -7827,7 +7839,7 @@ inputs
 stat
 {
   create 1512972976
-  modify 1518635642
+  modify 1542831888
   author paula@DESKTOP-JOVQSE4
   access 0777
 }
@@ -7870,7 +7882,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.374"
+		"value":"17.0.403"
 	}
 }
 
@@ -7934,7 +7946,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.374"
+		"value":"17.0.403"
 	}
 }
 
@@ -7997,7 +8009,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.374"
+		"value":"17.0.403"
 	}
 }
 
@@ -8062,7 +8074,7 @@ Content-Type: text/plain
 
 {
 version 0.8
-input	[ 8	locks=0 ]	(	[ input	0 ] 	)
+input	[ 8	locks=0 ]	(	[ input	1 ] 	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -8072,7 +8084,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.374"
+		"value":"17.0.403"
 	}
 }
 
@@ -8137,7 +8149,7 @@ Content-Type: text/plain
 
 {
 version 0.8
-input	[ 8	locks=0 ]	(	[ input	0 ] 	)
+input	[ 8	locks=0 ]	(	[ input	1 ] 	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -8147,7 +8159,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.374"
+		"value":"17.0.403"
 	}
 }
 
@@ -8215,7 +8227,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.374"
+		"value":"17.0.403"
 	}
 }
 
@@ -8345,7 +8357,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.374"
+		"value":"17.0.403"
 	}
 }
 
@@ -8457,7 +8469,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.374"
+		"value":"17.0.403"
 	}
 }
 
@@ -8584,7 +8596,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.374"
+		"value":"17.0.403"
 	}
 }
 
@@ -8668,7 +8680,7 @@ t	[ 8	locks=0 ]	(	[ tx	0 ] 	0	[ tz	0 ] 	)
 r	[ 0	locks=0 ]	(	0	0	0	)
 s	[ 0	locks=0 ]	(	1	1	1	)
 shear	[ 0	locks=0 ]	(	0	0	0	)
-scale	[ 0	locks=0 ]	(	[ scale	0 ] 	)
+scale	[ 0	locks=0 ]	(	[ scale	1 ] 	)
 parmgroup_pivotxform	[ 0	locks=0 ]	(	0	)
 p	[ 0	locks=0 ]	(	0	0	0	)
 pr	[ 0	locks=0 ]	(	0	0	0	)
@@ -8697,7 +8709,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.374"
+		"value":"17.0.403"
 	}
 }
 
@@ -8758,7 +8770,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.374"
+		"value":"17.0.403"
 	}
 }
 

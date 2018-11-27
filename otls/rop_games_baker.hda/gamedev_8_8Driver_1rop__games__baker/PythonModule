@@ -302,3 +302,10 @@ def post_bake(node):
     exr_path = os.path.join(temp_path, "%s_tmp_%s.exr" % (host_name, hou.intFrame()))
     os.remove(exr_path)
     hou.hscript("glcache -c;") #refresh textures
+
+
+def CheckExportPath(node):
+    try:
+        hou.node(node.path()+'/objnet/warningchecking/FrameRangeWarning').cook(force=True)
+    except:
+        pass

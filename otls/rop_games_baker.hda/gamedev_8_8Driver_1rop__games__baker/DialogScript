@@ -25,6 +25,14 @@
         nolabel
         export  none
     }
+    parm {
+        name    "parm"
+        label   "Label"
+        type    button
+        default { "0" }
+        parmtag { "script_callback" "kwargs['node'].hm().CheckExportPath(kwargs['node'])" }
+        parmtag { "script_callback_language" "python" }
+    }
     multiparm {
         name    "meshes"
         label    "Meshes"
@@ -284,6 +292,8 @@
                 "on"        "Render Frame Range Only (Strict)"
             }
             parmtag { "autoscope" "0000000000000000" }
+            parmtag { "script_callback" "kwargs['node'].hm().CheckExportPath(kwargs['node'])" }
+            parmtag { "script_callback_language" "python" }
         }
         parm {
             name    "f"

@@ -19,6 +19,20 @@
         label   "Base Settings"
 
         parm {
+            name    "axis"
+            label   "Axis"
+            type    ordinal
+            default { "0" }
+            menu {
+                "0" "+X"
+                "1" "+Y"
+                "2" "+Z"
+                "3" "-X"
+                "4" "-Y"
+                "5" "-Z"
+            }
+        }
+        parm {
             name    "curve_offset"
             label   "Curve Offset"
             type    float
@@ -38,6 +52,13 @@
         name    "folder1"
         label   "Scale Controls"
 
+        parm {
+            name    "scale_to_length"
+            label   "Scale To Curve Length"
+            type    float
+            default { "0" }
+            range   { 0 1 }
+        }
         parm {
             name    "scale"
             label   "Scale"

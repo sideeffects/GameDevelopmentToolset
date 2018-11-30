@@ -30,7 +30,7 @@ def pre_bake(node):
         # build the filepath for the exr
         file_path = node.parm("base_path").eval()
         dir_path = os.path.dirname(file_path)
-        temp_path = hou.getenv("temp")
+        temp_path = os.environ['HOUDINI_TEMP_DIR']
         host_name = socket.gethostname()
 
         if not os.path.exists(temp_path):
@@ -52,7 +52,6 @@ def pre_bake(node):
             high_node.parm("objpath1").set(node.node(high_mesh).path())
         else:
             high_node.parm("objpath1").set(node.node(low_mesh).path())
-
         exr_path = temp_path + "/" + low_mesh.split("/")[-1] + "%s_tmp_%s.exr" % (host_name, hou.intFrame())
         if i == 0:
             bake_texture.parm("vm_uvpostprocess").set("diffusefill")

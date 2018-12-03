@@ -184,11 +184,12 @@ def Export(a_Node):
         LODContainer = hou.node(Node.path()+"/objnet1/LOD-Export/")
         LODGroup = hou.node(LODContainer.path()+"/LODGroup")
         LODName = Node.parm("sMeshName").evalAsString()
+        LODMeshPrefix = Node.parm("sLODNamePrefix").evalAsString()
         
         LODObjects = []
 
         for x in range(NumLODs):
-                Geometry = LODContainer.createNode("geo", "mesh_LOD%s" % x)
+                Geometry = LODContainer.createNode("geo", LODMeshPrefix + "_LOD%s" % x)
                 Geometry.setNextInput(LODGroup)
                 ObjMerge = Geometry.createNode("object_merge")
                 ObjMerge.parm("objpath1").set("../../../../OUT_ALL_LOD")

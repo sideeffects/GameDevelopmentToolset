@@ -523,6 +523,13 @@
                     parmtag { "spare_category" "Baking" }
                 }
                 parm {
+                    name    "bBasecolorLinearSpace"
+                    label   "Output basecolor in Linear Space"
+                    type    toggle
+                    default { "off" }
+                    parmtag { "autoscope" "0000000000000000" }
+                }
+                parm {
                     name    "vm_bake_tangentnormalflipy"
                     label   "Tangent Normal Flip Y"
                     type    toggle
@@ -1192,6 +1199,12 @@
                     label   "LOD Group Name"
                     type    string
                     default { "LOD_Group" }
+                }
+                parm {
+                    name    "sLODNamePrefix"
+                    label   "LOD Mesh Name Prefix"
+                    type    string
+                    default { "mesh" }
                 }
             }
 

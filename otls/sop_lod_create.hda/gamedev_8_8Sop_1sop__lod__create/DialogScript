@@ -56,44 +56,46 @@
         label   "Settings"
 
         parm {
+            name    "bShowVisualizer"
+            label   "Visualizer"
+            type    toggle
+            joinnext
+            default { "1" }
+        }
+        parm {
             name    "bViewAllLOD"
             label   "Debug All LOD"
             type    toggle
             default { "0" }
         }
         parm {
-            name    "bDebugCamera"
-            label   "Debug Camera"
-            type    toggle
-            nolabel
-            joinnext
+            name    "mViewingMode"
+            label   "LOD Viewing Mode"
+            type    ordinal
             default { "0" }
-            disablewhen "{ bViewAllLOD == 1 }"
+            menu usetokenvalue {
+                "0" "Forced"
+                "1" "Camera Distance"
+                "2" "None"
+            }
         }
         parm {
             name    "oDebugCamera"
-            label   "Debug Camera"
+            label   "Camera"
             type    oppath
             default { "" }
             disablewhen "{ bViewAllLOD == 1 }"
+            hidewhen "{ mViewingMode == 0 } { mViewingMode == 2 }"
             parmtag { "opfilter" "!!OBJ/CAMERA!!" }
             parmtag { "oprelative" "." }
         }
         parm {
-            name    "bVisualize"
-            label   "Visualize"
-            type    toggle
-            nolabel
-            joinnext
-            default { "on" }
-            disablewhen "{ bDebugCamera == 1 } { bViewAllLOD == 1 }"
-        }
-        parm {
             name    "iVisibleLOD"
-            label   "Visible LOD"
+            label   "LOD"
             type    integer
             default { "0" }
-            disablewhen "{ bVisualize == 0 } { bDebugCamera == 1 } { bViewAllLOD == 1 }"
+            disablewhen "{ bDebugCamera == 1 } { bViewAllLOD == 1 }"
+            hidewhen "{ mViewingMode == 1 } { mViewingMode == 2 }"
             range   { 0 10 }
         }
         parm {
@@ -144,12 +146,6 @@
             }
         }
         parm {
-            name    "bRemoveInsides"
-            label   "Remove Insides"
-            type    toggle
-            default { "1" }
-        }
-        parm {
             name    "bLastLODImpostor"
             label   "Last LOD is Impostor"
             type    toggle
@@ -176,6 +172,12 @@
                 name    "folder5"
                 label   "Output Geometry"
 
+                parm {
+                    name    "bRemoveInsides"
+                    label   "Remove Insides"
+                    type    toggle
+                    default { "1" }
+                }
                 parm {
                     name    "preservequads"
                     label   "Preserve Quads"

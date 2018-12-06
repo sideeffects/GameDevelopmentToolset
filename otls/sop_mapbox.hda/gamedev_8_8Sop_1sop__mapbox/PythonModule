@@ -87,8 +87,8 @@ def refresh(node, force=True):
         sw_lat = node.parm("boundsz").eval()
         sw_lon = node.parm("boundsw").eval()
     
-        terrain = "https://api.mapbox.com/v4/mapbox.terrain-rgb/" + str(lon) +"," + str(lat) + "," + str((zoom+2)) + "/1024x1024@2x.png?access_token=" + node.parm("api_key").eval()
-        color_url = "https://api.mapbox.com/styles/v1/mapbox/satellite-v9/static/" + str(lon) + "," + str(lat) + "," + str((zoom+1)) + "/1024x1024@2x?access_token="+ node.parm("api_key").eval()
+        terrain = "https://api.mapbox.com/v4/mapbox.terrain-rgb/" + str(lon) +"," + str(lat) + "," + str((zoom+1)) + "/1024x1024@2x.png?access_token=" + node.parm("api_key").eval()
+        color_url = "https://api.mapbox.com/styles/v1/mapbox/satellite-v9/static/" + str(lon) + "," + str(lat) + "," + str((zoom)) + "/1024x1024@2x?access_token="+ node.parm("api_key").eval()
         osm_url = "https://overpass-api.de/api/map?bbox=" + str(sw_lon) + "," + str(sw_lat) + "," + str(ne_lon) + "," + str(ne_lat)
 
 

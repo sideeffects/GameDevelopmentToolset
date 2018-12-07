@@ -32,24 +32,24 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position -6.92685 -7.79793
+position -2.7381 -3.60823
 connectornextid 1
-flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
+flags =  lock off model off template on footprint off xray off bypass off display on render on highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
 {
 }
 inputsNamed3
 {
-0 	heightfield_copylayer4 1 1 "input1"
+0 	heightfield_noise1 1 1 "input1"
 }
 inputs
 {
-0 	heightfield_copylayer4 0 1
+0 	heightfield_noise1 0 1
 }
 stat
 {
-  create 1542052537
-  modify 1542059087
+  create 1544211323
+  modify 1544212734
   author Paul_Ambrosiussen@LAPTOP-P8R7FBPF
   access 0777
 }
@@ -87,7 +87,7 @@ Content-Type: text/plain
 }
 {
   create 1541699822
-  modify 1542056430
+  modify 1544211325
   author Paul_Ambrosiussen@LAPTOP-P8R7FBPF
   access 0777
 }
@@ -130,7 +130,7 @@ inputs
 stat
 {
   create 1541633966
-  modify 1542056817
+  modify 1544212717
   author Paul_Ambrosiussen@LAPTOP-P8R7FBPF
   access 0777
 }
@@ -211,6 +211,23 @@ Content-Type: text/plain
       flags = 0
       segment { length = 0 expr = chs(\"../sOutputHeight\") }
     }
+    channel flop {
+      lefttype = extend
+      righttype = extend
+      default = 1
+      flags = 0
+      segment { options = {	 autoslope  ai ao }
+
+	 length = 0 value = 1 1 accel = 0.33333333333333331 0.33333333333333331 expr = "import hou
+
+print hou.getenv(\"HAPI_CLIENT_NAME\")
+
+if hou.getenv(\"HAPI_CLIENT_NAME\") == None:
+    return 1
+else:
+    return 0"
+	 language = python }
+    }
   }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -221,7 +238,7 @@ Content-Type: text/plain
 version 0.8
 folder0	[ 0	locks=0 ]	(	0	)
 execute	[ 0	locks=0 ]	(	0	)
-output	[ 0	locks=0 ]	(	[ output	C:/Users/PAULAM~1/Desktop/CRAP/LayerExporter/Layer_Heightmap.png ] 	)
+output	[ 0	locks=0 ]	(	[ output	C:/Users/PAULAM~1/Desktop/CRAP/QuixelLayer/Layer_Heightmap.png ] 	)
 out_type	[ 0	locks=0 ]	(	"packed"	)
 out_format	[ 0	locks=0 ]	(	"single"	)
 output_type	[ 0	locks=0 ]	(	"i16"	)
@@ -234,7 +251,7 @@ f	[ 0	locks=0 ]	(	[ f1	1 ] 	[ f2	240 ] 	1	)
 folder3	[ 0	locks=0 ]	(	1	)
 xflip	[ 0	locks=0 ]	(	"off"	)
 yflip	[ 0	locks=0 ]	(	"off"	)
-flop	[ 0	locks=0 ]	(	"on"	)
+flop	[ 0	locks=0	autoscope=1	autosel=4294967295 ]	(	[ flop	1 ] 	)
 folder1	[ 0	locks=0 ]	(	0	)
 layerlabel	[ 0	locks=0 ]	(	"Terrain Layer"	)
 fill_red_channel	[ 0	locks=0 ]	(	"on"	)
@@ -473,7 +490,7 @@ inputs
 stat
 {
   create 1541633966
-  modify 1542056818
+  modify 1544041658
   author Paul_Ambrosiussen@LAPTOP-P8R7FBPF
   access 0777
 }
@@ -561,6 +578,23 @@ Content-Type: text/plain
       flags = 0
       segment { length = 0 expr = chs(\"../sOutputLayer\") }
     }
+    channel flop {
+      lefttype = extend
+      righttype = extend
+      default = 1
+      flags = 0
+      segment { options = {	 autoslope  ai ao }
+
+	 length = 0 value = 1 1 accel = 0.33333333333333331 0.33333333333333331 expr = "import hou
+
+print hou.getenv(\"HAPI_CLIENT_NAME\")
+
+if hou.getenv(\"HAPI_CLIENT_NAME\") == None:
+    return 1
+else:
+    return 0"
+	 language = python }
+    }
   }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -571,24 +605,24 @@ Content-Type: text/plain
 version 0.8
 folder0	[ 0	locks=0 ]	(	0	)
 execute	[ 0	locks=0 ]	(	0	)
-output	[ 0	locks=0 ]	(	[ output	C:/Users/PAULAM~1/Desktop/CRAP/LayerExporter/Layer_aaaa.png ] 	)
+output	[ 0	locks=0 ]	(	[ output	"" ] 	)
 out_type	[ 0	locks=0 ]	(	"packed"	)
 out_format	[ 0	locks=0 ]	(	"single"	)
 output_type	[ 0	locks=0 ]	(	"i16"	)
 specify_res	[ 0	locks=0 ]	(	"off"	)
 resolution	[ 0	locks=0 ]	(	256	256	)
-volume_res	[ 0	locks=0 ]	(	[ volume_resx	500 ] 	[ volume_resy	500 ] 	)
-actual_res	[ 0	locks=0 ]	(	500	500	)
+volume_res	[ 0	locks=0 ]	(	[ volume_resx	505 ] 	[ volume_resy	505 ] 	)
+actual_res	[ 0	locks=0 ]	(	505	505	)
 trange	[ 0	locks=0 ]	(	"off"	)
 f	[ 0	locks=0 ]	(	[ f1	1 ] 	[ f2	240 ] 	1	)
 folder3	[ 0	locks=0 ]	(	1	)
 xflip	[ 0	locks=0 ]	(	"off"	)
 yflip	[ 0	locks=0 ]	(	"off"	)
-flop	[ 0	locks=0 ]	(	"on"	)
+flop	[ 0	locks=0	autoscope=1	autosel=4294967295 ]	(	[ flop	1 ] 	)
 folder1	[ 0	locks=0 ]	(	0	)
 layerlabel	[ 0	locks=0 ]	(	"Terrain Layer"	)
 fill_red_channel	[ 0	locks=0 ]	(	"on"	)
-red_channel	[ 0	locks=0 ]	(	[ red_channel	aaaa ] 	)
+red_channel	[ 0	locks=0 ]	(	[ red_channel	Blue ] 	)
 red_out_range	[ 0	locks=0 ]	(	"none"	)
 red_from_range	[ 0	locks=0 ]	(	-256	256	)
 red_to_range	[ 0	locks=0 ]	(	0	1	)
@@ -782,7 +816,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.399"
+		"value":"17.0.403"
 	}
 }
 
@@ -843,7 +877,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.399"
+		"value":"17.0.403"
 	}
 }
 
@@ -869,7 +903,7 @@ inputs
 stat
 {
   create 1474476437
-  modify 1542059085
+  modify 1544212721
   author nobody@nowhere
   access 0777
 }
@@ -997,7 +1031,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.399"
+		"value":"17.0.403"
 	}
 }
 
@@ -1627,7 +1661,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.399"
+		"value":"17.0.403"
 	}
 }
 
@@ -1684,7 +1718,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.399"
+		"value":"17.0.403"
 	}
 }
 
@@ -1719,7 +1753,7 @@ inputs
 stat
 {
   create 1541723063
-  modify 1542056492
+  modify 1544212716
   author Paul_Ambrosiussen@LAPTOP-P8R7FBPF
   access 0777
 }
@@ -1760,7 +1794,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.399"
+		"value":"17.0.403"
 	}
 }
 
@@ -1795,7 +1829,7 @@ inputs
 stat
 {
   create 1541723063
-  modify 1542056493
+  modify 1544212716
   author Paul_Ambrosiussen@LAPTOP-P8R7FBPF
   access 0777
 }
@@ -1824,7 +1858,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.399"
+		"value":"17.0.403"
 	}
 }
 
@@ -1895,7 +1929,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.399"
+		"value":"17.0.403"
 	}
 }
 
@@ -1930,7 +1964,7 @@ inputs
 stat
 {
   create 1541723875
-  modify 1542054295
+  modify 1544212615
   author Paul_Ambrosiussen@LAPTOP-P8R7FBPF
   access 0777
 }
@@ -1954,9 +1988,9 @@ def SaveLayer(a_LayerName):
     Path = \"/\".join(Path.split(\"/\")[:-1])
 
 
-    FileName = hou.node(\"..\").parm(\"sPaintLayerPrefix\").evalAsString() + \"_%s.png\" % LayerName
+    FileName = hou.node(\"..\").parm(\"sPaintLayerPrefix\").evalAsString() + \"%s.png\" % LayerName
     if LayerName == \"height\":
-        FileName = hou.node(\"..\").parm(\"sPaintLayerPrefix\").evalAsString() + \"_%s.png\" % hou.node(\"..\").parm(\"sHeightmapName\").evalAsString()
+        FileName = hou.node(\"..\").parm(\"sPaintLayerPrefix\").evalAsString() + \"%s.png\" % hou.node(\"..\").parm(\"sHeightmapName\").evalAsString()
     ExportFile = Path + \"/\" +  FileName
 
 
@@ -1981,10 +2015,13 @@ def SaveLayer(a_LayerName):
 # Get File Name
 LayerName = hou.pwd().geometry().iterPrims()[0].attribValue(\"name\")
 
-if hou.node(\"..\").parm(\"bExportAllLayers\").evalAsInt() == 1:
+if LayerName == 'height':
     SaveLayer(LayerName)
-elif LayerName in hou.pwd().geometry().attribValue(\"exportlayers\").split(\" \"):
-    SaveLayer(LayerName)"	)
+else:
+    if hou.node(\"..\").parm(\"bExportAllLayers\").evalAsInt() == 1:
+        SaveLayer(LayerName)
+    elif LayerName in hou.pwd().geometry().attribValue(\"exportlayers\").split(\" \"):
+        SaveLayer(LayerName)"	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -1994,7 +2031,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.399"
+		"value":"17.0.403"
 	}
 }
 
@@ -2020,7 +2057,7 @@ inputs
 stat
 {
   create 1474476437
-  modify 1542059085
+  modify 1544040838
   author nobody@nowhere
   access 0777
 }
@@ -2077,7 +2114,7 @@ take	[ 0	locks=0 ]	(	_current_	)
 copswitcher	[ 0	locks=0 ]	(	3	3	3	3	3	)
 coppath	[ 0	locks=0 ]	(	../../../heightfield_output_mask/cop2net1/flip1	)
 tres	[ 0	locks=0 ]	(	"natural"	)
-res	[ 0	locks=0 ]	(	500	500	)
+res	[ 0	locks=0 ]	(	505	505	)
 resmenu	[ 0	locks=0 ]	(	0	)
 copoutput	[ 0	locks=0 ]	(	`chs(\"../../output\")`	)
 mkpath	[ 0	locks=0 ]	(	"on"	)
@@ -2092,7 +2129,7 @@ batchmode	[ 0	locks=0 ]	(	"off"	)
 batchsize	[ 0	locks=0 ]	(	2	)
 reloadfiles	[ 0	locks=0 ]	(	"off"	)
 outputarea	[ 0	locks=0 ]	(	"frame"	)
-pixelcrop	[ 0	locks=0 ]	(	0	0	499	499	)
+pixelcrop	[ 0	locks=0 ]	(	0	0	504	504	)
 uvcrop	[ 0	locks=0 ]	(	0	0	1	1	)
 limitcanvaspixels	[ 0	locks=0 ]	(	"on"	)
 canvaspixels	[ 0	locks=0 ]	(	64	)
@@ -2148,7 +2185,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.399"
+		"value":"17.0.403"
 	}
 }
 
@@ -2778,7 +2815,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.399"
+		"value":"17.0.403"
 	}
 }
 

@@ -24,7 +24,7 @@ def latlong_distance(lat_long_1, lat_long_2):
     return distance * 1000
 
 def update(node):
-    launch_map()
+    launch_map(hidden=True)
     #time.sleep(3)
     hou.session.mapbox_web.urlChanged.connect(url_changed)
 
@@ -121,7 +121,7 @@ def refresh(node, force=True):
    
     hou.hscript("glcache -c;") #refresh textures
 
-def launch_map():
+def launch_map(hidden=False):
 
     node = hou.pwd()
     
@@ -152,5 +152,6 @@ def launch_map():
     hou.session.mapbox_web = webview 
     hou.session.mapbox_node = node
     
-    win.show()
+    if not hidden:
+        win.show()
         

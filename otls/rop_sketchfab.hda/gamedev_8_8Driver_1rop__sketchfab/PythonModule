@@ -184,6 +184,8 @@ def export(node):
         for texture in textures:
             path = textures[texture]
             jpg_path = os.path.join( os.environ["HIP"] , "export", mat_node.name() + "_" + suffixes[texture] + ".jpg")
+            if not os.path.exists(path):
+                continue
             if path.upper().endswith("JPG"):
                 # handle JPG 
                 shutil.copy(path, jpg_path)

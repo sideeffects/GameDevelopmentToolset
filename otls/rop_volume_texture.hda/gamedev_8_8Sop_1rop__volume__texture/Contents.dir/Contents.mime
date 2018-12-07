@@ -32,12 +32,11 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position 0.460077 0.0738149
-connectornextid 2
-flags =  lock off model off template off footprint off xray off bypass off display on render on highlight off unload off savedata off compress on colordefault on exposed on
+position -1.09113 -2.46527
+connectornextid 1
+flags =  lock off model off template on footprint off xray off bypass off display on render on highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
 {
-1 "output1"
 }
 inputsNamed3
 {
@@ -49,8 +48,8 @@ inputs
 }
 stat
 {
-  create 1542318062
-  modify 1542320640
+  create 1544207743
+  modify 1544208084
   author Paul_Ambrosiussen@LAPTOP-P8R7FBPF
   access 0777
 }
@@ -66,7 +65,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"0.3"
+		"value":"0.4"
 	},
 	"___toolcount___":{
 		"type":"string",
@@ -96,7 +95,7 @@ Content-Type: text/plain
 }
 {
   create 1510877625
-  modify 1542320581
+  modify 1544207747
   author GDC_Houdini@AUSTIN
   access 0777
 }
@@ -119,7 +118,7 @@ Content-Type: text/plain
 }
 {
   create 1510877652
-  modify 1542320577
+  modify 1544207743
   author GDC_Houdini@AUSTIN
   access 0777
 }
@@ -214,7 +213,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.401"
+		"value":"17.0.403"
 	}
 }
 
@@ -250,7 +249,7 @@ inputs
 stat
 {
   create 1510873462
-  modify 1542320638
+  modify 1544208083
   author GDC_Houdini@AUSTIN
   access 0777
 }
@@ -530,24 +529,19 @@ Content-Type: text/plain
       flags = 0
       segment { length = 0 expr = $CWP }
     }
-    channel start {
-      lefttype = extend
-      righttype = extend
-      flags = 0
-      segment { length = 0 expr = $FSTART }
-    }
-    channel length {
-      lefttype = extend
-      righttype = extend
-      flags = 0
-      segment { length = 0 expr = $NFRAMES }
-    }
     channel MAXFRAMES {
       lefttype = extend
       righttype = extend
       default = 16
       flags = 0
       segment { length = 0 value = 16 16 expr = ch(\"../../slices\") }
+    }
+    channel length {
+      lefttype = extend
+      righttype = extend
+      default = 240
+      flags = 0
+      segment { length = 0 value = 240 240 expr = ch(\"MAXFRAMES\") }
     }
   }
 
@@ -565,7 +559,7 @@ maskplane	[ 0	locks=0 ]	(	C	)
 maskresize	[ 0	locks=0 ]	(	"on"	)
 maskinvert	[ 0	locks=0 ]	(	"on"	)
 overridesize	[ 0	locks=0 ]	(	"on"	)
-size	[ 8	locks=0 ]	(	[ size1	128 ] 	[ size2	128 ] 	)
+size	[ 8	locks=0 ]	(	[ size1	16 ] 	[ size2	16 ] 	)
 sizemenu	[ 0	locks=0 ]	(	0	)
 overrideaspect	[ 0	locks=0 ]	(	"off"	)
 aspect	[ 0	locks=0 ]	(	[ aspect	1 ] 	)
@@ -580,16 +574,16 @@ usebwpoints	[ 0	locks=0 ]	(	"off"	)
 bwpoints	[ 0	locks=0 ]	(	[ bwpoints1	0 ] 	[ bwpoints2	1 ] 	)
 interlace	[ 0	locks=0 ]	(	"none"	)
 idominance	[ 0	locks=0 ]	(	"odd"	)
-overriderange	[ 0	locks=0 ]	(	"off"	)
+overriderange	[ 0	locks=0 ]	(	"on"	)
 singleimage	[ 0	locks=0 ]	(	"off"	)
-start	[ 0	locks=0 ]	(	[ start	1 ] 	)
-length	[ 0	locks=0 ]	(	[ length	240 ] 	)
+start	[ 0	locks=0 ]	(	1	)
+length	[ 0	locks=0 ]	(	[ length	256 ] 	)
 preextend	[ 0	locks=0 ]	(	"black"	)
 prehold	[ 0	locks=0 ]	(	0	)
 postextend	[ 0	locks=0 ]	(	"black"	)
 posthold	[ 0	locks=0 ]	(	0	)
-stdswitcher5	[ 0	locks=0 ]	(	1	1	1	1	)
-MAXFRAMES	[ 0	locks=0 ]	(	[ MAXFRAMES	16 ] 	)
+stdswitcher5	[ 0	locks=0 ]	(	3	3	3	3	)
+MAXFRAMES	[ 8	locks=0 ]	(	[ MAXFRAMES	256 ] 	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -599,7 +593,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.401"
+		"value":"17.0.403"
 	}
 }
 
@@ -608,7 +602,7 @@ Content-Disposition: attachment; filename="hdaroot/cop2net1/GEN-Z_UP.cop2"
 Content-Type: text/plain
 
 2
-116
+120
 0
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -694,7 +688,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.401"
+		"value":"17.0.403"
 	}
 }
 
@@ -731,7 +725,7 @@ inputs
 stat
 {
   create 1510873462
-  modify 1542320639
+  modify 1544208084
   author GDC_Houdini@AUSTIN
   access 0777
 }
@@ -758,7 +752,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.401"
+		"value":"17.0.403"
 	}
 }
 
@@ -1141,7 +1135,7 @@ inputs
 stat
 {
   create 1510873551
-  modify 1542320637
+  modify 1544208083
   author GDC_Houdini@AUSTIN
   access 0777
 }
@@ -1299,7 +1293,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.401"
+		"value":"17.0.403"
 	}
 }
 
@@ -1337,7 +1331,7 @@ inputs
 stat
 {
   create 1510873477
-  modify 1542320637
+  modify 1544208083
   author GDC_Houdini@AUSTIN
   access 0777
 }
@@ -1405,7 +1399,7 @@ inputs
 stat
 {
   create 1510876227
-  modify 1542320637
+  modify 1544208083
   author GDC_Houdini@AUSTIN
   access 0777
 }
@@ -1433,7 +1427,7 @@ Content-Type: text/plain
 
 {
 version 0.8
-switcher	[ 8	locks=0 ]	(	[ switcher	0 ] 	)
+switcher	[ 8	locks=0 ]	(	[ switcher	1 ] 	)
 outofbounds	[ 0	locks=0 ]	(	"last"	)
 }
 
@@ -1444,7 +1438,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.401"
+		"value":"17.0.403"
 	}
 }
 
@@ -1603,7 +1597,7 @@ inputs
 stat
 {
   create 1510876299
-  modify 1542320637
+  modify 1544208083
   author GDC_Houdini@AUSTIN
   access 0777
 }
@@ -1662,7 +1656,7 @@ inputs
 stat
 {
   create 1510879497
-  modify 1542320637
+  modify 1544208083
   author GDC_Houdini@AUSTIN
   access 0777
 }
@@ -1733,7 +1727,7 @@ inputs
 stat
 {
   create 1542320164
-  modify 1542320641
+  modify 1544208085
   author Paul_Ambrosiussen@LAPTOP-P8R7FBPF
   access 0777
 }
@@ -1761,7 +1755,7 @@ Content-Type: text/plain
 
 {
 version 0.8
-switcher	[ 8	locks=0 ]	(	[ switcher	1 ] 	)
+switcher	[ 8	locks=0 ]	(	[ switcher	0 ] 	)
 outofbounds	[ 0	locks=0 ]	(	"last"	)
 }
 
@@ -1772,7 +1766,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.401"
+		"value":"17.0.403"
 	}
 }
 
@@ -1810,7 +1804,7 @@ inputs
 stat
 {
   create 1542320182
-  modify 1542320637
+  modify 1544208083
   author Paul_Ambrosiussen@LAPTOP-P8R7FBPF
   access 0777
 }
@@ -2014,7 +2008,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.401"
+		"value":"17.0.403"
 	}
 }
 
@@ -2107,7 +2101,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.401"
+		"value":"17.0.403"
 	}
 }
 
@@ -2205,12 +2199,12 @@ Content-Type: text/plain
 {
 version 0.8
 stdswitcher	[ 0	locks=0 ]	(	0	)
-numperline	[ 8	locks=0 ]	(	[ numperline	4 ] 	)
+numperline	[ 8	locks=0 ]	(	[ numperline	16 ] 	)
 stackvert	[ 0	locks=0 ]	(	"ttob"	)
 stackhorz	[ 0	locks=0 ]	(	"ltor"	)
 stackrows	[ 0	locks=0 ]	(	"on"	)
 limitperframe	[ 0	locks=0 ]	(	"on"	)
-imagelimit	[ 0	locks=0 ]	(	[ imagelimit	16 ] 	)
+imagelimit	[ 0	locks=0 ]	(	[ imagelimit	256 ] 	)
 fullsize	[ 0	locks=0 ]	(	"on"	)
 backcolor	[ 0	locks=0 ]	(	0	0	0	0	)
 }
@@ -2222,7 +2216,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.401"
+		"value":"17.0.403"
 	}
 }
 
@@ -2370,7 +2364,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.401"
+		"value":"17.0.403"
 	}
 }
 
@@ -2444,7 +2438,7 @@ foutside	[ 0	locks=0 ]	(	0	)
 flist	[ 0	locks=0 ]	(	*	)
 fmenu	[ 0	locks=0 ]	(	"scopeall"	)
 fautoadjust	[ 0	locks=0 ]	(	"on"	)
-currange	[ 0	locks=0 ]	(	15	)
+currange	[ 0	locks=0 ]	(	1	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -2454,7 +2448,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.401"
+		"value":"17.0.403"
 	}
 }
 
@@ -2608,7 +2602,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.401"
+		"value":"17.0.403"
 	}
 }
 
@@ -2700,7 +2694,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.401"
+		"value":"17.0.403"
 	}
 }
 
@@ -2784,7 +2778,7 @@ xOrd	[ 0	locks=0 ]	(	"srt"	)
 rOrd	[ 0	locks=0 ]	(	"xyz"	)
 t	[ 0	locks=0 ]	(	0	0	0	)
 r	[ 0	locks=0 ]	(	0	0	0	)
-s	[ 8	locks=0 ]	(	[ sx	0.49261084438113761 ] 	[ sy	0.49261084438113761 ] 	[ sz	0.49261084438113761 ] 	)
+s	[ 8	locks=0 ]	(	[ sx	0.44247787797336191 ] 	[ sy	0.44247787797336191 ] 	[ sz	0.44247787797336191 ] 	)
 shear	[ 0	locks=0 ]	(	0	0	0	)
 scale	[ 0	locks=0 ]	(	1	)
 parmgroup_pivotxform	[ 0	locks=0 ]	(	0	)
@@ -2821,7 +2815,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.401"
+		"value":"17.0.403"
 	}
 }
 
@@ -2881,7 +2875,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.401"
+		"value":"17.0.403"
 	}
 }
 
@@ -2962,7 +2956,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.401"
+		"value":"17.0.403"
 	}
 }
 
@@ -3037,7 +3031,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.401"
+		"value":"17.0.403"
 	}
 }
 

@@ -47,7 +47,7 @@ inputs
 stat
 {
   create 1544381103
-  modify 1544381433
+  modify 1544381441
   author MAINGEAR@DESKTOP-P98C1VA
   access 0777
 }
@@ -5952,7 +5952,7 @@ inputs
 stat
 {
   create 1463515397
-  modify 1544197307
+  modify 1544381786
   author Scott@saudi
   access 0777
 }
@@ -5980,6 +5980,13 @@ Content-Type: text/plain
       flags = 0
       segment { length = 0 value = -4.1997900000000001 -4.1997900000000001 expr = "bbox(\"../ACCUMULATED/\", D_ZMIN)" }
     }
+    channel points {
+      lefttype = extend
+      righttype = extend
+      default = 2
+      flags = 0
+      segment { length = 0 value = 2 2 expr = "bbox(\"../ACCUMULATED/\", D_ZSIZE)/0.01" }
+    }
   }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -5992,7 +5999,7 @@ type	[ 0	locks=0 ]	(	"nurbs"	)
 origin	[ 8	locks=0 ]	(	[ originx	0 ] 	0	0	)
 dir	[ 0	locks=0 ]	(	1	0	0	)
 dist	[ 8	locks=0 ]	(	[ dist	0 ] 	)
-points	[ 8	locks=0 ]	(	2	)
+points	[ 8	locks=0 ]	(	[ points	0 ] 	)
 order	[ 0	locks=0 ]	(	4	)
 }
 

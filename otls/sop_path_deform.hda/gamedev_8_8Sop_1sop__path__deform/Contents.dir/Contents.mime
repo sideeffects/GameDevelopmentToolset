@@ -32,22 +32,26 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position -0.948207 2.17072
-connectornextid 0
+position -4.95219 -2.25159
+connectornextid 2
 flags =  lock off model off template off footprint off xray off bypass off display on render on highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
 {
 }
 inputsNamed3
 {
+0 	file2 0 1 "input1"
+1 	file1 0 1 "input2"
 }
 inputs
 {
+0 	file2 0 1
+1 	file1 0 1
 }
 stat
 {
-  create 1544381103
-  modify 1544381441
+  create 1544453795
+  modify 1544454651
   author MAINGEAR@DESKTOP-P98C1VA
   access 0777
 }
@@ -85,7 +89,7 @@ Content-Type: text/plain
 }
 {
   create 1536096447
-  modify 1544381104
+  modify 1544453796
   author MAINGEAR@DESKTOP-P98C1VA
   access 0777
 }
@@ -109,7 +113,7 @@ Content-Type: text/plain
 }
 {
   create 1536097890
-  modify 1544381109
+  modify 1544453801
   author MAINGEAR@DESKTOP-P98C1VA
   access 0777
 }
@@ -132,7 +136,7 @@ Content-Type: text/plain
 }
 {
   create 1536098344
-  modify 1544381127
+  modify 1544454153
   author MAINGEAR@DESKTOP-P98C1VA
   access 0777
 }
@@ -156,7 +160,7 @@ Content-Type: text/plain
 }
 {
   create 1537459424
-  modify 1544381106
+  modify 1544453798
   author MAINGEAR@DESKTOP-P98C1VA
   access 0777
 }
@@ -183,7 +187,7 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position -10.5733 -21.1909
+position -10.5733 -21.441
 connectornextid 1
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault off exposed on
 outputsNamed3
@@ -192,16 +196,16 @@ outputsNamed3
 }
 inputsNamed3
 {
-0 	pointwrangle7 2 1 "input1"
+0 	attribtransferbyuv1 2 1 "input1"
 }
 inputs
 {
-0 	pointwrangle7 0 1
+0 	attribtransferbyuv1 0 1
 }
 stat
 {
   create 1463517925
-  modify 1544381202
+  modify 1544454030
   author Scott@saudi
   access 0777
 }
@@ -1905,349 +1909,6 @@ Content-Type: text/plain
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot/twist.init"
-Content-Type: text/plain
-
-type = attribwrangle
-matchesdef = 1
-
---HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot/twist.def"
-Content-Type: text/plain
-
-sopflags sopflags = 
-comment ""
-position 19.7553 9.98748
-connectornextid 2
-flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
-outputsNamed3
-{
-1 "output1"
-}
-inputsNamed3
-{
-0 	switch2 1 1 "input1"
-}
-inputs
-{
-0 	switch2 0 1
-}
-stat
-{
-  create 1537460759
-  modify 1543505958
-  author MAINGEAR@DESKTOP-P98C1VA
-  access 0777
-}
-color UT_Color RGB 0.8 0.8 0.8 
-delscript ""
-exprlanguage hscript
-end
-
---HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot/twist.multiparm"
-Content-Type: text/plain
-
-3
-twist_ramp#pos ../twist_ramp#pos
-twist_ramp#value ../twist_ramp#value
-twist_ramp#interp ../twist_ramp#interp
-
---HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot/twist.spareparmdef"
-Content-Type: text/plain
-
-    group {
-        name    "folder1"
-        label   "Code"
-
-        parm {
-            name    "group"
-            baseparm
-            label   "Group"
-            export  none
-            bindselector points "Modify Points"
-                "Select the points to affect and press Enter to complete."
-                0 1 0xffffffff 0 grouptype 0
-        }
-        parm {
-            name    "grouptype"
-            baseparm
-            label   "Group Type"
-            export  none
-        }
-        parm {
-            name    "class"
-            baseparm
-            label   "Run Over"
-            export  none
-        }
-        parm {
-            name    "vex_numcount"
-            baseparm
-            label   "Number Count"
-            export  none
-        }
-        parm {
-            name    "vex_threadjobsize"
-            baseparm
-            label   "Thread Job Size"
-            export  none
-        }
-        parm {
-            name    "snippet"
-            baseparm
-            label   "VEXpression"
-            export  all
-        }
-        parm {
-            name    "exportlist"
-            baseparm
-            label   "Attributes to Create"
-            export  none
-        }
-        parm {
-            name    "vex_strict"
-            baseparm
-            label   "Enforce Prototypes"
-            export  none
-        }
-    }
-
-    group {
-        name    "folder1_1"
-        label   "Bindings"
-
-        parm {
-            name    "autobind"
-            baseparm
-            label   "Autobind by Name"
-            export  none
-        }
-        multiparm {
-            name    "bindings"
-            label    "Number of Bindings"
-            baseparm
-            default 0
-            parmtag { "autoscope" "0000000000000000" }
-            parmtag { "multistartoffset" "1" }
-
-            parm {
-                name    "bindname#"
-                baseparm
-                label   "Attribute Name"
-                export  none
-            }
-            parm {
-                name    "bindparm#"
-                baseparm
-                label   "VEX Parameter"
-                export  none
-            }
-        }
-
-        parm {
-            name    "groupautobind"
-            baseparm
-            label   "Autobind Groups by Name"
-            export  none
-        }
-        multiparm {
-            name    "groupbindings"
-            label    "Group Bindings"
-            baseparm
-            default 0
-            parmtag { "autoscope" "0000000000000000" }
-            parmtag { "multistartoffset" "1" }
-
-            parm {
-                name    "bindgroupname#"
-                baseparm
-                label   "Group Name"
-                export  none
-            }
-            parm {
-                name    "bindgroupparm#"
-                baseparm
-                label   "VEX Parameter"
-                export  none
-            }
-        }
-
-        parm {
-            name    "vex_cwdpath"
-            baseparm
-            label   "Evaluation Node Path"
-            export  none
-        }
-        parm {
-            name    "vex_outputmask"
-            baseparm
-            label   "Export Parameters"
-            export  none
-        }
-        parm {
-            name    "vex_updatenmls"
-            baseparm
-            label   "Update Normals If Displaced"
-            export  none
-        }
-        parm {
-            name    "vex_matchattrib"
-            baseparm
-            label   "Attribute to Match"
-            export  none
-        }
-        parm {
-            name    "vex_inplace"
-            baseparm
-            label   "Compute Results In Place"
-            export  none
-        }
-        parm {
-            name    "vex_selectiongroup"
-            baseparm
-            label   "Output Selection Group"
-            export  none
-        }
-    }
-
-    parm {
-        name    "twist"
-        label   "Twist"
-        type    float
-        default { "0" }
-        range   { 0 1 }
-    }
-    parm {
-        name    "twist_ramp"
-        label   "Twist Ramp"
-        type    ramp_flt
-        default { "2" }
-        range   { 1! 10 }
-    }
-
---HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot/twist.chn"
-Content-Type: text/plain
-
-{
-    channel twist_ramp1pos {
-      lefttype = extend
-      righttype = extend
-      flags = 0
-      segment { length = 0 expr = ch(\"../twist_ramp1pos\") }
-    }
-    channel twist_ramp1value {
-      lefttype = extend
-      righttype = extend
-      flags = 0
-      segment { length = 0 expr = ch(\"../twist_ramp1value\") }
-    }
-    channel twist_ramp1interp {
-      lefttype = extend
-      righttype = extend
-      default = 1
-      flags = 0
-      segment { length = 0 value = 1 1 expr = ch(\"../twist_ramp1interp\") }
-    }
-    channel twist_ramp2pos {
-      lefttype = extend
-      righttype = extend
-      flags = 0
-      segment { length = 0 expr = ch(\"../twist_ramp2pos\") }
-    }
-    channel twist_ramp2value {
-      lefttype = extend
-      righttype = extend
-      flags = 0
-      segment { length = 0 expr = ch(\"../twist_ramp2value\") }
-    }
-    channel twist_ramp2interp {
-      lefttype = extend
-      righttype = extend
-      default = 1
-      flags = 0
-      segment { length = 0 value = 1 1 expr = ch(\"../twist_ramp2interp\") }
-    }
-    channel twist {
-      lefttype = extend
-      righttype = extend
-      default = 23.966000000000001
-      flags = 0
-      segment { length = 0 value = 23.966000000000001 23.966000000000001 expr = ch(\"../twist\") }
-    }
-    channel twist_ramp {
-      lefttype = extend
-      righttype = extend
-      default = 2
-      flags = 0
-      segment { length = 0 value = 2 2 expr = ch(\"../twist_ramp\") }
-    }
-  }
-
---HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot/twist.parm"
-Content-Type: text/plain
-
-{
-version 0.8
-folder0	[ 0	locks=0 ]	(	0	0	)
-group	[ 0	locks=0 ]	(	""	)
-grouptype	[ 0	locks=0 ]	(	"guess"	)
-class	[ 0	locks=0 ]	(	"point"	)
-vex_numcount	[ 0	locks=0 ]	(	10	)
-vex_threadjobsize	[ 0	locks=0 ]	(	1024	)
-snippet	[ 0	locks=0 ]	(	"float pct = @ptnum/(npoints(0)-1.0); // get percentage weight along curve
-float twist = chf('twist') * @ptnum/npoints(0);
-float twist_scale = chramp(\"twist_ramp\", pct) ; 
-
-matrix m = ident();
-
-rotate(m, twist * twist_scale, v@up);
-
-@N *= m ;"	)
-exportlist	[ 0	locks=0 ]	(	*	)
-vex_strict	[ 0	locks=0 ]	(	"off"	)
-autobind	[ 0	locks=0 ]	(	"on"	)
-bindings	[ 0	locks=0 ]	(	0	)
-groupautobind	[ 0	locks=0 ]	(	"on"	)
-groupbindings	[ 0	locks=0 ]	(	0	)
-vex_cwdpath	[ 0	locks=0 ]	(	.	)
-vex_outputmask	[ 0	locks=0 ]	(	*	)
-vex_updatenmls	[ 0	locks=0 ]	(	"off"	)
-vex_matchattrib	[ 0	locks=0 ]	(	id	)
-vex_inplace	[ 0	locks=0 ]	(	"off"	)
-vex_selectiongroup	[ 0	locks=0 ]	(	""	)
-folder1	[ 0	locks=0 ]	(	0	0	)
-twist	[ 8	locks=0 ]	(	[ twist	0 ] 	)
-twist_ramp	[ 0	locks=0 ]	(	[ twist_ramp	2 ] 	)
-twist_ramp1pos	[ 0	locks=0 ]	(	[ twist_ramp1pos	0 ] 	)
-twist_ramp1value	[ 0	locks=0 ]	(	[ twist_ramp1value	0 ] 	)
-twist_ramp1interp	[ 0	locks=0 ]	(	[ twist_ramp1interp	1 ] 	)
-twist_ramp2pos	[ 0	locks=0 ]	(	[ twist_ramp2pos	1 ] 	)
-twist_ramp2value	[ 0	locks=0 ]	(	[ twist_ramp2value	1 ] 	)
-twist_ramp2interp	[ 0	locks=0 ]	(	[ twist_ramp2interp	1 ] 	)
-}
-
---HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot/twist.netbox"
-Content-Type: text/plain
-
-__netbox6
-
---HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot/twist.userdata"
-Content-Type: text/plain
-
-{
-	"___Version___":{
-		"type":"string",
-		"value":""
-	}
-}
-
---HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
 Content-Disposition: attachment; filename="hdaroot/pointwrangle3.init"
 Content-Type: text/plain
 
@@ -2362,16 +2023,16 @@ outputsNamed3
 }
 inputsNamed3
 {
-0 	twist 1 1 "input1"
+0 	switch2 1 1 "input1"
 }
 inputs
 {
-0 	twist 0 1
+0 	switch2 0 1
 }
 stat
 {
   create 1537460759
-  modify 1543505960
+  modify 1544454153
   author MAINGEAR@DESKTOP-P98C1VA
   access 0777
 }
@@ -3087,7 +2748,7 @@ vex_matchattrib	[ 0	locks=0 ]	(	id	)
 vex_inplace	[ 0	locks=0 ]	(	"off"	)
 vex_selectiongroup	[ 0	locks=0 ]	(	""	)
 folder1	[ 0	locks=0 ]	(	0	0	)
-centroid_y	[ 8	locks=0 ]	(	[ centroid_y	-2.8530490398406982 ] 	)
+centroid_y	[ 8	locks=0 ]	(	[ centroid_y	0 ] 	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -3276,179 +2937,19 @@ Content-Type: text/plain
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot/pointwrangle5.init"
+Content-Disposition: attachment; filename="hdaroot/attribtransferbyuv1.init"
 Content-Type: text/plain
 
-type = attribwrangle
+type = attribtransferbyuv
 matchesdef = 1
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot/pointwrangle5.def"
+Content-Disposition: attachment; filename="hdaroot/attribtransferbyuv1.def"
 Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position -12.9401 -17.1731
-connectornextid 2
-flags =  lock off model off template on footprint off xray off bypass off display on render on highlight off unload off savedata off compress on colordefault on exposed on
-outputsNamed3
-{
-1 "output1"
-}
-inputsNamed3
-{
-0 	vertexsplit1 1 1 "input1"
-}
-inputs
-{
-0 	vertexsplit1 0 1
-}
-stat
-{
-  create 1544381139
-  modify 1544381248
-  author MAINGEAR@DESKTOP-P98C1VA
-  access 0777
-}
-color UT_Color RGB 0.8 0.8 0.8 
-delscript ""
-exprlanguage hscript
-end
-
---HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot/pointwrangle5.parm"
-Content-Type: text/plain
-
-{
-version 0.8
-folder0	[ 0	locks=0 ]	(	0	0	)
-group	[ 0	locks=0 ]	(	""	)
-grouptype	[ 0	locks=0 ]	(	"guess"	)
-class	[ 0	locks=0 ]	(	"point"	)
-vex_numcount	[ 0	locks=0 ]	(	10	)
-vex_threadjobsize	[ 0	locks=0 ]	(	1024	)
-snippet	[ 0	locks=0 ]	(	"v@P = v@uv;
-v@P.z = 0;
-"	)
-exportlist	[ 0	locks=0 ]	(	*	)
-vex_strict	[ 0	locks=0 ]	(	"off"	)
-autobind	[ 0	locks=0 ]	(	"on"	)
-bindings	[ 0	locks=0 ]	(	0	)
-groupautobind	[ 0	locks=0 ]	(	"on"	)
-groupbindings	[ 0	locks=0 ]	(	0	)
-vex_cwdpath	[ 0	locks=0 ]	(	.	)
-vex_outputmask	[ 0	locks=0 ]	(	*	)
-vex_updatenmls	[ 0	locks=0 ]	(	"off"	)
-vex_matchattrib	[ 0	locks=0 ]	(	id	)
-vex_inplace	[ 0	locks=0 ]	(	"off"	)
-vex_selectiongroup	[ 0	locks=0 ]	(	""	)
-}
-
---HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot/pointwrangle5.userdata"
-Content-Type: text/plain
-
-{
-	"___Version___":{
-		"type":"string",
-		"value":""
-	}
-}
-
---HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot/pointwrangle6.init"
-Content-Type: text/plain
-
-type = attribwrangle
-matchesdef = 1
-
---HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot/pointwrangle6.def"
-Content-Type: text/plain
-
-sopflags sopflags = 
-comment ""
-position -8.99872 -13.5214
-connectornextid 2
-flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
-outputsNamed3
-{
-1 "output1"
-}
-inputsNamed3
-{
-0 	vertexsplit2 1 1 "input1"
-}
-inputs
-{
-0 	vertexsplit2 0 1
-}
-stat
-{
-  create 1544381139
-  modify 1544381250
-  author MAINGEAR@DESKTOP-P98C1VA
-  access 0777
-}
-color UT_Color RGB 0.8 0.8 0.8 
-delscript ""
-exprlanguage hscript
-end
-
---HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot/pointwrangle6.parm"
-Content-Type: text/plain
-
-{
-version 0.8
-folder0	[ 0	locks=0 ]	(	0	0	)
-group	[ 0	locks=0 ]	(	""	)
-grouptype	[ 0	locks=0 ]	(	"guess"	)
-class	[ 0	locks=0 ]	(	"point"	)
-vex_numcount	[ 0	locks=0 ]	(	10	)
-vex_threadjobsize	[ 0	locks=0 ]	(	1024	)
-snippet	[ 0	locks=0 ]	(	"v@P = v@uv;
-v@P.z = 0;
-"	)
-exportlist	[ 0	locks=0 ]	(	*	)
-vex_strict	[ 0	locks=0 ]	(	"off"	)
-autobind	[ 0	locks=0 ]	(	"on"	)
-bindings	[ 0	locks=0 ]	(	0	)
-groupautobind	[ 0	locks=0 ]	(	"on"	)
-groupbindings	[ 0	locks=0 ]	(	0	)
-vex_cwdpath	[ 0	locks=0 ]	(	.	)
-vex_outputmask	[ 0	locks=0 ]	(	*	)
-vex_updatenmls	[ 0	locks=0 ]	(	"off"	)
-vex_matchattrib	[ 0	locks=0 ]	(	id	)
-vex_inplace	[ 0	locks=0 ]	(	"off"	)
-vex_selectiongroup	[ 0	locks=0 ]	(	""	)
-}
-
---HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot/pointwrangle6.userdata"
-Content-Type: text/plain
-
-{
-	"___Version___":{
-		"type":"string",
-		"value":""
-	}
-}
-
---HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot/pointwrangle7.init"
-Content-Type: text/plain
-
-type = attribwrangle
-matchesdef = 1
-
---HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot/pointwrangle7.def"
-Content-Type: text/plain
-
-sopflags sopflags = 
-comment ""
-position -11.5888 -18.44
+position -8.99572 -18.1288
 connectornextid 3
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
@@ -3457,18 +2958,18 @@ outputsNamed3
 }
 inputsNamed3
 {
-0 	pointwrangle5 1 1 "input1"
-1 	pointwrangle6 1 1 "input2"
+0 	uvtransform1 1 1 "input1"
+1 	merge_middle_curve 0 1 "input2"
 }
 inputs
 {
-0 	pointwrangle5 0 1
-1 	pointwrangle6 0 1
+0 	uvtransform1 0 1
+1 	merge_middle_curve 0 1
 }
 stat
 {
-  create 1544381185
-  modify 1544381197
+  create 1544452459
+  modify 1544454030
   author MAINGEAR@DESKTOP-P98C1VA
   access 0777
 }
@@ -3478,49 +2979,143 @@ exprlanguage hscript
 end
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot/pointwrangle7.parm"
+Content-Disposition: attachment; filename="hdaroot/attribtransferbyuv1.parm"
 Content-Type: text/plain
 
 {
 version 0.8
-folder0	[ 0	locks=0 ]	(	0	0	)
-group	[ 0	locks=0 ]	(	""	)
-grouptype	[ 0	locks=0 ]	(	"guess"	)
-class	[ 0	locks=0 ]	(	"point"	)
-vex_numcount	[ 0	locks=0 ]	(	10	)
-vex_threadjobsize	[ 0	locks=0 ]	(	1024	)
-snippet	[ 0	locks=0 ]	(	"int posprim;
-vector param_uv;
-float maxdist = 10;
-float dist = xyzdist(1,@P,posprim,param_uv,maxdist);
-v@P = primuv(1,\"rest\",posprim,param_uv);
-v@N = primuv(1,\"N\",posprim,param_uv);
-f@pscale = primuv(1,\"pscale\",posprim,param_uv);
-v@curve_n = primuv(1,\"curve_n\",posprim,param_uv);
-
-"	)
-exportlist	[ 0	locks=0 ]	(	*	)
-vex_strict	[ 0	locks=0 ]	(	"off"	)
-autobind	[ 0	locks=0 ]	(	"on"	)
-bindings	[ 0	locks=0 ]	(	0	)
-groupautobind	[ 0	locks=0 ]	(	"on"	)
-groupbindings	[ 0	locks=0 ]	(	0	)
-vex_cwdpath	[ 0	locks=0 ]	(	.	)
-vex_outputmask	[ 0	locks=0 ]	(	*	)
-vex_updatenmls	[ 0	locks=0 ]	(	"off"	)
-vex_matchattrib	[ 0	locks=0 ]	(	id	)
-vex_inplace	[ 0	locks=0 ]	(	"off"	)
-vex_selectiongroup	[ 0	locks=0 ]	(	""	)
+uvattribclass	[ 0	locks=0 ]	(	"vertex"	)
+uvattrib	[ 0	locks=0 ]	(	uv	)
+totype	[ 0	locks=0 ]	(	"points"	)
+pointattribs	[ 0	locks=0 ]	(	"P curve_n pscale N"	)
+vertattribs	[ 0	locks=0 ]	(	""	)
+primattribs	[ 0	locks=0 ]	(	""	)
+detailattribs	[ 0	locks=0 ]	(	""	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot/pointwrangle7.userdata"
+Content-Disposition: attachment; filename="hdaroot/attribtransferbyuv1.userdata"
 Content-Type: text/plain
 
 {
 	"___Version___":{
 		"type":"string",
 		"value":""
+	}
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/bend1.init"
+Content-Type: text/plain
+
+type = bend
+matchesdef = 1
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/bend1.def"
+Content-Type: text/plain
+
+sopflags sopflags = 
+comment ""
+position -12.0698 -12.7316
+connectornextid 2
+flags =  lock off model off template on footprint off xray off bypass off display on render on highlight off unload off savedata off compress on colordefault on exposed on
+outputsNamed3
+{
+1 "output1"
+}
+inputsNamed3
+{
+0 	switch6 1 1 "input1"
+}
+inputs
+{
+0 	switch6 0 1
+}
+stat
+{
+  create 1544452319
+  modify 1544454032
+  author MAINGEAR@DESKTOP-P98C1VA
+  access 0777
+}
+color UT_Color RGB 0.8 0.8 0.8 
+delscript ""
+exprlanguage hscript
+end
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/bend1.chn"
+Content-Type: text/plain
+
+{
+    channel length {
+      lefttype = extend
+      righttype = extend
+      default = 1
+      flags = 0
+      segment { length = 0 value = 1 1 expr = "arclen(\"../FULL_CURVE/\", 0,0,1)" }
+    }
+    channel twist {
+      lefttype = extend
+      righttype = extend
+      default = 97
+      flags = 0
+      segment { length = 0 value = 97 97 expr = ch(\"../twist\") }
+    }
+  }
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/bend1.parm"
+Content-Type: text/plain
+
+{
+version 0.8
+group	[ 0	locks=0 ]	(	""	)
+grouptype	[ 0	locks=0 ]	(	"guess"	)
+folder1	[ 0	locks=0 ]	(	0	0	)
+dodeform	[ 0	locks=0 ]	(	"on"	)
+limit_deformation	[ 0	locks=0 ]	(	"off"	)
+vis_falloff	[ 0	locks=0 ]	(	"on"	)
+folder2	[ 0	locks=0 ]	(	0	)
+bendmode	[ 0	locks=0 ]	(	"angle"	)
+bend	[ 0	locks=0 ]	(	0	)
+up	[ 0	locks=0 ]	(	0	1	0	)
+goaldir	[ 0	locks=0 ]	(	0	0	1	)
+twist	[ 8	locks=0 ]	(	[ twist	1397.5999999999999 ] 	)
+lengthscale	[ 0	locks=0 ]	(	1	)
+preservevolume	[ 0	locks=0 ]	(	"on"	)
+tapermode	[ 0	locks=0 ]	(	"linear"	)
+taper	[ 0	locks=0 ]	(	1	)
+squish	[ 0	locks=0 ]	(	1	)
+folder0	[ 0	locks=0 ]	(	0	)
+origin	[ 8	locks=0 ]	(	0	0	0	)
+dir	[ 0	locks=0 ]	(	1	0	0	)
+length	[ 8	locks=0 ]	(	[ length	29.506086349487305 ] 	)
+guide_scale	[ 0	locks=0 ]	(	1	)
+userest	[ 0	locks=0 ]	(	"off"	)
+attribs	[ 0	locks=0 ]	(	*	)
+updateaffectednmls	[ 0	locks=0 ]	(	"on"	)
+vlength	[ 0	locks=0 ]	(	"on"	)
+derivative_stepsize	[ 0	locks=0 ]	(	0.01	)
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/bend1.userdata"
+Content-Type: text/plain
+
+{
+	"___Version___":{
+		"type":"string",
+		"value":""
+	},
+	"___toolcount___":{
+		"type":"string",
+		"value":"4"
+	},
+	"___toolid___":{
+		"type":"string",
+		"value":"geometry_lineartaper"
 	}
 }
 
@@ -3691,7 +3286,7 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position -10.5649 -28.6416
+position -10.5649 -28.8917
 connectornextid 2
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault off exposed on
 outputsNamed3
@@ -3709,7 +3304,7 @@ inputs
 stat
 {
   create 1463517988
-  modify 1544381202
+  modify 1544454030
   author Scott@saudi
   access 0777
 }
@@ -3826,7 +3421,7 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position -10.5683 -24.7431
+position -10.5683 -24.9932
 connectornextid 3
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault off exposed on
 outputsNamed3
@@ -3846,7 +3441,7 @@ inputs
 stat
 {
   create 1463780662
-  modify 1544381202
+  modify 1544454030
   author Luiz@Luiz-PC
   access 0777
 }
@@ -3900,7 +3495,7 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position -10.5649 -26.3826
+position -10.5649 -26.6327
 connectornextid 2
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault off exposed on
 outputsNamed3
@@ -3918,7 +3513,7 @@ inputs
 stat
 {
   create 1464015317
-  modify 1544381202
+  modify 1544454030
   author Luiz@Luiz-PC
   access 0777
 }
@@ -3982,7 +3577,7 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position -10.5649 -27.5121
+position -10.5649 -27.7622
 connectornextid 2
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress off colordefault off exposed on
 outputsNamed3
@@ -4000,7 +3595,7 @@ inputs
 stat
 {
   create 1464107436
-  modify 1544381202
+  modify 1544454030
   author Luiz@Luiz-PC
   access 0777
 }
@@ -4046,7 +3641,7 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position -10.4004 -32.7477
+position -10.4004 -32.9978
 connectornextid 1
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
@@ -4063,7 +3658,7 @@ inputs
 stat
 {
   create 1536091249
-  modify 1544381202
+  modify 1544454030
   author MAINGEAR@DESKTOP-P98C1VA
   access 0777
 }
@@ -5996,10 +5591,10 @@ Content-Type: text/plain
 {
 version 0.8
 type	[ 0	locks=0 ]	(	"nurbs"	)
-origin	[ 8	locks=0 ]	(	[ originx	0 ] 	0	0	)
+origin	[ 8	locks=0 ]	(	[ originx	-1.7982444763183594 ] 	0	0	)
 dir	[ 0	locks=0 ]	(	1	0	0	)
-dist	[ 8	locks=0 ]	(	[ dist	0 ] 	)
-points	[ 8	locks=0 ]	(	[ points	0 ] 	)
+dist	[ 8	locks=0 ]	(	[ dist	5.1980390548706055 ] 	)
+points	[ 8	locks=0 ]	(	[ points	519.80390548706055 ] 	)
 order	[ 0	locks=0 ]	(	4	)
 }
 
@@ -6558,7 +6153,7 @@ Content-Type: text/plain
 
 {
 version 0.8
-input	[ 8	locks=0 ]	(	[ input	0 ] 	)
+input	[ 8	locks=0 ]	(	[ input	1 ] 	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -6846,7 +6441,7 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position -10.4054 -30.9088
+position -10.4054 -31.1589
 connectornextid 3
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
@@ -6866,7 +6461,7 @@ inputs
 stat
 {
   create 1543849980
-  modify 1544381202
+  modify 1544454030
   author MAINGEAR@DESKTOP-P98C1VA
   access 0777
 }
@@ -6980,7 +6575,7 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position -11.8048 -13.4815
+position -11.8048 -13.7316
 connectornextid 2
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
@@ -6989,16 +6584,16 @@ outputsNamed3
 }
 inputsNamed3
 {
-0 	switch6 1 1 "input1"
+0 	bend1 1 1 "input1"
 }
 inputs
 {
-0 	switch6 0 1
+0 	bend1 0 1
 }
 stat
 {
   create 1543506526
-  modify 1544197899
+  modify 1544454031
   author MAINGEAR@DESKTOP-P98C1VA
   access 0777
 }
@@ -7061,9 +6656,9 @@ torrad	[ 0	locks=0 ]	(	0.20000000000000001	)
 switcher	[ 0	locks=0 ]	(	0	0	)
 xOrd	[ 0	locks=0 ]	(	"srt"	)
 rOrd	[ 0	locks=0 ]	(	"xyz"	)
-t	[ 8	locks=0 ]	(	[ tx	0 ] 	0	[ tz	0 ] 	)
+t	[ 8	locks=0 ]	(	[ tx	14.753043174743652 ] 	0	[ tz	0.80077505111694336 ] 	)
 r	[ 0	locks=0 ]	(	90	90	0	)
-s	[ 8	locks=0 ]	(	[ sx	0 ] 	[ sy	0 ] 	[ sz	0 ] 	)
+s	[ 8	locks=0 ]	(	[ sx	5.1980390548706055 ] 	[ sy	29.506086349487305 ] 	[ sz	5.1980390548706055 ] 	)
 p	[ 0	locks=0 ]	(	0	0	0	)
 inittype	[ 0	locks=0 ]	(	"zx"	)
 initbbox	[ 0	locks=0 ]	(	0	)
@@ -7117,7 +6712,7 @@ inputs
 stat
 {
   create 1544134890
-  modify 1544197249
+  modify 1544454019
   author MAINGEAR@DESKTOP-P98C1VA
   access 0777
 }
@@ -7204,7 +6799,7 @@ inputs
 stat
 {
   create 1544194147
-  modify 1544195720
+  modify 1544454017
   author MAINGEAR@DESKTOP-P98C1VA
   access 0777
 }
@@ -7270,7 +6865,7 @@ inputs
 stat
 {
   create 1544194147
-  modify 1544195769
+  modify 1544452317
   author MAINGEAR@DESKTOP-P98C1VA
   access 0777
 }
@@ -7346,7 +6941,7 @@ inputs
 stat
 {
   create 1544194147
-  modify 1544199857
+  modify 1544454547
   author MAINGEAR@DESKTOP-P98C1VA
   access 0777
 }
@@ -7442,7 +7037,7 @@ group	[ 0	locks=0 ]	(	""	)
 grouptype	[ 0	locks=0 ]	(	"guess"	)
 xOrd	[ 0	locks=0 ]	(	"srt"	)
 rOrd	[ 0	locks=0 ]	(	"xyz"	)
-t	[ 8	locks=0 ]	(	0	[ ty	2.8530490398406982 ] 	0	)
+t	[ 8	locks=0 ]	(	0	[ ty	-0 ] 	0	)
 r	[ 0	locks=0 ]	(	0	0	0	)
 s	[ 0	locks=0 ]	(	1	1	1	)
 shear	[ 0	locks=0 ]	(	0	0	0	)
@@ -7492,7 +7087,7 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position -2.52158 -6.60239
+position -2.52158 -7.40227
 connectornextid 1
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault off exposed on
 outputsNamed3
@@ -7510,7 +7105,7 @@ inputs
 stat
 {
   create 1463517855
-  modify 1544194833
+  modify 1544452265
   author Scott@saudi
   access 0777
 }
@@ -7554,7 +7149,7 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position -11.8048 -14.2568
+position -11.8048 -14.5069
 connectornextid 2
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
@@ -7572,7 +7167,7 @@ inputs
 stat
 {
   create 1544195569
-  modify 1544197715
+  modify 1544454030
   author MAINGEAR@DESKTOP-P98C1VA
   access 0777
 }
@@ -7733,7 +7328,7 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position -10.8881 -8.19947
+position -11.3358 -7.14963
 connectornextid 2
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
@@ -7751,7 +7346,7 @@ inputs
 stat
 {
   create 1544196313
-  modify 1544197493
+  modify 1544454026
   author MAINGEAR@DESKTOP-P98C1VA
   access 0777
 }
@@ -7783,7 +7378,7 @@ group	[ 0	locks=0 ]	(	""	)
 grouptype	[ 0	locks=0 ]	(	"guess"	)
 xOrd	[ 0	locks=0 ]	(	"srt"	)
 rOrd	[ 0	locks=0 ]	(	"xyz"	)
-t	[ 8	locks=0 ]	(	[ tx	0 ] 	0	0	)
+t	[ 8	locks=0 ]	(	[ tx	29.506086349487305 ] 	0	0	)
 r	[ 0	locks=0 ]	(	0	0	0	)
 s	[ 0	locks=0 ]	(	1	1	1	)
 shear	[ 0	locks=0 ]	(	0	0	0	)
@@ -7881,7 +7476,7 @@ Content-Type: text/plain
 version 0.8
 group	[ 0	locks=0 ]	(	""	)
 clipop	[ 0	locks=0 ]	(	"below"	)
-origin	[ 8	locks=0 ]	(	[ originx	31.622991561889648 ] 	0	0	)
+origin	[ 8	locks=0 ]	(	[ originx	29.506086349487305 ] 	0	0	)
 dist	[ 0	locks=0 ]	(	0	)
 dir	[ 0	locks=0 ]	(	1	0	0	)
 newg	[ 0	locks=0 ]	(	"off"	)
@@ -7982,7 +7577,7 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position -10.6918 -22.3935
+position -10.6918 -22.6436
 connectornextid 2
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
@@ -8000,7 +7595,7 @@ inputs
 stat
 {
   create 1544197111
-  modify 1544381202
+  modify 1544454030
   author MAINGEAR@DESKTOP-P98C1VA
   access 0777
 }
@@ -8120,7 +7715,7 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position -12.1179 -12.4219
+position -11.8048 -11.672
 connectornextid 3
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
@@ -8140,7 +7735,7 @@ inputs
 stat
 {
   create 1544197711
-  modify 1544197730
+  modify 1544454028
   author MAINGEAR@DESKTOP-P98C1VA
   access 0777
 }
@@ -8183,194 +7778,6 @@ Content-Type: text/plain
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot/vertexsplit1.init"
-Content-Type: text/plain
-
-type = vertexsplit
-matchesdef = 0
-
---HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot/vertexsplit1.def"
-Content-Type: text/plain
-
-sopflags sopflags = 
-comment ""
-position -12.6867 -16.1033
-connectornextid 2
-flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
-outputsNamed3
-{
-1 "output1"
-}
-inputsNamed3
-{
-0 	uvtransform1 1 1 "input1"
-}
-inputs
-{
-0 	uvtransform1 0 1
-}
-stat
-{
-  create 1544381135
-  modify 1544381205
-  author MAINGEAR@DESKTOP-P98C1VA
-  access 0777
-}
-color UT_Color RGB 0.8 0.8 0.8 
-delscript ""
-exprlanguage hscript
-end
-
---HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot/vertexsplit1.parm"
-Content-Type: text/plain
-
-{
-version 0.8
-group	[ 0	locks=0 ]	(	""	)
-attribname	[ 0	locks=0 ]	(	uv	)
-tol	[ 0	locks=0 ]	(	0.001	)
-promote	[ 0	locks=0 ]	(	"on"	)
-}
-
---HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot/vertexsplit1.userdata"
-Content-Type: text/plain
-
-{
-	"___Version___":{
-		"type":"string",
-		"value":"17.0.404"
-	}
-}
-
---HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot/rest1.init"
-Content-Type: text/plain
-
-type = rest
-matchesdef = 0
-
---HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot/rest1.def"
-Content-Type: text/plain
-
-sopflags sopflags = 
-comment ""
-position -8.01337 -11.4581
-connectornextid 2
-flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
-outputsNamed3
-{
-1 "output1"
-}
-inputsNamed3
-{
-0 	merge_middle_curve 0 1 "input1"
-}
-inputs
-{
-0 	merge_middle_curve 0 1
-}
-stat
-{
-  create 1544381157
-  modify 1544381205
-  author MAINGEAR@DESKTOP-P98C1VA
-  access 0777
-}
-color UT_Color RGB 0.8 0.8 0.8 
-delscript ""
-exprlanguage hscript
-end
-
---HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot/rest1.parm"
-Content-Type: text/plain
-
-{
-version 0.8
-file	[ 0	locks=0 ]	(	""	)
-nml	[ 0	locks=0 ]	(	"off"	)
-quadric	[ 0	locks=0 ]	(	"off"	)
-}
-
---HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot/rest1.userdata"
-Content-Type: text/plain
-
-{
-	"___Version___":{
-		"type":"string",
-		"value":"17.0.404"
-	}
-}
-
---HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot/vertexsplit2.init"
-Content-Type: text/plain
-
-type = vertexsplit
-matchesdef = 0
-
---HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot/vertexsplit2.def"
-Content-Type: text/plain
-
-sopflags sopflags = 
-comment ""
-position -8.6603 -12.4581
-connectornextid 2
-flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
-outputsNamed3
-{
-1 "output1"
-}
-inputsNamed3
-{
-0 	rest1 1 1 "input1"
-}
-inputs
-{
-0 	rest1 0 1
-}
-stat
-{
-  create 1544381161
-  modify 1544381205
-  author MAINGEAR@DESKTOP-P98C1VA
-  access 0777
-}
-color UT_Color RGB 0.8 0.8 0.8 
-delscript ""
-exprlanguage hscript
-end
-
---HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot/vertexsplit2.parm"
-Content-Type: text/plain
-
-{
-version 0.8
-group	[ 0	locks=0 ]	(	""	)
-attribname	[ 0	locks=0 ]	(	uv	)
-tol	[ 0	locks=0 ]	(	0.001	)
-promote	[ 0	locks=0 ]	(	"on"	)
-}
-
---HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot/vertexsplit2.userdata"
-Content-Type: text/plain
-
-{
-	"___Version___":{
-		"type":"string",
-		"value":"17.0.404"
-	}
-}
-
---HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
 Content-Disposition: attachment; filename="hdaroot/__dot1.networkdotinit"
 Content-Type: text/plain
 
@@ -8400,7 +7807,7 @@ Content-Type: text/plain
 Content-Disposition: attachment; filename="hdaroot.order"
 Content-Type: text/plain
 
-73
+68
 bump_the_mesh_back_out
 MODEL_IN
 store_the_rest_pose_for_later
@@ -8423,7 +7830,6 @@ facet2
 generate_avg_normal_ATTR1
 switch_if_the_average_y_is_above_1
 delete_avg_normal_ATTR1
-twist
 resample_to_ensure_nice_ends
 TRIM_CURVE
 pointwrangle3
@@ -8468,12 +7874,8 @@ pointwrangle9
 reverse1
 switch5
 switch6
-vertexsplit1
-pointwrangle5
-pointwrangle6
-rest1
-vertexsplit2
-pointwrangle7
+attribtransferbyuv1
+bend1
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
 Content-Disposition: attachment; filename="hdaroot.net"

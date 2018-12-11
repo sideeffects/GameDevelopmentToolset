@@ -23,7 +23,8 @@ def export(node):
     
     # grab the data from the node we're exporting 
     
-    export_node = hou.node(node_name)
+    
+    export_node = node.node(node_name)
     geo = export_node.geometry()
     
     # open the file for writing 

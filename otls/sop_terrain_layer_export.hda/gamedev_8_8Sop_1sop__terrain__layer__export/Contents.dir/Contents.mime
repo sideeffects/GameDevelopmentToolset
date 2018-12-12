@@ -32,24 +32,24 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position -2.7381 -3.60823
+position -17.9147 -2.90308
 connectornextid 1
-flags =  lock off model off template on footprint off xray off bypass off display on render on highlight off unload off savedata off compress on colordefault on exposed on
+flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
 {
 }
 inputsNamed3
 {
-0 	heightfield_noise1 1 1 "input1"
+0 	heightfield_distortbylayer1 1 1 "input1"
 }
 inputs
 {
-0 	heightfield_noise1 0 1
+0 	heightfield_distortbylayer1 0 1
 }
 stat
 {
-  create 1544211323
-  modify 1544212734
+  create 1544658950
+  modify 1544659089
   author Paul_Ambrosiussen@LAPTOP-P8R7FBPF
   access 0777
 }
@@ -87,7 +87,7 @@ Content-Type: text/plain
 }
 {
   create 1541699822
-  modify 1544211325
+  modify 1544658952
   author Paul_Ambrosiussen@LAPTOP-P8R7FBPF
   access 0777
 }
@@ -130,7 +130,7 @@ inputs
 stat
 {
   create 1541633966
-  modify 1544212717
+  modify 1544659042
   author Paul_Ambrosiussen@LAPTOP-P8R7FBPF
   access 0777
 }
@@ -220,7 +220,7 @@ Content-Type: text/plain
 
 	 length = 0 value = 1 1 accel = 0.33333333333333331 0.33333333333333331 expr = "import hou
 
-print hou.getenv(\"HAPI_CLIENT_NAME\")
+#print hou.getenv(\"HAPI_CLIENT_NAME\")
 
 if hou.getenv(\"HAPI_CLIENT_NAME\") == None:
     return 1
@@ -238,14 +238,14 @@ Content-Type: text/plain
 version 0.8
 folder0	[ 0	locks=0 ]	(	0	)
 execute	[ 0	locks=0 ]	(	0	)
-output	[ 0	locks=0 ]	(	[ output	C:/Users/PAULAM~1/Desktop/CRAP/QuixelLayer/Layer_Heightmap.png ] 	)
+output	[ 0	locks=0 ]	(	[ output	C:/temp/LayerExport/Layer_Heightmap.png ] 	)
 out_type	[ 0	locks=0 ]	(	"packed"	)
 out_format	[ 0	locks=0 ]	(	"single"	)
 output_type	[ 0	locks=0 ]	(	"i16"	)
 specify_res	[ 0	locks=0 ]	(	"off"	)
 resolution	[ 0	locks=0 ]	(	256	256	)
-volume_res	[ 0	locks=0 ]	(	[ volume_resx	500 ] 	[ volume_resy	500 ] 	)
-actual_res	[ 0	locks=0 ]	(	500	500	)
+volume_res	[ 0	locks=0 ]	(	[ volume_resx	505 ] 	[ volume_resy	505 ] 	)
+actual_res	[ 0	locks=0 ]	(	505	505	)
 trange	[ 0	locks=0 ]	(	"off"	)
 f	[ 0	locks=0 ]	(	[ f1	1 ] 	[ f2	240 ] 	1	)
 folder3	[ 0	locks=0 ]	(	1	)
@@ -490,7 +490,7 @@ inputs
 stat
 {
   create 1541633966
-  modify 1544041658
+  modify 1544659045
   author Paul_Ambrosiussen@LAPTOP-P8R7FBPF
   access 0777
 }
@@ -587,7 +587,7 @@ Content-Type: text/plain
 
 	 length = 0 value = 1 1 accel = 0.33333333333333331 0.33333333333333331 expr = "import hou
 
-print hou.getenv(\"HAPI_CLIENT_NAME\")
+#print hou.getenv(\"HAPI_CLIENT_NAME\")
 
 if hou.getenv(\"HAPI_CLIENT_NAME\") == None:
     return 1
@@ -605,7 +605,7 @@ Content-Type: text/plain
 version 0.8
 folder0	[ 0	locks=0 ]	(	0	)
 execute	[ 0	locks=0 ]	(	0	)
-output	[ 0	locks=0 ]	(	[ output	"" ] 	)
+output	[ 0	locks=0 ]	(	[ output	C:/temp/LayerExport/Layer_Blue.png ] 	)
 out_type	[ 0	locks=0 ]	(	"packed"	)
 out_format	[ 0	locks=0 ]	(	"single"	)
 output_type	[ 0	locks=0 ]	(	"i16"	)
@@ -816,7 +816,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.403"
+		"value":"17.0.425"
 	}
 }
 
@@ -877,7 +877,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.403"
+		"value":"17.0.425"
 	}
 }
 
@@ -903,7 +903,7 @@ inputs
 stat
 {
   create 1474476437
-  modify 1544212721
+  modify 1544659046
   author nobody@nowhere
   access 0777
 }
@@ -960,7 +960,7 @@ take	[ 0	locks=0 ]	(	_current_	)
 copswitcher	[ 0	locks=0 ]	(	3	3	3	3	3	)
 coppath	[ 0	locks=0 ]	(	../../../heightfield_output_height/cop2net1/flip1	)
 tres	[ 0	locks=0 ]	(	"natural"	)
-res	[ 0	locks=0 ]	(	500	500	)
+res	[ 0	locks=0 ]	(	505	505	)
 resmenu	[ 0	locks=0 ]	(	0	)
 copoutput	[ 0	locks=0 ]	(	`chs(\"../../output\")`	)
 mkpath	[ 0	locks=0 ]	(	"on"	)
@@ -975,7 +975,7 @@ batchmode	[ 0	locks=0 ]	(	"off"	)
 batchsize	[ 0	locks=0 ]	(	2	)
 reloadfiles	[ 0	locks=0 ]	(	"off"	)
 outputarea	[ 0	locks=0 ]	(	"frame"	)
-pixelcrop	[ 0	locks=0 ]	(	0	0	499	499	)
+pixelcrop	[ 0	locks=0 ]	(	0	0	504	504	)
 uvcrop	[ 0	locks=0 ]	(	0	0	1	1	)
 limitcanvaspixels	[ 0	locks=0 ]	(	"on"	)
 canvaspixels	[ 0	locks=0 ]	(	64	)
@@ -1031,7 +1031,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.403"
+		"value":"17.0.425"
 	}
 }
 
@@ -1661,7 +1661,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.403"
+		"value":"17.0.425"
 	}
 }
 
@@ -1718,7 +1718,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.403"
+		"value":"17.0.425"
 	}
 }
 
@@ -1753,7 +1753,7 @@ inputs
 stat
 {
   create 1541723063
-  modify 1544212716
+  modify 1544659040
   author Paul_Ambrosiussen@LAPTOP-P8R7FBPF
   access 0777
 }
@@ -1794,7 +1794,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.403"
+		"value":"17.0.425"
 	}
 }
 
@@ -1829,7 +1829,7 @@ inputs
 stat
 {
   create 1541723063
-  modify 1544212716
+  modify 1544659043
   author Paul_Ambrosiussen@LAPTOP-P8R7FBPF
   access 0777
 }
@@ -1858,7 +1858,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.403"
+		"value":"17.0.425"
 	}
 }
 
@@ -1929,7 +1929,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.403"
+		"value":"17.0.425"
 	}
 }
 
@@ -2031,7 +2031,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.403"
+		"value":"17.0.425"
 	}
 }
 
@@ -2057,7 +2057,7 @@ inputs
 stat
 {
   create 1474476437
-  modify 1544040838
+  modify 1544659057
   author nobody@nowhere
   access 0777
 }
@@ -2185,7 +2185,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.403"
+		"value":"17.0.425"
 	}
 }
 
@@ -2815,7 +2815,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.403"
+		"value":"17.0.425"
 	}
 }
 

@@ -32,28 +32,27 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position -20.6708 -0.281215
-connectornextid 3
-flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
+position -9.24004 -1.89303
+connectornextid 2
+flags =  lock off model off template on footprint off xray off bypass off display on render on highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
 {
-2 "output1"
 }
 inputsNamed3
 {
-0 	attribdelete1 1 1 "input1"
-1 	object_merge1 0 1 "input2"
+0 	sphere1 0 1 "input1"
+1 	uvunwrap2 1 1 "input2"
 }
 inputs
 {
-0 	attribdelete1 0 1
-1 	object_merge1 0 1
+0 	sphere1 0 1
+1 	uvunwrap2 0 1
 }
 stat
 {
-  create 1543346822
-  modify 1543419040
-  author lucapataracchia@lucas-mbp.hitronhub.home
+  create 1544813293
+  modify 1544814439
+  author MAINGEAR@DESKTOP-P98C1VA
   access 0777
 }
 color UT_Color RGB 0.8 0.8 0.8 
@@ -90,7 +89,7 @@ Content-Type: text/plain
 }
 {
   create 1541172667
-  modify 1543417701
+  modify 1544813306
   author MAINGEAR@DESKTOP-P98C1VA
   access 0777
 }
@@ -113,7 +112,7 @@ Content-Type: text/plain
 }
 {
   create 1541180650
-  modify 1543417818
+  modify 1544814369
   author MAINGEAR@DESKTOP-P98C1VA
   access 0777
 }
@@ -670,7 +669,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.404"
+		"value":"17.0.421"
 	}
 }
 
@@ -902,7 +901,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.404"
+		"value":"17.0.421"
 	}
 }
 
@@ -1172,7 +1171,7 @@ sopflags sopflags =
 comment ""
 position -3.65552 -2.6551
 connectornextid 3
-flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
+flags =  lock off model off template on footprint off xray off bypass off display on render on highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
 {
 2 "output1"
@@ -1190,7 +1189,7 @@ inputs
 stat
 {
   create 1541873924
-  modify 1543418040
+  modify 1544814358
   author MAINGEAR@DESKTOP-P98C1VA
   access 0777
 }
@@ -1216,7 +1215,9 @@ vector param_uv;
 float maxdist = 10;
 float dist = xyzdist(1,@P,posprim,param_uv,maxdist);
 vector pos = primuv(1,chs(\"../uv_attribute\"),posprim,param_uv);
-v@uv = pos;"	)
+
+setvertexattrib(0, chs(\"../uv_attribute\"), @vtxnum, -1, pos);
+"	)
 exportlist	[ 0	locks=0 ]	(	*	)
 vex_strict	[ 0	locks=0 ]	(	"off"	)
 autobind	[ 0	locks=0 ]	(	"on"	)
@@ -1275,7 +1276,7 @@ inputs
 stat
 {
   create 1541873924
-  modify 1543417818
+  modify 1544813800
   author MAINGEAR@DESKTOP-P98C1VA
   access 0777
 }
@@ -1361,7 +1362,7 @@ inputs
 stat
 {
   create 1541873924
-  modify 1543417818
+  modify 1544813749
   author MAINGEAR@DESKTOP-P98C1VA
   access 0777
 }
@@ -1387,7 +1388,7 @@ vector param_uv;
 float maxdist = 10;
 float dist = xyzdist(1,@P,posprim,param_uv,maxdist);
 vector pos = primuv(1, chs(\"../uv_attribute\") ,posprim,param_uv);
-v@uv = pos;"	)
+setvertexattrib(0, chs(\"../uv_attribute\"), @vtxnum, -1, pos);"	)
 exportlist	[ 0	locks=0 ]	(	*	)
 vex_strict	[ 0	locks=0 ]	(	"off"	)
 autobind	[ 0	locks=0 ]	(	"on"	)
@@ -1517,18 +1518,18 @@ outputsNamed3
 }
 inputsNamed3
 {
-0 	(0) "" 1 "input1"
+0 	attribcreate1 1 1 "input1"
 1 	generate_an_attribute_per_shell 0 1 "input2"
 }
 inputs
 {
-0 	(0) 0 1
+0 	attribcreate1 0 1
 1 	generate_an_attribute_per_shell 0 1
 }
 stat
 {
   create 1541873924
-  modify 1541895565
+  modify 1544814369
   author MAINGEAR@DESKTOP-P98C1VA
   access 0777
 }
@@ -1655,7 +1656,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.404"
+		"value":"17.0.421"
 	}
 }
 
@@ -1690,7 +1691,7 @@ inputs
 stat
 {
   create 1540907143
-  modify 1543418880
+  modify 1544813531
   author MAINGEAR@DESKTOP-P98C1VA
   access 0777
 }
@@ -1719,7 +1720,7 @@ blockpath	[ 0	locks=0 ]	(	../for_each_class_attribute	)
 templatepath	[ 0	locks=0 ]	(	../for_each_class_attribute	)
 resetcookpass	[ 0	locks=0 ]	(	0	)
 dosinglepass	[ 0	locks=0 ]	(	"off"	)
-singlepass	[ 0	locks=0 ]	(	4	)
+singlepass	[ 0	locks=0 ]	(	1	)
 stopcondition	[ 0	locks=0 ]	(	0	)
 multithread	[ 0	locks=0 ]	(	"off"	)
 }
@@ -1731,7 +1732,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.404"
+		"value":"17.0.421"
 	}
 }
 
@@ -1766,7 +1767,7 @@ inputs
 stat
 {
   create 1540907143
-  modify 1543419054
+  modify 1544814439
   author MAINGEAR@DESKTOP-P98C1VA
   access 0777
 }
@@ -1795,7 +1796,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.404"
+		"value":"17.0.421"
 	}
 }
 
@@ -1860,7 +1861,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.404"
+		"value":"17.0.421"
 	}
 }
 
@@ -1921,7 +1922,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.404"
+		"value":"17.0.421"
 	},
 	"nodeshape":{
 		"type":"string",
@@ -1988,7 +1989,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.404"
+		"value":"17.0.421"
 	}
 }
 
@@ -2070,7 +2071,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.404"
+		"value":"17.0.421"
 	}
 }
 
@@ -2174,7 +2175,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.404"
+		"value":"17.0.421"
 	}
 }
 
@@ -2211,7 +2212,7 @@ inputs
 stat
 {
   create 1541101376
-  modify 1543418036
+  modify 1544814369
   author MAINGEAR@DESKTOP-P98C1VA
   access 0777
 }
@@ -2257,7 +2258,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.404"
+		"value":"17.0.421"
 	}
 }
 
@@ -2355,7 +2356,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.404"
+		"value":"17.0.421"
 	}
 }
 
@@ -2390,7 +2391,7 @@ inputs
 stat
 {
   create 1541101622
-  modify 1543418880
+  modify 1544813530
   author MAINGEAR@DESKTOP-P98C1VA
   access 0777
 }
@@ -2419,7 +2420,7 @@ blockpath	[ 0	locks=0 ]	(	../for_each_border_primitive	)
 templatepath	[ 0	locks=0 ]	(	../for_each_border_primitive	)
 resetcookpass	[ 0	locks=0 ]	(	0	)
 dosinglepass	[ 0	locks=0 ]	(	"off"	)
-singlepass	[ 0	locks=0 ]	(	73	)
+singlepass	[ 0	locks=0 ]	(	-9	)
 stopcondition	[ 0	locks=0 ]	(	0	)
 multithread	[ 0	locks=0 ]	(	"off"	)
 }
@@ -2431,7 +2432,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.404"
+		"value":"17.0.421"
 	}
 }
 
@@ -2466,7 +2467,7 @@ inputs
 stat
 {
   create 1541101622
-  modify 1544462590
+  modify 1544817629
   author MAINGEAR@DESKTOP-P98C1VA
   access 0777
 }
@@ -2495,7 +2496,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.404"
+		"value":"17.0.421"
 	}
 }
 
@@ -2624,7 +2625,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.404"
+		"value":"17.0.421"
 	}
 }
 
@@ -2685,7 +2686,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.404"
+		"value":"17.0.421"
 	},
 	"nodeshape":{
 		"type":"string",
@@ -2750,7 +2751,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.404"
+		"value":"17.0.421"
 	}
 }
 
@@ -2896,7 +2897,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.404"
+		"value":"17.0.421"
 	}
 }
 
@@ -2915,7 +2916,7 @@ sopflags sopflags =
 comment ""
 position -4.72378 -27.6047
 connectornextid 1
-flags =  lock off model off template on footprint off xray off bypass off display on render on highlight off unload off savedata off compress on colordefault on exposed on
+flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
 {
 }
@@ -2930,7 +2931,7 @@ inputs
 stat
 {
   create 1541182217
-  modify 1543418880
+  modify 1544814077
   author MAINGEAR@DESKTOP-P98C1VA
   access 0777
 }
@@ -2955,7 +2956,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.404"
+		"value":"17.0.421"
 	}
 }
 
@@ -3018,7 +3019,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.404"
+		"value":"17.0.421"
 	}
 }
 
@@ -3093,7 +3094,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.404"
+		"value":"17.0.421"
 	}
 }
 
@@ -3159,7 +3160,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.404"
+		"value":"17.0.421"
 	}
 }
 
@@ -3222,7 +3223,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.404"
+		"value":"17.0.421"
 	}
 }
 
@@ -3304,7 +3305,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.404"
+		"value":"17.0.421"
 	}
 }
 
@@ -3387,7 +3388,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.404"
+		"value":"17.0.421"
 	}
 }
 
@@ -3450,7 +3451,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.404"
+		"value":"17.0.421"
 	}
 }
 
@@ -3532,7 +3533,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.404"
+		"value":"17.0.421"
 	}
 }
 
@@ -3623,7 +3624,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.404"
+		"value":"17.0.421"
 	}
 }
 
@@ -3721,7 +3722,7 @@ inputs
 stat
 {
   create 1542120616
-  modify 1543418880
+  modify 1544814055
   author MAINGEAR@DESKTOP-P98C1VA
   access 0777
 }
@@ -3736,7 +3737,7 @@ Content-Type: text/plain
 
 {
 version 0.8
-uvattrib	[ 0	locks=0 ]	(	uv	)
+uvattrib	[ 0	locks=0 ]	(	`chs(\"../uv_attribute\")`	)
 group	[ 0	locks=0 ]	(	""	)
 grouptype	[ 0	locks=0 ]	(	"guess"	)
 manpos	[ 0	locks=0 ]	(	0	0	0	)
@@ -3761,7 +3762,91 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.404"
+		"value":"17.0.421"
+	}
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/attribcreate1.init"
+Content-Type: text/plain
+
+type = attribcreate::2.0
+matchesdef = 0
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/attribcreate1.def"
+Content-Type: text/plain
+
+sopflags sopflags = 
+comment ""
+position -3.84129 7.92245
+connectornextid 2
+flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
+outputsNamed3
+{
+1 "output1"
+}
+inputsNamed3
+{
+0 	(0) "" 1 "input1"
+}
+inputs
+{
+0 	(0) 0 1
+}
+stat
+{
+  create 1544814306
+  modify 1544814380
+  author MAINGEAR@DESKTOP-P98C1VA
+  access 0777
+}
+color UT_Color RGB 0.8 0.8 0.8 
+delscript ""
+exprlanguage hscript
+end
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/attribcreate1.parm"
+Content-Type: text/plain
+
+{
+version 0.8
+group	[ 0	locks=0 ]	(	""	)
+grouptype	[ 0	locks=0 ]	(	"guess"	)
+numattr	[ 0	locks=0 ]	(	1	)
+enable1	[ 0	locks=0 ]	(	"on"	)
+name1	[ 0	locks=0 ]	(	`chs(\"../uv_attribute\")`	)
+existing1	[ 0	locks=0 ]	(	"replace"	)
+createvarmap1	[ 0	locks=0 ]	(	"off"	)
+varname1	[ 0	locks=0 ]	(	""	)
+class1	[ 0	locks=0 ]	(	"vertex"	)
+savetoinfo1	[ 0	locks=0 ]	(	"off"	)
+type1	[ 0	locks=0 ]	(	"float"	)
+typeinfo1	[ 0	locks=0 ]	(	"texturecoord"	)
+precision1	[ 0	locks=0 ]	(	"32"	)
+size1	[ 0	locks=0 ]	(	3	)
+default1v	[ 0	locks=0 ]	(	0	0	0	0	)
+writevalues1	[ 0	locks=0 ]	(	"on"	)
+uselocal1	[ 0	locks=0 ]	(	"on"	)
+value1v	[ 0	locks=0 ]	(	0	0	0	0	)
+string1	[ 0	locks=0 ]	(	""	)
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/attribcreate1.netbox"
+Content-Type: text/plain
+
+__netbox2
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/attribcreate1.userdata"
+Content-Type: text/plain
+
+{
+	"___Version___":{
+		"type":"string",
+		"value":"17.0.421"
 	}
 }
 
@@ -3808,7 +3893,7 @@ Content-Type: text/plain
 Content-Disposition: attachment; filename="hdaroot.order"
 Content-Type: text/plain
 
-35
+36
 set_values_at_border
 initialize_attributes
 fuse_uvs_based_on_same_vtx
@@ -3844,6 +3929,7 @@ color2
 copy_uv_shell_attribute
 uvquickshade1
 uvfuse1
+attribcreate1
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
 Content-Disposition: attachment; filename="hdaroot.net"

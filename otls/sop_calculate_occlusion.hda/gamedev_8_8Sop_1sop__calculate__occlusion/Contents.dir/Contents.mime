@@ -2566,9 +2566,9 @@ conewidth = radians(ch('conewidth'));
 int rays = chi('rays');
 
 for (int i = 0; i<rays; i++ ) {
-    raydir = sample_direction_cone(@N*maxdist,conewidth,vector2(rand(@Time+i)));
-    hitprim = intersect(0,@P+(raydir*0.01), raydir, hit, u, v);
-    hitprim_2 = intersect(1,@P+(raydir*0.01), raydir, hit, u, v);
+    raydir = sample_direction_cone(@N,conewidth,vector2(rand(@Time+i)));
+    hitprim = intersect(0,@P+(raydir*0.01), raydir*maxdist, hit, u, v);
+    hitprim_2 = intersect(1,@P+(raydir*0.01), raydir*maxdist, hit, u, v);
     if (hitprim!=-1 || hitprim_2!=-1) 
     {
       f@tempocc*=1-(1/float(rays/2));
@@ -2577,7 +2577,7 @@ for (int i = 0; i<rays; i++ ) {
 }
 
 "	)
-exportlist	[ 0	locks=0 ]	(	*	)
+exportlist	[ 0	locks=0 ]	(	"tempocc"	)
 vex_strict	[ 0	locks=0 ]	(	"off"	)
 autobind	[ 0	locks=0 ]	(	"on"	)
 bindings	[ 0	locks=0 ]	(	0	)

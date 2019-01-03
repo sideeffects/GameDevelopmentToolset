@@ -52,6 +52,28 @@
             default { "1" }
             range   { 0 10 }
         }
+        groupcollapsible {
+            name    "folder0"
+            label   "Advanced"
+
+            parm {
+                name    "conewidth"
+                label   "Cone Width"
+                type    angle
+                default { "70" }
+                range   { 1! 90! }
+                parmtag { "autoscope" "0000000000000000" }
+            }
+            parm {
+                name    "raybias"
+                label   "Ray Bias"
+                type    float
+                default { "0.01" }
+                range   { 0 1 }
+                parmtag { "autoscope" "0000000000000000" }
+            }
+        }
+
     }
 
     groupsimple {

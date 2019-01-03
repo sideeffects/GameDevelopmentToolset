@@ -10,10 +10,12 @@
     <script scriptType="python"><![CDATA[import os
 import shutil
 import urllib
+import contextlib
 import json
 import zipfile
 import platform
 import hou
+
 
 from hutil.Qt.QtCore import *
 from hutil.Qt.QtGui import *
@@ -177,10 +179,10 @@ class GameDevelopmentUpdater(object):
 
         # Attempt to download things from github
         try:
-            response = urllib.urlopen(REPO_URL + "/releases")
-            data = response.read()
-            if data == "":
-                raise ValueError("Unable to get the release list")
+            with contextlib.closing(urllib.urlopen(REPO_URL + "/releases")) as response:
+                data = response.read()
+                if data == "":
+                    raise ValueError("Unable to get the release list")
         except:
             raise ValueError("Unable to connect to GitHub and download the Release List")
             return
@@ -232,10 +234,10 @@ class GameDevelopmentUpdater(object):
         :return:
         """
         try:
-            response = urllib.urlopen(REPO_URL + "/releases/tags/" + version)
-            data = response.read()
-            if data == "":
-                raise ValueError("Unable to get the release tags")
+            with contextlib.closing(urllib.urlopen(REPO_URL + "/releases/tags/" + version)) as response:
+                data = response.read()
+                if data == "":
+                    raise ValueError("Unable to get the release tags")
         except:
             raise ValueError("Unable to reach Github and get the release tags")
 

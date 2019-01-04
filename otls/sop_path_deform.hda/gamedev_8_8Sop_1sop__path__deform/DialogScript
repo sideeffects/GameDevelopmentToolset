@@ -43,7 +43,15 @@
             name    "curve_resolution"
             label   "Curve Resolution"
             type    float
-            default { "1" }
+            default { "0.1" }
+            range   { 0 10 }
+        }
+        parm {
+            name    "normal_blur"
+            label   "Normal Blur Strength"
+            type    integer
+            default { "0" }
+            help    "Softens some of the extreme deformation when the curve is too noisy"
             range   { 0 10 }
         }
         parm {

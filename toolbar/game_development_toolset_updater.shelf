@@ -360,18 +360,20 @@ class GameDevelopmentUpdater(object):
             to_write.append("# GAMES DEVELOPMENT TOOLSET \n")
 
             entry = "HOUDINI_PATH = "
+
+            if platform.system() != "Windows":
+                entry += "\""
+
             entry += "$HOUDINI_PATH" + sep
 
-            entry += quote_char + HOU_TEMP_PATH_STR + "\\"
-            entry += APP_VERSION + "\\" + version
+            entry += os.path.join(HOU_TEMP_PATH_STR, APP_VERSION, version)
 
             entry += sep + "&" + quote_char + "\n"
 
             to_write.append(entry)
 
             path_entry = "PATH = "
-            path_entry += quote_char + HOU_TEMP_PATH_STR + "\\"
-            path_entry += APP_VERSION + "\\" + version + "\\bin"
+            path_entry += quote_char + os.path.join(HOU_TEMP_PATH_STR, APP_VERSION, version , "bin")
             path_entry += sep + "$PATH" + quote_char + "\n"
 
             to_write.append(path_entry)

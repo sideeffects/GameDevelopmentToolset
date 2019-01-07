@@ -32,7 +32,7 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position -23.404 -13.6448
+position -21.9288 -13.1244
 connectornextid 1
 flags =  lock off model off template on footprint off xray off bypass off display on render on highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
@@ -48,8 +48,8 @@ inputs
 }
 stat
 {
-  create 1546894814
-  modify 1546894847
+  create 1546895899
+  modify 1546897089
   author Paul_Ambrosiussen@LAPTOP-P8R7FBPF
   access 0777
 }
@@ -107,7 +107,7 @@ inputs
 stat
 {
   create 1546892006
-  modify 1546894850
+  modify 1546896376
   author Paul_Ambrosiussen@LAPTOP-P8R7FBPF
   access 0777
 }
@@ -138,7 +138,7 @@ Content-Type: text/plain
             baseparm
             label   "Group"
             export  none
-            bindselector uvselect "Modify Points"
+            bindselector points "Modify Points"
                 "Select the points to affect and press Enter to complete."
                 0 1 0xffffffff 0 grouptype 0
         }
@@ -305,12 +305,37 @@ Content-Disposition: attachment; filename="hdaroot/attribwrangle2.chn"
 Content-Type: text/plain
 
 {
+    channel upx {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = ch(\"../vUpx\") }
+    }
+    channel upy {
+      lefttype = extend
+      righttype = extend
+      default = 1
+      flags = 0
+      segment { length = 0 value = 1 1 expr = ch(\"../vUpy\") }
+    }
+    channel upz {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = ch(\"../vUpz\") }
+    }
+    channel slope {
+      lefttype = extend
+      righttype = extend
+      default = 2
+      flags = 0
+      segment { length = 0 value = 2 2 expr = ch(\"../slope\") }
+    }
     channel slope1pos {
       lefttype = extend
       righttype = extend
-      default = 0.5
       flags = 0
-      segment { length = 0 value = 0.39124667644500732 0.39124667644500732 expr = ch(\"../slope1pos\") }
+      segment { length = 0 expr = ch(\"../slope1pos\") }
     }
     channel slope1value {
       lefttype = extend
@@ -344,32 +369,6 @@ Content-Type: text/plain
       flags = 0
       segment { length = 0 value = 1 1 expr = ch(\"../slope2interp\") }
     }
-    channel slope {
-      lefttype = extend
-      righttype = extend
-      default = 2
-      flags = 0
-      segment { length = 0 value = 2 2 expr = ch(\"../slope\") }
-    }
-    channel upx {
-      lefttype = extend
-      righttype = extend
-      flags = 0
-      segment { length = 0 expr = ch(\"../vUpx\") }
-    }
-    channel upy {
-      lefttype = extend
-      righttype = extend
-      default = 1
-      flags = 0
-      segment { length = 0 value = 1 1 expr = ch(\"../vUpy\") }
-    }
-    channel upz {
-      lefttype = extend
-      righttype = extend
-      flags = 0
-      segment { length = 0 expr = ch(\"../vUpz\") }
-    }
   }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -401,7 +400,7 @@ vex_inplace	[ 0	locks=0 ]	(	"off"	)
 vex_selectiongroup	[ 0	locks=0 ]	(	""	)
 folder1	[ 0	locks=0 ]	(	0	0	)
 slope	[ 0	locks=0 ]	(	[ slope	2 ] 	)
-slope1pos	[ 0	locks=0 ]	(	[ slope1pos	0.5 ] 	)
+slope1pos	[ 0	locks=0 ]	(	[ slope1pos	0 ] 	)
 slope1value	[ 0	locks=0 ]	(	[ slope1value	0 ] 	)
 slope1interp	[ 0	locks=0 ]	(	[ slope1interp	1 ] 	)
 up	[ 0	locks=0 ]	(	[ upx	0 ] 	[ upy	1 ] 	[ upz	0 ] 	)
@@ -1102,7 +1101,7 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position -0.85765 -3.33185
+position -0.00345 -3.37256
 connectornextid 2
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
@@ -1120,7 +1119,7 @@ inputs
 stat
 {
   create 1546894631
-  modify 1546894651
+  modify 1546895919
   author Paul_Ambrosiussen@LAPTOP-P8R7FBPF
   access 0777
 }

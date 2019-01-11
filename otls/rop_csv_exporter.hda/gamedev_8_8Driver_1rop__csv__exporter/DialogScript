@@ -78,4 +78,23 @@
         default { "w" }
         disablewhen "{ separate_components == 0 }"
     }
+    parm {
+        name    "bFilteredExport"
+        label   "Filtered Export"
+        type    toggle
+        default { "0" }
+    }
+    multiparm {
+        name    "mAttributes"
+        label    "Export Attributes"
+        disablewhen "{ bFilteredExport == 0 }"
+
+        parm {
+            name    "sAttribute#"
+            label   "Attribute"
+            type    string
+            default { "" }
+        }
+    }
+
 }

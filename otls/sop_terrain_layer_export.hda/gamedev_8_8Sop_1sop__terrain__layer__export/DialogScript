@@ -9,7 +9,7 @@
 	""
     }
 
-    inputlabel	1	"HDA in HEngine"
+    inputlabel	1	Heightfield
     inputlabel	2	"Sub-Network Input #2"
     inputlabel	3	"Sub-Network Input #3"
     inputlabel	4	"Sub-Network Input #4"
@@ -22,6 +22,16 @@
         parmtag { "autoscope" "0000000000000000" }
         parmtag { "script_callback" "kwargs[\"node\"].hm().MainFunction()" }
         parmtag { "script_callback_language" "python" }
+    }
+    parm {
+        name    "sHost"
+        label   "Host"
+        type    ordinal
+        default { "0" }
+        menu usetokenvalue {
+            "0" "Houdini Engine"
+            "1" "Houdini"
+        }
     }
     parm {
         name    "sPaintLayerPrefix"

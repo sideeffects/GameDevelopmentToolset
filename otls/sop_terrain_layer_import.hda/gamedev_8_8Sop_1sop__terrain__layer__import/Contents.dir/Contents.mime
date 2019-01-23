@@ -32,7 +32,7 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position 3.52781 0
+position -2.24056 2.31305
 connectornextid 1
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
@@ -47,9 +47,9 @@ inputs
 }
 stat
 {
-  create 1547138087
-  modify 1547234251
-  author hectord@caledon
+  create 1548192174
+  modify 1548277487
+  author Paul_Ambrosiussen@LAPTOP-P8R7FBPF
   access 0777
 }
 color UT_Color RGB 0.8 0.8 0.8 
@@ -149,7 +149,7 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position -5.15663 6.03821
+position -5.15663 7.11601
 connectornextid 1
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
@@ -165,7 +165,7 @@ inputs
 stat
 {
   create 1541631627
-  modify 1542046922
+  modify 1548276149
   author Paul_Ambrosiussen@LAPTOP-P8R7FBPF
   access 0777
 }
@@ -202,7 +202,7 @@ Content-Type: text/plain
 version 0.8
 source	[ 0	locks=0 ]	(	"file"	)
 coppath	[ 0	locks=0 ]	(	""	)
-filename	[ 0	locks=0 ]	(	[ filename	C:/Users/PAULAM~1/Desktop/CRAP/TerrainLayerExport/layers/Layer_Heightmap.png ] 	)
+filename	[ 0	locks=0 ]	(	[ filename	C:/temp/LayerExport/Layer_Heightmap.png ] 	)
 reload	[ 0	locks=0 ]	(	0	)
 monoop	[ 0	locks=0 ]	(	"lum"	)
 type	[ 0	locks=0 ]	(	"heightfield"	)
@@ -255,7 +255,7 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position -5.15663 5.03821
+position -5.15663 6.11601
 connectornextid 2
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
@@ -273,7 +273,7 @@ inputs
 stat
 {
   create 1541698333
-  modify 1542047608
+  modify 1548276245
   author Paul_Ambrosiussen@LAPTOP-P8R7FBPF
   access 0777
 }
@@ -281,6 +281,27 @@ color UT_Color RGB 0.8 0.8 0.8
 delscript ""
 exprlanguage hscript
 end
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/heightfield_remap1.chn"
+Content-Type: text/plain
+
+{
+    channel outputmax {
+      lefttype = extend
+      righttype = extend
+      default = 256
+      flags = 0
+      segment { length = 0 value = 256 256 expr = 256 }
+    }
+    channel outputmin {
+      lefttype = extend
+      righttype = extend
+      default = -256
+      flags = 0
+      segment { length = 0 value = -256 -256 expr = -256 }
+    }
+  }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
 Content-Disposition: attachment; filename="hdaroot/heightfield_remap1.parm"
@@ -293,8 +314,8 @@ masklayer	[ 0	locks=0 ]	(	mask	)
 computerange	[ 0	locks=0 ]	(	0	)
 inputmin	[ 0	locks=0 ]	(	0	)
 inputmax	[ 0	locks=0 ]	(	1	)
-outputmin	[ 0	locks=0 ]	(	-256	)
-outputmax	[ 0	locks=0 ]	(	256	)
+outputmin	[ 8	locks=0 ]	(	[ outputmin	-256 ] 	)
+outputmax	[ 8	locks=0 ]	(	[ outputmax	256 ] 	)
 clampmin	[ 0	locks=0 ]	(	"off"	)
 clampmax	[ 0	locks=0 ]	(	"off"	)
 remap	[ 0	locks=0 ]	(	2	)
@@ -348,7 +369,7 @@ inputs
 stat
 {
   create 1541698976
-  modify 1542058288
+  modify 1548276443
   author Paul_Ambrosiussen@LAPTOP-P8R7FBPF
   access 0777
 }
@@ -379,7 +400,7 @@ Content-Type: text/plain
 version 0.8
 folder1	[ 0	locks=0 ]	(	0	)
 scale	[ 0	locks=0 ]	(	1	)
-gridscale	[ 0	locks=0 ]	(	[ gridscale	1000 ] 	)
+gridscale	[ 0	locks=0 ]	(	[ gridscale	505 ] 	)
 heightscale	[ 0	locks=0 ]	(	1	)
 heightoffset	[ 0	locks=0 ]	(	0	)
 folder0	[ 0	locks=0 ]	(	0	)
@@ -430,7 +451,7 @@ inputs
 stat
 {
   create 1541815260
-  modify 1542047608
+  modify 1548276432
   author Paul_Ambrosiussen@LAPTOP-P8R7FBPF
   access 0777
 }
@@ -859,13 +880,84 @@ gridscale	[ 0	locks=0 ]	(	1	)
 heightscale	[ 0	locks=0 ]	(	1	)
 heightoffset	[ 0	locks=0 ]	(	0	)
 folder0	[ 0	locks=0 ]	(	0	)
-tx	[ 8	locks=0 ]	(	[ tx	0 ] 	)
+tx	[ 0	locks=0 ]	(	[ tx	0 ] 	)
 tz	[ 0	locks=0 ]	(	0	)
-ry	[ 8	locks=0 ]	(	[ ry	0 ] 	)
+ry	[ 0	locks=0 ]	(	[ ry	0 ] 	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
 Content-Disposition: attachment; filename="hdaroot/heightfield_xform3.userdata"
+Content-Type: text/plain
+
+{
+	"___Version___":{
+		"type":"string",
+		"value":""
+	}
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/heightfield_wrangle1.init"
+Content-Type: text/plain
+
+type = volumewrangle
+matchesdef = 1
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/heightfield_wrangle1.def"
+Content-Type: text/plain
+
+sopflags sopflags = 
+comment ""
+position -5.15963 5.07611
+connectornextid 2
+flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
+outputsNamed3
+{
+1 "output1"
+}
+inputsNamed3
+{
+0 	heightfield_remap1 1 1 "input1"
+}
+inputs
+{
+0 	heightfield_remap1 0 1
+}
+stat
+{
+  create 1548276141
+  modify 1548276309
+  author Paul_Ambrosiussen@LAPTOP-P8R7FBPF
+  access 0777
+}
+color UT_Color RGB 0.8 0.8 0.8 
+delscript ""
+exprlanguage hscript
+end
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/heightfield_wrangle1.parm"
+Content-Type: text/plain
+
+{
+version 0.8
+folder0	[ 0	locks=0 ]	(	0	0	)
+group	[ 0	locks=0 ]	(	""	)
+bindeach	[ 0	locks=0 ]	(	"off"	)
+snippet	[ 0	locks=0 ]	(	"@height = (@height <= -254) ? -256 : @height;"	)
+exportlist	[ 0	locks=0 ]	(	*	)
+vex_strict	[ 0	locks=0 ]	(	"off"	)
+autobind	[ 0	locks=0 ]	(	"on"	)
+bindings	[ 0	locks=0 ]	(	0	)
+vex_geometrygenerator	[ 0	locks=0 ]	(	"off"	)
+vdb_signedflood	[ 0	locks=0 ]	(	"on"	)
+vex_cwdpath	[ 0	locks=0 ]	(	.	)
+vex_outputmask	[ 0	locks=0 ]	(	*	)
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/heightfield_wrangle1.userdata"
 Content-Type: text/plain
 
 {
@@ -963,9 +1055,9 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position -5.15663 -5.67807
+position -5.15663 -6.25838
 connectornextid 1
-flags =  lock off model off template off footprint off xray off bypass off display on render on highlight off unload off savedata off compress on colordefault on exposed on
+flags =  lock off model off template on footprint off xray off bypass off display on render on highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
 {
 }
@@ -980,7 +1072,7 @@ inputs
 stat
 {
   create 1541814603
-  modify 1542058281
+  modify 1548276440
   author Paul_Ambrosiussen@LAPTOP-P8R7FBPF
   access 0777
 }
@@ -1040,7 +1132,7 @@ inputs
 stat
 {
   create 1541815289
-  modify 1547234171
+  modify 1548276437
   author Paul_Ambrosiussen@LAPTOP-P8R7FBPF
   access 0777
 }
@@ -1121,16 +1213,16 @@ outputsNamed3
 }
 inputsNamed3
 {
-1 	heightfield_remap1 1 1 "input1"
+1 	heightfield_wrangle1 1 1 "input1"
 }
 inputs
 {
-0 	heightfield_remap1 0 1
+0 	heightfield_wrangle1 0 1
 }
 stat
 {
   create 1541815289
-  modify 1542059059
+  modify 1548276427
   author Paul_Ambrosiussen@LAPTOP-P8R7FBPF
   access 0777
 }
@@ -1191,7 +1283,7 @@ inputs
 stat
 {
   create 1541815369
-  modify 1542059059
+  modify 1548276427
   author Paul_Ambrosiussen@LAPTOP-P8R7FBPF
   access 0777
 }
@@ -1295,7 +1387,7 @@ Content-Type: text/plain
 Content-Disposition: attachment; filename="hdaroot.order"
 Content-Type: text/plain
 
-13
+14
 heightfield_xform1
 HENGINE_OR_NOT
 heightfield_file9
@@ -1309,6 +1401,7 @@ repeat_begin1_metadata1
 python1
 heightfield_xform2
 heightfield_xform3
+heightfield_wrangle1
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
 Content-Disposition: attachment; filename="hdaroot.net"

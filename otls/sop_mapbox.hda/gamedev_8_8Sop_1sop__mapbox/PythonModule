@@ -1,7 +1,7 @@
 from PySide2 import QtWebEngineWidgets, QtWidgets
 import urllib
 import os 
-from math import sin, cos, sqrt, atan2, radians
+from math import sin, cos, sqrt, atan2, radians, pow
 import time 
 import platform
 # approximate radius of earth in km
@@ -24,6 +24,7 @@ def latlong_distance(lat_long_1, lat_long_2):
     return distance * 1000
 
 def update(node):
+
     launch_map(hidden=True)
     #time.sleep(3)
     hou.session.mapbox_web.urlChanged.connect(url_changed)
@@ -67,14 +68,16 @@ def on_button(test, node):
 
 def refresh(node, force=True):
     
-    lat = node.parm("lat_lon_zoomx").eval()
+    
+    lat = node.parm("lat_lon_zoomx").eval() 
     lon = node.parm("lat_lon_zoomy").eval()
     zoom = node.parm("lat_lon_zoomz").eval()
-    
+        
     cache_lat = node.parm("cache_lat_lon_zoomx").eval()
     cache_lon = node.parm("cache_lat_lon_zoomy").eval()
     cache_zoom = node.parm("cache_lat_lon_zoomz").eval()
     
+
     if lat != cache_lat or lon != cache_lon or zoom != cache_zoom or force:
         
         node.parm("cache_lat_lon_zoomx").set(lat)
@@ -86,11 +89,27 @@ def refresh(node, force=True):
         ne_lon = node.parm("boundsy").eval()
         sw_lat = node.parm("boundsz").eval()
         sw_lon = node.parm("boundsw").eval()
+        
+        offset_lat = node.parm("offsetsx").eval()
+        offset_lon = node.parm("offsetsy").eval()
+        
+        if offset_lat: 
+            lat_distance = (ne_lat - sw_lat) * offset_lat
+    
+            lat += lat_distance         
+            ne_lat += lat_distance
+            sw_lat += lat_distance
+        
+        if offset_lon: 
+            lon_distance = (ne_lon - sw_lon) * offset_lon
+            lon += lon_distance
+            ne_lon += lon_distance
+            sw_lon += lon_distance
     
         terrain = "https://api.mapbox.com/v4/mapbox.terrain-rgb/" + str(lon) +"," + str(lat) + "," + str((zoom+1)) + "/1024x1024@2x.png?access_token=" + node.parm("api_key").eval()
         color_url = "https://api.mapbox.com/styles/v1/mapbox/satellite-v9/static/" + str(lon) + "," + str(lat) + "," + str((zoom)) + "/1024x1024@2x?access_token="+ node.parm("api_key").eval()
         osm_url = "https://overpass-api.de/api/map?bbox=" + str(sw_lon) + "," + str(sw_lat) + "," + str(ne_lon) + "," + str(ne_lat)
-
+        
 
         terrain_path = node.parm("download_path_height").eval()
         terrain_dir = os.path.dirname(terrain_path)

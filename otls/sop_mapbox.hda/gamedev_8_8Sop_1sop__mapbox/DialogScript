@@ -88,6 +88,14 @@
             parmtag { "script_callback_language" "python" }
         }
         parm {
+            name    "offsets"
+            label   "Offsets"
+            type    vector2
+            size    2
+            default { "0" "0" }
+            range   { -1 1 }
+        }
+        parm {
             name    "height_scale"
             label   "Height Scale"
             type    float
@@ -174,19 +182,19 @@
             name    "download_path_color"
             label   "Download Path Color"
             type    image
-            default { "$HIP/maps/terrain_color.jpg" }
+            default { "$HIP/maps/${HIPNAME}_${OS}_terrain_color.jpg" }
         }
         parm {
             name    "download_path_height"
             label   "Download Path Height"
             type    image
-            default { "$HIP/maps/terrain_height.png" }
+            default { "$HIP/maps/${HIPNAME}_${OS}_terrain_height.png" }
         }
         parm {
             name    "download_path_osm"
             label   "Download Path OSM"
             type    file
-            default { "$HIP/maps/city.osm" }
+            default { "$HIP/maps/${HIPNAME}_${OS}_city.osm" }
         }
     }
 

@@ -68,7 +68,10 @@ def on_button(test, node):
 
 def refresh(node, force=True):
     
-    
+    API_KEY = os.getenv("MAPBOX_API")
+    if not API_KEY:
+        API_KEY = node.parm("api_key").eval()
+
     lat = node.parm("lat_lon_zoomx").eval() 
     lon = node.parm("lat_lon_zoomy").eval()
     zoom = node.parm("lat_lon_zoomz").eval()
@@ -90,8 +93,9 @@ def refresh(node, force=True):
         sw_lat = node.parm("boundsz").eval()
         sw_lon = node.parm("boundsw").eval()
         
-        offset_lat = node.parm("offsetsx").eval()
-        offset_lon = node.parm("offsetsy").eval()
+        offset_lon = node.parm("offsetsx").eval()
+        offset_lat = node.parm("offsetsy").eval()
+
         
         if offset_lat: 
             lat_distance = (ne_lat - sw_lat) * offset_lat
@@ -106,8 +110,8 @@ def refresh(node, force=True):
             ne_lon += lon_distance
             sw_lon += lon_distance
     
-        terrain = "https://api.mapbox.com/v4/mapbox.terrain-rgb/" + str(lon) +"," + str(lat) + "," + str((zoom+1)) + "/1024x1024@2x.png?access_token=" + node.parm("api_key").eval()
-        color_url = "https://api.mapbox.com/styles/v1/mapbox/satellite-v9/static/" + str(lon) + "," + str(lat) + "," + str((zoom)) + "/1024x1024@2x?access_token="+ node.parm("api_key").eval()
+        terrain = "https://api.mapbox.com/v4/mapbox.terrain-rgb/" + str(lon) +"," + str(lat) + "," + str((zoom+1)) + "/1024x1024@2x.png?access_token=" + API_KEY
+        color_url = "https://api.mapbox.com/styles/v1/mapbox/satellite-v9/static/" + str(lon) + "," + str(lat) + "," + str((zoom)) + "/1024x1024@2x?access_token="+ API_KEY
         osm_url = "https://overpass-api.de/api/map?bbox=" + str(sw_lon) + "," + str(sw_lat) + "," + str(ne_lon) + "," + str(ne_lat)
         
 
@@ -155,7 +159,11 @@ def launch_map(hidden=False):
     lon = node.parm("lat_lon_zoomy").eval()
     zoom = node.parm("lat_lon_zoomz").eval()
     
-    url = os.environ["HOUDINI_USER_PREF_DIR"] + "/mapbox/mapbox_map.html?#" + str(lon) + "," + str(lat) + "," + str(zoom) + "," + node.parm("api_key").eval()
+    API_KEY = os.getenv("MAPBOX_API")
+    if not API_KEY:
+        API_KEY = node.parm("api_key").eval()
+        
+    url = os.environ["HOUDINI_USER_PREF_DIR"] + "/mapbox/mapbox_map.html?#" + str(lon) + "," + str(lat) + "," + str(zoom) + "," + API_KEY
     if platform.system() != "Windows":
         url = "file://" + url
         

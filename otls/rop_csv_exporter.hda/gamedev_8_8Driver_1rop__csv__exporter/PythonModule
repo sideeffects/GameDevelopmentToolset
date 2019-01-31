@@ -3,8 +3,7 @@
     into a CSV file using python
 """
 
-import hou
-import csv 
+import hou, csv, os 
 
 def export(node):
 
@@ -19,6 +18,10 @@ def export(node):
     suffix_w = node.parm("suff_w").eval()
     
     component_suffixes = [suffix_x, suffix_y, suffix_z, suffix_w]
+
+    if not os.path.exists(os.path.dirname(csv_path)):
+        os.makedirs(os.path.dirname(csv_path))
+
 
     export_node = node.node(node_name)
     geo = export_node.geometry()

@@ -32,9 +32,9 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position -2.78088 2.01135
+position -7.88355 5.47432
 connectornextid 1
-flags =  lock off model off template on footprint off xray off bypass off display on render on highlight off unload off savedata off compress on colordefault on exposed on
+flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
 {
 0 "output1"
@@ -47,8 +47,8 @@ inputs
 }
 stat
 {
-  create 1544806139
-  modify 1544810952
+  create 1548950966
+  modify 1548952918
   author MAINGEAR@DESKTOP-P98C1VA
   access 0777
 }
@@ -83,7 +83,7 @@ sopflags sopflags =
 comment ""
 position -2.68731 8.21972
 connectornextid 1
-flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
+flags =  lock off model off template on footprint off xray off bypass off display on render on highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
 {
 0 "output1"
@@ -97,7 +97,7 @@ inputs
 stat
 {
   create 1500592402
-  modify 1544806758
+  modify 1548952909
   author Luiz@Luiz-PC
   access 0777
 }
@@ -192,6 +192,27 @@ class OSMWay(object):
                                 
         return self
 
+class OSMRelation(object):
+
+    def __init__(self):
+        self.id = 0
+        self.tags = {}
+        self.members = []
+
+    @classmethod
+    def from_xml(cls, xml_node):
+        self = cls()
+
+        self.id = xml_node.attrib[\"id\"]
+        for child in xml_node:
+            if child.tag == \"tag\" and \"k\" in child.attrib:
+                clean_tag = re.sub('[^a-zA-Z0-9\\n]', '_', child.attrib[\"k\"])
+                self.tags[clean_tag] = child.attrib[\"v\"]
+
+            if child.tag == \"member\" and \"ref\" in child.attrib:
+                self.members.append(child.attrib[\"ref\"])
+                                
+        return self
 
 class OSMParser(object):
     def __init__(self, osm_file):
@@ -208,6 +229,7 @@ class OSMParser(object):
 
         self.ways = []
         self.nodes = {}
+        self.relations = []
         self.tagged_nodes = []
         self.tags= []
 
@@ -262,6 +284,7 @@ class OSMParser(object):
         if not geo.findPointAttrib(\"longitude\"):
             geo.addAttrib(hou.attribType.Point, \"longitude\", 0.0)
 
+        polys = {}
         for way in self.ways:
             positions = []
             latlongs = []
@@ -315,7 +338,31 @@ class OSMParser(object):
 
             for point in points:
                 poly.addVertex(point)
-
+            
+            polys[way.id] = poly
+            
+        for relation in self.relations: 
+            
+            # Currently we only care about relations that define buildings 
+            
+            is_building = 0
+            for tag in relation.tags:
+                if tag in [\"building\", \"buildingpart\", \"building_part\"]: 
+                    is_building = 1
+                    
+            if is_building:
+                for member in relation.members:
+                   if member in polys:
+                        poly = polys[member]
+                        for tag in relation.tags:
+                            clean_value = relation.tags[tag].encode(\"utf-8\")
+                            if tag == \"name\":
+                                poly.setAttribValue(\"hou_name\", clean_value)
+                            else:
+                                poly.setAttribValue(tag, clean_value)
+                               
+                    
+        # Marked Nodes 
         if hou.node(\"..\").parm(\"build_nodes\").eval():
             for node in self.tagged_nodes:
                 pos_xy = self.get_relative_coordinates([float(node.lat), float(node.lon)])
@@ -357,8 +404,11 @@ class OSMParser(object):
                 self.ways.append(way)
                 child.clear()
 
-            if child.tag == \"relations\":
-                pass #TODO: Handle Relations
+            if child.tag == \"relation\":
+                relation = OSMRelation.from_xml(child)
+                tags.extend(relation.tags.keys())
+                self.relations.append(relation)
+                child.clear()
 
             if child.tag == \"node\":
 
@@ -387,7 +437,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.421"
+		"value":"17.0.465"
 	}
 }
 
@@ -406,7 +456,7 @@ sopflags sopflags =
 comment ""
 position -2.68731 7.14366
 connectornextid 2
-flags =  lock off model off template on footprint off xray off bypass off display on render on highlight off unload off savedata off compress on colordefault on exposed on
+flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
 {
 1 "output1"
@@ -422,7 +472,7 @@ inputs
 stat
 {
   create 1508267018
-  modify 1544806808
+  modify 1548951305
   author Luiz@Luiz-PC
   access 0777
 }
@@ -450,7 +500,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.421"
+		"value":"17.0.465"
 	}
 }
 
@@ -524,7 +574,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.421"
+		"value":"17.0.465"
 	}
 }
 
@@ -587,7 +637,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.421"
+		"value":"17.0.465"
 	}
 }
 
@@ -715,7 +765,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.421"
+		"value":"17.0.465"
 	}
 }
 
@@ -776,7 +826,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.421"
+		"value":"17.0.465"
 	}
 }
 
@@ -852,7 +902,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.421"
+		"value":"17.0.465"
 	}
 }
 

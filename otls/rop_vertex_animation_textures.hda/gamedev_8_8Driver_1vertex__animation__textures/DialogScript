@@ -391,6 +391,21 @@
             default { "Alpha" }
             hidewhen "{ method != 3 }"
         }
+        parm {
+            name    "write_minmax"
+            label   "Write BBOX to file:"
+            type    toggle
+            joinnext
+            default { "0" }
+        }
+        parm {
+            name    "minmax_file"
+            label   "Min Max File"
+            type    file
+            nolabel
+            default { "$HIP/export/${OS}_minmax.txt" }
+            disablewhen "{ write_minmax == 0 }"
+        }
     }
 
 }

@@ -17,7 +17,7 @@
     multiswitcher {
         name    "mMaterialEntries"
         label    "Materials"
-        parmtag { "script_callback" "kwargs['node'].hm().OnMultiparmChange()" }
+        parmtag { "script_callback" "kwargs['node'].hm().OnMultiparmChange(kwargs['node'])" }
         parmtag { "script_callback_language" "python" }
 
         parm {
@@ -25,7 +25,7 @@
             label   "Material Name"
             type    string
             default { "Material_#" }
-            parmtag { "script_callback" "kwargs['node'].hm().OnMultiparmChange()" }
+            parmtag { "script_callback" "kwargs['node'].hm().OnMultiparmChange(kwargs['node'])" }
             parmtag { "script_callback_language" "python" }
         }
         parm {

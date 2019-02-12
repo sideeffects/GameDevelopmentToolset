@@ -1,7 +1,7 @@
 import hou
 
-def OnMultiparmChange():
-        HDA = hou.pwd()
+def OnMultiparmChange(HDA):
+        #HDA = hou.pwd()
         MaterialNetwork = hou.node(HDA.path()+'/matnet/')
         NumberMaterials = HDA.parm('mMaterialEntries').evalAsInt()
         MaterialAssignment = HDA.node(HDA.path()+'/materialassignment/')

@@ -89,3 +89,14 @@ def dislike_node(node):
 def send_on_create_analytics(node):
     if can_send_anonymous_stats():
         track_event("Node Created", str(node.type().name()), str(node.type().definition().version()))
+
+def empty_directory_recursive(dir):
+    for file in os.listdir(dir):
+        file_path = os.path.join(dir, file)
+        try:
+            if os.path.isfile(file_path):
+                os.unlink(file_path)
+            elif os.path.isdir(file_path):
+                shutil.rmtree(file_path)
+        except:
+            pass

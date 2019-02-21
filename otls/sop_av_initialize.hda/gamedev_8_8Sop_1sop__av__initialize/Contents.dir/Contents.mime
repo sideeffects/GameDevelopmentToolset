@@ -20,11 +20,12 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position -6.46563 1.39828
-connectornextid 0
-flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
+position -3.98112 -0.13358
+connectornextid 1
+flags =  lock off model off template on footprint off xray off bypass off display on render on highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
 {
+0 "output1"
 }
 inputsNamed3
 {
@@ -34,9 +35,9 @@ inputs
 }
 stat
 {
-  create 1550251999
-  modify 1550253790
-  author Paul_Ambrosiussen@DESKTOP-A0373M3
+  create 1550624930
+  modify 1550772613
+  author Paul_Ambrosiussen@LAPTOP-P8R7FBPF
   access 0777
 }
 color UT_Color RGB 0.8 0.8 0.8 
@@ -86,7 +87,7 @@ inputs
 stat
 {
   create 1546553746
-  modify 1550106904
+  modify 1550772376
   author prisms@NEWPORT
   access 0777
 }
@@ -193,16 +194,16 @@ outputsNamed3
 }
 inputsNamed3
 {
-1 	Atrribute_Creation 0 1 "input1"
+1 	error1 1 1 "input1"
 }
 inputs
 {
-0 	Atrribute_Creation 0 1
+0 	error1 0 1
 }
 stat
 {
   create 1546628375
-  modify 1550106662
+  modify 1550772411
   author prisms@NEWPORT
   access 0777
 }
@@ -226,6 +227,11 @@ python	[ 0	locks=0 ]	(	"import hou, subprocess, os, shutil, os.path
 node = hou.pwd()
 geo = node.geometry()
 
+
+if geo.attribValue(\"dir\") == \"NONE\":
+    hou.ui.displayMessage(\"ALICEVISION_PATH has not been set in the environment variables. Please either set it, or specify the location of the AliceVision binaries in the AliceVision Parameter on \\\"AV_Initialize\\\"\", buttons=('OK',), severity=hou.severityType.Error, title=\"AliceVision Not Installed\")
+  
+
 def ValidateFolder(a_dir):
     if not os.path.exists(a_dir):
         os.makedirs(a_dir)
@@ -245,7 +251,7 @@ unique_id = node.parent().parm(\"proj\").eval()
 cache = os.path.join(node.parent().parm(\"cache_dir\").eval(), unique_id).replace(\"/\",\"\\\\\\\\\")
 
 #Creating cache folder
-ValidateFolder(cache)
+ValidateFolder(cache) 
 
 #Creating individual subfolders
 # [\"00_Img\",
@@ -380,23 +386,23 @@ sopflags sopflags =
 comment ""
 position 4.21412 4.30804
 connectornextid 2
-flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
+flags =  lock off model off template off footprint off xray off bypass off display on render on highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
 {
 0 "output1"
 }
 inputsNamed3
 {
-1 	Atrribute_Creation 0 1 "input1"
+1 	error1 1 1 "input1"
 }
 inputs
 {
-0 	Atrribute_Creation 0 1
+0 	error1 0 1
 }
 stat
 {
   create 1547588829
-  modify 1550013571
+  modify 1550772607
   author prisms@NEWPORT
   access 0777
 }
@@ -441,7 +447,7 @@ sopflags sopflags =
 comment ""
 position 2.70513 1.42787
 connectornextid 1
-flags =  lock off model off template on footprint off xray off bypass off display on render on highlight off unload off savedata off compress on colordefault on exposed on
+flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
 {
 }
@@ -456,7 +462,7 @@ inputs
 stat
 {
   create 1549914993
-  modify 1550094624
+  modify 1550771837
   author Paul_Ambrosiussen@DESKTOP-A0373M3
   access 0777
 }
@@ -498,7 +504,7 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position 2.70513 6.73991
+position 2.70513 7.75106
 connectornextid 1
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
@@ -514,7 +520,7 @@ inputs
 stat
 {
   create 1546628375
-  modify 1550016005
+  modify 1550772555
   author prisms@NEWPORT
   access 0777
 }
@@ -546,12 +552,12 @@ aliceVision_path = hou.getenv(\"ALICEVISION_PATH\")
 if aliceVision_path == None:
     ParmVal = node.parent().parm(\"alice_dir\").eval()
     if ParmVal == \"\":
-        hou.ui.displayMessage(\"ALICEVISION_PATH has not been set in the environment variables. Please either set it, or specify the location of the AliceVision binaries in the AliceVision Parameter on \\\"AV_Initialize\\\"\", buttons=('OK',), severity=hou.severityType.Error, title=\"AliceVision Not Installed\")
+        aliceVision_path = \"NONE\"
     else:
         aliceVision_path = os.path.abspath(ParmVal)
         
 geo.addAttrib(hou.attribType.Global, \"dir\", \"None\", 0)
-geo.setGlobalAttribValue(\"dir\", aliceVision_path)
+geo.setGlobalAttribValue(\"dir\", aliceVision_path) 
 
 geo.addAttrib(hou.attribType.Global, \"cache\", cache, 0)
 geo.setGlobalAttribValue(\"cache\", cache)
@@ -580,16 +586,109 @@ Content-Type: text/plain
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/error1.init"
+Content-Type: text/plain
+
+type = error
+matchesdef = 0
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/error1.def"
+Content-Type: text/plain
+
+sopflags sopflags = 
+comment ""
+position 2.70513 6.75106
+connectornextid 2
+flags =  lock off model off template on footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
+outputsNamed3
+{
+1 "output1"
+}
+inputsNamed3
+{
+0 	Atrribute_Creation 0 1 "input1"
+}
+inputs
+{
+0 	Atrribute_Creation 0 1
+}
+stat
+{
+  create 1550772216
+  modify 1550772621
+  author Paul_Ambrosiussen@DESKTOP-A0373M3
+  access 0777
+}
+color UT_Color RGB 0.8 0.8 0.8 
+delscript ""
+exprlanguage hscript
+end
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/error1.chn"
+Content-Type: text/plain
+
+{
+    channel errormsg1 {
+      lefttype = extend
+      righttype = extend
+      defaultString = \"\"
+      flags = 0
+      segment { options = {	 autoslope  ai ao }
+
+	 length = 0 accel = 0.33333333333333331 0.33333333333333331 expr = "import hou
+
+node = hou.pwd()
+
+aliceVision_path = hou.getenv(\"ALICEVISION_PATH\")
+
+if aliceVision_path == None:
+    ParmVal = node.parent().parm(\"alice_dir\").eval()
+    if ParmVal == \"\":
+        return \"ALICEVISION_PATH has not been set in the environment variables. Please either set it, or specify the location of the AliceVision binaries in the AliceVision Parameter on \\\"AV_Initialize\\\"\"
+    else:
+        return \"\"
+        
+return \"\"" language = python }
+    }
+  }
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/error1.parm"
+Content-Type: text/plain
+
+{
+version 0.8
+numerror	[ 0	locks=0 ]	(	1	)
+errormsg1	[ 0	locks=0	autoscope=1	autosel=4294967295 ]	(	[ errormsg1	"" ] 	)
+severity1	[ 0	locks=0 ]	(	"warn"	)
+enable1	[ 0	locks=0 ]	(	1	)
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/error1.userdata"
+Content-Type: text/plain
+
+{
+	"___Version___":{
+		"type":"string",
+		"value":"17.5.164"
+	}
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
 Content-Disposition: attachment; filename="hdaroot.order"
 Content-Type: text/plain
 
-6
+7
 01_Camera_Init
 File_Setup
 switch1
 null1
 output0
 Atrribute_Creation
+error1
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
 Content-Disposition: attachment; filename="hdaroot.net"

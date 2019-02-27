@@ -11,7 +11,7 @@
 
     inputlabel	1	"Input Mesh"
     inputlabel	2	"Additional Mesh"
-    inputlabel	3	"Sub-Network Input #3"
+    inputlabel	3	"(Optional) Mask Mesh"
     inputlabel	4	"Sub-Network Input #4"
 
     parm {
@@ -81,5 +81,12 @@
         default { "1" }
         help    "Blend Ammount"
         range   { 0 1 }
+    }
+    parm {
+        name    "blend_attr"
+        label   "Blend Attribute"
+        type    string
+        default { "Cd" }
+        help    "Attribute To Blend from the Second Mesh"
     }
 }

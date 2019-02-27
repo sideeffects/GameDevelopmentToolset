@@ -32,7 +32,7 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position 18.615 5.85
+position -3.66931 3.58582
 connectornextid 0
 flags =  lock off model off template off footprint off xray off bypass off display on render on highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
@@ -46,8 +46,8 @@ inputs
 }
 stat
 {
-  create 1537470374
-  modify 1537470387
+  create 1551305877
+  modify 1551305901
   author MAINGEAR@DESKTOP-P98C1VA
   access 0777
 }
@@ -71,9 +71,10 @@ Content-Type: text/plain
 Content-Disposition: attachment; filename="hdaroot.inp"
 Content-Type: text/plain
 
-2
+3
 0 0 6 2 0 __NO_OWNER_NETWORK_BOX__ "FROMOUTPUT"
-1 2.9647058823529413 6 2 0 __NO_OWNER_NETWORK_BOX__ "FROMOUTPUT"
+1 1.5619764705882355 6.325270588235294 2 0 __NO_OWNER_NETWORK_BOX__ "FROMOUTPUT"
+2 3.2148705882352941 6.325270588235294 2 0 __NO_OWNER_NETWORK_BOX__ "FROMOUTPUT"
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
 Content-Disposition: attachment; filename="hdaroot/pointwrangle1.init"
@@ -88,8 +89,8 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position 1.25882 4.65289
-connectornextid 3
+position 1.25882 4.26756
+connectornextid 4
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
 {
@@ -99,16 +100,18 @@ inputsNamed3
 {
 0 	(0) "" 1 "input1"
 2 	(1) "" 1 "input2"
+3 	(2) "" 1 "input3"
 }
 inputs
 {
 0 	(0) 0 1
 1 	(1) 0 1
+2 	(2) 0 1
 }
 stat
 {
   create 1534173706
-  modify 1534272052
+  modify 1551305908
   author MAINGEAR@DESKTOP-P98C1VA
   access 0777
 }
@@ -153,25 +156,32 @@ snippet	[ 0	locks=0 ]	(	"vector source = point(0, chs(\"../input_1_attr\"), @ptn
 vector target = point(1, chs(\"../input_2_attr\"), @ptnum);
 vector final_value;
 
+float blend = ch(\"../blend\");
+if (npoints(2))
+{
+    blend *= point(2, chs(\"../blend_attr\"), @ptnum);
+}
+
+
 // Linear 
 if (ch(\"../blend_mode\") == 0)     
-    final_value = lerp(source, target, ch(\"../blend\"));
+    final_value = lerp(source, target, blend);
     
 // Multiply 
 if (ch(\"../blend_mode\") == 1) 
-    final_value = lerp(source, source * target, ch(\"../blend\"));
+    final_value = lerp(source, source * target, blend);
    
 // Overlay
 if (ch(\"../blend_mode\") == 2) 
-    final_value = lerp(source, vector(target>.5)*(1-(1-2*(target-.5))*(1-source)) + (target<=.5)*((2*target)*source), ch(\"../blend\"));
+    final_value = lerp(source, vector(target>.5)*(1-(1-2*(target-.5))*(1-source)) + (target<=.5)*((2*target)*source), blend);
 
 // Screen 
 if (ch(\"../blend_mode\") == 3) 
-    final_value = lerp(source, 1- (1-target) * (1-source), ch(\"../blend\"));
+    final_value = lerp(source, 1- (1-target) * (1-source), blend);
 
 // Add 
 if (ch(\"../blend_mode\") == 4) 
-    final_value = lerp(source,  target + source, ch(\"../blend\"));
+    final_value = lerp(source,  target + source, blend);
 
 // Darken 
 if (ch(\"../blend_mode\") == 5) 
@@ -224,9 +234,9 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position 1.25882 3.61499
+position 1.26182 1.95617
 connectornextid 1
-flags =  lock off model off template off footprint off xray off bypass off display on render on highlight off unload off savedata off compress on colordefault on exposed on
+flags =  lock off model off template on footprint off xray off bypass off display on render on highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
 {
 }
@@ -241,7 +251,7 @@ inputs
 stat
 {
   create 1534272049
-  modify 1534272062
+  modify 1548862579
   author MAINGEAR@DESKTOP-P98C1VA
   access 0777
 }
@@ -266,7 +276,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.584"
+		"value":"17.5.164"
 	}
 }
 

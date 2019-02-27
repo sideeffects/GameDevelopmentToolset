@@ -7,14 +7,17 @@
 
   <tool name="$HDA_DEFAULT_TOOL" label="$HDA_LABEL" icon="$HDA_ICON">
     <toolMenuContext name="viewer">
-      <contextNetType>ROP</contextNetType>
+      <contextNetType>VOP</contextNetType>
     </toolMenuContext>
     <toolMenuContext name="network">
       <contextOpType>$HDA_TABLE_AND_NAME</contextOpType>
     </toolMenuContext>
     <toolSubmenu>GameDev</toolSubmenu>
-    <script scriptType="python"><![CDATA[import drivertoolutils
+    <script scriptType="python"><![CDATA[import voptoolutils
 
-drivertoolutils.genericTool(kwargs, '$HDA_NAME')]]></script>
+voptoolutils.genericTool(kwargs, '$HDA_NAME')]]></script>
+    <keywordList>
+      <keyword>Mantra</keyword>
+    </keywordList>
   </tool>
 </shelfDocument>

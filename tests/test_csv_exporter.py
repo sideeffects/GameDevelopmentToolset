@@ -4,7 +4,8 @@ import os
 import unittest
 local_dir = os.path.dirname(__file__)
 
-class TestStringMethods(unittest.TestCase):
+
+class TestCSVExporter(unittest.TestCase):
 
     @classmethod
     def setUpClass(cls):
@@ -13,10 +14,10 @@ class TestStringMethods(unittest.TestCase):
     def test_1_loadfile(self):
         hou.hipFile.load(os.path.join(local_dir, "hip", "csv_editor.hip").replace("\\", "/"))
 
-    def test_2_checkfoo(self):
+    def test_2_check_output_children(self):
         assert(len(hou.node("/out").children()) == 1)
 
-    def test_3_checkfoo(self):
+    def test_3_check_csv_exists(self):
         node = hou.node("/out/rop_csv_exporter1")
         node.render()
         assert(os.path.exists(os.path.join(local_dir, "hip", "export.csv")))

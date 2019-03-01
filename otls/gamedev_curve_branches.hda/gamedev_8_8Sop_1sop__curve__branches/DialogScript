@@ -1,0 +1,170 @@
+# Dialog script for gamedev::sop_curve_branches automatically generated
+
+{
+    name	gamedev::sop_curve_branches
+    script	gamedev::sop_curve_branches
+    label	"GameDev Simple L System"
+
+    help {
+	""
+    }
+
+    inputlabel	1	"Input Curve"
+    inputlabel	2	"Sub-Network Input #2"
+    inputlabel	3	"Sub-Network Input #3"
+    inputlabel	4	"Sub-Network Input #4"
+
+    parm {
+        name    "color"
+        label   "Color"
+        type    color
+        size    3
+        default { "0" "1" "0" }
+        range   { 0 1 }
+        parmtag { "autoscope" "0000000000000000" }
+    }
+    parm {
+        name    "domainu1"
+        label   "Start"
+        type    float
+        joinnext
+        default { "0" }
+        range   { 0! 1! }
+        parmtag { "autoscope" "0000000000000000" }
+    }
+    parm {
+        name    "domainu2"
+        label   "Finish"
+        type    float
+        default { "1" }
+        range   { 0! 1! }
+        parmtag { "autoscope" "0000000000000000" }
+    }
+    parm {
+        name    "npts"
+        label   "Number of Children"
+        type    integer
+        joinnext
+        default { "4" }
+        range   { 1 100 }
+        parmtag { "autoscope" "0000000000000000" }
+    }
+    parm {
+        name    "count_variation"
+        label   "Variation +-"
+        type    integer
+        default { "0" }
+        range   { 1 100 }
+        parmtag { "autoscope" "0000000000000000" }
+    }
+    parm {
+        name    "dist"
+        label   "Length"
+        type    float
+        joinnext
+        default { "0.2" }
+        range   { 0 10 }
+        parmtag { "autoscope" "0000000000000000" }
+    }
+    parm {
+        name    "dist_variation"
+        label   "Variation +- "
+        type    float
+        default { "0" }
+        range   { 0 10 }
+        parmtag { "autoscope" "0000000000000000" }
+    }
+    parm {
+        name    "vertical_offset"
+        label   "Vertical Offset"
+        type    float
+        joinnext
+        default { "3" }
+        range   { -100 100 }
+    }
+    parm {
+        name    "vertical_offset_variation"
+        label   "Variation +-"
+        type    float
+        default { "0" }
+        range   { -100 100 }
+    }
+    parm {
+        name    "mirror_x"
+        label   "Mirror X "
+        type    toggle
+        default { "0" }
+    }
+    parm {
+        name    "spread"
+        label   "Spread"
+        type    float
+        joinnext
+        default { "1" }
+        range   { 0 1 }
+        parmtag { "autoscope" "0000000000000000" }
+    }
+    parm {
+        name    "spread_variation"
+        label   "Variation +-"
+        type    float
+        default { "0" }
+        range   { 0 1 }
+        parmtag { "autoscope" "0000000000000000" }
+    }
+    parm {
+        name    "curl"
+        label   "Curl"
+        type    float
+        default { "0" }
+        range   { -1 1 }
+        parmtag { "autoscope" "0000000000000000" }
+    }
+    groupsimple {
+        name    "folder0"
+        label   "Noise"
+
+        parm {
+            name    "noise_intensity"
+            label   "Intensity"
+            type    ramp_flt
+            default { "2" }
+            range   { 1! 10 }
+            parmtag { "autoscope" "0000000000000000" }
+            parmtag { "rampfloatdefault" "1pos ( 0 ) 1value ( 0 ) 1interp ( linear ) 2pos ( 0.55176931619644165 ) 2value ( 0.63333332538604736 ) 2interp ( linear )" }
+        }
+        parm {
+            name    "amp"
+            label   "Amplitude"
+            type    float
+            default { "0.05" }
+            range   { -1 1 }
+            parmtag { "autoscope" "0000000000000000" }
+            parmtag { "parmvop" "1" }
+            parmtag { "shaderparmcontexts" "cvex" }
+        }
+        parm {
+            name    "freq"
+            label   "Frequency"
+            type    float
+            size    3
+            default { "20" "20" "20" }
+            range   { 0 10 }
+            parmtag { "autoscope" "0000000000000000" }
+            parmtag { "parmvop" "1" }
+            parmtag { "shaderparmcontexts" "cvex" }
+        }
+        parm {
+            name    "offset"
+            label   "Offset"
+            type    float
+            size    3
+            default { "0" "0" "0" }
+            range   { 0 10 }
+            parmtag { "autoscope" "0000000000000000" }
+            parmtag { "parmvop" "1" }
+            parmtag { "shaderparmcontexts" "cvex" }
+        }
+    }
+
+}

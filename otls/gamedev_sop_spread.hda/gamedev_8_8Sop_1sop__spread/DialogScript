@@ -1,0 +1,57 @@
+# Dialog script for gamedev::sop_spread automatically generated
+
+{
+    name	gamedev::sop_spread
+    script	gamedev::sop_spread
+    label	"Gamedev Spread"
+
+    help {
+	""
+    }
+
+    inputlabel	1	"Merged Meshes to Align"
+    inputlabel	2	"Sub-Network Input #2"
+    inputlabel	3	"Sub-Network Input #3"
+    inputlabel	4	"Sub-Network Input #4"
+
+    parm {
+        name    "split_by"
+        label   "Split By "
+        type    ordinal
+        default { "0" }
+        menu {
+            "0" "Connectivity"
+            "1" "Name"
+        }
+    }
+    parm {
+        name    "axis"
+        label   "Axis"
+        type    ordinal
+        joinnext
+        default { "0" }
+        menu {
+            "0" "X"
+            "1" "Y"
+            "2" "Z"
+        }
+    }
+    parm {
+        name    "alignment"
+        label   "Alignment"
+        type    ordinal
+        default { "0" }
+        menu {
+            "0" "Positive"
+            "1" "Center"
+            "2" "Negative"
+        }
+    }
+    parm {
+        name    "offset"
+        label   "Offset"
+        type    float
+        default { "1" }
+        range   { 0 10 }
+    }
+}

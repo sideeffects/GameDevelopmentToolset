@@ -1,0 +1,136 @@
+# Dialog script for gamedev::sop_dirtskirt automatically generated
+
+{
+    name	gamedev::sop_dirtskirt
+    script	gamedev::sop_dirtskirt
+    label	"GameDev Dirt Skirt"
+
+    help {
+	""
+    }
+
+    inputlabel	1	"Ground Mesh"
+    inputlabel	2	"Object Mesh"
+    inputlabel	3	"Sub-Network Input #3"
+    inputlabel	4	"Sub-Network Input #4"
+
+    groupsimple {
+        name    "folder0"
+        label   "Object Skirt"
+
+        parm {
+            name    "scale"
+            label   "Distance"
+            type    float
+            default { "0.15" }
+            range   { 0 10 }
+            parmtag { "autoscope" "0000000000000000" }
+        }
+        parm {
+            name    "elementsize"
+            label   "Noise Frequency"
+            type    float
+            default { "0.1" }
+            range   { 0 10 }
+            parmtag { "autoscope" "0000000000000000" }
+            parmtag { "parmvop" "1" }
+            parmtag { "shaderparmcontexts" "cvex" }
+        }
+        parm {
+            name    "height"
+            label   "Noise Intensity"
+            type    float
+            default { "0.2" }
+            range   { 0 10 }
+            parmtag { "autoscope" "0000000000000000" }
+            parmtag { "parmvop" "1" }
+            parmtag { "shaderparmcontexts" "cvex" }
+        }
+    }
+
+    groupsimple {
+        name    "folder1"
+        label   "Ground Skirt"
+
+        parm {
+            name    "scale2"
+            label   "Distance"
+            type    float
+            default { "0.2" }
+            range   { 0 10 }
+            parmtag { "autoscope" "0000000000000000" }
+        }
+        parm {
+            name    "elementsize2"
+            label   "Noise Frequency"
+            type    float
+            default { "0.81" }
+            range   { 0 10 }
+            parmtag { "autoscope" "0000000000000000" }
+            parmtag { "parmvop" "1" }
+            parmtag { "shaderparmcontexts" "cvex" }
+        }
+        parm {
+            name    "height2"
+            label   "Noise Intensity"
+            type    float
+            default { "0.3" }
+            range   { 0 10 }
+            parmtag { "autoscope" "0000000000000000" }
+            parmtag { "parmvop" "1" }
+            parmtag { "shaderparmcontexts" "cvex" }
+        }
+    }
+
+    groupsimple {
+        name    "folder3"
+        label   "Tweak Parameters"
+
+        parm {
+            name    "iterations"
+            label   "Relaxation Iterations"
+            type    integer
+            default { "3" }
+            range   { 0 100 }
+            parmtag { "autoscope" "0000000000000000" }
+        }
+        parm {
+            name    "ground_offset"
+            label   "Ground Offset"
+            type    float
+            default { "0.1" }
+            range   { 0 10 }
+        }
+    }
+
+    groupsimple {
+        name    "folder2"
+        label   "Clean Up"
+
+        parm {
+            name    "finalcount"
+            label   "Target Polycount"
+            type    integer
+            default { "500" }
+            range   { 1! 10000 }
+            parmtag { "autoscope" "0000000000000000" }
+        }
+        parm {
+            name    "threshold"
+            label   "Delete Small Area Threshold"
+            type    float
+            default { "0.15" }
+            range   { 0 10 }
+            parmtag { "autoscope" "0000000000000000" }
+        }
+        parm {
+            name    "dist"
+            label   "Z Offset"
+            type    float
+            default { "0.01" }
+            range   { -10 10 }
+            parmtag { "autoscope" "0000000000000000" }
+        }
+    }
+
+}

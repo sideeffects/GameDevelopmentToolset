@@ -32,22 +32,29 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position -3.66931 3.58582
-connectornextid 0
+position -1.714 1.3722
+connectornextid 4
 flags =  lock off model off template off footprint off xray off bypass off display on render on highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
 {
+3 "output1"
 }
 inputsNamed3
 {
+0 	(0) "" 1 "input1"
+1 	color7 1 1 "input2"
+2 	sop_measure_curvarture1 1 1 "input3"
 }
 inputs
 {
+0 	(0) 0 1
+1 	color7 0 1
+2 	sop_measure_curvarture1 0 1
 }
 stat
 {
-  create 1551305877
-  modify 1551305901
+  create 1548862256
+  modify 1551725464
   author MAINGEAR@DESKTOP-P98C1VA
   access 0777
 }
@@ -111,7 +118,7 @@ inputs
 stat
 {
   create 1534173706
-  modify 1551305908
+  modify 1551724575
   author MAINGEAR@DESKTOP-P98C1VA
   access 0777
 }
@@ -185,15 +192,15 @@ if (ch(\"../blend_mode\") == 4)
 
 // Darken 
 if (ch(\"../blend_mode\") == 5) 
-    final_value = lerp(source,  min(target, source), ch(\"../blend\"));
+    final_value = lerp(source,  min(target, source), blend);
 
 // Lighten 
 if (ch(\"../blend_mode\") == 6) 
-    final_value = lerp(source,  max(source, target), ch(\"../blend\"));
+    final_value = lerp(source,  max(source, target), blend);
 
 // Difference 
 if (ch(\"../blend_mode\") == 7) 
-    final_value = lerp(source,  abs(source - target), ch(\"../blend\"));
+    final_value = lerp(source,  abs(source - target), blend);
 
 setpointattrib(0, chs(\"../input_1_attr\"), @ptnum, final_value);"	)
 exportlist	[ 0	locks=0 ]	(	*	)
@@ -276,7 +283,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.164"
+		"value":"17.0.487"
 	}
 }
 

@@ -3,7 +3,7 @@
 {
     name	gamedev::sop_align_and_distribute
     script	gamedev::sop_align_and_distribute
-    label	"Gamedev Spread"
+    label	"Gamedev Align and Distribute"
 
     help {
 	""
@@ -25,33 +25,50 @@
         }
     }
     parm {
-        name    "axis"
-        label   "Axis"
-        type    ordinal
-        joinnext
-        default { "0" }
-        menu {
-            "0" "X"
-            "1" "Y"
-            "2" "Z"
-        }
-    }
-    parm {
-        name    "alignment"
-        label   "Alignment"
+        name    "sort_by"
+        label   "Sort By"
         type    ordinal
         default { "0" }
         menu {
-            "0" "Positive"
-            "1" "Center"
-            "2" "Negative"
+            "0" "None"
+            "1" "Size"
+            "2" "Polycount"
         }
     }
     parm {
         name    "offset"
-        label   "Offset"
+        label   "Spacing"
         type    float
         default { "1" }
         range   { 0 10 }
     }
+    groupsimple {
+        name    "folder0"
+        label   "Global Alignment"
+
+        parm {
+            name    "axis"
+            label   "Axis"
+            type    ordinal
+            joinnext
+            default { "0" }
+            menu {
+                "0" "X"
+                "1" "Y"
+                "2" "Z"
+            }
+        }
+        parm {
+            name    "alignment"
+            label   "Alignment"
+            type    ordinal
+            default { "0" }
+            menu {
+                "0" "Positive"
+                "1" "Center"
+                "2" "Negative"
+            }
+        }
+    }
+
 }

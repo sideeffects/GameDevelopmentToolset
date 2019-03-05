@@ -32,25 +32,22 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position -1.44412 -5.5588
-connectornextid 2
+position -12.0956 5.85
+connectornextid 0
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
 {
-1 "output1"
 }
 inputsNamed3
 {
-0 	sop_flowmap_obstacle2 2 1 "input1"
 }
 inputs
 {
-0 	sop_flowmap_obstacle2 0 1
 }
 stat
 {
-  create 1538408445
-  modify 1538434620
+  create 1551809134
+  modify 1551809196
   author MAINGEAR@DESKTOP-P98C1VA
   access 0777
 }
@@ -133,7 +130,7 @@ inputs
 stat
 {
   create 1477605232
-  modify 1502994400
+  modify 1551809178
   author lucapataracchia@sesi-la-macbook-pro.local
   access 0777
 }
@@ -345,7 +342,7 @@ snippet	[ 0	locks=0 ]	(	"v@normal = cross(v@tangent,v@binormal);
 
 matrix3 worldToTangent = 1;
 
-v@v = normalize(v@v);
+//v@v = normalize(v@v);
 v@tangent = cross(v@normal, v@binormal);
 
 worldToTangent.xx = v@tangent.x;
@@ -360,7 +357,7 @@ worldToTangent.zx = v@tangent.z;
 worldToTangent.zy = v@normal.z;
 worldToTangent.zz = v@binormal.z;
 
-v@Cd = (normalize( v@v * worldToTangent) +1) * .5 ;
+v@Cd = (( v@v * worldToTangent) +1) * .5 ;
 v@Cd.y = v@Cd.z;
 v@Cd.z = 0;
 if (int(ch(\"flip_green\"))) @Cd.g = 1 - @Cd.g;
@@ -549,7 +546,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.611"
+		"value":"17.0.484"
 	}
 }
 
@@ -684,7 +681,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.611"
+		"value":"17.0.484"
 	}
 }
 
@@ -809,7 +806,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.611"
+		"value":"17.0.484"
 	}
 }
 
@@ -874,7 +871,7 @@ Content-Type: text/plain
 
 {
 version 0.8
-input	[ 8	locks=0 ]	(	[ input	1 ] 	)
+input	[ 8	locks=0 ]	(	[ input	0 ] 	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -884,7 +881,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.611"
+		"value":"17.0.484"
 	}
 }
 
@@ -953,7 +950,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.611"
+		"value":"17.0.484"
 	}
 }
 
@@ -1014,7 +1011,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.611"
+		"value":"17.0.484"
 	}
 }
 
@@ -1073,7 +1070,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.611"
+		"value":"17.0.484"
 	}
 }
 

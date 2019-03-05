@@ -9,8 +9,8 @@
 	""
     }
 
-    inputlabel	1	"Ground Mesh"
-    inputlabel	2	"Object Mesh"
+    inputlabel	1	"Object Mesh"
+    inputlabel	2	"Ground Mesh"
     inputlabel	3	"Sub-Network Input #3"
     inputlabel	4	"Sub-Network Input #4"
 
@@ -115,6 +115,12 @@
             default { "0" }
             range   { 0 10 }
         }
+        parm {
+            name    "fade_edges"
+            label   "Add Vertex Color"
+            type    toggle
+            default { "1" }
+        }
     }
 
     groupsimple {
@@ -144,6 +150,19 @@
             default { "0.01" }
             range   { -10 10 }
             parmtag { "autoscope" "0000000000000000" }
+        }
+        parm {
+            name    "keep_ground_mesh"
+            label   "Keep Ground Mesh"
+            type    toggle
+            joinnext
+            default { "0" }
+        }
+        parm {
+            name    "keep_object_mesh"
+            label   "Keep Object Mesh"
+            type    toggle
+            default { "0" }
         }
     }
 

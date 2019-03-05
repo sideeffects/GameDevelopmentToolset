@@ -23,7 +23,7 @@ Sop
 Content-Disposition: attachment; filename="hdaroot.init"
 Content-Type: text/plain
 
-type = gamedev::sop_simple_l_system
+type = gamedev::sop_curve_branches
 matchesdef = 0
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -32,7 +32,7 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position -0.788312 1.93656
+position -12.3544 4.39849
 connectornextid 0
 flags =  lock off model off template on footprint off xray off bypass off display on render on highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
@@ -46,8 +46,8 @@ inputs
 }
 stat
 {
-  create 1551455221
-  modify 1551456101
+  create 1551809090
+  modify 1551809550
   author MAINGEAR@DESKTOP-P98C1VA
   access 0777
 }
@@ -183,7 +183,7 @@ inputs
 stat
 {
   create 1549550854
-  modify 1551455975
+  modify 1551809860
   author MAINGEAR@DESKTOP-P98C1VA
   access 0777
 }
@@ -596,22 +596,40 @@ Content-Type: text/plain
         parmtag { "shaderparmcontexts" "cvex" }
     }
     parm {
-        name    "freq"
+        name    "freq2"
         label   "Frequency"
         type    float
-        size    4
-        default { "1" "1" "1" "1" }
+        size    3
+        default { "1" "1" "1" }
         range   { 0 10 }
         parmtag { "parmvop" "1" }
         parmtag { "shaderparmcontexts" "cvex" }
     }
     parm {
-        name    "offset"
+        name    "offset2"
         label   "Offset"
         type    float
-        size    4
-        default { "0" "0" "0" "0" }
+        size    3
+        default { "0" "0" "0" }
         range   { 0 10 }
+        parmtag { "parmvop" "1" }
+        parmtag { "shaderparmcontexts" "cvex" }
+    }
+    parm {
+        name    "amp"
+        label   "Amplitude"
+        type    float
+        default { "1" }
+        range   { -1 1 }
+        parmtag { "parmvop" "1" }
+        parmtag { "shaderparmcontexts" "cvex" }
+    }
+    parm {
+        name    "rough"
+        label   "Roughness"
+        type    float
+        default { "0.5" }
+        range   { 0 1 }
         parmtag { "parmvop" "1" }
         parmtag { "shaderparmcontexts" "cvex" }
     }
@@ -621,40 +639,47 @@ Content-Disposition: attachment; filename="hdaroot/add_noise.chn"
 Content-Type: text/plain
 
 {
-    channel freq1 {
+    channel freq21 {
       lefttype = extend
       righttype = extend
       default = 1
       flags = 0
       segment { length = 0 value = 1 1 expr = ch(\"../freq1\") }
     }
-    channel freq2 {
+    channel amp {
+      lefttype = extend
+      righttype = extend
+      default = 1
+      flags = 0
+      segment { length = 0 value = 1 1 expr = ch(\"../amp\") }
+    }
+    channel freq22 {
       lefttype = extend
       righttype = extend
       default = 1
       flags = 0
       segment { length = 0 value = 1 1 expr = ch(\"../freq2\") }
     }
-    channel freq3 {
+    channel freq23 {
       lefttype = extend
       righttype = extend
       default = 1
       flags = 0
       segment { length = 0 value = 1 1 expr = ch(\"../freq3\") }
     }
-    channel offset1 {
+    channel offset21 {
       lefttype = extend
       righttype = extend
       flags = 0
       segment { length = 0 expr = ch(\"../offset1\") }
     }
-    channel offset2 {
+    channel offset22 {
       lefttype = extend
       righttype = extend
       flags = 0
       segment { length = 0 expr = ch(\"../offset2\") }
     }
-    channel offset3 {
+    channel offset23 {
       lefttype = extend
       righttype = extend
       flags = 0
@@ -714,8 +739,10 @@ v	[ 0	locks=0 ]	(	0	0	0	)
 force	[ 0	locks=0 ]	(	0	0	0	)
 Cd	[ 0	locks=0 ]	(	1	1	1	)
 N	[ 0	locks=0 ]	(	0	0	0	)
-freq	[ 0	locks=0 ]	(	[ freq1	20 ] 	[ freq2	20 ] 	[ freq3	20 ] 	1	)
-offset	[ 0	locks=0 ]	(	[ offset1	0 ] 	[ offset2	0 ] 	[ offset3	0 ] 	0	)
+freq2	[ 0	locks=0 ]	(	[ freq21	20 ] 	[ freq22	20 ] 	[ freq23	20 ] 	)
+offset2	[ 0	locks=0 ]	(	[ offset21	1.3 ] 	[ offset22	0 ] 	[ offset23	0 ] 	)
+amp	[ 0	locks=0 ]	(	[ amp	0.050000000000000003 ] 	)
+rough	[ 0	locks=0 ]	(	0.5	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -725,7 +752,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.486"
+		"value":"17.0.484"
 	}
 }
 
@@ -828,7 +855,7 @@ inputs
 stat
 {
   create 1549550854
-  modify 1551455947
+  modify 1551809527
   author MAINGEAR@DESKTOP-P98C1VA
   access 0777
 }
@@ -902,7 +929,7 @@ inputs
 stat
 {
   create 1549550875
-  modify 1551455944
+  modify 1551809526
   author MAINGEAR@DESKTOP-P98C1VA
   access 0777
 }
@@ -949,7 +976,7 @@ Content-Disposition: attachment; filename="hdaroot/add_noise/multiply1.def"
 Content-Type: text/plain
 
 comment ""
-position 7.5 2.68
+position 7.5 2.88131
 connectornextid 3
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on lowdetail off mediumdetail off highdetail on material off
 outputsNamed3
@@ -958,18 +985,18 @@ outputsNamed3
 }
 inputsNamed3
 {
-2 	unifiednoise_static1 28 1 "input1"
+2 	aanoise1 7 1 "input1"
 0 	geometryvopglobal1 6 1 "input2"
 }
 inputs
 {
-0 	unifiednoise_static1 0 1
+0 	aanoise1 0 1
 1 	geometryvopglobal1 6 1
 }
 stat
 {
   create 1549551139
-  modify 1551455945
+  modify 1551809493
   author MAINGEAR@DESKTOP-P98C1VA
   access 0777
 }
@@ -993,95 +1020,53 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.486"
+		"value":"17.0.484"
 	}
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot/add_noise/unifiednoise_static1.init"
+Content-Disposition: attachment; filename="hdaroot/add_noise/aanoise1.init"
 Content-Type: text/plain
 
-type = unifiednoise_static::3.0
+type = aanoise
 matchesdef = 0
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot/add_noise/unifiednoise_static1.def"
+Content-Disposition: attachment; filename="hdaroot/add_noise/aanoise1.def"
 Content-Type: text/plain
 
 comment ""
 position 4.5 1.7
-connectornextid 29
+connectornextid 8
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on lowdetail off mediumdetail off highdetail on material off
 outputsNamed3
 {
-28 "noise"
+7 "noise"
 }
 inputsNamed3
 {
 0 	geometryvopglobal1 0 1 "pos"
-1 	freq 0 1 "freq"
-2 	offset 0 1 "offset"
-3 	"" "" 1 "period"
-4 	"" "" 1 "oct"
-5 	"" "" 1 "lac"
-6 	"" "" 1 "dolwarp"
-7 	"" "" 1 "accuml"
-8 	"" "" 1 "disp"
-9 	"" "" 1 "dispfreq"
-10 	"" "" 1 "dogwarp"
-11 	"" "" 1 "accumg"
-12 	"" "" 1 "gflow"
-13 	"" "" 1 "flowrot"
-14 	"" "" 1 "rough"
-15 	"" "" 1 "docc"
-16 	"" "" 1 "cc_fold"
-17 	"" "" 1 "cc_dobias"
-18 	"" "" 1 "cc_bias"
-19 	"" "" 1 "cc_dogain"
-20 	"" "" 1 "cc_gain"
-21 	"" "" 1 "cc_inv"
-22 	"" "" 1 "cc_dorng"
-23 	"" "" 1 "cc_rnglo"
-24 	"" "" 1 "cc_rnghi"
-25 	"" "" 1 "cc_amp"
-26 	"" "" 1 "fw"
-27 	"" "" 1 "fscale"
+1 	freq2 0 1 "freq"
+2 	offset2 0 1 "offset"
+3 	amp 0 1 "amp"
+4 	rough 0 1 "rough"
+5 	"" "" 1 "maxoctave"
+6 	"" "" 1 "noisetype"
 }
 inputs
 {
 0 	geometryvopglobal1 0 1
-1 	freq 0 1
-2 	offset 0 1
-3 	"" 0 1
-4 	"" 0 1
+1 	freq2 0 1
+2 	offset2 0 1
+3 	amp 0 1
+4 	rough 0 1
 5 	"" 0 1
 6 	"" 0 1
-7 	"" 0 1
-8 	"" 0 1
-9 	"" 0 1
-10 	"" 0 1
-11 	"" 0 1
-12 	"" 0 1
-13 	"" 0 1
-14 	"" 0 1
-15 	"" 0 1
-16 	"" 0 1
-17 	"" 0 1
-18 	"" 0 1
-19 	"" 0 1
-20 	"" 0 1
-21 	"" 0 1
-22 	"" 0 1
-23 	"" 0 1
-24 	"" 0 1
-25 	"" 0 1
-26 	"" 0 1
-27 	"" 0 1
 }
 stat
 {
-  create 1549569210
-  modify 1551455944
+  create 1551809278
+  modify 1551809532
   author MAINGEAR@DESKTOP-P98C1VA
   access 0777
 }
@@ -1091,75 +1076,29 @@ exprlanguage hscript
 end
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot/add_noise/unifiednoise_static1.chn"
-Content-Type: text/plain
-
-{
-    channel cc_ampx {
-      lefttype = extend
-      righttype = extend
-      default = 1
-      flags = 0
-      segment { length = 0 value = 1 1 expr = ch(\"../../amp\") }
-    }
-    channel cc_ampy {
-      lefttype = extend
-      righttype = extend
-      default = 1
-      flags = 0
-      segment { length = 0 value = 1 1 expr = ch(\"../../amp\") }
-    }
-    channel cc_ampz {
-      lefttype = extend
-      righttype = extend
-      default = 1
-      flags = 0
-      segment { length = 0 value = 1 1 expr = ch(\"../../amp\") }
-    }
-  }
-
---HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot/add_noise/unifiednoise_static1.parm"
+Content-Disposition: attachment; filename="hdaroot/add_noise/aanoise1.parm"
 Content-Type: text/plain
 
 {
 version 0.8
 signature	[ 0	locks=0 ]	(	default	)
-basis	[ 0	locks=0 ]	(	simplex	)
-freq	[ 0	locks=0 ]	(	1	1	1	1	)
-offset	[ 0	locks=0 ]	(	0	0	0	0	)
-periodic	[ 0	locks=0 ]	(	"off"	)
-period	[ 0	locks=0 ]	(	1	1	1	1	)
-folder1	[ 0	locks=0 ]	(	0	)
-fractal	[ 0	locks=0 ]	(	none	)
-oct	[ 0	locks=0 ]	(	8	)
-lac	[ 0	locks=0 ]	(	2.01234	)
+pos_ff	[ 0	locks=0 ]	(	0	)
+pos	[ 0	locks=0 ]	(	0	0	0	)
+pos_fp	[ 0	locks=0 ]	(	0	0	0	0	)
+freq_ff	[ 0	locks=0 ]	(	1	)
+freq	[ 0	locks=0 ]	(	1	1	1	)
+freq_fp	[ 0	locks=0 ]	(	1	1	1	1	)
+offset_ff	[ 0	locks=0 ]	(	0	)
+offset	[ 0	locks=0 ]	(	0	0	0	)
+offset_fp	[ 0	locks=0 ]	(	0	0	0	0	)
+amp	[ 0	locks=0 ]	(	1	)
 rough	[ 0	locks=0 ]	(	0.5	)
-folder2	[ 0	locks=0 ]	(	0	)
-dolwarp	[ 0	locks=0 ]	(	"off"	)
-accuml	[ 0	locks=0 ]	(	"off"	)
-disp	[ 0	locks=0 ]	(	0	)
-dispfreq	[ 0	locks=0 ]	(	1	)
-dogwarp	[ 0	locks=0 ]	(	"off"	)
-accumg	[ 0	locks=0 ]	(	"off"	)
-gflow	[ 0	locks=0 ]	(	0	)
-flowrot	[ 0	locks=0 ]	(	0	)
-folder0_1	[ 0	locks=0 ]	(	0	)
-cc_fold	[ 0	locks=0 ]	(	"off"	)
-cc_dobias	[ 0	locks=0 ]	(	"off"	)
-cc_bias	[ 0	locks=0 ]	(	0.5	0.5	0.5	)
-cc_dogain	[ 0	locks=0 ]	(	"off"	)
-cc_gain	[ 0	locks=0 ]	(	0.5	0.5	0.5	)
-cc_inv	[ 0	locks=0 ]	(	"off"	)
-cc_dorng	[ 0	locks=0 ]	(	"on"	)
-cc_rnglo	[ 8	locks=0 ]	(	-1	-1	-1	)
-cc_rnghi	[ 8	locks=0 ]	(	1	1	1	)
-cc_amp	[ 8	locks=0 ]	(	[ cc_ampx	0.050000000000000003 ] 	[ cc_ampy	0.050000000000000003 ] 	[ cc_ampz	0.050000000000000003 ] 	)
-fscale	[ 0	locks=0 ]	(	1	)
+maxoctave	[ 0	locks=0 ]	(	8	)
+noisetype	[ 0	locks=0 ]	(	noise	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot/add_noise/unifiednoise_static1.userdata"
+Content-Disposition: attachment; filename="hdaroot/add_noise/aanoise1.userdata"
 Content-Type: text/plain
 
 {
@@ -1170,23 +1109,23 @@ Content-Type: text/plain
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot/add_noise/freq.init"
+Content-Disposition: attachment; filename="hdaroot/add_noise/freq2.init"
 Content-Type: text/plain
 
 type = parameter
 matchesdef = 0
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot/add_noise/freq.def"
+Content-Disposition: attachment; filename="hdaroot/add_noise/freq2.def"
 Content-Type: text/plain
 
 comment ""
-position 0.699818 6.23295
+position 4.81838 1.49
 connectornextid 1
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed off lowdetail off mediumdetail off highdetail on material off
 outputsNamed3
 {
-0 "freq"
+0 "freq2"
 }
 inputsNamed3
 {
@@ -1196,8 +1135,8 @@ inputs
 }
 stat
 {
-  create 1549569223
-  modify 1549569313
+  create 1551809291
+  modify 1551809532
   author MAINGEAR@DESKTOP-P98C1VA
   access 0777
 }
@@ -1207,19 +1146,19 @@ exprlanguage hscript
 end
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot/add_noise/freq.parm"
+Content-Disposition: attachment; filename="hdaroot/add_noise/freq2.parm"
 Content-Type: text/plain
 
 {
 version 0.8
 parmscope	[ 0	locks=0 ]	(	shaderparm	)
 parmaccess	[ 0	locks=0 ]	(	""	)
-parmname	[ 0	locks=0 ]	(	freq	)
+parmname	[ 0	locks=0 ]	(	freq2	)
 parmprefix	[ 0	locks=0 ]	(	""	)
 parmpostfix	[ 0	locks=0 ]	(	""	)
 parmlabel	[ 0	locks=0 ]	(	Frequency	)
 showlabel	[ 0	locks=0 ]	(	"on"	)
-parmtype	[ 0	locks=0 ]	(	"float4"	)
+parmtype	[ 0	locks=0 ]	(	"float3"	)
 parmtypename	[ 0	locks=0 ]	(	""	)
 floatdef	[ 0	locks=0 ]	(	0	)
 intdef	[ 0	locks=0 ]	(	0	)
@@ -1227,12 +1166,12 @@ toggledef	[ 0	locks=0 ]	(	"off"	)
 angledef	[ 0	locks=0 ]	(	0	)
 logfloatdef	[ 0	locks=0 ]	(	0	)
 float2def	[ 0	locks=0 ]	(	0	0	)
-float3def	[ 0	locks=0 ]	(	0	0	0	)
+float3def	[ 0	locks=0 ]	(	1	1	1	)
 vectordef	[ 0	locks=0 ]	(	0	0	0	)
 normaldef	[ 0	locks=0 ]	(	0	0	0	)
 pointdef	[ 0	locks=0 ]	(	0	0	0	)
 directiondef	[ 0	locks=0 ]	(	1	0	0	)
-float4def	[ 0	locks=0 ]	(	1	1	1	1	)
+float4def	[ 0	locks=0 ]	(	0	0	0	0	)
 floatm2def	[ 0	locks=0 ]	(	1	0	0	1	)
 float9def	[ 0	locks=0 ]	(	1	0	0	0	1	0	0	0	1	)
 float16def	[ 0	locks=0 ]	(	1	0	0	0	0	1	0	0	0	0	1	0	0	0	0	1	)
@@ -1286,34 +1225,34 @@ help	[ 0	locks=0 ]	(	""	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot/add_noise/freq.userdata"
+Content-Disposition: attachment; filename="hdaroot/add_noise/freq2.userdata"
 Content-Type: text/plain
 
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.486"
+		"value":"17.0.484"
 	}
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot/add_noise/offset.init"
+Content-Disposition: attachment; filename="hdaroot/add_noise/offset2.init"
 Content-Type: text/plain
 
 type = parameter
 matchesdef = 0
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot/add_noise/offset.def"
+Content-Disposition: attachment; filename="hdaroot/add_noise/offset2.def"
 Content-Type: text/plain
 
 comment ""
-position 0.799819 6.03295
+position 4.91838 1.29
 connectornextid 1
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed off lowdetail off mediumdetail off highdetail on material off
 outputsNamed3
 {
-0 "offset"
+0 "offset2"
 }
 inputsNamed3
 {
@@ -1323,8 +1262,8 @@ inputs
 }
 stat
 {
-  create 1549569224
-  modify 1549569313
+  create 1551809292
+  modify 1551809532
   author MAINGEAR@DESKTOP-P98C1VA
   access 0777
 }
@@ -1334,19 +1273,19 @@ exprlanguage hscript
 end
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot/add_noise/offset.parm"
+Content-Disposition: attachment; filename="hdaroot/add_noise/offset2.parm"
 Content-Type: text/plain
 
 {
 version 0.8
 parmscope	[ 0	locks=0 ]	(	shaderparm	)
 parmaccess	[ 0	locks=0 ]	(	""	)
-parmname	[ 0	locks=0 ]	(	offset	)
+parmname	[ 0	locks=0 ]	(	offset2	)
 parmprefix	[ 0	locks=0 ]	(	""	)
 parmpostfix	[ 0	locks=0 ]	(	""	)
 parmlabel	[ 0	locks=0 ]	(	Offset	)
 showlabel	[ 0	locks=0 ]	(	"on"	)
-parmtype	[ 0	locks=0 ]	(	"float4"	)
+parmtype	[ 0	locks=0 ]	(	"point"	)
 parmtypename	[ 0	locks=0 ]	(	""	)
 floatdef	[ 0	locks=0 ]	(	0	)
 intdef	[ 0	locks=0 ]	(	0	)
@@ -1413,13 +1352,267 @@ help	[ 0	locks=0 ]	(	""	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot/add_noise/offset.userdata"
+Content-Disposition: attachment; filename="hdaroot/add_noise/offset2.userdata"
 Content-Type: text/plain
 
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.486"
+		"value":"17.0.484"
+	}
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/add_noise/amp.init"
+Content-Type: text/plain
+
+type = parameter
+matchesdef = 0
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/add_noise/amp.def"
+Content-Type: text/plain
+
+comment ""
+position 2.2 2.09
+connectornextid 1
+flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed off lowdetail off mediumdetail off highdetail on material off
+outputsNamed3
+{
+0 "amp"
+}
+inputsNamed3
+{
+}
+inputs
+{
+}
+stat
+{
+  create 1551809308
+  modify 1551809532
+  author MAINGEAR@DESKTOP-P98C1VA
+  access 0777
+}
+color UT_Color RGB 1 1 0.4 
+delscript ""
+exprlanguage hscript
+end
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/add_noise/amp.parm"
+Content-Type: text/plain
+
+{
+version 0.8
+parmscope	[ 0	locks=0 ]	(	shaderparm	)
+parmaccess	[ 0	locks=0 ]	(	""	)
+parmname	[ 0	locks=0 ]	(	amp	)
+parmprefix	[ 0	locks=0 ]	(	""	)
+parmpostfix	[ 0	locks=0 ]	(	""	)
+parmlabel	[ 0	locks=0 ]	(	Amplitude	)
+showlabel	[ 0	locks=0 ]	(	"on"	)
+parmtype	[ 0	locks=0 ]	(	"float"	)
+parmtypename	[ 0	locks=0 ]	(	""	)
+floatdef	[ 0	locks=0 ]	(	1	)
+intdef	[ 0	locks=0 ]	(	0	)
+toggledef	[ 0	locks=0 ]	(	"off"	)
+angledef	[ 0	locks=0 ]	(	0	)
+logfloatdef	[ 0	locks=0 ]	(	0	)
+float2def	[ 0	locks=0 ]	(	0	0	)
+float3def	[ 0	locks=0 ]	(	0	0	0	)
+vectordef	[ 0	locks=0 ]	(	0	0	0	)
+normaldef	[ 0	locks=0 ]	(	0	0	0	)
+pointdef	[ 0	locks=0 ]	(	0	0	0	)
+directiondef	[ 0	locks=0 ]	(	1	0	0	)
+float4def	[ 0	locks=0 ]	(	0	0	0	0	)
+floatm2def	[ 0	locks=0 ]	(	1	0	0	1	)
+float9def	[ 0	locks=0 ]	(	1	0	0	0	1	0	0	0	1	)
+float16def	[ 0	locks=0 ]	(	1	0	0	0	0	1	0	0	0	0	1	0	0	0	0	1	)
+stringdef	[ 0	locks=0 ]	(	""	)
+filedef	[ 0	locks=0 ]	(	""	)
+imagedef	[ 0	locks=0 ]	(	""	)
+geometrydef	[ 0	locks=0 ]	(	""	)
+colordef	[ 0	locks=0 ]	(	0	0	0	)
+color4def	[ 0	locks=0 ]	(	0	0	0	0	)
+bsdfdef	[ 0	locks=0 ]	(	""	)
+coshaderdef	[ 0	locks=0 ]	(	""	)
+floatadef	[ 0	locks=0 ]	(	)
+intadef	[ 0	locks=0 ]	(	)
+vector2adef	[ 0	locks=0 ]	(	)
+vectoradef	[ 0	locks=0 ]	(	)
+pointadef	[ 0	locks=0 ]	(	)
+normaladef	[ 0	locks=0 ]	(	)
+coloradef	[ 0	locks=0 ]	(	)
+floatm2adef	[ 0	locks=0 ]	(	)
+float4adef	[ 0	locks=0 ]	(	)
+float9adef	[ 0	locks=0 ]	(	)
+float16adef	[ 0	locks=0 ]	(	)
+stringadef	[ 0	locks=0 ]	(	)
+coshaderadef	[ 0	locks=0 ]	(	""	)
+structdef	[ 0	locks=0 ]	(	""	)
+rangeflt	[ 0	locks=0 ]	(	-1	1	)
+rangeint	[ 0	locks=0 ]	(	0	10	)
+stringtype	[ 0	locks=0 ]	(	off	)
+opfilter	[ 0	locks=0 ]	(	!!OBJ/LIGHT!!	)
+parmcomment	[ 0	locks=0 ]	(	""	)
+separator1	[ 0	locks=0 ]	(	)
+useasparmdefiner	[ 0	locks=0 ]	(	"off"	)
+useownexportcontext	[ 0	locks=0 ]	(	"off"	)
+parmuniform	[ 0	locks=0 ]	(	"on"	)
+usebound	[ 0	locks=0 ]	(	"off"	)
+hasconnector	[ 0	locks=0 ]	(	"on"	)
+exportparm	[ 0	locks=0 ]	(	"off"	)
+exportcontext	[ 0	locks=0 ]	(	cvex	)
+providemenu	[ 0	locks=0 ]	(	"off"	)
+menuchoices	[ 0	locks=0 ]	(	""	)
+menuscript	[ 0	locks=0 ]	(	""	)
+menuscriptlanguage	[ 0	locks=0 ]	(	"hscript"	)
+separator2	[ 0	locks=0 ]	(	)
+invisible	[ 0	locks=0 ]	(	"off"	)
+joinnext	[ 0	locks=0 ]	(	"off"	)
+disablewhen	[ 0	locks=0 ]	(	""	)
+hidewhen	[ 0	locks=0 ]	(	""	)
+callback	[ 0	locks=0 ]	(	""	)
+tags	[ 0	locks=0 ]	(	""	)
+help	[ 0	locks=0 ]	(	""	)
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/add_noise/amp.userdata"
+Content-Type: text/plain
+
+{
+	"___Version___":{
+		"type":"string",
+		"value":"17.0.484"
+	}
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/add_noise/rough.init"
+Content-Type: text/plain
+
+type = parameter
+matchesdef = 0
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/add_noise/rough.def"
+Content-Type: text/plain
+
+comment ""
+position 2.3 1.89
+connectornextid 1
+flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed off lowdetail off mediumdetail off highdetail on material off
+outputsNamed3
+{
+0 "rough"
+}
+inputsNamed3
+{
+}
+inputs
+{
+}
+stat
+{
+  create 1551809314
+  modify 1551809532
+  author MAINGEAR@DESKTOP-P98C1VA
+  access 0777
+}
+color UT_Color RGB 1 1 0.4 
+delscript ""
+exprlanguage hscript
+end
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/add_noise/rough.parm"
+Content-Type: text/plain
+
+{
+version 0.8
+parmscope	[ 0	locks=0 ]	(	shaderparm	)
+parmaccess	[ 0	locks=0 ]	(	""	)
+parmname	[ 0	locks=0 ]	(	rough	)
+parmprefix	[ 0	locks=0 ]	(	""	)
+parmpostfix	[ 0	locks=0 ]	(	""	)
+parmlabel	[ 0	locks=0 ]	(	Roughness	)
+showlabel	[ 0	locks=0 ]	(	"on"	)
+parmtype	[ 0	locks=0 ]	(	"float"	)
+parmtypename	[ 0	locks=0 ]	(	""	)
+floatdef	[ 0	locks=0 ]	(	0.5	)
+intdef	[ 0	locks=0 ]	(	0	)
+toggledef	[ 0	locks=0 ]	(	"off"	)
+angledef	[ 0	locks=0 ]	(	0	)
+logfloatdef	[ 0	locks=0 ]	(	0	)
+float2def	[ 0	locks=0 ]	(	0	0	)
+float3def	[ 0	locks=0 ]	(	0	0	0	)
+vectordef	[ 0	locks=0 ]	(	0	0	0	)
+normaldef	[ 0	locks=0 ]	(	0	0	0	)
+pointdef	[ 0	locks=0 ]	(	0	0	0	)
+directiondef	[ 0	locks=0 ]	(	1	0	0	)
+float4def	[ 0	locks=0 ]	(	0	0	0	0	)
+floatm2def	[ 0	locks=0 ]	(	1	0	0	1	)
+float9def	[ 0	locks=0 ]	(	1	0	0	0	1	0	0	0	1	)
+float16def	[ 0	locks=0 ]	(	1	0	0	0	0	1	0	0	0	0	1	0	0	0	0	1	)
+stringdef	[ 0	locks=0 ]	(	""	)
+filedef	[ 0	locks=0 ]	(	""	)
+imagedef	[ 0	locks=0 ]	(	""	)
+geometrydef	[ 0	locks=0 ]	(	""	)
+colordef	[ 0	locks=0 ]	(	0	0	0	)
+color4def	[ 0	locks=0 ]	(	0	0	0	0	)
+bsdfdef	[ 0	locks=0 ]	(	""	)
+coshaderdef	[ 0	locks=0 ]	(	""	)
+floatadef	[ 0	locks=0 ]	(	)
+intadef	[ 0	locks=0 ]	(	)
+vector2adef	[ 0	locks=0 ]	(	)
+vectoradef	[ 0	locks=0 ]	(	)
+pointadef	[ 0	locks=0 ]	(	)
+normaladef	[ 0	locks=0 ]	(	)
+coloradef	[ 0	locks=0 ]	(	)
+floatm2adef	[ 0	locks=0 ]	(	)
+float4adef	[ 0	locks=0 ]	(	)
+float9adef	[ 0	locks=0 ]	(	)
+float16adef	[ 0	locks=0 ]	(	)
+stringadef	[ 0	locks=0 ]	(	)
+coshaderadef	[ 0	locks=0 ]	(	""	)
+structdef	[ 0	locks=0 ]	(	""	)
+rangeflt	[ 0	locks=0 ]	(	0	1	)
+rangeint	[ 0	locks=0 ]	(	0	10	)
+stringtype	[ 0	locks=0 ]	(	off	)
+opfilter	[ 0	locks=0 ]	(	!!OBJ/LIGHT!!	)
+parmcomment	[ 0	locks=0 ]	(	""	)
+separator1	[ 0	locks=0 ]	(	)
+useasparmdefiner	[ 0	locks=0 ]	(	"off"	)
+useownexportcontext	[ 0	locks=0 ]	(	"off"	)
+parmuniform	[ 0	locks=0 ]	(	"on"	)
+usebound	[ 0	locks=0 ]	(	"off"	)
+hasconnector	[ 0	locks=0 ]	(	"on"	)
+exportparm	[ 0	locks=0 ]	(	"off"	)
+exportcontext	[ 0	locks=0 ]	(	cvex	)
+providemenu	[ 0	locks=0 ]	(	"off"	)
+menuchoices	[ 0	locks=0 ]	(	""	)
+menuscript	[ 0	locks=0 ]	(	""	)
+menuscriptlanguage	[ 0	locks=0 ]	(	"hscript"	)
+separator2	[ 0	locks=0 ]	(	)
+invisible	[ 0	locks=0 ]	(	"off"	)
+joinnext	[ 0	locks=0 ]	(	"off"	)
+disablewhen	[ 0	locks=0 ]	(	""	)
+hidewhen	[ 0	locks=0 ]	(	""	)
+callback	[ 0	locks=0 ]	(	""	)
+tags	[ 0	locks=0 ]	(	""	)
+help	[ 0	locks=0 ]	(	""	)
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/add_noise/rough.userdata"
+Content-Type: text/plain
+
+{
+	"___Version___":{
+		"type":"string",
+		"value":"17.0.484"
 	}
 }
 
@@ -1454,7 +1647,7 @@ inputs
 stat
 {
   create 1549550929
-  modify 1551220331
+  modify 1551809480
   author MAINGEAR@DESKTOP-P98C1VA
   access 0777
 }
@@ -2370,7 +2563,7 @@ sopflags sopflags =
 comment ""
 position -8.503 -6.151
 connectornextid 2
-flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
+flags =  lock off model off template on footprint off xray off bypass off display on render on highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
 {
 1 "output1"
@@ -2386,7 +2579,7 @@ inputs
 stat
 {
   create 1542338860
-  modify 1551214228
+  modify 1551809525
   author mikel@mikembp-sesi.local
   access 0777
 }
@@ -3253,14 +3446,16 @@ Content-Type: text/plain
 Content-Disposition: attachment; filename="hdaroot/add_noise.order"
 Content-Type: text/plain
 
-7
+9
 geometryvopglobal1
 geometryvopoutput1
 displacenml1
 multiply1
-unifiednoise_static1
-freq
-offset
+aanoise1
+freq2
+offset2
+amp
+rough
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
 Content-Disposition: attachment; filename="hdaroot/add_noise.net"
@@ -3297,7 +3492,7 @@ inputs
 stat
 {
   create 1549549892
-  modify 1551216733
+  modify 1551809239
   author MAINGEAR@DESKTOP-P98C1VA
   access 0777
 }
@@ -3347,7 +3542,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.486"
+		"value":"17.0.484"
 	}
 }
 
@@ -3430,7 +3625,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.486"
+		"value":"17.0.484"
 	}
 }
 
@@ -3512,7 +3707,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.486"
+		"value":"17.0.484"
 	}
 }
 
@@ -3631,7 +3826,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.486"
+		"value":"17.0.484"
 	}
 }
 
@@ -3737,7 +3932,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.486"
+		"value":"17.0.484"
 	}
 }
 
@@ -3808,7 +4003,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.486"
+		"value":"17.0.484"
 	}
 }
 
@@ -3884,7 +4079,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.486"
+		"value":"17.0.484"
 	}
 }
 
@@ -3919,7 +4114,7 @@ inputs
 stat
 {
   create 1549551655
-  modify 1551456101
+  modify 1551809545
   author MAINGEAR@DESKTOP-P98C1VA
   access 0777
 }
@@ -3948,7 +4143,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.486"
+		"value":"17.0.484"
 	}
 }
 
@@ -4047,7 +4242,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.486"
+		"value":"17.0.484"
 	}
 }
 
@@ -4112,7 +4307,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.486"
+		"value":"17.0.484"
 	}
 }
 
@@ -4131,7 +4326,7 @@ sopflags sopflags =
 comment ""
 position -2.5 8.8498
 connectornextid 3
-flags =  lock off model off template off footprint off xray off bypass off display on render on highlight off unload off savedata off compress on colordefault on exposed on
+flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
 {
 1 "output1"
@@ -4149,7 +4344,7 @@ inputs
 stat
 {
   create 1549552340
-  modify 1551218756
+  modify 1551809416
   author MAINGEAR@DESKTOP-P98C1VA
   access 0777
 }
@@ -4187,7 +4382,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.486"
+		"value":"17.0.484"
 	}
 }
 
@@ -4248,7 +4443,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.486"
+		"value":"17.0.484"
 	}
 }
 
@@ -4409,7 +4604,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.486"
+		"value":"17.0.484"
 	}
 }
 
@@ -4499,7 +4694,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.486"
+		"value":"17.0.484"
 	}
 }
 
@@ -4563,7 +4758,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.486"
+		"value":"17.0.484"
 	}
 }
 
@@ -4624,7 +4819,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.486"
+		"value":"17.0.484"
 	}
 }
 
@@ -4699,7 +4894,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.486"
+		"value":"17.0.484"
 	}
 }
 
@@ -4781,7 +4976,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.486"
+		"value":"17.0.484"
 	}
 }
 
@@ -4840,7 +5035,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.486"
+		"value":"17.0.484"
 	}
 }
 
@@ -4918,7 +5113,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.486"
+		"value":"17.0.484"
 	}
 }
 
@@ -4979,7 +5174,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.486"
+		"value":"17.0.484"
 	}
 }
 
@@ -5040,7 +5235,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.486"
+		"value":"17.0.484"
 	}
 }
 
@@ -5115,7 +5310,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.486"
+		"value":"17.0.484"
 	}
 }
 
@@ -5150,7 +5345,7 @@ inputs
 stat
 {
   create 1549565403
-  modify 1551214355
+  modify 1551809530
   author MAINGEAR@DESKTOP-P98C1VA
   access 0777
 }
@@ -5186,7 +5381,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.486"
+		"value":"17.0.484"
 	}
 }
 
@@ -5261,7 +5456,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.486"
+		"value":"17.0.484"
 	}
 }
 
@@ -5322,7 +5517,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.486"
+		"value":"17.0.484"
 	}
 }
 
@@ -5354,7 +5549,7 @@ inputs
 stat
 {
   create 1549572172
-  modify 1551456101
+  modify 1551809545
   author MAINGEAR@DESKTOP-P98C1VA
   access 0777
 }
@@ -5383,7 +5578,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.486"
+		"value":"17.0.484"
 	}
 }
 
@@ -5459,7 +5654,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.486"
+		"value":"17.0.484"
 	}
 }
 
@@ -5494,7 +5689,7 @@ inputs
 stat
 {
   create 1549572287
-  modify 1551456143
+  modify 1551809751
   author MAINGEAR@DESKTOP-P98C1VA
   access 0777
 }
@@ -5523,7 +5718,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.486"
+		"value":"17.0.484"
 	}
 }
 
@@ -5555,7 +5750,7 @@ inputs
 stat
 {
   create 1549572304
-  modify 1551456143
+  modify 1551809751
   author MAINGEAR@DESKTOP-P98C1VA
   access 0777
 }
@@ -5584,7 +5779,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.486"
+		"value":"17.0.484"
 	}
 }
 
@@ -5659,7 +5854,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.486"
+		"value":"17.0.484"
 	}
 }
 
@@ -5720,7 +5915,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.486"
+		"value":"17.0.484"
 	}
 }
 
@@ -5783,7 +5978,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.486"
+		"value":"17.0.484"
 	}
 }
 

@@ -32,27 +32,22 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position 20.7759 -13.5873
-connectornextid 3
-flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
+position -13.2412 5.35252
+connectornextid 0
+flags =  lock off model off template off footprint off xray off bypass off display on render on highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
 {
-2 "output1"
 }
 inputsNamed3
 {
-0 	grid2 0 1 "input1"
-1 	sop_gameres5 1 1 "input2"
 }
 inputs
 {
-0 	grid2 0 1
-1 	sop_gameres5 0 1
 }
 stat
 {
-  create 1549493632
-  modify 1551734232
+  create 1551747312
+  modify 1551747372
   author MAINGEAR@DESKTOP-P98C1VA
   access 0777
 }
@@ -102,7 +97,7 @@ outputsNamed3
 }
 inputsNamed3
 {
-0 	sop_sweep1 1 1 "input1"
+0 	sop_sweep1 0 1 "input1"
 }
 inputs
 {
@@ -111,7 +106,7 @@ inputs
 stat
 {
   create 1544466176
-  modify 1549493948
+  modify 1551747371
   author MAINGEAR@DESKTOP-P98C1VA
   access 0777
 }
@@ -392,7 +387,7 @@ outputsNamed3
 }
 inputsNamed3
 {
-0 	sop_sweep2 1 1 "input1"
+0 	sop_sweep2 0 1 "input1"
 }
 inputs
 {
@@ -401,7 +396,7 @@ inputs
 stat
 {
   create 1544466176
-  modify 1548778522
+  modify 1551747348
   author MAINGEAR@DESKTOP-P98C1VA
   access 0777
 }
@@ -577,7 +572,7 @@ Content-Type: text/plain
 Content-Disposition: attachment; filename="hdaroot/sop_sweep1.init"
 Content-Type: text/plain
 
-type = gamedev::sop_sweep
+type = gamedev::sop_curve_sweep
 matchesdef = 1
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -591,11 +586,11 @@ connectornextid 2
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
 {
-1 "output1"
+0 "output1"
 }
 inputsNamed3
 {
-0 	get_seams 2 1 "input1"
+1 	get_seams 2 1 "input1"
 }
 inputs
 {
@@ -603,8 +598,8 @@ inputs
 }
 stat
 {
-  create 1544465994
-  modify 1549493681
+  create 1551747370
+  modify 1551747411
   author MAINGEAR@DESKTOP-P98C1VA
   access 0777
 }
@@ -621,7 +616,6 @@ Content-Type: text/plain
     channel scale {
       lefttype = extend
       righttype = extend
-      default = 15
       flags = 0
       segment { length = 0 value = 15 15 expr = ch(\"../scale\") }
     }
@@ -633,20 +627,21 @@ Content-Type: text/plain
 
 {
 version 0.8
-folder0	[ 0	locks=0 ]	(	0	)
-mesh_type	[ 0	locks=0 ]	(	"0"	)
-divs	[ 0	locks=0 ]	(	6	)
-cap_ends	[ 0	locks=0 ]	(	"off"	)
-folder1	[ 0	locks=0 ]	(	0	)
-scale	[ 0	locks=0 ]	(	[ scale	0.29999999999999999 ] 	)
-scaleramp	[ 0	locks=0 ]	(	2	)
-cuspangle	[ 0	locks=0 ]	(	180	)
-scaleramp1pos	[ 0	locks=0 ]	(	0	)
-scaleramp1value	[ 0	locks=0 ]	(	1	)
-scaleramp1interp	[ 0	locks=0 ]	(	"linear"	)
-scaleramp2pos	[ 0	locks=0 ]	(	1	)
-scaleramp2value	[ 0	locks=0 ]	(	1	)
-scaleramp2interp	[ 0	locks=0 ]	(	"linear"	)
+folder0	[ 0	locks=0	autoscope=0 ]	(	0	)
+mesh_type	[ 0	locks=0	autoscope=0 ]	(	"0"	)
+divs	[ 0	locks=0	autoscope=0 ]	(	6	)
+cap_ends	[ 0	locks=0	autoscope=0 ]	(	"off"	)
+folder1	[ 0	locks=0	autoscope=0 ]	(	0	)
+scale	[ 0	locks=0	autoscope=0 ]	(	[ scale	0.14999999999999999 ] 	)
+scaleramp	[ 0	locks=0	autoscope=0 ]	(	2	)
+cuspangle	[ 0	locks=0	autoscope=0 ]	(	180	)
+up_vector	[ 0	locks=0	autoscope=0 ]	(	0	1	0	)
+scaleramp1pos	[ 0	locks=0	autoscope=0 ]	(	0	)
+scaleramp1value	[ 0	locks=0	autoscope=0 ]	(	1	)
+scaleramp1interp	[ 0	locks=0	autoscope=0 ]	(	"linear"	)
+scaleramp2pos	[ 0	locks=0	autoscope=0 ]	(	1	)
+scaleramp2value	[ 0	locks=0	autoscope=0 ]	(	1	)
+scaleramp2interp	[ 0	locks=0	autoscope=0 ]	(	"linear"	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -664,7 +659,7 @@ Content-Type: text/plain
 Content-Disposition: attachment; filename="hdaroot/sop_sweep2.init"
 Content-Type: text/plain
 
-type = gamedev::sop_sweep
+type = gamedev::sop_curve_sweep
 matchesdef = 1
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -678,11 +673,11 @@ connectornextid 2
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
 {
-1 "output1"
+0 "output1"
 }
 inputsNamed3
 {
-0 	get_seams 2 1 "input1"
+1 	get_seams 2 1 "input1"
 }
 inputs
 {
@@ -690,8 +685,8 @@ inputs
 }
 stat
 {
-  create 1544465994
-  modify 1549493682
+  create 1551747348
+  modify 1551747389
   author MAINGEAR@DESKTOP-P98C1VA
   access 0777
 }
@@ -708,7 +703,6 @@ Content-Type: text/plain
     channel scale {
       lefttype = extend
       righttype = extend
-      default = 20
       flags = 0
       segment { length = 0 value = 20 20 expr = ch(\"../scale2\") }
     }
@@ -720,20 +714,21 @@ Content-Type: text/plain
 
 {
 version 0.8
-folder0	[ 0	locks=0 ]	(	0	)
-mesh_type	[ 0	locks=0 ]	(	"0"	)
-divs	[ 0	locks=0 ]	(	6	)
-cap_ends	[ 0	locks=0 ]	(	"off"	)
-folder1	[ 0	locks=0 ]	(	0	)
-scale	[ 0	locks=0 ]	(	[ scale	0.29999999999999999 ] 	)
-scaleramp	[ 0	locks=0 ]	(	2	)
-cuspangle	[ 0	locks=0 ]	(	180	)
-scaleramp1pos	[ 0	locks=0 ]	(	0	)
-scaleramp1value	[ 0	locks=0 ]	(	1	)
-scaleramp1interp	[ 0	locks=0 ]	(	"linear"	)
-scaleramp2pos	[ 0	locks=0 ]	(	1	)
-scaleramp2value	[ 0	locks=0 ]	(	1	)
-scaleramp2interp	[ 0	locks=0 ]	(	"linear"	)
+folder0	[ 0	locks=0	autoscope=0 ]	(	0	)
+mesh_type	[ 0	locks=0	autoscope=0 ]	(	"0"	)
+divs	[ 0	locks=0	autoscope=0 ]	(	6	)
+cap_ends	[ 0	locks=0	autoscope=0 ]	(	"off"	)
+folder1	[ 0	locks=0	autoscope=0 ]	(	0	)
+scale	[ 0	locks=0	autoscope=0 ]	(	[ scale	0.20000000000000001 ] 	)
+scaleramp	[ 0	locks=0	autoscope=0 ]	(	2	)
+cuspangle	[ 0	locks=0	autoscope=0 ]	(	180	)
+up_vector	[ 0	locks=0	autoscope=0 ]	(	0	1	0	)
+scaleramp1pos	[ 0	locks=0	autoscope=0 ]	(	0	)
+scaleramp1value	[ 0	locks=0	autoscope=0 ]	(	1	)
+scaleramp1interp	[ 0	locks=0	autoscope=0 ]	(	"linear"	)
+scaleramp2pos	[ 0	locks=0	autoscope=0 ]	(	1	)
+scaleramp2value	[ 0	locks=0	autoscope=0 ]	(	1	)
+scaleramp2interp	[ 0	locks=0	autoscope=0 ]	(	"linear"	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -1181,7 +1176,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.487"
+		"value":"17.0.484"
 	}
 }
 
@@ -1306,7 +1301,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.487"
+		"value":"17.0.484"
 	}
 }
 
@@ -1431,7 +1426,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.487"
+		"value":"17.0.484"
 	}
 }
 
@@ -1496,7 +1491,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.487"
+		"value":"17.0.484"
 	}
 }
 
@@ -1621,7 +1616,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.487"
+		"value":"17.0.484"
 	}
 }
 
@@ -1682,7 +1677,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.487"
+		"value":"17.0.484"
 	}
 }
 
@@ -1764,7 +1759,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.487"
+		"value":"17.0.484"
 	}
 }
 
@@ -1846,7 +1841,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.487"
+		"value":"17.0.484"
 	}
 }
 
@@ -1912,7 +1907,7 @@ Content-Type: text/plain
 version 0.8
 group	[ 0	locks=0 ]	(	""	)
 grouptype	[ 0	locks=0 ]	(	"guess"	)
-dist	[ 0	locks=0 ]	(	[ dist	0.0050000000000000001 ] 	)
+dist	[ 0	locks=0 ]	(	[ dist	0.01 ] 	)
 updatenmls	[ 0	locks=0 ]	(	"on"	)
 }
 
@@ -1923,7 +1918,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.487"
+		"value":"17.0.484"
 	}
 }
 
@@ -2048,7 +2043,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.487"
+		"value":"17.0.484"
 	}
 }
 
@@ -2113,7 +2108,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.487"
+		"value":"17.0.484"
 	}
 }
 
@@ -2317,7 +2312,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.487"
+		"value":"17.0.484"
 	}
 }
 
@@ -2428,7 +2423,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.487"
+		"value":"17.0.484"
 	}
 }
 
@@ -2492,7 +2487,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.487"
+		"value":"17.0.484"
 	}
 }
 
@@ -2551,7 +2546,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.487"
+		"value":"17.0.484"
 	}
 }
 
@@ -2649,7 +2644,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.487"
+		"value":"17.0.484"
 	}
 }
 
@@ -2782,7 +2777,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.487"
+		"value":"17.0.484"
 	}
 }
 
@@ -2869,7 +2864,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.487"
+		"value":"17.0.484"
 	}
 }
 
@@ -2969,7 +2964,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.487"
+		"value":"17.0.484"
 	}
 }
 
@@ -3069,7 +3064,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.487"
+		"value":"17.0.484"
 	}
 }
 
@@ -3167,7 +3162,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.487"
+		"value":"17.0.484"
 	}
 }
 
@@ -3287,7 +3282,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.487"
+		"value":"17.0.484"
 	}
 }
 
@@ -3347,7 +3342,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.487"
+		"value":"17.0.484"
 	}
 }
 

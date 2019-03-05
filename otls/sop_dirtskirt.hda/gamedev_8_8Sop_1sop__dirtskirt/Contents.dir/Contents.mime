@@ -32,22 +32,26 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position -13.2412 5.35252
-connectornextid 0
-flags =  lock off model off template off footprint off xray off bypass off display on render on highlight off unload off savedata off compress on colordefault on exposed on
+position -1.5 -1.68824
+connectornextid 2
+flags =  lock off model off template on footprint off xray off bypass off display on render on highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
 {
 }
 inputsNamed3
 {
+0 	grid1 0 1 "input1"
+1 	sphere1 0 1 "input2"
 }
 inputs
 {
+0 	grid1 0 1
+1 	sphere1 0 1
 }
 stat
 {
-  create 1551747312
-  modify 1551747372
+  create 1551747513
+  modify 1551747649
   author MAINGEAR@DESKTOP-P98C1VA
   access 0777
 }
@@ -218,7 +222,7 @@ version 0.8
 group	[ 0	locks=0 ]	(	""	)
 attributes	[ 0	locks=0 ]	(	P	)
 method	[ 0	locks=0 ]	(	"uniform"	)
-iterations	[ 0	locks=0 ]	(	[ iterations	149 ] 	)
+iterations	[ 0	locks=0 ]	(	[ iterations	3 ] 	)
 mode	[ 0	locks=0 ]	(	"laplacian"	)
 frequency	[ 0	locks=0 ]	(	0.10000000000000001	)
 stepsize	[ 0	locks=0 ]	(	0.95599999999999996	)
@@ -632,7 +636,7 @@ mesh_type	[ 0	locks=0	autoscope=0 ]	(	"0"	)
 divs	[ 0	locks=0	autoscope=0 ]	(	6	)
 cap_ends	[ 0	locks=0	autoscope=0 ]	(	"off"	)
 folder1	[ 0	locks=0	autoscope=0 ]	(	0	)
-scale	[ 0	locks=0	autoscope=0 ]	(	[ scale	0.14999999999999999 ] 	)
+scale	[ 0	locks=0	autoscope=0 ]	(	[ scale	0.25 ] 	)
 scaleramp	[ 0	locks=0	autoscope=0 ]	(	2	)
 cuspangle	[ 0	locks=0	autoscope=0 ]	(	180	)
 up_vector	[ 0	locks=0	autoscope=0 ]	(	0	1	0	)
@@ -719,7 +723,7 @@ mesh_type	[ 0	locks=0	autoscope=0 ]	(	"0"	)
 divs	[ 0	locks=0	autoscope=0 ]	(	6	)
 cap_ends	[ 0	locks=0	autoscope=0 ]	(	"off"	)
 folder1	[ 0	locks=0	autoscope=0 ]	(	0	)
-scale	[ 0	locks=0	autoscope=0 ]	(	[ scale	0.20000000000000001 ] 	)
+scale	[ 0	locks=0	autoscope=0 ]	(	[ scale	0.25 ] 	)
 scaleramp	[ 0	locks=0	autoscope=0 ]	(	2	)
 cuspangle	[ 0	locks=0	autoscope=0 ]	(	180	)
 up_vector	[ 0	locks=0	autoscope=0 ]	(	0	1	0	)
@@ -2380,7 +2384,7 @@ group	[ 0	locks=0 ]	(	""	)
 reductiontarget	[ 0	locks=0 ]	(	0	)
 target	[ 0	locks=0 ]	(	"poly_count"	)
 percentage	[ 0	locks=0 ]	(	100	)
-finalcount	[ 0	locks=0 ]	(	[ finalcount	250 ] 	)
+finalcount	[ 0	locks=0 ]	(	[ finalcount	500 ] 	)
 reducepassedtarget	[ 0	locks=0 ]	(	"off"	)
 qualitytolerance	[ 0	locks=0 ]	(	1.0000000000000001e-05	)
 outputgeo	[ 0	locks=0 ]	(	0	)
@@ -2794,7 +2798,7 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position 2.73312 0.376644
+position 2.14647 0.270537
 connectornextid 2
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
@@ -2812,7 +2816,7 @@ inputs
 stat
 {
   create 1548778508
-  modify 1548780314
+  modify 1551747608
   author MAINGEAR@DESKTOP-P98C1VA
   access 0777
 }
@@ -2820,6 +2824,26 @@ color UT_Color RGB 0.8 0.8 0.8
 delscript ""
 exprlanguage hscript
 end
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/transform1.chn"
+Content-Type: text/plain
+
+{
+    channel rx {
+      lefttype = extend
+      righttype = extend
+      default = 13.539999999999999
+      flags = 0
+      segment { length = 0 value = 13.539999999999999 13.539999999999999 expr = ch(\"../rotate_x\") }
+    }
+    channel rz {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = ch(\"../rotate_z\") }
+    }
+  }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
 Content-Disposition: attachment; filename="hdaroot/transform1.parm"
@@ -2832,7 +2856,7 @@ grouptype	[ 0	locks=0 ]	(	"guess"	)
 xOrd	[ 0	locks=0 ]	(	"srt"	)
 rOrd	[ 0	locks=0 ]	(	"xyz"	)
 t	[ 0	locks=0 ]	(	0	0	0	)
-r	[ 0	locks=0 ]	(	13.539999999999999	0	0	)
+r	[ 8	locks=0 ]	(	[ rx	0 ] 	0	[ rz	0 ] 	)
 s	[ 0	locks=0 ]	(	1	1	1	)
 shear	[ 0	locks=0 ]	(	0	0	0	)
 scale	[ 0	locks=0 ]	(	1	)
@@ -2931,7 +2955,7 @@ group	[ 0	locks=0 ]	(	""	)
 grouptype	[ 0	locks=0 ]	(	"guess"	)
 xOrd	[ 0	locks=0 ]	(	"srt"	)
 rOrd	[ 0	locks=0 ]	(	"xyz"	)
-t	[ 8	locks=0 ]	(	0	[ ty	0.01 ] 	0	)
+t	[ 8	locks=0 ]	(	0	[ ty	0.10000000000000001 ] 	0	)
 r	[ 0	locks=0 ]	(	0	0	0	)
 s	[ 0	locks=0 ]	(	1	1	1	)
 shear	[ 0	locks=0 ]	(	0	0	0	)
@@ -3031,7 +3055,7 @@ group	[ 0	locks=0 ]	(	""	)
 grouptype	[ 0	locks=0 ]	(	"guess"	)
 xOrd	[ 0	locks=0 ]	(	"srt"	)
 rOrd	[ 0	locks=0 ]	(	"xyz"	)
-t	[ 8	locks=0 ]	(	0	[ ty	-0.01 ] 	0	)
+t	[ 8	locks=0 ]	(	0	[ ty	-0.10000000000000001 ] 	0	)
 r	[ 0	locks=0 ]	(	0	0	0	)
 s	[ 0	locks=0 ]	(	1	1	1	)
 shear	[ 0	locks=0 ]	(	0	0	0	)

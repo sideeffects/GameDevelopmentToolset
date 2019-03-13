@@ -47,7 +47,6 @@ def track_event(category, action, label=None, value=0):
         if settings.value("uuid"):
             hou_uuid = settings.value("uuid")
         else:
-            hou_uuid = uuid.uuid4()
             settings.setValue("uuid", hou_uuid)
 
     data = {

@@ -95,6 +95,9 @@ def install(node):
     sections = definition.sections() 
     errors = False 
 
+    if not os.path.exists(zbrush_dir):
+        return 
+    
     for ascii_file in ascii_file_map:
         file_path = ascii_file_map[ascii_file]
         dirname = os.path.dirname(file_path)

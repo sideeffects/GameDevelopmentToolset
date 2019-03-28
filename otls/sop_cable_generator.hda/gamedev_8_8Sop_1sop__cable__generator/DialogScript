@@ -29,9 +29,11 @@
         parm {
             name    "tension"
             label   "Tension"
-            type    float
-            default { "0.01" }
-            range   { 0 1 }
+            type    ramp_flt
+            default { "4" }
+            range   { 1! 10 }
+            parmtag { "autoscope" "0000000000000000" }
+            parmtag { "rampfloatdefault" "1pos ( 0 ) 1value ( 0 ) 1interp ( linear ) 2pos ( 0.68726825714111328 ) 2value ( 0 ) 2interp ( linear ) 3pos ( 0.89740419387817383 ) 3value ( 0.5 ) 3interp ( linear ) 4pos ( 1 ) 4value ( 1 ) 4interp ( linear )" }
         }
         parm {
             name    "horizontal_slack"

@@ -1,0 +1,180 @@
+# Dialog script for gamedev::sop_cable_generator automatically generated
+
+{
+    name	gamedev::sop_cable_generator
+    script	gamedev::sop_cable_generator
+    label	"GameDev Cable Generator"
+
+    help {
+	""
+    }
+
+    inputlabel	1	"Input Curve"
+    inputlabel	2	"Sub-Network Input #2"
+    inputlabel	3	"Sub-Network Input #3"
+    inputlabel	4	"Sub-Network Input #4"
+
+    parm {
+        name    "number_of_cables"
+        label   "Number of Cables"
+        type    integer
+        default { "5" }
+        range   { 0 10 }
+        parmtag { "autoscope" "0000000000000000" }
+    }
+    groupsimple {
+        name    "folder3"
+        label   "Shape Controls"
+
+        parm {
+            name    "tension"
+            label   "Tension"
+            type    float
+            default { "0.01" }
+            range   { 0 1 }
+        }
+        parm {
+            name    "horizontal_slack"
+            label   "Horizontal Slack"
+            type    float
+            default { "0.2" }
+            range   { 0 1 }
+        }
+        parm {
+            name    "joint_smoothing"
+            label   "Joint Smoothing"
+            type    float
+            default { "1" }
+            range   { 0! 50 }
+            parmtag { "autoscope" "0000000000000000" }
+        }
+    }
+
+    groupsimple {
+        name    "folder1"
+        label   "Noise Options"
+
+        parm {
+            name    "chance_to_skip_pin"
+            label   "Chance To Skip Pin"
+            type    float
+            default { "0" }
+            range   { 0 10 }
+        }
+        parm {
+            name    "noise_frequency"
+            label   "Noise Frequency"
+            type    float
+            size    3
+            default { "1" "1" "1" }
+            range   { 0 10 }
+            parmtag { "autoscope" "0000000000000000" }
+            parmtag { "parmvop" "1" }
+            parmtag { "shaderparmcontexts" "cvex" }
+        }
+        parm {
+            name    "noise_amp"
+            label   "Noise_Amplitude"
+            type    float
+            default { "0.5" }
+            range   { 0 1 }
+            parmtag { "autoscope" "0000000000000000" }
+            parmtag { "parmvop" "1" }
+            parmtag { "shaderparmcontexts" "cvex" }
+        }
+    }
+
+    groupsimple {
+        name    "folder2"
+        label   "Sweep Options"
+
+        parm {
+            name    "divs"
+            label   "Radial Divisions"
+            type    integer
+            default { "12" }
+            range   { 1! 50 }
+            parmtag { "autoscope" "0000000000000000" }
+        }
+        parm {
+            name    "curve_resolution"
+            label   "Curve Resolution"
+            type    float
+            default { "0.1" }
+            range   { 0 10 }
+        }
+        parm {
+            name    "radius_min_max"
+            label   "Radius Min Max"
+            type    vector2
+            size    2
+            default { "0.005" "0.02" }
+            range   { -1 1 }
+        }
+        parm {
+            name    "uv_scale"
+            label   "UV Scale"
+            type    vector2
+            size    2
+            default { "0" "0" }
+            range   { -1 1 }
+        }
+    }
+
+    groupsimple {
+        name    "detangle_folder"
+        label   "Detangle"
+
+        parm {
+            name    "detangle"
+            label   "Detangle"
+            type    toggle
+            default { "0" }
+        }
+        parm {
+            name    "detangle_iterations"
+            label   "Detangle Iterations"
+            type    integer
+            default { "10" }
+            range   { 0 10 }
+            parmtag { "autoscope" "0000000000000000" }
+        }
+        parm {
+            name    "post_detangle_smooth"
+            label   "Post Detangle Smooth"
+            type    float
+            default { "10" }
+            range   { 0! 50 }
+            parmtag { "autoscope" "0000000000000000" }
+        }
+    }
+
+    groupsimple {
+        name    "folder0"
+        label   "Vertex Colors"
+
+        parm {
+            name    "add_vertex_colors"
+            label   "Add Vertex Colors"
+            type    toggle
+            default { "0" }
+        }
+        parm {
+            name    "ramp"
+            label   "Attribute Ramp"
+            type    ramp_rgb
+            default { "5" }
+            range   { 1! 10 }
+            parmtag { "autoscope" "0000000000000000" }
+            parmtag { "parmvop" "1" }
+            parmtag { "rampbasis_var" "vecramp_the_basis_strings" }
+            parmtag { "rampbasisdefault" "linear" }
+            parmtag { "rampcolordefault" "1pos ( 0 ) 1c ( 0 0 0 ) 1interp ( constant ) 2pos ( 0.25914633274078369 ) 2c ( 1 0 0 ) 2interp ( constant ) 3pos ( 0.41463413834571838 ) 3c ( 0 1 0 ) 3interp ( constant ) 4pos ( 0.71493899822235107 ) 4c ( 0 0 1 ) 4interp ( constant ) 5pos ( 0.87804877758026123 ) 5c ( 0.89999997615814209 0.89999997615814209 0 ) 5interp ( constant )" }
+            parmtag { "rampcolortype" "rgb" }
+            parmtag { "rampkeys_var" "vecramp_the_key_positions" }
+            parmtag { "rampshowcontrolsdefault" "0" }
+            parmtag { "rampvalues_var" "vecramp_the_key_values" }
+        }
+    }
+
+}

@@ -1,0 +1,411 @@
+# Dialog script for gamedev::sop_building_generator::4.0 automatically generated
+
+{
+    name	gamedev::sop_building_generator::4.0
+    script	gamedev::sop_building_generator::3.0
+    label	"GameDev Building Generator"
+
+    help {
+	""
+    }
+
+    inputlabel	1	"Blockout Geometry"
+    inputlabel	2	"Building Modules"
+    inputlabel	3	"Handplaced Overrides"
+    inputlabel	4	"Volumetric Overrides"
+    outputlabel	1	"Meshed Building"
+    outputlabel	2	"Point Cloud"
+
+    groupsimple {
+        name    "folder3"
+        label   "Visualize"
+
+        parm {
+            name    "bColorFloors"
+            label   "Color Floors"
+            type    toggle
+            default { "0" }
+        }
+    }
+
+    groupsimple {
+        name    "folder2"
+        label   "Initialize"
+
+        parm {
+            name    "fFloorHeight"
+            label   "Full Floor Height"
+            type    float
+            default { "2.55" }
+            range   { 0! 10 }
+        }
+        parm {
+            name    "iSeed"
+            label   "Seed"
+            type    integer
+            default { "1223" }
+            range   { 1 100000 }
+        }
+        parm {
+            name    "bExperimentalLedges"
+            label   "Simple Ledges"
+            type    toggle
+            default { "0" }
+        }
+        groupcollapsible {
+            name    "folder5"
+            label   "Primary"
+
+            groupsimple {
+                name    "folder8"
+                label   "Wall Face"
+
+                parm {
+                    name    "sFacadePattern"
+                    label   "Facade Module Pattern"
+                    type    string
+                    default { "" }
+                }
+                parm {
+                    name    "bFacadeCorner"
+                    label   "Corners"
+                    type    toggle
+                    default { "1" }
+                }
+                parm {
+                    name    "sConvexCornerID"
+                    label   "Concave Corner Module"
+                    type    string
+                    size    2
+                    default { "" "" }
+                }
+                parm {
+                    name    "sConcaveCornerID"
+                    label   "Convex Corner Module"
+                    type    string
+                    size    2
+                    default { "" "" }
+                }
+            }
+
+        }
+
+        groupcollapsible {
+            name    "folder4"
+            label   "Secondary"
+
+            groupsimple {
+                name    "folder6"
+                label   "Top Ledge"
+
+                parm {
+                    name    "bTopLedge"
+                    label   "Top"
+                    type    toggle
+                    nolabel
+                    joinnext
+                    default { "1" }
+                }
+                parm {
+                    name    "fTopLedgeHeight"
+                    label   "Height"
+                    type    float
+                    default { "0.35" }
+                    disablewhen "{ bTopLedge == 0 }"
+                    range   { 0 0.5 }
+                }
+                parm {
+                    name    "sTopLedgePattern"
+                    label   "Module Pattern"
+                    type    string
+                    default { "" }
+                    disablewhen "{ bTopLedge == 0 }"
+                }
+                parm {
+                    name    "bTopLedgeCorner"
+                    label   "Corners"
+                    type    toggle
+                    default { "1" }
+                    disablewhen "{ bTopLedge == 0 }"
+                }
+                parm {
+                    name    "sTopLedgeConvexCorner"
+                    label   "Concave Corner Module"
+                    type    string
+                    size    2
+                    default { "" "" }
+                    disablewhen "{ bTopLedgeCorner == 0 } { bTopLedge == 0 }"
+                }
+                parm {
+                    name    "sTopLedgeConcaveCorner"
+                    label   "Convex Corner Module"
+                    type    string
+                    size    2
+                    default { "" "" }
+                    disablewhen "{ bTopLedgeCorner == 0 } { bTopLedge == 0 }"
+                }
+            }
+
+            groupsimple {
+                name    "folder7"
+                label   "Bottom Ledge"
+
+                parm {
+                    name    "bBottomLedge"
+                    label   "Bottom"
+                    type    toggle
+                    nolabel
+                    joinnext
+                    default { "1" }
+                }
+                parm {
+                    name    "fBottomLedgeHeight"
+                    label   "Height"
+                    type    float
+                    default { "0.2" }
+                    disablewhen "{ bBottomLedge == 0 }"
+                    range   { 0 0.5 }
+                }
+                parm {
+                    name    "sBottomLedgePattern"
+                    label   "Module Pattern"
+                    type    string
+                    default { "" }
+                    disablewhen "{ bBottomLedge == 0 }"
+                }
+                parm {
+                    name    "bBottomLedgeCorner"
+                    label   "Corners"
+                    type    toggle
+                    default { "1" }
+                    disablewhen "{ bBottomLedge == 0 }"
+                }
+                parm {
+                    name    "sBottomLedgeConvexCorner"
+                    label   "Concave Corner Module"
+                    type    string
+                    size    2
+                    default { "" "" }
+                    disablewhen "{ bBottomLedgeCorner == 0 } { bBottomLedge == 0 }"
+                }
+                parm {
+                    name    "sBottomLedgeConcaveCorner"
+                    label   "Convex Corner Module"
+                    type    string
+                    size    2
+                    default { "" "" }
+                    disablewhen "{ bBottomLedgeCorner == 0 } { bBottomLedge == 0 }"
+                }
+            }
+
+            groupsimple {
+                name    "folder0"
+                label   "Sideslop"
+
+                parm {
+                    name    "sSideSlopID"
+                    label   "Sideslop Module"
+                    type    string
+                    default { "" }
+                }
+            }
+
+        }
+
+    }
+
+    groupsimple {
+        name    "folder1"
+        label   "Customization"
+
+        multiparm {
+            name    "mpFloorOverrides"
+            label    "Floor Overrides"
+            default 0
+            parmtag { "script_callback" "kwargs['node'].hm().AddCustomFloor(kwargs['node'])" }
+            parmtag { "script_callback_language" "python" }
+
+            groupcollapsible {
+                name    "folder4_#"
+                label   "Settings"
+
+                parm {
+                    name    "iFloorIndex#"
+                    label   "Floor Index"
+                    type    integer
+                    default { "0" }
+                    range   { 0 10 }
+                }
+                parm {
+                    name    "fFloorHeightOverride#"
+                    label   "Floor Height"
+                    type    float
+                    default { "2.55" }
+                    range   { 0! 10 }
+                }
+                groupcollapsible {
+                    name    "folder9_#"
+                    label   "Primary"
+
+                    groupsimple {
+                        name    "folder10_#"
+                        label   "Wall Face"
+
+                        parm {
+                            name    "sFacadePatternOverride#"
+                            label   "Facade Module Pattern"
+                            type    string
+                            default { "" }
+                        }
+                        parm {
+                            name    "bFacadeCornerOverride#"
+                            label   "Corners"
+                            type    toggle
+                            default { "1" }
+                        }
+                        parm {
+                            name    "sConvexCornerIDOverride#"
+                            label   "Concave Corner ID"
+                            type    string
+                            size    2
+                            default { "" "" }
+                        }
+                        parm {
+                            name    "sConcaveCornerIDOverride#"
+                            label   "Convex Corner ID"
+                            type    string
+                            size    2
+                            default { "" "" }
+                        }
+                    }
+
+                }
+
+                groupcollapsible {
+                    name    "folder9_#_2"
+                    label   "Secondary"
+
+                    groupsimple {
+                        name    "folder10_#_2"
+                        label   "Top Ledge"
+
+                        parm {
+                            name    "bTopLedgeOverride#"
+                            label   "Top"
+                            type    toggle
+                            nolabel
+                            joinnext
+                            default { "1" }
+                        }
+                        parm {
+                            name    "fTopLedgeHeightOverride#"
+                            label   "Height"
+                            type    float
+                            default { "0.35" }
+                            disablewhen "{ bTopLedgeOverride# == 0 }"
+                            range   { 0 0.5 }
+                        }
+                        parm {
+                            name    "sTopLedgePatternOverride#"
+                            label   "Module Pattern"
+                            type    string
+                            default { "" }
+                            disablewhen "{ bTopLedge == 0 }"
+                        }
+                        parm {
+                            name    "bTopLedgeCornerOverride#"
+                            label   "Corners"
+                            type    toggle
+                            default { "1" }
+                        }
+                        parm {
+                            name    "sTopLedgeConvexCornerOverride#"
+                            label   "Concave Corner Module"
+                            type    string
+                            size    2
+                            default { "" "" }
+                            disablewhen "{ bTopLedgeCorner == 0 } { bTopLedge == 0 }"
+                        }
+                        parm {
+                            name    "sTopLedgeConcaveCornerOverride#"
+                            label   "Convex Corner Module"
+                            type    string
+                            size    2
+                            default { "" "" }
+                            disablewhen "{ bTopLedgeCorner == 0 } { bTopLedge == 0 }"
+                        }
+                    }
+
+                    groupsimple {
+                        name    "folder9_#_3"
+                        label   "Bottom Ledge"
+
+                        parm {
+                            name    "bBottomLedgeOverride#"
+                            label   "Bottom"
+                            type    toggle
+                            nolabel
+                            joinnext
+                            default { "1" }
+                        }
+                        parm {
+                            name    "fBottomLedgeHeightOverride#"
+                            label   "Height"
+                            type    float
+                            default { "0.2" }
+                            disablewhen "{ bBottomLedgeOverride# == 0 }"
+                            range   { 0 0.5 }
+                            parmtag { "autoselect" "0000000000000000" }
+                        }
+                        parm {
+                            name    "sBottomLedgePatternOverride#"
+                            label   "Module Pattern"
+                            type    string
+                            default { "" }
+                            disablewhen "{ bBottomLedge == 0 }"
+                        }
+                        parm {
+                            name    "bBottomLedgeCornerOverride#"
+                            label   "Corners"
+                            type    toggle
+                            default { "1" }
+                        }
+                        parm {
+                            name    "sBottomLedgeConvexCornerOverride#"
+                            label   "Concave Corner Module"
+                            type    string
+                            size    2
+                            default { "" "" }
+                            disablewhen "{ bBottomLedgeCorner == 0 } { bBottomLedge == 0 }"
+                        }
+                        parm {
+                            name    "sBottomLedgeConcaveCornerOverride#"
+                            label   "Convex Corner Module"
+                            type    string
+                            size    2
+                            default { "" "" }
+                            disablewhen "{ bBottomLedgeCorner == 0 } { bBottomLedge == 0 }"
+                        }
+                    }
+
+                    groupsimple {
+                        name    "folder9_#_4"
+                        label   "Sideslop"
+
+                        parm {
+                            name    "sSideSlopIDOverride#"
+                            label   "Sideslop Module"
+                            type    string
+                            default { "" }
+                        }
+                    }
+
+                }
+
+            }
+
+        }
+
+    }
+
+}

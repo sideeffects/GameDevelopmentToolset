@@ -3,7 +3,9 @@
    It handles normalization of maps and cleanup of unecessary files.
 
 """
-import os, socket
+import os, socket, uuid
+
+unique_id = None 
 
 def bake(bake_rop, path):
     bake_rop.bypass(0)
@@ -24,14 +26,15 @@ def pre_bake(node):
     low_node = node.node("objnet/low/object_merge1")
     high_node = node.node("objnet/high/high_merge")
 
-    file_path, dir_path, temp_path, host_name = (None for i in range(4))
+    file_path, dir_path, temp_path = (None for i in range(3))
+    global unique_id
 
     try:
         # build the filepath for the exr
         file_path = node.parm("base_path").eval()
         dir_path = os.path.dirname(file_path)
         temp_path = os.environ['HOUDINI_TEMP_DIR']
-        host_name = socket.gethostname()
+        unique_id = uuid.uuid4()
 
         if not os.path.exists(temp_path):
             os.makedirs(temp_path)
@@ -53,7 +56,7 @@ def pre_bake(node):
         else:
             high_node.parm("objpath1").set(node.node(low_mesh).path())
 
-        exr_path = temp_path + "/" + low_mesh.split("/")[-1] + "%s_tmp_%s.exr" % (host_name, hou.intFrame())
+        exr_path = temp_path + "/" + low_mesh.split("/")[-1] + "%s_tmp_%s.exr" % (unique_id, hou.intFrame())
         if i == 0:
             bake_texture.parm("vm_uvpostprocess").set("diffusefill")
         else:
@@ -89,7 +92,7 @@ def pre_bake(node):
 
         previous_file = file
 
-    exr_path = os.path.join(temp_path, "%s_tmp_%s.exr" % (host_name, hou.intFrame()))
+    exr_path = os.path.join(temp_path, "%s_tmp_%s.exr" % (unique_id, hou.intFrame()))
 
     composite_rop.parm("copoutput").set(exr_path)
     composite_rop.parm("scopeplanes").set("*")
@@ -152,7 +155,7 @@ def pre_bake(node):
             low_node.parm("objpath1").set(node.node(low_mesh).path())
             high_node.parm("objpath1").set(node.node(high_mesh).path())
 
-            exr_path = os.path.join(temp_path, low_mesh.split("/")[-1] + "%s_tmp_%s.exr" % (host_name, hou.intFrame()))
+            exr_path = os.path.join(temp_path, low_mesh.split("/")[-1] + "%s_tmp_%s.exr" % (unique_id, hou.intFrame()))
 
             if j == 0:
                 custom_bake_node.parm("vm_uvpostprocess").set("Diffuse Fill")
@@ -199,7 +202,7 @@ def pre_bake(node):
         custom_channel = node.parm("custom_attribute_name_" + str(i+1)).eval()
         point_wrangle_node.parm("channel").set(custom_channel)
         
-        exr_path = os.path.join(temp_path, "%s_tmp_%s.exr" % (host_name, hou.intFrame()))
+        exr_path = os.path.join(temp_path, "%s_tmp_%s.exr" % (unique_id, hou.intFrame()))
         composite_rop.parm("copoutput").set(exr_path)
         composite_rop.bypass(0)
         composite_rop.render()
@@ -235,7 +238,7 @@ def pre_bake(node):
             low_node.parm("objpath1").set(node.node(low_mesh).path())
             high_node.parm("objpath1").set(node.node(high_mesh).path())
 
-            exr_path = os.path.join(temp_path, low_mesh.split("/")[-1] + "%s_tmp_%s.exr" % (host_name, hou.intFrame()))
+            exr_path = os.path.join(temp_path, low_mesh.split("/")[-1] + "%s_tmp_%s.exr" % (unique_id, hou.intFrame()))
 
             alpha_bake_node.parm("vm_uvpostprocess").set("Border Expansion")
             
@@ -276,7 +279,7 @@ def pre_bake(node):
         suffix = node.parm("alpha_suffix").eval()
         new_path = file_path.replace("$(CHANNEL)", suffix)
         
-        exr_path = os.path.join(temp_path, "%s_tmp_%s.exr" % (host_name, hou.intFrame()))
+        exr_path = os.path.join(temp_path, "%s_tmp_%s.exr" % (unique_id, hou.intFrame()))
         composite_rop.parm("copoutput").set(exr_path)
         composite_rop.bypass(0)
         composite_rop.render()
@@ -304,9 +307,8 @@ def post_bake(node):
     #file_path = node.parm("base_path").eval()
     #dir_path = os.path.dirname(file_path)
     temp_path = os.environ['HOUDINI_TEMP_DIR']
-    host_name = socket.gethostname()
 
-    exr_path = os.path.join(temp_path, "%s_tmp_%s.exr" % (host_name, hou.intFrame()))
+    exr_path = os.path.join(temp_path, "%s_tmp_%s.exr" % (unique_id, hou.intFrame()))
     os.remove(exr_path)
     hou.hscript("glcache -c;") #refresh textures
 

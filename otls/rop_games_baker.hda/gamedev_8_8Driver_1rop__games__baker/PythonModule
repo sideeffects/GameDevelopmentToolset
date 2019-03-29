@@ -106,7 +106,8 @@ def pre_bake(node):
     # Extract Maps
     bake_parms = ["bake_basecolor", "bake_Nt", "bake_specrough", "bake_metallic", "bake_N", "bake_Oc", "bake_Cu", "bake_P", "bake_Th", "bake_Ds" ]
     normalized_maps = ["Nt", "N"]
-    linear_maps = ['specrough', 'metallic', 'Oc', 'Cu', 'P', 'Th']
+    linear_maps = ['specrough', 'metallic', 'Oc', 'Cu', 'P']
+    remap_maps = ['Th', "Ds"]
 
     if node.parm("bBasecolorLinearSpace").evalAsInt() == 1:
         linear_maps.append("basecolor")
@@ -125,12 +126,14 @@ def pre_bake(node):
             elif channel_name in linear_maps:
                 singles_rop.parm("coppath").set("../extract_net/base_image")
                 singles_rop.parm("gamma").set(1)
+
+            elif channel_name in remap_maps:
+                singles_rop.parm("coppath").set("../extract_net/height_normalized")
+                singles_rop.parm("gamma").set(1)
             else:
                 singles_rop.parm("coppath").set("../extract_net/base_image")
                 singles_rop.parm("gamma").set(2.2)
 
-            if channel_name == "Ds":
-                singles_rop.parm("coppath").set("../extract_net/height_normalized")
 
             new_path = file_path.replace("$(CHANNEL)", suffix)
             singles_rop.parm("copoutput").set(new_path)

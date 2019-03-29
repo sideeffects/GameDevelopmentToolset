@@ -2,7 +2,7 @@ import os
 import logging
 import subprocess
 
-HOUDINI_VERSION = "17.0"
+HOUDINI_VERSION = "17.5"
 
 def get_latest_houdini_version():
     logging.info("Determining latest Houdini Version...")

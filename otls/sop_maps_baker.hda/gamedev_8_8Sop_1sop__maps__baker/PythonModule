@@ -1,0 +1,6 @@
+import hou
+
+def Render(a_node):
+    hou.node(a_node.path()+"/foreach_end1/").cook(force=True)
+    hou.node(a_node.path()+"/foreach_end2/").cook(force=True)
+    hou.node(a_node.path()+"/extra_bakes/").cook(force=True)

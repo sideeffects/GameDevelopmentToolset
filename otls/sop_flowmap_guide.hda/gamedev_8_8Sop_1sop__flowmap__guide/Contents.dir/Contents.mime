@@ -32,7 +32,7 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position 1.21765 -2.41765
+position 5.64014 -15.6138
 connectornextid 3
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
@@ -42,18 +42,18 @@ outputsNamed3
 inputsNamed3
 {
 0 	sop_flowmap1 1 1 "input1"
-1 	transform1 1 1 "input2"
+1 	drawcurve1 1 1 "input2"
 }
 inputs
 {
 0 	sop_flowmap1 0 1
-1 	transform1 0 1
+1 	drawcurve1 0 1
 }
 stat
 {
-  create 1553899175
-  modify 1553899437
-  author prisms@threadripper1
+  create 1542229996
+  modify 1542230718
+  author Paul_Ambrosiussen@LAPTOP-P8R7FBPF
   access 0777
 }
 color UT_Color RGB 0.8 0.8 0.8 
@@ -77,8 +77,8 @@ Content-Disposition: attachment; filename="hdaroot.inp"
 Content-Type: text/plain
 
 2
-0 -3.3629012911885736 6.487599721959497 2 0 __NO_OWNER_NETWORK_BOX__ "FROMOUTPUT"
-1 1.4306200111758713 8.5199852027161622 2 0 __NO_OWNER_NETWORK_BOX__ "FROMOUTPUT"
+0 0 6 2 0 __NO_OWNER_NETWORK_BOX__ "FROMOUTPUT"
+1 3 6.5 2 0 __NO_OWNER_NETWORK_BOX__ "FROMOUTPUT"
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
 Content-Disposition: attachment; filename="hdaroot/sticky1.postitinit"
@@ -241,8 +241,6 @@ tangentuon	[ 0	locks=0 ]	(	"on"	)
 tangentu	[ 0	locks=0 ]	(	v	)
 tangentvon	[ 0	locks=0 ]	(	"off"	)
 tangentv	[ 0	locks=0 ]	(	tangentv	)
-signson	[ 0	locks=0 ]	(	"off"	)
-signs	[ 0	locks=0 ]	(	signs	)
 ortho	[ 0	locks=0 ]	(	"off"	)
 lefthanded	[ 0	locks=0 ]	(	"on"	)
 }
@@ -254,7 +252,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.207"
+		"value":"17.0.399"
 	}
 }
 
@@ -352,8 +350,8 @@ kernel	[ 0	locks=0 ]	(	elendt	)
 kernelradius	[ 0	locks=0 ]	(	10	)
 maxsamplecount	[ 0	locks=0 ]	(	[ maxsamplecount	5 ] 	)
 threshold	[ 0	locks=0 ]	(	"on"	)
-thresholddist	[ 8	locks=0 ]	(	[ thresholddist	1.0800000000000001 ] 	)
-blendwidth	[ 8	locks=0 ]	(	[ blendwidth	1 ] 	)
+thresholddist	[ 8	locks=0 ]	(	[ thresholddist	1.1599999999999999 ] 	)
+blendwidth	[ 8	locks=0 ]	(	[ blendwidth	0.76000000000000001 ] 	)
 uniformbias	[ 0	locks=0 ]	(	0.5	)
 }
 
@@ -364,7 +362,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.207"
+		"value":"17.0.399"
 	}
 }
 
@@ -390,16 +388,16 @@ outputsNamed3
 }
 inputsNamed3
 {
-0 	switch1 1 1 "input1"
+0 	(1) "" 1 "input1"
 }
 inputs
 {
-0 	switch1 0 1
+0 	(1) 0 1
 }
 stat
 {
   create 1484779054
-  modify 1553899295
+  modify 1484779058
   author Luiz@Luiz-PC
   access 0777
 }
@@ -447,7 +445,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.207"
+		"value":"17.0.399"
 	}
 }
 
@@ -506,145 +504,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.207"
-	}
-}
-
---HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot/reverse1.init"
-Content-Type: text/plain
-
-type = reverse
-matchesdef = 0
-
---HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot/reverse1.def"
-Content-Type: text/plain
-
-sopflags sopflags = 
-comment ""
-position 0.274504 7.36447
-connectornextid 2
-flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
-outputsNamed3
-{
-1 "output1"
-}
-inputsNamed3
-{
-0 	(1) "" 1 "input1"
-}
-inputs
-{
-0 	(1) 0 1
-}
-stat
-{
-  create 1553899261
-  modify 1553899338
-  author prisms@threadripper1
-  access 0777
-}
-color UT_Color RGB 0.8 0.8 0.8 
-delscript ""
-exprlanguage hscript
-end
-
---HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot/reverse1.parm"
-Content-Type: text/plain
-
-{
-version 0.8
-group	[ 0	locks=0 ]	(	""	)
-vtxsort	[ 0	locks=0 ]	(	"reverseu"	)
-vtxuoff	[ 0	locks=0 ]	(	0	)
-vtxvoff	[ 0	locks=0 ]	(	0	)
-}
-
---HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot/reverse1.userdata"
-Content-Type: text/plain
-
-{
-	"___Version___":{
-		"type":"string",
-		"value":"17.5.207"
-	}
-}
-
---HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot/switch1.init"
-Content-Type: text/plain
-
-type = switch
-matchesdef = 0
-
---HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot/switch1.def"
-Content-Type: text/plain
-
-sopflags sopflags = 
-comment ""
-position 1.43062 6.34188
-connectornextid 3
-flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
-outputsNamed3
-{
-1 "output1"
-}
-inputsNamed3
-{
-0 	reverse1 1 1 "input1"
-2 	(1) "" 1 "input2"
-}
-inputs
-{
-0 	reverse1 0 1
-1 	(1) 0 1
-}
-stat
-{
-  create 1553899268
-  modify 1553899360
-  author prisms@threadripper1
-  access 0777
-}
-color UT_Color RGB 0.8 1 0.7 
-delscript ""
-exprlanguage hscript
-end
-
---HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot/switch1.chn"
-Content-Type: text/plain
-
-{
-    channel input {
-      lefttype = extend
-      righttype = extend
-      flags = 0
-      segment { length = 0 expr = ch(\"../bReverseDirection\") }
-    }
-  }
-
---HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot/switch1.parm"
-Content-Type: text/plain
-
-{
-version 0.8
-input	[ 0	locks=0 ]	(	[ input	0 ] 	)
-}
-
---HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot/switch1.userdata"
-Content-Type: text/plain
-
-{
-	"___Version___":{
-		"type":"string",
-		"value":"17.5.207"
+		"value":"17.0.399"
 	}
 }
 
@@ -652,14 +512,12 @@ Content-Type: text/plain
 Content-Disposition: attachment; filename="hdaroot.order"
 Content-Type: text/plain
 
-7
+5
 pointwrangle1
 polyframe1
 attribtransfer1
 resample1
 output1
-reverse1
-switch1
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
 Content-Disposition: attachment; filename="hdaroot.net"

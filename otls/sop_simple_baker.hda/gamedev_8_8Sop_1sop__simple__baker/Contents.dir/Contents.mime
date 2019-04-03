@@ -32,9 +32,9 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position -1.80765 -8.28802
+position -3.18378 0.129509
 connectornextid 0
-flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
+flags =  lock off model off template off footprint off xray off bypass off display on render on highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
 {
 }
@@ -46,9 +46,9 @@ inputs
 }
 stat
 {
-  create 1553898418
-  modify 1553898465
-  author prisms@threadripper1
+  create 1543452581
+  modify 1543452599
+  author Paul_Ambrosiussen@LAPTOP-P8R7FBPF
   access 0777
 }
 color UT_Color RGB 0.8 0.8 0.8 
@@ -128,7 +128,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.207"
+		"value":"17.0.403"
 	}
 }
 
@@ -144,7 +144,7 @@ Content-Disposition: attachment; filename="hdaroot/ropnet1/rop_games_baker.def"
 Content-Type: text/plain
 
 comment ""
-position -3.61428 -3.81013
+position -4.92988 -2.65976
 connectornextid 0
 flags =  lock off model off template off footprint off xray off bypass off display on render on highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
@@ -158,8 +158,8 @@ inputs
 }
 stat
 {
-  create 1510086161
-  modify 1553898451
+  create 1539889216
+  modify 1543279265
   author MAINGEAR@DESKTOP-P98C1VA
   access 0777
 }
@@ -167,14 +167,6 @@ color UT_Color RGB 0.8 0.8 0.8
 delscript ""
 exprlanguage hscript
 end
-
---HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot/ropnet1/rop_games_baker.multiparm"
-Content-Type: text/plain
-
-2
-custom_attribute_name_# ../../custom_attribute_name_#
-custom_attribute_suffix_# ../../custom_attribute_suffix_#
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
 Content-Disposition: attachment; filename="hdaroot/ropnet1/rop_games_baker.chn"
@@ -348,6 +340,12 @@ Content-Type: text/plain
       flags = 0
       segment { length = 0 expr = chs(\"../../Ds_suffix\") }
     }
+    channel custom_channels {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = ch(\"../../custom_channels\") }
+    }
     channel trange {
       lefttype = extend
       righttype = extend
@@ -390,30 +388,18 @@ Content-Type: text/plain
       flags = 0
       segment { length = 0 value = -1 -1 expr = ch(\"../../ray_distance\") }
     }
+    channel baking_samples {
+      lefttype = extend
+      righttype = extend
+      default = 4
+      flags = 0
+      segment { length = 0 value = 4 4 expr = ch(\"../../baking_samples\") }
+    }
     channel bBasecolorLinearSpace {
       lefttype = extend
       righttype = extend
       flags = 0
       segment { length = 0 expr = ch(\"../../bBasecolorLinearSpace\") }
-    }
-    channel vm_uvcageobject1 {
-      lefttype = extend
-      righttype = extend
-      flags = 0
-      segment { length = 0 expr = chsop(\"../../vm_uvcageobject1\") }
-    }
-    channel custom_channels {
-      lefttype = extend
-      righttype = extend
-      flags = 0
-      segment { length = 0 expr = ch(\"../../custom_channels\") }
-    }
-    channel vm_bake_skipcf {
-      lefttype = extend
-      righttype = extend
-      default = 1
-      flags = 0
-      segment { length = 0 value = 1 1 expr = ch(\"../../vm_bake_skipcf\") }
     }
   }
 
@@ -425,47 +411,46 @@ Content-Type: text/plain
 version 0.8
 execute	[ 0	locks=0 ]	(	0	)
 renderdialog	[ 0	locks=0 ]	(	0	)
-meshes	[ 0	locks=0	autoscope=0 ]	(	1	)
-vm_uvunwrapres	[ 8	locks=0 ]	(	[ vm_uvunwrapresx	512 ] 	[ vm_uvunwrapresy	512 ] 	)
+meshes	[ 0	locks=0 ]	(	1	)
+vm_uvunwrapres	[ 0	locks=0 ]	(	[ vm_uvunwrapresx	512 ] 	[ vm_uvunwrapresy	512 ] 	)
 uvresmenu	[ 0	locks=0 ]	(	0	)
-base_path	[ 0	locks=0	autoscope=0 ]	(	[ base_path	C:/Github/GDT/hip/render/simplebaker_demoscene_$(CHANNEL).tga ] 	)
-channels	[ 0	locks=0 ]	(	1	1	)
-bake_basecolor	[ 0	locks=0	autoscope=0 ]	(	[ bake_basecolor	1 ] 	)
-basecolor_suffix	[ 0	locks=0	autoscope=0 ]	(	[ basecolor_suffix	basecolor ] 	)
-bake_Nt	[ 0	locks=0	autoscope=0 ]	(	[ bake_Nt	1 ] 	)
-Nt_suffix	[ 0	locks=0	autoscope=0 ]	(	[ Nt_suffix	normal ] 	)
+base_path	[ 0	locks=0 ]	(	[ base_path	"C:/Users/Paul Ambrosiussen/render/untitled_$(CHANNEL).tga" ] 	)
+channels	[ 0	locks=0 ]	(	1	0	)
+bake_basecolor	[ 0	locks=0 ]	(	[ bake_basecolor	1 ] 	)
+basecolor_suffix	[ 0	locks=0 ]	(	[ basecolor_suffix	basecolor ] 	)
+bake_Nt	[ 0	locks=0 ]	(	[ bake_Nt	1 ] 	)
+Nt_suffix	[ 0	locks=0 ]	(	[ Nt_suffix	normal ] 	)
 bake_alpha	[ 0	locks=0 ]	(	[ bake_alpha	0 ] 	)
 alpha_suffix	[ 0	locks=0 ]	(	[ alpha_suffix	alpha ] 	)
 bake_specrough	[ 0	locks=0 ]	(	[ bake_specrough	0 ] 	)
 specrough_suffix	[ 0	locks=0 ]	(	[ specrough_suffix	roughness ] 	)
 bake_metallic	[ 0	locks=0 ]	(	[ bake_metallic	0 ] 	)
 metallic_suffix	[ 0	locks=0 ]	(	[ metallic_suffix	metallic ] 	)
-bake_N	[ 0	locks=0	autoscope=0 ]	(	[ bake_N	0 ] 	)
-N_suffix	[ 0	locks=0	autoscope=0 ]	(	[ N_suffix	worldnormal ] 	)
-bake_Oc	[ 0	locks=0	autoscope=0 ]	(	[ bake_Oc	1 ] 	)
-Oc_suffix	[ 0	locks=0	autoscope=0 ]	(	[ Oc_suffix	ao ] 	)
-bake_Cu	[ 0	locks=0	autoscope=0 ]	(	[ bake_Cu	0 ] 	)
-Cu_suffix	[ 0	locks=0	autoscope=0 ]	(	[ Cu_suffix	curvature ] 	)
-bake_Th	[ 0	locks=0	autoscope=0 ]	(	[ bake_Th	0 ] 	)
-Th_suffix	[ 0	locks=0	autoscope=0 ]	(	[ Th_suffix	thickness ] 	)
-bake_P	[ 0	locks=0	autoscope=0 ]	(	[ bake_P	0 ] 	)
-P_suffix	[ 0	locks=0	autoscope=0 ]	(	[ P_suffix	position ] 	)
-bake_Ds	[ 0	locks=0	autoscope=0 ]	(	[ bake_Ds	0 ] 	)
-Ds_suffix	[ 0	locks=0	autoscope=0 ]	(	[ Ds_suffix	height ] 	)
-custom_channels	[ 0	locks=0	autoscope=0 ]	(	[ custom_channels	0 ] 	)
-trange	[ 0	locks=0	autoscope=0 ]	(	[ trange	0 ] 	)
-f	[ 0	locks=0	autoscope=0 ]	(	[ f1	1 ] 	[ f2	240 ] 	[ f3	1 ] 	)
-vm_bake_usemikkt	[ 0	locks=0	autoscope=0 ]	(	[ vm_bake_usemikkt	1 ] 	)
+bake_N	[ 0	locks=0 ]	(	[ bake_N	0 ] 	)
+N_suffix	[ 0	locks=0 ]	(	[ N_suffix	worldnormal ] 	)
+bake_Oc	[ 0	locks=0 ]	(	[ bake_Oc	1 ] 	)
+Oc_suffix	[ 0	locks=0 ]	(	[ Oc_suffix	ao ] 	)
+bake_Cu	[ 0	locks=0 ]	(	[ bake_Cu	0 ] 	)
+Cu_suffix	[ 0	locks=0 ]	(	[ Cu_suffix	curvature ] 	)
+bake_Th	[ 0	locks=0 ]	(	[ bake_Th	0 ] 	)
+Th_suffix	[ 0	locks=0 ]	(	[ Th_suffix	thickness ] 	)
+bake_P	[ 0	locks=0 ]	(	[ bake_P	0 ] 	)
+P_suffix	[ 0	locks=0 ]	(	[ P_suffix	position ] 	)
+bake_Ds	[ 0	locks=0 ]	(	[ bake_Ds	0 ] 	)
+Ds_suffix	[ 0	locks=0 ]	(	[ Ds_suffix	height ] 	)
+custom_channels	[ 0	locks=0 ]	(	[ custom_channels	0 ] 	)
+trange	[ 0	locks=0 ]	(	[ trange	0 ] 	)
+f	[ 0	locks=0 ]	(	[ f1	1 ] 	[ f2	240 ] 	[ f3	1 ] 	)
+vm_bake_usemikkt	[ 0	locks=0 ]	(	[ vm_bake_usemikkt	1 ] 	)
 bBasecolorLinearSpace	[ 0	locks=0 ]	(	[ bBasecolorLinearSpace	0 ] 	)
-vm_bake_tangentnormalflipy	[ 0	locks=0	autoscope=0 ]	(	[ vm_bake_tangentnormalflipy	0 ] 	)
-vm_bake_skipcf	[ 0	locks=0 ]	(	[ vm_bake_skipcf	1 ] 	)
-vm_uvcageobject1	[ 0	locks=0	autoscope=0 ]	(	[ vm_uvcageobject1	"" ] 	)
-border_padding	[ 0	locks=0	autoscope=0 ]	(	[ border_padding	2 ] 	)
-baking_samples	[ 0	locks=0 ]	(	4	)
-ray_bias	[ 0	locks=0	autoscope=0 ]	(	[ ray_bias	0.01 ] 	)
-ray_distance	[ 0	locks=0	autoscope=0 ]	(	[ ray_distance	-1 ] 	)
-target_mesh_1	[ 0	locks=0	autoscope=0 ]	(	../../LOW	)
-source_mesh_1	[ 0	locks=0	autoscope=0 ]	(	../../HIGH	)
+vm_bake_tangentnormalflipy	[ 0	locks=0 ]	(	[ vm_bake_tangentnormalflipy	0 ] 	)
+vm_uvcageobject1	[ 0	locks=0 ]	(	"`ifs(strcmp(chsop(\"../vm_uvcageobject1\"),\"\"),opfullpath(\"..\") + \"/objnet/cage\",\"\")`"	)
+border_padding	[ 0	locks=0 ]	(	[ border_padding	2 ] 	)
+baking_samples	[ 0	locks=0 ]	(	[ baking_samples	8 ] 	)
+ray_bias	[ 0	locks=0 ]	(	[ ray_bias	0.01 ] 	)
+ray_distance	[ 0	locks=0 ]	(	[ ray_distance	-1 ] 	)
+target_mesh_1	[ 0	locks=0 ]	(	../../LOW	)
+source_mesh_1	[ 0	locks=0 ]	(	../../HIGH	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -501,7 +486,7 @@ inputs
 stat
 {
   create 1496780578
-  modify 1522766302
+  modify 1543452596
   author Luiz@Luiz-PC
   access 0777
 }
@@ -562,7 +547,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.207"
+		"value":"17.0.403"
 	}
 }
 
@@ -617,7 +602,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.207"
+		"value":"17.0.403"
 	}
 }
 
@@ -634,7 +619,7 @@ Content-Type: text/plain
 
 comment ""
 position -4.2944 5.65882
-connectornextid 223
+connectornextid 222
 flags =  lock off model off template off footprint off xray off bypass off display on render on highlight off unload off savedata off compress on colordefault on exposed on lowdetail off mediumdetail off highdetail on material on
 outputsNamed3
 {
@@ -643,227 +628,226 @@ inputsNamed3
 {
 0 	"" "" 1 "uv"
 1 	"" "" 1 "basecolor"
-2 	"" "" 1 "albedomult"
-3 	"" "" 1 "basecolor_usePointColor"
-4 	"" "" 1 "basecolor_usePackedColor"
-5 	"" "" 1 "frontface"
-6 	"" "" 1 "ior"
-7 	"" "" 1 "rough"
-8 	"" "" 1 "aniso"
-9 	"" "" 1 "anisodir"
-10 	"" "" 1 "metallic"
-11 	"" "" 1 "reflect"
-12 	"" "" 1 "reflecttint"
-13 	"" "" 1 "coat"
-14 	"" "" 1 "coatrough"
-15 	"" "" 1 "transparency"
-16 	"" "" 1 "transcolor"
-17 	"" "" 1 "transdist"
-18 	"" "" 1 "dispersion"
-19 	"" "" 1 "priority"
-20 	"" "" 1 "sss"
-21 	"" "" 1 "sssmodel"
-22 	"" "" 1 "sssdist"
-23 	"" "" 1 "ssscolor"
-24 	"" "" 1 "sssphase"
-25 	"" "" 1 "sheen"
-26 	"" "" 1 "sheentint"
-27 	"" "" 1 "emitcolor"
-28 	"" "" 1 "emitint"
-29 	"" "" 1 "emitillum"
-30 	"" "" 1 "opac"
-31 	"" "" 1 "opaccolor"
-32 	"" "" 1 "fakecausticsenabled"
-33 	"" "" 1 "fakecausticstransmit"
-34 	"" "" 1 "fakecausticsshadow"
-35 	"" "" 1 "fakecausticsopacity"
-36 	"" "" 1 "basecolor_useTexture"
-37 	"" "" 1 "basecolor_texture"
-38 	"" "" 1 "basecolor_textureIntensity"
-39 	"" "" 1 "basecolor_textureWrap"
-40 	"" "" 1 "basecolor_textureColorSpace"
-41 	"" "" 1 "metallic_useTexture"
-42 	"" "" 1 "metallic_texture"
-43 	"" "" 1 "metallic_monoChannel"
-44 	"" "" 1 "metallic_textureWrap"
-45 	"" "" 1 "metallic_textureColorSpace"
-46 	"" "" 1 "transparency_useTexture"
-47 	"" "" 1 "transparency_texture"
-48 	"" "" 1 "transparency_monoChannel"
-49 	"" "" 1 "transparency_textureWrap"
-50 	"" "" 1 "transparency_textureColorSpace"
-51 	"" "" 1 "ior_useTexture"
-52 	"" "" 1 "ior_texture"
-53 	"" "" 1 "ior_monoChannel"
-54 	"" "" 1 "ior_textureWrap"
-55 	"" "" 1 "ior_textureColorSpace"
-56 	"" "" 1 "transcolor_useTexture"
-57 	"" "" 1 "transcolor_texture"
-58 	"" "" 1 "transcolor_textureIntensity"
-59 	"" "" 1 "transcolor_textureWrap"
-60 	"" "" 1 "transcolor_textureColorSpace"
-61 	"" "" 1 "transdist_useTexture"
-62 	"" "" 1 "transdist_texture"
-63 	"" "" 1 "transdist_monoChannel"
-64 	"" "" 1 "transdist_textureWrap"
-65 	"" "" 1 "transdist_textureColorSpace"
-66 	"" "" 1 "dispersion_useTexture"
-67 	"" "" 1 "dispersion_texture"
-68 	"" "" 1 "dispersion_monoChannel"
-69 	"" "" 1 "dispersion_textureWrap"
-70 	"" "" 1 "dispersion_textureColorSpace"
-71 	"" "" 1 "reflect_useTexture"
-72 	"" "" 1 "reflect_texture"
-73 	"" "" 1 "reflect_monoChannel"
-74 	"" "" 1 "reflect_textureWrap"
-75 	"" "" 1 "reflect_textureColorSpace"
-76 	"" "" 1 "reflecttint_useTexture"
-77 	"" "" 1 "reflecttint_texture"
-78 	"" "" 1 "reflecttint_monoChannel"
-79 	"" "" 1 "reflecttint_textureWrap"
-80 	"" "" 1 "reflecttint_textureColorSpace"
-81 	"" "" 1 "rough_useTexture"
-82 	"" "" 1 "rough_texture"
-83 	"" "" 1 "rough_monoChannel"
-84 	"" "" 1 "rough_textureWrap"
-85 	"" "" 1 "rough_textureColorSpace"
-86 	"" "" 1 "aniso_useTexture"
-87 	"" "" 1 "aniso_texture"
-88 	"" "" 1 "aniso_monoChannel"
-89 	"" "" 1 "aniso_textureWrap"
-90 	"" "" 1 "aniso_textureColorSpace"
-91 	"" "" 1 "anisodir_useTexture"
-92 	"" "" 1 "anisodir_texture"
-93 	"" "" 1 "anisodir_monoChannel"
-94 	"" "" 1 "anisodir_textureWrap"
-95 	"" "" 1 "anisodir_textureColorSpace"
-96 	"" "" 1 "anisodir_textureFilter"
-97 	"" "" 1 "sss_useTexture"
-98 	"" "" 1 "sss_texture"
-99 	"" "" 1 "sss_monoChannel"
-100 	"" "" 1 "sss_textureWrap"
-101 	"" "" 1 "sss_textureColorSpace"
-102 	"" "" 1 "sssdist_useTexture"
-103 	"" "" 1 "sssdist_texture"
-104 	"" "" 1 "sssdist_monoChannel"
-105 	"" "" 1 "sssdist_textureWrap"
-106 	"" "" 1 "sssdist_textureColorSpace"
-107 	"" "" 1 "ssscolor_useTexture"
-108 	"" "" 1 "ssscolor_texture"
-109 	"" "" 1 "ssscolor_textureWrap"
-110 	"" "" 1 "ssscolor_textureColorSpace"
-111 	"" "" 1 "sheen_useTexture"
-112 	"" "" 1 "sheen_texture"
-113 	"" "" 1 "sheen_monoChannel"
-114 	"" "" 1 "sheen_textureWrap"
-115 	"" "" 1 "sheen_textureColorSpace"
-116 	"" "" 1 "sheentint_useTexture"
-117 	"" "" 1 "sheentint_texture"
-118 	"" "" 1 "sheentint_monoChannel"
-119 	"" "" 1 "sheentint_textureWrap"
-120 	"" "" 1 "sheentint_textureColorSpace"
-121 	"" "" 1 "coat_useTexture"
-122 	"" "" 1 "coat_texture"
-123 	"" "" 1 "coat_monoChannel"
-124 	"" "" 1 "coat_textureWrap"
-125 	"" "" 1 "coat_textureColorSpace"
-126 	"" "" 1 "coatrough_useTexture"
-127 	"" "" 1 "coatrough_texture"
-128 	"" "" 1 "coatrough_monoChannel"
-129 	"" "" 1 "coatrough_textureWrap"
-130 	"" "" 1 "coatrough_textureColorSpace"
-131 	"" "" 1 "emitcolor_useTexture"
-132 	"" "" 1 "emitcolor_texture"
-133 	"" "" 1 "emitcolor_textureIntensity"
-134 	"" "" 1 "emitcolor_textureWrap"
-135 	"" "" 1 "emitcolor_textureColorSpace"
-136 	"" "" 1 "opaccolor_useTexture"
-137 	"" "" 1 "opaccolor_texture"
-138 	"" "" 1 "opaccolor_textureWrap"
-139 	"" "" 1 "opaccolor_textureIntensity"
-140 	"" "" 1 "opaccolor_textureColorSpace"
-141 	"" "" 1 "surface_textureFilter"
-142 	"" "" 1 "surface_textureFilterWidth"
-143 	"" "" 1 "baseBumpAndNormal_enable"
-144 	"" "" 1 "baseBumpAndNormal_type"
-145 	"" "" 1 "baseBump_colorSpace"
-146 	"" "" 1 "baseBump_bumpScale"
-147 	"" "" 1 "baseBump_bumpTexture"
-148 	"" "" 1 "baseBump_wrap"
-149 	"" "" 1 "baseBump_filter"
-150 	"" "" 1 "baseBump_filterWidth"
-151 	"" "" 1 "baseBump_channel"
-152 	"" "" 1 "baseBump_imagePlane"
-153 	"" "" 1 "baseNormal_colorspace"
-154 	"" "" 1 "baseNormal_vectorSpace"
-155 	"" "" 1 "baseNormal_scale"
-156 	"" "" 1 "baseNormal_texture"
-157 	"" "" 1 "baseNormal_wrap"
-158 	"" "" 1 "baseNormal_filter"
-159 	"" "" 1 "baseNormal_filterWidth"
-160 	"" "" 1 "baseNormal_channel"
-161 	"" "" 1 "baseNormal_imagePlane"
-162 	"" "" 1 "baseNormal_space"
-163 	"" "" 1 "baseNormal_flipX"
-164 	"" "" 1 "baseNormal_flipY"
-165 	"" "" 1 "separateCoatNormals"
-166 	"" "" 1 "coatBumpAndNormal_enable"
-167 	"" "" 1 "coatBumpAndNormal_type"
-168 	"" "" 1 "coatBump_colorSpace"
-169 	"" "" 1 "coatBump_bumpScale"
-170 	"" "" 1 "coatBump_bumpTexture"
-171 	"" "" 1 "coatBump_wrap"
-172 	"" "" 1 "coatBump_filter"
-173 	"" "" 1 "coatBump_filterWidth"
-174 	"" "" 1 "coatBump_channel"
-175 	"" "" 1 "coatBump_imagePlane"
-176 	"" "" 1 "coatNormal_colorspace"
-177 	"" "" 1 "coatNormal_vectorSpace"
-178 	"" "" 1 "coatNormal_scale"
-179 	"" "" 1 "coatNormal_texture"
-180 	"" "" 1 "coatNormal_wrap"
-181 	"" "" 1 "coatNormal_filter"
-182 	"" "" 1 "coatNormal_filterWidth"
-183 	"" "" 1 "coatNormal_channel"
-184 	"" "" 1 "coatNormal_imagePlane"
-185 	"" "" 1 "coatNormal_space"
-186 	"" "" 1 "coatNormal_flipX"
-187 	"" "" 1 "coatNormal_flipY"
-188 	"" "" 1 "dispInput_enable"
-189 	"" "" 1 "dispInput_max"
-190 	"" "" 1 "dispInput_vectorspace"
-191 	"" "" 1 "dispTex_enable"
-192 	"" "" 1 "dispTex_type"
-193 	"" "" 1 "dispTex_colorSpace"
-194 	"" "" 1 "dispTex_vectorSpace"
-195 	"" "" 1 "dispTex_channelOrder"
-196 	"" "" 1 "dispTex_offset"
-197 	"" "" 1 "dispTex_scale"
-198 	"" "" 1 "dispTex_texture"
-199 	"" "" 1 "dispTex_channel"
-200 	"" "" 1 "dispTex_wrap"
-201 	"" "" 1 "dispTex_filter"
-202 	"" "" 1 "dispTex_filterWidth"
-203 	"" "" 1 "dispNoise_enable"
-204 	"" "" 1 "dispNoise_type"
-205 	"" "" 1 "dispNoise_freq"
-206 	"" "" 1 "dispNoise_offset"
-207 	"" "" 1 "dispNoise_amp"
-208 	"" "" 1 "dispNoise_rough"
-209 	"" "" 1 "dispNoise_atten"
-210 	"" "" 1 "dispNoise_turb"
-211 	"" "" 1 "difflabel"
-212 	"" "" 1 "refllabel"
-213 	"" "" 1 "refractlabel"
-214 	"" "" 1 "coatlabel"
-215 	"" "" 1 "ssslabel"
-216 	"" "" 1 "uvtrans"
-217 	"" "" 1 "uvrot"
-218 	"" "" 1 "uvscale"
-219 	"" "" 1 "baseN"
-220 	"" "" 1 "coatN"
-221 	"" "" 1 "disp"
-222 	"" "" 1 "vdisp"
+2 	"" "" 1 "basecolor_usePointColor"
+3 	"" "" 1 "basecolor_usePackedColor"
+4 	"" "" 1 "frontface"
+5 	"" "" 1 "ior"
+6 	"" "" 1 "rough"
+7 	"" "" 1 "aniso"
+8 	"" "" 1 "anisodir"
+9 	"" "" 1 "metallic"
+10 	"" "" 1 "reflect"
+11 	"" "" 1 "reflecttint"
+12 	"" "" 1 "coat"
+13 	"" "" 1 "coatrough"
+14 	"" "" 1 "transparency"
+15 	"" "" 1 "transcolor"
+16 	"" "" 1 "transdist"
+17 	"" "" 1 "dispersion"
+18 	"" "" 1 "priority"
+19 	"" "" 1 "sss"
+20 	"" "" 1 "sssmodel"
+21 	"" "" 1 "sssdist"
+22 	"" "" 1 "ssscolor"
+23 	"" "" 1 "sssphase"
+24 	"" "" 1 "sheen"
+25 	"" "" 1 "sheentint"
+26 	"" "" 1 "emitcolor"
+27 	"" "" 1 "emitint"
+28 	"" "" 1 "emitillum"
+29 	"" "" 1 "opac"
+30 	"" "" 1 "opaccolor"
+31 	"" "" 1 "fakecausticsenabled"
+32 	"" "" 1 "fakecausticstransmit"
+33 	"" "" 1 "fakecausticsshadow"
+34 	"" "" 1 "fakecausticsopacity"
+35 	"" "" 1 "basecolor_useTexture"
+36 	"" "" 1 "basecolor_texture"
+37 	"" "" 1 "basecolor_textureIntensity"
+38 	"" "" 1 "basecolor_textureWrap"
+39 	"" "" 1 "basecolor_textureColorSpace"
+40 	"" "" 1 "metallic_useTexture"
+41 	"" "" 1 "metallic_texture"
+42 	"" "" 1 "metallic_monoChannel"
+43 	"" "" 1 "metallic_textureWrap"
+44 	"" "" 1 "metallic_textureColorSpace"
+45 	"" "" 1 "transparency_useTexture"
+46 	"" "" 1 "transparency_texture"
+47 	"" "" 1 "transparency_monoChannel"
+48 	"" "" 1 "transparency_textureWrap"
+49 	"" "" 1 "transparency_textureColorSpace"
+50 	"" "" 1 "ior_useTexture"
+51 	"" "" 1 "ior_texture"
+52 	"" "" 1 "ior_monoChannel"
+53 	"" "" 1 "ior_textureWrap"
+54 	"" "" 1 "ior_textureColorSpace"
+55 	"" "" 1 "transcolor_useTexture"
+56 	"" "" 1 "transcolor_texture"
+57 	"" "" 1 "transcolor_textureIntensity"
+58 	"" "" 1 "transcolor_textureWrap"
+59 	"" "" 1 "transcolor_textureColorSpace"
+60 	"" "" 1 "transdist_useTexture"
+61 	"" "" 1 "transdist_texture"
+62 	"" "" 1 "transdist_monoChannel"
+63 	"" "" 1 "transdist_textureWrap"
+64 	"" "" 1 "transdist_textureColorSpace"
+65 	"" "" 1 "dispersion_useTexture"
+66 	"" "" 1 "dispersion_texture"
+67 	"" "" 1 "dispersion_monoChannel"
+68 	"" "" 1 "dispersion_textureWrap"
+69 	"" "" 1 "dispersion_textureColorSpace"
+70 	"" "" 1 "reflect_useTexture"
+71 	"" "" 1 "reflect_texture"
+72 	"" "" 1 "reflect_monoChannel"
+73 	"" "" 1 "reflect_textureWrap"
+74 	"" "" 1 "reflect_textureColorSpace"
+75 	"" "" 1 "reflecttint_useTexture"
+76 	"" "" 1 "reflecttint_texture"
+77 	"" "" 1 "reflecttint_monoChannel"
+78 	"" "" 1 "reflecttint_textureWrap"
+79 	"" "" 1 "reflecttint_textureColorSpace"
+80 	"" "" 1 "rough_useTexture"
+81 	"" "" 1 "rough_texture"
+82 	"" "" 1 "rough_monoChannel"
+83 	"" "" 1 "rough_textureWrap"
+84 	"" "" 1 "rough_textureColorSpace"
+85 	"" "" 1 "aniso_useTexture"
+86 	"" "" 1 "aniso_texture"
+87 	"" "" 1 "aniso_monoChannel"
+88 	"" "" 1 "aniso_textureWrap"
+89 	"" "" 1 "aniso_textureColorSpace"
+90 	"" "" 1 "anisodir_useTexture"
+91 	"" "" 1 "anisodir_texture"
+92 	"" "" 1 "anisodir_monoChannel"
+93 	"" "" 1 "anisodir_textureWrap"
+94 	"" "" 1 "anisodir_textureColorSpace"
+95 	"" "" 1 "anisodir_textureFilter"
+96 	"" "" 1 "sss_useTexture"
+97 	"" "" 1 "sss_texture"
+98 	"" "" 1 "sss_monoChannel"
+99 	"" "" 1 "sss_textureWrap"
+100 	"" "" 1 "sss_textureColorSpace"
+101 	"" "" 1 "sssdist_useTexture"
+102 	"" "" 1 "sssdist_texture"
+103 	"" "" 1 "sssdist_monoChannel"
+104 	"" "" 1 "sssdist_textureWrap"
+105 	"" "" 1 "sssdist_textureColorSpace"
+106 	"" "" 1 "ssscolor_useTexture"
+107 	"" "" 1 "ssscolor_texture"
+108 	"" "" 1 "ssscolor_textureWrap"
+109 	"" "" 1 "ssscolor_textureColorSpace"
+110 	"" "" 1 "sheen_useTexture"
+111 	"" "" 1 "sheen_texture"
+112 	"" "" 1 "sheen_monoChannel"
+113 	"" "" 1 "sheen_textureWrap"
+114 	"" "" 1 "sheen_textureColorSpace"
+115 	"" "" 1 "sheentint_useTexture"
+116 	"" "" 1 "sheentint_texture"
+117 	"" "" 1 "sheentint_monoChannel"
+118 	"" "" 1 "sheentint_textureWrap"
+119 	"" "" 1 "sheentint_textureColorSpace"
+120 	"" "" 1 "coat_useTexture"
+121 	"" "" 1 "coat_texture"
+122 	"" "" 1 "coat_monoChannel"
+123 	"" "" 1 "coat_textureWrap"
+124 	"" "" 1 "coat_textureColorSpace"
+125 	"" "" 1 "coatrough_useTexture"
+126 	"" "" 1 "coatrough_texture"
+127 	"" "" 1 "coatrough_monoChannel"
+128 	"" "" 1 "coatrough_textureWrap"
+129 	"" "" 1 "coatrough_textureColorSpace"
+130 	"" "" 1 "emitcolor_useTexture"
+131 	"" "" 1 "emitcolor_texture"
+132 	"" "" 1 "emitcolor_textureIntensity"
+133 	"" "" 1 "emitcolor_textureWrap"
+134 	"" "" 1 "emitcolor_textureColorSpace"
+135 	"" "" 1 "opaccolor_useTexture"
+136 	"" "" 1 "opaccolor_texture"
+137 	"" "" 1 "opaccolor_textureWrap"
+138 	"" "" 1 "opaccolor_textureIntensity"
+139 	"" "" 1 "opaccolor_textureColorSpace"
+140 	"" "" 1 "surface_textureFilter"
+141 	"" "" 1 "surface_textureFilterWidth"
+142 	"" "" 1 "baseBumpAndNormal_enable"
+143 	"" "" 1 "baseBumpAndNormal_type"
+144 	"" "" 1 "baseBump_colorSpace"
+145 	"" "" 1 "baseBump_bumpScale"
+146 	"" "" 1 "baseBump_bumpTexture"
+147 	"" "" 1 "baseBump_wrap"
+148 	"" "" 1 "baseBump_filter"
+149 	"" "" 1 "baseBump_filterWidth"
+150 	"" "" 1 "baseBump_channel"
+151 	"" "" 1 "baseBump_imagePlane"
+152 	"" "" 1 "baseNormal_colorspace"
+153 	"" "" 1 "baseNormal_vectorSpace"
+154 	"" "" 1 "baseNormal_scale"
+155 	"" "" 1 "baseNormal_texture"
+156 	"" "" 1 "baseNormal_wrap"
+157 	"" "" 1 "baseNormal_filter"
+158 	"" "" 1 "baseNormal_filterWidth"
+159 	"" "" 1 "baseNormal_channel"
+160 	"" "" 1 "baseNormal_imagePlane"
+161 	"" "" 1 "baseNormal_space"
+162 	"" "" 1 "baseNormal_flipX"
+163 	"" "" 1 "baseNormal_flipY"
+164 	"" "" 1 "separateCoatNormals"
+165 	"" "" 1 "coatBumpAndNormal_enable"
+166 	"" "" 1 "coatBumpAndNormal_type"
+167 	"" "" 1 "coatBump_colorSpace"
+168 	"" "" 1 "coatBump_bumpScale"
+169 	"" "" 1 "coatBump_bumpTexture"
+170 	"" "" 1 "coatBump_wrap"
+171 	"" "" 1 "coatBump_filter"
+172 	"" "" 1 "coatBump_filterWidth"
+173 	"" "" 1 "coatBump_channel"
+174 	"" "" 1 "coatBump_imagePlane"
+175 	"" "" 1 "coatNormal_colorspace"
+176 	"" "" 1 "coatNormal_vectorSpace"
+177 	"" "" 1 "coatNormal_scale"
+178 	"" "" 1 "coatNormal_texture"
+179 	"" "" 1 "coatNormal_wrap"
+180 	"" "" 1 "coatNormal_filter"
+181 	"" "" 1 "coatNormal_filterWidth"
+182 	"" "" 1 "coatNormal_channel"
+183 	"" "" 1 "coatNormal_imagePlane"
+184 	"" "" 1 "coatNormal_space"
+185 	"" "" 1 "coatNormal_flipX"
+186 	"" "" 1 "coatNormal_flipY"
+187 	"" "" 1 "dispInput_enable"
+188 	"" "" 1 "dispInput_max"
+189 	"" "" 1 "dispInput_vectorspace"
+190 	"" "" 1 "dispTex_enable"
+191 	"" "" 1 "dispTex_type"
+192 	"" "" 1 "dispTex_colorSpace"
+193 	"" "" 1 "dispTex_vectorSpace"
+194 	"" "" 1 "dispTex_channelOrder"
+195 	"" "" 1 "dispTex_offset"
+196 	"" "" 1 "dispTex_scale"
+197 	"" "" 1 "dispTex_texture"
+198 	"" "" 1 "dispTex_channel"
+199 	"" "" 1 "dispTex_wrap"
+200 	"" "" 1 "dispTex_filter"
+201 	"" "" 1 "dispTex_filterWidth"
+202 	"" "" 1 "dispNoise_enable"
+203 	"" "" 1 "dispNoise_type"
+204 	"" "" 1 "dispNoise_freq"
+205 	"" "" 1 "dispNoise_offset"
+206 	"" "" 1 "dispNoise_amp"
+207 	"" "" 1 "dispNoise_rough"
+208 	"" "" 1 "dispNoise_atten"
+209 	"" "" 1 "dispNoise_turb"
+210 	"" "" 1 "difflabel"
+211 	"" "" 1 "refllabel"
+212 	"" "" 1 "refractlabel"
+213 	"" "" 1 "coatlabel"
+214 	"" "" 1 "ssslabel"
+215 	"" "" 1 "uvtrans"
+216 	"" "" 1 "uvrot"
+217 	"" "" 1 "uvscale"
+218 	"" "" 1 "baseN"
+219 	"" "" 1 "coatN"
+220 	"" "" 1 "disp"
+221 	"" "" 1 "vdisp"
 }
 inputs
 {
@@ -1089,12 +1073,11 @@ inputs
 219 	"" 0 1
 220 	"" 0 1
 221 	"" 0 1
-222 	"" 0 1
 }
 stat
 {
   create 1496848225
-  modify 1534435763
+  modify 1539889424
   author Luiz@Luiz-PC
   access 0777
 }
@@ -3191,19 +3174,6 @@ Content-Type: text/plain
         default { "0" }
         range   { 0 10 }
     }
-    parm {
-        name    "albedomult"
-        baseparm
-        label   "Albedo Multiplier"
-        export  none
-    }
-    parm {
-        name    "speccolor"
-        baseparm
-        label   "Specular Color"
-        invisible
-        export  none
-    }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
 Content-Disposition: attachment; filename="hdaroot/ropnet1/rop_games_baker/objnet/matnet/plain_white.chn"
@@ -3272,7 +3242,6 @@ specular_tint	[ 0	locks=0 ]	(	[ specular_tint	0 ] 	)
 diffuse_folder_15	[ 0	locks=0 ]	(	0	0	0	0	0	0	)
 folder7	[ 0	locks=0 ]	(	0	)
 basecolor	[ 0	locks=0 ]	(	1	1	1	)
-albedomult	[ 0	locks=0 ]	(	1	)
 basecolor_usePointColor	[ 0	locks=0 ]	(	"on"	)
 basecolor_usePackedColor	[ 0	locks=0 ]	(	"off"	)
 frontface	[ 0	locks=0 ]	(	"on"	)
@@ -3585,7 +3554,6 @@ Dt	[ 0	locks=0 ]	(	0	0	0	)
 Vdt	[ 0	locks=0 ]	(	0	0	0	)
 baseN	[ 0	locks=0 ]	(	0	0	0	)
 coatN	[ 0	locks=0 ]	(	0	0	0	)
-speccolor	[ 0	locks=0 ]	(	[ speccolorr	1 ] 	[ speccolorg	1 ] 	[ speccolorb	1 ] 	)
 diffuse_folder_16	[ 0	locks=0 ]	(	0	0	0	0	0	0	)
 folder17	[ 0	locks=0 ]	(	0	)
 folder18	[ 0	locks=0 ]	(	0	)
@@ -3702,7 +3670,7 @@ inputs
 stat
 {
   create 1496780581
-  modify 1534435763
+  modify 1539889424
   author Luiz@Luiz-PC
   access 0777
 }
@@ -4430,7 +4398,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.207"
+		"value":"17.0.403"
 	}
 }
 
@@ -4465,7 +4433,7 @@ inputs
 stat
 {
   create 1496867646
-  modify 1534435763
+  modify 1539889424
   author Luiz@Luiz-PC
   access 0777
 }
@@ -4852,8 +4820,8 @@ roundedEdge_radius_1	[ 0	locks=0 ]	(	0	)
 roundedEdge_mode_1	[ 0	locks=0 ]	(	0	)
 roughnessfolder_1	[ 0	locks=0 ]	(	0	)
 rough_texture_1	[ 0	locks=0 ]	(	"`ifs(ch(\"../bake_specrough\"),strreplace(chs(\"../base_path\"), \"$(CHANNEL)\", chs(\"../specrough_suffix\")),\"\")`"	)
-rough_1	[ 0	locks=0 ]	(	[ rough_1	0.60299999999999998 ] 	)
-ior_1	[ 0	locks=0 ]	(	[ ior_1	1.8200000000000001 ] 	)
+rough_1	[ 0	locks=0 ]	(	[ rough_1	1 ] 	)
+ior_1	[ 0	locks=0 ]	(	[ ior_1	1 ] 	)
 metallicfolder_1	[ 0	locks=0 ]	(	0	)
 metallic_texture_1	[ 0	locks=0 ]	(	"`ifs(ch(\"../bake_metallic\"),strreplace(chs(\"../base_path\"), \"$(CHANNEL)\", chs(\"../metallic_suffix\")),\"\")`"	)
 metallic_1	[ 8	locks=0 ]	(	[ metallic_1	0 ] 	)
@@ -4928,7 +4896,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.207"
+		"value":"17.0.403"
 	}
 }
 
@@ -4945,7 +4913,7 @@ Content-Type: text/plain
 
 comment ""
 position 0 0
-connectornextid 228
+connectornextid 227
 flags =  lock off model off template off footprint off xray off bypass off display on render on highlight off unload off savedata off compress on colordefault on exposed on lowdetail off mediumdetail off highdetail on material on
 outputsNamed3
 {
@@ -4954,232 +4922,231 @@ inputsNamed3
 {
 0 	"" "" 1 "uv"
 1 	"" "" 1 "basecolor"
-2 	"" "" 1 "albedomult"
-3 	"" "" 1 "basecolor_usePointColor"
-4 	"" "" 1 "basecolor_usePackedColor"
-5 	"" "" 1 "frontface"
-6 	"" "" 1 "ior"
-7 	"" "" 1 "rough"
-8 	"" "" 1 "aniso"
-9 	"" "" 1 "anisodir"
-10 	"" "" 1 "metallic"
-11 	"" "" 1 "reflect"
-12 	"" "" 1 "reflecttint"
-13 	"" "" 1 "coat"
-14 	"" "" 1 "coatrough"
-15 	"" "" 1 "transparency"
-16 	"" "" 1 "transcolor"
-17 	"" "" 1 "transdist"
-18 	"" "" 1 "dispersion"
-19 	"" "" 1 "priority"
-20 	"" "" 1 "sss"
-21 	"" "" 1 "sssmodel"
-22 	"" "" 1 "sssdist"
-23 	"" "" 1 "ssscolor"
-24 	"" "" 1 "sssphase"
-25 	"" "" 1 "sheen"
-26 	"" "" 1 "sheentint"
-27 	"" "" 1 "emitcolor"
-28 	"" "" 1 "emitint"
-29 	"" "" 1 "emitillum"
-30 	"" "" 1 "opac"
-31 	"" "" 1 "opaccolor"
-32 	"" "" 1 "fakecausticsenabled"
-33 	"" "" 1 "fakecausticstransmit"
-34 	"" "" 1 "fakecausticsshadow"
-35 	"" "" 1 "fakecausticsopacity"
-36 	"" "" 1 "basecolor_useTexture"
-37 	"" "" 1 "basecolor_texture"
-38 	"" "" 1 "basecolor_textureIntensity"
-39 	"" "" 1 "basecolor_textureWrap"
-40 	"" "" 1 "basecolor_textureColorSpace"
-41 	"" "" 1 "metallic_useTexture"
-42 	"" "" 1 "metallic_texture"
-43 	"" "" 1 "metallic_monoChannel"
-44 	"" "" 1 "metallic_textureWrap"
-45 	"" "" 1 "metallic_textureColorSpace"
-46 	"" "" 1 "transparency_useTexture"
-47 	"" "" 1 "transparency_texture"
-48 	"" "" 1 "transparency_monoChannel"
-49 	"" "" 1 "transparency_textureWrap"
-50 	"" "" 1 "transparency_textureColorSpace"
-51 	"" "" 1 "ior_useTexture"
-52 	"" "" 1 "ior_texture"
-53 	"" "" 1 "ior_monoChannel"
-54 	"" "" 1 "ior_textureWrap"
-55 	"" "" 1 "ior_textureColorSpace"
-56 	"" "" 1 "transcolor_useTexture"
-57 	"" "" 1 "transcolor_texture"
-58 	"" "" 1 "transcolor_textureIntensity"
-59 	"" "" 1 "transcolor_textureWrap"
-60 	"" "" 1 "transcolor_textureColorSpace"
-61 	"" "" 1 "transdist_useTexture"
-62 	"" "" 1 "transdist_texture"
-63 	"" "" 1 "transdist_monoChannel"
-64 	"" "" 1 "transdist_textureWrap"
-65 	"" "" 1 "transdist_textureColorSpace"
-66 	"" "" 1 "dispersion_useTexture"
-67 	"" "" 1 "dispersion_texture"
-68 	"" "" 1 "dispersion_monoChannel"
-69 	"" "" 1 "dispersion_textureWrap"
-70 	"" "" 1 "dispersion_textureColorSpace"
-71 	"" "" 1 "reflect_useTexture"
-72 	"" "" 1 "reflect_texture"
-73 	"" "" 1 "reflect_monoChannel"
-74 	"" "" 1 "reflect_textureWrap"
-75 	"" "" 1 "reflect_textureColorSpace"
-76 	"" "" 1 "reflecttint_useTexture"
-77 	"" "" 1 "reflecttint_texture"
-78 	"" "" 1 "reflecttint_monoChannel"
-79 	"" "" 1 "reflecttint_textureWrap"
-80 	"" "" 1 "reflecttint_textureColorSpace"
-81 	"" "" 1 "rough_useTexture"
-82 	"" "" 1 "rough_texture"
-83 	"" "" 1 "rough_monoChannel"
-84 	"" "" 1 "rough_textureWrap"
-85 	"" "" 1 "rough_textureColorSpace"
-86 	"" "" 1 "aniso_useTexture"
-87 	"" "" 1 "aniso_texture"
-88 	"" "" 1 "aniso_monoChannel"
-89 	"" "" 1 "aniso_textureWrap"
-90 	"" "" 1 "aniso_textureColorSpace"
-91 	"" "" 1 "anisodir_useTexture"
-92 	"" "" 1 "anisodir_texture"
-93 	"" "" 1 "anisodir_monoChannel"
-94 	"" "" 1 "anisodir_textureWrap"
-95 	"" "" 1 "anisodir_textureColorSpace"
-96 	"" "" 1 "anisodir_textureFilter"
-97 	"" "" 1 "sss_useTexture"
-98 	"" "" 1 "sss_texture"
-99 	"" "" 1 "sss_monoChannel"
-100 	"" "" 1 "sss_textureWrap"
-101 	"" "" 1 "sss_textureColorSpace"
-102 	"" "" 1 "sssdist_useTexture"
-103 	"" "" 1 "sssdist_texture"
-104 	"" "" 1 "sssdist_monoChannel"
-105 	"" "" 1 "sssdist_textureWrap"
-106 	"" "" 1 "sssdist_textureColorSpace"
-107 	"" "" 1 "ssscolor_useTexture"
-108 	"" "" 1 "ssscolor_texture"
-109 	"" "" 1 "ssscolor_textureWrap"
-110 	"" "" 1 "ssscolor_textureColorSpace"
-111 	"" "" 1 "sheen_useTexture"
-112 	"" "" 1 "sheen_texture"
-113 	"" "" 1 "sheen_monoChannel"
-114 	"" "" 1 "sheen_textureWrap"
-115 	"" "" 1 "sheen_textureColorSpace"
-116 	"" "" 1 "sheentint_useTexture"
-117 	"" "" 1 "sheentint_texture"
-118 	"" "" 1 "sheentint_monoChannel"
-119 	"" "" 1 "sheentint_textureWrap"
-120 	"" "" 1 "sheentint_textureColorSpace"
-121 	"" "" 1 "coat_useTexture"
-122 	"" "" 1 "coat_texture"
-123 	"" "" 1 "coat_monoChannel"
-124 	"" "" 1 "coat_textureWrap"
-125 	"" "" 1 "coat_textureColorSpace"
-126 	"" "" 1 "coatrough_useTexture"
-127 	"" "" 1 "coatrough_texture"
-128 	"" "" 1 "coatrough_monoChannel"
-129 	"" "" 1 "coatrough_textureWrap"
-130 	"" "" 1 "coatrough_textureColorSpace"
-131 	"" "" 1 "emitcolor_useTexture"
-132 	"" "" 1 "emitcolor_texture"
-133 	"" "" 1 "emitcolor_textureIntensity"
-134 	"" "" 1 "emitcolor_textureWrap"
-135 	"" "" 1 "emitcolor_textureColorSpace"
-136 	"" "" 1 "opaccolor_useTexture"
-137 	"" "" 1 "opaccolor_texture"
-138 	"" "" 1 "opaccolor_textureWrap"
-139 	"" "" 1 "opaccolor_textureIntensity"
-140 	"" "" 1 "opaccolor_textureColorSpace"
-141 	"" "" 1 "surface_textureFilter"
-142 	"" "" 1 "surface_textureFilterWidth"
-143 	"" "" 1 "baseBumpAndNormal_enable"
-144 	"" "" 1 "baseBumpAndNormal_type"
-145 	"" "" 1 "baseBump_colorSpace"
-146 	"" "" 1 "baseBump_bumpScale"
-147 	"" "" 1 "baseBump_bumpTexture"
-148 	"" "" 1 "baseBump_wrap"
-149 	"" "" 1 "baseBump_filter"
-150 	"" "" 1 "baseBump_filterWidth"
-151 	"" "" 1 "baseBump_channel"
-152 	"" "" 1 "baseBump_imagePlane"
-153 	"" "" 1 "baseNormal_colorspace"
-154 	"" "" 1 "baseNormal_vectorSpace"
-155 	"" "" 1 "baseNormal_scale"
-156 	"" "" 1 "baseNormal_texture"
-157 	"" "" 1 "baseNormal_wrap"
-158 	"" "" 1 "baseNormal_filter"
-159 	"" "" 1 "baseNormal_filterWidth"
-160 	"" "" 1 "baseNormal_channel"
-161 	"" "" 1 "baseNormal_imagePlane"
-162 	"" "" 1 "baseNormal_space"
-163 	"" "" 1 "baseNormal_flipX"
-164 	"" "" 1 "baseNormal_flipY"
-165 	"" "" 1 "separateCoatNormals"
-166 	"" "" 1 "coatBumpAndNormal_enable"
-167 	"" "" 1 "coatBumpAndNormal_type"
-168 	"" "" 1 "coatBump_colorSpace"
-169 	"" "" 1 "coatBump_bumpScale"
-170 	"" "" 1 "coatBump_bumpTexture"
-171 	"" "" 1 "coatBump_wrap"
-172 	"" "" 1 "coatBump_filter"
-173 	"" "" 1 "coatBump_filterWidth"
-174 	"" "" 1 "coatBump_channel"
-175 	"" "" 1 "coatBump_imagePlane"
-176 	"" "" 1 "coatNormal_colorspace"
-177 	"" "" 1 "coatNormal_vectorSpace"
-178 	"" "" 1 "coatNormal_scale"
-179 	"" "" 1 "coatNormal_texture"
-180 	"" "" 1 "coatNormal_wrap"
-181 	"" "" 1 "coatNormal_filter"
-182 	"" "" 1 "coatNormal_filterWidth"
-183 	"" "" 1 "coatNormal_channel"
-184 	"" "" 1 "coatNormal_imagePlane"
-185 	"" "" 1 "coatNormal_space"
-186 	"" "" 1 "coatNormal_flipX"
-187 	"" "" 1 "coatNormal_flipY"
-188 	"" "" 1 "dispInput_enable"
-189 	"" "" 1 "dispInput_max"
-190 	"" "" 1 "dispInput_vectorspace"
-191 	"" "" 1 "dispTex_enable"
-192 	"" "" 1 "dispTex_type"
-193 	"" "" 1 "dispTex_colorSpace"
-194 	"" "" 1 "dispTex_vectorSpace"
-195 	"" "" 1 "dispTex_channelOrder"
-196 	"" "" 1 "dispTex_offset"
-197 	"" "" 1 "dispTex_scale"
-198 	"" "" 1 "dispTex_texture"
-199 	"" "" 1 "dispTex_channel"
-200 	"" "" 1 "dispTex_wrap"
-201 	"" "" 1 "dispTex_filter"
-202 	"" "" 1 "dispTex_filterWidth"
-203 	"" "" 1 "dispNoise_enable"
-204 	"" "" 1 "dispNoise_type"
-205 	"" "" 1 "dispNoise_freq"
-206 	"" "" 1 "dispNoise_offset"
-207 	"" "" 1 "dispNoise_amp"
-208 	"" "" 1 "dispNoise_rough"
-209 	"" "" 1 "dispNoise_atten"
-210 	"" "" 1 "dispNoise_turb"
-211 	"" "" 1 "difflabel"
-212 	"" "" 1 "refllabel"
-213 	"" "" 1 "refractlabel"
-214 	"" "" 1 "coatlabel"
-215 	"" "" 1 "ssslabel"
-216 	"" "" 1 "uvtrans"
-217 	"" "" 1 "uvrot"
-218 	"" "" 1 "uvscale"
-219 	"" "" 1 "baseN"
-220 	"" "" 1 "coatN"
-221 	"" "" 1 "disp"
-222 	"" "" 1 "vdisp"
-223 	"" "" 1 "opacpointalpha"
-224 	"" "" 1 "roundedEdge_enable"
-225 	"" "" 1 "roundedEdge_radius"
-226 	"" "" 1 "roundedEdge_mode"
-227 	"" "" 1 "opacpackedalpha"
+2 	"" "" 1 "basecolor_usePointColor"
+3 	"" "" 1 "basecolor_usePackedColor"
+4 	"" "" 1 "frontface"
+5 	"" "" 1 "ior"
+6 	"" "" 1 "rough"
+7 	"" "" 1 "aniso"
+8 	"" "" 1 "anisodir"
+9 	"" "" 1 "metallic"
+10 	"" "" 1 "reflect"
+11 	"" "" 1 "reflecttint"
+12 	"" "" 1 "coat"
+13 	"" "" 1 "coatrough"
+14 	"" "" 1 "transparency"
+15 	"" "" 1 "transcolor"
+16 	"" "" 1 "transdist"
+17 	"" "" 1 "dispersion"
+18 	"" "" 1 "priority"
+19 	"" "" 1 "sss"
+20 	"" "" 1 "sssmodel"
+21 	"" "" 1 "sssdist"
+22 	"" "" 1 "ssscolor"
+23 	"" "" 1 "sssphase"
+24 	"" "" 1 "sheen"
+25 	"" "" 1 "sheentint"
+26 	"" "" 1 "emitcolor"
+27 	"" "" 1 "emitint"
+28 	"" "" 1 "emitillum"
+29 	"" "" 1 "opac"
+30 	"" "" 1 "opaccolor"
+31 	"" "" 1 "fakecausticsenabled"
+32 	"" "" 1 "fakecausticstransmit"
+33 	"" "" 1 "fakecausticsshadow"
+34 	"" "" 1 "fakecausticsopacity"
+35 	"" "" 1 "basecolor_useTexture"
+36 	"" "" 1 "basecolor_texture"
+37 	"" "" 1 "basecolor_textureIntensity"
+38 	"" "" 1 "basecolor_textureWrap"
+39 	"" "" 1 "basecolor_textureColorSpace"
+40 	"" "" 1 "metallic_useTexture"
+41 	"" "" 1 "metallic_texture"
+42 	"" "" 1 "metallic_monoChannel"
+43 	"" "" 1 "metallic_textureWrap"
+44 	"" "" 1 "metallic_textureColorSpace"
+45 	"" "" 1 "transparency_useTexture"
+46 	"" "" 1 "transparency_texture"
+47 	"" "" 1 "transparency_monoChannel"
+48 	"" "" 1 "transparency_textureWrap"
+49 	"" "" 1 "transparency_textureColorSpace"
+50 	"" "" 1 "ior_useTexture"
+51 	"" "" 1 "ior_texture"
+52 	"" "" 1 "ior_monoChannel"
+53 	"" "" 1 "ior_textureWrap"
+54 	"" "" 1 "ior_textureColorSpace"
+55 	"" "" 1 "transcolor_useTexture"
+56 	"" "" 1 "transcolor_texture"
+57 	"" "" 1 "transcolor_textureIntensity"
+58 	"" "" 1 "transcolor_textureWrap"
+59 	"" "" 1 "transcolor_textureColorSpace"
+60 	"" "" 1 "transdist_useTexture"
+61 	"" "" 1 "transdist_texture"
+62 	"" "" 1 "transdist_monoChannel"
+63 	"" "" 1 "transdist_textureWrap"
+64 	"" "" 1 "transdist_textureColorSpace"
+65 	"" "" 1 "dispersion_useTexture"
+66 	"" "" 1 "dispersion_texture"
+67 	"" "" 1 "dispersion_monoChannel"
+68 	"" "" 1 "dispersion_textureWrap"
+69 	"" "" 1 "dispersion_textureColorSpace"
+70 	"" "" 1 "reflect_useTexture"
+71 	"" "" 1 "reflect_texture"
+72 	"" "" 1 "reflect_monoChannel"
+73 	"" "" 1 "reflect_textureWrap"
+74 	"" "" 1 "reflect_textureColorSpace"
+75 	"" "" 1 "reflecttint_useTexture"
+76 	"" "" 1 "reflecttint_texture"
+77 	"" "" 1 "reflecttint_monoChannel"
+78 	"" "" 1 "reflecttint_textureWrap"
+79 	"" "" 1 "reflecttint_textureColorSpace"
+80 	"" "" 1 "rough_useTexture"
+81 	"" "" 1 "rough_texture"
+82 	"" "" 1 "rough_monoChannel"
+83 	"" "" 1 "rough_textureWrap"
+84 	"" "" 1 "rough_textureColorSpace"
+85 	"" "" 1 "aniso_useTexture"
+86 	"" "" 1 "aniso_texture"
+87 	"" "" 1 "aniso_monoChannel"
+88 	"" "" 1 "aniso_textureWrap"
+89 	"" "" 1 "aniso_textureColorSpace"
+90 	"" "" 1 "anisodir_useTexture"
+91 	"" "" 1 "anisodir_texture"
+92 	"" "" 1 "anisodir_monoChannel"
+93 	"" "" 1 "anisodir_textureWrap"
+94 	"" "" 1 "anisodir_textureColorSpace"
+95 	"" "" 1 "anisodir_textureFilter"
+96 	"" "" 1 "sss_useTexture"
+97 	"" "" 1 "sss_texture"
+98 	"" "" 1 "sss_monoChannel"
+99 	"" "" 1 "sss_textureWrap"
+100 	"" "" 1 "sss_textureColorSpace"
+101 	"" "" 1 "sssdist_useTexture"
+102 	"" "" 1 "sssdist_texture"
+103 	"" "" 1 "sssdist_monoChannel"
+104 	"" "" 1 "sssdist_textureWrap"
+105 	"" "" 1 "sssdist_textureColorSpace"
+106 	"" "" 1 "ssscolor_useTexture"
+107 	"" "" 1 "ssscolor_texture"
+108 	"" "" 1 "ssscolor_textureWrap"
+109 	"" "" 1 "ssscolor_textureColorSpace"
+110 	"" "" 1 "sheen_useTexture"
+111 	"" "" 1 "sheen_texture"
+112 	"" "" 1 "sheen_monoChannel"
+113 	"" "" 1 "sheen_textureWrap"
+114 	"" "" 1 "sheen_textureColorSpace"
+115 	"" "" 1 "sheentint_useTexture"
+116 	"" "" 1 "sheentint_texture"
+117 	"" "" 1 "sheentint_monoChannel"
+118 	"" "" 1 "sheentint_textureWrap"
+119 	"" "" 1 "sheentint_textureColorSpace"
+120 	"" "" 1 "coat_useTexture"
+121 	"" "" 1 "coat_texture"
+122 	"" "" 1 "coat_monoChannel"
+123 	"" "" 1 "coat_textureWrap"
+124 	"" "" 1 "coat_textureColorSpace"
+125 	"" "" 1 "coatrough_useTexture"
+126 	"" "" 1 "coatrough_texture"
+127 	"" "" 1 "coatrough_monoChannel"
+128 	"" "" 1 "coatrough_textureWrap"
+129 	"" "" 1 "coatrough_textureColorSpace"
+130 	"" "" 1 "emitcolor_useTexture"
+131 	"" "" 1 "emitcolor_texture"
+132 	"" "" 1 "emitcolor_textureIntensity"
+133 	"" "" 1 "emitcolor_textureWrap"
+134 	"" "" 1 "emitcolor_textureColorSpace"
+135 	"" "" 1 "opaccolor_useTexture"
+136 	"" "" 1 "opaccolor_texture"
+137 	"" "" 1 "opaccolor_textureWrap"
+138 	"" "" 1 "opaccolor_textureIntensity"
+139 	"" "" 1 "opaccolor_textureColorSpace"
+140 	"" "" 1 "surface_textureFilter"
+141 	"" "" 1 "surface_textureFilterWidth"
+142 	"" "" 1 "baseBumpAndNormal_enable"
+143 	"" "" 1 "baseBumpAndNormal_type"
+144 	"" "" 1 "baseBump_colorSpace"
+145 	"" "" 1 "baseBump_bumpScale"
+146 	"" "" 1 "baseBump_bumpTexture"
+147 	"" "" 1 "baseBump_wrap"
+148 	"" "" 1 "baseBump_filter"
+149 	"" "" 1 "baseBump_filterWidth"
+150 	"" "" 1 "baseBump_channel"
+151 	"" "" 1 "baseBump_imagePlane"
+152 	"" "" 1 "baseNormal_colorspace"
+153 	"" "" 1 "baseNormal_vectorSpace"
+154 	"" "" 1 "baseNormal_scale"
+155 	"" "" 1 "baseNormal_texture"
+156 	"" "" 1 "baseNormal_wrap"
+157 	"" "" 1 "baseNormal_filter"
+158 	"" "" 1 "baseNormal_filterWidth"
+159 	"" "" 1 "baseNormal_channel"
+160 	"" "" 1 "baseNormal_imagePlane"
+161 	"" "" 1 "baseNormal_space"
+162 	"" "" 1 "baseNormal_flipX"
+163 	"" "" 1 "baseNormal_flipY"
+164 	"" "" 1 "separateCoatNormals"
+165 	"" "" 1 "coatBumpAndNormal_enable"
+166 	"" "" 1 "coatBumpAndNormal_type"
+167 	"" "" 1 "coatBump_colorSpace"
+168 	"" "" 1 "coatBump_bumpScale"
+169 	"" "" 1 "coatBump_bumpTexture"
+170 	"" "" 1 "coatBump_wrap"
+171 	"" "" 1 "coatBump_filter"
+172 	"" "" 1 "coatBump_filterWidth"
+173 	"" "" 1 "coatBump_channel"
+174 	"" "" 1 "coatBump_imagePlane"
+175 	"" "" 1 "coatNormal_colorspace"
+176 	"" "" 1 "coatNormal_vectorSpace"
+177 	"" "" 1 "coatNormal_scale"
+178 	"" "" 1 "coatNormal_texture"
+179 	"" "" 1 "coatNormal_wrap"
+180 	"" "" 1 "coatNormal_filter"
+181 	"" "" 1 "coatNormal_filterWidth"
+182 	"" "" 1 "coatNormal_channel"
+183 	"" "" 1 "coatNormal_imagePlane"
+184 	"" "" 1 "coatNormal_space"
+185 	"" "" 1 "coatNormal_flipX"
+186 	"" "" 1 "coatNormal_flipY"
+187 	"" "" 1 "dispInput_enable"
+188 	"" "" 1 "dispInput_max"
+189 	"" "" 1 "dispInput_vectorspace"
+190 	"" "" 1 "dispTex_enable"
+191 	"" "" 1 "dispTex_type"
+192 	"" "" 1 "dispTex_colorSpace"
+193 	"" "" 1 "dispTex_vectorSpace"
+194 	"" "" 1 "dispTex_channelOrder"
+195 	"" "" 1 "dispTex_offset"
+196 	"" "" 1 "dispTex_scale"
+197 	"" "" 1 "dispTex_texture"
+198 	"" "" 1 "dispTex_channel"
+199 	"" "" 1 "dispTex_wrap"
+200 	"" "" 1 "dispTex_filter"
+201 	"" "" 1 "dispTex_filterWidth"
+202 	"" "" 1 "dispNoise_enable"
+203 	"" "" 1 "dispNoise_type"
+204 	"" "" 1 "dispNoise_freq"
+205 	"" "" 1 "dispNoise_offset"
+206 	"" "" 1 "dispNoise_amp"
+207 	"" "" 1 "dispNoise_rough"
+208 	"" "" 1 "dispNoise_atten"
+209 	"" "" 1 "dispNoise_turb"
+210 	"" "" 1 "difflabel"
+211 	"" "" 1 "refllabel"
+212 	"" "" 1 "refractlabel"
+213 	"" "" 1 "coatlabel"
+214 	"" "" 1 "ssslabel"
+215 	"" "" 1 "uvtrans"
+216 	"" "" 1 "uvrot"
+217 	"" "" 1 "uvscale"
+218 	"" "" 1 "baseN"
+219 	"" "" 1 "coatN"
+220 	"" "" 1 "disp"
+221 	"" "" 1 "vdisp"
+222 	"" "" 1 "opacpointalpha"
+223 	"" "" 1 "roundedEdge_enable"
+224 	"" "" 1 "roundedEdge_radius"
+225 	"" "" 1 "roundedEdge_mode"
+226 	"" "" 1 "opacpackedalpha"
 }
 inputs
 {
@@ -5410,12 +5377,11 @@ inputs
 224 	"" 0 1
 225 	"" 0 1
 226 	"" 0 1
-227 	"" 0 1
 }
 stat
 {
   create 1541451860
-  modify 1553888318
+  modify 1543279549
   author Paul_Ambrosiussen@LAPTOP-P8R7FBPF
   access 0777
 }
@@ -5604,13 +5570,12 @@ specular_tint	[ 0	locks=0 ]	(	[ specular_tint	0 ] 	)
 diffuse_folder_15	[ 0	locks=0 ]	(	3	3	3	3	3	3	)
 folder7	[ 0	locks=0 ]	(	0	)
 basecolor	[ 0	locks=0 ]	(	[ basecolorr	1 ] 	[ basecolorg	1 ] 	[ basecolorb	1 ] 	)
-albedomult	[ 0	locks=0 ]	(	1	)
 basecolor_usePointColor	[ 0	locks=0 ]	(	"on"	)
 basecolor_usePackedColor	[ 0	locks=0 ]	(	"off"	)
 frontface	[ 0	locks=0 ]	(	"on"	)
 folder4	[ 0	locks=0 ]	(	0	)
-ior	[ 0	locks=0 ]	(	[ ior	1.8200000000000001 ] 	)
-rough	[ 0	locks=0 ]	(	[ rough	0.60299999999999998 ] 	)
+ior	[ 0	locks=0 ]	(	[ ior	1 ] 	)
+rough	[ 0	locks=0 ]	(	[ rough	1 ] 	)
 aniso	[ 0	locks=0 ]	(	0	)
 anisodir	[ 0	locks=0 ]	(	0	)
 folder12	[ 0	locks=0 ]	(	0	)
@@ -5650,7 +5615,7 @@ fakecausticsshadow	[ 0	locks=0 ]	(	1	)
 fakecausticsopacity	[ 0	locks=0 ]	(	0	)
 folder54	[ 0	locks=0 ]	(	0	)
 basecolor_useTexture	[ 0	locks=0 ]	(	"on"	)
-basecolor_texture	[ 0	locks=0	autoscope=1	autosel=4294967295 ]	(	[ basecolor_texture	C:/Github/GDT/hip/render/simplebaker_demoscene_ao.tga ] 	)
+basecolor_texture	[ 0	locks=0	autoscope=1	autosel=4294967295 ]	(	[ basecolor_texture	"C:/Users/Paul Ambrosiussen/render/untitled_basecolor.tga" ] 	)
 basecolor_textureIntensity	[ 0	locks=0 ]	(	1	)
 basecolor_textureWrap	[ 0	locks=0 ]	(	repeat	)
 basecolor_textureColorSpace	[ 0	locks=0 ]	(	auto	)
@@ -5794,7 +5759,7 @@ baseBump_imagePlane	[ 0	locks=0 ]	(	""	)
 baseNormal_colorspace	[ 0	locks=0 ]	(	linear	)
 baseNormal_vectorSpace	[ 0	locks=0 ]	(	uvtangent	)
 baseNormal_scale	[ 0	locks=0 ]	(	1	)
-baseNormal_texture	[ 0	locks=0	autoscope=1	autosel=4294967295 ]	(	[ baseNormal_texture	C:/Github/GDT/hip/render/simplebaker_demoscene_normal.tga ] 	)
+baseNormal_texture	[ 0	locks=0	autoscope=1	autosel=4294967295 ]	(	[ baseNormal_texture	"C:/Users/Paul Ambrosiussen/render/untitled_normal.tga" ] 	)
 baseNormal_wrap	[ 0	locks=0 ]	(	repeat	)
 baseNormal_filter	[ 0	locks=0 ]	(	gauss	)
 baseNormal_filterWidth	[ 0	locks=0 ]	(	1	)
@@ -5917,7 +5882,6 @@ Dt	[ 0	locks=0 ]	(	0	0	0	)
 Vdt	[ 0	locks=0 ]	(	0	0	0	)
 baseN	[ 0	locks=0 ]	(	0	0	0	)
 coatN	[ 0	locks=0 ]	(	0	0	0	)
-speccolor	[ 0	locks=0 ]	(	1	1	1	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -5977,7 +5941,7 @@ Content-Type: text/plain
 objflags objflags =  origin off
 pretransform UT_DMatrix4 1 0 0 0 0 1 0 0 0 0 1 0 0 0 0 1
 comment ""
-position -4.00617 7.00592
+position -3.55911 7.00592
 connectornextid 0
 flags =  lock off model off template off footprint off xray off bypass off display on render off highlight off unload off savedata off compress on colordefault on exposed on selectable on
 outputsNamed3
@@ -5992,7 +5956,7 @@ inputs
 stat
 {
   create 1496780581
-  modify 1512055944
+  modify 1536599722
   author Luiz@Luiz-PC
   access 0777
 }
@@ -6720,7 +6684,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.207"
+		"value":"17.0.403"
 	}
 }
 
@@ -6753,7 +6717,7 @@ inputs
 stat
 {
   create 1496780594
-  modify 1534435763
+  modify 1541789607
   author Luiz@Luiz-PC
   access 0777
 }
@@ -6787,7 +6751,7 @@ pivot	[ 0	locks=0 ]	(	"centroid"	)
 viewportlod	[ 0	locks=0 ]	(	"full"	)
 addpath	[ 0	locks=0 ]	(	"on"	)
 enable1	[ 0	locks=0 ]	(	"on"	)
-objpath1	[ 0	locks=0 ]	(	../../../../../LOW	)
+objpath1	[ 0	locks=0 ]	(	""	)
 group1	[ 0	locks=0 ]	(	""	)
 expand1	[ 0	locks=0 ]	(	"off"	)
 }
@@ -6799,7 +6763,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.207"
+		"value":"17.0.403"
 	}
 }
 
@@ -6835,7 +6799,7 @@ inputs
 stat
 {
   create 1504474956
-  modify 1534435763
+  modify 1539889424
   author Luiz@Luiz-PC
   access 0777
 }
@@ -6863,7 +6827,7 @@ Content-Type: text/plain
 
 {
 version 0.8
-input	[ 8	locks=0 ]	(	[ input	1 ] 	)
+input	[ 8	locks=0 ]	(	[ input	0 ] 	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -6873,7 +6837,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.207"
+		"value":"17.0.403"
 	}
 }
 
@@ -6910,7 +6874,7 @@ inputs
 stat
 {
   create 1504475028
-  modify 1534435763
+  modify 1539889424
   author Luiz@Luiz-PC
   access 0777
 }
@@ -6948,7 +6912,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.207"
+		"value":"17.0.403"
 	}
 }
 
@@ -7016,7 +6980,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.207"
+		"value":"17.0.403"
 	}
 }
 
@@ -7068,16 +7032,9 @@ Content-Type: text/plain
 version 0.8
 group	[ 0	locks=0 ]	(	""	)
 grouptype	[ 0	locks=0 ]	(	"guess"	)
-overridenormal	[ 0	locks=0 ]	(	"off"	)
-normalattrib	[ 0	locks=0 ]	(	N	)
-construct	[ 0	locks=0 ]	(	0	)
-docompute	[ 0	locks=0 ]	(	"on"	)
 type	[ 0	locks=0 ]	(	"typevertex"	)
 cuspangle	[ 0	locks=0 ]	(	60	)
 method	[ 0	locks=0 ]	(	1	)
-modify	[ 0	locks=0 ]	(	0	)
-normalize	[ 0	locks=0 ]	(	"off"	)
-reverse	[ 0	locks=0 ]	(	"off"	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -7087,7 +7044,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.207"
+		"value":"17.0.403"
 	}
 }
 
@@ -7865,7 +7822,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.207"
+		"value":"17.0.403"
 	}
 }
 
@@ -7898,7 +7855,7 @@ inputs
 stat
 {
   create 1496780594
-  modify 1534435763
+  modify 1539889424
   author Luiz@Luiz-PC
   access 0777
 }
@@ -7944,7 +7901,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.207"
+		"value":"17.0.403"
 	}
 }
 
@@ -7981,7 +7938,7 @@ inputs
 stat
 {
   create 1496782511
-  modify 1534435763
+  modify 1539889424
   author Luiz@Luiz-PC
   access 0777
 }
@@ -8009,7 +7966,7 @@ Content-Type: text/plain
 
 {
 version 0.8
-input	[ 8	locks=0 ]	(	[ input	0 ] 	)
+input	[ 8	locks=0 ]	(	[ input	1 ] 	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -8019,7 +7976,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.207"
+		"value":"17.0.403"
 	}
 }
 
@@ -8052,7 +8009,7 @@ inputs
 stat
 {
   create 1496780594
-  modify 1534435763
+  modify 1541789599
   author Luiz@Luiz-PC
   access 0777
 }
@@ -8086,7 +8043,7 @@ pivot	[ 0	locks=0 ]	(	"centroid"	)
 viewportlod	[ 0	locks=0 ]	(	"full"	)
 addpath	[ 0	locks=0 ]	(	"on"	)
 enable1	[ 0	locks=0 ]	(	"on"	)
-objpath1	[ 0	locks=0 ]	(	../../../../../HIGH	)
+objpath1	[ 0	locks=0 ]	(	""	)
 group1	[ 0	locks=0 ]	(	""	)
 expand1	[ 0	locks=0 ]	(	"off"	)
 }
@@ -8098,7 +8055,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.207"
+		"value":"17.0.403"
 	}
 }
 
@@ -8135,7 +8092,7 @@ inputs
 stat
 {
   create 1504474956
-  modify 1534435763
+  modify 1539889424
   author Luiz@Luiz-PC
   access 0777
 }
@@ -8173,7 +8130,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.207"
+		"value":"17.0.403"
 	}
 }
 
@@ -8210,7 +8167,7 @@ inputs
 stat
 {
   create 1504475028
-  modify 1534435763
+  modify 1539889424
   author Luiz@Luiz-PC
   access 0777
 }
@@ -8248,7 +8205,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.207"
+		"value":"17.0.403"
 	}
 }
 
@@ -8316,7 +8273,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.207"
+		"value":"17.0.403"
 	}
 }
 
@@ -8368,16 +8325,9 @@ Content-Type: text/plain
 version 0.8
 group	[ 0	locks=0 ]	(	""	)
 grouptype	[ 0	locks=0 ]	(	"guess"	)
-overridenormal	[ 0	locks=0 ]	(	"off"	)
-normalattrib	[ 0	locks=0 ]	(	N	)
-construct	[ 0	locks=0 ]	(	0	)
-docompute	[ 0	locks=0 ]	(	"on"	)
 type	[ 0	locks=0 ]	(	"typevertex"	)
 cuspangle	[ 0	locks=0 ]	(	60	)
 method	[ 0	locks=0 ]	(	1	)
-modify	[ 0	locks=0 ]	(	0	)
-normalize	[ 0	locks=0 ]	(	"off"	)
-reverse	[ 0	locks=0 ]	(	"off"	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -8387,7 +8337,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.207"
+		"value":"17.0.403"
 	}
 }
 
@@ -8422,7 +8372,7 @@ inputs
 stat
 {
   create 1509741512
-  modify 1534435763
+  modify 1539889424
   author MAINGEAR@DESKTOP-P98C1VA
   access 0777
 }
@@ -8456,7 +8406,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.207"
+		"value":"17.0.403"
 	}
 }
 
@@ -8492,7 +8442,7 @@ inputs
 stat
 {
   create 1509741521
-  modify 1534435763
+  modify 1539889424
   author MAINGEAR@DESKTOP-P98C1VA
   access 0777
 }
@@ -8520,7 +8470,7 @@ Content-Type: text/plain
 
 {
 version 0.8
-input	[ 8	locks=0 ]	(	[ input	1 ] 	)
+input	[ 8	locks=0 ]	(	[ input	0 ] 	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -8530,7 +8480,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.207"
+		"value":"17.0.403"
 	}
 }
 
@@ -9199,7 +9149,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.207"
+		"value":"17.0.403"
 	}
 }
 
@@ -9274,7 +9224,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.207"
+		"value":"17.0.403"
 	}
 }
 
@@ -9362,7 +9312,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.207"
+		"value":"17.0.403"
 	}
 }
 
@@ -9461,7 +9411,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.207"
+		"value":"17.0.403"
 	}
 }
 
@@ -9515,7 +9465,7 @@ inputs
 stat
 {
   create 1496780594
-  modify 1534435763
+  modify 1539889424
   author Luiz@Luiz-PC
   access 0777
 }
@@ -9561,7 +9511,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.207"
+		"value":"17.0.403"
 	}
 }
 
@@ -9598,7 +9548,7 @@ inputs
 stat
 {
   create 1496782511
-  modify 1534435763
+  modify 1539889424
   author Luiz@Luiz-PC
   access 0777
 }
@@ -9626,7 +9576,7 @@ Content-Type: text/plain
 
 {
 version 0.8
-input	[ 8	locks=0 ]	(	[ input	0 ] 	)
+input	[ 8	locks=0 ]	(	[ input	1 ] 	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -9636,7 +9586,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.207"
+		"value":"17.0.403"
 	}
 }
 
@@ -9669,7 +9619,7 @@ inputs
 stat
 {
   create 1496780594
-  modify 1534435763
+  modify 1539889424
   author Luiz@Luiz-PC
   access 0777
 }
@@ -9715,7 +9665,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.207"
+		"value":"17.0.403"
 	}
 }
 
@@ -9736,15 +9686,932 @@ Content-Type: text/plain
 1
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/ropnet1/rop_games_baker/objnet/cage.init"
+Content-Type: text/plain
+
+type = geo
+matchesdef = 0
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/ropnet1/rop_games_baker/objnet/cage.def"
+Content-Type: text/plain
+
+objflags objflags =  origin off
+pretransform UT_DMatrix4 1 0 0 0 0 1 0 0 0 0 1 0 0 0 0 1
+comment ""
+position -5.91205 7.00592
+connectornextid 0
+flags =  lock off model off template off footprint off xray off bypass off display on render off highlight off unload off savedata off compress on colordefault on exposed on selectable on
+outputsNamed3
+{
+}
+inputsNamed3
+{
+}
+inputs
+{
+}
+stat
+{
+  create 1496780581
+  modify 1536599966
+  author Luiz@Luiz-PC
+  access 0777
+}
+color UT_Color RGB 0.8 0.8 0.8 
+delscript ""
+exprlanguage hscript
+end
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/ropnet1/rop_games_baker/objnet/cage.spareparmdef"
+Content-Type: text/plain
+
+    group {
+        name    "stdswitcher4"
+        label   "Transform"
+
+        parm {
+            name    "xOrd"
+            baseparm
+            label   "Transform Order"
+            joinnext
+            export  none
+        }
+        parm {
+            name    "rOrd"
+            baseparm
+            label   "Rotate Order"
+            nolabel
+            export  none
+        }
+        parm {
+            name    "t"
+            baseparm
+            label   "Translate"
+            export  all
+        }
+        parm {
+            name    "r"
+            baseparm
+            label   "Rotate"
+            export  all
+        }
+        parm {
+            name    "s"
+            baseparm
+            label   "Scale"
+            export  none
+        }
+        parm {
+            name    "p"
+            baseparm
+            label   "Pivot Translate"
+            export  none
+        }
+        parm {
+            name    "scale"
+            baseparm
+            label   "Uniform Scale"
+            export  none
+        }
+        parm {
+            name    "pre_xform"
+            baseparm
+            label   "Modify Pre-Transform"
+            export  none
+        }
+        parm {
+            name    "keeppos"
+            baseparm
+            label   "Keep Position When Parenting"
+            export  none
+        }
+        parm {
+            name    "childcomp"
+            baseparm
+            label   "Child Compensation"
+            export  none
+        }
+        parm {
+            name    "constraints_on"
+            baseparm
+            label   "Enable Constraints"
+            export  none
+        }
+        parm {
+            name    "constraints_path"
+            baseparm
+            label   "Constraints"
+            export  none
+        }
+        parm {
+            name    "lookatpath"
+            baseparm
+            label   "Look At"
+            invisible
+            export  none
+        }
+        parm {
+            name    "lookupobjpath"
+            baseparm
+            label   "Look Up Object"
+            invisible
+            export  none
+        }
+        parm {
+            name    "lookup"
+            baseparm
+            label   "Look At Up Vector"
+            invisible
+            export  none
+        }
+        parm {
+            name    "pathobjpath"
+            baseparm
+            label   "Path Object"
+            invisible
+            export  none
+        }
+        parm {
+            name    "roll"
+            baseparm
+            label   "Roll"
+            invisible
+            export  none
+        }
+        parm {
+            name    "pos"
+            baseparm
+            label   "Position"
+            invisible
+            export  none
+        }
+        parm {
+            name    "uparmtype"
+            baseparm
+            label   "Parameterization"
+            invisible
+            export  none
+        }
+        parm {
+            name    "pathorient"
+            baseparm
+            label   "Orient Along Path"
+            invisible
+            export  none
+        }
+        parm {
+            name    "up"
+            baseparm
+            label   "Orient Up Vector"
+            invisible
+            export  none
+        }
+        parm {
+            name    "bank"
+            baseparm
+            label   "Auto-Bank factor"
+            invisible
+            export  none
+        }
+    }
+
+    group {
+        name    "stdswitcher4_1"
+        label   "Render"
+
+        parm {
+            name    "shop_materialpath"
+            baseparm
+            label   "Material"
+            export  none
+        }
+        parm {
+            name    "shop_materialopts"
+            baseparm
+            label   "Options"
+            invisible
+            export  none
+        }
+        parm {
+            name    "tdisplay"
+            baseparm
+            label   "Display"
+            joinnext
+            export  none
+        }
+        parm {
+            name    "display"
+            baseparm
+            label   "Display"
+            export  none
+        }
+        parm {
+            name    "viewportlod"
+            label   "Display As"
+            type    ordinal
+            default { "full" }
+            help    "Choose how the object's geometry should be rendered in the viewport"
+            menu {
+                "full"      "Full Geometry"
+                "points"    "Point Cloud"
+                "box"       "Bounding Box"
+                "centroid"  "Centroid"
+                "hidden"    "Hidden"
+                "subd"      "Subdivision Surface / Curves"
+            }
+            parmtag { "spare_category" "Render" }
+        }
+        parm {
+            name    "vm_rendervisibility"
+            label   "Render Visibility"
+            type    string
+            default { "*" }
+            menureplace {
+                "*"                             "Visible to all"
+                "primary"                       "Visible only to primary rays"
+                "primary|shadow"                "Visible only to primary and shadow rays"
+                "-primary"                      "Invisible to primary rays (Phantom)"
+                "-diffuse"                      "Invisible to diffuse rays"
+                "-diffuse&-reflect&-refract"    "Invisible to secondary rays"
+                ""                              "Invisible (Unrenderable)"
+            }
+            parmtag { "mantra_class" "object" }
+            parmtag { "mantra_name" "rendervisibility" }
+            parmtag { "spare_category" "Render" }
+        }
+        parm {
+            name    "vm_rendersubd"
+            label   "Render Polygons As Subdivision (Mantra)"
+            type    toggle
+            default { "0" }
+            parmtag { "mantra_class" "object" }
+            parmtag { "mantra_name" "rendersubd" }
+            parmtag { "spare_category" "Geometry" }
+        }
+        parm {
+            name    "vm_subdstyle"
+            label   "Subdivision Style"
+            type    string
+            default { "mantra_catclark" }
+            hidewhen "{ vm_rendersubd == 0 }"
+            menu {
+                "mantra_catclark"   "Mantra Catmull-Clark"
+                "osd_catclark"      "OpenSubdiv Catmull-Clark"
+            }
+            parmtag { "mantra_class" "object" }
+            parmtag { "mantra_name" "subdstyle" }
+            parmtag { "spare_category" "Geometry" }
+        }
+        parm {
+            name    "vm_subdgroup"
+            label   "Subdivision Group"
+            type    string
+            default { "" }
+            hidewhen "{ vm_rendersubd == 0 }"
+            parmtag { "mantra_class" "object" }
+            parmtag { "mantra_name" "subdgroup" }
+            parmtag { "spare_category" "Geometry" }
+        }
+        group {
+            name    "folder0"
+            label   "Shading"
+
+            parm {
+                name    "categories"
+                label   "Categories"
+                type    string
+                default { "" }
+                help    "A list of tags which can be used to select the object"
+                parmtag { "spare_category" "Shading" }
+            }
+            parm {
+                name    "reflectmask"
+                label   "Reflection Mask"
+                type    oplist
+                default { "*" }
+                help    "Objects that will be reflected on this object."
+                parmtag { "opexpand" "1" }
+                parmtag { "opfilter" "!!OBJ/GEOMETRY!!" }
+                parmtag { "oprelative" "/obj" }
+                parmtag { "spare_category" "Shading" }
+            }
+            parm {
+                name    "refractmask"
+                label   "Refraction Mask"
+                type    oplist
+                default { "*" }
+                help    "Objects that will be refracted on this object."
+                parmtag { "opexpand" "1" }
+                parmtag { "opfilter" "!!OBJ/GEOMETRY!!" }
+                parmtag { "oprelative" "/obj" }
+                parmtag { "spare_category" "Shading" }
+            }
+            parm {
+                name    "lightmask"
+                label   "Light Mask"
+                type    oplist
+                default { "*" }
+                help    "Lights that illuminate this object."
+                parmtag { "opexpand" "1" }
+                parmtag { "opfilter" "!!OBJ/LIGHT!!" }
+                parmtag { "oprelative" "/obj" }
+                parmtag { "spare_category" "Shading" }
+            }
+            parm {
+                name    "lightcategories"
+                label   "Light Selection"
+                type    string
+                default { "*" }
+                parmtag { "spare_category" "Shading" }
+            }
+            parm {
+                name    "vm_volumefilter"
+                label   "Volume Filter"
+                type    string
+                default { "box" }
+                menu {
+                    "box"       "Box Filter"
+                    "gaussian"  "Gaussian"
+                    "bartlett"  "Bartlett (triangle)"
+                    "catrom"    "Catmull-Rom"
+                    "hanning"   "Hanning"
+                    "blackman"  "Blackman"
+                    "sinc"      "Sinc (sharpening)"
+                }
+                parmtag { "mantra_class" "object" }
+                parmtag { "mantra_name" "filter" }
+                parmtag { "spare_category" "Shading" }
+            }
+            parm {
+                name    "vm_volumefilterwidth"
+                label   "Volume Filter Width"
+                type    float
+                default { "1" }
+                range   { 0.001 5 }
+                parmtag { "mantra_class" "object" }
+                parmtag { "mantra_name" "filterwidth" }
+                parmtag { "spare_category" "Shading" }
+            }
+            parm {
+                name    "vm_matte"
+                label   "Matte shading"
+                type    toggle
+                default { "0" }
+                parmtag { "mantra_class" "object" }
+                parmtag { "mantra_name" "matte" }
+                parmtag { "spare_category" "Shading" }
+            }
+            parm {
+                name    "vm_rayshade"
+                label   "Raytrace Shading"
+                type    toggle
+                default { "0" }
+                parmtag { "mantra_class" "object" }
+                parmtag { "mantra_name" "rayshade" }
+                parmtag { "spare_category" "Shading" }
+            }
+        }
+
+        group {
+            name    "folder0_1"
+            label   "Sampling"
+
+            parm {
+                name    "geo_velocityblur"
+                label   "Geometry Velocity Blur"
+                type    toggle
+                default { "0" }
+                disablewhen "{ allowmotionblur == 0 }"
+                parmtag { "spare_category" "Sampling" }
+            }
+        }
+
+        group {
+            name    "folder0_2"
+            label   "Dicing"
+
+            parm {
+                name    "vm_shadingquality"
+                label   "Shading Quality"
+                type    float
+                default { "1" }
+                range   { 0 10 }
+                parmtag { "mantra_class" "object" }
+                parmtag { "mantra_name" "shadingquality" }
+                parmtag { "spare_category" "Dicing" }
+            }
+            parm {
+                name    "vm_flatness"
+                label   "Dicing Flatness"
+                type    float
+                default { "0.05" }
+                range   { 0 1 }
+                parmtag { "mantra_class" "object" }
+                parmtag { "mantra_name" "flatness" }
+                parmtag { "spare_category" "Dicing" }
+            }
+            parm {
+                name    "vm_raypredice"
+                label   "Ray Predicing"
+                type    integer
+                default { "0" }
+                menu {
+                    "0" "Disable Predicing"
+                    "1" "Full Predicing"
+                    "2" "Precompute Bounds"
+                }
+                range   { 0 10 }
+                parmtag { "mantra_class" "object" }
+                parmtag { "mantra_name" "raypredice" }
+                parmtag { "spare_category" "Dicing" }
+            }
+            parm {
+                name    "vm_curvesurface"
+                label   "Shade Curves As Surfaces"
+                type    toggle
+                default { "0" }
+                parmtag { "mantra_class" "object" }
+                parmtag { "mantra_name" "curvesurface" }
+                parmtag { "spare_category" "Dicing" }
+            }
+        }
+
+        group {
+            name    "folder0_3"
+            label   "Geometry"
+
+            parm {
+                name    "vm_rmbackface"
+                label   "Backface Removal"
+                type    toggle
+                default { "0" }
+                parmtag { "mantra_class" "object" }
+                parmtag { "mantra_name" "rmbackface" }
+                parmtag { "spare_category" "Geometry" }
+            }
+            parm {
+                name    "shop_geometrypath"
+                label   "Procedural Shader"
+                type    oppath
+                default { "" }
+                parmtag { "opfilter" "!!SHOP/GEOMETRY!!" }
+                parmtag { "oprelative" "." }
+                parmtag { "spare_category" "Geometry" }
+            }
+            parm {
+                name    "vm_forcegeometry"
+                label   "Force Procedural Geometry Output"
+                type    toggle
+                default { "1" }
+                parmtag { "spare_category" "Geometry" }
+            }
+            parm {
+                name    "vm_rendersubdcurves"
+                label   "Render Polygon Curves As Subdivision (Mantra)"
+                type    toggle
+                default { "0" }
+                parmtag { "mantra_class" "object" }
+                parmtag { "mantra_name" "rendersubdcurves" }
+                parmtag { "spare_category" "Geometry" }
+            }
+            parm {
+                name    "vm_renderpoints"
+                label   "Render As Points (Mantra)"
+                type    integer
+                default { "2" }
+                menu {
+                    "0" "No Point Rendering"
+                    "1" "Render Only Points"
+                    "2" "Render Unconnected Points"
+                }
+                range   { 0 10 }
+                parmtag { "mantra_class" "object" }
+                parmtag { "mantra_name" "renderpoints" }
+                parmtag { "spare_category" "Geometry" }
+            }
+            parm {
+                name    "vm_renderpointsas"
+                label   "Render Points As (Mantra)"
+                type    integer
+                default { "0" }
+                disablewhen "{ vm_renderpoints == 0 }"
+                menu {
+                    "0" "Spheres"
+                    "1" "Circles"
+                }
+                range   { 0 10 }
+                parmtag { "mantra_class" "object" }
+                parmtag { "mantra_name" "renderpointsas" }
+                parmtag { "spare_category" "Geometry" }
+            }
+            parm {
+                name    "vm_usenforpoints"
+                label   "Use N For Point Rendering"
+                type    toggle
+                default { "0" }
+                disablewhen "{ vm_renderpoints == 0 }"
+                parmtag { "mantra_class" "object" }
+                parmtag { "mantra_name" "usenforpoints" }
+                parmtag { "spare_category" "Geometry" }
+            }
+            parm {
+                name    "vm_pointscale"
+                label   "Point Scale"
+                type    float
+                default { "1" }
+                disablewhen "{ vm_renderpoints == 0 }"
+                range   { 0! 10 }
+                parmtag { "mantra_class" "object" }
+                parmtag { "mantra_name" "pointscale" }
+                parmtag { "spare_category" "Geometry" }
+            }
+            parm {
+                name    "vm_pscalediameter"
+                label   "Treat Point Scale as Diameter Instead of Radius"
+                type    toggle
+                default { "0" }
+                parmtag { "mantra_class" "object" }
+                parmtag { "mantra_name" "pscalediameter" }
+                parmtag { "spare_category" "Geometry" }
+            }
+            parm {
+                name    "vm_metavolume"
+                label   "Metaballs as Volume"
+                type    toggle
+                default { "0" }
+                parmtag { "mantra_class" "object" }
+                parmtag { "mantra_name" "metavolume" }
+                parmtag { "spare_category" "Geometry" }
+            }
+            parm {
+                name    "vm_coving"
+                label   "Coving"
+                type    integer
+                default { "1" }
+                menu {
+                    "0" "Disable Coving"
+                    "1" "Coving for displacement/sub-d"
+                    "2" "Coving for all primitives"
+                }
+                range   { 0 10 }
+                parmtag { "mantra_class" "object" }
+                parmtag { "mantra_name" "coving" }
+                parmtag { "spare_category" "Geometry" }
+            }
+            parm {
+                name    "vm_materialoverride"
+                label   "Material Override"
+                type    string
+                default { "compact" }
+                menu {
+                    "none"      "Disabled"
+                    "full"      "Evaluate for Each Primitve/Point"
+                    "compact"   "Evaluate Once"
+                }
+                parmtag { "spare_category" "Geometry" }
+            }
+            parm {
+                name    "vm_overridedetail"
+                label   "Ignore Geometry Attribute Shaders"
+                type    toggle
+                default { "0" }
+                parmtag { "mantra_class" "object" }
+                parmtag { "mantra_name" "overridedetail" }
+                parmtag { "spare_category" "Geometry" }
+            }
+            parm {
+                name    "vm_procuseroottransform"
+                label   "Proc Use Root Transform"
+                type    toggle
+                default { "1" }
+                parmtag { "mantra_class" "object" }
+                parmtag { "mantra_name" "procuseroottransform" }
+                parmtag { "spare_category" "Geometry" }
+            }
+        }
+
+    }
+
+    group {
+        name    "stdswitcher4_2"
+        label   "Misc"
+
+        parm {
+            name    "use_dcolor"
+            baseparm
+            label   "Set Wireframe Color"
+            export  none
+        }
+        parm {
+            name    "dcolor"
+            baseparm
+            label   "Wireframe Color"
+            export  none
+        }
+        parm {
+            name    "picking"
+            baseparm
+            label   "Viewport Selecting Enabled"
+            export  none
+        }
+        parm {
+            name    "pickscript"
+            baseparm
+            label   "Select Script"
+            export  none
+        }
+        parm {
+            name    "caching"
+            baseparm
+            label   "Cache Object Transform"
+            export  none
+        }
+        parm {
+            name    "vport_shadeopen"
+            baseparm
+            label   "Shade Open Curves In Viewport"
+            export  none
+        }
+        parm {
+            name    "vport_displayassubdiv"
+            baseparm
+            label   "Display as Subdivision in Viewport"
+            invisible
+            export  none
+        }
+        parm {
+            name    "vport_onionskin"
+            baseparm
+            label   "Onion Skinning"
+            export  none
+        }
+    }
+
+    parm {
+        name    "pr"
+        baseparm
+        label   "Pivot Rotate"
+        export  none
+    }
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/ropnet1/rop_games_baker/objnet/cage.parm"
+Content-Type: text/plain
+
+{
+version 0.8
+stdswitcher	[ 0	locks=0 ]	(	0	0	0	)
+xOrd	[ 0	locks=0 ]	(	"srt"	)
+rOrd	[ 0	locks=0 ]	(	"xyz"	)
+t	[ 0	locks=0 ]	(	0	0	0	)
+r	[ 0	locks=0 ]	(	0	0	0	)
+s	[ 0	locks=0 ]	(	1	1	1	)
+p	[ 0	locks=0 ]	(	0	0	0	)
+pr	[ 0	locks=0 ]	(	0	0	0	)
+scale	[ 0	locks=0 ]	(	1	)
+pre_xform	[ 0	locks=0 ]	(	0	)
+keeppos	[ 0	locks=0 ]	(	"off"	)
+childcomp	[ 0	locks=0 ]	(	"off"	)
+constraints_on	[ 0	locks=0 ]	(	"off"	)
+constraints_path	[ 0	locks=0 ]	(	""	)
+lookatpath	[ 0	locks=0 ]	(	""	)
+lookupobjpath	[ 0	locks=0 ]	(	""	)
+lookup	[ 0	locks=0 ]	(	on	)
+pathobjpath	[ 0	locks=0 ]	(	""	)
+roll	[ 0	locks=0 ]	(	0	)
+pos	[ 0	locks=0 ]	(	0	)
+uparmtype	[ 0	locks=0 ]	(	"arc"	)
+pathorient	[ 0	locks=0 ]	(	1	)
+up	[ 0	locks=0 ]	(	0	1	0	)
+bank	[ 0	locks=0 ]	(	0	)
+shop_materialpath	[ 0	locks=0 ]	(	""	)
+shop_materialopts	[ 0	locks=0 ]	(	0	)
+tdisplay	[ 0	locks=0 ]	(	"off"	)
+display	[ 0	locks=0 ]	(	1	)
+use_dcolor	[ 0	locks=0 ]	(	"off"	)
+dcolor	[ 0	locks=0 ]	(	1	1	1	)
+picking	[ 0	locks=0 ]	(	"on"	)
+pickscript	[ 0	locks=0 ]	(	""	)
+caching	[ 0	locks=0 ]	(	"on"	)
+vport_shadeopen	[ 0	locks=0 ]	(	"off"	)
+vport_displayassubdiv	[ 0	locks=0 ]	(	"off"	)
+vport_onionskin	[ 0	locks=0 ]	(	"off"	)
+stdswitcher4	[ 0	locks=0 ]	(	1	1	1	)
+viewportlod	[ 0	locks=0 ]	(	"full"	)
+vm_rendervisibility	[ 0	locks=0 ]	(	*	)
+vm_rendersubd	[ 0	locks=0 ]	(	"off"	)
+vm_subdstyle	[ 0	locks=0 ]	(	mantra_catclark	)
+vm_subdgroup	[ 0	locks=0 ]	(	""	)
+folder0	[ 0	locks=0 ]	(	3	3	3	3	)
+categories	[ 0	locks=0 ]	(	""	)
+reflectmask	[ 0	locks=0 ]	(	*	)
+refractmask	[ 0	locks=0 ]	(	*	)
+lightmask	[ 0	locks=0 ]	(	*	)
+lightcategories	[ 0	locks=0 ]	(	*	)
+vm_volumefilter	[ 0	locks=0 ]	(	box	)
+vm_volumefilterwidth	[ 0	locks=0 ]	(	1	)
+vm_matte	[ 0	locks=0 ]	(	"off"	)
+vm_rayshade	[ 0	locks=0 ]	(	"off"	)
+geo_velocityblur	[ 0	locks=0 ]	(	"off"	)
+vm_shadingquality	[ 0	locks=0 ]	(	1	)
+vm_flatness	[ 0	locks=0 ]	(	0.050000000000000003	)
+vm_raypredice	[ 0	locks=0 ]	(	0	)
+vm_curvesurface	[ 0	locks=0 ]	(	"off"	)
+vm_rmbackface	[ 0	locks=0 ]	(	"off"	)
+shop_geometrypath	[ 0	locks=0 ]	(	""	)
+vm_forcegeometry	[ 0	locks=0 ]	(	"on"	)
+vm_rendersubdcurves	[ 0	locks=0 ]	(	"off"	)
+vm_renderpoints	[ 0	locks=0 ]	(	2	)
+vm_renderpointsas	[ 0	locks=0 ]	(	0	)
+vm_usenforpoints	[ 0	locks=0 ]	(	"off"	)
+vm_pointscale	[ 0	locks=0 ]	(	1	)
+vm_pscalediameter	[ 0	locks=0 ]	(	"off"	)
+vm_metavolume	[ 0	locks=0 ]	(	"off"	)
+vm_coving	[ 0	locks=0 ]	(	1	)
+vm_materialoverride	[ 0	locks=0 ]	(	compact	)
+vm_overridedetail	[ 0	locks=0 ]	(	"off"	)
+vm_procuseroottransform	[ 0	locks=0 ]	(	"on"	)
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/ropnet1/rop_games_baker/objnet/cage.userdata"
+Content-Type: text/plain
+
+{
+	"___Version___":{
+		"type":"string",
+		"value":"17.0.403"
+	}
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/ropnet1/rop_games_baker/objnet/cage/object_merge1.init"
+Content-Type: text/plain
+
+type = object_merge
+matchesdef = 0
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/ropnet1/rop_games_baker/objnet/cage/object_merge1.def"
+Content-Type: text/plain
+
+sopflags sopflags = 
+comment ""
+position -1.75666 1.64622
+connectornextid 1
+flags =  lock off model off template off footprint off xray off bypass off display on render on highlight off unload off savedata off compress on colordefault on exposed on
+outputsNamed3
+{
+0 "output1"
+}
+inputsNamed3
+{
+}
+inputs
+{
+}
+stat
+{
+  create 1496780594
+  modify 1539889424
+  author Luiz@Luiz-PC
+  access 0777
+}
+color UT_Color RGB 0.8 0.8 0.8 
+delscript ""
+exprlanguage hscript
+end
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/ropnet1/rop_games_baker/objnet/cage/object_merge1.parm"
+Content-Type: text/plain
+
+{
+version 0.8
+numobj	[ 0	locks=0 ]	(	1	)
+_separator	[ 0	locks=0 ]	(	)
+xformtype	[ 0	locks=0 ]	(	"none"	)
+xformpath	[ 0	locks=0 ]	(	""	)
+invertxform	[ 0	locks=0 ]	(	"off"	)
+createptgroups	[ 0	locks=0 ]	(	"off"	)
+ptgroupprefix	[ 0	locks=0 ]	(	_ptgrp_	)
+createprimgroups	[ 0	locks=0 ]	(	"off"	)
+primgroupprefix	[ 0	locks=0 ]	(	_primgrp_	)
+verbosegroups	[ 0	locks=0 ]	(	"off"	)
+suffixfirstgroup	[ 0	locks=0 ]	(	"on"	)
+createptstring	[ 0	locks=0 ]	(	"off"	)
+createprimstring	[ 0	locks=0 ]	(	"off"	)
+pathattrib	[ 0	locks=0 ]	(	objname	)
+pack	[ 0	locks=0 ]	(	"off"	)
+pivot	[ 0	locks=0 ]	(	"centroid"	)
+viewportlod	[ 0	locks=0 ]	(	"full"	)
+addpath	[ 0	locks=0 ]	(	"on"	)
+enable1	[ 0	locks=0 ]	(	"on"	)
+objpath1	[ 8	locks=0	autoscope=1 ]	(	`chsop(\"../../../vm_uvcageobject1\")`	)
+group1	[ 0	locks=0 ]	(	""	)
+expand1	[ 0	locks=0 ]	(	"off"	)
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/ropnet1/rop_games_baker/objnet/cage/object_merge1.userdata"
+Content-Type: text/plain
+
+{
+	"___Version___":{
+		"type":"string",
+		"value":"17.0.403"
+	}
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/ropnet1/rop_games_baker/objnet/cage/peak1.init"
+Content-Type: text/plain
+
+type = peak
+matchesdef = 0
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/ropnet1/rop_games_baker/objnet/cage/peak1.def"
+Content-Type: text/plain
+
+sopflags sopflags = 
+comment ""
+position -1.75541 0.446683
+connectornextid 1
+flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
+outputsNamed3
+{
+}
+inputsNamed3
+{
+0 	object_merge1 0 1 "input1"
+}
+inputs
+{
+0 	object_merge1 0 1
+}
+stat
+{
+  create 1536599966
+  modify 1536610542
+  author mikel@mikembp-sesi.local
+  access 0777
+}
+color UT_Color RGB 0.8 0.8 0.8 
+delscript ""
+exprlanguage hscript
+end
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/ropnet1/rop_games_baker/objnet/cage/peak1.parm"
+Content-Type: text/plain
+
+{
+version 0.8
+group	[ 0	locks=0 ]	(	""	)
+grouptype	[ 0	locks=0 ]	(	"guess"	)
+dist	[ 0	locks=0 ]	(	0.01	)
+updatenmls	[ 0	locks=0 ]	(	"on"	)
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/ropnet1/rop_games_baker/objnet/cage/peak1.userdata"
+Content-Type: text/plain
+
+{
+	"___Version___":{
+		"type":"string",
+		"value":"17.0.403"
+	}
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/ropnet1/rop_games_baker/objnet/cage.order"
+Content-Type: text/plain
+
+2
+object_merge1
+peak1
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/ropnet1/rop_games_baker/objnet/cage.net"
+Content-Type: text/plain
+
+1
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
 Content-Disposition: attachment; filename="hdaroot/ropnet1/rop_games_baker/objnet.order"
 Content-Type: text/plain
 
-5
+6
 low
 high
 cam1
 matnet
 custom_export
+cage
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
 Content-Disposition: attachment; filename="hdaroot/ropnet1/rop_games_baker/objnet.net"
@@ -9773,7 +10640,7 @@ inputs
 stat
 {
   create 1496776162
-  modify 1534435763
+  modify 1541456780
   author Luiz@Luiz-PC
   access 0777
 }
@@ -11300,19 +12167,25 @@ Content-Type: text/plain
       flags = 0
       segment { length = 0 value = 1 1 expr = ch(\"../bake_metallic\") }
     }
+    channel vm_bake_normalizep {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 value = 1 1 expr = 1-ch(\"../bake_P\") }
+    }
     channel vm_uvunwrapresx {
       lefttype = extend
       righttype = extend
-      default = 256
+      default = 1024
       flags = 0
-      segment { length = 0 value = 256 256 expr = ch(\"../vm_uvunwrapresx\") }
+      segment { length = 0 value = 1024 1024 expr = ch(\"../vm_uvunwrapresx\") }
     }
     channel vm_uvunwrapresy {
       lefttype = extend
       righttype = extend
-      default = 256
+      default = 1024
       flags = 0
-      segment { length = 0 value = 256 256 expr = ch(\"../vm_uvunwrapresy\") }
+      segment { length = 0 value = 1024 1024 expr = ch(\"../vm_uvunwrapresy\") }
     }
     channel uvresmenu {
       lefttype = extend
@@ -11402,19 +12275,19 @@ soho_initsim	[ 0	locks=0 ]	(	"off"	)
 soho_viewport_menu	[ 0	locks=0 ]	(	"off"	)
 vm_uvobjectenable1	[ 0	locks=0 ]	(	"on"	)
 vm_uvobject1	[ 0	locks=0 ]	(	"`opfullpath(\"..\") + \"/objnet/low\"`"	)
-vm_uvcageobject1	[ 8	locks=0 ]	(	`chsop(\"../vm_uvcageobject1\")`	)
+vm_uvcageobject1	[ 8	locks=0 ]	(	"`ifs(strcmp(chsop(\"../vm_uvcageobject1\"),\"\"),opfullpath(\"..\") + \"/objnet/cage\",\"\")`"	)
 vm_uvhires1	[ 0	locks=0 ]	(	"`opfullpath(\"..\") + \"/objnet/high\"`"	)
-vm_uvoutputpicture1	[ 0	locks=0 ]	(	C:/Users/MAINGEAR/render/LOW_tmp.exr	)
+vm_uvoutputpicture1	[ 0	locks=0 ]	(	"C:/Users/Paul Ambrosiussen/Desktop/Webinar/render/LOW_tmp_1.exr"	)
 images6	[ 0	locks=0 ]	(	0	0	0	0	0	)
 main3	[ 0	locks=0 ]	(	0	0	)
-vm_bake_normalizep	[ 8	locks=0 ]	(	"on"	)
+vm_bake_normalizep	[ 8	locks=0 ]	(	[ vm_bake_normalizep	1 ] 	)
 vm_extractimageplanes	[ 0	locks=0 ]	(	"off"	)
 vm_extractimageplanesformat	[ 0	locks=0 ]	(	Targa	)
 vm_quickplane_Nt	[ 8	locks=0 ]	(	[ vm_quickplane_Nt	1 ] 	)
 vm_quickplane_Ds	[ 8	locks=0 ]	(	[ vm_quickplane_Ds	0 ] 	)
 vm_quickplane_Vd	[ 0	locks=0 ]	(	"off"	)
 vm_quickplane_Vdt	[ 0	locks=0 ]	(	"off"	)
-vm_quickplane_Oc	[ 8	locks=0 ]	(	[ vm_quickplane_Oc	1 ] 	)
+vm_quickplane_Oc	[ 8	locks=0 ]	(	[ vm_quickplane_Oc	0 ] 	)
 vm_quickplane_Cv	[ 0	locks=0 ]	(	"off"	)
 vm_quickplane_Th	[ 8	locks=0 ]	(	[ vm_quickplane_Th	0 ] 	)
 vm_quickplane_Cu	[ 8	locks=0 ]	(	[ vm_quickplane_Cu	0 ] 	)
@@ -11425,8 +12298,8 @@ vm_quickplane_diffcolor	[ 0	locks=0 ]	(	"off"	)
 vm_quickplane_speccolor	[ 0	locks=0 ]	(	"off"	)
 vm_quickplane_emitcolor	[ 0	locks=0 ]	(	"off"	)
 vm_quickplane_ssscolor	[ 0	locks=0 ]	(	"off"	)
-vm_quickplane_metallic	[ 8	locks=0 ]	(	[ vm_quickplane_metallic	0 ] 	)
-vm_quickplane_specrough	[ 8	locks=0 ]	(	[ vm_quickplane_specrough	0 ] 	)
+vm_quickplane_metallic	[ 8	locks=0 ]	(	[ vm_quickplane_metallic	1 ] 	)
+vm_quickplane_specrough	[ 8	locks=0 ]	(	[ vm_quickplane_specrough	1 ] 	)
 vm_showextraplaneparms	[ 0	locks=0 ]	(	"off"	)
 vm_numaux	[ 0	locks=0 ]	(	1	)
 vm_disable_plane1	[ 0	locks=0 ]	(	"off"	)
@@ -11508,6 +12381,18 @@ Content-Type: text/plain
 	"___Version___":{
 		"type":"string",
 		"value":""
+	},
+	"sidefx::parm_filter_raw_value_pattern":{
+		"type":"string",
+		"value":"tmp"
+	},
+	"sidefx::parm_filter_text_pattern":{
+		"type":"string",
+		"value":"tmp"
+	},
+	"sidefx::parm_filter_visibility_option":{
+		"type":"string",
+		"value":"raw_value_or_expr"
 	}
 }
 
@@ -11555,7 +12440,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.207"
+		"value":"17.0.403"
 	}
 }
 
@@ -11587,7 +12472,7 @@ inputs
 stat
 {
   create 1496798847
-  modify 1532526866
+  modify 1541456782
   author Luiz@Luiz-PC
   access 0777
 }
@@ -11616,7 +12501,7 @@ Content-Type: text/plain
 {
 version 0.8
 stdswitcher	[ 0	locks=0 ]	(	0	0	0	0	)
-filename	[ 0	locks=0 ]	(	C:/Users/MAINGEAR/render\\tmp.exr	"cinspace lin cinlut \"\" cinwhite 685 cingamma 0.6"	)
+filename	[ 0	locks=0 ]	(	"C:/Users/Paul Ambrosiussen/Desktop/Webinar/render\\_tmp_1.exr"	"cinspace lin cinlut \"\" cinwhite 685 cingamma 0.6"	)
 nodename	[ 0	locks=0 ]	(	"userdef"	)
 reload	[ 0	locks=0 ]	(	0	)
 subframes	[ 0	locks=0 ]	(	"off"	)
@@ -11670,7 +12555,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.207"
+		"value":"17.0.403"
 	}
 }
 
@@ -11679,7 +12564,7 @@ Content-Disposition: attachment; filename="hdaroot/ropnet1/rop_games_baker/extra
 Content-Type: text/plain
 
 2
-717
+779
 0
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -11765,7 +12650,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.207"
+		"value":"17.0.403"
 	}
 }
 
@@ -11835,7 +12720,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.207"
+		"value":"17.0.403"
 	}
 }
 
@@ -11937,7 +12822,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.207"
+		"value":"17.0.403"
 	}
 }
 
@@ -12042,7 +12927,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.207"
+		"value":"17.0.403"
 	}
 }
 
@@ -12134,7 +13019,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.207"
+		"value":"17.0.403"
 	}
 }
 
@@ -12239,7 +13124,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.207"
+		"value":"17.0.403"
 	}
 }
 
@@ -12279,7 +13164,7 @@ inputs
 stat
 {
   create 1496952905
-  modify 1534435763
+  modify 1539889424
   author mikel@mikembp-sesi.local
   access 0777
 }
@@ -12347,7 +13232,7 @@ maskplane	[ 0	locks=0 ]	(	C	)
 maskresize	[ 0	locks=0 ]	(	"off"	)
 maskinvert	[ 0	locks=0 ]	(	"off"	)
 overridesize	[ 0	locks=0 ]	(	"on"	)
-size	[ 8	locks=0 ]	(	[ size1	256 ] 	[ size2	256 ] 	)
+size	[ 8	locks=0 ]	(	[ size1	512 ] 	[ size2	512 ] 	)
 sizemenu	[ 0	locks=0 ]	(	0	)
 overrideaspect	[ 0	locks=0 ]	(	"off"	)
 aspect	[ 0	locks=0 ]	(	[ aspect	1 ] 	)
@@ -12379,7 +13264,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.207"
+		"value":"17.0.403"
 	}
 }
 
@@ -12388,7 +13273,7 @@ Content-Disposition: attachment; filename="hdaroot/ropnet1/rop_games_baker/extra
 Content-Type: text/plain
 
 2
-14
+15
 0
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -12484,7 +13369,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.207"
+		"value":"17.0.403"
 	}
 }
 
@@ -12550,7 +13435,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.207"
+		"value":"17.0.403"
 	}
 }
 
@@ -12616,7 +13501,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.207"
+		"value":"17.0.403"
 	}
 }
 
@@ -12707,7 +13592,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.207"
+		"value":"17.0.403"
 	}
 }
 
@@ -12812,7 +13697,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.207"
+		"value":"17.0.403"
 	}
 }
 
@@ -12917,7 +13802,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.207"
+		"value":"17.0.403"
 	}
 }
 
@@ -13022,7 +13907,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.207"
+		"value":"17.0.403"
 	}
 }
 
@@ -13088,7 +13973,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.207"
+		"value":"17.0.403"
 	}
 }
 
@@ -13154,7 +14039,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.207"
+		"value":"17.0.403"
 	}
 }
 
@@ -13232,7 +14117,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.207"
+		"value":"17.0.403"
 	}
 }
 
@@ -13310,7 +14195,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.207"
+		"value":"17.0.403"
 	}
 }
 
@@ -13390,7 +14275,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.207"
+		"value":"17.0.403"
 	}
 }
 
@@ -13467,7 +14352,7 @@ inputs
 stat
 {
   create 1496798868
-  modify 1534435763
+  modify 1541456821
   author Luiz@Luiz-PC
   access 0777
 }
@@ -13492,13 +14377,13 @@ coppath	[ 0	locks=0 ]	(	../extract_net/base_image	)
 tres	[ 0	locks=0 ]	(	"natural"	)
 res	[ 0	locks=0 ]	(	512	512	)
 resmenu	[ 0	locks=0 ]	(	0	)
-copoutput	[ 0	locks=0 ]	(	C:/Users/MAINGEAR/render/untitled_ao.tga	)
+copoutput	[ 0	locks=0 ]	(	"C:/Users/Paul Ambrosiussen/Desktop/Webinar/render/LODTool_01_metallic.tga"	)
 mkpath	[ 0	locks=0 ]	(	"on"	)
-color	[ 0	locks=0 ]	(	Oc	)
+color	[ 0	locks=0 ]	(	metallic	)
 alpha	[ 0	locks=0 ]	(	A	)
 scopeplanes	[ 8	locks=0 ]	(	*	)
 convertcolorspace	[ 0	locks=0 ]	(	"off"	)
-gamma	[ 0	locks=0 ]	(	2.2000000000000002	)
+gamma	[ 0	locks=0 ]	(	1	)
 lut	[ 0	locks=0 ]	(	""	)
 framedepend	[ 0	locks=0 ]	(	"off"	)
 batchmode	[ 0	locks=0 ]	(	"off"	)
@@ -13561,7 +14446,15 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.207"
+		"value":"17.0.403"
+	},
+	"sidefx::parm_filter_raw_value_pattern":{
+		"type":"string",
+		"value":"tmp"
+	},
+	"sidefx::parm_filter_visibility_option":{
+		"type":"string",
+		"value":"raw_value_or_expr"
 	}
 }
 
@@ -13586,7 +14479,7 @@ inputs
 stat
 {
   create 1496776162
-  modify 1534435763
+  modify 1541201420
   author Luiz@Luiz-PC
   access 0777
 }
@@ -14997,16 +15890,16 @@ Content-Type: text/plain
     channel vm_uvunwrapresx {
       lefttype = extend
       righttype = extend
-      default = 256
+      default = 1024
       flags = 0
-      segment { length = 0 value = 256 256 expr = ch(\"../vm_uvunwrapresx\") }
+      segment { length = 0 value = 1024 1024 expr = ch(\"../vm_uvunwrapresx\") }
     }
     channel vm_uvunwrapresy {
       lefttype = extend
       righttype = extend
-      default = 256
+      default = 1024
       flags = 0
-      segment { length = 0 value = 256 256 expr = ch(\"../vm_uvunwrapresy\") }
+      segment { length = 0 value = 1024 1024 expr = ch(\"../vm_uvunwrapresy\") }
     }
     channel uvresmenu {
       lefttype = extend
@@ -15096,7 +15989,7 @@ soho_initsim	[ 0	locks=0 ]	(	"off"	)
 soho_viewport_menu	[ 0	locks=0 ]	(	"off"	)
 vm_uvobjectenable1	[ 0	locks=0 ]	(	"on"	)
 vm_uvobject1	[ 0	locks=0 ]	(	"`opfullpath(\"..\") + \"/objnet/low\"`"	)
-vm_uvcageobject1	[ 0	locks=0 ]	(	`chsop(\"../vm_uvcageobject1\")`	)
+vm_uvcageobject1	[ 0	locks=0 ]	(	"`ifs(strcmp(chsop(\"../vm_uvcageobject1\"),\"\"),opfullpath(\"..\") + \"/objnet/cage\",\"\")`"	)
 vm_uvhires1	[ 0	locks=0 ]	(	"`opfullpath(\"..\") + \"/objnet/custom_export\"`"	)
 vm_uvoutputpicture1	[ 0	locks=0 ]	(	""	)
 images6	[ 0	locks=0 ]	(	0	0	0	0	0	)
@@ -15135,7 +16028,7 @@ vm_quickplane_Th_channel	[ 0	locks=0 ]	(	Th	)
 vm_quickplane_Cu_channel	[ 0	locks=0 ]	(	Cu	)
 vm_quickplane_P_channel	[ 0	locks=0 ]	(	P	)
 vm_quickplane_N_channel	[ 0	locks=0 ]	(	N	)
-vm_bake_skipcf	[ 8	locks=0 ]	(	"on"	)
+vm_bake_skipcf	[ 0	locks=0 ]	(	"on"	)
 vm_bake_layerexport	[ 0	locks=0 ]	(	"on"	)
 vm_bake_samples	[ 8	locks=0 ]	(	[ vm_bake_samples	4 ] 	)
 vm_bake_usemikkt	[ 0	locks=0 ]	(	"on"	)
@@ -15169,7 +16062,7 @@ vm_transparentsamples	[ 0	locks=0 ]	(	4	)
 vm_samplelock	[ 0	locks=0 ]	(	"off"	)
 vm_randomseed	[ 0	locks=0 ]	(	0	)
 vm_imageblur	[ 0	locks=0 ]	(	"on"	)
-objects4	[ 0	locks=0 ]	(	2	2	2	)
+objects4	[ 0	locks=0 ]	(	1	1	1	)
 vm_extractlinearplanes	[ 0	locks=0 ]	(	`propertys('vm_quickplane_Nt_channel','Nt')`,`propertys('vm_quickplane_Ds_channel','Ds')`,`propertys('vm_quickplane_Vd_channel','Vd')`,`propertys('vm_quickplane_Vdt_channel','Vdt')`,`propertys('vm_quickplane_Cv_channel','Cv')`,`propertys('vm_quickplane_Th_channel','Th')`,`propertys('vm_quickplane_Cu_channel','Cu')`,`propertys('vm_quickplane_N_channel','N')`,`propertys('vm_quickplane_P_channel','P')`	)
 vm_inlinestorage	[ 0	locks=0 ]	(	"off"	)
 }
@@ -15182,6 +16075,14 @@ Content-Type: text/plain
 	"___Version___":{
 		"type":"string",
 		"value":""
+	},
+	"sidefx::parm_filter_raw_value_pattern":{
+		"type":"string",
+		"value":"tmp"
+	},
+	"sidefx::parm_filter_visibility_option":{
+		"type":"string",
+		"value":"raw_value_or_expr"
 	}
 }
 
@@ -15205,7 +16106,7 @@ inputs
 stat
 {
   create 1496798844
-  modify 1532526864
+  modify 1541456779
   author Luiz@Luiz-PC
   access 0777
 }
@@ -15229,7 +16130,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.207"
+		"value":"17.0.403"
 	}
 }
 
@@ -15260,7 +16161,7 @@ inputs
 stat
 {
   create 1496798868
-  modify 1534435763
+  modify 1541456785
   author Luiz@Luiz-PC
   access 0777
 }
@@ -15285,7 +16186,7 @@ coppath	[ 0	locks=0 ]	(	../composite_net	)
 tres	[ 0	locks=0 ]	(	"natural"	)
 res	[ 0	locks=0 ]	(	512	512	)
 resmenu	[ 0	locks=0 ]	(	0	)
-copoutput	[ 0	locks=0 ]	(	C:/Users/MAINGEAR/render\\tmp.exr	)
+copoutput	[ 0	locks=0 ]	(	"C:/Users/Paul Ambrosiussen/Desktop/Webinar/render\\_tmp_1.exr"	)
 mkpath	[ 0	locks=0 ]	(	"on"	)
 color	[ 0	locks=0 ]	(	Nt	)
 alpha	[ 0	locks=0 ]	(	A	)
@@ -15354,7 +16255,15 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.207"
+		"value":"17.0.403"
+	},
+	"sidefx::parm_filter_raw_value_pattern":{
+		"type":"string",
+		"value":"tmp"
+	},
+	"sidefx::parm_filter_visibility_option":{
+		"type":"string",
+		"value":"raw_value_or_expr"
 	}
 }
 
@@ -15379,7 +16288,7 @@ inputs
 stat
 {
   create 1496776162
-  modify 1534435763
+  modify 1541201423
   author Luiz@Luiz-PC
   access 0777
 }
@@ -16790,16 +17699,16 @@ Content-Type: text/plain
     channel vm_uvunwrapresx {
       lefttype = extend
       righttype = extend
-      default = 256
+      default = 1024
       flags = 0
-      segment { length = 0 value = 256 256 expr = ch(\"../vm_uvunwrapresx\") }
+      segment { length = 0 value = 1024 1024 expr = ch(\"../vm_uvunwrapresx\") }
     }
     channel vm_uvunwrapresy {
       lefttype = extend
       righttype = extend
-      default = 256
+      default = 1024
       flags = 0
-      segment { length = 0 value = 256 256 expr = ch(\"../vm_uvunwrapresy\") }
+      segment { length = 0 value = 1024 1024 expr = ch(\"../vm_uvunwrapresy\") }
     }
     channel uvresmenu {
       lefttype = extend
@@ -16889,10 +17798,10 @@ soho_initsim	[ 0	locks=0 ]	(	"off"	)
 soho_viewport_menu	[ 0	locks=0 ]	(	"off"	)
 vm_uvobjectenable1	[ 0	locks=0 ]	(	"on"	)
 vm_uvobject1	[ 0	locks=0 ]	(	"`opfullpath(\"..\") + \"/objnet/low\"`"	)
-vm_uvcageobject1	[ 0	locks=0 ]	(	`chsop(\"../vm_uvcageobject1\")`	)
+vm_uvcageobject1	[ 0	locks=0 ]	(	"`ifs(strcmp(chsop(\"../vm_uvcageobject1\"),\"\"),opfullpath(\"..\") + \"/objnet/cage\",\"\")`"	)
 vm_uvhires1	[ 0	locks=0 ]	(	"`opfullpath(\"..\") + \"/objnet/custom_export\"`"	)
-vm_uvoutputpicture1	[ 0	locks=0 ]	(	C:/Users/MAINGEAR/render\\LOW_tmp.exr	)
-images6	[ 0	locks=0 ]	(	2	2	2	2	2	)
+vm_uvoutputpicture1	[ 0	locks=0 ]	(	$HIP/render/${HIPNAME}_${OS}_%(CHANNEL)s.%(UDIM)d.rat	)
+images6	[ 0	locks=0 ]	(	1	1	1	1	1	)
 main3	[ 0	locks=0 ]	(	0	0	)
 vm_bake_normalizep	[ 0	locks=0 ]	(	"on"	)
 vm_extractimageplanes	[ 0	locks=0 ]	(	"off"	)
@@ -16946,9 +17855,9 @@ vm_quickplane_Th_channel	[ 0	locks=0 ]	(	Th	)
 vm_quickplane_Cu_channel	[ 0	locks=0 ]	(	Cu	)
 vm_quickplane_P_channel	[ 0	locks=0 ]	(	P	)
 vm_quickplane_N_channel	[ 0	locks=0 ]	(	N	)
-vm_bake_skipcf	[ 8	locks=0 ]	(	"on"	)
+vm_bake_skipcf	[ 0	locks=0 ]	(	"on"	)
 vm_bake_layerexport	[ 0	locks=0 ]	(	"on"	)
-vm_bake_samples	[ 8	locks=0 ]	(	[ vm_bake_samples	4 ] 	)
+vm_bake_samples	[ 8	locks=0 ]	(	[ vm_bake_samples	8 ] 	)
 vm_bake_usemikkt	[ 0	locks=0 ]	(	"on"	)
 vm_bake_tangentnormalflipx	[ 0	locks=0 ]	(	"off"	)
 vm_bake_tangentnormalflipy	[ 0	locks=0 ]	(	"off"	)
@@ -16980,7 +17889,7 @@ vm_transparentsamples	[ 0	locks=0 ]	(	4	)
 vm_samplelock	[ 0	locks=0 ]	(	"off"	)
 vm_randomseed	[ 0	locks=0 ]	(	0	)
 vm_imageblur	[ 0	locks=0 ]	(	"on"	)
-objects4	[ 0	locks=0 ]	(	2	2	2	)
+objects4	[ 0	locks=0 ]	(	1	1	1	)
 vm_extractlinearplanes	[ 0	locks=0 ]	(	`propertys('vm_quickplane_Nt_channel','Nt')`,`propertys('vm_quickplane_Ds_channel','Ds')`,`propertys('vm_quickplane_Vd_channel','Vd')`,`propertys('vm_quickplane_Vdt_channel','Vdt')`,`propertys('vm_quickplane_Cv_channel','Cv')`,`propertys('vm_quickplane_Th_channel','Th')`,`propertys('vm_quickplane_Cu_channel','Cu')`,`propertys('vm_quickplane_N_channel','N')`,`propertys('vm_quickplane_P_channel','P')`	)
 vm_inlinestorage	[ 0	locks=0 ]	(	"off"	)
 }
@@ -16993,6 +17902,14 @@ Content-Type: text/plain
 	"___Version___":{
 		"type":"string",
 		"value":""
+	},
+	"sidefx::parm_filter_raw_value_pattern":{
+		"type":"string",
+		"value":"tmp"
+	},
+	"sidefx::parm_filter_visibility_option":{
+		"type":"string",
+		"value":"raw_value_or_expr"
 	}
 }
 
@@ -17059,7 +17976,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.207"
+		"value":"17.0.403"
 	}
 }
 
@@ -17119,7 +18036,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.207"
+		"value":"17.0.403"
 	}
 }
 
@@ -17230,7 +18147,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.207"
+		"value":"17.0.403"
 	}
 }
 
@@ -17305,7 +18222,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.207"
+		"value":"17.0.403"
 	}
 }
 
@@ -17366,7 +18283,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.207"
+		"value":"17.0.403"
 	}
 }
 
@@ -17427,7 +18344,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.207"
+		"value":"17.0.403"
 	}
 }
 
@@ -17502,7 +18419,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.207"
+		"value":"17.0.403"
 	}
 }
 
@@ -17570,7 +18487,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.207"
+		"value":"17.0.403"
 	}
 }
 
@@ -17631,7 +18548,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.207"
+		"value":"17.0.403"
 	}
 }
 
@@ -17690,7 +18607,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.207"
+		"value":"17.0.403"
 	}
 }
 
@@ -17774,7 +18691,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.207"
+		"value":"17.0.403"
 	}
 }
 
@@ -17868,7 +18785,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.207"
+		"value":"17.0.403"
 	}
 }
 

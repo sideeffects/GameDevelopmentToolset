@@ -42,16 +42,16 @@
 
         parm {
             name    "slices"
-            label   "Slices"
+            label   "Slices (res^3)"
             type    integer
-            default { "16" }
+            default { "64" }
             range   { 0 10 }
         }
         parm {
             name    "images_per_line"
             label   "Images Per Line"
             type    integer
-            default { "4" }
+            default { "8" }
             range   { 0 10 }
         }
         parm {
@@ -70,14 +70,16 @@
             type    button
             default { "256 256" }
             menumini {
-                "256 256"   "256 x 256"
-                "512 512"   "512 x 512"
-                "1024 1024" "1024 x 1024"
-                "2048 2048" "2048 x 2048"
-                "4096 4096" "4096 x 4096"
+                "1024 32 32 32"     "1024 x 32"
+                "512 512 64 8"      "512 x 512"
+                "1000 1000 100 10"  "1000 x 1000"
+                "2048 1024 128 16"  "2048 x 1024"
+                "2744 2744 196 14"  "2744 x 2744"
+                "4096 4096 256 16"  "4096 x 4096"
+                "5832 5832 324 18"  "5832 x 5832"
             }
             parmtag { "autoscope" "0000000000000000" }
-            parmtag { "script_callback" "opparm . vm_uvunwrapres (`arg(\"$script_value\", 0)` `arg(\"$script_value\", 1)`" }
+            parmtag { "script_callback" "opparm . vm_uvunwrapres (`arg(\"$script_value\", 0)` `arg(\"$script_value\", 1)`; opparm . images_per_line `arg(\"$script_value\", 3)`; opparm . slices `arg(\"$script_value\", 2)`" }
         }
     }
 

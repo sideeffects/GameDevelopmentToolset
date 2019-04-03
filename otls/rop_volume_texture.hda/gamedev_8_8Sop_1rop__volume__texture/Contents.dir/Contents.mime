@@ -32,25 +32,25 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position -1.09113 -2.46527
+position -1.79675 -0.878992
 connectornextid 1
-flags =  lock off model off template on footprint off xray off bypass off display on render on highlight off unload off savedata off compress on colordefault on exposed on
+flags =  lock off model off template off footprint off xray off bypass off display on render on highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
 {
 }
 inputsNamed3
 {
-0 	vdbfrompolygons1 1 1 "input1"
+0 	volumewrangle1 1 1 "input1"
 }
 inputs
 {
-0 	vdbfrompolygons1 0 1
+0 	volumewrangle1 0 1
 }
 stat
 {
-  create 1544207743
-  modify 1544208084
-  author Paul_Ambrosiussen@LAPTOP-P8R7FBPF
+  create 1554253875
+  modify 1554256886
+  author mikel@mikembp-sesi
   access 0777
 }
 color UT_Color RGB 0.8 0.8 0.8 
@@ -95,7 +95,7 @@ Content-Type: text/plain
 }
 {
   create 1510877625
-  modify 1544207747
+  modify 1554253879
   author GDC_Houdini@AUSTIN
   access 0777
 }
@@ -118,7 +118,7 @@ Content-Type: text/plain
 }
 {
   create 1510877652
-  modify 1544207743
+  modify 1554253875
   author GDC_Houdini@AUSTIN
   access 0777
 }
@@ -213,7 +213,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.403"
+		"value":"17.5.173"
 	}
 }
 
@@ -249,7 +249,7 @@ inputs
 stat
 {
   create 1510873462
-  modify 1544208083
+  modify 1554256864
   author GDC_Houdini@AUSTIN
   access 0777
 }
@@ -496,7 +496,7 @@ Content-Type: text/plain
       righttype = extend
       default = 1024
       flags = 0
-      segment { length = 0 value = 1024 1024 expr = "ch(\"../../vm_uvunwrapresx\") / (ch(\"../../slices\") / ch(\"../../images_per_line\"))" }
+      segment { length = 0 value = 1024 1024 expr = "ch(\"../../vm_uvunwrapresx\") / ch(\"../../images_per_line\")" }
     }
     channel size2 {
       lefttype = extend
@@ -529,19 +529,19 @@ Content-Type: text/plain
       flags = 0
       segment { length = 0 expr = $CWP }
     }
-    channel MAXFRAMES {
-      lefttype = extend
-      righttype = extend
-      default = 16
-      flags = 0
-      segment { length = 0 value = 16 16 expr = ch(\"../../slices\") }
-    }
     channel length {
       lefttype = extend
       righttype = extend
       default = 240
       flags = 0
       segment { length = 0 value = 240 240 expr = ch(\"MAXFRAMES\") }
+    }
+    channel MAXFRAMES {
+      lefttype = extend
+      righttype = extend
+      default = 16
+      flags = 0
+      segment { length = 0 value = 16 16 expr = ch(\"../../slices\") }
     }
   }
 
@@ -559,7 +559,7 @@ maskplane	[ 0	locks=0 ]	(	C	)
 maskresize	[ 0	locks=0 ]	(	"on"	)
 maskinvert	[ 0	locks=0 ]	(	"on"	)
 overridesize	[ 0	locks=0 ]	(	"on"	)
-size	[ 8	locks=0 ]	(	[ size1	16 ] 	[ size2	16 ] 	)
+size	[ 8	locks=0 ]	(	[ size1	64 ] 	[ size2	64 ] 	)
 sizemenu	[ 0	locks=0 ]	(	0	)
 overrideaspect	[ 0	locks=0 ]	(	"off"	)
 aspect	[ 0	locks=0 ]	(	[ aspect	1 ] 	)
@@ -577,13 +577,13 @@ idominance	[ 0	locks=0 ]	(	"odd"	)
 overriderange	[ 0	locks=0 ]	(	"on"	)
 singleimage	[ 0	locks=0 ]	(	"off"	)
 start	[ 0	locks=0 ]	(	1	)
-length	[ 0	locks=0 ]	(	[ length	256 ] 	)
+length	[ 0	locks=0 ]	(	[ length	64 ] 	)
 preextend	[ 0	locks=0 ]	(	"black"	)
 prehold	[ 0	locks=0 ]	(	0	)
 postextend	[ 0	locks=0 ]	(	"black"	)
 posthold	[ 0	locks=0 ]	(	0	)
-stdswitcher5	[ 0	locks=0 ]	(	3	3	3	3	)
-MAXFRAMES	[ 8	locks=0 ]	(	[ MAXFRAMES	256 ] 	)
+stdswitcher5	[ 0	locks=0 ]	(	2	2	2	2	)
+MAXFRAMES	[ 0	locks=0 ]	(	[ MAXFRAMES	64 ] 	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -593,7 +593,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.403"
+		"value":"17.5.173"
 	}
 }
 
@@ -602,7 +602,7 @@ Content-Disposition: attachment; filename="hdaroot/cop2net1/GEN-Z_UP.cop2"
 Content-Type: text/plain
 
 2
-120
+131
 0
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -688,7 +688,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.403"
+		"value":"17.5.173"
 	}
 }
 
@@ -725,7 +725,7 @@ inputs
 stat
 {
   create 1510873462
-  modify 1544208084
+  modify 1554256865
   author GDC_Houdini@AUSTIN
   access 0777
 }
@@ -752,7 +752,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.403"
+		"value":"17.5.173"
 	}
 }
 
@@ -1135,7 +1135,7 @@ inputs
 stat
 {
   create 1510873551
-  modify 1544208083
+  modify 1554256864
   author GDC_Houdini@AUSTIN
   access 0777
 }
@@ -1293,7 +1293,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.403"
+		"value":"17.5.173"
 	}
 }
 
@@ -1331,7 +1331,7 @@ inputs
 stat
 {
   create 1510873477
-  modify 1544208083
+  modify 1554256864
   author GDC_Houdini@AUSTIN
   access 0777
 }
@@ -1399,7 +1399,7 @@ inputs
 stat
 {
   create 1510876227
-  modify 1544208083
+  modify 1554256864
   author GDC_Houdini@AUSTIN
   access 0777
 }
@@ -1438,7 +1438,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.403"
+		"value":"17.5.173"
 	}
 }
 
@@ -1597,7 +1597,7 @@ inputs
 stat
 {
   create 1510876299
-  modify 1544208083
+  modify 1554256864
   author GDC_Houdini@AUSTIN
   access 0777
 }
@@ -1656,7 +1656,7 @@ inputs
 stat
 {
   create 1510879497
-  modify 1544208083
+  modify 1554256864
   author GDC_Houdini@AUSTIN
   access 0777
 }
@@ -1727,7 +1727,7 @@ inputs
 stat
 {
   create 1542320164
-  modify 1544208085
+  modify 1554256866
   author Paul_Ambrosiussen@LAPTOP-P8R7FBPF
   access 0777
 }
@@ -1755,7 +1755,7 @@ Content-Type: text/plain
 
 {
 version 0.8
-switcher	[ 8	locks=0 ]	(	[ switcher	0 ] 	)
+switcher	[ 8	locks=0 ]	(	[ switcher	1 ] 	)
 outofbounds	[ 0	locks=0 ]	(	"last"	)
 }
 
@@ -1766,7 +1766,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.403"
+		"value":"17.5.173"
 	}
 }
 
@@ -1804,7 +1804,7 @@ inputs
 stat
 {
   create 1542320182
-  modify 1544208083
+  modify 1554256864
   author Paul_Ambrosiussen@LAPTOP-P8R7FBPF
   access 0777
 }
@@ -1982,7 +1982,7 @@ inputs
 stat
 {
   create 1494882769
-  modify 1510942408
+  modify 1554255138
   author mike@mikembp.local
   access 0777
 }
@@ -2008,7 +2008,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.403"
+		"value":"17.5.173"
 	}
 }
 
@@ -2043,7 +2043,7 @@ inputs
 stat
 {
   create 1494885734
-  modify 1510942175
+  modify 1554255142
   author mike@mikembp.local
   access 0777
 }
@@ -2101,7 +2101,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.403"
+		"value":"17.5.173"
 	}
 }
 
@@ -2144,9 +2144,9 @@ Content-Disposition: attachment; filename="hdaroot/cop2net1/mosaic1.def"
 Content-Type: text/plain
 
 comment ""
-position -4.78939 1.15058
+position -4.80023 0.0662414
 connectornextid 2
-flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
+flags =  lock off model off template off footprint off xray off bypass off display on render off highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
 {
 1 "output1"
@@ -2162,7 +2162,7 @@ inputs
 stat
 {
   create 1510874573
-  modify 1542309941
+  modify 1554255589
   author GDC_Houdini@AUSTIN
   access 0777
 }
@@ -2199,12 +2199,12 @@ Content-Type: text/plain
 {
 version 0.8
 stdswitcher	[ 0	locks=0 ]	(	0	)
-numperline	[ 8	locks=0 ]	(	[ numperline	16 ] 	)
+numperline	[ 0	locks=0 ]	(	[ numperline	8 ] 	)
 stackvert	[ 0	locks=0 ]	(	"ttob"	)
 stackhorz	[ 0	locks=0 ]	(	"ltor"	)
 stackrows	[ 0	locks=0 ]	(	"on"	)
 limitperframe	[ 0	locks=0 ]	(	"on"	)
-imagelimit	[ 0	locks=0 ]	(	[ imagelimit	256 ] 	)
+imagelimit	[ 0	locks=0 ]	(	[ imagelimit	64 ] 	)
 fullsize	[ 0	locks=0 ]	(	"on"	)
 backcolor	[ 0	locks=0 ]	(	0	0	0	0	)
 }
@@ -2216,7 +2216,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.403"
+		"value":"17.5.173"
 	}
 }
 
@@ -2240,7 +2240,7 @@ Content-Disposition: attachment; filename="hdaroot/cop2net1/rop_comp1.def"
 Content-Type: text/plain
 
 comment ""
-position -4.78939 -1.14982
+position -4.80023 -2.23416
 connectornextid 1
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
@@ -2257,7 +2257,7 @@ inputs
 stat
 {
   create 1510874581
-  modify 1510942615
+  modify 1554255461
   author GDC_Houdini@AUSTIN
   access 0777
 }
@@ -2293,7 +2293,7 @@ take	[ 0	locks=0 ]	(	_current_	)
 copswitcher	[ 0	locks=0 ]	(	0	0	0	0	0	)
 coppath	[ 0	locks=0 ]	(	../../cop2net1/equalize1	)
 tres	[ 0	locks=0 ]	(	"natural"	)
-res	[ 0	locks=0 ]	(	512	512	)
+res	[ 0	locks=0 ]	(	1024	32	)
 resmenu	[ 0	locks=0 ]	(	0	)
 copoutput	[ 0	locks=0 ]	(	`chs(\"../../output_picture\")`	)
 mkpath	[ 0	locks=0 ]	(	"on"	)
@@ -2308,7 +2308,7 @@ batchmode	[ 0	locks=0 ]	(	"off"	)
 batchsize	[ 0	locks=0 ]	(	2	)
 reloadfiles	[ 0	locks=0 ]	(	"on"	)
 outputarea	[ 0	locks=0 ]	(	"frame"	)
-pixelcrop	[ 0	locks=0 ]	(	0	0	511	511	)
+pixelcrop	[ 0	locks=0 ]	(	0	0	1023	31	)
 uvcrop	[ 0	locks=0 ]	(	0	0	1	1	)
 limitcanvaspixels	[ 0	locks=0 ]	(	"on"	)
 canvaspixels	[ 0	locks=0 ]	(	64	)
@@ -2364,7 +2364,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.403"
+		"value":"17.5.173"
 	}
 }
 
@@ -2380,9 +2380,9 @@ Content-Disposition: attachment; filename="hdaroot/cop2net1/equalize1.def"
 Content-Type: text/plain
 
 comment ""
-position -4.78939 0.000180018
+position -4.80023 -1.08416
 connectornextid 2
-flags =  lock off model off template off footprint off xray off bypass off display on render on highlight off unload off savedata off compress on colordefault on exposed on
+flags =  lock off model off template off footprint off xray off bypass off display off render on highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
 {
 1 "output1"
@@ -2398,7 +2398,7 @@ inputs
 stat
 {
   create 1510879461
-  modify 1510942392
+  modify 1554255512
   author GDC_Houdini@AUSTIN
   access 0777
 }
@@ -2448,7 +2448,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.403"
+		"value":"17.5.173"
 	}
 }
 
@@ -2488,7 +2488,7 @@ inputs
 stat
 {
   create 1510942236
-  modify 1510942441
+  modify 1554255170
   author GDC_Houdini@AUSTIN
   access 0777
 }
@@ -2602,7 +2602,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.403"
+		"value":"17.5.173"
 	}
 }
 
@@ -2694,7 +2694,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.403"
+		"value":"17.5.173"
 	}
 }
 
@@ -2778,7 +2778,7 @@ xOrd	[ 0	locks=0 ]	(	"srt"	)
 rOrd	[ 0	locks=0 ]	(	"xyz"	)
 t	[ 0	locks=0 ]	(	0	0	0	)
 r	[ 0	locks=0 ]	(	0	0	0	)
-s	[ 8	locks=0 ]	(	[ sx	0.44247787797336191 ] 	[ sy	0.44247787797336191 ] 	[ sz	0.44247787797336191 ] 	)
+s	[ 8	locks=0 ]	(	[ sx	0.4950495096249109 ] 	[ sy	0.4950495096249109 ] 	[ sz	0.4950495096249109 ] 	)
 shear	[ 0	locks=0 ]	(	0	0	0	)
 scale	[ 0	locks=0 ]	(	1	)
 parmgroup_pivotxform	[ 0	locks=0 ]	(	0	)
@@ -2815,7 +2815,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.403"
+		"value":"17.5.173"
 	}
 }
 
@@ -2850,7 +2850,7 @@ inputs
 stat
 {
   create 1510874672
-  modify 1510942175
+  modify 1554255468
   author GDC_Houdini@AUSTIN
   access 0777
 }
@@ -2875,7 +2875,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.403"
+		"value":"17.5.173"
 	}
 }
 
@@ -2910,7 +2910,7 @@ inputs
 stat
 {
   create 1510876822
-  modify 1510942399
+  modify 1554255468
   author GDC_Houdini@AUSTIN
   access 0777
 }
@@ -2956,7 +2956,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.403"
+		"value":"17.5.173"
 	}
 }
 
@@ -3031,7 +3031,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.403"
+		"value":"17.5.173"
 	}
 }
 

@@ -186,6 +186,7 @@ class FractureExporter(object):
             name = export_object.name
 
             geo_node = self.transform_node.createNode('geo', node_name=name, run_init_scripts=False)
+            geo_node.setExpressionLanguage(hou.exprLanguage.Hscript)
             geo_node.parm('px').setExpression('-centroid("./timeshift1/", D_X)')
             geo_node.parm('py').setExpression('-centroid("./timeshift1/", D_Y)')
             geo_node.parm('pz').setExpression('-centroid("./timeshift1/", D_Z)')
@@ -214,6 +215,7 @@ class FractureExporter(object):
 
             transformNode = geo_node.createNode('xform', run_init_scripts=False)
 
+            transformNode.setExpressionLanguage(hou.exprLanguage.Hscript)
             transformNode.parm('tx').setExpression('-$CEX')
             transformNode.parm('ty').setExpression('-$CEY')
             transformNode.parm('tz').setExpression('-$CEZ')
@@ -228,6 +230,7 @@ class FractureExporter(object):
             transformNode.moveToGoodPosition()
 
             deleteNode = geo_node.createNode('delete', run_init_scripts=False)
+            deleteNode.setExpressionLanguage(hou.exprLanguage.Hscript)
             deleteNode.parm('group').setExpression('chs("../../../../../group")')
             deleteNode.parm('negate').set(1)
 
@@ -235,6 +238,7 @@ class FractureExporter(object):
             deleteNode.moveToGoodPosition()
 
             switchNode = geo_node.createNode('switch', run_init_scripts=False)
+            switchNode.setExpressionLanguage(hou.exprLanguage.Hscript)
             switchNode.parm('input').setExpression('strlen(chs("../../../../../group")) == 0')
 
             switchNode.setNextInput(deleteNode)

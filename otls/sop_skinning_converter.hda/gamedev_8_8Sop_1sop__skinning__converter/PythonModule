@@ -34,10 +34,9 @@ def GenerateSkeletonAndBake(a_Container, a_Subnet, a_RootBone, a_StartFrame, a_E
                         hou.setFrame(F)
                         AnimGeometry = hou.node(a_Container.path()+"/OUT_ANIMATEDPOINTS").geometry().points()
                         for i, Bone in enumerate(BoneList):
-                                xform = hou.Matrix4(AnimGeometry[i].attribValue("xform"))
-                                Translate = xform.extractTranslates()
-                                Rotation = xform.extractRotates()
-                                
+                                Translate = AnimGeometry[i].attribValue("P")
+                                RotationX = hou.Quaternion(AnimGeometry[i].attribValue("orient"))
+                                Rotation = RotationX.extractEulerRotates()
                                 for i, parm in enumerate(['tx', 'ty', 'tz']):
                                         SetKeyFrame(Bone.parm(parm), F, Translate[i])
                                 for i, parm in enumerate(['rx', 'ry', 'rz']):

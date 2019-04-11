@@ -55,5 +55,7 @@ def log(cmd, cache, folder, node):
         
     
 def cookNode(node):
+    node.node("Atrribute_Creation").cook(force=True)
+    node.node("error1").cook(force=True)
     node.node("File_Setup").cook(force=True)
     node.node("01_Camera_Init").cook(force=True)

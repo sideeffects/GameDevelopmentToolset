@@ -1,0 +1,2794 @@
+MIME-Version: 1.0
+Content-Type: multipart/mixed; boundary="HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY"
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename=".OPfallbacks"
+Content-Type: application/external-reference
+
+.OPfallbacks
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename=".OPdummydefs"
+Content-Type: application/external-reference
+
+.OPdummydefs
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="node_type"
+Content-Type: text/plain
+
+Sop
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot.init"
+Content-Type: text/plain
+
+type = gamedev::sop_av_analyze_images::2.0
+matchesdef = 0
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot.def"
+Content-Type: text/plain
+
+sopflags sopflags = 
+comment ""
+position -1.94505 -0.715807
+connectornextid 2
+flags =  lock off model off template on footprint off xray off bypass off display on render on highlight off unload off savedata off compress on colordefault on exposed on
+outputsNamed3
+{
+1 "output1"
+}
+inputsNamed3
+{
+0 	sop_av_initialize1 0 1 "input1"
+}
+inputs
+{
+0 	sop_av_initialize1 0 1
+}
+stat
+{
+  create 1554851125
+  modify 1554916730
+  author prisms@Threadripper1
+  access 0777
+}
+color UT_Color RGB 0.8 0.8 0.8 
+delscript ""
+exprlanguage hscript
+end
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot.userdata"
+Content-Type: text/plain
+
+{
+	"___Version___":{
+		"type":"string",
+		"value":""
+	}
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot.inp"
+Content-Type: text/plain
+
+1
+0 2.3078500204890968 6.742668872499201 2 0 __NO_OWNER_NETWORK_BOX__ "FROMOUTPUT"
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/02_Feature_Extraction.init"
+Content-Type: text/plain
+
+type = python
+matchesdef = 0
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/02_Feature_Extraction.def"
+Content-Type: text/plain
+
+sopflags sopflags = 
+comment ""
+position 0 5.2176
+connectornextid 2
+flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
+outputsNamed3
+{
+1 "output1"
+}
+inputsNamed3
+{
+0 	(0) "" 1 "input1"
+}
+inputs
+{
+0 	(0) 0 1
+}
+stat
+{
+  create 1546634656
+  modify 1554916732
+  author prisms@NEWPORT
+  access 0777
+}
+color UT_Color RGB 0.8 0.8 0.8 
+delscript ""
+exprlanguage hscript
+end
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/02_Feature_Extraction.parm"
+Content-Type: text/plain
+
+{
+version 0.8
+python	[ 0	locks=0 ]	(	"import hou, subprocess, os, shutil, gamedevutils
+
+node = hou.pwd()
+geo = node.geometry()
+
+bin = geo.attribValue(\"bin\")
+cache = geo.attribValue(\"cache\")
+srcimg = geo.attribValue(\"src_img\")
+
+gamedevutils.empty_directory_recursive(os.path.join(cache, \"02_FeatureExtraction\"))
+
+func = \"aliceVision_featureExtraction\"
+
+cmd = os.path.join(bin,func)  
+cmd = [cmd]
+
+cmd.append(\"--input\")
+cmd.append(os.path.join(cache, \"01_CameraInit\",\"cameraInit.sfm\"))
+
+cmd.append(\"--describerTypes\")
+cmd.append(node.parent().parm(\"dsc_type\").evalAsString().replace(\" \", \",\"))
+
+cmd.append(\"--describerPreset\")
+cmd.append(node.parent().parm(\"dsc_pre\").evalAsString())
+
+cmd.append(\"--forceCpuExtraction\")
+cmd.append(\"%s\" % node.parent().parm(\"cpu\").evalAsInt())
+
+cmd.append(\"--verboseLevel\")
+cmd.append(\"info\")
+
+cmd.append(\"--output\")
+cmd.append(os.path.join(cache, \"02_FeatureExtraction\"))
+
+cmd.append(\"--rangeStart\")
+cmd.append(\"0\")
+
+cmd.append(\"--rangeSize\")
+cmd.append(str(len(os.listdir(srcimg))))
+
+hou.pwd().parent().hdaModule().log(cmd, cache, \"02_FeatureExtraction\", node)"	)
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/02_Feature_Extraction.userdata"
+Content-Type: text/plain
+
+{
+	"___Version___":{
+		"type":"string",
+		"value":"17.5.219"
+	}
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/03_Image_Matching.init"
+Content-Type: text/plain
+
+type = python
+matchesdef = 0
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/03_Image_Matching.def"
+Content-Type: text/plain
+
+sopflags sopflags = 
+comment ""
+position 0 4.2176
+connectornextid 2
+flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
+outputsNamed3
+{
+1 "output1"
+}
+inputsNamed3
+{
+0 	02_Feature_Extraction 1 1 "input1"
+}
+inputs
+{
+0 	02_Feature_Extraction 0 1
+}
+stat
+{
+  create 1546639690
+  modify 1554916741
+  author prisms@NEWPORT
+  access 0777
+}
+color UT_Color RGB 0.8 0.8 0.8 
+delscript ""
+exprlanguage hscript
+end
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/03_Image_Matching.parm"
+Content-Type: text/plain
+
+{
+version 0.8
+python	[ 0	locks=0 ]	(	"import hou, subprocess, os, shutil, gamedevutils
+
+node = hou.pwd()
+geo = node.geometry()
+
+bin = geo.attribValue(\"bin\")
+cache = geo.attribValue(\"cache\")
+share = geo.attribValue(\"share\")
+
+gamedevutils.empty_directory_recursive(os.path.join(cache, \"03_ImageMatching\"))
+
+func = \"aliceVision_imageMatching\"
+
+cmd = os.path.join(bin, func) 
+cmd = [cmd]
+
+cmd.append(\"--input\")
+cmd.append(os.path.join(cache, \"01_CameraInit\", \"cameraInit.sfm\"))
+
+cmd.append(\"--featuresFolders\")
+cmd.append(os.path.join(cache, \"02_FeatureExtraction\"))
+
+cmd.append(\"--tree\")
+cmd.append(os.path.join(share, \"aliceVision\", \"vlfeat_K80L3.SIFT.tree\"))
+
+cmd.append(\"--minNbImages\")
+cmd.append(\"%s\" % node.parent().parm(\"minNImg\").evalAsInt())
+
+cmd.append(\"--maxDescriptors\")
+cmd.append(\"%s\" % node.parent().parm(\"max_desc\").evalAsInt())
+
+cmd.append(\"--nbMatches\")
+cmd.append(\"%s\" % node.parent().parm(\"nMatch\").evalAsInt())
+
+cmd.append(\"--verboseLevel\")
+cmd.append(\"info\")
+
+cmd.append(\"--weights\")
+cmd.append(\"\")
+
+cmd.append(\"--output\")
+cmd.append(os.path.join(cache, \"03_ImageMatching\", \"imageMatches.txt\"))
+
+hou.pwd().parent().hdaModule().log(cmd, cache, \"03_ImageMatching\", node)"	)
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/03_Image_Matching.userdata"
+Content-Type: text/plain
+
+{
+	"___Version___":{
+		"type":"string",
+		"value":"17.5.219"
+	}
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/04_Feature_Matching.init"
+Content-Type: text/plain
+
+type = python
+matchesdef = 0
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/04_Feature_Matching.def"
+Content-Type: text/plain
+
+sopflags sopflags = 
+comment ""
+position 5.55112e-17 3.2176
+connectornextid 2
+flags =  lock off model off template on footprint off xray off bypass off display on render on highlight off unload off savedata off compress on colordefault on exposed on
+outputsNamed3
+{
+1 "output1"
+}
+inputsNamed3
+{
+0 	03_Image_Matching 1 1 "input1"
+}
+inputs
+{
+0 	03_Image_Matching 0 1
+}
+stat
+{
+  create 1546648278
+  modify 1554916759
+  author prisms@NEWPORT
+  access 0777
+}
+color UT_Color RGB 0.8 0.8 0.8 
+delscript ""
+exprlanguage hscript
+end
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/04_Feature_Matching.parm"
+Content-Type: text/plain
+
+{
+version 0.8
+python	[ 0	locks=0 ]	(	"import hou, subprocess, os, shutil, gamedevutils
+
+node = hou.pwd()
+geo = node.geometry()
+
+bin = geo.attribValue(\"bin\")
+cache = geo.attribValue(\"cache\")
+srcimg = geo.attribValue(\"src_img\")
+
+gamedevutils.empty_directory_recursive(os.path.join(cache, \"04_FeatureMatching\"))
+
+func = \"aliceVision_featureMatching\"
+
+cmd = os.path.join(bin, func) 
+cmd = [cmd]
+
+cmd.append(\"--input\")
+cmd.append(os.path.join(cache, \"01_CameraInit\", \"cameraInit.sfm\"))
+
+cmd.append(\"--featuresFolders\")
+cmd.append(os.path.join(cache, \"02_FeatureExtraction\"))
+
+cmd.append(\"--imagePairsList\")
+cmd.append(os.path.join(cache, \"03_ImageMatching\", \"imageMatches.txt\"))
+
+cmd.append(\"--describerTypes\")
+cmd.append(node.parent().parm(\"dsc_type2\").evalAsString().replace(\" \", \",\"))
+
+cmd.append(\"--photometricMatchingMethod\")
+cmd.append(node.parent().parm(\"photo\").evalAsString())
+
+cmd.append(\"--geometricEstimator\")
+cmd.append(node.parent().parm(\"geoEst\").evalAsString())
+
+cmd.append(\"--geometricFilterType\")
+cmd.append(node.parent().parm(\"geoFilter\").evalAsString())
+
+cmd.append(\"--distanceRatio\")
+cmd.append(\"%s\" % node.parent().parm(\"dist\").evalAsFloat())
+
+cmd.append(\"--maxIteration\")
+cmd.append(\"%s\" % node.parent().parm(\"maxIter\").evalAsInt())
+
+cmd.append(\"--geometricError\")
+cmd.append(\"%s\" % node.parent().parm(\"geometricError\").evalAsInt())
+
+cmd.append(\"--maxMatches\")
+cmd.append(\"%s\" % node.parent().parm(\"maxMatch\").evalAsInt())
+
+cmd.append(\"--savePutativeMatches\")
+cmd.append(\"%s\" % node.parent().parm(\"savePut\").evalAsInt())
+
+cmd.append(\"--guidedMatching\")
+cmd.append(\"%s\" % node.parent().parm(\"guide\").evalAsInt())
+
+cmd.append(\"--exportDebugFiles\")
+cmd.append(\"%s\" % node.parent().parm(\"expDebug\").evalAsInt())
+
+cmd.append(\"--verboseLevel\")
+cmd.append(\"info\")
+
+cmd.append(\"--output\")
+cmd.append(os.path.join(cache, \"04_FeatureMatching\"))
+
+cmd.append(\"--rangeStart\") 
+cmd.append(\"0\")
+
+cmd.append(\"--rangeSize\")
+cmd.append(str(len(os.listdir(srcimg))))
+
+hou.pwd().parent().hdaModule().log(cmd, cache, \"04_FeatureMatching\", node)"	)
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/04_Feature_Matching.userdata"
+Content-Type: text/plain
+
+{
+	"___Version___":{
+		"type":"string",
+		"value":"17.5.219"
+	}
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/switch1.init"
+Content-Type: text/plain
+
+type = switch
+matchesdef = 0
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/switch1.def"
+Content-Type: text/plain
+
+sopflags sopflags = 
+comment ""
+position 2.30785 1.55909
+connectornextid 3
+flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
+outputsNamed3
+{
+2 "output1"
+}
+inputsNamed3
+{
+0 	04_Feature_Matching 1 1 "input1"
+1 	null1 0 1 "input2"
+}
+inputs
+{
+0 	04_Feature_Matching 0 1
+1 	null1 0 1
+}
+stat
+{
+  create 1547589222
+  modify 1554915940
+  author prisms@NEWPORT
+  access 0777
+}
+color UT_Color RGB 0.8 1 0.7 
+delscript ""
+exprlanguage hscript
+end
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/switch1.chn"
+Content-Type: text/plain
+
+{
+    channel input {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = ch(\"../manual_mode\") }
+    }
+  }
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/switch1.parm"
+Content-Type: text/plain
+
+{
+version 0.8
+input	[ 8	locks=0 ]	(	[ input	1 ] 	)
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/switch1.userdata"
+Content-Type: text/plain
+
+{
+	"___Version___":{
+		"type":"string",
+		"value":"17.5.219"
+	},
+	"___toolcount___":{
+		"type":"string",
+		"value":"16"
+	},
+	"___toolid___":{
+		"type":"string",
+		"value":"generic_delete"
+	}
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/null1.init"
+Content-Type: text/plain
+
+type = null
+matchesdef = 0
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/null1.def"
+Content-Type: text/plain
+
+sopflags sopflags = 
+comment ""
+position 4.36199 5.2126
+connectornextid 2
+flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
+outputsNamed3
+{
+0 "output1"
+}
+inputsNamed3
+{
+1 	(0) "" 1 "input1"
+}
+inputs
+{
+0 	(0) 0 1
+}
+stat
+{
+  create 1547589226
+  modify 1550008156
+  author prisms@NEWPORT
+  access 0777
+}
+color UT_Color RGB 0.6 0.7 0.77 
+delscript ""
+exprlanguage hscript
+end
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/null1.parm"
+Content-Type: text/plain
+
+{
+version 0.8
+copyinput	[ 0	locks=0 ]	(	"on"	)
+cacheinput	[ 0	locks=0 ]	(	"off"	)
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/null1.userdata"
+Content-Type: text/plain
+
+{
+	"___Version___":{
+		"type":"string",
+		"value":"17.5.219"
+	},
+	"___toolcount___":{
+		"type":"string",
+		"value":"16"
+	},
+	"___toolid___":{
+		"type":"string",
+		"value":"generic_delete"
+	}
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/output0.init"
+Content-Type: text/plain
+
+type = output
+matchesdef = 0
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/output0.def"
+Content-Type: text/plain
+
+sopflags sopflags = 
+comment ""
+position 2.30785 0.49949
+connectornextid 1
+flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
+outputsNamed3
+{
+}
+inputsNamed3
+{
+0 	switch1 2 1 "input1"
+}
+inputs
+{
+0 	switch1 0 1
+}
+stat
+{
+  create 1549916881
+  modify 1554916256
+  author Paul_Ambrosiussen@DESKTOP-A0373M3
+  access 0777
+}
+color UT_Color RGB 0.8 0.8 0.8 
+delscript ""
+exprlanguage hscript
+end
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/output0.parm"
+Content-Type: text/plain
+
+{
+version 0.8
+outputidx	[ 0	locks=0 ]	(	0	)
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/output0.userdata"
+Content-Type: text/plain
+
+{
+	"___Version___":{
+		"type":"string",
+		"value":"17.5.219"
+	}
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/topnet1.init"
+Content-Type: text/plain
+
+type = topnet
+matchesdef = 0
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/topnet1.def"
+Content-Type: text/plain
+
+sopflags sopflags = 
+comment ""
+position -3.03854 5.2176
+connectornextid 1
+flags =  lock off model off template off footprint off xray off bypass on display off render off highlight off unload off savedata off compress on colordefault on exposed on
+outputsNamed3
+{
+}
+inputsNamed3
+{
+0 	(0) "" 1 "input1"
+}
+inputs
+{
+0 	(0) 0 1
+}
+stat
+{
+  create 1554753321
+  modify 1554763226
+  author prisms@threadripper1
+  access 0777
+}
+color UT_Color RGB 0.8 0.8 0.8 
+delscript ""
+exprlanguage hscript
+end
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/topnet1.parm"
+Content-Type: text/plain
+
+{
+version 0.8
+cookcontrols	[ 0	locks=0 ]	(	0	)
+attribute	[ 0	locks=0 ]	(	*	)
+dirtyoncook	[ 0	locks=0 ]	(	"on"	)
+taskgraphfile	[ 0	locks=0 ]	(	$HIP/`$HIPNAME`_taskgraph_`$F`.py	)
+loadfromdisk	[ 0	locks=0 ]	(	"off"	)
+forcerecook	[ 0	locks=0 ]	(	0	)
+schedulersection	[ 0	locks=0 ]	(	0	)
+topscheduler	[ 0	locks=0 ]	(	localscheduler	)
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/topnet1.userdata"
+Content-Type: text/plain
+
+{
+	"___Version___":{
+		"type":"string",
+		"value":"17.5.219"
+	}
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/topnet1/__netbox1.netboxinit"
+Content-Type: text/plain
+
+2
+2
+{
+	color := "UT_Color RGB 0.52 0.52 0.52 ";
+	autofit := 0;
+	height := 5.3634181373769581;
+	width := 4.3005176470588227;
+	comment := "Get information about total cook";
+	y_position := -4.5037015876126159;
+	minimized := 0;
+	x_position := -3.7724735295071317;
+}
+{
+  create 1554754654
+  modify 1554853383
+  author prisms@threadripper1
+  access 0777
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/topnet1/__netbox2.netboxinit"
+Content-Type: text/plain
+
+2
+2
+{
+	color := "UT_Color RGB 0.52 0.52 0.52 ";
+	autofit := 0;
+	height := 4.1489077731800057;
+	width := 5.4093453891611381;
+	comment := "FeatureExtraction - 40 items per chunk";
+	y_position := -9.9964785610872902;
+	minimized := 0;
+	x_position := -3.7724735295071317;
+}
+{
+  create 1554755289
+  modify 1554853383
+  author prisms@threadripper1
+  access 0777
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/topnet1/geometryimport.init"
+Content-Type: text/plain
+
+type = geometryimport
+matchesdef = 0
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/topnet1/geometryimport.def"
+Content-Type: text/plain
+
+comment ""
+position -3.37247 0.359317
+connectornextid 1
+flags =  lock off model off template off footprint off xray off bypass off display on render on highlight off unload off savedata off compress off colordefault on exposed on
+outputsNamed3
+{
+0 "output1"
+}
+inputsNamed3
+{
+}
+inputs
+{
+}
+stat
+{
+  create 1554753321
+  modify 1554851126
+  author prisms@threadripper1
+  access 0777
+}
+color UT_Color RGB 0.8 0.8 0.8 
+delscript ""
+exprlanguage hscript
+end
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/topnet1/geometryimport.chn"
+Content-Type: text/plain
+
+{
+    channel time {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = `@pdg_frame` }
+    }
+    channel soppath {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = opinputpath(\"../\",0) }
+    }
+    channel attributes {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = chs(\"../attribute\") }
+    }
+  }
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/topnet1/geometryimport.parm"
+Content-Type: text/plain
+
+{
+version 0.8
+pdg_workitemgeneration	[ 0	locks=0 ]	(	"2"	)
+source	[ 0	locks=0 ]	(	0	)
+geometrysource	[ 0	locks=0 ]	(	"0"	)
+soppath	[ 0	locks=0 ]	(	[ soppath	/obj/geo1/sop_av_initialize1 ] 	)
+usetime	[ 0	locks=0 ]	(	"off"	)
+time	[ 0	locks=0 ]	(	[ time	0 ] 	)
+evaluateattributes	[ 0	locks=0 ]	(	"off"	)
+filetag	[ 0	locks=0 ]	(	file/geo	)
+filepath	[ 0	locks=0 ]	(	`@pdg_input`	)
+asyncload	[ 0	locks=0 ]	(	"off"	)
+mergeinput	[ 0	locks=0 ]	(	"off"	)
+storag	[ 0	locks=0 ]	(	0	)
+storagetype	[ 0	locks=0 ]	(	"1"	)
+indextype	[ 0	locks=0 ]	(	"0"	)
+externalpath	[ 0	locks=0 ]	(	$PDG_DIR/geo/$HIPNAME.$OS.`@pdg_index`.bgeo.sc	)
+externaltag	[ 0	locks=0 ]	(	file/geo	)
+geometry	[ 0	locks=0 ]	(	0	)
+class	[ 0	locks=0 ]	(	"3"	)
+copyattributes	[ 0	locks=0 ]	(	"on"	)
+attributes	[ 0	locks=0 ]	(	[ attributes	* ] 	)
+copybbox	[ 0	locks=0 ]	(	"off"	)
+primpoints	[ 0	locks=0 ]	(	"off"	)
+sepparm	[ 0	locks=0 ]	(	)
+grouptype	[ 0	locks=0 ]	(	"2"	)
+group	[ 0	locks=0 ]	(	""	)
+edit	[ 0	locks=0 ]	(	0	)
+addworkitemattributes	[ 0	locks=0 ]	(	"off"	)
+workitemattributes	[ 0	locks=0 ]	(	""	)
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/topnet1/geometryimport.netbox"
+Content-Type: text/plain
+
+__netbox1
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/topnet1/geometryimport.userdata"
+Content-Type: text/plain
+
+{
+	"___Version___":{
+		"type":"string",
+		"value":""
+	}
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/topnet1/localscheduler.init"
+Content-Type: text/plain
+
+type = localscheduler
+matchesdef = 0
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/topnet1/localscheduler.def"
+Content-Type: text/plain
+
+comment ""
+position -8.82214 0.0528565
+connectornextid 0
+flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress off colordefault on exposed on
+outputsNamed3
+{
+}
+inputsNamed3
+{
+}
+inputs
+{
+}
+stat
+{
+  create 1554753321
+  modify 1554754771
+  author prisms@threadripper1
+  access 0777
+}
+color UT_Color RGB 0.478 0.478 0.478 
+delscript ""
+exprlanguage hscript
+end
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/topnet1/localscheduler.parm"
+Content-Type: text/plain
+
+{
+version 0.8
+folder0	[ 0	locks=0 ]	(	0	0	)
+pdg_workingdir	[ 0	locks=0 ]	(	$HIP	)
+pdg_resultserver	[ 0	locks=0 ]	(	""	)
+maxprocsmenu	[ 0	locks=0 ]	(	"0"	)
+maxprocs	[ 0	locks=0 ]	(	1	)
+local_usepool	[ 0	locks=0 ]	(	"off"	)
+hdaprocessorpoolsize	[ 0	locks=0 ]	(	0	)
+socketcallbacks	[ 0	locks=0 ]	(	1	)
+local_single	[ 0	locks=0 ]	(	"off"	)
+local_is_CPU_number_set	[ 0	locks=0 ]	(	"off"	)
+local_CPUs_to_use	[ 0	locks=0 ]	(	1	)
+local_usehoudinimaxthreads	[ 0	locks=0 ]	(	"off"	)
+local_houdinimaxthreads	[ 0	locks=0 ]	(	0	)
+local_envmulti	[ 0	locks=0 ]	(	0	)
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/topnet1/localscheduler.userdata"
+Content-Type: text/plain
+
+{
+	"___Version___":{
+		"type":"string",
+		"value":""
+	}
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/topnet1/filepattern1.init"
+Content-Type: text/plain
+
+type = filepattern
+matchesdef = 0
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/topnet1/filepattern1.def"
+Content-Type: text/plain
+
+comment ""
+position -3.37247 -0.942902
+connectornextid 2
+flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress off colordefault on exposed on
+outputsNamed3
+{
+1 "output1"
+}
+inputsNamed3
+{
+0 	geometryimport 0 1 "input1"
+}
+inputs
+{
+0 	geometryimport 0 1
+}
+stat
+{
+  create 1554753340
+  modify 1554754649
+  author prisms@threadripper1
+  access 0777
+}
+color UT_Color RGB 0.8 0.8 0.8 
+delscript ""
+exprlanguage hscript
+end
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/topnet1/filepattern1.parm"
+Content-Type: text/plain
+
+{
+version 0.8
+pdg_workitemgeneration	[ 0	locks=0 ]	(	"2"	)
+sepparm	[ 0	locks=0 ]	(	)
+filetypes	[ 0	locks=0 ]	(	1	)
+pattern	[ 8	locks=0 ]	(	`@src_img`\\*	)
+recursive	[ 0	locks=0 ]	(	"off"	)
+overrideresultdatatag	[ 0	locks=0 ]	(	"off"	)
+resultdatatag	[ 0	locks=0 ]	(	""	)
+overrideworkitemindex	[ 0	locks=0 ]	(	"off"	)
+workitemindex	[ 0	locks=0 ]	(	0	)
+indexfromfilesequence	[ 0	locks=0 ]	(	"on"	)
+split	[ 0	locks=0 ]	(	"on"	)
+errornomatch	[ 0	locks=0 ]	(	"off"	)
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/topnet1/filepattern1.netbox"
+Content-Type: text/plain
+
+__netbox1
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/topnet1/filepattern1.userdata"
+Content-Type: text/plain
+
+{
+	"___Version___":{
+		"type":"string",
+		"value":""
+	}
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/topnet1/attributecreate1.init"
+Content-Type: text/plain
+
+type = attributecreate
+matchesdef = 0
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/topnet1/attributecreate1.def"
+Content-Type: text/plain
+
+comment ""
+position -3.37247 -4.00188
+connectornextid 2
+flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress off colordefault on exposed on
+outputsNamed3
+{
+1 "output1"
+}
+inputsNamed3
+{
+0 	partitionbyindex1 1 1 "input1"
+}
+inputs
+{
+0 	partitionbyindex1 0 1
+}
+stat
+{
+  create 1554753469
+  modify 1554754263
+  author prisms@threadripper1
+  access 0777
+}
+color UT_Color RGB 0.8 0.8 0.8 
+delscript ""
+exprlanguage hscript
+end
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/topnet1/attributecreate1.chn"
+Content-Type: text/plain
+
+{
+    channel intvalue11 {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = @partitionsize }
+    }
+  }
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/topnet1/attributecreate1.parm"
+Content-Type: text/plain
+
+{
+version 0.8
+pdg_workitemgeneration	[ 0	locks=0 ]	(	"2"	)
+usecondition	[ 0	locks=0 ]	(	"off"	)
+condition	[ 0	locks=0 ]	(	0	)
+sepparm	[ 0	locks=0 ]	(	)
+useindex	[ 0	locks=0 ]	(	"off"	)
+indexvalue	[ 0	locks=0 ]	(	0	)
+useframe	[ 0	locks=0 ]	(	"off"	)
+framevalue	[ 0	locks=0 ]	(	0	)
+usepriority	[ 0	locks=0 ]	(	"off"	)
+priorityvalue	[ 0	locks=0 ]	(	0	)
+sepparm2	[ 0	locks=0 ]	(	)
+stringattribs	[ 0	locks=0 ]	(	0	)
+intattribs	[ 0	locks=0 ]	(	1	)
+floatattribs	[ 0	locks=0 ]	(	0	)
+resultdata	[ 0	locks=0 ]	(	0	)
+intname1	[ 0	locks=0 ]	(	range	)
+intsize1	[ 0	locks=0 ]	(	0	)
+intvalue1	[ 8	locks=0 ]	(	[ intvalue11	0 ] 	0	0	0	)
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/topnet1/attributecreate1.netbox"
+Content-Type: text/plain
+
+__netbox1
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/topnet1/attributecreate1.userdata"
+Content-Type: text/plain
+
+{
+	"___Version___":{
+		"type":"string",
+		"value":""
+	}
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/topnet1/partitionbyindex1.init"
+Content-Type: text/plain
+
+type = partitionbyindex
+matchesdef = 0
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/topnet1/partitionbyindex1.def"
+Content-Type: text/plain
+
+comment ""
+position -3.37247 -2.69967
+connectornextid 2
+flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress off colordefault on exposed on
+outputsNamed3
+{
+1 "output1"
+}
+inputsNamed3
+{
+0 	filepattern1 1 1 "input1"
+}
+inputs
+{
+0 	filepattern1 0 1
+}
+stat
+{
+  create 1554753495
+  modify 1554754649
+  author prisms@threadripper1
+  access 0777
+}
+color UT_Color RGB 0.8 0.8 0.8 
+delscript ""
+exprlanguage hscript
+end
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/topnet1/partitionbyindex1.parm"
+Content-Type: text/plain
+
+{
+version 0.8
+pdg_dynamicpartition	[ 0	locks=0 ]	(	"off"	)
+pdg_partitionmerge	[ 0	locks=0 ]	(	"on"	)
+index	[ 0	locks=0 ]	(	0	0	)
+primaryrule	[ 0	locks=0 ]	(	"0"	)
+secondaryrule	[ 0	locks=0 ]	(	"0"	)
+pdg_removestale	[ 0	locks=0 ]	(	"on"	)
+pdg_alwaysevaluate	[ 0	locks=0 ]	(	"on"	)
+pdg_partitionsort	[ 0	locks=0 ]	(	"2"	)
+pdg_dirtymode	[ 0	locks=0 ]	(	"0"	)
+sepparm2	[ 0	locks=0 ]	(	)
+pdg_partitionwhen	[ 0	locks=0 ]	(	"0"	)
+pdg_partitiontarget	[ 0	locks=0 ]	(	""	)
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/topnet1/partitionbyindex1.netbox"
+Content-Type: text/plain
+
+__netbox1
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/topnet1/partitionbyindex1.userdata"
+Content-Type: text/plain
+
+{
+	"___Version___":{
+		"type":"string",
+		"value":""
+	},
+	"___toolcount___":{
+		"type":"string",
+		"value":"1"
+	},
+	"___toolid___":{
+		"type":"string",
+		"value":"generic_delete"
+	}
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/topnet1/genericgenerator1.init"
+Content-Type: text/plain
+
+type = genericgenerator
+matchesdef = 0
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/topnet1/genericgenerator1.def"
+Content-Type: text/plain
+
+comment ""
+position -3.37247 -6.34797
+connectornextid 2
+flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress off colordefault on exposed on
+outputsNamed3
+{
+1 "output1"
+}
+inputsNamed3
+{
+0 	attributecreate1 1 1 "input1"
+}
+inputs
+{
+0 	attributecreate1 0 1
+}
+stat
+{
+  create 1554754492
+  modify 1554754675
+  author prisms@threadripper1
+  access 0777
+}
+color UT_Color RGB 0.8 0.8 0.8 
+delscript ""
+exprlanguage hscript
+end
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/topnet1/genericgenerator1.spareparmdef"
+Content-Type: text/plain
+
+    group {
+        name    "processor_1"
+        label   "Processor"
+
+        parm {
+            name    "pdg_workitemgeneration"
+            baseparm
+            label   "Work Item Generation"
+            export  none
+        }
+        parm {
+            name    "sequential"
+            baseparm
+            label   "Sequential"
+            export  none
+        }
+        parm {
+            name    "itemcount"
+            baseparm
+            label   "Item Count"
+            export  none
+        }
+        parm {
+            name    "useindex"
+            baseparm
+            label   "useindex"
+            nolabel
+            joinnext
+            export  none
+        }
+        parm {
+            name    "index"
+            baseparm
+            label   "Index"
+            export  none
+        }
+        parm {
+            name    "useframe"
+            baseparm
+            label   "Label"
+            nolabel
+            joinnext
+            export  none
+        }
+        parm {
+            name    "frame"
+            baseparm
+            label   "Frame"
+            export  none
+        }
+        parm {
+            name    "usepriority"
+            baseparm
+            label   "useindex"
+            nolabel
+            joinnext
+            export  none
+        }
+        parm {
+            name    "priority"
+            baseparm
+            label   "Priority"
+            export  none
+        }
+        parm {
+            name    "sepparm"
+            baseparm
+            label   "Separator"
+            export  none
+        }
+        parm {
+            name    "usedelay"
+            baseparm
+            label   "usedelay"
+            nolabel
+            joinnext
+            export  none
+        }
+        parm {
+            name    "delay"
+            baseparm
+            label   "Delay Time"
+            export  none
+        }
+        parm {
+            name    "pdg_command"
+            baseparm
+            label   "Command"
+            export  none
+        }
+    }
+
+    group {
+        name    "processor_1_1"
+        label   "Files"
+
+        multiparm {
+            name    "pdgnodedeps"
+            label    "File Dependencies"
+            baseparm
+            default 0
+
+            parm {
+                name    "pdgnodedep#"
+                baseparm
+                label   "Path"
+                export  none
+            }
+        }
+
+    }
+
+    group {
+        name    "processor_1_2"
+        label   "Schedulers"
+        grouptag { "pdg::nocopy" "" }
+
+        parm {
+            name    "topscheduler"
+            label   "TOP Scheduler Path"
+            type    oppath
+            default { "" }
+            parmtag { "opfilter" "!!TOP!!" }
+            parmtag { "oprelative" "." }
+            parmtag { "pdg::nocopy" "" }
+        }
+        group {
+            name    "folder1"
+            label   "Local Scheduler"
+            grouptag { "pdg::nocopy" "" }
+
+            parm {
+                name    "localscheduler_override_toggle"
+                label   "Override Job Parameters"
+                type    toggle
+                default { "0" }
+                parmtag { "pdg::nocopy" "" }
+            }
+            group {
+                name    "folder2"
+                label   "Job Parameters"
+                hidewhentab "{ localscheduler_override_toggle == 0 }"
+                grouptag { "pdg::nocopy" "" }
+
+                parm {
+                    name    "local_single"
+                    label   "Single"
+                    type    toggle
+                    default { "0" }
+                    range   { 0 10 }
+                    parmtag { "pdg::scheduler" "" }
+                    parmtag { "script_callback_language" "hscript" }
+                }
+                parm {
+                    name    "local_is_CPU_number_set"
+                    label   "local_is_CPU_number_set"
+                    type    toggle
+                    nolabel
+                    joinnext
+                    default { "0" }
+                    range   { 0 1 }
+                    parmtag { "pdg::scheduler" "" }
+                    parmtag { "script_callback_language" "hscript" }
+                }
+                parm {
+                    name    "local_CPUs_to_use"
+                    label   "CPUs per Task"
+                    type    integer
+                    default { "1" }
+                    disablewhen "{ local_is_CPU_number_set == 0 }"
+                    range   { 1! 64 }
+                    parmtag { "pdg::scheduler" "" }
+                    parmtag { "script_callback_language" "hscript" }
+                }
+                parm {
+                    name    "local_usehoudinimaxthreads"
+                    label   "local_usehoudinimaxthreads"
+                    type    toggle
+                    nolabel
+                    joinnext
+                    default { "0" }
+                    parmtag { "pdg::scheduler" "" }
+                    parmtag { "script_callback_language" "hscript" }
+                }
+                parm {
+                    name    "local_houdinimaxthreads"
+                    label   "Houdini Max Threads"
+                    type    integer
+                    default { "0" }
+                    disablewhen "{ local_usehoudinimaxthreads == 0 }"
+                    range   { 0 10 }
+                    parmtag { "pdg::scheduler" "" }
+                    parmtag { "script_callback_language" "hscript" }
+                }
+                multiparm {
+                    name    "local_envmulti"
+                    label    "Task Environment"
+                    parmtag { "pdg::nocopy" "" }
+                    parmtag { "script_callback" "" }
+                    parmtag { "script_callback_language" "hscript" }
+
+                    parm {
+                        name    "local_envname#"
+                        label   "Name"
+                        type    string
+                        joinnext
+                        default { "" }
+                        parmtag { "pdg::scheduler" "" }
+                        parmtag { "script_callback_language" "hscript" }
+                    }
+                    parm {
+                        name    "local_envvalue#"
+                        label   "Value"
+                        type    string
+                        default { "" }
+                        parmtag { "pdg::scheduler" "" }
+                        parmtag { "script_callback_language" "hscript" }
+                    }
+                }
+
+            }
+
+        }
+
+        group {
+            name    "folder1_1"
+            label   "HQueue Scheduler"
+            grouptag { "pdg::nocopy" "" }
+
+            parm {
+                name    "hqueuescheduler_override_toggle"
+                label   "Override Job Parameters"
+                type    toggle
+                default { "0" }
+                parmtag { "pdg::nocopy" "" }
+            }
+            group {
+                name    "folder4"
+                label   "Job Parameters"
+                hidewhentab "{ hqueuescheduler_override_toggle == 0 }"
+                grouptag { "pdg::nocopy" "" }
+
+                parm {
+                    name    "hqueue_priority"
+                    label   "Job Priority"
+                    type    ordinal
+                    default { "5" }
+                    menu {
+                        [ "entries = []" ]
+                        [ "for i in range(0, 11):" ]
+                        [ "    entries.append(str(i))" ]
+                        [ "    " ]
+                        [ "    if i == 0:" ]
+                        [ "        entries.append(str(i) + \" (lowest)\")" ]
+                        [ "    elif i == 5:" ]
+                        [ "        entries.append(str(i) + \" (medium)\")" ]
+                        [ "    elif i == 10:" ]
+                        [ "        entries.append(str(i) + \" (highest)\")" ]
+                        [ "    else:" ]
+                        [ "        entries.append(str(i))" ]
+                        [ "    " ]
+                        [ "return entries" ]
+                        language python
+                    }
+                    range   { 0 1 }
+                    parmtag { "pdg::scheduler" "" }
+                    parmtag { "script_callback_language" "hscript" }
+                }
+                parm {
+                    name    "hqueue_assign_to"
+                    label   "Assign To"
+                    type    ordinal
+                    default { "0" }
+                    menu {
+                        "any"           "Any Client"
+                        "clients"       "Listed Clients"
+                        "client_groups" "Clients from Listed Groups"
+                    }
+                    range   { 0 1 }
+                    parmtag { "pdg::scheduler" "" }
+                    parmtag { "script_callback_language" "hscript" }
+                }
+                parm {
+                    name    "hqueue_clients"
+                    label   "Clients"
+                    type    string
+                    joinnext
+                    default { "" }
+                    hidewhen "{ hqueue_assign_to != clients }"
+                    range   { 0 1 }
+                    parmtag { "pdg::scheduler" "" }
+                    parmtag { "script_callback_language" "hscript" }
+                }
+                parm {
+                    name    "select_clients"
+                    label   "Select Clients"
+                    type    button
+                    default { "1" }
+                    hidewhen "{ hqueue_assign_to != clients }"
+                    range   { 0 1 }
+                    parmtag { "pdg::nocopy" "" }
+                    parmtag { "script_callback" "import hqrop,pdg;addr=hou.nodeType(\"Top/hqueuescheduler\").instances()[0].parm('address').eval();hqrop.selectClients(addr, hou.parm(\"hqueue_clients\"))" }
+                    parmtag { "script_callback_language" "python" }
+                }
+                parm {
+                    name    "hqueue_client_groups"
+                    label   "Client Groups"
+                    type    string
+                    joinnext
+                    default { "" }
+                    hidewhen "{ hqueue_assign_to != client_groups }"
+                    range   { 0 1 }
+                    parmtag { "pdg::scheduler" "" }
+                    parmtag { "script_callback_language" "hscript" }
+                }
+                parm {
+                    name    "select_client_groups"
+                    label   "Select Groups"
+                    type    button
+                    default { "1" }
+                    hidewhen "{ hqueue_assign_to != client_groups }"
+                    range   { 0 1 }
+                    parmtag { "pdg::nocopy" "" }
+                    parmtag { "script_callback" "import hqrop,pdg;addr=hou.nodeType(\"Top/hqueuescheduler\").instances()[0].parm('address').eval();hqrop.selectClientGroups(addr, hou.parm(\"hqueue_client_groups\"))" }
+                    parmtag { "script_callback_language" "python" }
+                }
+                parm {
+                    name    "hq_sepparm2"
+                    label   "Separator"
+                    type    separator
+                    default { "" }
+                    range   { 0 1 }
+                    parmtag { "script_callback_language" "python" }
+                }
+                parm {
+                    name    "hqueue_is_CPU_number_set"
+                    label   "Set Number of CPUs per Job"
+                    type    toggle
+                    default { "0" }
+                    range   { 0 1 }
+                    parmtag { "pdg::scheduler" "" }
+                    parmtag { "script_callback_language" "hscript" }
+                }
+                parm {
+                    name    "hqueue_CPUs_to_use"
+                    label   "CPUs per Job"
+                    type    integer
+                    default { "1" }
+                    disablewhen "{ hqueue_is_CPU_number_set == 0 }"
+                    range   { 1! 8 }
+                    parmtag { "pdg::scheduler" "" }
+                    parmtag { "script_callback_language" "hscript" }
+                }
+                multiparm {
+                    name    "hqueue_envmulti"
+                    label    "Task Environment"
+                    parmtag { "pdg::nocopy" "" }
+                    parmtag { "script_callback_language" "hscript" }
+
+                    parm {
+                        name    "hqueue_envname#"
+                        label   "Name"
+                        type    string
+                        joinnext
+                        default { "" }
+                        parmtag { "pdg::scheduler" "" }
+                        parmtag { "script_callback_language" "hscript" }
+                    }
+                    parm {
+                        name    "hqueue_envvalue#"
+                        label   "Value"
+                        type    string
+                        default { "" }
+                        parmtag { "pdg::scheduler" "" }
+                        parmtag { "script_callback_language" "hscript" }
+                    }
+                }
+
+                groupcollapsible {
+                    name    "folder5"
+                    label   "Advanced"
+                    parmtag { "script_callback_language" "python" }
+
+                    parm {
+                        name    "hqueue_host"
+                        label   "Allowed Host"
+                        type    string
+                        default { "" }
+                        help    "Name of host to run on"
+                        parmtag { "pdg::scheduler" "" }
+                        parmtag { "script_callback_language" "hscript" }
+                    }
+                    parm {
+                        name    "hqueue_tags"
+                        label   "Tag List"
+                        type    string
+                        default { "" }
+                        help    "Space-separated list of tags"
+                        parmtag { "pdg::scheduler" "" }
+                        parmtag { "script_callback_language" "hscript" }
+                    }
+                    parm {
+                        name    "hqueue_conditions"
+                        label   "Conditions JSON"
+                        type    string
+                        default { "" }
+                        help    "JSON conditions spec"
+                        parmtag { "editor" "1" }
+                        parmtag { "editorlang" "python" }
+                        parmtag { "pdg::scheduler" "" }
+                        parmtag { "script_callback_language" "hscript" }
+                    }
+                }
+
+            }
+
+        }
+
+    }
+
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/topnet1/genericgenerator1.chn"
+Content-Type: text/plain
+
+{
+    channel itemcount {
+      lefttype = extend
+      righttype = extend
+      default = 1
+      flags = 0
+      segment { length = 0 value = 1 1 expr = "max(1, ceil(@range / 40))" }
+    }
+  }
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/topnet1/genericgenerator1.parm"
+Content-Type: text/plain
+
+{
+version 0.8
+processor_0	[ 0	locks=0 ]	(	0	0	)
+pdg_workitemgeneration	[ 0	locks=0 ]	(	"2"	)
+sequential	[ 0	locks=0 ]	(	"off"	)
+itemcount	[ 0	locks=0 ]	(	[ itemcount	1 ] 	)
+useindex	[ 0	locks=0 ]	(	"off"	)
+index	[ 0	locks=0 ]	(	0	)
+useframe	[ 0	locks=0 ]	(	"off"	)
+frame	[ 0	locks=0 ]	(	0	)
+usepriority	[ 0	locks=0 ]	(	"off"	)
+priority	[ 0	locks=0 ]	(	0	)
+sepparm	[ 0	locks=0 ]	(	)
+usedelay	[ 0	locks=0 ]	(	"off"	)
+delay	[ 0	locks=0 ]	(	1	)
+pdg_command	[ 0	locks=0 ]	(	""	)
+pdgnodedeps	[ 0	locks=0 ]	(	0	)
+processor_1	[ 0	locks=0 ]	(	0	0	0	)
+topscheduler	[ 0	locks=0 ]	(	""	)
+folder1	[ 0	locks=0 ]	(	0	0	)
+localscheduler_override_toggle	[ 0	locks=0 ]	(	"off"	)
+folder2	[ 0	locks=0 ]	(	0	)
+local_single	[ 0	locks=0 ]	(	"off"	)
+local_is_CPU_number_set	[ 0	locks=0 ]	(	"off"	)
+local_CPUs_to_use	[ 0	locks=0 ]	(	1	)
+local_usehoudinimaxthreads	[ 0	locks=0 ]	(	"off"	)
+local_houdinimaxthreads	[ 0	locks=0 ]	(	0	)
+local_envmulti	[ 0	locks=0 ]	(	0	)
+hqueuescheduler_override_toggle	[ 0	locks=0 ]	(	"off"	)
+folder4	[ 0	locks=0 ]	(	0	)
+hqueue_priority	[ 0	locks=0 ]	(	"5"	)
+hqueue_assign_to	[ 0	locks=0 ]	(	"any"	)
+hqueue_clients	[ 0	locks=0 ]	(	""	)
+select_clients	[ 0	locks=0 ]	(	0	)
+hqueue_client_groups	[ 0	locks=0 ]	(	""	)
+select_client_groups	[ 0	locks=0 ]	(	0	)
+hq_sepparm2	[ 0	locks=0 ]	(	)
+hqueue_is_CPU_number_set	[ 0	locks=0 ]	(	"off"	)
+hqueue_CPUs_to_use	[ 0	locks=0 ]	(	1	)
+hqueue_envmulti	[ 0	locks=0 ]	(	0	)
+folder5	[ 0	locks=0 ]	(	0	)
+hqueue_host	[ 0	locks=0 ]	(	""	)
+hqueue_tags	[ 0	locks=0 ]	(	""	)
+hqueue_conditions	[ 0	locks=0 ]	(	""	)
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/topnet1/genericgenerator1.netbox"
+Content-Type: text/plain
+
+__netbox2
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/topnet1/genericgenerator1.userdata"
+Content-Type: text/plain
+
+{
+	"___Version___":{
+		"type":"string",
+		"value":""
+	}
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/topnet1/attributecreate2.init"
+Content-Type: text/plain
+
+type = attributecreate
+matchesdef = 0
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/topnet1/attributecreate2.def"
+Content-Type: text/plain
+
+comment ""
+position -3.37247 -7.74597
+connectornextid 2
+flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress off colordefault on exposed on
+outputsNamed3
+{
+1 "output1"
+}
+inputsNamed3
+{
+0 	genericgenerator1 1 1 "input1"
+}
+inputs
+{
+0 	genericgenerator1 0 1
+}
+stat
+{
+  create 1554754681
+  modify 1554755270
+  author prisms@threadripper1
+  access 0777
+}
+color UT_Color RGB 0.8 0.8 0.8 
+delscript ""
+exprlanguage hscript
+end
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/topnet1/attributecreate2.chn"
+Content-Type: text/plain
+
+{
+    channel intvalue11 {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = "@pdg_index * 40" }
+    }
+    channel intvalue21 {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = "min(@range-@rangeStart, 40)" }
+    }
+  }
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/topnet1/attributecreate2.parm"
+Content-Type: text/plain
+
+{
+version 0.8
+pdg_workitemgeneration	[ 0	locks=0 ]	(	"2"	)
+usecondition	[ 0	locks=0 ]	(	"off"	)
+condition	[ 0	locks=0 ]	(	0	)
+sepparm	[ 0	locks=0 ]	(	)
+useindex	[ 0	locks=0 ]	(	"off"	)
+indexvalue	[ 0	locks=0 ]	(	0	)
+useframe	[ 0	locks=0 ]	(	"off"	)
+framevalue	[ 0	locks=0 ]	(	0	)
+usepriority	[ 0	locks=0 ]	(	"off"	)
+priorityvalue	[ 0	locks=0 ]	(	0	)
+sepparm2	[ 0	locks=0 ]	(	)
+stringattribs	[ 0	locks=0 ]	(	0	)
+intattribs	[ 0	locks=0 ]	(	2	)
+floatattribs	[ 0	locks=0 ]	(	0	)
+resultdata	[ 0	locks=0 ]	(	0	)
+intname1	[ 0	locks=0 ]	(	rangeStart	)
+intsize1	[ 0	locks=0 ]	(	0	)
+intvalue1	[ 8	locks=0 ]	(	[ intvalue11	0 ] 	0	0	0	)
+intname2	[ 0	locks=0 ]	(	rangeSize	)
+intsize2	[ 0	locks=0 ]	(	0	)
+intvalue2	[ 8	locks=0 ]	(	[ intvalue21	0 ] 	0	0	0	)
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/topnet1/attributecreate2.netbox"
+Content-Type: text/plain
+
+__netbox2
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/topnet1/attributecreate2.userdata"
+Content-Type: text/plain
+
+{
+	"___Version___":{
+		"type":"string",
+		"value":""
+	}
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/topnet1/pythonscript1.init"
+Content-Type: text/plain
+
+type = pythonscript
+matchesdef = 0
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/topnet1/pythonscript1.def"
+Content-Type: text/plain
+
+comment ""
+position -3.37247 -9.3017
+connectornextid 1
+flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress off colordefault on exposed on
+outputsNamed3
+{
+}
+inputsNamed3
+{
+0 	attributecreate2 1 1 "input1"
+}
+inputs
+{
+0 	attributecreate2 0 1
+}
+stat
+{
+  create 1554755326
+  modify 1554755562
+  author prisms@threadripper1
+  access 0777
+}
+color UT_Color RGB 0.8 0.8 0.8 
+delscript ""
+exprlanguage hscript
+end
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/topnet1/pythonscript1.spareparmdef"
+Content-Type: text/plain
+
+    group {
+        name    "folder1"
+        label   "Script"
+
+        parm {
+            name    "pdg_workitemgeneration"
+            baseparm
+            label   "Work Item Generation"
+            export  none
+        }
+        parm {
+            name    "inprocess"
+            baseparm
+            label   "Evaluate In Process"
+            export  none
+        }
+        parm {
+            name    "pythonbin"
+            baseparm
+            label   "Python Bin"
+            export  none
+        }
+        parm {
+            name    "python"
+            baseparm
+            label   "Custom Python Bin"
+            export  none
+        }
+        parm {
+            name    "extraargs"
+            baseparm
+            label   "Extra Arguments"
+            export  none
+        }
+        parm {
+            name    "script"
+            baseparm
+            label   "Script"
+            export  none
+        }
+    }
+
+    group {
+        name    "folder1_1"
+        label   "Schedulers"
+        grouptag { "pdg::nocopy" "" }
+
+        parm {
+            name    "topscheduler"
+            label   "TOP Scheduler Path"
+            type    oppath
+            default { "" }
+            parmtag { "opfilter" "!!TOP!!" }
+            parmtag { "oprelative" "." }
+            parmtag { "pdg::nocopy" "" }
+        }
+        group {
+            name    "folder3"
+            label   "Local Scheduler"
+            grouptag { "pdg::nocopy" "" }
+
+            parm {
+                name    "localscheduler_override_toggle"
+                label   "Override Job Parameters"
+                type    toggle
+                default { "0" }
+                parmtag { "pdg::nocopy" "" }
+            }
+            group {
+                name    "folder4"
+                label   "Job Parameters"
+                hidewhentab "{ localscheduler_override_toggle == 0 }"
+                grouptag { "pdg::nocopy" "" }
+
+                parm {
+                    name    "local_single"
+                    label   "Single"
+                    type    toggle
+                    default { "0" }
+                    range   { 0 10 }
+                    parmtag { "pdg::scheduler" "" }
+                    parmtag { "script_callback_language" "hscript" }
+                }
+                parm {
+                    name    "local_is_CPU_number_set"
+                    label   "local_is_CPU_number_set"
+                    type    toggle
+                    nolabel
+                    joinnext
+                    default { "0" }
+                    range   { 0 1 }
+                    parmtag { "pdg::scheduler" "" }
+                    parmtag { "script_callback_language" "hscript" }
+                }
+                parm {
+                    name    "local_CPUs_to_use"
+                    label   "CPUs per Task"
+                    type    integer
+                    default { "1" }
+                    disablewhen "{ local_is_CPU_number_set == 0 }"
+                    range   { 1! 64 }
+                    parmtag { "pdg::scheduler" "" }
+                    parmtag { "script_callback_language" "hscript" }
+                }
+                parm {
+                    name    "local_usehoudinimaxthreads"
+                    label   "local_usehoudinimaxthreads"
+                    type    toggle
+                    nolabel
+                    joinnext
+                    default { "0" }
+                    parmtag { "pdg::scheduler" "" }
+                    parmtag { "script_callback_language" "hscript" }
+                }
+                parm {
+                    name    "local_houdinimaxthreads"
+                    label   "Houdini Max Threads"
+                    type    integer
+                    default { "0" }
+                    disablewhen "{ local_usehoudinimaxthreads == 0 }"
+                    range   { 0 10 }
+                    parmtag { "pdg::scheduler" "" }
+                    parmtag { "script_callback_language" "hscript" }
+                }
+                multiparm {
+                    name    "local_envmulti"
+                    label    "Task Environment"
+                    parmtag { "pdg::nocopy" "" }
+                    parmtag { "script_callback" "" }
+                    parmtag { "script_callback_language" "hscript" }
+
+                    parm {
+                        name    "local_envname#"
+                        label   "Name"
+                        type    string
+                        joinnext
+                        default { "" }
+                        parmtag { "pdg::scheduler" "" }
+                        parmtag { "script_callback_language" "hscript" }
+                    }
+                    parm {
+                        name    "local_envvalue#"
+                        label   "Value"
+                        type    string
+                        default { "" }
+                        parmtag { "pdg::scheduler" "" }
+                        parmtag { "script_callback_language" "hscript" }
+                    }
+                }
+
+            }
+
+        }
+
+        group {
+            name    "folder3_1"
+            label   "HQueue Scheduler"
+            grouptag { "pdg::nocopy" "" }
+
+            parm {
+                name    "hqueuescheduler_override_toggle"
+                label   "Override Job Parameters"
+                type    toggle
+                default { "0" }
+                parmtag { "pdg::nocopy" "" }
+            }
+            group {
+                name    "folder6"
+                label   "Job Parameters"
+                hidewhentab "{ hqueuescheduler_override_toggle == 0 }"
+                grouptag { "pdg::nocopy" "" }
+
+                parm {
+                    name    "hqueue_priority"
+                    label   "Job Priority"
+                    type    ordinal
+                    default { "5" }
+                    menu {
+                        [ "entries = []" ]
+                        [ "for i in range(0, 11):" ]
+                        [ "    entries.append(str(i))" ]
+                        [ "    " ]
+                        [ "    if i == 0:" ]
+                        [ "        entries.append(str(i) + \" (lowest)\")" ]
+                        [ "    elif i == 5:" ]
+                        [ "        entries.append(str(i) + \" (medium)\")" ]
+                        [ "    elif i == 10:" ]
+                        [ "        entries.append(str(i) + \" (highest)\")" ]
+                        [ "    else:" ]
+                        [ "        entries.append(str(i))" ]
+                        [ "    " ]
+                        [ "return entries" ]
+                        language python
+                    }
+                    range   { 0 1 }
+                    parmtag { "pdg::scheduler" "" }
+                    parmtag { "script_callback_language" "hscript" }
+                }
+                parm {
+                    name    "hqueue_assign_to"
+                    label   "Assign To"
+                    type    ordinal
+                    default { "0" }
+                    menu {
+                        "any"           "Any Client"
+                        "clients"       "Listed Clients"
+                        "client_groups" "Clients from Listed Groups"
+                    }
+                    range   { 0 1 }
+                    parmtag { "pdg::scheduler" "" }
+                    parmtag { "script_callback_language" "hscript" }
+                }
+                parm {
+                    name    "hqueue_clients"
+                    label   "Clients"
+                    type    string
+                    joinnext
+                    default { "" }
+                    hidewhen "{ hqueue_assign_to != clients }"
+                    range   { 0 1 }
+                    parmtag { "pdg::scheduler" "" }
+                    parmtag { "script_callback_language" "hscript" }
+                }
+                parm {
+                    name    "select_clients"
+                    label   "Select Clients"
+                    type    button
+                    default { "1" }
+                    hidewhen "{ hqueue_assign_to != clients }"
+                    range   { 0 1 }
+                    parmtag { "pdg::nocopy" "" }
+                    parmtag { "script_callback" "import hqrop,pdg;addr=hou.nodeType(\"Top/hqueuescheduler\").instances()[0].parm('address').eval();hqrop.selectClients(addr, hou.parm(\"hqueue_clients\"))" }
+                    parmtag { "script_callback_language" "python" }
+                }
+                parm {
+                    name    "hqueue_client_groups"
+                    label   "Client Groups"
+                    type    string
+                    joinnext
+                    default { "" }
+                    hidewhen "{ hqueue_assign_to != client_groups }"
+                    range   { 0 1 }
+                    parmtag { "pdg::scheduler" "" }
+                    parmtag { "script_callback_language" "hscript" }
+                }
+                parm {
+                    name    "select_client_groups"
+                    label   "Select Groups"
+                    type    button
+                    default { "1" }
+                    hidewhen "{ hqueue_assign_to != client_groups }"
+                    range   { 0 1 }
+                    parmtag { "pdg::nocopy" "" }
+                    parmtag { "script_callback" "import hqrop,pdg;addr=hou.nodeType(\"Top/hqueuescheduler\").instances()[0].parm('address').eval();hqrop.selectClientGroups(addr, hou.parm(\"hqueue_client_groups\"))" }
+                    parmtag { "script_callback_language" "python" }
+                }
+                parm {
+                    name    "hq_sepparm2"
+                    label   "Separator"
+                    type    separator
+                    default { "" }
+                    range   { 0 1 }
+                    parmtag { "script_callback_language" "python" }
+                }
+                parm {
+                    name    "hqueue_is_CPU_number_set"
+                    label   "Set Number of CPUs per Job"
+                    type    toggle
+                    default { "0" }
+                    range   { 0 1 }
+                    parmtag { "pdg::scheduler" "" }
+                    parmtag { "script_callback_language" "hscript" }
+                }
+                parm {
+                    name    "hqueue_CPUs_to_use"
+                    label   "CPUs per Job"
+                    type    integer
+                    default { "1" }
+                    disablewhen "{ hqueue_is_CPU_number_set == 0 }"
+                    range   { 1! 8 }
+                    parmtag { "pdg::scheduler" "" }
+                    parmtag { "script_callback_language" "hscript" }
+                }
+                multiparm {
+                    name    "hqueue_envmulti"
+                    label    "Task Environment"
+                    parmtag { "pdg::nocopy" "" }
+                    parmtag { "script_callback_language" "hscript" }
+
+                    parm {
+                        name    "hqueue_envname#"
+                        label   "Name"
+                        type    string
+                        joinnext
+                        default { "" }
+                        parmtag { "pdg::scheduler" "" }
+                        parmtag { "script_callback_language" "hscript" }
+                    }
+                    parm {
+                        name    "hqueue_envvalue#"
+                        label   "Value"
+                        type    string
+                        default { "" }
+                        parmtag { "pdg::scheduler" "" }
+                        parmtag { "script_callback_language" "hscript" }
+                    }
+                }
+
+                groupcollapsible {
+                    name    "folder7"
+                    label   "Advanced"
+
+                    parm {
+                        name    "hqueue_host"
+                        label   "Allowed Host"
+                        type    string
+                        default { "" }
+                        help    "Name of host to run on"
+                        parmtag { "pdg::scheduler" "" }
+                        parmtag { "script_callback_language" "hscript" }
+                    }
+                    parm {
+                        name    "hqueue_tags"
+                        label   "Tag List"
+                        type    string
+                        default { "" }
+                        help    "Space-separated list of tags"
+                        parmtag { "pdg::scheduler" "" }
+                        parmtag { "script_callback_language" "hscript" }
+                    }
+                    parm {
+                        name    "hqueue_conditions"
+                        label   "Conditions JSON"
+                        type    string
+                        default { "" }
+                        help    "JSON conditions spec"
+                        parmtag { "editor" "1" }
+                        parmtag { "editorlang" "python" }
+                        parmtag { "pdg::scheduler" "" }
+                        parmtag { "script_callback_language" "hscript" }
+                    }
+                }
+
+            }
+
+        }
+
+    }
+
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/topnet1/pythonscript1.parm"
+Content-Type: text/plain
+
+{
+version 0.8
+folder0	[ 0	locks=0 ]	(	0	)
+pdg_workitemgeneration	[ 0	locks=0 ]	(	"2"	)
+inprocess	[ 0	locks=0 ]	(	"on"	)
+pythonbin	[ 0	locks=0 ]	(	"0"	)
+python	[ 0	locks=0 ]	(	__PDG_PYTHON__	)
+extraargs	[ 0	locks=0 ]	(	""	)
+script	[ 0	locks=0 ]	(	"rangeStart = intData(work_item, \"rangeStart\")
+rangeSize = intData(work_item, \"rangeSize\")
+
+print \"Range Start: \" + str(rangeStart)
+print \"Range Size: \" + str(rangeSize)
+print \"----\""	)
+folder1	[ 0	locks=0 ]	(	0	0	)
+topscheduler	[ 0	locks=0 ]	(	""	)
+folder3	[ 0	locks=0 ]	(	0	0	)
+localscheduler_override_toggle	[ 0	locks=0 ]	(	"off"	)
+folder4	[ 0	locks=0 ]	(	0	)
+local_single	[ 0	locks=0 ]	(	"off"	)
+local_is_CPU_number_set	[ 0	locks=0 ]	(	"off"	)
+local_CPUs_to_use	[ 0	locks=0 ]	(	1	)
+local_usehoudinimaxthreads	[ 0	locks=0 ]	(	"off"	)
+local_houdinimaxthreads	[ 0	locks=0 ]	(	0	)
+local_envmulti	[ 0	locks=0 ]	(	0	)
+hqueuescheduler_override_toggle	[ 0	locks=0 ]	(	"off"	)
+folder6	[ 0	locks=0 ]	(	0	)
+hqueue_priority	[ 0	locks=0 ]	(	"5"	)
+hqueue_assign_to	[ 0	locks=0 ]	(	"any"	)
+hqueue_clients	[ 0	locks=0 ]	(	""	)
+select_clients	[ 0	locks=0 ]	(	0	)
+hqueue_client_groups	[ 0	locks=0 ]	(	""	)
+select_client_groups	[ 0	locks=0 ]	(	0	)
+hq_sepparm2	[ 0	locks=0 ]	(	)
+hqueue_is_CPU_number_set	[ 0	locks=0 ]	(	"off"	)
+hqueue_CPUs_to_use	[ 0	locks=0 ]	(	1	)
+hqueue_envmulti	[ 0	locks=0 ]	(	0	)
+folder7	[ 0	locks=0 ]	(	0	)
+hqueue_host	[ 0	locks=0 ]	(	""	)
+hqueue_tags	[ 0	locks=0 ]	(	""	)
+hqueue_conditions	[ 0	locks=0 ]	(	""	)
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/topnet1/pythonscript1.netbox"
+Content-Type: text/plain
+
+__netbox2
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/topnet1/pythonscript1.userdata"
+Content-Type: text/plain
+
+{
+	"___Version___":{
+		"type":"string",
+		"value":""
+	}
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/topnet1/pythonscript2.init"
+Content-Type: text/plain
+
+type = pythonscript
+matchesdef = 0
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/topnet1/pythonscript2.def"
+Content-Type: text/plain
+
+comment ""
+position -0.471956 -9.45241
+connectornextid 1
+flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress off colordefault on exposed on
+outputsNamed3
+{
+}
+inputsNamed3
+{
+0 	attributecreate2 1 1 "input1"
+}
+inputs
+{
+0 	attributecreate2 0 1
+}
+stat
+{
+  create 1554755817
+  modify 1554763180
+  author prisms@threadripper1
+  access 0777
+}
+color UT_Color RGB 0.8 0.8 0.8 
+delscript ""
+exprlanguage hscript
+end
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/topnet1/pythonscript2.spareparmdef"
+Content-Type: text/plain
+
+    group {
+        name    "folder1"
+        label   "Script"
+
+        parm {
+            name    "pdg_workitemgeneration"
+            baseparm
+            label   "Work Item Generation"
+            export  none
+        }
+        parm {
+            name    "inprocess"
+            baseparm
+            label   "Evaluate In Process"
+            export  none
+        }
+        parm {
+            name    "pythonbin"
+            baseparm
+            label   "Python Bin"
+            export  none
+        }
+        parm {
+            name    "python"
+            baseparm
+            label   "Custom Python Bin"
+            export  none
+        }
+        parm {
+            name    "extraargs"
+            baseparm
+            label   "Extra Arguments"
+            export  none
+        }
+        parm {
+            name    "script"
+            baseparm
+            label   "Script"
+            export  none
+        }
+    }
+
+    parm {
+        name    "newparameter"
+        label   "Label"
+        type    toggle
+        default { "0" }
+    }
+    group {
+        name    "folder2"
+        label   "Schedulers"
+        grouptag { "pdg::nocopy" "" }
+
+        parm {
+            name    "topscheduler"
+            label   "TOP Scheduler Path"
+            type    oppath
+            default { "" }
+            parmtag { "opfilter" "!!TOP!!" }
+            parmtag { "oprelative" "." }
+            parmtag { "pdg::nocopy" "" }
+        }
+        group {
+            name    "folder3"
+            label   "Local Scheduler"
+            grouptag { "pdg::nocopy" "" }
+
+            parm {
+                name    "localscheduler_override_toggle"
+                label   "Override Job Parameters"
+                type    toggle
+                default { "0" }
+                parmtag { "pdg::nocopy" "" }
+            }
+            group {
+                name    "folder4"
+                label   "Job Parameters"
+                hidewhentab "{ localscheduler_override_toggle == 0 }"
+                grouptag { "pdg::nocopy" "" }
+
+                parm {
+                    name    "local_single"
+                    label   "Single"
+                    type    toggle
+                    default { "0" }
+                    range   { 0 10 }
+                    parmtag { "pdg::scheduler" "" }
+                    parmtag { "script_callback_language" "hscript" }
+                }
+                parm {
+                    name    "local_is_CPU_number_set"
+                    label   "local_is_CPU_number_set"
+                    type    toggle
+                    nolabel
+                    joinnext
+                    default { "0" }
+                    range   { 0 1 }
+                    parmtag { "pdg::scheduler" "" }
+                    parmtag { "script_callback_language" "hscript" }
+                }
+                parm {
+                    name    "local_CPUs_to_use"
+                    label   "CPUs per Task"
+                    type    integer
+                    default { "1" }
+                    disablewhen "{ local_is_CPU_number_set == 0 }"
+                    range   { 1! 64 }
+                    parmtag { "pdg::scheduler" "" }
+                    parmtag { "script_callback_language" "hscript" }
+                }
+                parm {
+                    name    "local_usehoudinimaxthreads"
+                    label   "local_usehoudinimaxthreads"
+                    type    toggle
+                    nolabel
+                    joinnext
+                    default { "0" }
+                    parmtag { "pdg::scheduler" "" }
+                    parmtag { "script_callback_language" "hscript" }
+                }
+                parm {
+                    name    "local_houdinimaxthreads"
+                    label   "Houdini Max Threads"
+                    type    integer
+                    default { "0" }
+                    disablewhen "{ local_usehoudinimaxthreads == 0 }"
+                    range   { 0 10 }
+                    parmtag { "pdg::scheduler" "" }
+                    parmtag { "script_callback_language" "hscript" }
+                }
+                multiparm {
+                    name    "local_envmulti"
+                    label    "Task Environment"
+                    parmtag { "pdg::nocopy" "" }
+                    parmtag { "script_callback" "" }
+                    parmtag { "script_callback_language" "hscript" }
+
+                    parm {
+                        name    "local_envname#"
+                        label   "Name"
+                        type    string
+                        joinnext
+                        default { "" }
+                        parmtag { "pdg::scheduler" "" }
+                        parmtag { "script_callback_language" "hscript" }
+                    }
+                    parm {
+                        name    "local_envvalue#"
+                        label   "Value"
+                        type    string
+                        default { "" }
+                        parmtag { "pdg::scheduler" "" }
+                        parmtag { "script_callback_language" "hscript" }
+                    }
+                }
+
+            }
+
+        }
+
+        group {
+            name    "folder3_1"
+            label   "HQueue Scheduler"
+            grouptag { "pdg::nocopy" "" }
+
+            parm {
+                name    "hqueuescheduler_override_toggle"
+                label   "Override Job Parameters"
+                type    toggle
+                default { "0" }
+                parmtag { "pdg::nocopy" "" }
+            }
+            group {
+                name    "folder6"
+                label   "Job Parameters"
+                hidewhentab "{ hqueuescheduler_override_toggle == 0 }"
+                grouptag { "pdg::nocopy" "" }
+
+                parm {
+                    name    "hqueue_priority"
+                    label   "Job Priority"
+                    type    ordinal
+                    default { "5" }
+                    menu {
+                        [ "entries = []" ]
+                        [ "for i in range(0, 11):" ]
+                        [ "    entries.append(str(i))" ]
+                        [ "    " ]
+                        [ "    if i == 0:" ]
+                        [ "        entries.append(str(i) + \" (lowest)\")" ]
+                        [ "    elif i == 5:" ]
+                        [ "        entries.append(str(i) + \" (medium)\")" ]
+                        [ "    elif i == 10:" ]
+                        [ "        entries.append(str(i) + \" (highest)\")" ]
+                        [ "    else:" ]
+                        [ "        entries.append(str(i))" ]
+                        [ "    " ]
+                        [ "return entries" ]
+                        language python
+                    }
+                    range   { 0 1 }
+                    parmtag { "pdg::scheduler" "" }
+                    parmtag { "script_callback_language" "hscript" }
+                }
+                parm {
+                    name    "hqueue_assign_to"
+                    label   "Assign To"
+                    type    ordinal
+                    default { "0" }
+                    menu {
+                        "any"           "Any Client"
+                        "clients"       "Listed Clients"
+                        "client_groups" "Clients from Listed Groups"
+                    }
+                    range   { 0 1 }
+                    parmtag { "pdg::scheduler" "" }
+                    parmtag { "script_callback_language" "hscript" }
+                }
+                parm {
+                    name    "hqueue_clients"
+                    label   "Clients"
+                    type    string
+                    joinnext
+                    default { "" }
+                    hidewhen "{ hqueue_assign_to != clients }"
+                    range   { 0 1 }
+                    parmtag { "pdg::scheduler" "" }
+                    parmtag { "script_callback_language" "hscript" }
+                }
+                parm {
+                    name    "select_clients"
+                    label   "Select Clients"
+                    type    button
+                    default { "1" }
+                    hidewhen "{ hqueue_assign_to != clients }"
+                    range   { 0 1 }
+                    parmtag { "pdg::nocopy" "" }
+                    parmtag { "script_callback" "import hqrop,pdg;addr=hou.nodeType(\"Top/hqueuescheduler\").instances()[0].parm('address').eval();hqrop.selectClients(addr, hou.parm(\"hqueue_clients\"))" }
+                    parmtag { "script_callback_language" "python" }
+                }
+                parm {
+                    name    "hqueue_client_groups"
+                    label   "Client Groups"
+                    type    string
+                    joinnext
+                    default { "" }
+                    hidewhen "{ hqueue_assign_to != client_groups }"
+                    range   { 0 1 }
+                    parmtag { "pdg::scheduler" "" }
+                    parmtag { "script_callback_language" "hscript" }
+                }
+                parm {
+                    name    "select_client_groups"
+                    label   "Select Groups"
+                    type    button
+                    default { "1" }
+                    hidewhen "{ hqueue_assign_to != client_groups }"
+                    range   { 0 1 }
+                    parmtag { "pdg::nocopy" "" }
+                    parmtag { "script_callback" "import hqrop,pdg;addr=hou.nodeType(\"Top/hqueuescheduler\").instances()[0].parm('address').eval();hqrop.selectClientGroups(addr, hou.parm(\"hqueue_client_groups\"))" }
+                    parmtag { "script_callback_language" "python" }
+                }
+                parm {
+                    name    "hq_sepparm2"
+                    label   "Separator"
+                    type    separator
+                    default { "" }
+                    range   { 0 1 }
+                    parmtag { "script_callback_language" "python" }
+                }
+                parm {
+                    name    "hqueue_is_CPU_number_set"
+                    label   "Set Number of CPUs per Job"
+                    type    toggle
+                    default { "0" }
+                    range   { 0 1 }
+                    parmtag { "pdg::scheduler" "" }
+                    parmtag { "script_callback_language" "hscript" }
+                }
+                parm {
+                    name    "hqueue_CPUs_to_use"
+                    label   "CPUs per Job"
+                    type    integer
+                    default { "1" }
+                    disablewhen "{ hqueue_is_CPU_number_set == 0 }"
+                    range   { 1! 8 }
+                    parmtag { "pdg::scheduler" "" }
+                    parmtag { "script_callback_language" "hscript" }
+                }
+                multiparm {
+                    name    "hqueue_envmulti"
+                    label    "Task Environment"
+                    parmtag { "pdg::nocopy" "" }
+                    parmtag { "script_callback_language" "hscript" }
+
+                    parm {
+                        name    "hqueue_envname#"
+                        label   "Name"
+                        type    string
+                        joinnext
+                        default { "" }
+                        parmtag { "pdg::scheduler" "" }
+                        parmtag { "script_callback_language" "hscript" }
+                    }
+                    parm {
+                        name    "hqueue_envvalue#"
+                        label   "Value"
+                        type    string
+                        default { "" }
+                        parmtag { "pdg::scheduler" "" }
+                        parmtag { "script_callback_language" "hscript" }
+                    }
+                }
+
+                groupcollapsible {
+                    name    "folder7"
+                    label   "Advanced"
+
+                    parm {
+                        name    "hqueue_host"
+                        label   "Allowed Host"
+                        type    string
+                        default { "" }
+                        help    "Name of host to run on"
+                        parmtag { "pdg::scheduler" "" }
+                        parmtag { "script_callback_language" "hscript" }
+                    }
+                    parm {
+                        name    "hqueue_tags"
+                        label   "Tag List"
+                        type    string
+                        default { "" }
+                        help    "Space-separated list of tags"
+                        parmtag { "pdg::scheduler" "" }
+                        parmtag { "script_callback_language" "hscript" }
+                    }
+                    parm {
+                        name    "hqueue_conditions"
+                        label   "Conditions JSON"
+                        type    string
+                        default { "" }
+                        help    "JSON conditions spec"
+                        parmtag { "editor" "1" }
+                        parmtag { "editorlang" "python" }
+                        parmtag { "pdg::scheduler" "" }
+                        parmtag { "script_callback_language" "hscript" }
+                    }
+                }
+
+            }
+
+        }
+
+    }
+
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/topnet1/pythonscript2.chn"
+Content-Type: text/plain
+
+{
+    channel newparameter {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = ch(\"../../cpu\") }
+    }
+  }
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/topnet1/pythonscript2.parm"
+Content-Type: text/plain
+
+{
+version 0.8
+folder0	[ 0	locks=0 ]	(	0	)
+pdg_workitemgeneration	[ 0	locks=0 ]	(	"2"	)
+inprocess	[ 0	locks=0 ]	(	"on"	)
+pythonbin	[ 0	locks=0 ]	(	"0"	)
+python	[ 0	locks=0 ]	(	__PDG_PYTHON__	)
+extraargs	[ 0	locks=0 ]	(	""	)
+script	[ 0	locks=0 ]	(	"print work_item.node[\"newparameter\"]#.evaluateInt()
+
+"	)
+folder1	[ 0	locks=0 ]	(	0	)
+newparameter	[ 8	locks=0 ]	(	[ newparameter	0 ] 	)
+folder2	[ 0	locks=0 ]	(	0	)
+topscheduler	[ 0	locks=0 ]	(	""	)
+folder3	[ 0	locks=0 ]	(	0	0	)
+localscheduler_override_toggle	[ 0	locks=0 ]	(	"off"	)
+folder4	[ 0	locks=0 ]	(	0	)
+local_single	[ 0	locks=0 ]	(	"off"	)
+local_is_CPU_number_set	[ 0	locks=0 ]	(	"off"	)
+local_CPUs_to_use	[ 0	locks=0 ]	(	1	)
+local_usehoudinimaxthreads	[ 0	locks=0 ]	(	"off"	)
+local_houdinimaxthreads	[ 0	locks=0 ]	(	0	)
+local_envmulti	[ 0	locks=0 ]	(	0	)
+hqueuescheduler_override_toggle	[ 0	locks=0 ]	(	"off"	)
+folder6	[ 0	locks=0 ]	(	0	)
+hqueue_priority	[ 0	locks=0 ]	(	"5"	)
+hqueue_assign_to	[ 0	locks=0 ]	(	"any"	)
+hqueue_clients	[ 0	locks=0 ]	(	""	)
+select_clients	[ 0	locks=0 ]	(	0	)
+hqueue_client_groups	[ 0	locks=0 ]	(	""	)
+select_client_groups	[ 0	locks=0 ]	(	0	)
+hq_sepparm2	[ 0	locks=0 ]	(	)
+hqueue_is_CPU_number_set	[ 0	locks=0 ]	(	"off"	)
+hqueue_CPUs_to_use	[ 0	locks=0 ]	(	1	)
+hqueue_envmulti	[ 0	locks=0 ]	(	0	)
+folder7	[ 0	locks=0 ]	(	0	)
+hqueue_host	[ 0	locks=0 ]	(	""	)
+hqueue_tags	[ 0	locks=0 ]	(	""	)
+hqueue_conditions	[ 0	locks=0 ]	(	""	)
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/topnet1/pythonscript2.netbox"
+Content-Type: text/plain
+
+__netbox2
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/topnet1/pythonscript2.userdata"
+Content-Type: text/plain
+
+{
+	"___Version___":{
+		"type":"string",
+		"value":""
+	}
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/topnet1.order"
+Content-Type: text/plain
+
+9
+geometryimport
+localscheduler
+filepattern1
+attributecreate1
+partitionbyindex1
+genericgenerator1
+attributecreate2
+pythonscript1
+pythonscript2
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/topnet1.net"
+Content-Type: text/plain
+
+1
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot.order"
+Content-Type: text/plain
+
+7
+02_Feature_Extraction
+03_Image_Matching
+04_Feature_Matching
+switch1
+null1
+output0
+topnet1
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot.net"
+Content-Type: text/plain
+
+1
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY--

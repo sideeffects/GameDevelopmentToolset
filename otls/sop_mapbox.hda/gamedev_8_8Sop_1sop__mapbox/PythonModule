@@ -1,9 +1,10 @@
 from PySide2 import QtWebEngineWidgets, QtWidgets
-import urllib
+import urllib2
 import os 
 from math import sin, cos, sqrt, atan2, radians, pow
 import time 
 import platform
+import ssl
 # approximate radius of earth in km
 R = 6371.0
 
@@ -110,10 +111,12 @@ def refresh(node, force=True):
             ne_lon += lon_distance
             sw_lon += lon_distance
     
-        terrain = "https://api.mapbox.com/v4/mapbox.terrain-rgb/" + str(lon) +"," + str(lat) + "," + str((zoom+1)) + "/1024x1024@2x.png?access_token=" + API_KEY
+        terrain_url = "https://api.mapbox.com/v4/mapbox.terrain-rgb/" + str(lon) +"," + str(lat) + "," + str((zoom+1)) + "/1024x1024@2x.png?access_token=" + API_KEY
+        #print("terrain url: %s" % terrain_url)
         color_url = "https://api.mapbox.com/styles/v1/mapbox/satellite-v9/static/" + str(lon) + "," + str(lat) + "," + str((zoom)) + "/1024x1024@2x?access_token="+ API_KEY
+        #print("color url: %s" % color_url)
         osm_url = "https://overpass-api.de/api/map?bbox=" + str(sw_lon) + "," + str(sw_lat) + "," + str(ne_lon) + "," + str(ne_lat)
-        
+        #print("osm url: %s" % osm_url)
 
         terrain_path = node.parm("download_path_height").eval()
         terrain_dir = os.path.dirname(terrain_path)
@@ -132,11 +135,21 @@ def refresh(node, force=True):
             os.makedirs(osm_dir)
 
         
-        urllib.urlretrieve(terrain, terrain_path)
-        urllib.urlretrieve(color_url, color_path)
-        
-        urllib.urlretrieve(osm_url, osm_path)
-    
+        #urllib2.urlretrieve(terrain, terrain_path, context=ssl._create_unverified_context())
+        terrain_data = urllib2.urlopen(terrain_url, context=ssl._create_unverified_context())
+        with open(terrain_path, 'wb') as output:
+            output.write(terrain_data.read())
+            output.close()
+        #urllib2.urlretrieve(color_url, color_path, context=ssl._create_unverified_context())
+        color_data = urllib2.urlopen(color_url, context=ssl._create_unverified_context())
+        with open(color_path, 'wb') as output:
+            output.write(color_data.read())
+            output.close()
+        #urllib2.urlretrieve(osm_url, osm_path, context=ssl._create_unverified_context())
+        osm_data = urllib2.urlopen(osm_url, context=ssl._create_unverified_context())
+        with open(osm_path, 'wb') as output:
+            output.write(osm_data.read())
+            output.close()
     
     node.node("cop2net1/input_file").parm("reload").pressButton()
     node.node("load_sat_image_as_color").parm("reload").pressButton()

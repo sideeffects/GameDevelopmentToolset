@@ -9,13 +9,15 @@ def log(cmd, cache, folder, node):
             print(node.name())
 
         logfile = open(os.path.join(cache, folder, node.name()+"_log.txt"), 'a')
+        errorlogfile = open(os.path.join(cache, folder, node.name()+"_errorlog.txt"), 'a')
+
         StartupInfo = None
         if os.name == 'nt':
             StartupInfo = subprocess.STARTUPINFO()
             subprocess.STARTF_USESHOWWINDOW = 1
             StartupInfo.dwFlags |= subprocess.STARTF_USESHOWWINDOW
 
-        Process = subprocess.Popen(cmd, stdout=logfile, stderr=logfile, startupinfo=StartupInfo)
+        Process = subprocess.Popen(cmd, stdout=logfile, stderr=errorlogfile, startupinfo=StartupInfo)
 
         # Process is still running
         while Process.poll() == None:
@@ -27,6 +29,15 @@ def log(cmd, cache, folder, node):
 
         # Close log file, because Process has ended
         logfile.close()
+        errorlogfile.close()
+
+        with open(os.path.join(cache, folder, node.name()+"_errorlog.txt"), 'r') as myfile:
+            data = myfile.read()
+            if len(data) > 0:
+                hou.ui.displayMessage(data, buttons=('OK',), severity=hou.severityType.Error, title="%s AliceVision Processing Failed!" % node.name())
+            else:
+                myfile.close()
+                os.remove(os.path.join(cache, folder, node.name()+"_errorlog.txt"))
 
         if Log:
             print(node.name() + " completed")
@@ -41,7 +52,11 @@ def halfStep(node, param):
     node.parm(param).set(comp)
     
 def cookNode(node):
-    node.node("07_Depth_Map").cook(force=True)
-    node.node("08_Depth_Map_Filter").cook(force=True)
+    avnodes = ["07_Depth_Map", "08_Depth_Map_Filter"]
+    for process in avnodes:
+        try:
+            node.node(process).cook(force=True)
+        except:
+            hou.ui.displayMessage("Step %s Failed! See log for details!" % process, buttons=('OK',), severity=hou.severityType.Error, title="AliceVision Processing Failed!")
+            return
   
-    

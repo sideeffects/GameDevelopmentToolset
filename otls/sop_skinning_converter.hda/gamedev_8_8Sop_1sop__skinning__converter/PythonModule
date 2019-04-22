@@ -62,6 +62,8 @@ def MainFunction():
 
 
         Root = ContainerObject.createNode("null")
+
+        #ANIMATED GEOMETRY
         Geometry = ContainerObject.createNode("geo")
         Geometry.moveToGoodPosition()
 
@@ -74,6 +76,24 @@ def MainFunction():
         TimeShift.parm("frame").set(FrameRange[0])
         TimeShift.setNextInput(ObjMerge)
         TimeShift.moveToGoodPosition()
+
+        # STATIC GEOMETRY
+        if ThisNode.parm("sStaticGroup").evalAsString() != "":
+            StaticGeometry = ContainerObject.createNode("geo")
+            StaticGeometry.moveToGoodPosition()
+
+            StaticObjMerge = StaticGeometry.createNode("object_merge")
+            StaticObjMerge.parm("objpath1").set(ThisNode.path()+"/IN_STATIC")
+            StaticObjMerge.parm("xformtype").set("local")
+
+            StaticTimeShift = StaticGeometry.createNode("timeshift")
+            StaticTimeShift.parm("frame").deleteAllKeyframes()
+            StaticTimeShift.parm("frame").set(FrameRange[0])
+            StaticTimeShift.setNextInput(StaticObjMerge)
+            StaticTimeShift.moveToGoodPosition()
+            StaticTimeShift.setDisplayFlag(True)
+            StaticTimeShift.setRenderFlag(True)
+
 
         CaptureNode = None
         if CaptureMethod == 0:

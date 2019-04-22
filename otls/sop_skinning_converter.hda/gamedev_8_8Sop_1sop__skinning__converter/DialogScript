@@ -20,6 +20,16 @@
         type    separator
         default { "" }
     }
+    parm {
+        name    "sStaticGroup"
+        label   "Static Primitives"
+        type    string
+        default { "" }
+        menutoggle {
+            [ "opmenu -l split1 group" ]
+        }
+        range   { 0 1 }
+    }
     groupradio {
         name    "folder1"
         label   "Direct Conversion"
@@ -217,6 +227,7 @@
             name    "parm7"
             label   "I'm a Toggle that doesnt do anything YET"
             type    toggle
+            invisible
             default { "0" }
         }
     }

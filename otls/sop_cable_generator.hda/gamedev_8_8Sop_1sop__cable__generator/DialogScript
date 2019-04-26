@@ -43,6 +43,14 @@
             range   { 0 1 }
         }
         parm {
+            name    "general_smoothing"
+            label   "General Smoothing"
+            type    float
+            default { "50" }
+            range   { 0! 100 }
+            parmtag { "autoscope" "0000000000000000" }
+        }
+        parm {
             name    "joint_smoothing"
             label   "Joint Smoothing"
             type    float
@@ -50,19 +58,19 @@
             range   { 0! 50 }
             parmtag { "autoscope" "0000000000000000" }
         }
+        parm {
+            name    "chance_to_skip_pin"
+            label   "Chance To Skip Pin"
+            type    float
+            default { "0" }
+            range   { 0 1 }
+        }
     }
 
     groupsimple {
         name    "folder1"
         label   "Noise Options"
 
-        parm {
-            name    "chance_to_skip_pin"
-            label   "Chance To Skip Pin"
-            type    float
-            default { "0" }
-            range   { 0 10 }
-        }
         parm {
             name    "noise_frequency"
             label   "Noise Frequency"

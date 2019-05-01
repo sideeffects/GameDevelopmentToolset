@@ -77,6 +77,14 @@ def refresh(node, force=True):
     lon = node.parm("lat_lon_zoomy").eval()
     zoom = node.parm("lat_lon_zoomz").eval()
         
+    if abs(lon) > 360: 
+        lon = lon%360 
+    
+    if lon < 0: 
+        lon = 360+lon
+
+    node.parm("lat_lon_zoomy").set(lon)
+    
     cache_lat = node.parm("cache_lat_lon_zoomx").eval()
     cache_lon = node.parm("cache_lat_lon_zoomy").eval()
     cache_zoom = node.parm("cache_lat_lon_zoomz").eval()

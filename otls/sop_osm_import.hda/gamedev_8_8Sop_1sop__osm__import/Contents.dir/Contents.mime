@@ -32,12 +32,11 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position -7.88355 5.47432
-connectornextid 1
-flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
+position -10.802 2.54992
+connectornextid 0
+flags =  lock off model off template off footprint off xray off bypass off display on render on highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
 {
-0 "output1"
 }
 inputsNamed3
 {
@@ -47,8 +46,8 @@ inputs
 }
 stat
 {
-  create 1548950966
-  modify 1548952918
+  create 1556832862
+  modify 1556833051
   author MAINGEAR@DESKTOP-P98C1VA
   access 0777
 }
@@ -97,7 +96,7 @@ inputs
 stat
 {
   create 1500592402
-  modify 1548952909
+  modify 1556832904
   author Luiz@Luiz-PC
   access 0777
 }
@@ -255,6 +254,8 @@ class OSMParser(object):
         geo.addAttrib(hou.attribType.Global, \"max_lat\", self.max_lat)
         geo.addAttrib(hou.attribType.Global, \"min_lon\", self.min_lon)
         geo.addAttrib(hou.attribType.Global, \"max_lon\", self.max_lon)
+        geo.addAttrib(hou.attribType.Global, \"map_length\", self.length)
+        geo.addAttrib(hou.attribType.Global, \"map_height\", self.height)
 
         for tag in self.tags:
             if tag == \"name\":
@@ -437,7 +438,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.465"
+		"value":"17.5.210"
 	}
 }
 
@@ -500,7 +501,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.465"
+		"value":"17.5.210"
 	}
 }
 
@@ -562,9 +563,16 @@ Content-Type: text/plain
 version 0.8
 group	[ 0	locks=0 ]	(	""	)
 grouptype	[ 0	locks=0 ]	(	"guess"	)
+overridenormal	[ 0	locks=0 ]	(	"off"	)
+normalattrib	[ 0	locks=0 ]	(	N	)
+construct	[ 0	locks=0 ]	(	0	)
+docompute	[ 0	locks=0 ]	(	"on"	)
 type	[ 0	locks=0 ]	(	"typepoint"	)
 cuspangle	[ 0	locks=0 ]	(	60	)
 method	[ 0	locks=0 ]	(	1	)
+modify	[ 0	locks=0 ]	(	0	)
+normalize	[ 0	locks=0 ]	(	"off"	)
+reverse	[ 0	locks=0 ]	(	"off"	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -574,7 +582,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.465"
+		"value":"17.5.210"
 	}
 }
 
@@ -637,7 +645,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.465"
+		"value":"17.5.210"
 	}
 }
 
@@ -753,9 +761,16 @@ Content-Type: text/plain
 version 0.8
 group	[ 0	locks=0 ]	(	""	)
 grouptype	[ 0	locks=0 ]	(	"guess"	)
+overridenormal	[ 0	locks=0 ]	(	"off"	)
+normalattrib	[ 0	locks=0 ]	(	N	)
+construct	[ 0	locks=0 ]	(	0	)
+docompute	[ 0	locks=0 ]	(	"on"	)
 type	[ 0	locks=0 ]	(	"typevertex"	)
 cuspangle	[ 0	locks=0 ]	(	60	)
 method	[ 0	locks=0 ]	(	1	)
+modify	[ 0	locks=0 ]	(	0	)
+normalize	[ 0	locks=0 ]	(	"off"	)
+reverse	[ 0	locks=0 ]	(	"off"	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -765,7 +780,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.465"
+		"value":"17.5.210"
 	}
 }
 
@@ -826,7 +841,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.465"
+		"value":"17.5.210"
 	}
 }
 
@@ -902,7 +917,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.465"
+		"value":"17.5.210"
 	}
 }
 

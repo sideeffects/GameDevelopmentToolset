@@ -161,9 +161,9 @@ def pre_bake(node):
             exr_path = os.path.join(temp_path, low_mesh.split("/")[-1] + "%s_tmp_%s.exr" % (unique_id, hou.intFrame()))
 
             if j == 0:
-                custom_bake_node.parm("vm_uvpostprocess").set("Diffuse Fill")
+                custom_bake_node.parm("vm_uvpostprocess").set("diffusefill")
             else:
-                custom_bake_node.parm("vm_uvpostprocess").set("Border Expansion")
+                custom_bake_node.parm("vm_uvpostprocess").set("borderfill")
             
             custom_bake_node.bypass(0)
             custom_bake_node.parm("vm_uvoutputpicture1").set(exr_path)
@@ -243,7 +243,7 @@ def pre_bake(node):
 
             exr_path = os.path.join(temp_path, low_mesh.split("/")[-1] + "%s_tmp_%s.exr" % (unique_id, hou.intFrame()))
 
-            alpha_bake_node.parm("vm_uvpostprocess").set("Border Expansion")
+            alpha_bake_node.parm("vm_uvpostprocess").set("borderfill")
             
             alpha_bake_node.bypass(0)
             alpha_bake_node.parm("vm_uvoutputpicture1").set(exr_path)

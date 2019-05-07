@@ -32,9 +32,9 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position -1.80765 -8.28802
+position -2.71768 1.83854
 connectornextid 0
-flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
+flags =  lock off model off template off footprint off xray off bypass off display on render on highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
 {
 }
@@ -46,8 +46,8 @@ inputs
 }
 stat
 {
-  create 1553898418
-  modify 1553898465
+  create 1557263467
+  modify 1557263485
   author prisms@threadripper1
   access 0777
 }
@@ -128,7 +128,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.207"
+		"value":"17.5.229"
 	}
 }
 
@@ -159,7 +159,7 @@ inputs
 stat
 {
   create 1510086161
-  modify 1553898451
+  modify 1557263489
   author MAINGEAR@DESKTOP-P98C1VA
   access 0777
 }
@@ -415,6 +415,13 @@ Content-Type: text/plain
       flags = 0
       segment { length = 0 value = 1 1 expr = ch(\"../../vm_bake_skipcf\") }
     }
+    channel baking_samples {
+      lefttype = extend
+      righttype = extend
+      default = 4
+      flags = 0
+      segment { length = 0 value = 4 4 expr = ch(\"../../baking_samples\") }
+    }
   }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -428,7 +435,7 @@ renderdialog	[ 0	locks=0 ]	(	0	)
 meshes	[ 0	locks=0	autoscope=0 ]	(	1	)
 vm_uvunwrapres	[ 8	locks=0 ]	(	[ vm_uvunwrapresx	512 ] 	[ vm_uvunwrapresy	512 ] 	)
 uvresmenu	[ 0	locks=0 ]	(	0	)
-base_path	[ 0	locks=0	autoscope=0 ]	(	[ base_path	C:/Github/GDT/hip/render/simplebaker_demoscene_$(CHANNEL).tga ] 	)
+base_path	[ 0	locks=0	autoscope=0 ]	(	[ base_path	"C:/Program Files/SideFX/render/untitled_$(CHANNEL).tga" ] 	)
 channels	[ 0	locks=0 ]	(	1	1	)
 bake_basecolor	[ 0	locks=0	autoscope=0 ]	(	[ bake_basecolor	1 ] 	)
 basecolor_suffix	[ 0	locks=0	autoscope=0 ]	(	[ basecolor_suffix	basecolor ] 	)
@@ -461,7 +468,7 @@ vm_bake_tangentnormalflipy	[ 0	locks=0	autoscope=0 ]	(	[ vm_bake_tangentnormalfl
 vm_bake_skipcf	[ 0	locks=0 ]	(	[ vm_bake_skipcf	1 ] 	)
 vm_uvcageobject1	[ 0	locks=0	autoscope=0 ]	(	[ vm_uvcageobject1	"" ] 	)
 border_padding	[ 0	locks=0	autoscope=0 ]	(	[ border_padding	2 ] 	)
-baking_samples	[ 0	locks=0 ]	(	4	)
+baking_samples	[ 8	locks=0 ]	(	[ baking_samples	8 ] 	)
 ray_bias	[ 0	locks=0	autoscope=0 ]	(	[ ray_bias	0.01 ] 	)
 ray_distance	[ 0	locks=0	autoscope=0 ]	(	[ ray_distance	-1 ] 	)
 target_mesh_1	[ 0	locks=0	autoscope=0 ]	(	../../LOW	)
@@ -562,7 +569,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.207"
+		"value":"17.5.229"
 	}
 }
 
@@ -617,7 +624,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.207"
+		"value":"17.5.229"
 	}
 }
 
@@ -4430,7 +4437,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.207"
+		"value":"17.5.229"
 	}
 }
 
@@ -4837,8 +4844,10 @@ Content-Type: text/plain
 {
 version 0.8
 mMaterialEntries	[ 0	locks=0 ]	(	1	)
+sMaterialType1	[ 0	locks=0 ]	(	"0"	)
 materialname_1	[ 0	locks=0 ]	(	SimplebakerMaterial	)
 groupselection_1	[ 0	locks=0 ]	(	""	)
+folder0_1	[ 0	locks=0 ]	(	0	)
 basecolorfolder_1	[ 0	locks=0 ]	(	0	)
 basecolor_texture_1	[ 0	locks=0 ]	(	"`strreplace(chs(\"../base_path\"), \"$(CHANNEL)\", chs(\"../visualize_channel\"))`"	)
 basecolor_1	[ 0	locks=0 ]	(	1	1	1	)
@@ -4857,6 +4866,54 @@ ior_1	[ 0	locks=0 ]	(	[ ior_1	1.8200000000000001 ] 	)
 metallicfolder_1	[ 0	locks=0 ]	(	0	)
 metallic_texture_1	[ 0	locks=0 ]	(	"`ifs(ch(\"../bake_metallic\"),strreplace(chs(\"../base_path\"), \"$(CHANNEL)\", chs(\"../metallic_suffix\")),\"\")`"	)
 metallic_1	[ 8	locks=0 ]	(	[ metallic_1	0 ] 	)
+folder0_1_3	[ 0	locks=0 ]	(	0	)
+basecolorfolder_1_2	[ 0	locks=0 ]	(	0	)
+pbr_basecolor_1	[ 0	locks=0 ]	(	1	1	1	)
+pbr_basecolor_useTexture_1	[ 0	locks=0 ]	(	"off"	)
+pbr_basecolor_texture_1	[ 0	locks=0 ]	(	""	)
+roughnessfolder_1_2	[ 0	locks=0 ]	(	0	)
+pbr_IOR_1	[ 0	locks=0 ]	(	1.5	)
+pbr_rough_1	[ 0	locks=0 ]	(	0.29999999999999999	)
+pbr_horizon_fade_1	[ 0	locks=0 ]	(	1	)
+pbr_invert_rough_1	[ 0	locks=0 ]	(	"off"	)
+pbr_rough_useTexture_1	[ 0	locks=0 ]	(	"off"	)
+pbr_rough_texture_1	[ 0	locks=0 ]	(	""	)
+pbr_rough_monoChannel_1	[ 0	locks=0 ]	(	0	)
+metallicfolder_1_2	[ 0	locks=0 ]	(	0	)
+pbr_metallic_1	[ 0	locks=0 ]	(	0	)
+pbr_metallic_useTexture_1	[ 0	locks=0 ]	(	"off"	)
+pbr_metallic_texture_1	[ 0	locks=0 ]	(	""	)
+pbr_metallic_monoChannel_1	[ 0	locks=0 ]	(	0	)
+shading_16_1	[ 0	locks=0 ]	(	0	)
+pbr_baseBumpAndNormal_enable_1	[ 0	locks=0 ]	(	"off"	)
+pbr_baseNormal_texture_1	[ 0	locks=0 ]	(	""	)
+pbr_baseNormal_scale_1	[ 0	locks=0 ]	(	1	)
+pbr_baseNormal_flipX_1	[ 0	locks=0 ]	(	"off"	)
+pbr_baseNormal_flipY_1	[ 0	locks=0 ]	(	"off"	)
+pbr_use_mikkt_1	[ 0	locks=0 ]	(	"off"	)
+folder14_1	[ 0	locks=0 ]	(	0	)
+pbr_occlusion_1	[ 0	locks=0 ]	(	0	)
+pbr_occlusion_useTexture_1	[ 0	locks=0 ]	(	"off"	)
+pbr_occlusion_texture_1	[ 0	locks=0 ]	(	""	)
+pbr_occlusion_monoChannel_1	[ 0	locks=0 ]	(	0	)
+folder9_1	[ 0	locks=0 ]	(	0	)
+pbr_emitint_1	[ 0	locks=0 ]	(	0	)
+pbr_emitcolor_1	[ 0	locks=0 ]	(	0	0	0	)
+pbr_emitcolor_useTexture_1	[ 0	locks=0 ]	(	"off"	)
+pbr_emitcolor_texture_1	[ 0	locks=0 ]	(	""	)
+folder13_1	[ 0	locks=0 ]	(	0	)
+pbr_transparency_1	[ 0	locks=0 ]	(	0	)
+pbr_opaccolor_useTexture_1	[ 0	locks=0 ]	(	"off"	)
+pbr_opaccolor_1	[ 0	locks=0 ]	(	""	)
+diffuse_folder_15_1_1	[ 0	locks=0 ]	(	0	)
+pbr_importance_sampling_diffuse_1	[ 0	locks=0 ]	(	"off"	)
+pbr_nbSamples_diff_1	[ 0	locks=0 ]	(	32	)
+pbr_importance_sampling_1	[ 0	locks=0 ]	(	"on"	)
+pbr_nbSamples_1	[ 0	locks=0 ]	(	32	)
+pbr_frontface_1	[ 0	locks=0 ]	(	"on"	)
+folder0_1_2	[ 0	locks=0 ]	(	0	)
+matcap_basecolor_texture_1	[ 0	locks=0 ]	(	opdef:gamedev::Vop/mat_matcap_shader?matcap_orange.exr	)
+matcap_use_texture_alpha_1	[ 0	locks=0 ]	(	"off"	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -4928,7 +4985,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.207"
+		"value":"17.5.229"
 	}
 }
 
@@ -6720,7 +6777,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.207"
+		"value":"17.5.229"
 	}
 }
 
@@ -6799,7 +6856,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.207"
+		"value":"17.5.229"
 	}
 }
 
@@ -6873,7 +6930,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.207"
+		"value":"17.5.229"
 	}
 }
 
@@ -6948,7 +7005,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.207"
+		"value":"17.5.229"
 	}
 }
 
@@ -7016,7 +7073,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.207"
+		"value":"17.5.229"
 	}
 }
 
@@ -7087,7 +7144,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.207"
+		"value":"17.5.229"
 	}
 }
 
@@ -7865,7 +7922,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.207"
+		"value":"17.5.229"
 	}
 }
 
@@ -7944,7 +8001,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.207"
+		"value":"17.5.229"
 	}
 }
 
@@ -8019,7 +8076,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.207"
+		"value":"17.5.229"
 	}
 }
 
@@ -8098,7 +8155,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.207"
+		"value":"17.5.229"
 	}
 }
 
@@ -8173,7 +8230,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.207"
+		"value":"17.5.229"
 	}
 }
 
@@ -8248,7 +8305,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.207"
+		"value":"17.5.229"
 	}
 }
 
@@ -8316,7 +8373,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.207"
+		"value":"17.5.229"
 	}
 }
 
@@ -8387,7 +8444,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.207"
+		"value":"17.5.229"
 	}
 }
 
@@ -8456,7 +8513,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.207"
+		"value":"17.5.229"
 	}
 }
 
@@ -8530,7 +8587,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.207"
+		"value":"17.5.229"
 	}
 }
 
@@ -9199,7 +9256,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.207"
+		"value":"17.5.229"
 	}
 }
 
@@ -9274,7 +9331,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.207"
+		"value":"17.5.229"
 	}
 }
 
@@ -9362,7 +9419,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.207"
+		"value":"17.5.229"
 	}
 }
 
@@ -9461,7 +9518,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.207"
+		"value":"17.5.229"
 	}
 }
 
@@ -9561,7 +9618,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.207"
+		"value":"17.5.229"
 	}
 }
 
@@ -9636,7 +9693,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.207"
+		"value":"17.5.229"
 	}
 }
 
@@ -9715,7 +9772,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.207"
+		"value":"17.5.229"
 	}
 }
 
@@ -11555,7 +11612,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.207"
+		"value":"17.5.229"
 	}
 }
 
@@ -11670,7 +11727,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.207"
+		"value":"17.5.229"
 	}
 }
 
@@ -11765,7 +11822,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.207"
+		"value":"17.5.229"
 	}
 }
 
@@ -11835,7 +11892,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.207"
+		"value":"17.5.229"
 	}
 }
 
@@ -11937,7 +11994,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.207"
+		"value":"17.5.229"
 	}
 }
 
@@ -12042,7 +12099,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.207"
+		"value":"17.5.229"
 	}
 }
 
@@ -12134,7 +12191,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.207"
+		"value":"17.5.229"
 	}
 }
 
@@ -12239,7 +12296,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.207"
+		"value":"17.5.229"
 	}
 }
 
@@ -12379,7 +12436,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.207"
+		"value":"17.5.229"
 	}
 }
 
@@ -12484,7 +12541,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.207"
+		"value":"17.5.229"
 	}
 }
 
@@ -12550,7 +12607,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.207"
+		"value":"17.5.229"
 	}
 }
 
@@ -12616,7 +12673,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.207"
+		"value":"17.5.229"
 	}
 }
 
@@ -12707,7 +12764,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.207"
+		"value":"17.5.229"
 	}
 }
 
@@ -12812,7 +12869,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.207"
+		"value":"17.5.229"
 	}
 }
 
@@ -12917,7 +12974,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.207"
+		"value":"17.5.229"
 	}
 }
 
@@ -13022,7 +13079,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.207"
+		"value":"17.5.229"
 	}
 }
 
@@ -13088,7 +13145,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.207"
+		"value":"17.5.229"
 	}
 }
 
@@ -13154,7 +13211,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.207"
+		"value":"17.5.229"
 	}
 }
 
@@ -13232,7 +13289,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.207"
+		"value":"17.5.229"
 	}
 }
 
@@ -13310,7 +13367,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.207"
+		"value":"17.5.229"
 	}
 }
 
@@ -13390,7 +13447,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.207"
+		"value":"17.5.229"
 	}
 }
 
@@ -13561,7 +13618,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.207"
+		"value":"17.5.229"
 	}
 }
 
@@ -15096,7 +15153,7 @@ soho_initsim	[ 0	locks=0 ]	(	"off"	)
 soho_viewport_menu	[ 0	locks=0 ]	(	"off"	)
 vm_uvobjectenable1	[ 0	locks=0 ]	(	"on"	)
 vm_uvobject1	[ 0	locks=0 ]	(	"`opfullpath(\"..\") + \"/objnet/low\"`"	)
-vm_uvcageobject1	[ 0	locks=0 ]	(	`chsop(\"../vm_uvcageobject1\")`	)
+vm_uvcageobject1	[ 8	locks=0 ]	(	`chsop(\"../vm_uvcageobject1\")`	)
 vm_uvhires1	[ 0	locks=0 ]	(	"`opfullpath(\"..\") + \"/objnet/custom_export\"`"	)
 vm_uvoutputpicture1	[ 0	locks=0 ]	(	""	)
 images6	[ 0	locks=0 ]	(	0	0	0	0	0	)
@@ -15229,7 +15286,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.207"
+		"value":"17.5.229"
 	}
 }
 
@@ -15354,7 +15411,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.207"
+		"value":"17.5.229"
 	}
 }
 
@@ -17059,7 +17116,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.207"
+		"value":"17.5.229"
 	}
 }
 
@@ -17119,7 +17176,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.207"
+		"value":"17.5.229"
 	}
 }
 
@@ -17230,7 +17287,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.207"
+		"value":"17.5.229"
 	}
 }
 
@@ -17305,7 +17362,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.207"
+		"value":"17.5.229"
 	}
 }
 
@@ -17366,7 +17423,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.207"
+		"value":"17.5.229"
 	}
 }
 
@@ -17427,7 +17484,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.207"
+		"value":"17.5.229"
 	}
 }
 
@@ -17502,7 +17559,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.207"
+		"value":"17.5.229"
 	}
 }
 
@@ -17570,7 +17627,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.207"
+		"value":"17.5.229"
 	}
 }
 
@@ -17631,7 +17688,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.207"
+		"value":"17.5.229"
 	}
 }
 
@@ -17690,7 +17747,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.207"
+		"value":"17.5.229"
 	}
 }
 
@@ -17774,7 +17831,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.207"
+		"value":"17.5.229"
 	}
 }
 
@@ -17868,7 +17925,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.207"
+		"value":"17.5.229"
 	}
 }
 

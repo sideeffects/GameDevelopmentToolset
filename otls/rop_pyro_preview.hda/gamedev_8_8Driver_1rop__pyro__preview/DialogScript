@@ -57,7 +57,7 @@
         label   "Start/End/Inc"
         type    float
         size    3
-        default { "$FSTART" "$FEND" "1" }
+        default { [ "$FSTART" hscript-expr ] [ "$FEND" hscript-expr ] "1" }
         range   { 0 10 }
         parmtag { "autoscope" "0000000000000000" }
     }
@@ -84,7 +84,7 @@
         name    "override_camerares"
         label   "Override Camera Resolution"
         type    toggle
-        default { "off" }
+        default { [ "off" hscript-expr ] }
         parmtag { "autoscope" "0000000000000000" }
     }
     parm {
@@ -120,8 +120,8 @@
     parm {
         name    "res_overrideMenu"
         label   "Choose Resolution"
-        type    button
-        default { "640 480 1" }
+        type    ordinal
+        default { [ "640 480 1" hscript-expr ] }
         disablewhen "{ res_fraction != specific }"
         hidewhen "{ override_camerares == 0 }"
         menumini {
@@ -147,7 +147,6 @@
         menureplace {
             [ "opmenu -l pyro_preview_settings vm_picture" ]
         }
-        range   { 0 1 }
         parmtag { "autoscope" "0000000000000000" }
         parmtag { "filechooser_mode" "write" }
     }

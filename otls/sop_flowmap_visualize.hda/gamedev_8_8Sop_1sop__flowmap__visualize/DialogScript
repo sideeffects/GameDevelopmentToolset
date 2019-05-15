@@ -18,7 +18,8 @@
         name    "diffTexture2"
         label   "Diffuse Texture"
         type    image
-        default { "opdef:../..?flowmap_visualize.jpg" }
+        default { "opdef:.?flowmap_visualize.jpg" }
+        help    "Path to the texture used for preview, defaults to an internal caustic jpg"
         parmtag { "autoscope" "0000000000000000" }
     }
     parm {
@@ -27,6 +28,7 @@
         type    vector2
         size    2
         default { "1" "1" }
+        help    "Number of times the texture is repeated in UV space"
         range   { -1 1 }
         parmtag { "autoscope" "0000000000000000" }
     }
@@ -35,6 +37,7 @@
         label   "Speed"
         type    float
         default { "5" }
+        help    "Speed the flowmap is previewed at when playback is active."
         range   { 0 10 }
         parmtag { "autoscope" "0000000000000000" }
     }
@@ -43,6 +46,7 @@
         label   "Distortion Amount"
         type    float
         default { "0.2" }
+        help    "Strength of of the flowmap effect. Small values are better."
         range   { 0 1 }
         parmtag { "autoscope" "0000000000000000" }
     }
@@ -51,6 +55,7 @@
         label   "Flowmap Mode"
         type    integer
         default { "0" }
+        help    "Choose if the flowmap is read from @Cd, or from a texture."
         menu {
             "0" "Color"
             "1" "Texture"
@@ -63,6 +68,7 @@
         label   "Flowmap Texture"
         type    image
         default { "" }
+        help    "If the flowmap mode is texture, this parameter sets the texture path."
         disablewhen "{ mode == 0 }"
         parmtag { "autoscope" "0000000000000000" }
     }

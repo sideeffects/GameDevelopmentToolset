@@ -50,6 +50,20 @@
     }
 
     parm {
+        name    "current_low_mesh"
+        label   "Current Low Mesh"
+        type    oppath
+        default { "" }
+        parmtag { "oprelative" "." }
+    }
+    parm {
+        name    "current_high_mesh"
+        label   "Current High Mesh"
+        type    oppath
+        default { "" }
+        parmtag { "oprelative" "." }
+    }
+    parm {
         name    "vm_uvunwrapres"
         label   "Resolution"
         type    intvector2
@@ -80,6 +94,90 @@
         type    image
         default { "$HIP/render/${HIPNAME}_$(CHANNEL).tga" }
     }
+    parm {
+        name    "tempdirectory"
+        label   "Temp Directory"
+        type    directory
+        default { "$TEMP/houdini_temp" }
+    }
+    group {
+        name    "privateparmsfolder"
+        label   "Private Parms Folder"
+        invisibletab
+
+        parm {
+            name    "tempexrpath"
+            label   "Temp exr path"
+            type    image
+            invisible
+            default { "$TEMP/houdini_temp/temp_exr_path1.exr" }
+        }
+        parm {
+            name    "tempcoppath"
+            label   "Temp cop path"
+            type    image
+            invisible
+            default { "$TEMP/houdini_temp/temp_cop.exr" }
+        }
+        parm {
+            name    "udimpostprocess"
+            label   "UDIM post Process"
+            type    string
+            invisible
+            default { "diffusefill" }
+            menu {
+                "none"              "No Post Processing"
+                "borderfill"        "Border Expansion"
+                "backgroundfill"    "Fill Background With Average Color"
+                "diffusefill"       "Diffuse Fill"
+            }
+        }
+        parm {
+            name    "currentcoppath"
+            label   "Current COP Path"
+            type    oppath
+            invisible
+            default { "../extract_net/base_image" }
+            parmtag { "oprelative" "." }
+        }
+        parm {
+            name    "currentcopoutput"
+            label   "Current COP Output Picture"
+            type    image
+            invisible
+            default { "$HIP/render/${HIPNAME}_$(CHANNEL).tga" }
+        }
+        parm {
+            name    "currentplane"
+            label   "Current Color Plane"
+            type    string
+            invisible
+            default { "basecolor" }
+        }
+        parm {
+            name    "currentgamma"
+            label   "Current Gamma"
+            type    float
+            invisible
+            default { "2.2" }
+            range   { 0 10 }
+        }
+        parm {
+            name    "currentcustomattr"
+            label   "Current Custom Attribute"
+            type    string
+            invisible
+            default { "v" }
+        }
+        parm {
+            name    "currentcustomsuffix"
+            label   "Current Custom Suffix"
+            type    string
+            invisible
+            default { "velocity" }
+        }
+    }
+
     group {
         name    "channels"
         label   "Channels"

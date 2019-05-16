@@ -12,6 +12,104 @@ def bake(bake_rop, path):
     bake_rop.parm("vm_uvoutputpicture1").set(path)
     bake_rop.render()
     bake_rop.bypass(1)
+    
+def multi_render(node):
+    multi_bake = hou.node("%s/multi_bake" % node.path())
+    temp_dir = node.parm("tempdirectory").eval()
+    temp_exr_path = node.parm("tempexrpath")
+    current_low_mesh = node.parm("current_low_mesh")
+    current_high_mesh = node.parm("current_high_mesh")
+    mesh_count = int(node.parm("meshes").eval())
+    
+    if (mesh_count > 1):
+        #node.parm("udimpostprocess").set("borderfill")
+        for i in range(mesh_count-1):
+            temp_exr_path.set("%s/temp_exr_path%s.exr" % (temp_dir, i+2))
+            current_low_mesh.set(node.parm("target_mesh_%s" % (i+2)).eval())
+            current_high_mesh.set(node.parm("source_mesh_%s" % (i+2)).eval())
+            multi_bake.render()
+            
+    #node.parm("udimpostprocess").set("diffusefill")
+    temp_exr_path.set("%s/temp_exr_path%s.exr" % (temp_dir, 1))
+    current_low_mesh.set(node.parm("target_mesh_%s" % 1).eval())
+    current_high_mesh.set(node.parm("source_mesh_%s" % 1).eval())
+    
+def custom_multi_render(node):
+    custom_multi_bake = hou.node("%s/custom_multi_bake" % node.path())
+    temp_dir = node.parm("tempdirectory").eval()
+    temp_exr_path = node.parm("tempexrpath")
+    current_low_mesh = node.parm("current_low_mesh")
+    current_high_mesh = node.parm("current_high_mesh")
+    mesh_count = int(node.parm("meshes").eval())
+    suffix = node.parm("custom_attribute_suffix_1")
+    custom_channel = node.parm("custom_attribute_name_1")
+    
+    if (mesh_count > 1):
+        #node.parm("udimpostprocess").set("borderfill")
+        for i in range(mesh_count-1):
+            temp_exr_path.set("%s/temp_exr_path%s.exr" % (temp_dir, i+2))
+            current_low_mesh.set(node.parm("target_mesh_%s" % (i+2)).eval())
+            current_high_mesh.set(node.parm("source_mesh_%s" % (i+2)).eval())
+            custom_multi_bake.render()
+            
+    #node.parm("udimpostprocess").set("diffusefill")
+    temp_exr_path.set("%s/temp_exr_path%s.exr" % (temp_dir, 1))
+    current_low_mesh.set(node.parm("target_mesh_%s" % 1).eval())
+    current_high_mesh.set(node.parm("source_mesh_%s" % 1).eval())
+    
+def multi_custom_planes(node):
+    channel_count = node.parm("custom_channels").eval()
+    custom_batch = hou.node("%s/prepost3" % node.path())
+    for i in range(channel_count):
+        current_attribute = node.parm("custom_attribute_name_%s" % (i+1)).eval()
+        current_suffix = node.parm("custom_attribute_suffix_%s" % (i+1)).eval()
+        node.parm("currentcustomattr").set(current_attribute)
+        node.parm("currentcustomsuffix").set(current_suffix)
+        custom_batch.render()
+        
+def extract_planes(node):
+    render_plane = hou.node("%s/render_plane" % node.path())
+    file_path = node.parm("base_path").eval()
+    # Extract Maps
+    bake_parms = ["bake_basecolor", "bake_Nt", "bake_specrough", "bake_metallic", "bake_N", 
+                "bake_Oc", "bake_Cu", "bake_P", "bake_Th", "bake_Ds", "bake_alpha" ]
+    normalized_maps = ["Nt", "N", "alpha"]
+    linear_maps = ['specrough', 'metallic', 'Oc', 'Cu', 'P']
+    remap_maps = ['Th', "Ds"]
+    
+    if node.parm("bBasecolorLinearSpace").evalAsInt() == 1:
+        linear_maps.append("basecolor")
+        
+    for bake_parm in bake_parms:
+        should_bake = node.parm(bake_parm).eval()
+        if should_bake:
+            channel_name = bake_parm.split("_")[-1]
+            node.parm("currentplane").set(channel_name)
+            suffix = node.parm(channel_name + "_suffix").eval()
+
+            if channel_name in normalized_maps:
+                node.parm("currentcoppath").set("../extract_net/normalized")
+                node.parm("currentgamma").set(1)
+
+            elif channel_name in linear_maps:
+                node.parm("currentcoppath").set("../extract_net/base_image")
+                node.parm("currentgamma").set(1)
+
+            elif channel_name in remap_maps:
+                node.parm("currentcoppath").set("../extract_net/height_normalized")
+                node.parm("currentgamma").set(1)
+            else:
+                node.parm("currentcoppath").set("../extract_net/base_image")
+                node.parm("currentgamma").set(2.2)
+                
+            new_path = file_path.replace("$(CHANNEL)", suffix)
+            node.parm("currentcopoutput").set(new_path)
+            render_plane.render()
+    node.parm("currentcoppath").revertToDefaults()
+    node.parm("currentgamma").revertToDefaults()
+    node.parm("currentcopoutput").revertToDefaults()
+    node.parm("currentplane").revertToDefaults()
+        
 
 def pre_bake(node):
 
@@ -143,8 +241,8 @@ def pre_bake(node):
             singles_rop.render()
             singles_rop.bypass(1)
         
-    for exr in tmp_exrs:
-        os.remove(exr)
+    #for exr in tmp_exrs:
+    #    os.remove(exr)
         
     # Render out Custom Bake Nodes
     custom_tmp_exrs = []
@@ -221,12 +319,12 @@ def pre_bake(node):
         singles_rop.render()
         singles_rop.bypass(1)
 
-    for exr in custom_tmp_exrs:
-        os.remove(exr)
+    #for exr in custom_tmp_exrs:
+    #    os.remove(exr)
         
     composite_net = node.node("composite_net")
-    for child in composite_net.children():
-        child.destroy()
+    #for child in composite_net.children():
+    #    child.destroy()
         
     # Render out Alpha 
     should_bake = node.parm("bake_alpha").eval()
@@ -302,8 +400,8 @@ def pre_bake(node):
             os.remove(exr)
             
         composite_net = node.node("composite_net")
-        for child in composite_net.children():
-            child.destroy()
+        #for child in composite_net.children():
+        #    child.destroy()
             
 def post_bake(node):
     # DELETE EXR FILE

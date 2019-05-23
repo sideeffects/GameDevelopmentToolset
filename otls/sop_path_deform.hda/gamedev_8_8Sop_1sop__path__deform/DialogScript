@@ -24,7 +24,7 @@
             label   "Axis"
             type    ordinal
             default { "0" }
-            help    "Which axis to align alomg the curve. Eg, the tommy sop has his head pointing up on Y, so the axis to choose is +Y."
+            help    "Which axis to align along the curve. Eg, the tommy sop has his head pointing up on Y, so the axis to choose is +Y."
             menu {
                 "0" "+X"
                 "1" "+Y"
@@ -47,7 +47,7 @@
             label   "Curve Resolution"
             type    float
             default { "0.1" }
-            help    "Quality of the curve resample used internally. Higher values will deform the curve more accurately, but can slow performance."
+            help    "Quality of the curve resample used internally. Higher values will deform the geometry more accurately, but can slow performance."
             range   { 0 10 }
         }
         parm {
@@ -64,6 +64,7 @@
             type    toggle
             joinnext
             default { "0" }
+            help    "Toggle to clip the geo if it extends before the start of the curve."
         }
         parm {
             name    "clip_max"
@@ -71,14 +72,14 @@
             type    toggle
             joinnext
             default { "0" }
-            help    "Toggle to clip the geo if the offset makes part of the geo extend beyond the end of the curve."
+            help    "Toggle to clip the geo if it extends beyond the end of the curve."
         }
         parm {
             name    "collapse"
             label   "Collapse Instead of Clip"
             type    toggle
             default { "1" }
-            help    "Toggle to 'crunch' the geo at the ends rather than cut it and change the point count."
+            help    "Toggle to 'crunch' the geo at the ends rather than clip it and change the point count."
         }
     }
 

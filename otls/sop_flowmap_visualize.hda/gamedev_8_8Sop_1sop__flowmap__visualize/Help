@@ -6,26 +6,21 @@
 #icon: 
 #tags: tech, model
 
-""" Preview a flowmap in the Houdini viewport at high quality and high interactivity. """
+"""  A high quality realtime preview of a flowmap texture in the Houdini viewport. """
 
 [Image:opdef:.?flowmap_shader.gif]
 
-If you’ve made a flowmap using the Gamedev flowmap tools, you can see a high quality realtime preview in Houdini’s viewport. 
-Append a flowmap visualise, and use the parameters to control the speed and texture used.
-
 @parameters
     Diffuse Texture:
-        Path to the texture used for preview, defaults to an internal caustic jpg
+        Texture to preview flowmap, default is to use a texture embedded in the HDA.
     Diffuse Tiling:
-        Number of times the texture is repeated in UV space
+        Number of times the texture repeats in the uv's of the input geometry.
     Speed:
-        Speed the flowmap is previewed at when playback is active.
+        Speed of the flowmap animation.
     Distortion Amount:
-        Strength of of the flowmap effect. Small values are better.
+        Amount of warping applied to the flowmap preview. Larger values create a more pronounced effect, but can introduce ghosting artifacts.
     Flowmap Mode:
-        Choose if the flowmap is read from @Cd, or from a texture.
+        Set if this node reads motion vectors from @Cd of the input geometry, or from a file texture.
     Flowmap Texture:
-        If the flowmap mode is texture, this parameter sets the texture path.
+        Path to the flowmap texture.
 
-:load_example: Flowmap Visualize Example
-    #examplefile: opdef:.?flowmap_visualize_example.hda

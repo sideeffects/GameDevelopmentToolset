@@ -32,27 +32,26 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position 1.01127 -0.928659
-connectornextid 3
+position -5.5039 -6.80516
+connectornextid 2
 flags =  lock off model off template on footprint off xray off bypass off display on render on highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
 {
-2 "output1"
 }
 inputsNamed3
 {
-0 	file4 0 1 "input1"
-1 	sop_quickmaterial 1 1 "input2"
+0 	normal1 1 1 "input1"
+1 	transform1 1 1 "input2"
 }
 inputs
 {
-0 	file4 0 1
-1 	sop_quickmaterial 0 1
+0 	normal1 0 1
+1 	transform1 0 1
 }
 stat
 {
-  create 1556907311
-  modify 1556925945
+  create 1558129641
+  modify 1558135444
   author prisms@threadripper1
   access 0777
 }
@@ -90,7 +89,7 @@ Content-Type: text/plain
 }
 {
   create 1556202388
-  modify 1556924475
+  modify 1558135372
   author Paul_Ambrosiussen@LAPTOP-P8R7FBPF
   access 0777
 }
@@ -113,7 +112,7 @@ Content-Type: text/plain
 }
 {
   create 1556202405
-  modify 1556924475
+  modify 1558135371
   author Paul_Ambrosiussen@LAPTOP-P8R7FBPF
   access 0777
 }
@@ -136,7 +135,7 @@ Content-Type: text/plain
 }
 {
   create 1556920320
-  modify 1556924479
+  modify 1558135376
   author prisms@threadripper1
   access 0777
 }
@@ -318,7 +317,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.229"
+		"value":"17.5.258"
 	}
 }
 
@@ -350,7 +349,7 @@ inputs
 stat
 {
   create 1545250955
-  modify 1556925789
+  modify 1558135433
   author Paul_Ambrosiussen@LAPTOP-P8R7FBPF
   access 0777
 }
@@ -680,7 +679,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.229"
+		"value":"17.5.258"
 	}
 }
 
@@ -689,7 +688,7 @@ Content-Disposition: attachment; filename="hdaroot/cops_baking/UVPos.cop2"
 Content-Type: text/plain
 
 2
-3932
+3938
 0
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -770,7 +769,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.229"
+		"value":"17.5.258"
 	}
 }
 
@@ -897,7 +896,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.229"
+		"value":"17.5.258"
 	}
 }
 
@@ -1191,7 +1190,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.229"
+		"value":"17.5.258"
 	}
 }
 
@@ -1304,7 +1303,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.229"
+		"value":"17.5.258"
 	}
 }
 
@@ -1322,7 +1321,7 @@ Content-Type: text/plain
 comment ""
 position -5.3523 -0.65154
 connectornextid 2
-flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress off colordefault off exposed on
+flags =  lock off model off template off footprint off xray off bypass off display on render off highlight off unload off savedata off compress off colordefault off exposed on
 outputsNamed3
 {
 0 "output1"
@@ -1338,7 +1337,7 @@ inputs
 stat
 {
   create 1545250955
-  modify 1556925789
+  modify 1558135433
   author Paul_Ambrosiussen@LAPTOP-P8R7FBPF
   access 0777
 }
@@ -1573,6 +1572,23 @@ Content-Type: text/plain
         parmtag { "parmvop" "1" }
         parmtag { "shaderparmcontexts" "cop2" }
     }
+    parm {
+        name    "LOW"
+        label   "LOW"
+        type    geometry
+        default { "" }
+        parmtag { "parmvop" "1" }
+        parmtag { "shaderparmcontexts" "cop2" }
+    }
+    parm {
+        name    "RayDist"
+        label   "RayDist"
+        type    float
+        default { "1" }
+        range   { 0 1 }
+        parmtag { "parmvop" "1" }
+        parmtag { "shaderparmcontexts" "cop2" }
+    }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
 Content-Disposition: attachment; filename="hdaroot/cops_baking/XYZDist.chn"
@@ -1603,6 +1619,13 @@ Content-Type: text/plain
       righttype = extend
       flags = 0
       segment { length = 0 expr = ch(\"../../vop_forcecompile\") }
+    }
+    channel RayDist {
+      lefttype = extend
+      righttype = extend
+      default = 1
+      flags = 0
+      segment { length = 0 value = 1 1 expr = ch(\"../../fMaxTraceDist\") }
     }
   }
 
@@ -1643,8 +1666,10 @@ preextend	[ 0	locks=0 ]	(	"black"	)
 prehold	[ 0	locks=0 ]	(	0	)
 postextend	[ 0	locks=0 ]	(	"black"	)
 posthold	[ 0	locks=0 ]	(	0	)
-stdswitcher5	[ 0	locks=0 ]	(	2	2	2	2	)
+stdswitcher5	[ 0	locks=0 ]	(	0	0	0	0	)
 HIGH	[ 0	locks=0 ]	(	op:../../OUT_HIGH	)
+LOW	[ 0	locks=0 ]	(	op:../../OUT_LOW_TARGET	)
+RayDist	[ 0	locks=0 ]	(	[ RayDist	0 ] 	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -1654,7 +1679,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.229"
+		"value":"17.5.258"
 	}
 }
 
@@ -1663,7 +1688,7 @@ Content-Disposition: attachment; filename="hdaroot/cops_baking/XYZDist.cop2"
 Content-Type: text/plain
 
 2
-3930
+3963
 0
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -1678,7 +1703,7 @@ Content-Disposition: attachment; filename="hdaroot/cops_baking/XYZDist/parm7.def
 Content-Type: text/plain
 
 comment ""
-position -10.5707 8.49118
+position -11.2986 8.49118
 connectornextid 1
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on lowdetail off mediumdetail off highdetail on material off
 outputsNamed3
@@ -1694,7 +1719,7 @@ inputs
 stat
 {
   create 1545251377
-  modify 1551227397
+  modify 1558135251
   author Paul_Ambrosiussen@LAPTOP-P8R7FBPF
   access 0777
 }
@@ -1789,23 +1814,23 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.229"
+		"value":"17.5.258"
 	}
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot/cops_baking/XYZDist/trace_to_HP.init"
+Content-Disposition: attachment; filename="hdaroot/cops_baking/XYZDist/trace_to_HP_xyzdist.init"
 Content-Type: text/plain
 
 type = xyzdist
 matchesdef = 0
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot/cops_baking/XYZDist/trace_to_HP.def"
+Content-Disposition: attachment; filename="hdaroot/cops_baking/XYZDist/trace_to_HP_xyzdist.def"
 Content-Type: text/plain
 
 comment ""
-position -7.13035 7.66118
+position -7.37111 8.49118
 connectornextid 7
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on lowdetail off mediumdetail off highdetail on material off
 outputsNamed3
@@ -1831,7 +1856,7 @@ inputs
 stat
 {
   create 1550264809
-  modify 1551229170
+  modify 1558135274
   author MAINGEAR@DESKTOP-P98C1VA
   access 0777
 }
@@ -1841,7 +1866,7 @@ exprlanguage hscript
 end
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot/cops_baking/XYZDist/trace_to_HP.parm"
+Content-Disposition: attachment; filename="hdaroot/cops_baking/XYZDist/trace_to_HP_xyzdist.parm"
 Content-Type: text/plain
 
 {
@@ -1852,7 +1877,7 @@ maxdist	[ 0	locks=0 ]	(	10000000000	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot/cops_baking/XYZDist/trace_to_HP.userdata"
+Content-Disposition: attachment; filename="hdaroot/cops_baking/XYZDist/trace_to_HP_xyzdist.userdata"
 Content-Type: text/plain
 
 {
@@ -1876,7 +1901,7 @@ Content-Type: text/plain
 comment ""
 position -11.2986 6.83118
 connectornextid 1
-flags =  lock off model off template off footprint off xray off bypass off display on render on highlight off unload off savedata off compress on colordefault on exposed on lowdetail off mediumdetail off highdetail on material off
+flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on lowdetail off mediumdetail off highdetail on material off
 outputsNamed3
 {
 0 "uvpos"
@@ -1961,7 +1986,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.229"
+		"value":"17.5.258"
 	}
 }
 
@@ -1977,7 +2002,7 @@ Content-Disposition: attachment; filename="hdaroot/cops_baking/XYZDist/bind2.def
 Content-Type: text/plain
 
 comment ""
-position -2.6465 8.77424
+position -0.132614 8.49118
 connectornextid 1
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on lowdetail off mediumdetail off highdetail on material off
 outputsNamed3
@@ -1985,16 +2010,16 @@ outputsNamed3
 }
 inputsNamed3
 {
-0 	trace_to_HP 5 1 "input"
+0 	switch1 3 1 "input"
 }
 inputs
 {
-0 	trace_to_HP 1 1
+0 	switch1 0 1
 }
 stat
 {
   create 1551227689
-  modify 1551229787
+  modify 1558135256
   author Paul_Ambrosiussen@DESKTOP-A0373M3
   access 0777
 }
@@ -2065,7 +2090,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.229"
+		"value":"17.5.258"
 	}
 }
 
@@ -2081,7 +2106,7 @@ Content-Disposition: attachment; filename="hdaroot/cops_baking/XYZDist/bind3.def
 Content-Type: text/plain
 
 comment ""
-position -3.24593 6.69107
+position -0.132614 6.23118
 connectornextid 1
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on lowdetail off mediumdetail off highdetail on material off
 outputsNamed3
@@ -2089,16 +2114,16 @@ outputsNamed3
 }
 inputsNamed3
 {
-0 	trace_to_HP 6 1 "input"
+0 	switch2 3 1 "input"
 }
 inputs
 {
-0 	trace_to_HP 2 1
+0 	switch2 0 1
 }
 stat
 {
   create 1551227689
-  modify 1551229170
+  modify 1558135256
   author Paul_Ambrosiussen@DESKTOP-A0373M3
   access 0777
 }
@@ -2169,7 +2194,1113 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.229"
+		"value":"17.5.258"
+	}
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/cops_baking/XYZDist/global1.init"
+Content-Type: text/plain
+
+type = global
+matchesdef = 0
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/cops_baking/XYZDist/global1.def"
+Content-Type: text/plain
+
+comment ""
+position -13.7279 4.86652
+connectornextid 24
+flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on lowdetail off mediumdetail on highdetail off material off
+outputsNamed3
+{
+0 "XRES"
+1 "YRES"
+2 "AR"
+3 "R"
+4 "G"
+5 "B"
+6 "A"
+7 "Cr"
+8 "Cg"
+9 "Cb"
+10 "C4"
+11 "PNAME"
+12 "PL"
+13 "NP"
+14 "PS"
+15 "AI"
+16 "AS"
+17 "I"
+18 "NI"
+19 "H"
+20 "S"
+21 "V"
+22 "X"
+23 "Y"
+}
+inputsNamed3
+{
+}
+inputs
+{
+}
+stat
+{
+  create 1545250955
+  modify 1558135248
+  author Paul_Ambrosiussen@LAPTOP-P8R7FBPF
+  access 0777
+}
+color UT_Color RGB 0.8 0.8 0.8 
+delscript ""
+exprlanguage hscript
+end
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/cops_baking/XYZDist/global1.parm"
+Content-Type: text/plain
+
+{
+version 0.8
+contexttype	[ 0	locks=0 ]	(	cop2	)
+usemenu	[ 0	locks=0 ]	(	"off"	)
+varname	[ 0	locks=0 ]	(	P	)
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/cops_baking/XYZDist/global1.userdata"
+Content-Type: text/plain
+
+{
+	"___Version___":{
+		"type":"string",
+		"value":"17.5.258"
+	}
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/cops_baking/XYZDist/parm4.init"
+Content-Type: text/plain
+
+type = parameter
+matchesdef = 0
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/cops_baking/XYZDist/parm4.def"
+Content-Type: text/plain
+
+comment ""
+position -13.7279 3.31082
+connectornextid 1
+flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on lowdetail off mediumdetail off highdetail on material off
+outputsNamed3
+{
+0 "LOW"
+}
+inputsNamed3
+{
+}
+inputs
+{
+}
+stat
+{
+  create 1545251377
+  modify 1558135248
+  author Paul_Ambrosiussen@LAPTOP-P8R7FBPF
+  access 0777
+}
+color UT_Color RGB 1 1 0.4 
+delscript ""
+exprlanguage hscript
+end
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/cops_baking/XYZDist/parm4.parm"
+Content-Type: text/plain
+
+{
+version 0.8
+parmscope	[ 0	locks=0 ]	(	shaderparm	)
+parmaccess	[ 0	locks=0 ]	(	""	)
+parmname	[ 0	locks=0 ]	(	LOW	)
+parmprefix	[ 0	locks=0 ]	(	""	)
+parmpostfix	[ 0	locks=0 ]	(	""	)
+parmlabel	[ 0	locks=0 ]	(	""	)
+showlabel	[ 0	locks=0 ]	(	"on"	)
+parmtype	[ 0	locks=0 ]	(	"geometry"	)
+parmtypename	[ 0	locks=0 ]	(	""	)
+floatdef	[ 0	locks=0 ]	(	0	)
+intdef	[ 0	locks=0 ]	(	0	)
+toggledef	[ 0	locks=0 ]	(	"off"	)
+angledef	[ 0	locks=0 ]	(	0	)
+logfloatdef	[ 0	locks=0 ]	(	0	)
+float2def	[ 0	locks=0 ]	(	0	0	)
+float3def	[ 0	locks=0 ]	(	0	0	0	)
+vectordef	[ 0	locks=0 ]	(	0	0	0	)
+normaldef	[ 0	locks=0 ]	(	0	0	0	)
+pointdef	[ 0	locks=0 ]	(	0	0	0	)
+directiondef	[ 0	locks=0 ]	(	1	0	0	)
+float4def	[ 0	locks=0 ]	(	0	0	0	0	)
+floatm2def	[ 0	locks=0 ]	(	1	0	0	1	)
+float9def	[ 0	locks=0 ]	(	1	0	0	0	1	0	0	0	1	)
+float16def	[ 0	locks=0 ]	(	1	0	0	0	0	1	0	0	0	0	1	0	0	0	0	1	)
+stringdef	[ 0	locks=0 ]	(	""	)
+filedef	[ 0	locks=0 ]	(	""	)
+imagedef	[ 0	locks=0 ]	(	""	)
+geometrydef	[ 0	locks=0 ]	(	""	)
+colordef	[ 0	locks=0 ]	(	0	0	0	)
+color4def	[ 0	locks=0 ]	(	0	0	0	0	)
+bsdfdef	[ 0	locks=0 ]	(	""	)
+coshaderdef	[ 0	locks=0 ]	(	""	)
+floatadef	[ 0	locks=0 ]	(	)
+intadef	[ 0	locks=0 ]	(	)
+vector2adef	[ 0	locks=0 ]	(	)
+vectoradef	[ 0	locks=0 ]	(	)
+pointadef	[ 0	locks=0 ]	(	)
+normaladef	[ 0	locks=0 ]	(	)
+coloradef	[ 0	locks=0 ]	(	)
+floatm2adef	[ 0	locks=0 ]	(	)
+float4adef	[ 0	locks=0 ]	(	)
+float9adef	[ 0	locks=0 ]	(	)
+float16adef	[ 0	locks=0 ]	(	)
+stringadef	[ 0	locks=0 ]	(	)
+coshaderadef	[ 0	locks=0 ]	(	""	)
+structdef	[ 0	locks=0 ]	(	""	)
+rangeflt	[ 0	locks=0 ]	(	0	1	)
+rangeint	[ 0	locks=0 ]	(	0	10	)
+stringtype	[ 0	locks=0 ]	(	off	)
+opfilter	[ 0	locks=0 ]	(	!!OBJ/LIGHT!!	)
+parmcomment	[ 0	locks=0 ]	(	""	)
+separator1	[ 0	locks=0 ]	(	)
+useasparmdefiner	[ 0	locks=0 ]	(	"off"	)
+useownexportcontext	[ 0	locks=0 ]	(	"off"	)
+parmuniform	[ 0	locks=0 ]	(	"on"	)
+usebound	[ 0	locks=0 ]	(	"off"	)
+hasconnector	[ 0	locks=0 ]	(	"on"	)
+exportparm	[ 0	locks=0 ]	(	"off"	)
+exportcontext	[ 0	locks=0 ]	(	cop2	)
+providemenu	[ 0	locks=0 ]	(	"off"	)
+menuchoices	[ 0	locks=0 ]	(	""	)
+menuscript	[ 0	locks=0 ]	(	""	)
+menuscriptlanguage	[ 0	locks=0 ]	(	"hscript"	)
+separator2	[ 0	locks=0 ]	(	)
+invisible	[ 0	locks=0 ]	(	"off"	)
+joinnext	[ 0	locks=0 ]	(	"off"	)
+disablewhen	[ 0	locks=0 ]	(	""	)
+hidewhen	[ 0	locks=0 ]	(	""	)
+callback	[ 0	locks=0 ]	(	""	)
+tags	[ 0	locks=0 ]	(	""	)
+help	[ 0	locks=0 ]	(	""	)
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/cops_baking/XYZDist/parm4.userdata"
+Content-Type: text/plain
+
+{
+	"___Version___":{
+		"type":"string",
+		"value":"17.5.258"
+	}
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/cops_baking/XYZDist/uv_pos1.init"
+Content-Type: text/plain
+
+type = inline
+matchesdef = 0
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/cops_baking/XYZDist/uv_pos1.def"
+Content-Type: text/plain
+
+comment ""
+position -11.2986 4.08376
+connectornextid 3
+flags =  lock off model off template off footprint off xray off bypass off display on render on highlight off unload off savedata off compress on colordefault on exposed on lowdetail off mediumdetail off highdetail on material off
+outputsNamed3
+{
+2 "N"
+4 "undefined"
+}
+inputsNamed3
+{
+0 	global1 22 1 "X"
+1 	global1 23 1 "Y"
+6 	parm4 0 1 "LOW"
+}
+inputs
+{
+0 	global1 22 1
+1 	global1 23 1
+2 	parm4 0 1
+}
+stat
+{
+  create 1545251066
+  modify 1558135248
+  author Paul_Ambrosiussen@LAPTOP-P8R7FBPF
+  access 0777
+}
+color UT_Color RGB 0.8 0.8 0.8 
+delscript ""
+exprlanguage hscript
+end
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/cops_baking/XYZDist/uv_pos1.parm"
+Content-Type: text/plain
+
+{
+version 0.8
+code	[ 0	locks=0 ]	(	"$N = uvsample($LOW, \"N\", \"uv\", set($X, $Y, 0.5));
+
+"	)
+includes	[ 0	locks=0 ]	(	""	)
+outercode	[ 0	locks=0 ]	(	""	)
+expandcode	[ 0	locks=0 ]	(	"off"	)
+name1	[ 0	locks=0 ]	(	""	)
+label1	[ 0	locks=0 ]	(	""	)
+name2	[ 0	locks=0 ]	(	""	)
+label2	[ 0	locks=0 ]	(	""	)
+name3	[ 0	locks=0 ]	(	""	)
+label3	[ 0	locks=0 ]	(	""	)
+name4	[ 0	locks=0 ]	(	""	)
+label4	[ 0	locks=0 ]	(	""	)
+name5	[ 0	locks=0 ]	(	""	)
+label5	[ 0	locks=0 ]	(	""	)
+name6	[ 0	locks=0 ]	(	""	)
+label6	[ 0	locks=0 ]	(	""	)
+name7	[ 0	locks=0 ]	(	""	)
+label7	[ 0	locks=0 ]	(	""	)
+name8	[ 0	locks=0 ]	(	""	)
+label8	[ 0	locks=0 ]	(	""	)
+name9	[ 0	locks=0 ]	(	""	)
+label9	[ 0	locks=0 ]	(	""	)
+name10	[ 0	locks=0 ]	(	""	)
+label10	[ 0	locks=0 ]	(	""	)
+name11	[ 0	locks=0 ]	(	""	)
+label11	[ 0	locks=0 ]	(	""	)
+name12	[ 0	locks=0 ]	(	""	)
+label12	[ 0	locks=0 ]	(	""	)
+name13	[ 0	locks=0 ]	(	""	)
+label13	[ 0	locks=0 ]	(	""	)
+name14	[ 0	locks=0 ]	(	""	)
+label14	[ 0	locks=0 ]	(	""	)
+name15	[ 0	locks=0 ]	(	""	)
+label15	[ 0	locks=0 ]	(	""	)
+name16	[ 0	locks=0 ]	(	""	)
+label16	[ 0	locks=0 ]	(	""	)
+name17	[ 0	locks=0 ]	(	""	)
+label17	[ 0	locks=0 ]	(	""	)
+name18	[ 0	locks=0 ]	(	""	)
+label18	[ 0	locks=0 ]	(	""	)
+name19	[ 0	locks=0 ]	(	""	)
+label19	[ 0	locks=0 ]	(	""	)
+name20	[ 0	locks=0 ]	(	""	)
+label20	[ 0	locks=0 ]	(	""	)
+name21	[ 0	locks=0 ]	(	""	)
+label21	[ 0	locks=0 ]	(	""	)
+name22	[ 0	locks=0 ]	(	""	)
+label22	[ 0	locks=0 ]	(	""	)
+name23	[ 0	locks=0 ]	(	""	)
+label23	[ 0	locks=0 ]	(	""	)
+name24	[ 0	locks=0 ]	(	""	)
+label24	[ 0	locks=0 ]	(	""	)
+name25	[ 0	locks=0 ]	(	""	)
+label25	[ 0	locks=0 ]	(	""	)
+name26	[ 0	locks=0 ]	(	""	)
+label26	[ 0	locks=0 ]	(	""	)
+name27	[ 0	locks=0 ]	(	""	)
+label27	[ 0	locks=0 ]	(	""	)
+name28	[ 0	locks=0 ]	(	""	)
+label28	[ 0	locks=0 ]	(	""	)
+name29	[ 0	locks=0 ]	(	""	)
+label29	[ 0	locks=0 ]	(	""	)
+name30	[ 0	locks=0 ]	(	""	)
+label30	[ 0	locks=0 ]	(	""	)
+name31	[ 0	locks=0 ]	(	""	)
+label31	[ 0	locks=0 ]	(	""	)
+name32	[ 0	locks=0 ]	(	""	)
+label32	[ 0	locks=0 ]	(	""	)
+name33	[ 0	locks=0 ]	(	""	)
+label33	[ 0	locks=0 ]	(	""	)
+name34	[ 0	locks=0 ]	(	""	)
+label34	[ 0	locks=0 ]	(	""	)
+name35	[ 0	locks=0 ]	(	""	)
+label35	[ 0	locks=0 ]	(	""	)
+name36	[ 0	locks=0 ]	(	""	)
+label36	[ 0	locks=0 ]	(	""	)
+name37	[ 0	locks=0 ]	(	""	)
+label37	[ 0	locks=0 ]	(	""	)
+name38	[ 0	locks=0 ]	(	""	)
+label38	[ 0	locks=0 ]	(	""	)
+name39	[ 0	locks=0 ]	(	""	)
+label39	[ 0	locks=0 ]	(	""	)
+name40	[ 0	locks=0 ]	(	""	)
+label40	[ 0	locks=0 ]	(	""	)
+name41	[ 0	locks=0 ]	(	""	)
+label41	[ 0	locks=0 ]	(	""	)
+name42	[ 0	locks=0 ]	(	""	)
+label42	[ 0	locks=0 ]	(	""	)
+name43	[ 0	locks=0 ]	(	""	)
+label43	[ 0	locks=0 ]	(	""	)
+name44	[ 0	locks=0 ]	(	""	)
+label44	[ 0	locks=0 ]	(	""	)
+name45	[ 0	locks=0 ]	(	""	)
+label45	[ 0	locks=0 ]	(	""	)
+name46	[ 0	locks=0 ]	(	""	)
+label46	[ 0	locks=0 ]	(	""	)
+name47	[ 0	locks=0 ]	(	""	)
+label47	[ 0	locks=0 ]	(	""	)
+name48	[ 0	locks=0 ]	(	""	)
+label48	[ 0	locks=0 ]	(	""	)
+name49	[ 0	locks=0 ]	(	""	)
+label49	[ 0	locks=0 ]	(	""	)
+name50	[ 0	locks=0 ]	(	""	)
+label50	[ 0	locks=0 ]	(	""	)
+name51	[ 0	locks=0 ]	(	""	)
+label51	[ 0	locks=0 ]	(	""	)
+name52	[ 0	locks=0 ]	(	""	)
+label52	[ 0	locks=0 ]	(	""	)
+name53	[ 0	locks=0 ]	(	""	)
+label53	[ 0	locks=0 ]	(	""	)
+name54	[ 0	locks=0 ]	(	""	)
+label54	[ 0	locks=0 ]	(	""	)
+name55	[ 0	locks=0 ]	(	""	)
+label55	[ 0	locks=0 ]	(	""	)
+name56	[ 0	locks=0 ]	(	""	)
+label56	[ 0	locks=0 ]	(	""	)
+name57	[ 0	locks=0 ]	(	""	)
+label57	[ 0	locks=0 ]	(	""	)
+name58	[ 0	locks=0 ]	(	""	)
+label58	[ 0	locks=0 ]	(	""	)
+name59	[ 0	locks=0 ]	(	""	)
+label59	[ 0	locks=0 ]	(	""	)
+name60	[ 0	locks=0 ]	(	""	)
+label60	[ 0	locks=0 ]	(	""	)
+name61	[ 0	locks=0 ]	(	""	)
+label61	[ 0	locks=0 ]	(	""	)
+name62	[ 0	locks=0 ]	(	""	)
+label62	[ 0	locks=0 ]	(	""	)
+name63	[ 0	locks=0 ]	(	""	)
+label63	[ 0	locks=0 ]	(	""	)
+name64	[ 0	locks=0 ]	(	""	)
+label64	[ 0	locks=0 ]	(	""	)
+stdswitcher	[ 0	locks=0 ]	(	0	0	0	0	0	0	0	0	)
+outtype1	[ 0	locks=0 ]	(	vector	)
+outname1	[ 0	locks=0 ]	(	N	)
+outlabel1	[ 0	locks=0 ]	(	N	)
+outtype2	[ 0	locks=0 ]	(	undef	)
+outname2	[ 0	locks=0 ]	(	A	)
+outlabel2	[ 0	locks=0 ]	(	A	)
+outtype3	[ 0	locks=0 ]	(	undef	)
+outname3	[ 0	locks=0 ]	(	""	)
+outlabel3	[ 0	locks=0 ]	(	""	)
+outtype4	[ 0	locks=0 ]	(	undef	)
+outname4	[ 0	locks=0 ]	(	""	)
+outlabel4	[ 0	locks=0 ]	(	""	)
+outtype5	[ 0	locks=0 ]	(	undef	)
+outname5	[ 0	locks=0 ]	(	""	)
+outlabel5	[ 0	locks=0 ]	(	""	)
+outtype6	[ 0	locks=0 ]	(	undef	)
+outname6	[ 0	locks=0 ]	(	""	)
+outlabel6	[ 0	locks=0 ]	(	""	)
+outtype7	[ 0	locks=0 ]	(	undef	)
+outname7	[ 0	locks=0 ]	(	""	)
+outlabel7	[ 0	locks=0 ]	(	""	)
+outtype8	[ 0	locks=0 ]	(	undef	)
+outname8	[ 0	locks=0 ]	(	""	)
+outlabel8	[ 0	locks=0 ]	(	""	)
+outtype9	[ 0	locks=0 ]	(	undef	)
+outname9	[ 0	locks=0 ]	(	""	)
+outlabel9	[ 0	locks=0 ]	(	""	)
+outtype10	[ 0	locks=0 ]	(	undef	)
+outname10	[ 0	locks=0 ]	(	""	)
+outlabel10	[ 0	locks=0 ]	(	""	)
+outtype11	[ 0	locks=0 ]	(	undef	)
+outname11	[ 0	locks=0 ]	(	""	)
+outlabel11	[ 0	locks=0 ]	(	""	)
+outtype12	[ 0	locks=0 ]	(	undef	)
+outname12	[ 0	locks=0 ]	(	""	)
+outlabel12	[ 0	locks=0 ]	(	""	)
+outtype13	[ 0	locks=0 ]	(	undef	)
+outname13	[ 0	locks=0 ]	(	""	)
+outlabel13	[ 0	locks=0 ]	(	""	)
+outtype14	[ 0	locks=0 ]	(	undef	)
+outname14	[ 0	locks=0 ]	(	""	)
+outlabel14	[ 0	locks=0 ]	(	""	)
+outtype15	[ 0	locks=0 ]	(	undef	)
+outname15	[ 0	locks=0 ]	(	""	)
+outlabel15	[ 0	locks=0 ]	(	""	)
+outtype16	[ 0	locks=0 ]	(	undef	)
+outname16	[ 0	locks=0 ]	(	""	)
+outlabel16	[ 0	locks=0 ]	(	""	)
+outtype17	[ 0	locks=0 ]	(	undef	)
+outname17	[ 0	locks=0 ]	(	""	)
+outlabel17	[ 0	locks=0 ]	(	""	)
+outtype18	[ 0	locks=0 ]	(	undef	)
+outname18	[ 0	locks=0 ]	(	""	)
+outlabel18	[ 0	locks=0 ]	(	""	)
+outtype19	[ 0	locks=0 ]	(	undef	)
+outname19	[ 0	locks=0 ]	(	""	)
+outlabel19	[ 0	locks=0 ]	(	""	)
+outtype20	[ 0	locks=0 ]	(	undef	)
+outname20	[ 0	locks=0 ]	(	""	)
+outlabel20	[ 0	locks=0 ]	(	""	)
+outtype21	[ 0	locks=0 ]	(	undef	)
+outname21	[ 0	locks=0 ]	(	""	)
+outlabel21	[ 0	locks=0 ]	(	""	)
+outtype22	[ 0	locks=0 ]	(	undef	)
+outname22	[ 0	locks=0 ]	(	""	)
+outlabel22	[ 0	locks=0 ]	(	""	)
+outtype23	[ 0	locks=0 ]	(	undef	)
+outname23	[ 0	locks=0 ]	(	""	)
+outlabel23	[ 0	locks=0 ]	(	""	)
+outtype24	[ 0	locks=0 ]	(	undef	)
+outname24	[ 0	locks=0 ]	(	""	)
+outlabel24	[ 0	locks=0 ]	(	""	)
+outtype25	[ 0	locks=0 ]	(	undef	)
+outname25	[ 0	locks=0 ]	(	""	)
+outlabel25	[ 0	locks=0 ]	(	""	)
+outtype26	[ 0	locks=0 ]	(	undef	)
+outname26	[ 0	locks=0 ]	(	""	)
+outlabel26	[ 0	locks=0 ]	(	""	)
+outtype27	[ 0	locks=0 ]	(	undef	)
+outname27	[ 0	locks=0 ]	(	""	)
+outlabel27	[ 0	locks=0 ]	(	""	)
+outtype28	[ 0	locks=0 ]	(	undef	)
+outname28	[ 0	locks=0 ]	(	""	)
+outlabel28	[ 0	locks=0 ]	(	""	)
+outtype29	[ 0	locks=0 ]	(	undef	)
+outname29	[ 0	locks=0 ]	(	""	)
+outlabel29	[ 0	locks=0 ]	(	""	)
+outtype30	[ 0	locks=0 ]	(	undef	)
+outname30	[ 0	locks=0 ]	(	""	)
+outlabel30	[ 0	locks=0 ]	(	""	)
+outtype31	[ 0	locks=0 ]	(	undef	)
+outname31	[ 0	locks=0 ]	(	""	)
+outlabel31	[ 0	locks=0 ]	(	""	)
+outtype32	[ 0	locks=0 ]	(	undef	)
+outname32	[ 0	locks=0 ]	(	""	)
+outlabel32	[ 0	locks=0 ]	(	""	)
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/cops_baking/XYZDist/uv_pos1.userdata"
+Content-Type: text/plain
+
+{
+	"___Version___":{
+		"type":"string",
+		"value":"17.5.258"
+	}
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/cops_baking/XYZDist/uv_pos1.outputinfos"
+Content-Type: application/octet-stream
+Content-Transfer-Encoding: base64
+
+TnVtSW5mb3MgMgpWYWx1ZXNCaW5hcnkgMQpCZWdpbkluZm8KT3V0cHV0TmFtZSBBCkRlYnVnQ29ycklucHV0TmFtZSBfX2RlZmF1bHRfXwpCeXBhc3NDb3JySW5wdXROYW1lIF9fZGVmYXVsdF9fCk5vcm1hbE1vZGUgMApCeXA=
+YXNzTW9kZSAxClVzZURlZmF1bHRWYWx1ZSAxCkVuZEluZm8KAAAAAAAAAABCZWdpbkluZm8KT3V0cHV0TmFtZSBDZApEZWJ1Z0NvcnJJbnB1dE5hbWUgX19kZWZhdWx0X18KQnlwYXNzQ29ycklucHV0TmFtZSBfX2RlZmF1bHQ=
+X18KTm9ybWFsTW9kZSAwCkJ5cGFzc01vZGUgMQpVc2VEZWZhdWx0VmFsdWUgMQpFbmRJbmZvCgAAAAAAAAAA
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/cops_baking/XYZDist/switch1.init"
+Content-Type: text/plain
+
+type = switch
+matchesdef = 0
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/cops_baking/XYZDist/switch1.def"
+Content-Type: text/plain
+
+comment ""
+position -1.98233 8.49118
+connectornextid 4
+flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on lowdetail off mediumdetail off highdetail on material off
+outputsNamed3
+{
+3 "result"
+}
+inputsNamed3
+{
+0 	"" "" 1 "switcher"
+2 	trace_to_HP_xyzdist 5 1 "input1"
+1 	trace_to_HP_intersect 4 1 "input2"
+}
+inputs
+{
+0 	"" 0 1
+1 	trace_to_HP_xyzdist 1 1
+2 	trace_to_HP_intersect 0 1
+}
+stat
+{
+  create 1558130666
+  modify 1558135256
+  author prisms@threadripper1
+  access 0777
+}
+color UT_Color RGB 0.8 0.8 0.8 
+delscript ""
+exprlanguage hscript
+end
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/cops_baking/XYZDist/switch1.chn"
+Content-Type: text/plain
+
+{
+    channel switcher {
+      lefttype = extend
+      righttype = extend
+      default = 1
+      flags = 0
+      segment { length = 0 value = 1 1 expr = ch(\"../../../mBakeMode\") }
+    }
+  }
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/cops_baking/XYZDist/switch1.parm"
+Content-Type: text/plain
+
+{
+version 0.8
+switcher	[ 0	locks=0 ]	(	[ switcher	1 ] 	)
+outofbounds	[ 0	locks=0 ]	(	"last"	)
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/cops_baking/XYZDist/switch1.userdata"
+Content-Type: text/plain
+
+{
+	"___Version___":{
+		"type":"string",
+		"value":"17.5.258"
+	}
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/cops_baking/XYZDist/switch2.init"
+Content-Type: text/plain
+
+type = switch
+matchesdef = 0
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/cops_baking/XYZDist/switch2.def"
+Content-Type: text/plain
+
+comment "Referenced from switch1"
+position -1.98233 6.23118
+connectornextid 4
+flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on displaycomment on lowdetail off mediumdetail off highdetail on material off
+outputsNamed3
+{
+3 "result"
+}
+inputsNamed3
+{
+0 	"" "" 1 "switcher"
+2 	trace_to_HP_xyzdist 6 1 "input1"
+1 	trace_to_HP_intersect 5 1 "input2"
+}
+inputs
+{
+0 	"" 0 1
+1 	trace_to_HP_xyzdist 2 1
+2 	trace_to_HP_intersect 1 1
+}
+stat
+{
+  create 1558130666
+  modify 1558135256
+  author prisms@threadripper1
+  access 0777
+}
+color UT_Color RGB 0.8 0.8 0.8 
+delscript ""
+exprlanguage hscript
+end
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/cops_baking/XYZDist/switch2.chn"
+Content-Type: text/plain
+
+{
+    channel outofbounds {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = ch(\"../switch1/outofbounds\") }
+    }
+    channel switcher {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = ch(\"../switch1/switcher\") }
+    }
+  }
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/cops_baking/XYZDist/switch2.parm"
+Content-Type: text/plain
+
+{
+version 0.8
+switcher	[ 0	locks=0 ]	(	[ switcher	1 ] 	)
+outofbounds	[ 0	locks=0 ]	(	[ outofbounds	0 ] 	)
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/cops_baking/XYZDist/switch2.userdata"
+Content-Type: text/plain
+
+{
+	"___Version___":{
+		"type":"string",
+		"value":"17.5.258"
+	}
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/cops_baking/XYZDist/trace_to_HP_intersect.init"
+Content-Type: text/plain
+
+type = inline
+matchesdef = 0
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/cops_baking/XYZDist/trace_to_HP_intersect.def"
+Content-Type: text/plain
+
+comment ""
+position -7.37111 6.38118
+connectornextid 6
+flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on lowdetail off mediumdetail off highdetail on material off
+outputsNamed3
+{
+4 "prim2"
+5 "primuv2"
+}
+inputsNamed3
+{
+0 	parm7 0 1 "HIGH"
+1 	bind1 0 1 "uvpos"
+2 	uv_pos1 2 1 "N"
+3 	parm1 0 1 "RayDist"
+}
+inputs
+{
+0 	parm7 0 1
+1 	bind1 0 1
+2 	uv_pos1 0 1
+3 	parm1 0 1
+}
+stat
+{
+  create 1558133046
+  modify 1558135284
+  author prisms@threadripper1
+  access 0777
+}
+color UT_Color RGB 0.8 0.8 0.8 
+delscript ""
+exprlanguage hscript
+end
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/cops_baking/XYZDist/trace_to_HP_intersect.parm"
+Content-Type: text/plain
+
+{
+version 0.8
+code	[ 0	locks=0 ]	(	"vector ray = $N * $RayDist;
+int _prim;
+vector _pos;
+vector _primuv;
+
+_prim = intersect($HIGH, $uvpos, ray, _pos, _primuv);
+
+if (_prim == -1)
+    _prim = intersect($HIGH, $uvpos, -ray, _pos, _primuv);
+
+
+$prim2 = _prim;
+$primuv2 = _primuv;"	)
+includes	[ 0	locks=0 ]	(	""	)
+outercode	[ 0	locks=0 ]	(	""	)
+expandcode	[ 0	locks=0 ]	(	"off"	)
+name1	[ 0	locks=0 ]	(	""	)
+label1	[ 0	locks=0 ]	(	""	)
+name2	[ 0	locks=0 ]	(	""	)
+label2	[ 0	locks=0 ]	(	""	)
+name3	[ 0	locks=0 ]	(	""	)
+label3	[ 0	locks=0 ]	(	""	)
+name4	[ 0	locks=0 ]	(	""	)
+label4	[ 0	locks=0 ]	(	""	)
+name5	[ 0	locks=0 ]	(	""	)
+label5	[ 0	locks=0 ]	(	""	)
+name6	[ 0	locks=0 ]	(	""	)
+label6	[ 0	locks=0 ]	(	""	)
+name7	[ 0	locks=0 ]	(	""	)
+label7	[ 0	locks=0 ]	(	""	)
+name8	[ 0	locks=0 ]	(	""	)
+label8	[ 0	locks=0 ]	(	""	)
+name9	[ 0	locks=0 ]	(	""	)
+label9	[ 0	locks=0 ]	(	""	)
+name10	[ 0	locks=0 ]	(	""	)
+label10	[ 0	locks=0 ]	(	""	)
+name11	[ 0	locks=0 ]	(	""	)
+label11	[ 0	locks=0 ]	(	""	)
+name12	[ 0	locks=0 ]	(	""	)
+label12	[ 0	locks=0 ]	(	""	)
+name13	[ 0	locks=0 ]	(	""	)
+label13	[ 0	locks=0 ]	(	""	)
+name14	[ 0	locks=0 ]	(	""	)
+label14	[ 0	locks=0 ]	(	""	)
+name15	[ 0	locks=0 ]	(	""	)
+label15	[ 0	locks=0 ]	(	""	)
+name16	[ 0	locks=0 ]	(	""	)
+label16	[ 0	locks=0 ]	(	""	)
+name17	[ 0	locks=0 ]	(	""	)
+label17	[ 0	locks=0 ]	(	""	)
+name18	[ 0	locks=0 ]	(	""	)
+label18	[ 0	locks=0 ]	(	""	)
+name19	[ 0	locks=0 ]	(	""	)
+label19	[ 0	locks=0 ]	(	""	)
+name20	[ 0	locks=0 ]	(	""	)
+label20	[ 0	locks=0 ]	(	""	)
+name21	[ 0	locks=0 ]	(	""	)
+label21	[ 0	locks=0 ]	(	""	)
+name22	[ 0	locks=0 ]	(	""	)
+label22	[ 0	locks=0 ]	(	""	)
+name23	[ 0	locks=0 ]	(	""	)
+label23	[ 0	locks=0 ]	(	""	)
+name24	[ 0	locks=0 ]	(	""	)
+label24	[ 0	locks=0 ]	(	""	)
+name25	[ 0	locks=0 ]	(	""	)
+label25	[ 0	locks=0 ]	(	""	)
+name26	[ 0	locks=0 ]	(	""	)
+label26	[ 0	locks=0 ]	(	""	)
+name27	[ 0	locks=0 ]	(	""	)
+label27	[ 0	locks=0 ]	(	""	)
+name28	[ 0	locks=0 ]	(	""	)
+label28	[ 0	locks=0 ]	(	""	)
+name29	[ 0	locks=0 ]	(	""	)
+label29	[ 0	locks=0 ]	(	""	)
+name30	[ 0	locks=0 ]	(	""	)
+label30	[ 0	locks=0 ]	(	""	)
+name31	[ 0	locks=0 ]	(	""	)
+label31	[ 0	locks=0 ]	(	""	)
+name32	[ 0	locks=0 ]	(	""	)
+label32	[ 0	locks=0 ]	(	""	)
+name33	[ 0	locks=0 ]	(	""	)
+label33	[ 0	locks=0 ]	(	""	)
+name34	[ 0	locks=0 ]	(	""	)
+label34	[ 0	locks=0 ]	(	""	)
+name35	[ 0	locks=0 ]	(	""	)
+label35	[ 0	locks=0 ]	(	""	)
+name36	[ 0	locks=0 ]	(	""	)
+label36	[ 0	locks=0 ]	(	""	)
+name37	[ 0	locks=0 ]	(	""	)
+label37	[ 0	locks=0 ]	(	""	)
+name38	[ 0	locks=0 ]	(	""	)
+label38	[ 0	locks=0 ]	(	""	)
+name39	[ 0	locks=0 ]	(	""	)
+label39	[ 0	locks=0 ]	(	""	)
+name40	[ 0	locks=0 ]	(	""	)
+label40	[ 0	locks=0 ]	(	""	)
+name41	[ 0	locks=0 ]	(	""	)
+label41	[ 0	locks=0 ]	(	""	)
+name42	[ 0	locks=0 ]	(	""	)
+label42	[ 0	locks=0 ]	(	""	)
+name43	[ 0	locks=0 ]	(	""	)
+label43	[ 0	locks=0 ]	(	""	)
+name44	[ 0	locks=0 ]	(	""	)
+label44	[ 0	locks=0 ]	(	""	)
+name45	[ 0	locks=0 ]	(	""	)
+label45	[ 0	locks=0 ]	(	""	)
+name46	[ 0	locks=0 ]	(	""	)
+label46	[ 0	locks=0 ]	(	""	)
+name47	[ 0	locks=0 ]	(	""	)
+label47	[ 0	locks=0 ]	(	""	)
+name48	[ 0	locks=0 ]	(	""	)
+label48	[ 0	locks=0 ]	(	""	)
+name49	[ 0	locks=0 ]	(	""	)
+label49	[ 0	locks=0 ]	(	""	)
+name50	[ 0	locks=0 ]	(	""	)
+label50	[ 0	locks=0 ]	(	""	)
+name51	[ 0	locks=0 ]	(	""	)
+label51	[ 0	locks=0 ]	(	""	)
+name52	[ 0	locks=0 ]	(	""	)
+label52	[ 0	locks=0 ]	(	""	)
+name53	[ 0	locks=0 ]	(	""	)
+label53	[ 0	locks=0 ]	(	""	)
+name54	[ 0	locks=0 ]	(	""	)
+label54	[ 0	locks=0 ]	(	""	)
+name55	[ 0	locks=0 ]	(	""	)
+label55	[ 0	locks=0 ]	(	""	)
+name56	[ 0	locks=0 ]	(	""	)
+label56	[ 0	locks=0 ]	(	""	)
+name57	[ 0	locks=0 ]	(	""	)
+label57	[ 0	locks=0 ]	(	""	)
+name58	[ 0	locks=0 ]	(	""	)
+label58	[ 0	locks=0 ]	(	""	)
+name59	[ 0	locks=0 ]	(	""	)
+label59	[ 0	locks=0 ]	(	""	)
+name60	[ 0	locks=0 ]	(	""	)
+label60	[ 0	locks=0 ]	(	""	)
+name61	[ 0	locks=0 ]	(	""	)
+label61	[ 0	locks=0 ]	(	""	)
+name62	[ 0	locks=0 ]	(	""	)
+label62	[ 0	locks=0 ]	(	""	)
+name63	[ 0	locks=0 ]	(	""	)
+label63	[ 0	locks=0 ]	(	""	)
+name64	[ 0	locks=0 ]	(	""	)
+label64	[ 0	locks=0 ]	(	""	)
+stdswitcher	[ 0	locks=0 ]	(	0	0	0	0	0	0	0	0	)
+outtype1	[ 0	locks=0 ]	(	int	)
+outname1	[ 0	locks=0 ]	(	prim2	)
+outlabel1	[ 0	locks=0 ]	(	prim2	)
+outtype2	[ 0	locks=0 ]	(	vector	)
+outname2	[ 0	locks=0 ]	(	primuv2	)
+outlabel2	[ 0	locks=0 ]	(	primuv2	)
+outtype3	[ 0	locks=0 ]	(	undef	)
+outname3	[ 0	locks=0 ]	(	""	)
+outlabel3	[ 0	locks=0 ]	(	""	)
+outtype4	[ 0	locks=0 ]	(	undef	)
+outname4	[ 0	locks=0 ]	(	""	)
+outlabel4	[ 0	locks=0 ]	(	""	)
+outtype5	[ 0	locks=0 ]	(	undef	)
+outname5	[ 0	locks=0 ]	(	""	)
+outlabel5	[ 0	locks=0 ]	(	""	)
+outtype6	[ 0	locks=0 ]	(	undef	)
+outname6	[ 0	locks=0 ]	(	""	)
+outlabel6	[ 0	locks=0 ]	(	""	)
+outtype7	[ 0	locks=0 ]	(	undef	)
+outname7	[ 0	locks=0 ]	(	""	)
+outlabel7	[ 0	locks=0 ]	(	""	)
+outtype8	[ 0	locks=0 ]	(	undef	)
+outname8	[ 0	locks=0 ]	(	""	)
+outlabel8	[ 0	locks=0 ]	(	""	)
+outtype9	[ 0	locks=0 ]	(	undef	)
+outname9	[ 0	locks=0 ]	(	""	)
+outlabel9	[ 0	locks=0 ]	(	""	)
+outtype10	[ 0	locks=0 ]	(	undef	)
+outname10	[ 0	locks=0 ]	(	""	)
+outlabel10	[ 0	locks=0 ]	(	""	)
+outtype11	[ 0	locks=0 ]	(	undef	)
+outname11	[ 0	locks=0 ]	(	""	)
+outlabel11	[ 0	locks=0 ]	(	""	)
+outtype12	[ 0	locks=0 ]	(	undef	)
+outname12	[ 0	locks=0 ]	(	""	)
+outlabel12	[ 0	locks=0 ]	(	""	)
+outtype13	[ 0	locks=0 ]	(	undef	)
+outname13	[ 0	locks=0 ]	(	""	)
+outlabel13	[ 0	locks=0 ]	(	""	)
+outtype14	[ 0	locks=0 ]	(	undef	)
+outname14	[ 0	locks=0 ]	(	""	)
+outlabel14	[ 0	locks=0 ]	(	""	)
+outtype15	[ 0	locks=0 ]	(	undef	)
+outname15	[ 0	locks=0 ]	(	""	)
+outlabel15	[ 0	locks=0 ]	(	""	)
+outtype16	[ 0	locks=0 ]	(	undef	)
+outname16	[ 0	locks=0 ]	(	""	)
+outlabel16	[ 0	locks=0 ]	(	""	)
+outtype17	[ 0	locks=0 ]	(	undef	)
+outname17	[ 0	locks=0 ]	(	""	)
+outlabel17	[ 0	locks=0 ]	(	""	)
+outtype18	[ 0	locks=0 ]	(	undef	)
+outname18	[ 0	locks=0 ]	(	""	)
+outlabel18	[ 0	locks=0 ]	(	""	)
+outtype19	[ 0	locks=0 ]	(	undef	)
+outname19	[ 0	locks=0 ]	(	""	)
+outlabel19	[ 0	locks=0 ]	(	""	)
+outtype20	[ 0	locks=0 ]	(	undef	)
+outname20	[ 0	locks=0 ]	(	""	)
+outlabel20	[ 0	locks=0 ]	(	""	)
+outtype21	[ 0	locks=0 ]	(	undef	)
+outname21	[ 0	locks=0 ]	(	""	)
+outlabel21	[ 0	locks=0 ]	(	""	)
+outtype22	[ 0	locks=0 ]	(	undef	)
+outname22	[ 0	locks=0 ]	(	""	)
+outlabel22	[ 0	locks=0 ]	(	""	)
+outtype23	[ 0	locks=0 ]	(	undef	)
+outname23	[ 0	locks=0 ]	(	""	)
+outlabel23	[ 0	locks=0 ]	(	""	)
+outtype24	[ 0	locks=0 ]	(	undef	)
+outname24	[ 0	locks=0 ]	(	""	)
+outlabel24	[ 0	locks=0 ]	(	""	)
+outtype25	[ 0	locks=0 ]	(	undef	)
+outname25	[ 0	locks=0 ]	(	""	)
+outlabel25	[ 0	locks=0 ]	(	""	)
+outtype26	[ 0	locks=0 ]	(	undef	)
+outname26	[ 0	locks=0 ]	(	""	)
+outlabel26	[ 0	locks=0 ]	(	""	)
+outtype27	[ 0	locks=0 ]	(	undef	)
+outname27	[ 0	locks=0 ]	(	""	)
+outlabel27	[ 0	locks=0 ]	(	""	)
+outtype28	[ 0	locks=0 ]	(	undef	)
+outname28	[ 0	locks=0 ]	(	""	)
+outlabel28	[ 0	locks=0 ]	(	""	)
+outtype29	[ 0	locks=0 ]	(	undef	)
+outname29	[ 0	locks=0 ]	(	""	)
+outlabel29	[ 0	locks=0 ]	(	""	)
+outtype30	[ 0	locks=0 ]	(	undef	)
+outname30	[ 0	locks=0 ]	(	""	)
+outlabel30	[ 0	locks=0 ]	(	""	)
+outtype31	[ 0	locks=0 ]	(	undef	)
+outname31	[ 0	locks=0 ]	(	""	)
+outlabel31	[ 0	locks=0 ]	(	""	)
+outtype32	[ 0	locks=0 ]	(	undef	)
+outname32	[ 0	locks=0 ]	(	""	)
+outlabel32	[ 0	locks=0 ]	(	""	)
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/cops_baking/XYZDist/trace_to_HP_intersect.userdata"
+Content-Type: text/plain
+
+{
+	"___Version___":{
+		"type":"string",
+		"value":"17.5.258"
+	}
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/cops_baking/XYZDist/parm1.init"
+Content-Type: text/plain
+
+type = parameter
+matchesdef = 0
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/cops_baking/XYZDist/parm1.def"
+Content-Type: text/plain
+
+comment ""
+position -11.2986 1.92076
+connectornextid 1
+flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on lowdetail off mediumdetail off highdetail on material off
+outputsNamed3
+{
+0 "RayDist"
+}
+inputsNamed3
+{
+}
+inputs
+{
+}
+stat
+{
+  create 1558134542
+  modify 1558135248
+  author prisms@threadripper1
+  access 0777
+}
+color UT_Color RGB 1 1 0.4 
+delscript ""
+exprlanguage hscript
+end
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/cops_baking/XYZDist/parm1.parm"
+Content-Type: text/plain
+
+{
+version 0.8
+parmscope	[ 0	locks=0 ]	(	shaderparm	)
+parmaccess	[ 0	locks=0 ]	(	""	)
+parmname	[ 0	locks=0 ]	(	RayDist	)
+parmprefix	[ 0	locks=0 ]	(	""	)
+parmpostfix	[ 0	locks=0 ]	(	""	)
+parmlabel	[ 0	locks=0 ]	(	""	)
+showlabel	[ 0	locks=0 ]	(	"on"	)
+parmtype	[ 0	locks=0 ]	(	"float"	)
+parmtypename	[ 0	locks=0 ]	(	""	)
+floatdef	[ 0	locks=0 ]	(	1	)
+intdef	[ 0	locks=0 ]	(	0	)
+toggledef	[ 0	locks=0 ]	(	"off"	)
+angledef	[ 0	locks=0 ]	(	0	)
+logfloatdef	[ 0	locks=0 ]	(	0	)
+float2def	[ 0	locks=0 ]	(	0	0	)
+float3def	[ 0	locks=0 ]	(	0	0	0	)
+vectordef	[ 0	locks=0 ]	(	0	0	0	)
+normaldef	[ 0	locks=0 ]	(	0	0	0	)
+pointdef	[ 0	locks=0 ]	(	0	0	0	)
+directiondef	[ 0	locks=0 ]	(	1	0	0	)
+float4def	[ 0	locks=0 ]	(	0	0	0	0	)
+floatm2def	[ 0	locks=0 ]	(	1	0	0	1	)
+float9def	[ 0	locks=0 ]	(	1	0	0	0	1	0	0	0	1	)
+float16def	[ 0	locks=0 ]	(	1	0	0	0	0	1	0	0	0	0	1	0	0	0	0	1	)
+stringdef	[ 0	locks=0 ]	(	""	)
+filedef	[ 0	locks=0 ]	(	""	)
+imagedef	[ 0	locks=0 ]	(	""	)
+geometrydef	[ 0	locks=0 ]	(	""	)
+colordef	[ 0	locks=0 ]	(	0	0	0	)
+color4def	[ 0	locks=0 ]	(	0	0	0	0	)
+bsdfdef	[ 0	locks=0 ]	(	""	)
+coshaderdef	[ 0	locks=0 ]	(	""	)
+floatadef	[ 0	locks=0 ]	(	)
+intadef	[ 0	locks=0 ]	(	)
+vector2adef	[ 0	locks=0 ]	(	)
+vectoradef	[ 0	locks=0 ]	(	)
+pointadef	[ 0	locks=0 ]	(	)
+normaladef	[ 0	locks=0 ]	(	)
+coloradef	[ 0	locks=0 ]	(	)
+floatm2adef	[ 0	locks=0 ]	(	)
+float4adef	[ 0	locks=0 ]	(	)
+float9adef	[ 0	locks=0 ]	(	)
+float16adef	[ 0	locks=0 ]	(	)
+stringadef	[ 0	locks=0 ]	(	)
+coshaderadef	[ 0	locks=0 ]	(	""	)
+structdef	[ 0	locks=0 ]	(	""	)
+rangeflt	[ 0	locks=0 ]	(	0	1	)
+rangeint	[ 0	locks=0 ]	(	0	10	)
+stringtype	[ 0	locks=0 ]	(	off	)
+opfilter	[ 0	locks=0 ]	(	!!OBJ/LIGHT!!	)
+parmcomment	[ 0	locks=0 ]	(	""	)
+separator1	[ 0	locks=0 ]	(	)
+useasparmdefiner	[ 0	locks=0 ]	(	"off"	)
+useownexportcontext	[ 0	locks=0 ]	(	"off"	)
+parmuniform	[ 0	locks=0 ]	(	"on"	)
+usebound	[ 0	locks=0 ]	(	"off"	)
+hasconnector	[ 0	locks=0 ]	(	"on"	)
+exportparm	[ 0	locks=0 ]	(	"off"	)
+exportcontext	[ 0	locks=0 ]	(	cop2	)
+providemenu	[ 0	locks=0 ]	(	"off"	)
+menuchoices	[ 0	locks=0 ]	(	""	)
+menuscript	[ 0	locks=0 ]	(	""	)
+menuscriptlanguage	[ 0	locks=0 ]	(	"hscript"	)
+separator2	[ 0	locks=0 ]	(	)
+invisible	[ 0	locks=0 ]	(	"off"	)
+joinnext	[ 0	locks=0 ]	(	"off"	)
+disablewhen	[ 0	locks=0 ]	(	""	)
+hidewhen	[ 0	locks=0 ]	(	""	)
+callback	[ 0	locks=0 ]	(	""	)
+tags	[ 0	locks=0 ]	(	""	)
+help	[ 0	locks=0 ]	(	""	)
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/cops_baking/XYZDist/parm1.userdata"
+Content-Type: text/plain
+
+{
+	"___Version___":{
+		"type":"string",
+		"value":"17.5.258"
 	}
 }
 
@@ -2203,7 +3334,7 @@ inputs
 stat
 {
   create 1545250955
-  modify 1556925789
+  modify 1558135433
   author Paul_Ambrosiussen@LAPTOP-P8R7FBPF
   access 0777
 }
@@ -2510,7 +3641,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.229"
+		"value":"17.5.258"
 	}
 }
 
@@ -2519,7 +3650,7 @@ Content-Disposition: attachment; filename="hdaroot/cops_baking/Height.cop2"
 Content-Type: text/plain
 
 2
-3631
+3635
 0
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -2584,7 +3715,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.229"
+		"value":"17.5.258"
 	}
 }
 
@@ -2959,7 +4090,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.229"
+		"value":"17.5.258"
 	}
 }
 
@@ -3072,7 +4203,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.229"
+		"value":"17.5.258"
 	}
 }
 
@@ -3175,7 +4306,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.229"
+		"value":"17.5.258"
 	}
 }
 
@@ -3209,7 +4340,7 @@ inputs
 stat
 {
   create 1545250955
-  modify 1556925789
+  modify 1558135433
   author Paul_Ambrosiussen@LAPTOP-P8R7FBPF
   access 0777
 }
@@ -3535,7 +4666,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.229"
+		"value":"17.5.258"
 	}
 }
 
@@ -3544,7 +4675,7 @@ Content-Disposition: attachment; filename="hdaroot/cops_baking/Alpha.cop2"
 Content-Type: text/plain
 
 2
-3624
+3628
 0
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -3609,7 +4740,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.229"
+		"value":"17.5.258"
 	}
 }
 
@@ -3736,7 +4867,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.229"
+		"value":"17.5.258"
 	}
 }
 
@@ -3863,7 +4994,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.229"
+		"value":"17.5.258"
 	}
 }
 
@@ -4172,7 +5303,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.229"
+		"value":"17.5.258"
 	}
 }
 
@@ -4263,7 +5394,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.229"
+		"value":"17.5.258"
 	}
 }
 
@@ -4366,7 +5497,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.229"
+		"value":"17.5.258"
 	}
 }
 
@@ -4469,7 +5600,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.229"
+		"value":"17.5.258"
 	}
 }
 
@@ -4592,7 +5723,7 @@ inputs
 stat
 {
   create 1545250955
-  modify 1556925789
+  modify 1558135433
   author Paul_Ambrosiussen@LAPTOP-P8R7FBPF
   access 0777
 }
@@ -4908,7 +6039,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.229"
+		"value":"17.5.258"
 	}
 }
 
@@ -4917,7 +6048,7 @@ Content-Disposition: attachment; filename="hdaroot/cops_baking/WorldNormal.cop2"
 Content-Type: text/plain
 
 2
-3794
+3799
 0
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -4980,7 +6111,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.229"
+		"value":"17.5.258"
 	}
 }
 
@@ -5153,7 +6284,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.229"
+		"value":"17.5.258"
 	}
 }
 
@@ -5453,7 +6584,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.229"
+		"value":"17.5.258"
 	}
 }
 
@@ -5580,7 +6711,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.229"
+		"value":"17.5.258"
 	}
 }
 
@@ -5683,7 +6814,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.229"
+		"value":"17.5.258"
 	}
 }
 
@@ -5786,7 +6917,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.229"
+		"value":"17.5.258"
 	}
 }
 
@@ -6091,7 +7222,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.229"
+		"value":"17.5.258"
 	}
 }
 
@@ -6135,7 +7266,7 @@ inputs
 stat
 {
   create 1545250955
-  modify 1556925789
+  modify 1558135433
   author Paul_Ambrosiussen@LAPTOP-P8R7FBPF
   access 0777
 }
@@ -6539,11 +7670,11 @@ posthold	[ 0	locks=0 ]	(	0	)
 stdswitcher5	[ 0	locks=0 ]	(	0	0	0	0	)
 HIGH	[ 0	locks=0 ]	(	op:../../OUT_HIGH	)
 maxdist	[ 0	locks=0 ]	(	[ maxdist	2 ] 	)
-numrays	[ 0	locks=0 ]	(	[ numrays	100 ] 	)
+numrays	[ 0	locks=0 ]	(	[ numrays	50 ] 	)
 raybias	[ 0	locks=0 ]	(	[ raybias	0.001 ] 	)
-conewidth	[ 0	locks=0 ]	(	[ conewidth	85 ] 	)
-intensity	[ 0	locks=0 ]	(	[ intensity	1.2 ] 	)
-gamma	[ 0	locks=0 ]	(	[ gamma	1.3 ] 	)
+conewidth	[ 0	locks=0 ]	(	[ conewidth	70 ] 	)
+intensity	[ 0	locks=0 ]	(	[ intensity	3 ] 	)
+gamma	[ 0	locks=0 ]	(	[ gamma	1 ] 	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -6553,7 +7684,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.229"
+		"value":"17.5.258"
 	}
 }
 
@@ -6562,7 +7693,7 @@ Content-Disposition: attachment; filename="hdaroot/cops_baking/AO.cop2"
 Content-Type: text/plain
 
 2
-3653
+3657
 0
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -6627,7 +7758,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.229"
+		"value":"17.5.258"
 	}
 }
 
@@ -7032,7 +8163,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.229"
+		"value":"17.5.258"
 	}
 }
 
@@ -7168,7 +8299,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.229"
+		"value":"17.5.258"
 	}
 }
 
@@ -7271,7 +8402,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.229"
+		"value":"17.5.258"
 	}
 }
 
@@ -7374,7 +8505,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.229"
+		"value":"17.5.258"
 	}
 }
 
@@ -7501,7 +8632,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.229"
+		"value":"17.5.258"
 	}
 }
 
@@ -7628,7 +8759,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.229"
+		"value":"17.5.258"
 	}
 }
 
@@ -7755,7 +8886,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.229"
+		"value":"17.5.258"
 	}
 }
 
@@ -7882,7 +9013,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.229"
+		"value":"17.5.258"
 	}
 }
 
@@ -8009,7 +9140,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.229"
+		"value":"17.5.258"
 	}
 }
 
@@ -8136,7 +9267,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.229"
+		"value":"17.5.258"
 	}
 }
 
@@ -8170,7 +9301,7 @@ inputs
 stat
 {
   create 1545250955
-  modify 1556925789
+  modify 1558135433
   author Paul_Ambrosiussen@LAPTOP-P8R7FBPF
   access 0777
 }
@@ -8486,7 +9617,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.229"
+		"value":"17.5.258"
 	}
 }
 
@@ -8495,7 +9626,7 @@ Content-Disposition: attachment; filename="hdaroot/cops_baking/Position.cop2"
 Content-Type: text/plain
 
 2
-3852
+3858
 0
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -8560,7 +9691,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.229"
+		"value":"17.5.258"
 	}
 }
 
@@ -8766,7 +9897,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.229"
+		"value":"17.5.258"
 	}
 }
 
@@ -9063,7 +10194,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.229"
+		"value":"17.5.258"
 	}
 }
 
@@ -9177,7 +10308,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.229"
+		"value":"17.5.258"
 	}
 }
 
@@ -9280,7 +10411,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.229"
+		"value":"17.5.258"
 	}
 }
 
@@ -9383,7 +10514,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.229"
+		"value":"17.5.258"
 	}
 }
 
@@ -9401,7 +10532,7 @@ Content-Type: text/plain
 comment ""
 position 6.20883 -13.2855
 connectornextid 2
-flags =  lock off model off template off footprint off xray off bypass off display on render off highlight off unload off savedata off compress off colordefault off exposed on
+flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress off colordefault off exposed on
 outputsNamed3
 {
 0 "output1"
@@ -9417,7 +10548,7 @@ inputs
 stat
 {
   create 1545250955
-  modify 1556925789
+  modify 1558135433
   author Paul_Ambrosiussen@LAPTOP-P8R7FBPF
   access 0777
 }
@@ -9749,7 +10880,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.229"
+		"value":"17.5.258"
 	}
 }
 
@@ -9758,7 +10889,7 @@ Content-Disposition: attachment; filename="hdaroot/cops_baking/Nt.cop2"
 Content-Type: text/plain
 
 2
-4214
+4219
 0
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -9890,7 +11021,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.229"
+		"value":"17.5.258"
 	}
 }
 
@@ -10017,7 +11148,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.229"
+		"value":"17.5.258"
 	}
 }
 
@@ -10099,7 +11230,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.229"
+		"value":"17.5.258"
 	}
 }
 
@@ -10409,7 +11540,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.229"
+		"value":"17.5.258"
 	}
 }
 
@@ -10545,7 +11676,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.229"
+		"value":"17.5.258"
 	}
 }
 
@@ -10648,7 +11779,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.229"
+		"value":"17.5.258"
 	}
 }
 
@@ -10682,7 +11813,7 @@ inputs
 stat
 {
   create 1545250955
-  modify 1556925789
+  modify 1558135433
   author Paul_Ambrosiussen@LAPTOP-P8R7FBPF
   access 0777
 }
@@ -10998,7 +12129,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.229"
+		"value":"17.5.258"
 	}
 }
 
@@ -11007,7 +12138,7 @@ Content-Disposition: attachment; filename="hdaroot/cops_baking/Color.cop2"
 Content-Type: text/plain
 
 2
-3637
+3641
 0
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -11072,7 +12203,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.229"
+		"value":"17.5.258"
 	}
 }
 
@@ -11448,7 +12579,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.229"
+		"value":"17.5.258"
 	}
 }
 
@@ -11584,7 +12715,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.229"
+		"value":"17.5.258"
 	}
 }
 
@@ -11687,7 +12818,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.229"
+		"value":"17.5.258"
 	}
 }
 
@@ -11790,7 +12921,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.229"
+		"value":"17.5.258"
 	}
 }
 
@@ -11808,7 +12939,7 @@ Content-Type: text/plain
 comment ""
 position -18.8931 -11.2789
 connectornextid 2
-flags =  lock off model off template off footprint off xray off bypass off display on render off highlight off unload off savedata off compress off colordefault off exposed on
+flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress off colordefault off exposed on
 outputsNamed3
 {
 0 "output1"
@@ -11824,7 +12955,7 @@ inputs
 stat
 {
   create 1545250955
-  modify 1556925789
+  modify 1558135433
   author Paul_Ambrosiussen@LAPTOP-P8R7FBPF
   access 0777
 }
@@ -12148,7 +13279,7 @@ postextend	[ 0	locks=0 ]	(	"black"	)
 posthold	[ 0	locks=0 ]	(	0	)
 stdswitcher5	[ 0	locks=0 ]	(	0	0	0	0	)
 HIGH	[ 0	locks=0 ]	(	op:../../OUT_HIGH	)
-Attr	[ 0	locks=0	autoscope=1	autosel=4294967295 ]	(	[ Attr	metallic_texture ] 	)
+Attr	[ 0	locks=0	autoscope=1	autosel=4294967295 ]	(	[ Attr	"" ] 	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -12158,7 +13289,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.229"
+		"value":"17.5.258"
 	}
 }
 
@@ -12167,7 +13298,7 @@ Content-Disposition: attachment; filename="hdaroot/cops_baking/CustomAttributes.
 Content-Type: text/plain
 
 2
-3767
+3771
 0
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -12248,7 +13379,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.229"
+		"value":"17.5.258"
 	}
 }
 
@@ -12375,7 +13506,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.229"
+		"value":"17.5.258"
 	}
 }
 
@@ -12675,7 +13806,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.229"
+		"value":"17.5.258"
 	}
 }
 
@@ -12739,7 +13870,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.229"
+		"value":"17.5.258"
 	}
 }
 
@@ -12935,7 +14066,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.229"
+		"value":"17.5.258"
 	}
 }
 
@@ -13038,7 +14169,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.229"
+		"value":"17.5.258"
 	}
 }
 
@@ -13141,7 +14272,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.229"
+		"value":"17.5.258"
 	}
 }
 
@@ -13159,7 +14290,7 @@ Content-Type: text/plain
 comment ""
 position -15.2019 -11.2789
 connectornextid 2
-flags =  lock off model off template off footprint off xray off bypass off display on render on highlight off unload off savedata off compress off colordefault off exposed on
+flags =  lock off model off template off footprint off xray off bypass off display off render on highlight off unload off savedata off compress off colordefault off exposed on
 outputsNamed3
 {
 0 "output1"
@@ -13175,7 +14306,7 @@ inputs
 stat
 {
   create 1545250955
-  modify 1556925941
+  modify 1558135433
   author Paul_Ambrosiussen@LAPTOP-P8R7FBPF
   access 0777
 }
@@ -13491,7 +14622,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.229"
+		"value":"17.5.258"
 	}
 }
 
@@ -13500,7 +14631,7 @@ Content-Disposition: attachment; filename="hdaroot/cops_baking/PBRMaps.cop2"
 Content-Type: text/plain
 
 2
-4059
+4063
 0
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -13581,7 +14712,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.229"
+		"value":"17.5.258"
 	}
 }
 
@@ -13708,7 +14839,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.229"
+		"value":"17.5.258"
 	}
 }
 
@@ -14007,7 +15138,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.229"
+		"value":"17.5.258"
 	}
 }
 
@@ -14071,7 +15202,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.229"
+		"value":"17.5.258"
 	}
 }
 
@@ -14243,7 +15374,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.229"
+		"value":"17.5.258"
 	}
 }
 
@@ -14346,7 +15477,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.229"
+		"value":"17.5.258"
 	}
 }
 
@@ -14397,8 +15528,10 @@ Content-Type: text/plain
 {
 version 0.8
 mMaterialEntries	[ 0	locks=0 ]	(	1	)
+sMaterialType1	[ 0	locks=0 ]	(	"0"	)
 materialname_1	[ 0	locks=0 ]	(	Baker	)
 groupselection_1	[ 0	locks=0 ]	(	""	)
+folder0_1	[ 0	locks=0 ]	(	0	)
 basecolorfolder_1	[ 0	locks=0 ]	(	0	)
 basecolor_texture_1	[ 8	locks=0 ]	(	"`strreplace(chs(\"../sOutputFile\"), \"$(CHANNEL)\", chs(\"../preview_channel\"))`"	)
 basecolor_1	[ 0	locks=0 ]	(	1	1	1	)
@@ -14417,6 +15550,54 @@ ior_1	[ 0	locks=0 ]	(	1.1000000000000001	)
 metallicfolder_1	[ 0	locks=0 ]	(	0	)
 metallic_texture_1	[ 0	locks=0 ]	(	""	)
 metallic_1	[ 0	locks=0 ]	(	0	)
+folder0_1_3	[ 0	locks=0 ]	(	0	)
+basecolorfolder_1_2	[ 0	locks=0 ]	(	0	)
+pbr_basecolor_1	[ 0	locks=0 ]	(	1	1	1	)
+pbr_basecolor_useTexture_1	[ 0	locks=0 ]	(	"off"	)
+pbr_basecolor_texture_1	[ 0	locks=0 ]	(	""	)
+roughnessfolder_1_2	[ 0	locks=0 ]	(	0	)
+pbr_IOR_1	[ 0	locks=0 ]	(	1.5	)
+pbr_rough_1	[ 0	locks=0 ]	(	0.29999999999999999	)
+pbr_horizon_fade_1	[ 0	locks=0 ]	(	1	)
+pbr_invert_rough_1	[ 0	locks=0 ]	(	"off"	)
+pbr_rough_useTexture_1	[ 0	locks=0 ]	(	"off"	)
+pbr_rough_texture_1	[ 0	locks=0 ]	(	""	)
+pbr_rough_monoChannel_1	[ 0	locks=0 ]	(	0	)
+metallicfolder_1_2	[ 0	locks=0 ]	(	0	)
+pbr_metallic_1	[ 0	locks=0 ]	(	0	)
+pbr_metallic_useTexture_1	[ 0	locks=0 ]	(	"off"	)
+pbr_metallic_texture_1	[ 0	locks=0 ]	(	""	)
+pbr_metallic_monoChannel_1	[ 0	locks=0 ]	(	0	)
+shading_16_1	[ 0	locks=0 ]	(	0	)
+pbr_baseBumpAndNormal_enable_1	[ 0	locks=0 ]	(	"off"	)
+pbr_baseNormal_texture_1	[ 0	locks=0 ]	(	""	)
+pbr_baseNormal_scale_1	[ 0	locks=0 ]	(	1	)
+pbr_baseNormal_flipX_1	[ 0	locks=0 ]	(	"off"	)
+pbr_baseNormal_flipY_1	[ 0	locks=0 ]	(	"off"	)
+pbr_use_mikkt_1	[ 0	locks=0 ]	(	"off"	)
+folder14_1	[ 0	locks=0 ]	(	0	)
+pbr_occlusion_1	[ 0	locks=0 ]	(	0	)
+pbr_occlusion_useTexture_1	[ 0	locks=0 ]	(	"off"	)
+pbr_occlusion_texture_1	[ 0	locks=0 ]	(	""	)
+pbr_occlusion_monoChannel_1	[ 0	locks=0 ]	(	0	)
+folder9_1	[ 0	locks=0 ]	(	0	)
+pbr_emitint_1	[ 0	locks=0 ]	(	0	)
+pbr_emitcolor_1	[ 0	locks=0 ]	(	0	0	0	)
+pbr_emitcolor_useTexture_1	[ 0	locks=0 ]	(	"off"	)
+pbr_emitcolor_texture_1	[ 0	locks=0 ]	(	""	)
+folder13_1	[ 0	locks=0 ]	(	0	)
+pbr_transparency_1	[ 0	locks=0 ]	(	0	)
+pbr_opaccolor_useTexture_1	[ 0	locks=0 ]	(	"off"	)
+pbr_opaccolor_1	[ 0	locks=0 ]	(	""	)
+diffuse_folder_15_1_1	[ 0	locks=0 ]	(	0	)
+pbr_importance_sampling_diffuse_1	[ 0	locks=0 ]	(	"off"	)
+pbr_nbSamples_diff_1	[ 0	locks=0 ]	(	32	)
+pbr_importance_sampling_1	[ 0	locks=0 ]	(	"on"	)
+pbr_nbSamples_1	[ 0	locks=0 ]	(	32	)
+pbr_frontface_1	[ 0	locks=0 ]	(	"on"	)
+folder0_1_2	[ 0	locks=0 ]	(	0	)
+matcap_basecolor_texture_1	[ 0	locks=0 ]	(	opdef:gamedev::Vop/mat_matcap_shader?matcap_orange.exr	)
+matcap_use_texture_alpha_1	[ 0	locks=0 ]	(	"off"	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -14488,7 +15669,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.229"
+		"value":"17.5.258"
 	}
 }
 
@@ -14975,7 +16156,7 @@ inputs
 stat
 {
   create 1551488396
-  modify 1556925788
+  modify 1558135444
   author Paul_Ambrosiussen@DESKTOP-A0373M3
   access 0777
 }
@@ -15210,7 +16391,7 @@ fakecausticsshadow	[ 0	locks=0 ]	(	1	)
 fakecausticsopacity	[ 0	locks=0 ]	(	0	)
 folder54	[ 0	locks=0 ]	(	0	)
 basecolor_useTexture	[ 0	locks=0 ]	(	"on"	)
-basecolor_texture	[ 0	locks=0	autoscope=1	autosel=4294967295 ]	(	[ basecolor_texture	C:/Projects/MapsBaker/render/BapsBaker_Video_01_ao.png ] 	)
+basecolor_texture	[ 0	locks=0	autoscope=1	autosel=4294967295 ]	(	[ basecolor_texture	C:/Projects/MapsBaker/render/MapsBaker_03_ao.png ] 	)
 basecolor_textureIntensity	[ 0	locks=0 ]	(	1	)
 basecolor_textureWrap	[ 0	locks=0 ]	(	repeat	)
 basecolor_textureColorSpace	[ 0	locks=0 ]	(	auto	)
@@ -15671,7 +16852,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.229"
+		"value":"17.5.258"
 	}
 }
 
@@ -15706,7 +16887,7 @@ inputs
 stat
 {
   create 1545250595
-  modify 1556920467
+  modify 1558130231
   author Paul_Ambrosiussen@LAPTOP-P8R7FBPF
   access 0777
 }
@@ -15738,7 +16919,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.229"
+		"value":"17.5.258"
 	}
 }
 
@@ -15757,7 +16938,7 @@ sopflags sopflags =
 comment ""
 position 5.62626 -14.4984
 connectornextid 1
-flags =  lock off model off template on footprint off xray off bypass off display on render on highlight off unload off savedata off compress on colordefault on exposed on
+flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
 {
 }
@@ -15772,7 +16953,7 @@ inputs
 stat
 {
   create 1545258155
-  modify 1556920937
+  modify 1558130222
   author Paul_Ambrosiussen@LAPTOP-P8R7FBPF
   access 0777
 }
@@ -15797,7 +16978,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.229"
+		"value":"17.5.258"
 	}
 }
 
@@ -15858,7 +17039,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.229"
+		"value":"17.5.258"
 	}
 }
 
@@ -15928,7 +17109,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.229"
+		"value":"17.5.258"
 	}
 }
 
@@ -16017,7 +17198,7 @@ sopflags sopflags =
 comment ""
 position 0.0199676 4.3465
 connectornextid 2
-flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
+flags =  lock off model off template on footprint off xray off bypass off display on render on highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
 {
 1 "output1"
@@ -16033,7 +17214,7 @@ inputs
 stat
 {
   create 1545415746
-  modify 1556920491
+  modify 1558130231
   author Paul_Ambrosiussen@LAPTOP-P8R7FBPF
   access 0777
 }
@@ -16059,7 +17240,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.229"
+		"value":"17.5.258"
 	}
 }
 
@@ -16196,7 +17377,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.229"
+		"value":"17.5.258"
 	}
 }
 
@@ -16257,7 +17438,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.229"
+		"value":"17.5.258"
 	}
 }
 
@@ -16332,7 +17513,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.229"
+		"value":"17.5.258"
 	}
 }
 
@@ -16381,7 +17562,7 @@ inputs
 stat
 {
   create 1551216308
-  modify 1556925788
+  modify 1558130901
   author Paul_Ambrosiussen@DESKTOP-A0373M3
   access 0777
 }
@@ -16429,7 +17610,7 @@ coppath	[ 0	locks=0 ]	(	../Position	)
 tres	[ 0	locks=0 ]	(	"natural"	)
 res	[ 0	locks=0 ]	(	1024	1024	)
 resmenu	[ 0	locks=0 ]	(	0	)
-copoutput	[ 0	locks=0	autoscope=1	autosel=4294967295 ]	(	[ copoutput	C:/Projects/MapsBaker/render/BapsBaker_Video_01_position.png ] 	)
+copoutput	[ 0	locks=0	autoscope=1	autosel=4294967295 ]	(	[ copoutput	C:/Projects/MapsBaker/render/MapsBaker_03_position.png ] 	)
 mkpath	[ 0	locks=0 ]	(	"on"	)
 color	[ 0	locks=0 ]	(	C	)
 alpha	[ 0	locks=0 ]	(	""	)
@@ -16498,7 +17679,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.229"
+		"value":"17.5.258"
 	}
 }
 
@@ -16506,12 +17687,19 @@ Content-Type: text/plain
 Content-Disposition: attachment; filename="hdaroot/cops_baking/XYZDist.order"
 Content-Type: text/plain
 
-5
+12
 parm7
-trace_to_HP
+trace_to_HP_xyzdist
 bind1
 bind2
 bind3
+global1
+parm4
+uv_pos1
+switch1
+switch2
+trace_to_HP_intersect
+parm1
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
 Content-Disposition: attachment; filename="hdaroot/cops_baking/XYZDist.net"
@@ -16613,7 +17801,7 @@ coppath	[ 0	locks=0 ]	(	../Height	)
 tres	[ 0	locks=0 ]	(	"natural"	)
 res	[ 0	locks=0 ]	(	1024	1024	)
 resmenu	[ 0	locks=0 ]	(	0	)
-copoutput	[ 0	locks=0	autoscope=1	autosel=4294967295 ]	(	[ copoutput	C:/Projects/MapsBaker/render/BapsBaker_Video_01_height.png ] 	)
+copoutput	[ 0	locks=0	autoscope=1	autosel=4294967295 ]	(	[ copoutput	C:/Projects/MapsBaker/render/MapsBaker_03_height.png ] 	)
 mkpath	[ 0	locks=0 ]	(	"on"	)
 color	[ 0	locks=0 ]	(	C	)
 alpha	[ 0	locks=0 ]	(	""	)
@@ -16682,7 +17870,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.229"
+		"value":"17.5.258"
 	}
 }
 
@@ -16783,7 +17971,7 @@ coppath	[ 0	locks=0 ]	(	../Alpha	)
 tres	[ 0	locks=0 ]	(	"natural"	)
 res	[ 0	locks=0 ]	(	1024	1024	)
 resmenu	[ 0	locks=0 ]	(	0	)
-copoutput	[ 0	locks=0	autoscope=1	autosel=4294967295 ]	(	[ copoutput	C:/Projects/MapsBaker/render/BapsBaker_Video_01_alpha.png ] 	)
+copoutput	[ 0	locks=0	autoscope=1	autosel=4294967295 ]	(	[ copoutput	C:/Projects/MapsBaker/render/MapsBaker_03_alpha.png ] 	)
 mkpath	[ 0	locks=0 ]	(	"on"	)
 color	[ 0	locks=0 ]	(	C	)
 alpha	[ 0	locks=0 ]	(	""	)
@@ -16852,7 +18040,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.229"
+		"value":"17.5.258"
 	}
 }
 
@@ -16953,7 +18141,7 @@ coppath	[ 0	locks=0 ]	(	../WorldNormal	)
 tres	[ 0	locks=0 ]	(	"natural"	)
 res	[ 0	locks=0 ]	(	1024	1024	)
 resmenu	[ 0	locks=0 ]	(	0	)
-copoutput	[ 0	locks=0	autoscope=1	autosel=4294967295 ]	(	[ copoutput	C:/Projects/MapsBaker/render/BapsBaker_Video_01_worldnormal.png ] 	)
+copoutput	[ 0	locks=0	autoscope=1	autosel=4294967295 ]	(	[ copoutput	C:/Projects/MapsBaker/render/MapsBaker_03_worldnormal.png ] 	)
 mkpath	[ 0	locks=0 ]	(	"on"	)
 color	[ 0	locks=0 ]	(	C	)
 alpha	[ 0	locks=0 ]	(	""	)
@@ -17022,7 +18210,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.229"
+		"value":"17.5.258"
 	}
 }
 
@@ -17119,7 +18307,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.229"
+		"value":"17.5.258"
 	}
 }
 
@@ -17188,7 +18376,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.229"
+		"value":"17.5.258"
 	}
 }
 
@@ -17296,7 +18484,7 @@ coppath	[ 0	locks=0 ]	(	../AO	)
 tres	[ 0	locks=0 ]	(	"natural"	)
 res	[ 0	locks=0 ]	(	1024	1024	)
 resmenu	[ 0	locks=0 ]	(	0	)
-copoutput	[ 0	locks=0	autoscope=1	autosel=4294967295 ]	(	[ copoutput	C:/Projects/MapsBaker/render/BapsBaker_Video_01_ao.png ] 	)
+copoutput	[ 0	locks=0	autoscope=1	autosel=4294967295 ]	(	[ copoutput	C:/Projects/MapsBaker/render/MapsBaker_03_ao.png ] 	)
 mkpath	[ 0	locks=0 ]	(	"on"	)
 color	[ 0	locks=0 ]	(	C	)
 alpha	[ 0	locks=0 ]	(	""	)
@@ -17365,7 +18553,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.229"
+		"value":"17.5.258"
 	}
 }
 
@@ -17417,7 +18605,7 @@ inputs
 stat
 {
   create 1551216308
-  modify 1556925788
+  modify 1558133712
   author Paul_Ambrosiussen@DESKTOP-A0373M3
   access 0777
 }
@@ -17465,7 +18653,7 @@ coppath	[ 0	locks=0 ]	(	../Nt	)
 tres	[ 0	locks=0 ]	(	"natural"	)
 res	[ 0	locks=0 ]	(	1024	1024	)
 resmenu	[ 0	locks=0 ]	(	0	)
-copoutput	[ 0	locks=0	autoscope=1	autosel=4294967295 ]	(	[ copoutput	C:/Projects/MapsBaker/render/BapsBaker_Video_01_normal.png ] 	)
+copoutput	[ 0	locks=0	autoscope=1	autosel=4294967295 ]	(	[ copoutput	C:/Projects/MapsBaker/render/MapsBaker_03_normal.png ] 	)
 mkpath	[ 0	locks=0 ]	(	"on"	)
 color	[ 0	locks=0 ]	(	C	)
 alpha	[ 0	locks=0 ]	(	""	)
@@ -17534,7 +18722,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.229"
+		"value":"17.5.258"
 	}
 }
 
@@ -17633,7 +18821,7 @@ coppath	[ 0	locks=0 ]	(	../Color	)
 tres	[ 0	locks=0 ]	(	"natural"	)
 res	[ 0	locks=0 ]	(	1024	1024	)
 resmenu	[ 0	locks=0 ]	(	0	)
-copoutput	[ 0	locks=0	autoscope=1	autosel=4294967295 ]	(	[ copoutput	C:/Projects/MapsBaker/render/BapsBaker_Video_01_color.png ] 	)
+copoutput	[ 0	locks=0	autoscope=1	autosel=4294967295 ]	(	[ copoutput	C:/Projects/MapsBaker/render/MapsBaker_03_color.png ] 	)
 mkpath	[ 0	locks=0 ]	(	"on"	)
 color	[ 0	locks=0 ]	(	C	)
 alpha	[ 0	locks=0 ]	(	""	)
@@ -17702,7 +18890,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.229"
+		"value":"17.5.258"
 	}
 }
 
@@ -17803,7 +18991,7 @@ coppath	[ 0	locks=0 ]	(	../CustomAttributes	)
 tres	[ 0	locks=0 ]	(	"natural"	)
 res	[ 0	locks=0 ]	(	1024	1024	)
 resmenu	[ 0	locks=0 ]	(	0	)
-copoutput	[ 0	locks=0	autoscope=1	autosel=4294967295 ]	(	[ copoutput	C:/Projects/MapsBaker/render/BapsBaker_Video_01_.png ] 	)
+copoutput	[ 0	locks=0	autoscope=1	autosel=4294967295 ]	(	[ copoutput	C:/Projects/MapsBaker/render/MapsBaker_03_.png ] 	)
 mkpath	[ 0	locks=0 ]	(	"on"	)
 color	[ 0	locks=0 ]	(	C	)
 alpha	[ 0	locks=0 ]	(	""	)
@@ -17872,7 +19060,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.229"
+		"value":"17.5.258"
 	}
 }
 
@@ -17973,7 +19161,7 @@ coppath	[ 0	locks=0 ]	(	../PBRMaps	)
 tres	[ 0	locks=0 ]	(	"natural"	)
 res	[ 0	locks=0 ]	(	1024	1024	)
 resmenu	[ 0	locks=0 ]	(	0	)
-copoutput	[ 8	locks=0	autoscope=1	autosel=4294967295 ]	(	[ copoutput	C:/Projects/MapsBaker/render/BapsBaker_Video_01_metallic.png ] 	)
+copoutput	[ 8	locks=0	autoscope=1	autosel=4294967295 ]	(	[ copoutput	C:/Projects/MapsBaker/render/MapsBaker_03_.png ] 	)
 mkpath	[ 0	locks=0 ]	(	"on"	)
 color	[ 0	locks=0 ]	(	C	)
 alpha	[ 0	locks=0 ]	(	""	)
@@ -18042,7 +19230,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.229"
+		"value":"17.5.258"
 	}
 }
 
@@ -18124,7 +19312,7 @@ inputs
 stat
 {
   create 1551227256
-  modify 1556925937
+  modify 1558134630
   author Paul_Ambrosiussen@DESKTOP-A0373M3
   access 0777
 }
@@ -18224,7 +19412,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.229"
+		"value":"17.5.258"
 	}
 }
 
@@ -18291,7 +19479,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.229"
+		"value":"17.5.258"
 	}
 }
 
@@ -18393,7 +19581,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.229"
+		"value":"17.5.258"
 	}
 }
 
@@ -18459,7 +19647,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.229"
+		"value":"17.5.258"
 	}
 }
 
@@ -18538,7 +19726,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.229"
+		"value":"17.5.258"
 	}
 }
 
@@ -18622,7 +19810,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.229"
+		"value":"17.5.258"
 	}
 }
 
@@ -18687,7 +19875,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.229"
+		"value":"17.5.258"
 	}
 }
 
@@ -18761,7 +19949,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.229"
+		"value":"17.5.258"
 	}
 }
 
@@ -18822,7 +20010,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.229"
+		"value":"17.5.258"
 	}
 }
 
@@ -18903,7 +20091,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.229"
+		"value":"17.5.258"
 	}
 }
 
@@ -18980,7 +20168,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.229"
+		"value":"17.5.258"
 	}
 }
 
@@ -19061,7 +20249,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.229"
+		"value":"17.5.258"
 	}
 }
 
@@ -19135,7 +20323,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.229"
+		"value":"17.5.258"
 	}
 }
 
@@ -19210,7 +20398,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.229"
+		"value":"17.5.258"
 	}
 }
 
@@ -19271,7 +20459,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.229"
+		"value":"17.5.258"
 	}
 }
 
@@ -19391,7 +20579,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.229"
+		"value":"17.5.258"
 	}
 }
 
@@ -19458,7 +20646,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.229"
+		"value":"17.5.258"
 	}
 }
 
@@ -19542,7 +20730,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.229"
+		"value":"17.5.258"
 	}
 }
 

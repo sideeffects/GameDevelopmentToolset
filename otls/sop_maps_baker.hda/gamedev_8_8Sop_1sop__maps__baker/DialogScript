@@ -81,6 +81,25 @@
             parmtag { "script_callback_language" "hscript" }
         }
         parm {
+            name    "mBakeMode"
+            label   "Tracing Mode"
+            type    ordinal
+            joinnext
+            default { "0" }
+            menu {
+                "0" "Nearest Surface"
+                "1" "Surface Normal"
+            }
+        }
+        parm {
+            name    "fMaxTraceDist"
+            label   "Max Trace Distance"
+            type    float
+            default { "1" }
+            hidewhen "{ mBakeMode != 1 }"
+            range   { 0.001 10 }
+        }
+        parm {
             name    "preview_channel"
             label   "Preview Channel"
             type    string

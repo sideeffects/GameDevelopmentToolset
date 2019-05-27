@@ -14,32 +14,42 @@ def bake(bake_rop, path):
     bake_rop.bypass(1)
     
 def set_current_mesh(node):
+    node.parm("uuid").set("%s" % uuid.uuid4())
     node.parm("current_low_mesh").set(node.parm("target_mesh_1").eval())
     node.parm("current_high_mesh").set(node.parm("source_mesh_1").eval())
+    current_uuid = node.parm("uuid").eval()
+    temp_dir = node.parm("tempdirectory").eval()
+    node.parm("tempexrpath").set("%s/%s_tmp_exr_path%s.exr" % (temp_dir, current_uuid, 1))
     
 def multi_render(node):
     multi_bake = hou.node("%s/multi_bake" % node.path())
+    uuid = node.parm("uuid").eval()
     temp_dir = node.parm("tempdirectory").eval()
     temp_exr_path = node.parm("tempexrpath")
     current_low_mesh = node.parm("current_low_mesh")
     current_high_mesh = node.parm("current_high_mesh")
     mesh_count = int(node.parm("meshes").eval())
+    init_switch = node.parm("initswitch")
     
     if (mesh_count > 1):
         #node.parm("udimpostprocess").set("borderfill")
         for i in range(mesh_count-1):
-            temp_exr_path.set("%s/temp_exr_path%s.exr" % (temp_dir, i+2))
+            init_switch.set(0)
+            temp_exr_path.set("%s/%s_tmp_exr_path%s.exr" % (temp_dir, uuid, i+2))
             current_low_mesh.set(node.parm("target_mesh_%s" % (i+2)).eval())
             current_high_mesh.set(node.parm("source_mesh_%s" % (i+2)).eval())
             multi_bake.render()
             
+            
     #node.parm("udimpostprocess").set("diffusefill")
-    temp_exr_path.set("%s/temp_exr_path%s.exr" % (temp_dir, 1))
+    temp_exr_path.set("%s/%s_tmp_exr_path%s.exr" % (temp_dir, uuid, 1))
     current_low_mesh.set(node.parm("target_mesh_%s" % 1).eval())
     current_high_mesh.set(node.parm("source_mesh_%s" % 1).eval())
+    #init_switch.set(1)
     
 def custom_multi_render(node):
     custom_multi_bake = hou.node("%s/custom_multi_bake" % node.path())
+    uuid = node.parm("uuid").eval()
     temp_dir = node.parm("tempdirectory").eval()
     temp_exr_path = node.parm("tempexrpath")
     current_low_mesh = node.parm("current_low_mesh")
@@ -47,17 +57,19 @@ def custom_multi_render(node):
     mesh_count = int(node.parm("meshes").eval())
     suffix = node.parm("custom_attribute_suffix_1")
     custom_channel = node.parm("custom_attribute_name_1")
+    init_switch = node.parm("initswitch")
     
     if (mesh_count > 1):
         #node.parm("udimpostprocess").set("borderfill")
         for i in range(mesh_count-1):
-            temp_exr_path.set("%s/temp_exr_path%s.exr" % (temp_dir, i+2))
+            init_switch.set(0)
+            temp_exr_path.set("%s/%s_tmp_exr_path%s.exr" % (temp_dir, uuid, i+2))
             current_low_mesh.set(node.parm("target_mesh_%s" % (i+2)).eval())
             current_high_mesh.set(node.parm("source_mesh_%s" % (i+2)).eval())
             custom_multi_bake.render()
             
     #node.parm("udimpostprocess").set("diffusefill")
-    temp_exr_path.set("%s/temp_exr_path%s.exr" % (temp_dir, 1))
+    temp_exr_path.set("%s/%s_tmp_exr_path%s.exr" % (temp_dir, uuid, 1))
     current_low_mesh.set(node.parm("target_mesh_%s" % 1).eval())
     current_high_mesh.set(node.parm("source_mesh_%s" % 1).eval())
     

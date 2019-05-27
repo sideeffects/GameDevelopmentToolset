@@ -91,6 +91,18 @@
         label   "Private Parms Folder"
 
         parm {
+            name    "initswitch"
+            label   "Init Switch"
+            type    toggle
+            default { "1" }
+        }
+        parm {
+            name    "uuid"
+            label   "Unique ID"
+            type    string
+            default { "" }
+        }
+        parm {
             name    "current_low_mesh"
             label   "Current Low Mesh"
             type    oppath
@@ -114,7 +126,7 @@
             name    "tempcoppath"
             label   "Temp cop path"
             type    image
-            default { "$TEMP/houdini_temp/temp_cop.exr" }
+            default { "`chs(\"tempdirectory\")`/`chs(\"uuid\")`_tmp_cop_path.exr" }
         }
         parm {
             name    "udimpostprocess"

@@ -1,0 +1,66 @@
+= GameDev Destruction Cleanup =
+
+#type: node
+#context: sop
+#internal: gamedev::sop_destruction_cleanup::2.0
+#icon: 
+#tags: tech, model
+
+""" Prepare rigid body simulation results for export, reducing redundant geometry, cleaning normals, cleaing attributes. """
+
+== Overview ==
+
+Rigid body simulation can require substantial cleanup before being ready for export. This HDA tackles the most frequent issues:
+
+* removing small pieces
+* fixing normals on sharp edges
+* identifying and combining pieces that can be treated as a single unit
+* clean up unnecessary dops specific attributes
+* identify a region of interest, freeze pieces outside of that region
+
+
+
+@parameters
+    == Basic ==
+    Simulation Range:
+        The simulation range determines what the framerange is that will be used for the data analysis. It is recommended to leave these to the start and end frame of your simulation.
+    Visualize Chunks:
+        This controls whether or not unique chunks should be colorcoded.
+    == Cleanup Properties ==
+    == Insides ==
+    Remove Insides:
+        This controls if surface points should be fused together. This will also trigger the removal of inside faces.
+    Fuse Distance:
+        This controls the fusing threshold in units for surface points close to eachother
+    == Cusping ==
+    Cusp Polygons:
+        This controls if polygon cusping should be applied to the newly generated geometry.
+    Cusp:
+        [Needs parameter tooltip]
+    Inside Primitives:
+        [Needs parameter tooltip]
+    Inside Cusp Angle:
+        [Needs parameter tooltip]
+    Weighting Method:
+        [Needs parameter tooltip]
+    Outside Primitives:
+        [Needs parameter tooltip]
+    Outside Cusp Angle:
+        [Needs parameter tooltip]
+    Cusp Angle:
+        This controls the polygon cusping angle.
+    == Piece Names ==
+    Generate Name:
+        This controls whether or not a new name attribute should be generated per unique optimized packed primitive
+    Name:
+        This controls the prefix applied to packed primitives coming out of the output.
+    == Advanced ==
+    Freeze Threshold:
+        This is the threshold in units used to determine freezing of chunks. See checkbox tooltip for more.
+    Clamped Bounds:
+        This controls whether or not to apply bound optimization.
+    Clamp Position:
+        This controls the where bound clamped chunks will be moved to.
+    Transfer Attributes:
+        [Needs parameter tooltip]
+    

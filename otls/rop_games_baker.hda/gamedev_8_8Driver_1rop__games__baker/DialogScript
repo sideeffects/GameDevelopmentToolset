@@ -91,6 +91,13 @@
         label   "Private Parms Folder"
 
         parm {
+            name    "overridenode"
+            label   "Override Node"
+            type    oppath
+            default { "`opfullpath(\".\")" }
+            parmtag { "oprelative" "." }
+        }
+        parm {
             name    "initswitch"
             label   "Init Switch"
             type    toggle

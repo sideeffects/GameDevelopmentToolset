@@ -1,7 +1,8 @@
 def render():
     node = hou.pwd()
-    baker = node.node("ropnet1")
-    baker.render()
+    #baker = node.node("ropnet1")
+    #baker.render()
+    node.node("ropnet1/rop_games_baker").render()
     
     if node.parm("export_fbx").eval():
         fbx_exporter = node.node("rop_fbx1")

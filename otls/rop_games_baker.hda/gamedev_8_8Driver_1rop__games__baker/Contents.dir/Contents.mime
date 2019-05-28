@@ -31,7 +31,7 @@ Content-Disposition: attachment; filename="hdaroot.def"
 Content-Type: text/plain
 
 comment ""
-position -0.930757 7.67245
+position -0.848404 7.47245
 connectornextid 0
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
@@ -46,7 +46,7 @@ inputs
 stat
 {
   create 1557769485
-  modify 1559052098
+  modify 1559074507
   author mikel@mikembp-sesi
   access 0777
 }
@@ -9914,7 +9914,7 @@ inputs
 stat
 {
   create 1496780581
-  modify 1558017321
+  modify 1559056523
   author Luiz@Luiz-PC
   access 0777
 }
@@ -10758,7 +10758,7 @@ inputs
 stat
 {
   create 1504474956
-  modify 1558017327
+  modify 1559056422
   author Luiz@Luiz-PC
   access 0777
 }
@@ -11106,7 +11106,7 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position -2.12021 -5.88144
+position -2.12021 -10.235
 connectornextid 1
 flags =  lock off model off template off footprint off xray off bypass off display on render on highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
@@ -11114,16 +11114,16 @@ outputsNamed3
 }
 inputsNamed3
 {
-0 	switch1 2 1 "input1"
+0 	attribdelete1 1 1 "input1"
 }
 inputs
 {
-0 	switch1 0 1
+0 	attribdelete1 0 1
 }
 stat
 {
   create 1558017321
-  modify 1558018233
+  modify 1559056524
   author mikel@mikembp-sesi
   access 0777
 }
@@ -11153,10 +11153,286 @@ Content-Type: text/plain
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/objnet/current_low/uv_out_of_range.init"
+Content-Type: text/plain
+
+type = error
+matchesdef = 0
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/objnet/current_low/uv_out_of_range.def"
+Content-Type: text/plain
+
+sopflags sopflags = 
+comment ""
+position -2.12021 -7.72948
+connectornextid 2
+flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
+outputsNamed3
+{
+1 "output1"
+}
+inputsNamed3
+{
+0 	attribpromote3 1 1 "input1"
+}
+inputs
+{
+0 	attribpromote3 0 1
+}
+stat
+{
+  create 1559055972
+  modify 1559074430
+  author mikel@mikembp-sesi
+  access 0777
+}
+color UT_Color RGB 0.8 0.8 0.8 
+delscript ""
+exprlanguage hscript
+end
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/objnet/current_low/uv_out_of_range.chn"
+Content-Type: text/plain
+
+{
+    channel enable1 {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = "detail(0,\"maxuv\",0)>1 || detail(0,\"maxuv\",1)>1 || detail(0,\"minuv\",0)<0 || detail(0,\"minuv\",1)<0" }
+    }
+  }
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/objnet/current_low/uv_out_of_range.parm"
+Content-Type: text/plain
+
+{
+version 0.8
+numerror	[ 0	locks=0 ]	(	1	)
+errormsg1	[ 0	locks=0 ]	(	"UV's are outside 0-1 range. Please adjust your uv's to fit within a single unit or the baker could fail."	)
+severity1	[ 0	locks=0 ]	(	"warn"	)
+enable1	[ 8	locks=0 ]	(	[ enable1	1 ] 	)
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/objnet/current_low/uv_out_of_range.userdata"
+Content-Type: text/plain
+
+{
+	"___Version___":{
+		"type":"string",
+		"value":"17.5.258"
+	}
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/objnet/current_low/attribpromote2.init"
+Content-Type: text/plain
+
+type = attribpromote
+matchesdef = 0
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/objnet/current_low/attribpromote2.def"
+Content-Type: text/plain
+
+sopflags sopflags = 
+comment ""
+position -2.12366 -5.52514
+connectornextid 2
+flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
+outputsNamed3
+{
+1 "output1"
+}
+inputsNamed3
+{
+0 	switch1 2 1 "input1"
+}
+inputs
+{
+0 	switch1 0 1
+}
+stat
+{
+  create 1559056101
+  modify 1559056516
+  author mikel@mikembp-sesi
+  access 0777
+}
+color UT_Color RGB 0.8 0.8 0.8 
+delscript ""
+exprlanguage hscript
+end
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/objnet/current_low/attribpromote2.parm"
+Content-Type: text/plain
+
+{
+version 0.8
+inname	[ 0	locks=0 ]	(	uv	)
+inclass	[ 0	locks=0 ]	(	"vertex"	)
+outclass	[ 0	locks=0 ]	(	"detail"	)
+usepieceattrib	[ 0	locks=0 ]	(	"off"	)
+pieceattrib	[ 0	locks=0 ]	(	name	)
+method	[ 0	locks=0 ]	(	"max"	)
+useoutname	[ 0	locks=0 ]	(	"on"	)
+outname	[ 0	locks=0 ]	(	maxuv	)
+deletein	[ 0	locks=0 ]	(	"off"	)
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/objnet/current_low/attribpromote2.userdata"
+Content-Type: text/plain
+
+{
+	"___Version___":{
+		"type":"string",
+		"value":"17.5.258"
+	}
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/objnet/current_low/attribpromote3.init"
+Content-Type: text/plain
+
+type = attribpromote
+matchesdef = 0
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/objnet/current_low/attribpromote3.def"
+Content-Type: text/plain
+
+sopflags sopflags = 
+comment ""
+position -2.12366 -6.73753
+connectornextid 2
+flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
+outputsNamed3
+{
+1 "output1"
+}
+inputsNamed3
+{
+0 	attribpromote2 1 1 "input1"
+}
+inputs
+{
+0 	attribpromote2 0 1
+}
+stat
+{
+  create 1559056101
+  modify 1559056516
+  author mikel@mikembp-sesi
+  access 0777
+}
+color UT_Color RGB 0.8 0.8 0.8 
+delscript ""
+exprlanguage hscript
+end
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/objnet/current_low/attribpromote3.parm"
+Content-Type: text/plain
+
+{
+version 0.8
+inname	[ 0	locks=0 ]	(	uv	)
+inclass	[ 0	locks=0 ]	(	"vertex"	)
+outclass	[ 0	locks=0 ]	(	"detail"	)
+usepieceattrib	[ 0	locks=0 ]	(	"off"	)
+pieceattrib	[ 0	locks=0 ]	(	name	)
+method	[ 0	locks=0 ]	(	"min"	)
+useoutname	[ 0	locks=0 ]	(	"on"	)
+outname	[ 0	locks=0 ]	(	minuv	)
+deletein	[ 0	locks=0 ]	(	"off"	)
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/objnet/current_low/attribpromote3.userdata"
+Content-Type: text/plain
+
+{
+	"___Version___":{
+		"type":"string",
+		"value":"17.5.258"
+	}
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/objnet/current_low/attribdelete1.init"
+Content-Type: text/plain
+
+type = attribdelete
+matchesdef = 1
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/objnet/current_low/attribdelete1.def"
+Content-Type: text/plain
+
+sopflags sopflags = 
+comment ""
+position -2.12366 -8.90512
+connectornextid 2
+flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
+outputsNamed3
+{
+1 "output1"
+}
+inputsNamed3
+{
+0 	uv_out_of_range 1 1 "input1"
+}
+inputs
+{
+0 	uv_out_of_range 0 1
+}
+stat
+{
+  create 1559056523
+  modify 1559056529
+  author mikel@mikembp-sesi
+  access 0777
+}
+color UT_Color RGB 0.8 0.8 0.8 
+delscript ""
+exprlanguage hscript
+end
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/objnet/current_low/attribdelete1.parm"
+Content-Type: text/plain
+
+{
+version 0.8
+ptdel	[ 0	locks=0 ]	(	""	)
+vtxdel	[ 0	locks=0 ]	(	""	)
+primdel	[ 0	locks=0 ]	(	""	)
+dtldel	[ 0	locks=0 ]	(	"maxuv minuv"	)
+updatevar	[ 0	locks=0 ]	(	"on"	)
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/objnet/current_low/attribdelete1.userdata"
+Content-Type: text/plain
+
+{
+	"___Version___":{
+		"type":"string",
+		"value":""
+	}
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
 Content-Disposition: attachment; filename="hdaroot/objnet/current_low.order"
 Content-Type: text/plain
 
-7
+11
 object_merge1
 switch1
 switch2
@@ -11164,6 +11440,10 @@ attribpromote1
 normal1
 object_merge2
 output0
+uv_out_of_range
+attribpromote2
+attribpromote3
+attribdelete1
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
 Content-Disposition: attachment; filename="hdaroot/objnet/current_low.net"
@@ -12301,7 +12581,7 @@ Content-Type: text/plain
 
 {
 version 0.8
-input	[ 8	locks=0 ]	(	[ input	1 ] 	)
+input	[ 8	locks=0 ]	(	[ input	0 ] 	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -12973,7 +13253,7 @@ inputs
 stat
 {
   create 1496798847
-  modify 1559003832
+  modify 1559056594
   author Luiz@Luiz-PC
   access 0777
 }
@@ -13065,7 +13345,7 @@ Content-Disposition: attachment; filename="hdaroot/extract_net/base_image.cop2"
 Content-Type: text/plain
 
 2
-962
+965
 0
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -16669,7 +16949,7 @@ inputs
 stat
 {
   create 1557773742
-  modify 1559003957
+  modify 1559056719
   author mikel@mikembp-sesi
   access 0777
 }
@@ -16761,7 +17041,7 @@ Content-Disposition: attachment; filename="hdaroot/composite_net/uuid____tmp_exr
 Content-Type: text/plain
 
 2
-2436
+2564
 0
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -16857,7 +17137,7 @@ inputs
 stat
 {
   create 1557773742
-  modify 1559003893
+  modify 1559056655
   author mikel@mikembp-sesi
   access 0777
 }
@@ -16949,7 +17229,7 @@ Content-Disposition: attachment; filename="hdaroot/composite_net/uuid____tmp_exr
 Content-Type: text/plain
 
 2
-1245
+1309
 0
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -17085,7 +17365,7 @@ inputs
 stat
 {
   create 1557773742
-  modify 1559003861
+  modify 1559056623
   author mikel@mikembp-sesi
   access 0777
 }
@@ -17177,7 +17457,7 @@ Content-Disposition: attachment; filename="hdaroot/composite_net/uuid____tmp_exr
 Content-Type: text/plain
 
 2
-635
+667
 0
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -17313,7 +17593,7 @@ inputs
 stat
 {
   create 1557773742
-  modify 1559003845
+  modify 1559056607
   author mikel@mikembp-sesi
   access 0777
 }
@@ -17405,7 +17685,7 @@ Content-Disposition: attachment; filename="hdaroot/composite_net/uuid____tmp_exr
 Content-Type: text/plain
 
 2
-332
+348
 0
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -17541,7 +17821,7 @@ inputs
 stat
 {
   create 1557773742
-  modify 1559003837
+  modify 1559056599
   author mikel@mikembp-sesi
   access 0777
 }
@@ -17633,7 +17913,7 @@ Content-Disposition: attachment; filename="hdaroot/composite_net/uuid____tmp_exr
 Content-Type: text/plain
 
 2
-181
+189
 0
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -17802,7 +18082,7 @@ Content-Type: text/plain
 {
 version 0.8
 stdswitcher	[ 0	locks=0 ]	(	0	)
-index	[ 8	locks=0 ]	(	[ index	1 ] 	)
+index	[ 8	locks=0 ]	(	[ index	0 ] 	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -18101,7 +18381,7 @@ inputs
 stat
 {
   create 1557773742
-  modify 1559003833
+  modify 1559056595
   author mikel@mikembp-sesi
   access 0777
 }
@@ -18193,7 +18473,7 @@ Content-Disposition: attachment; filename="hdaroot/composite_net/uuid____tmp_exr
 Content-Type: text/plain
 
 2
-131
+135
 0
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -18329,7 +18609,7 @@ inputs
 stat
 {
   create 1557773742
-  modify 1559003831
+  modify 1559056593
   author mikel@mikembp-sesi
   access 0777
 }
@@ -18421,7 +18701,7 @@ Content-Disposition: attachment; filename="hdaroot/composite_net/uuid____tmp_exr
 Content-Type: text/plain
 
 2
-80
+82
 0
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -18557,7 +18837,7 @@ inputs
 stat
 {
   create 1557773742
-  modify 1559003830
+  modify 1559056592
   author mikel@mikembp-sesi
   access 0777
 }
@@ -18649,7 +18929,7 @@ Content-Disposition: attachment; filename="hdaroot/composite_net/uuid____tmp_exr
 Content-Type: text/plain
 
 2
-55
+56
 0
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -22615,7 +22895,7 @@ inputs
 stat
 {
   create 1557773742
-  modify 1559004100
+  modify 1559056863
   author mikel@mikembp-sesi
   access 0777
 }
@@ -22707,7 +22987,7 @@ Content-Disposition: attachment; filename="hdaroot/custom_composite_net/uuid____
 Content-Type: text/plain
 
 2
-6309
+6565
 0
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -22803,7 +23083,7 @@ inputs
 stat
 {
   create 1557773742
-  modify 1559003972
+  modify 1559056735
   author mikel@mikembp-sesi
   access 0777
 }
@@ -22895,7 +23175,7 @@ Content-Disposition: attachment; filename="hdaroot/custom_composite_net/uuid____
 Content-Type: text/plain
 
 2
-3182
+3310
 0
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -23031,7 +23311,7 @@ inputs
 stat
 {
   create 1557773742
-  modify 1559003908
+  modify 1559056671
   author mikel@mikembp-sesi
   access 0777
 }
@@ -23123,7 +23403,7 @@ Content-Disposition: attachment; filename="hdaroot/custom_composite_net/uuid____
 Content-Type: text/plain
 
 2
-1603
+1667
 0
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -23259,7 +23539,7 @@ inputs
 stat
 {
   create 1557773742
-  modify 1559003876
+  modify 1559056639
   author mikel@mikembp-sesi
   access 0777
 }
@@ -23351,7 +23631,7 @@ Content-Disposition: attachment; filename="hdaroot/custom_composite_net/uuid____
 Content-Type: text/plain
 
 2
-816
+848
 0
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -23487,7 +23767,7 @@ inputs
 stat
 {
   create 1557773742
-  modify 1559003867
+  modify 1559056630
   author mikel@mikembp-sesi
   access 0777
 }
@@ -23579,7 +23859,7 @@ Content-Disposition: attachment; filename="hdaroot/custom_composite_net/uuid____
 Content-Type: text/plain
 
 2
-423
+439
 0
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -23748,7 +24028,7 @@ Content-Type: text/plain
 {
 version 0.8
 stdswitcher	[ 0	locks=0 ]	(	0	)
-index	[ 8	locks=0 ]	(	[ index	1 ] 	)
+index	[ 8	locks=0 ]	(	[ index	0 ] 	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -24047,7 +24327,7 @@ inputs
 stat
 {
   create 1557773742
-  modify 1559003863
+  modify 1559056626
   author mikel@mikembp-sesi
   access 0777
 }
@@ -24139,7 +24419,7 @@ Content-Disposition: attachment; filename="hdaroot/custom_composite_net/uuid____
 Content-Type: text/plain
 
 2
-287
+295
 0
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -24275,7 +24555,7 @@ inputs
 stat
 {
   create 1557773742
-  modify 1559003861
+  modify 1559056624
   author mikel@mikembp-sesi
   access 0777
 }
@@ -24367,7 +24647,7 @@ Content-Disposition: attachment; filename="hdaroot/custom_composite_net/uuid____
 Content-Type: text/plain
 
 2
-158
+162
 0
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -24503,7 +24783,7 @@ inputs
 stat
 {
   create 1557773742
-  modify 1559003860
+  modify 1559056623
   author mikel@mikembp-sesi
   access 0777
 }
@@ -24595,7 +24875,7 @@ Content-Disposition: attachment; filename="hdaroot/custom_composite_net/uuid____
 Content-Type: text/plain
 
 2
-94
+96
 0
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -25070,7 +25350,7 @@ inputs
 stat
 {
   create 1496798847
-  modify 1559003860
+  modify 1559056623
   author Luiz@Luiz-PC
   access 0777
 }
@@ -25162,7 +25442,7 @@ Content-Disposition: attachment; filename="hdaroot/custom_extract_net/base_image
 Content-Type: text/plain
 
 2
-848
+850
 0
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -27003,7 +27283,7 @@ soho_foreground	[ 0	locks=0 ]	(	"on"	)
 soho_initsim	[ 0	locks=0 ]	(	"off"	)
 soho_viewport_menu	[ 0	locks=0 ]	(	"off"	)
 vm_uvobjectenable1	[ 0	locks=0 ]	(	"on"	)
-vm_uvobject1	[ 0	locks=0 ]	(	"`opfullpath(\"..\") + \"/objnet/current_low\"`"	)
+vm_uvobject1	[ 8	locks=0 ]	(	"`opfullpath(\"..\") + \"/objnet/current_low\"`"	)
 vm_uvcageobject1	[ 8	locks=0 ]	(	"`ifs(strcmp(chsop(\"../vm_uvcageobject1\"),\"\"),opfullpath(\"..\") + \"/objnet/cage\",\"\")`"	)
 vm_uvhires1	[ 0	locks=0 ]	(	"`opfullpath(\"..\") + \"/objnet/current_high\"`"	)
 vm_uvoutputpicture1	[ 8	locks=0 ]	(	`chs(\"../tempexrpath\")`	)
@@ -27303,7 +27583,7 @@ Content-Type: text/plain
 version 0.8
 execute	[ 0	locks=0 ]	(	0	)
 renderdialog	[ 0	locks=0 ]	(	0	)
-index	[ 8	locks=0 ]	(	[ index	1 ] 	)
+index	[ 8	locks=0 ]	(	[ index	0 ] 	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -27347,7 +27627,7 @@ inputs
 stat
 {
   create 1496776162
-  modify 1558726179
+  modify 1559072657
   author Luiz@Luiz-PC
   access 0777
 }
@@ -28986,22 +29266,22 @@ vm_bake_normalizep	[ 8	locks=0 ]	(	"off"	)
 vm_extractimageplanes	[ 0	locks=0 ]	(	"off"	)
 vm_extractimageplanesformat	[ 0	locks=0 ]	(	Targa	)
 vm_quickplane_Nt	[ 8	locks=0 ]	(	[ vm_quickplane_Nt	1 ] 	)
-vm_quickplane_Ds	[ 8	locks=0 ]	(	[ vm_quickplane_Ds	1 ] 	)
+vm_quickplane_Ds	[ 8	locks=0 ]	(	[ vm_quickplane_Ds	0 ] 	)
 vm_quickplane_Vd	[ 0	locks=0 ]	(	"off"	)
 vm_quickplane_Vdt	[ 0	locks=0 ]	(	"off"	)
-vm_quickplane_Oc	[ 8	locks=0 ]	(	[ vm_quickplane_Oc	1 ] 	)
+vm_quickplane_Oc	[ 8	locks=0 ]	(	[ vm_quickplane_Oc	0 ] 	)
 vm_quickplane_Cv	[ 0	locks=0 ]	(	"off"	)
-vm_quickplane_Th	[ 8	locks=0 ]	(	[ vm_quickplane_Th	1 ] 	)
-vm_quickplane_Cu	[ 8	locks=0 ]	(	[ vm_quickplane_Cu	1 ] 	)
-vm_quickplane_P	[ 8	locks=0 ]	(	[ vm_quickplane_P	1 ] 	)
-vm_quickplane_N	[ 8	locks=0 ]	(	[ vm_quickplane_N	1 ] 	)
+vm_quickplane_Th	[ 8	locks=0 ]	(	[ vm_quickplane_Th	0 ] 	)
+vm_quickplane_Cu	[ 8	locks=0 ]	(	[ vm_quickplane_Cu	0 ] 	)
+vm_quickplane_P	[ 8	locks=0 ]	(	[ vm_quickplane_P	0 ] 	)
+vm_quickplane_N	[ 8	locks=0 ]	(	[ vm_quickplane_N	0 ] 	)
 vm_quickplane_basecolor	[ 8	locks=0 ]	(	[ vm_quickplane_basecolor	1 ] 	)
 vm_quickplane_diffcolor	[ 0	locks=0 ]	(	"off"	)
 vm_quickplane_speccolor	[ 0	locks=0 ]	(	"off"	)
 vm_quickplane_emitcolor	[ 0	locks=0 ]	(	"off"	)
 vm_quickplane_ssscolor	[ 0	locks=0 ]	(	"off"	)
-vm_quickplane_metallic	[ 8	locks=0 ]	(	[ vm_quickplane_metallic	1 ] 	)
-vm_quickplane_specrough	[ 8	locks=0 ]	(	[ vm_quickplane_specrough	1 ] 	)
+vm_quickplane_metallic	[ 8	locks=0 ]	(	[ vm_quickplane_metallic	0 ] 	)
+vm_quickplane_specrough	[ 8	locks=0 ]	(	[ vm_quickplane_specrough	0 ] 	)
 vm_showextraplaneparms	[ 0	locks=0 ]	(	"off"	)
 vm_numaux	[ 0	locks=0 ]	(	1	)
 vm_extractseparator	[ 0	locks=0 ]	(	_	)
@@ -29159,7 +29439,7 @@ color	[ 0	locks=0 ]	(	`chs(\"../currentplane\")`	)
 alpha	[ 0	locks=0 ]	(	A	)
 scopeplanes	[ 8	locks=0 ]	(	*	)
 convertcolorspace	[ 0	locks=0 ]	(	"off"	)
-gamma	[ 0	locks=0 ]	(	[ gamma	2.2000000000000002 ] 	)
+gamma	[ 0	locks=0 ]	(	[ gamma	1 ] 	)
 lut	[ 0	locks=0 ]	(	""	)
 framedepend	[ 0	locks=0 ]	(	"off"	)
 batchmode	[ 0	locks=0 ]	(	"off"	)
@@ -31620,7 +31900,7 @@ Content-Type: text/plain
 version 0.8
 execute	[ 0	locks=0 ]	(	0	)
 renderdialog	[ 0	locks=0 ]	(	0	)
-index	[ 8	locks=0 ]	(	[ index	1 ] 	)
+index	[ 8	locks=0 ]	(	[ index	0 ] 	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY

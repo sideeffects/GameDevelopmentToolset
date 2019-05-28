@@ -24,14 +24,6 @@
         parmtag { "script_callback_language" "python" }
     }
     parm {
-        name    "ropnetbuttom"
-        label   "Ropnet Render"
-        type    button
-        default { [ "ch(\"../ropnetbutton\")" hscript-expr ] }
-        parmtag { "autoscope" "0000000000000000" }
-        parmtag { "takecontrol" "always" }
-    }
-    parm {
         name    "spacer"
         label   "_"
         type    label
@@ -74,6 +66,7 @@
     group {
         name    "privateparmsfolder"
         label   "Private Parms Folder"
+        invisibletab
 
         parm {
             name    "overridenode"
@@ -117,14 +110,14 @@
             name    "tempexrpath"
             label   "Temp exr path"
             type    image
-            default { "/tmp/houdini_temp/e114ce3b-8301-469c-997c-5a14873f1561_tmp_exr_path1.exr" }
+            default { "`chs(\"./ropnet1/rop_games_baker/tempdirectory\")`/`chs(\"uuid\")`_tmp_exr_path1.exr" }
             parmtag { "autoscope" "0000000000000000" }
         }
         parm {
             name    "tempcoppath"
             label   "Temp cop path"
             type    image
-            default { "`chs(\"tempdirectory\")`/`chs(\"uuid\")`_tmp_cop_path.exr" }
+            default { "`chs(\"./ropnet1/rop_games_baker/tempdirectory\")`/`chs(\"uuid\")`_tmp_cop_path.exr" }
             parmtag { "autoscope" "0000000000000000" }
         }
         parm {

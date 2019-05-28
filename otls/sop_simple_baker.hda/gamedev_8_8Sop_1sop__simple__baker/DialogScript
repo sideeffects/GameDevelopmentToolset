@@ -20,7 +20,7 @@
         type    button
         joinnext
         default { "0" }
-        parmtag { "script_callback" "hou.pwd().hdaModule().render()" }
+        parmtag { "script_callback" "hou.pwd().hdaModule().render(hou.pwd())" }
         parmtag { "script_callback_language" "python" }
     }
     parm {
@@ -74,7 +74,6 @@
     group {
         name    "privateparmsfolder"
         label   "Private Parms Folder"
-        invisibletab
 
         parm {
             name    "overridenode"
@@ -102,7 +101,7 @@
             name    "current_low_mesh"
             label   "Current Low Mesh"
             type    oppath
-            default { "../../LOW" }
+            default { "`opfullpath(\"./LOW\")" }
             parmtag { "autoscope" "0000000000000000" }
             parmtag { "oprelative" "." }
         }
@@ -110,7 +109,7 @@
             name    "current_high_mesh"
             label   "Current High Mesh"
             type    oppath
-            default { "../../HIGH" }
+            default { "`opfullpath(\"./HIGH\")" }
             parmtag { "autoscope" "0000000000000000" }
             parmtag { "oprelative" "." }
         }

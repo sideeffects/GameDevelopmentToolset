@@ -1,5 +1,6 @@
-def render():
-    node = hou.pwd()
+def render(node):
+    #node = hou.pwd()
+    print(node.path())
     #baker = node.node("ropnet1")
     #baker.render()
     node.node("ropnet1/rop_games_baker").render()

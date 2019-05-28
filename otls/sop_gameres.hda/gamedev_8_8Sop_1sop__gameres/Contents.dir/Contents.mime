@@ -32,9 +32,9 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position -3.55899 -12.812
+position -4.19946 -12.9224
 connectornextid 1
-flags =  lock off model off template off footprint off xray off bypass off display on render on highlight off unload off savedata off compress on colordefault on exposed on
+flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
 {
 }
@@ -49,7 +49,7 @@ inputs
 stat
 {
   create 1558981605
-  modify 1558982053
+  modify 1559055499
   author mikel@mikembp-sesi
   access 0777
 }
@@ -460,7 +460,7 @@ merge_small_islands	[ 8	locks=0 ]	(	[ merge_small_islands	0 ] 	)
 small_island_cutoff	[ 0	locks=0 ]	(	[ small_island_cutoff	0.01 ] 	)
 optimize_uv_border	[ 0	locks=0 ]	(	"on"	)
 method2	[ 0	locks=0 ]	(	[ method2	0 ] 	)
-orientation_mode	[ 0	locks=0 ]	(	[ orientation_mode	3 ] 	)
+orientation_mode	[ 0	locks=0 ]	(	[ orientation_mode	2 ] 	)
 packing_iterations	[ 0	locks=0 ]	(	[ packing_iterations	1 ] 	)
 layout_padding	[ 0	locks=0 ]	(	[ layout_padding	2 ] 	)
 resolution	[ 0	locks=0 ]	(	[ resolution	2 ] 	)
@@ -653,7 +653,7 @@ inputs
 stat
 {
   create 1522851965
-  modify 1558982053
+  modify 1559055396
   author MAINGEAR@DESKTOP-P98C1VA
   access 0777
 }
@@ -958,6 +958,110 @@ Content-Type: text/plain
       flags = 0
       segment { length = 0 expr = ch(\"../render\") }
     }
+    channel overridenode {
+      lefttype = extend
+      righttype = extend
+      defaultString = opfullpath(\".\")
+      flags = 0
+      segment { length = 0 expr = chsop(\"../overridenode\") }
+    }
+    channel initswitch {
+      lefttype = extend
+      righttype = extend
+      default = 1
+      flags = 0
+      segment { length = 0 value = 1 1 expr = ch(\"../initswitch\") }
+    }
+    channel uuid {
+      lefttype = extend
+      righttype = extend
+      defaultString = \"fcfc8cad-f06f-4571-bc40-1b20675cb2de\"
+      flags = 0
+      segment { length = 0 expr = chs(\"../uuid\") }
+    }
+    channel current_low_mesh {
+      lefttype = extend
+      righttype = extend
+      defaultString = \"/obj/geo1/sop_gameres1/sop_simple_baker1/LOW\"
+      flags = 0
+      segment { length = 0 expr = chsop(\"../current_low_mesh\") }
+    }
+    channel current_high_mesh {
+      lefttype = extend
+      righttype = extend
+      defaultString = \"/obj/geo1/sop_gameres1/sop_simple_baker1/HIGH\"
+      flags = 0
+      segment { length = 0 expr = chsop(\"../current_high_mesh\") }
+    }
+    channel tempexrpath {
+      lefttype = extend
+      righttype = extend
+      defaultString = \"/tmp/houdini_temp/fcfc8cad-f06f-4571-bc40-1b20675cb2de_tmp_exr_path1.exr\"
+      flags = 0
+      segment { length = 0 expr = chs(\"../tempexrpath\") }
+    }
+    channel tempcoppath {
+      lefttype = extend
+      righttype = extend
+      defaultString = chs(\"tempdirectory\")+\"/\"+chs(\"uuid\")+\"_tmp_cop_path.exr\"
+      flags = 0
+      segment { length = 0 expr = chs(\"../tempcoppath\") }
+    }
+    channel udimpostprocess {
+      lefttype = extend
+      righttype = extend
+      defaultString = \"diffusefill\"
+      flags = 0
+      segment { length = 0 expr = chs(\"../udimpostprocess\") }
+    }
+    channel currentcoppath {
+      lefttype = extend
+      righttype = extend
+      defaultString = opfullpath(\"./ropnet1/rop_games_baker/extract_net/base_image\")
+      flags = 0
+      segment { length = 0 expr = chsop(\"../currentcoppath\") }
+    }
+    channel currentcopoutput {
+      lefttype = extend
+      righttype = extend
+      defaultString = chs(\"./ropnet1/rop_games_baker/tempdirectory\")+\"/initcop.tga\"
+      flags = 0
+      segment { length = 0 expr = chs(\"../currentcopoutput\") }
+    }
+    channel currentplane {
+      lefttype = extend
+      righttype = extend
+      defaultString = \"basecolor\"
+      flags = 0
+      segment { length = 0 expr = chs(\"../currentplane\") }
+    }
+    channel currentgamma {
+      lefttype = extend
+      righttype = extend
+      default = 2.2000000000000002
+      flags = 0
+      segment { length = 0 value = 2.2000000000000002 2.2000000000000002 expr = ch(\"../currentgamma\") }
+    }
+    channel currentcustomattr {
+      lefttype = extend
+      righttype = extend
+      defaultString = \"v\"
+      flags = 0
+      segment { length = 0 expr = chs(\"../currentcustomattr\") }
+    }
+    channel currentcustomsuffix {
+      lefttype = extend
+      righttype = extend
+      defaultString = \"velocity\"
+      flags = 0
+      segment { length = 0 expr = chs(\"../currentcustomsuffix\") }
+    }
+    channel ropnetbuttom {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = ch(\"../ropnetbutton\") }
+    }
   }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -967,11 +1071,26 @@ Content-Type: text/plain
 {
 version 0.8
 execute	[ 8	locks=0 ]	(	[ execute	0 ] 	)
+ropnetbuttom	[ 0	locks=0 ]	(	[ ropnetbuttom	0 ] 	)
 spacer	[ 0	locks=0 ]	(	""	)
 like_tool	[ 0	locks=0 ]	(	0	)
 dont_like	[ 0	locks=0 ]	(	0	)
 render	[ 0	locks=0 ]	(	[ render	0 ] 	)
-folder0	[ 0	locks=0 ]	(	0	0	)
+privateparmsfolder	[ 0	locks=0 ]	(	0	0	0	)
+overridenode	[ 0	locks=0 ]	(	[ overridenode	/obj/geo1/sop_gameres1 ] 	)
+initswitch	[ 0	locks=0 ]	(	[ initswitch	1 ] 	)
+uuid	[ 0	locks=0 ]	(	[ uuid	fcfc8cad-f06f-4571-bc40-1b20675cb2de ] 	)
+current_low_mesh	[ 0	locks=0 ]	(	[ current_low_mesh	/obj/geo1/sop_gameres1/sop_simple_baker1/LOW ] 	)
+current_high_mesh	[ 0	locks=0 ]	(	[ current_high_mesh	/obj/geo1/sop_gameres1/sop_simple_baker1/HIGH ] 	)
+tempexrpath	[ 0	locks=0 ]	(	[ tempexrpath	/tmp/houdini_temp/fcfc8cad-f06f-4571-bc40-1b20675cb2de_tmp_exr_path1.exr ] 	)
+tempcoppath	[ 0	locks=0 ]	(	[ tempcoppath	/tmp/houdini_temp/fcfc8cad-f06f-4571-bc40-1b20675cb2de_tmp_cop_path.exr ] 	)
+udimpostprocess	[ 0	locks=0 ]	(	[ udimpostprocess	diffusefill ] 	)
+currentcoppath	[ 0	locks=0 ]	(	[ currentcoppath	/obj/geo1/sop_gameres1/sop_simple_baker1/ropnet1/rop_games_baker/extract_net/base_image ] 	)
+currentcopoutput	[ 0	locks=0 ]	(	[ currentcopoutput	/tmp/houdini_temp/initcop.tga ] 	)
+currentplane	[ 0	locks=0 ]	(	[ currentplane	basecolor ] 	)
+currentgamma	[ 0	locks=0 ]	(	[ currentgamma	2.2000000000000002 ] 	)
+currentcustomattr	[ 0	locks=0 ]	(	[ currentcustomattr	v ] 	)
+currentcustomsuffix	[ 0	locks=0 ]	(	[ currentcustomsuffix	velocity ] 	)
 vm_uvunwrapres	[ 0	locks=0	autoscope=0 ]	(	[ vm_uvunwrapresx	2048 ] 	[ vm_uvunwrapresy	2048 ] 	)
 uvresmenu	[ 0	locks=0 ]	(	0	)
 base_path	[ 0	locks=0	autoscope=0 ]	(	[ base_path	/Users/mikel/Documents/projects/GameDevShelf/hip/render/gameres_$(CHANNEL).tga ] 	)
@@ -1180,62 +1299,6 @@ Content-Type: text/plain
 		"value":"sop_color"
 	}
 }
-
---HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot/sop_simple_baker1/ropnet1.def"
-Content-Type: text/plain
-
-comment ""
-position 3.14813 0.743844
-connectornextid 0
-flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
-outputsNamed3
-{
-}
-inputsNamed3
-{
-}
-inputs
-{
-}
-stat
-{
-  create 1509395633
-  modify 1541452297
-  author MAINGEAR@DESKTOP-P98C1VA
-  access 0777
-}
-color UT_Color RGB 0.55 0.3 0.4 
-delscript ""
-exprlanguage hscript
-end
-
---HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot/sop_simple_baker1/ropnet1.parm"
-Content-Type: text/plain
-
-{
-version 0.8
-execute	[ 0	locks=0 ]	(	0	)
-renderdialog	[ 0	locks=0 ]	(	0	)
-}
-
---HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot/sop_simple_baker1/ropnet1.userdata"
-Content-Type: text/plain
-
-{
-	"___Version___":{
-		"type":"string",
-		"value":"17.5.258"
-	}
-}
-
---HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot/sop_simple_baker1/ropnet1.net"
-Content-Type: text/plain
-
-1
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
 Content-Disposition: attachment; filename="hdaroot/polyreduce1.init"
@@ -1632,7 +1695,7 @@ inputs
 stat
 {
   create 1520972606
-  modify 1538091895
+  modify 1559053588
   author MAINGEAR@DESKTOP-P98C1VA
   access 0777
 }
@@ -1653,7 +1716,9 @@ geo = node.geometry()
 # Add code to modify contents of geo.
 # Use drop down menu to select examples.
 
-node.inputs()[0].parm(\"render\").pressButton()"	)
+#node.inputs()[0].parm(\"render\").pressButton()
+baker = node.inputs()[0]
+baker.hdaModule().render(baker)"	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY

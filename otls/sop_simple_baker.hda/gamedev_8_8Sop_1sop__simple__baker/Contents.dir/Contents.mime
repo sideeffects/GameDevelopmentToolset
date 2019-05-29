@@ -32,7 +32,7 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position 3.54798 -16.5278
+position 4.56803 -16.2453
 connectornextid 2
 flags =  lock off model off template off footprint off xray off bypass off display on render on highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
@@ -51,7 +51,7 @@ inputs
 stat
 {
   create 1558046771
-  modify 1559004427
+  modify 1558046840
   author mikel@mikembp-sesi
   access 0777
 }
@@ -106,7 +106,7 @@ inputs
 stat
 {
   create 1509395633
-  modify 1558999319
+  modify 1541452297
   author MAINGEAR@DESKTOP-P98C1VA
   access 0777
 }
@@ -116,25 +116,12 @@ exprlanguage hscript
 end
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot/ropnet1.chn"
-Content-Type: text/plain
-
-{
-    channel execute {
-      lefttype = extend
-      righttype = extend
-      flags = 0
-      segment { length = 0 expr = ch(\"../ropnetbuttom\") }
-    }
-  }
-
---HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
 Content-Disposition: attachment; filename="hdaroot/ropnet1.parm"
 Content-Type: text/plain
 
 {
 version 0.8
-execute	[ 8	locks=0 ]	(	[ execute	0 ] 	)
+execute	[ 0	locks=0 ]	(	0	)
 renderdialog	[ 0	locks=0 ]	(	0	)
 }
 
@@ -145,7 +132,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.258"
+		"value":"17.5.216"
 	}
 }
 
@@ -176,7 +163,7 @@ inputs
 stat
 {
   create 1510086161
-  modify 1559004118
+  modify 1558046621
   author MAINGEAR@DESKTOP-P98C1VA
   access 0777
 }
@@ -439,104 +426,6 @@ Content-Type: text/plain
       flags = 0
       segment { length = 0 value = 4 4 expr = ch(\"../../baking_samples\") }
     }
-    channel overridenode {
-      lefttype = extend
-      righttype = extend
-      defaultString = \"hou.pwd()\"
-      flags = 0
-      segment { length = 0 expr = chsop(\"../../overridenode\") }
-    }
-    channel initswitch {
-      lefttype = extend
-      righttype = extend
-      default = 1
-      flags = 0
-      segment { length = 0 value = 1 1 expr = ch(\"../../initswitch\") }
-    }
-    channel uuid {
-      lefttype = extend
-      righttype = extend
-      defaultString = \"e114ce3b-8301-469c-997c-5a14873f1561\"
-      flags = 0
-      segment { length = 0 expr = chs(\"../../uuid\") }
-    }
-    channel current_low_mesh {
-      lefttype = extend
-      righttype = extend
-      defaultString = \"../../LOW\"
-      flags = 0
-      segment { length = 0 expr = chsop(\"../../current_low_mesh\") }
-    }
-    channel current_high_mesh {
-      lefttype = extend
-      righttype = extend
-      defaultString = \"../../HIGH\"
-      flags = 0
-      segment { length = 0 expr = chsop(\"../../current_high_mesh\") }
-    }
-    channel tempexrpath {
-      lefttype = extend
-      righttype = extend
-      defaultString = \"/tmp/houdini_temp/e114ce3b-8301-469c-997c-5a14873f1561_tmp_exr_path1.exr\"
-      flags = 0
-      segment { length = 0 expr = chs(\"../../tempexrpath\") }
-    }
-    channel tempcoppath {
-      lefttype = extend
-      righttype = extend
-      defaultString = chs(\"tempdirectory\")+\"/\"+chs(\"uuid\")+\"_tmp_cop_path.exr\"
-      flags = 0
-      segment { length = 0 expr = chs(\"../../tempcoppath\") }
-    }
-    channel udimpostprocess {
-      lefttype = extend
-      righttype = extend
-      defaultString = \"diffusefill\"
-      flags = 0
-      segment { length = 0 expr = chs(\"../../udimpostprocess\") }
-    }
-    channel currentcoppath {
-      lefttype = extend
-      righttype = extend
-      defaultString = \"../extract_net/base_image\"
-      flags = 0
-      segment { length = 0 expr = chsop(\"../../currentcoppath\") }
-    }
-    channel currentcopoutput {
-      lefttype = extend
-      righttype = extend
-      defaultString = chs(\"tempdirectory\")+\"/initcop.tga\"
-      flags = 0
-      segment { length = 0 expr = chs(\"../../currentcopoutput\") }
-    }
-    channel currentplane {
-      lefttype = extend
-      righttype = extend
-      defaultString = \"basecolor\"
-      flags = 0
-      segment { length = 0 expr = chs(\"../../currentplane\") }
-    }
-    channel currentgamma {
-      lefttype = extend
-      righttype = extend
-      default = 2.2000000000000002
-      flags = 0
-      segment { length = 0 value = 2.2000000000000002 2.2000000000000002 expr = ch(\"../../currentgamma\") }
-    }
-    channel currentcustomattr {
-      lefttype = extend
-      righttype = extend
-      defaultString = \"v\"
-      flags = 0
-      segment { length = 0 expr = chs(\"../../currentcustomattr\") }
-    }
-    channel currentcustomsuffix {
-      lefttype = extend
-      righttype = extend
-      defaultString = \"velocity\"
-      flags = 0
-      segment { length = 0 expr = chs(\"../../currentcustomsuffix\") }
-    }
   }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -550,23 +439,20 @@ renderdialog	[ 0	locks=0 ]	(	0	)
 meshes	[ 0	locks=0	autoscope=0 ]	(	1	)
 vm_uvunwrapres	[ 8	locks=0 ]	(	[ vm_uvunwrapresx	512 ] 	[ vm_uvunwrapresy	512 ] 	)
 uvresmenu	[ 0	locks=0 ]	(	0	)
-base_path	[ 0	locks=0	autoscope=0 ]	(	[ base_path	/Users/mikel/Documents/projects/GameDevShelf/hip/render/simple_baker_$(CHANNEL).tga ] 	)
+base_path	[ 0	locks=0	autoscope=0 ]	(	[ base_path	/Users/mikel/Documents/projects/GameDevShelf/hip/render/games_baker_refactor_$(CHANNEL).tga ] 	)
 tempdirectory	[ 0	locks=0 ]	(	$TEMP/houdini_temp	)
 privateparmsfolder	[ 0	locks=0 ]	(	0	0	0	)
-overridenode	[ 0	locks=0 ]	(	[ overridenode	/obj/geo1/sop_simple_baker1 ] 	)
-initswitch	[ 0	locks=0 ]	(	[ initswitch	1 ] 	)
-uuid	[ 0	locks=0 ]	(	[ uuid	4812b55e-fc77-49b5-825b-4b3b1143f94d ] 	)
-current_low_mesh	[ 0	locks=0 ]	(	[ current_low_mesh	/obj/geo1/sop_simple_baker1/LOW ] 	)
-current_high_mesh	[ 0	locks=0 ]	(	[ current_high_mesh	/obj/geo1/sop_simple_baker1/HIGH ] 	)
-tempexrpath	[ 0	locks=0 ]	(	[ tempexrpath	/tmp/houdini_temp/4812b55e-fc77-49b5-825b-4b3b1143f94d_tmp_exr_path1.exr ] 	)
-tempcoppath	[ 0	locks=0 ]	(	[ tempcoppath	/tmp/houdini_temp/4812b55e-fc77-49b5-825b-4b3b1143f94d_tmp_cop_path.exr ] 	)
-udimpostprocess	[ 0	locks=0 ]	(	[ udimpostprocess	diffusefill ] 	)
-currentcoppath	[ 0	locks=0 ]	(	[ currentcoppath	/obj/geo1/sop_simple_baker1/ropnet1/rop_games_baker/extract_net/base_image ] 	)
-currentcopoutput	[ 0	locks=0 ]	(	[ currentcopoutput	/tmp/houdini_temp/initcop.tga ] 	)
-currentplane	[ 0	locks=0 ]	(	[ currentplane	basecolor ] 	)
-currentgamma	[ 0	locks=0 ]	(	[ currentgamma	2.2000000000000002 ] 	)
-currentcustomattr	[ 0	locks=0 ]	(	[ currentcustomattr	v ] 	)
-currentcustomsuffix	[ 0	locks=0 ]	(	[ currentcustomsuffix	velocity ] 	)
+current_low_mesh	[ 0	locks=0 ]	(	../../LOW	)
+current_high_mesh	[ 0	locks=0 ]	(	../../HIGH	)
+tempexrpath	[ 0	locks=0 ]	(	$TEMP/houdini_temp/temp_exr_path1.exr	)
+tempcoppath	[ 0	locks=0 ]	(	$TEMP/houdini_temp/temp_cop.exr	)
+udimpostprocess	[ 0	locks=0 ]	(	diffusefill	)
+currentcoppath	[ 0	locks=0 ]	(	../extract_net/base_image	)
+currentcopoutput	[ 0	locks=0 ]	(	$HIP/render/${HIPNAME}_$(CHANNEL).tga	)
+currentplane	[ 0	locks=0 ]	(	basecolor	)
+currentgamma	[ 0	locks=0 ]	(	2.2000000000000002	)
+currentcustomattr	[ 0	locks=0 ]	(	v	)
+currentcustomsuffix	[ 0	locks=0 ]	(	velocity	)
 bake_basecolor	[ 0	locks=0	autoscope=0 ]	(	[ bake_basecolor	1 ] 	)
 basecolor_suffix	[ 0	locks=0	autoscope=0 ]	(	[ basecolor_suffix	basecolor ] 	)
 bake_Nt	[ 0	locks=0	autoscope=0 ]	(	[ bake_Nt	1 ] 	)
@@ -914,7 +800,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.258"
+		"value":"17.5.216"
 	}
 }
 
@@ -1401,7 +1287,7 @@ inputs
 stat
 {
   create 1541451860
-  modify 1559004417
+  modify 1558046830
   author Paul_Ambrosiussen@LAPTOP-P8R7FBPF
   access 0777
 }
@@ -1636,7 +1522,7 @@ fakecausticsshadow	[ 0	locks=0 ]	(	1	)
 fakecausticsopacity	[ 0	locks=0 ]	(	0	)
 folder54	[ 0	locks=0 ]	(	0	)
 basecolor_useTexture	[ 0	locks=0 ]	(	"on"	)
-basecolor_texture	[ 0	locks=0	autoscope=1	autosel=4294967295 ]	(	[ basecolor_texture	/Users/mikel/Documents/projects/GameDevShelf/hip/render/simple_baker_basecolor.tga ] 	)
+basecolor_texture	[ 0	locks=0	autoscope=1	autosel=4294967295 ]	(	[ basecolor_texture	/Users/mikel/Documents/projects/GameDevShelf/hip/render/games_baker_refactor_basecolor.tga ] 	)
 basecolor_textureIntensity	[ 0	locks=0 ]	(	1	)
 basecolor_textureWrap	[ 0	locks=0 ]	(	repeat	)
 basecolor_textureColorSpace	[ 0	locks=0 ]	(	auto	)
@@ -1780,7 +1666,7 @@ baseBump_imagePlane	[ 0	locks=0 ]	(	""	)
 baseNormal_colorspace	[ 0	locks=0 ]	(	linear	)
 baseNormal_vectorSpace	[ 0	locks=0 ]	(	uvtangent	)
 baseNormal_scale	[ 0	locks=0 ]	(	1	)
-baseNormal_texture	[ 0	locks=0	autoscope=1	autosel=4294967295 ]	(	[ baseNormal_texture	/Users/mikel/Documents/projects/GameDevShelf/hip/render/simple_baker_normal.tga ] 	)
+baseNormal_texture	[ 0	locks=0	autoscope=1	autosel=4294967295 ]	(	[ baseNormal_texture	/Users/mikel/Documents/projects/GameDevShelf/hip/render/games_baker_refactor_normal.tga ] 	)
 baseNormal_wrap	[ 0	locks=0 ]	(	repeat	)
 baseNormal_filter	[ 0	locks=0 ]	(	gauss	)
 baseNormal_filterWidth	[ 0	locks=0 ]	(	1	)
@@ -2012,7 +1898,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.258"
+		"value":"17.5.216"
 	}
 }
 
@@ -2072,7 +1958,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.258"
+		"value":"17.5.216"
 	}
 }
 
@@ -2183,7 +2069,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.258"
+		"value":"17.5.216"
 	}
 }
 
@@ -2258,7 +2144,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.258"
+		"value":"17.5.216"
 	}
 }
 
@@ -2319,7 +2205,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.258"
+		"value":"17.5.216"
 	}
 }
 
@@ -2380,7 +2266,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.258"
+		"value":"17.5.216"
 	}
 }
 
@@ -2455,7 +2341,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.258"
+		"value":"17.5.216"
 	}
 }
 
@@ -2523,7 +2409,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.258"
+		"value":"17.5.216"
 	}
 }
 
@@ -2584,7 +2470,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.258"
+		"value":"17.5.216"
 	}
 }
 
@@ -2643,7 +2529,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.258"
+		"value":"17.5.216"
 	}
 }
 
@@ -2727,7 +2613,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.258"
+		"value":"17.5.216"
 	}
 }
 
@@ -2821,7 +2707,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.258"
+		"value":"17.5.216"
 	}
 }
 

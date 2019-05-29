@@ -216,14 +216,11 @@ def Export(a_Node):
 
         # Shader Consolidation
         if Node.parm("mConsolidateShader").evalAsInt() > 0:
-                #hou.node(Node.path()+"/sop_simple_baker1/").parm("execute").pressButton()
-                baker = Node.node("sop_simple_baker1")
-                baker.hdaModule().render(baker)
-                #hou.node(Node.path()+"/sop_simple_baker1/ropnet1").parm("execute").pressButton()
+                hou.node(Node.path()+"/sop_simple_baker1/").parm("execute").pressButton()
 
         # Impostor Generation
         if Node.parm("bLastLODImpostor").evalAsInt() == 1:
-                hou.node(Node.path()+"/objnet1/ropnet1/rop_impostor_texture1").render()
+                hou.node(Node.path()+"/objnet1/ropnet1/rop_impostor_texture1").parm("execute").pressButton()
 
         if Node.parm("bUniqueLODNormal").evalAsInt() == 1:
                 hou.node(Node.path()+'/foreach_end2').cook(force=True)#parm('resetcookpass').pressButton()

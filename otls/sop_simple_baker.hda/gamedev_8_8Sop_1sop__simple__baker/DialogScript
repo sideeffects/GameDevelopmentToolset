@@ -20,7 +20,7 @@
         type    button
         joinnext
         default { "0" }
-        parmtag { "script_callback" "hou.pwd().hdaModule().render(hou.pwd())" }
+        parmtag { "script_callback" "hou.pwd().hdaModule().render()" }
         parmtag { "script_callback_language" "python" }
     }
     parm {
@@ -64,123 +64,7 @@
         parmtag { "script_callback_language" "python" }
     }
     group {
-        name    "privateparmsfolder"
-        label   "Private Parms Folder"
-        invisibletab
-
-        parm {
-            name    "overridenode"
-            label   "Override Node"
-            type    oppath
-            default { "`opfullpath(\".\")" }
-            parmtag { "autoscope" "0000000000000000" }
-            parmtag { "oprelative" "." }
-        }
-        parm {
-            name    "initswitch"
-            label   "Init Switch"
-            type    toggle
-            default { "on" }
-            parmtag { "autoscope" "0000000000000000" }
-        }
-        parm {
-            name    "uuid"
-            label   "Unique ID"
-            type    string
-            default { "e114ce3b-8301-469c-997c-5a14873f1561" }
-            parmtag { "autoscope" "0000000000000000" }
-        }
-        parm {
-            name    "current_low_mesh"
-            label   "Current Low Mesh"
-            type    oppath
-            default { "`opfullpath(\"./LOW\")" }
-            parmtag { "autoscope" "0000000000000000" }
-            parmtag { "oprelative" "." }
-        }
-        parm {
-            name    "current_high_mesh"
-            label   "Current High Mesh"
-            type    oppath
-            default { "`opfullpath(\"./HIGH\")" }
-            parmtag { "autoscope" "0000000000000000" }
-            parmtag { "oprelative" "." }
-        }
-        parm {
-            name    "tempexrpath"
-            label   "Temp exr path"
-            type    image
-            default { "`chs(\"./ropnet1/rop_games_baker/tempdirectory\")`/`chs(\"uuid\")`_tmp_exr_path1.exr" }
-            parmtag { "autoscope" "0000000000000000" }
-        }
-        parm {
-            name    "tempcoppath"
-            label   "Temp cop path"
-            type    image
-            default { "`chs(\"./ropnet1/rop_games_baker/tempdirectory\")`/`chs(\"uuid\")`_tmp_cop_path.exr" }
-            parmtag { "autoscope" "0000000000000000" }
-        }
-        parm {
-            name    "udimpostprocess"
-            label   "UDIM post Process"
-            type    string
-            default { "diffusefill" }
-            menu {
-                "none"              "No Post Processing"
-                "borderfill"        "Border Expansion"
-                "backgroundfill"    "Fill Background With Average Color"
-                "diffusefill"       "Diffuse Fill"
-            }
-            parmtag { "autoscope" "0000000000000000" }
-        }
-        parm {
-            name    "currentcoppath"
-            label   "Current COP Path"
-            type    oppath
-            default { "`opfullpath(\"./ropnet1/rop_games_baker/extract_net/base_image\")" }
-            parmtag { "autoscope" "0000000000000000" }
-            parmtag { "oprelative" "." }
-        }
-        parm {
-            name    "currentcopoutput"
-            label   "Current COP Output Picture"
-            type    image
-            default { "`chs(\"./ropnet1/rop_games_baker/tempdirectory\")`/initcop.tga" }
-            parmtag { "autoscope" "0000000000000000" }
-        }
-        parm {
-            name    "currentplane"
-            label   "Current Color Plane"
-            type    string
-            default { "basecolor" }
-            parmtag { "autoscope" "0000000000000000" }
-        }
-        parm {
-            name    "currentgamma"
-            label   "Current Gamma"
-            type    float
-            default { "2.2" }
-            range   { 0 10 }
-            parmtag { "autoscope" "0000000000000000" }
-        }
-        parm {
-            name    "currentcustomattr"
-            label   "Current Custom Attribute"
-            type    string
-            default { "v" }
-            parmtag { "autoscope" "0000000000000000" }
-        }
-        parm {
-            name    "currentcustomsuffix"
-            label   "Current Custom Suffix"
-            type    string
-            default { "velocity" }
-            parmtag { "autoscope" "0000000000000000" }
-        }
-    }
-
-    group {
-        name    "privateparmsfolder_1"
+        name    "folder0"
         label   "Baker"
 
         parm {
@@ -549,7 +433,7 @@
     }
 
     group {
-        name    "privateparmsfolder_2"
+        name    "folder0_1"
         label   "Material"
 
         parm {

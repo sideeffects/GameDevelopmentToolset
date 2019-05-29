@@ -12,125 +12,6 @@ def bake(bake_rop, path):
     bake_rop.parm("vm_uvoutputpicture1").set(path)
     bake_rop.render()
     bake_rop.bypass(1)
-    
-def set_current_mesh(node):
-    override_node = hou.node(node.parm("overridenode").eval())
-    override_node.parm("uuid").set("%s" % uuid.uuid4())
-    override_node.parm("current_low_mesh").set(node.node(node.parm("target_mesh_1").eval()).path())
-    override_node.parm("current_high_mesh").set(node.node(node.parm("source_mesh_1").eval()).path())
-    current_uuid = override_node.parm("uuid").eval()
-    temp_dir = node.parm("tempdirectory").eval()
-    override_node.parm("tempexrpath").set("%s/%s_tmp_exr_path%s.exr" % (temp_dir, current_uuid, 1))
-    
-def multi_render(node):
-    override_node = hou.node(node.parm("overridenode").eval())
-    multi_bake = hou.node("%s/multi_bake" % node.path())
-    uuid = override_node.parm("uuid").eval()
-    temp_dir = node.parm("tempdirectory").eval()
-    temp_exr_path = override_node.parm("tempexrpath")
-    current_low_mesh = override_node.parm("current_low_mesh")
-    current_high_mesh = override_node.parm("current_high_mesh")
-    mesh_count = int(node.parm("meshes").eval())
-    init_switch = override_node.parm("initswitch")
-    
-    if (mesh_count > 1):
-        #node.parm("udimpostprocess").set("borderfill")
-        for i in range(mesh_count-1):
-            init_switch.set(0)
-            temp_exr_path.set("%s/%s_tmp_exr_path%s.exr" % (temp_dir, uuid, i+2))
-            current_low_mesh.set(node.node(node.parm("target_mesh_%s" % (i+2)).eval()).path())
-            current_high_mesh.set(node.node(node.parm("source_mesh_%s" % (i+2)).eval()).path())
-            multi_bake.render()
-            
-            
-    #node.parm("udimpostprocess").set("diffusefill")
-    temp_exr_path.set("%s/%s_tmp_exr_path%s.exr" % (temp_dir, uuid, 1))
-    current_low_mesh.set(node.node(node.parm("target_mesh_%s" % 1).eval()).path())
-    current_high_mesh.set(node.node(node.parm("source_mesh_%s" % 1).eval()).path())
-    #init_switch.set(1)
-    
-def custom_multi_render(node):
-    override_node = hou.node(node.parm("overridenode").eval())
-    custom_multi_bake = hou.node("%s/custom_multi_bake" % node.path())
-    uuid = override_node.parm("uuid").eval()
-    temp_dir = node.parm("tempdirectory").eval()
-    temp_exr_path = override_node.parm("tempexrpath")
-    current_low_mesh = override_node.parm("current_low_mesh")
-    current_high_mesh = override_node.parm("current_high_mesh")
-    mesh_count = int(node.parm("meshes").eval())
-    suffix = node.parm("custom_attribute_suffix_1")
-    custom_channel = node.parm("custom_attribute_name_1")
-    init_switch = override_node.parm("initswitch")
-    
-    if (mesh_count > 1):
-        #node.parm("udimpostprocess").set("borderfill")
-        for i in range(mesh_count-1):
-            init_switch.set(0)
-            temp_exr_path.set("%s/%s_tmp_exr_path%s.exr" % (temp_dir, uuid, i+2))
-            current_low_mesh.set(node.node(node.parm("target_mesh_%s" % (i+2)).eval()).path())
-            current_high_mesh.set(node.node(node.parm("source_mesh_%s" % (i+2)).eval()).path())
-            custom_multi_bake.render()
-            
-    #node.parm("udimpostprocess").set("diffusefill")
-    temp_exr_path.set("%s/%s_tmp_exr_path%s.exr" % (temp_dir, uuid, 1))
-    current_low_mesh.set(node.node(node.parm("target_mesh_%s" % 1).eval()).path())
-    current_high_mesh.set(node.node(node.parm("source_mesh_%s" % 1).eval()).path())
-    
-def multi_custom_planes(node):
-    override_node = hou.node(node.parm("overridenode").eval())
-    channel_count = node.parm("custom_channels").eval()
-    custom_batch = hou.node("%s/prepost3" % node.path())
-    for i in range(channel_count):
-        current_attribute = node.parm("custom_attribute_name_%s" % (i+1)).eval()
-        current_suffix = node.parm("custom_attribute_suffix_%s" % (i+1)).eval()
-        override_node.parm("currentcustomattr").set(current_attribute)
-        override_node.parm("currentcustomsuffix").set(current_suffix)
-        custom_batch.render()
-        
-def extract_planes(node):
-    override_node = hou.node(node.parm("overridenode").eval())
-    render_plane = hou.node("%s/render_plane" % node.path())
-    file_path = node.parm("base_path").eval()
-    # Extract Maps
-    bake_parms = ["bake_basecolor", "bake_Nt", "bake_specrough", "bake_metallic", "bake_N", 
-                "bake_Oc", "bake_Cu", "bake_P", "bake_Th", "bake_Ds", "bake_alpha" ]
-    normalized_maps = ["Nt", "N", "alpha"]
-    linear_maps = ['specrough', 'metallic', 'Oc', 'Cu', 'P']
-    remap_maps = ['Th', "Ds"]
-    
-    if node.parm("bBasecolorLinearSpace").evalAsInt() == 1:
-        linear_maps.append("basecolor")
-        
-    for bake_parm in bake_parms:
-        should_bake = node.parm(bake_parm).eval()
-        if should_bake:
-            channel_name = bake_parm.split("_")[-1]
-            override_node.parm("currentplane").set(channel_name)
-            suffix = node.parm(channel_name + "_suffix").eval()
-
-            if channel_name in normalized_maps:
-                override_node.parm("currentcoppath").set(node.node("extract_net/normalized").path())
-                override_node.parm("currentgamma").set(1)
-
-            elif channel_name in linear_maps:
-                override_node.parm("currentcoppath").set(node.node("extract_net/base_image").path())
-                override_node.parm("currentgamma").set(1)
-
-            elif channel_name in remap_maps:
-                override_node.parm("currentcoppath").set(node.node("extract_net/height_normalized").path())
-                override_node.parm("currentgamma").set(1)
-            else:
-                override_node.parm("currentcoppath").set(node.node("extract_net/base_image").path())
-                override_node.parm("currentgamma").set(2.2)
-                
-            new_path = file_path.replace("$(CHANNEL)", suffix)
-            override_node.parm("currentcopoutput").set(new_path)
-            render_plane.render()
-    override_node.parm("currentcoppath").revertToDefaults()
-    override_node.parm("currentgamma").revertToDefaults()
-    override_node.parm("currentcopoutput").revertToDefaults()
-    override_node.parm("currentplane").revertToDefaults()
-        
 
 def pre_bake(node):
 
@@ -262,8 +143,8 @@ def pre_bake(node):
             singles_rop.render()
             singles_rop.bypass(1)
         
-    #for exr in tmp_exrs:
-    #    os.remove(exr)
+    for exr in tmp_exrs:
+        os.remove(exr)
         
     # Render out Custom Bake Nodes
     custom_tmp_exrs = []
@@ -340,12 +221,12 @@ def pre_bake(node):
         singles_rop.render()
         singles_rop.bypass(1)
 
-    #for exr in custom_tmp_exrs:
-    #    os.remove(exr)
+    for exr in custom_tmp_exrs:
+        os.remove(exr)
         
     composite_net = node.node("composite_net")
-    #for child in composite_net.children():
-    #    child.destroy()
+    for child in composite_net.children():
+        child.destroy()
         
     # Render out Alpha 
     should_bake = node.parm("bake_alpha").eval()
@@ -421,25 +302,17 @@ def pre_bake(node):
             os.remove(exr)
             
         composite_net = node.node("composite_net")
-        #for child in composite_net.children():
-        #    child.destroy()
+        for child in composite_net.children():
+            child.destroy()
             
 def post_bake(node):
     # DELETE EXR FILE
     #file_path = node.parm("base_path").eval()
     #dir_path = os.path.dirname(file_path)
-    override_node = hou.node(node.parm("overridenode").eval())
-    current_uuid = override_node.parm("uuid").eval()
-    temp_dir = node.parm("tempdirectory").eval()
-    mesh_count = int(node.parm("meshes").eval())
+    temp_path = os.environ['HOUDINI_TEMP_DIR']
 
-    for i in range(mesh_count):
-        exr_path = os.path.join(temp_dir, "%s_tmp_exr_path%s.exr" % (current_uuid, i+1))
-        os.remove(exr_path)
-    temp_cop_path = os.path.join(temp_dir, "%s_tmp_cop_path.exr" % current_uuid)
-    os.remove(temp_cop_path)
-    init_cop = os.path.join(temp_dir, "initcop.tga")
-    os.remove(init_cop)
+    exr_path = os.path.join(temp_path, "%s_tmp_%s.exr" % (unique_id, hou.intFrame()))
+    os.remove(exr_path)
     hou.hscript("glcache -c;") #refresh textures
 
 

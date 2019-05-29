@@ -32,22 +32,24 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position -7.43694 1.85879
-connectornextid 0
-flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
+position -10.8351 -10.2307
+connectornextid 1
+flags =  lock off model off template off footprint off xray off bypass off display on render on highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
 {
 }
 inputsNamed3
 {
+0 	null1 1 1 "input1"
 }
 inputs
 {
+0 	null1 0 1
 }
 stat
 {
-  create 1559078362
-  modify 1559078470
+  create 1558984197
+  modify 1559074792
   author mikel@mikembp-sesi
   access 0777
 }
@@ -93,7 +95,7 @@ Content-Type: text/plain
 }
 {
   create 1534412904
-  modify 1559078373
+  modify 1559055301
   author Paul_Ambrosiussen@LAPTOP-P8R7FBPF
   access 0777
 }
@@ -217,7 +219,7 @@ Content-Type: text/plain
 }
 {
   create 1532342189
-  modify 1559078363
+  modify 1559055293
   author paula@DESKTOP-5213MPP
   access 0777
 }
@@ -4018,7 +4020,7 @@ Content-Type: text/plain
             baseparm
             label   "Group"
             export  none
-            bindselector points "Modify Points"
+            bindselector uvselect "Modify Points"
                 "Select the points to affect and press Enter to complete."
                 0 1 0xffffffff 0 grouptype 0
         }
@@ -4390,7 +4392,7 @@ Content-Type: text/plain
             baseparm
             label   "Group"
             export  none
-            bindselector points "Modify Points"
+            bindselector uvselect "Modify Points"
                 "Select the points to affect and press Enter to complete."
                 0 1 0xffffffff 0 grouptype 0
         }
@@ -4992,7 +4994,7 @@ sopflags sopflags =
 comment ""
 position 13.2767 11.9137
 connectornextid 2
-flags =  lock off model off template on footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
+flags =  lock off model off template on footprint off xray off bypass off display on render on highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
 {
 1 "output1"
@@ -5008,7 +5010,7 @@ inputs
 stat
 {
   create 1534506889
-  modify 1559077608
+  modify 1558983750
   author Paul_Ambrosiussen@LAPTOP-P8R7FBPF
   access 0777
 }
@@ -5669,7 +5671,7 @@ inputs
 stat
 {
   create 1557360229
-  modify 1559074829
+  modify 1559072761
   author Paul_Ambrosiussen@LAPTOP-P8R7FBPF
   access 0777
 }
@@ -6491,7 +6493,7 @@ inputs
 stat
 {
   create 1558983197
-  modify 1559077583
+  modify 1559074473
   author mikel@mikembp-sesi
   access 0777
 }
@@ -6505,18 +6507,6 @@ Content-Disposition: attachment; filename="hdaroot/sop_simple_baker1.chn"
 Content-Type: text/plain
 
 {
-    channel f1 {
-      lefttype = extend
-      righttype = extend
-      flags = 0
-      segment { length = 0 expr = $RFSTART }
-    }
-    channel f2 {
-      lefttype = extend
-      righttype = extend
-      flags = 0
-      segment { length = 0 expr = $RFEND }
-    }
     channel vm_uvunwrapresx {
       lefttype = extend
       righttype = extend
@@ -6721,6 +6711,24 @@ Content-Type: text/plain
       flags = 0
       segment { length = 0 expr = chs(\"../currentcustomsuffix\") }
     }
+    channel ropnetbuttom {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = ch(\"../ropnetbutton\") }
+    }
+    channel f1 {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = $RFSTART }
+    }
+    channel f2 {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = $RFEND }
+    }
   }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -6754,7 +6762,7 @@ uvresmenu	[ 0	locks=0 ]	(	0	)
 base_path	[ 0	locks=0 ]	(	`chs(\"../base_path\")`	)
 export_fbx	[ 0	locks=0 ]	(	"off"	)
 fbx_path	[ 0	locks=0 ]	(	$HIP/render/${HIPNAME}.fbx	)
-channels	[ 0	locks=0 ]	(	0	0	)
+channels	[ 0	locks=0 ]	(	1	1	)
 bake_basecolor	[ 0	locks=0 ]	(	[ bake_basecolor	1 ] 	)
 basecolor_suffix	[ 8	locks=0 ]	(	`chs(\"../basecolor_suffix\")`	)
 bake_Nt	[ 0	locks=0 ]	(	[ bake_Nt	1 ] 	)
@@ -6779,7 +6787,7 @@ bake_Ds	[ 0	locks=0 ]	(	"off"	)
 Ds_suffix	[ 0	locks=0 ]	(	height	)
 custom_channels	[ 8	locks=0 ]	(	[ custom_channels	0 ] 	)
 trange	[ 0	locks=0 ]	(	"off"	)
-f	[ 0	locks=0 ]	(	[ f1	1 ] 	[ f2	240 ] 	1	)
+f	[ 0	locks=0 ]	(	[ f1	0 ] 	[ f2	0 ] 	1	)
 vm_bake_usemikkt	[ 8	locks=0 ]	(	[ vm_bake_usemikkt	1 ] 	)
 bBasecolorLinearSpace	[ 8	locks=0 ]	(	[ bBasecolorLinearSpace	0 ] 	)
 vm_bake_tangentnormalflipy	[ 8	locks=0 ]	(	[ vm_bake_tangentnormalflipy	0 ] 	)
@@ -7317,31 +7325,12 @@ Content-Type: text/plain
         label   "Current Custom Suffix"
         export  none
     }
-    parm {
-        name    "ropnetbuttom"
-        label   "ropnetbuttom"
-        type    float
-        default { "0" }
-        range   { 0 10 }
-    }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
 Content-Disposition: attachment; filename="hdaroot/sop_simple_baker2.chn"
 Content-Type: text/plain
 
 {
-    channel f1 {
-      lefttype = extend
-      righttype = extend
-      flags = 0
-      segment { length = 0 expr = $RFSTART }
-    }
-    channel f2 {
-      lefttype = extend
-      righttype = extend
-      flags = 0
-      segment { length = 0 expr = $RFEND }
-    }
     channel base_path {
       lefttype = extend
       righttype = extend
@@ -7365,6 +7354,18 @@ return NewPath
       righttype = extend
       flags = 0
       segment { length = 0 expr = ch(\"../ropnetbutton\") }
+    }
+    channel f1 {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = $RFSTART }
+    }
+    channel f2 {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = $RFEND }
     }
   }
 
@@ -7443,7 +7444,6 @@ channels3	[ 0	locks=0 ]	(	0	0	)
 lodNum	[ 8	locks=0 ]	(	[ lodNum	0 ] 	)
 rawName	[ 0	locks=0 ]	(	`chs(\"../base_path\")`	)
 spare_input0	[ 0	locks=0 ]	(	../foreach_begin2_metadata1_metadata1	)
-ropnetbuttom	[ 0	locks=0 ]	(	[ ropnetbuttom	0 ] 	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -10708,7 +10708,7 @@ inputs
 stat
 {
   create 1529849075
-  modify 1559078366
+  modify 1558985811
   author paula@DESKTOP-5213MPP
   access 0777
 }
@@ -13120,7 +13120,7 @@ sopflags sopflags =
 comment ""
 position 10.5429 -31.9931
 connectornextid 1
-flags =  lock off model off template off footprint off xray off bypass off display on render on highlight off unload off savedata off compress on colordefault on exposed on
+flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
 {
 }
@@ -13135,7 +13135,7 @@ inputs
 stat
 {
   create 1529667953
-  modify 1559077608
+  modify 1540854628
   author paula@DESKTOP-5213MPP
   access 0777
 }
@@ -13316,7 +13316,7 @@ inputs
 stat
 {
   create 1529669229
-  modify 1559077570
+  modify 1559055570
   author paula@DESKTOP-5213MPP
   access 0777
 }
@@ -14571,7 +14571,7 @@ inputs
 stat
 {
   create 1532341327
-  modify 1559077569
+  modify 1559055570
   author paula@DESKTOP-5213MPP
   access 0777
 }

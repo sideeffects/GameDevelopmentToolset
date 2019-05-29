@@ -13,10 +13,6 @@ def bake(bake_rop, path):
     bake_rop.render()
     bake_rop.bypass(1)
     
-def set_current_mesh(node):
-    node.parm("current_low_mesh").set(node.parm("target_mesh_1").eval())
-    node.parm("current_high_mesh").set(node.parm("source_mesh_1").eval())
-    
 def multi_render(node):
     multi_bake = hou.node("%s/multi_bake" % node.path())
     temp_dir = node.parm("tempdirectory").eval()

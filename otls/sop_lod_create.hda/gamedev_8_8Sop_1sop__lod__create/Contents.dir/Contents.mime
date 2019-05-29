@@ -32,7 +32,7 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position -10.8351 -10.2307
+position -8.6585 -10.0947
 connectornextid 1
 flags =  lock off model off template off footprint off xray off bypass off display on render on highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
@@ -49,7 +49,7 @@ inputs
 stat
 {
   create 1558984197
-  modify 1559055597
+  modify 1558985824
   author mikel@mikembp-sesi
   access 0777
 }
@@ -95,7 +95,7 @@ Content-Type: text/plain
 }
 {
   create 1534412904
-  modify 1559055301
+  modify 1558985610
   author Paul_Ambrosiussen@LAPTOP-P8R7FBPF
   access 0777
 }
@@ -219,7 +219,7 @@ Content-Type: text/plain
 }
 {
   create 1532342189
-  modify 1559055293
+  modify 1558985600
   author paula@DESKTOP-5213MPP
   access 0777
 }
@@ -631,7 +631,7 @@ base_settings_folder	[ 0	locks=0 ]	(	0	0	)
 single_render	[ 0	locks=0 ]	(	[ single_render	1 ] 	)
 imposter_enum	[ 0	locks=0 ]	(	[ imposter_enum	1 ] 	)
 source_geo	[ 0	locks=0 ]	(	../../SOURCE	)
-source_geo_full_path	[ 0	locks=0 ]	(	[ source_geo_full_path	/obj/geo1/sop_lod_create1/objnet1/SOURCE ] 	)
+source_geo_full_path	[ 0	locks=0 ]	(	[ source_geo_full_path	/obj/geo1/sop_lod_create2/objnet1/SOURCE ] 	)
 camera_rig	[ 0	locks=0 ]	(	../../obj_impostor_camera_rig1	)
 camera_rig_full_path	[ 0	locks=0 ]	(	[ camera_rig_full_path	/obj/geo1/sop_lod_create1/objnet1/obj_impostor_camera_rig1 ] 	)
 sprite_res	[ 0	locks=0 ]	(	[ sprite_resx	128 ] 	[ sprite_resy	128 ] 	)
@@ -639,14 +639,14 @@ frames	[ 0	locks=0 ]	(	[ frames	8 ] 	)
 fOctResolution	[ 0	locks=0 ]	(	[ fOctResolution	5 ] 	)
 fOctZoom	[ 0	locks=0 ]	(	[ fOctZoom	0.90000000000000002 ] 	)
 anim_frames	[ 0	locks=0 ]	(	[ anim_framesx	1 ] 	[ anim_framesy	240 ] 	)
-output_sequence	[ 0	locks=0 ]	(	[ output_sequence	/Users/mikel/Documents/projects/GameDevShelf/hip/render/sop_lod_create1.0001.exr ] 	)
+output_sequence	[ 0	locks=0 ]	(	[ output_sequence	C:/temp/LODCReate/render/sop_lod_create2.0001.exr ] 	)
 anim_output_sequence	[ 0	locks=0 ]	(	[ anim_output_sequence	D:/SideFX/Remote/LODToolkit/render/sop_lod_create1_.0001.exr ] 	)
 sopoutput	[ 0	locks=0 ]	(	[ sopoutput	C:/Github/hip/export/sop_lod_create1.fbx ] 	)
 sepparm	[ 0	locks=0 ]	(	)
 atlas_folder	[ 0	locks=0 ]	(	0	)
 premult	[ 0	locks=0 ]	(	[ premult	1 ] 	)
 beauty_toggle	[ 0	locks=0 ]	(	[ beauty_toggle	1 ] 	)
-beauty_atlas	[ 0	locks=0 ]	(	[ beauty_atlas	/Users/mikel/Documents/projects/GameDevShelf/hip/lodexport/sop_lod_create1_Impostor_beauty.tga ] 	)
+beauty_atlas	[ 0	locks=0 ]	(	[ beauty_atlas	C:/temp/LODCReate/lodexport/sop_lod_create2_Impostor_beauty.tga ] 	)
 base_color_toggle	[ 0	locks=0 ]	(	[ base_color_toggle	0 ] 	)
 base_color_atlas	[ 0	locks=0 ]	(	[ base_color_atlas	C:/temp/LODCReate/lodexport/sop_lod_create2_Impostor_basecolor.tga ] 	)
 normals_toggle	[ 0	locks=0 ]	(	[ normals_toggle	0 ] 	)
@@ -5671,7 +5671,7 @@ inputs
 stat
 {
   create 1557360229
-  modify 1559055567
+  modify 1558985753
   author Paul_Ambrosiussen@LAPTOP-P8R7FBPF
   access 0777
 }
@@ -6493,7 +6493,7 @@ inputs
 stat
 {
   create 1558983197
-  modify 1559055413
+  modify 1558983740
   author mikel@mikembp-sesi
   access 0777
 }
@@ -6507,6 +6507,18 @@ Content-Disposition: attachment; filename="hdaroot/sop_simple_baker1.chn"
 Content-Type: text/plain
 
 {
+    channel f1 {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = $RFSTART }
+    }
+    channel f2 {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = $RFEND }
+    }
     channel vm_uvunwrapresx {
       lefttype = extend
       righttype = extend
@@ -6613,122 +6625,6 @@ Content-Type: text/plain
       flags = 0
       segment { length = 0 value = -1 -1 expr = ch(\"../ray_distance\") }
     }
-    channel overridenode {
-      lefttype = extend
-      righttype = extend
-      defaultString = \"hou.pwd()\"
-      flags = 0
-      segment { length = 0 expr = chsop(\"../overridenode\") }
-    }
-    channel initswitch {
-      lefttype = extend
-      righttype = extend
-      default = 1
-      flags = 0
-      segment { length = 0 value = 1 1 expr = ch(\"../initswitch\") }
-    }
-    channel uuid {
-      lefttype = extend
-      righttype = extend
-      defaultString = \"e114ce3b-8301-469c-997c-5a14873f1561\"
-      flags = 0
-      segment { length = 0 expr = chs(\"../uuid\") }
-    }
-    channel current_low_mesh {
-      lefttype = extend
-      righttype = extend
-      defaultString = \"../../LOW\"
-      flags = 0
-      segment { length = 0 expr = chsop(\"../current_low_mesh\") }
-    }
-    channel current_high_mesh {
-      lefttype = extend
-      righttype = extend
-      defaultString = \"../../HIGH\"
-      flags = 0
-      segment { length = 0 expr = chsop(\"../current_high_mesh\") }
-    }
-    channel tempexrpath {
-      lefttype = extend
-      righttype = extend
-      defaultString = \"/tmp/houdini_temp/e114ce3b-8301-469c-997c-5a14873f1561_tmp_exr_path1.exr\"
-      flags = 0
-      segment { length = 0 expr = chs(\"../tempexrpath\") }
-    }
-    channel tempcoppath {
-      lefttype = extend
-      righttype = extend
-      defaultString = chs(\"tempdirectory\")+\"/\"+chs(\"uuid\")+\"_tmp_cop_path.exr\"
-      flags = 0
-      segment { length = 0 expr = chs(\"../tempcoppath\") }
-    }
-    channel udimpostprocess {
-      lefttype = extend
-      righttype = extend
-      defaultString = \"diffusefill\"
-      flags = 0
-      segment { length = 0 expr = chs(\"../udimpostprocess\") }
-    }
-    channel currentcoppath {
-      lefttype = extend
-      righttype = extend
-      defaultString = \"../extract_net/base_image\"
-      flags = 0
-      segment { length = 0 expr = chsop(\"../currentcoppath\") }
-    }
-    channel currentcopoutput {
-      lefttype = extend
-      righttype = extend
-      defaultString = chs(\"tempdirectory\")+\"/initcop.tga\"
-      flags = 0
-      segment { length = 0 expr = chs(\"../currentcopoutput\") }
-    }
-    channel currentplane {
-      lefttype = extend
-      righttype = extend
-      defaultString = \"basecolor\"
-      flags = 0
-      segment { length = 0 expr = chs(\"../currentplane\") }
-    }
-    channel currentgamma {
-      lefttype = extend
-      righttype = extend
-      default = 2.2000000000000002
-      flags = 0
-      segment { length = 0 value = 2.2000000000000002 2.2000000000000002 expr = ch(\"../currentgamma\") }
-    }
-    channel currentcustomattr {
-      lefttype = extend
-      righttype = extend
-      defaultString = \"v\"
-      flags = 0
-      segment { length = 0 expr = chs(\"../currentcustomattr\") }
-    }
-    channel currentcustomsuffix {
-      lefttype = extend
-      righttype = extend
-      defaultString = \"velocity\"
-      flags = 0
-      segment { length = 0 expr = chs(\"../currentcustomsuffix\") }
-    }
-    channel ropnetbuttom {
-      lefttype = extend
-      righttype = extend
-      flags = 0
-      segment { length = 0 expr = ch(\"../ropnetbutton\") }
-    }
-    channel f1 {
-      lefttype = extend
-      righttype = extend
-      flags = 0
-      segment { length = 0 expr = $RFSTART }
-    }
-    channel f2 {
-      lefttype = extend
-      righttype = extend
-      flags = 0
-      segment { length = 0 expr = $RFEND }
-    }
   }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -6738,26 +6634,11 @@ Content-Type: text/plain
 {
 version 0.8
 execute	[ 0	locks=0 ]	(	0	)
-ropnetbuttom	[ 0	locks=0 ]	(	[ ropnetbuttom	0 ] 	)
 spacer	[ 0	locks=0 ]	(	""	)
 like_tool	[ 0	locks=0 ]	(	0	)
 dont_like	[ 0	locks=0 ]	(	0	)
 render	[ 0	locks=0 ]	(	0	)
-privateparmsfolder	[ 0	locks=0 ]	(	0	0	0	)
-overridenode	[ 0	locks=0 ]	(	[ overridenode	/obj/geo1/sop_lod_create1 ] 	)
-initswitch	[ 0	locks=0 ]	(	[ initswitch	1 ] 	)
-uuid	[ 0	locks=0 ]	(	[ uuid	e114ce3b-8301-469c-997c-5a14873f1561 ] 	)
-current_low_mesh	[ 0	locks=0 ]	(	[ current_low_mesh	/obj/geo1/sop_lod_create1/sop_simple_baker1/LOW ] 	)
-current_high_mesh	[ 0	locks=0 ]	(	[ current_high_mesh	/obj/geo1/sop_lod_create1/sop_simple_baker1/HIGH ] 	)
-tempexrpath	[ 0	locks=0 ]	(	[ tempexrpath	/tmp/houdini_temp/e114ce3b-8301-469c-997c-5a14873f1561_tmp_exr_path1.exr ] 	)
-tempcoppath	[ 0	locks=0 ]	(	[ tempcoppath	/tmp/houdini_temp/e114ce3b-8301-469c-997c-5a14873f1561_tmp_cop_path.exr ] 	)
-udimpostprocess	[ 0	locks=0 ]	(	[ udimpostprocess	diffusefill ] 	)
-currentcoppath	[ 0	locks=0 ]	(	[ currentcoppath	/obj/geo1/sop_lod_create1/sop_simple_baker1/ropnet1/rop_games_baker/extract_net/base_image ] 	)
-currentcopoutput	[ 0	locks=0 ]	(	[ currentcopoutput	/tmp/houdini_temp/initcop.tga ] 	)
-currentplane	[ 0	locks=0 ]	(	[ currentplane	basecolor ] 	)
-currentgamma	[ 0	locks=0 ]	(	[ currentgamma	2.2000000000000002 ] 	)
-currentcustomattr	[ 0	locks=0 ]	(	[ currentcustomattr	v ] 	)
-currentcustomsuffix	[ 0	locks=0 ]	(	[ currentcustomsuffix	velocity ] 	)
+folder0	[ 0	locks=0 ]	(	0	0	)
 vm_uvunwrapres	[ 8	locks=0 ]	(	[ vm_uvunwrapresx	1024 ] 	[ vm_uvunwrapresy	1024 ] 	)
 uvresmenu	[ 0	locks=0 ]	(	0	)
 base_path	[ 0	locks=0 ]	(	`chs(\"../base_path\")`	)
@@ -6788,7 +6669,7 @@ bake_Ds	[ 0	locks=0 ]	(	"off"	)
 Ds_suffix	[ 0	locks=0 ]	(	height	)
 custom_channels	[ 8	locks=0 ]	(	[ custom_channels	0 ] 	)
 trange	[ 0	locks=0 ]	(	"off"	)
-f	[ 0	locks=0 ]	(	[ f1	0 ] 	[ f2	0 ] 	1	)
+f	[ 0	locks=0 ]	(	[ f1	1 ] 	[ f2	240 ] 	1	)
 vm_bake_usemikkt	[ 8	locks=0 ]	(	[ vm_bake_usemikkt	1 ] 	)
 bBasecolorLinearSpace	[ 8	locks=0 ]	(	[ bBasecolorLinearSpace	0 ] 	)
 vm_bake_tangentnormalflipy	[ 8	locks=0 ]	(	[ vm_bake_tangentnormalflipy	0 ] 	)
@@ -6812,6 +6693,424 @@ Content-Type: text/plain
 	"___Version___":{
 		"type":"string",
 		"value":"0.3"
+	}
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/sop_simple_baker1/ropnet1.def"
+Content-Type: text/plain
+
+comment ""
+position 3.14813 0.743844
+connectornextid 0
+flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
+outputsNamed3
+{
+}
+inputsNamed3
+{
+}
+inputs
+{
+}
+stat
+{
+  create 1509395633
+  modify 1541452297
+  author MAINGEAR@DESKTOP-P98C1VA
+  access 0777
+}
+color UT_Color RGB 0.55 0.3 0.4 
+delscript ""
+exprlanguage hscript
+end
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/sop_simple_baker1/ropnet1.parm"
+Content-Type: text/plain
+
+{
+version 0.8
+execute	[ 0	locks=0 ]	(	0	)
+renderdialog	[ 0	locks=0 ]	(	0	)
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/sop_simple_baker1/ropnet1.userdata"
+Content-Type: text/plain
+
+{
+	"___Version___":{
+		"type":"string",
+		"value":"17.5.258"
+	}
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/sop_simple_baker1/ropnet1/rop_games_baker.init"
+Content-Type: text/plain
+
+type = gamedev::rop_games_baker
+matchesdef = 1
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/sop_simple_baker1/ropnet1/rop_games_baker.def"
+Content-Type: text/plain
+
+comment ""
+position -3.61428 -3.81013
+connectornextid 0
+flags =  lock off model off template off footprint off xray off bypass off display on render on highlight off unload off savedata off compress on colordefault on exposed on
+outputsNamed3
+{
+}
+inputsNamed3
+{
+}
+inputs
+{
+}
+stat
+{
+  create 1510086161
+  modify 1558983737
+  author MAINGEAR@DESKTOP-P98C1VA
+  access 0777
+}
+color UT_Color RGB 0.8 0.8 0.8 
+delscript ""
+exprlanguage hscript
+end
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/sop_simple_baker1/ropnet1/rop_games_baker.multiparm"
+Content-Type: text/plain
+
+2
+custom_attribute_name_# ../../custom_attribute_name_#
+custom_attribute_suffix_# ../../custom_attribute_suffix_#
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/sop_simple_baker1/ropnet1/rop_games_baker.chn"
+Content-Type: text/plain
+
+{
+    channel f1 {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 value = 1 1 expr = ch(\"../../f1\") }
+    }
+    channel f2 {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 value = 240 240 expr = ch(\"../../f2\") }
+    }
+    channel vm_uvunwrapresx {
+      lefttype = extend
+      righttype = extend
+      default = 256
+      flags = 0
+      segment { length = 0 value = 256 256 expr = ch(\"../../vm_uvunwrapresx\") }
+    }
+    channel vm_uvunwrapresy {
+      lefttype = extend
+      righttype = extend
+      default = 256
+      flags = 0
+      segment { length = 0 value = 256 256 expr = ch(\"../../vm_uvunwrapresy\") }
+    }
+    channel base_path {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = chs(\"../../base_path\") }
+    }
+    channel bake_basecolor {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 value = 1 1 expr = ch(\"../../bake_basecolor\") }
+    }
+    channel basecolor_suffix {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = chs(\"../../basecolor_suffix\") }
+    }
+    channel bake_Nt {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 value = 1 1 expr = ch(\"../../bake_Nt\") }
+    }
+    channel Nt_suffix {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = chs(\"../../Nt_suffix\") }
+    }
+    channel bake_alpha {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = ch(\"../../bake_alpha\") }
+    }
+    channel alpha_suffix {
+      lefttype = extend
+      righttype = extend
+      defaultString = \"alpha\"
+      flags = 0
+      segment { length = 0 expr = chs(\"../../alpha_suffix\") }
+    }
+    channel bake_specrough {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = ch(\"../../bake_specrough\") }
+    }
+    channel specrough_suffix {
+      lefttype = extend
+      righttype = extend
+      defaultString = \"roughness\"
+      flags = 0
+      segment { length = 0 expr = chs(\"../../specrough_suffix\") }
+    }
+    channel bake_metallic {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = ch(\"../../bake_metallic\") }
+    }
+    channel metallic_suffix {
+      lefttype = extend
+      righttype = extend
+      defaultString = \"metallic\"
+      flags = 0
+      segment { length = 0 expr = chs(\"../../metallic_suffix\") }
+    }
+    channel bake_N {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = ch(\"../../bake_N\") }
+    }
+    channel N_suffix {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = chs(\"../../N_suffix\") }
+    }
+    channel bake_Oc {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = ch(\"../../bake_Oc\") }
+    }
+    channel Oc_suffix {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = chs(\"../../Oc_suffix\") }
+    }
+    channel bake_Cu {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = ch(\"../../bake_Cu\") }
+    }
+    channel Cu_suffix {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = chs(\"../../Cu_suffix\") }
+    }
+    channel bake_Th {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = ch(\"../../bake_Th\") }
+    }
+    channel Th_suffix {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = chs(\"../../Th_suffix\") }
+    }
+    channel bake_P {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = ch(\"../../bake_P\") }
+    }
+    channel P_suffix {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = chs(\"../../P_suffix\") }
+    }
+    channel bake_Ds {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = ch(\"../../bake_Ds\") }
+    }
+    channel Ds_suffix {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = chs(\"../../Ds_suffix\") }
+    }
+    channel trange {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = ch(\"../../trange\") }
+    }
+    channel f3 {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 value = 1 1 expr = ch(\"../../f3\") }
+    }
+    channel vm_bake_usemikkt {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 value = 1 1 expr = ch(\"../../vm_bake_usemikkt\") }
+    }
+    channel vm_bake_tangentnormalflipy {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = ch(\"../../vm_bake_tangentnormalflipy\") }
+    }
+    channel border_padding {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 value = 2 2 expr = ch(\"../../border_padding\") }
+    }
+    channel ray_bias {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 value = 0.01 0.01 expr = ch(\"../../ray_bias\") }
+    }
+    channel ray_distance {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 value = -1 -1 expr = ch(\"../../ray_distance\") }
+    }
+    channel bBasecolorLinearSpace {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = ch(\"../../bBasecolorLinearSpace\") }
+    }
+    channel vm_uvcageobject1 {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = chsop(\"../../vm_uvcageobject1\") }
+    }
+    channel custom_channels {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = ch(\"../../custom_channels\") }
+    }
+    channel vm_bake_skipcf {
+      lefttype = extend
+      righttype = extend
+      default = 1
+      flags = 0
+      segment { length = 0 value = 1 1 expr = ch(\"../../vm_bake_skipcf\") }
+    }
+    channel baking_samples {
+      lefttype = extend
+      righttype = extend
+      default = 4
+      flags = 0
+      segment { length = 0 value = 4 4 expr = ch(\"../../baking_samples\") }
+    }
+  }
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/sop_simple_baker1/ropnet1/rop_games_baker.parm"
+Content-Type: text/plain
+
+{
+version 0.8
+execute	[ 0	locks=0 ]	(	0	)
+renderdialog	[ 0	locks=0 ]	(	0	)
+meshes	[ 0	locks=0	autoscope=0 ]	(	1	)
+vm_uvunwrapres	[ 8	locks=0 ]	(	[ vm_uvunwrapresx	512 ] 	[ vm_uvunwrapresy	512 ] 	)
+uvresmenu	[ 0	locks=0 ]	(	0	)
+base_path	[ 0	locks=0	autoscope=0 ]	(	[ base_path	/Users/mikel/Documents/projects/GameDevShelf/hip/lodexport/sop_lod_create1_LOD_$(CHANNEL).tga ] 	)
+tempdirectory	[ 0	locks=0 ]	(	$TEMP/houdini_temp	)
+privateparmsfolder	[ 0	locks=0 ]	(	0	0	0	)
+initswitch	[ 0	locks=0 ]	(	"on"	)
+uuid	[ 0	locks=0 ]	(	1665ae61-b899-4dda-90d5-5eabc59ff8ab	)
+current_low_mesh	[ 0	locks=0 ]	(	../../LOW	)
+current_high_mesh	[ 0	locks=0 ]	(	../../HIGH	)
+tempexrpath	[ 0	locks=0 ]	(	/tmp/houdini_temp/1665ae61-b899-4dda-90d5-5eabc59ff8ab_tmp_exr_path1.exr	)
+tempcoppath	[ 0	locks=0 ]	(	`chs(\"tempdirectory\")`/`chs(\"uuid\")`_tmp_cop_path.exr	)
+udimpostprocess	[ 0	locks=0 ]	(	diffusefill	)
+currentcoppath	[ 0	locks=0 ]	(	../extract_net/base_image	)
+currentcopoutput	[ 0	locks=0 ]	(	`chs(\"tempdirectory\")`/initcop.tga	)
+currentplane	[ 0	locks=0 ]	(	basecolor	)
+currentgamma	[ 0	locks=0 ]	(	2.2000000000000002	)
+currentcustomattr	[ 0	locks=0 ]	(	v	)
+currentcustomsuffix	[ 0	locks=0 ]	(	velocity	)
+bake_basecolor	[ 0	locks=0	autoscope=0 ]	(	[ bake_basecolor	1 ] 	)
+basecolor_suffix	[ 0	locks=0	autoscope=0 ]	(	[ basecolor_suffix	basecolor ] 	)
+bake_Nt	[ 0	locks=0	autoscope=0 ]	(	[ bake_Nt	1 ] 	)
+Nt_suffix	[ 0	locks=0	autoscope=0 ]	(	[ Nt_suffix	normal ] 	)
+bake_alpha	[ 0	locks=0 ]	(	[ bake_alpha	0 ] 	)
+alpha_suffix	[ 0	locks=0 ]	(	[ alpha_suffix	alpha ] 	)
+bake_specrough	[ 0	locks=0 ]	(	[ bake_specrough	0 ] 	)
+specrough_suffix	[ 0	locks=0 ]	(	[ specrough_suffix	roughness ] 	)
+bake_metallic	[ 0	locks=0 ]	(	[ bake_metallic	0 ] 	)
+metallic_suffix	[ 0	locks=0 ]	(	[ metallic_suffix	metallic ] 	)
+bake_N	[ 0	locks=0	autoscope=0 ]	(	[ bake_N	0 ] 	)
+N_suffix	[ 0	locks=0	autoscope=0 ]	(	[ N_suffix	worldnormal ] 	)
+bake_Oc	[ 0	locks=0	autoscope=0 ]	(	[ bake_Oc	1 ] 	)
+Oc_suffix	[ 0	locks=0	autoscope=0 ]	(	[ Oc_suffix	ao ] 	)
+bake_Cu	[ 0	locks=0	autoscope=0 ]	(	[ bake_Cu	0 ] 	)
+Cu_suffix	[ 0	locks=0	autoscope=0 ]	(	[ Cu_suffix	curvature ] 	)
+bake_Th	[ 0	locks=0	autoscope=0 ]	(	[ bake_Th	0 ] 	)
+Th_suffix	[ 0	locks=0	autoscope=0 ]	(	[ Th_suffix	thickness ] 	)
+bake_P	[ 0	locks=0	autoscope=0 ]	(	[ bake_P	0 ] 	)
+P_suffix	[ 0	locks=0	autoscope=0 ]	(	[ P_suffix	position ] 	)
+bake_Ds	[ 0	locks=0	autoscope=0 ]	(	[ bake_Ds	0 ] 	)
+Ds_suffix	[ 0	locks=0	autoscope=0 ]	(	[ Ds_suffix	height ] 	)
+custom_channels	[ 0	locks=0	autoscope=0 ]	(	[ custom_channels	0 ] 	)
+trange	[ 0	locks=0	autoscope=0 ]	(	[ trange	0 ] 	)
+f	[ 0	locks=0	autoscope=0 ]	(	[ f1	1 ] 	[ f2	240 ] 	[ f3	1 ] 	)
+vm_bake_usemikkt	[ 0	locks=0	autoscope=0 ]	(	[ vm_bake_usemikkt	1 ] 	)
+bBasecolorLinearSpace	[ 0	locks=0 ]	(	[ bBasecolorLinearSpace	0 ] 	)
+vm_bake_tangentnormalflipy	[ 0	locks=0	autoscope=0 ]	(	[ vm_bake_tangentnormalflipy	0 ] 	)
+vm_bake_skipcf	[ 0	locks=0 ]	(	[ vm_bake_skipcf	1 ] 	)
+vm_uvcageobject1	[ 0	locks=0	autoscope=0 ]	(	[ vm_uvcageobject1	"" ] 	)
+border_padding	[ 0	locks=0	autoscope=0 ]	(	[ border_padding	2 ] 	)
+baking_samples	[ 8	locks=0 ]	(	[ baking_samples	8 ] 	)
+ray_bias	[ 0	locks=0	autoscope=0 ]	(	[ ray_bias	0.01 ] 	)
+ray_distance	[ 0	locks=0	autoscope=0 ]	(	[ ray_distance	-1 ] 	)
+target_mesh_1	[ 0	locks=0	autoscope=0 ]	(	../../LOW	)
+source_mesh_1	[ 0	locks=0	autoscope=0 ]	(	../../HIGH	)
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/sop_simple_baker1/ropnet1/rop_games_baker.userdata"
+Content-Type: text/plain
+
+{
+	"___Version___":{
+		"type":"string",
+		"value":"0.6"
 	}
 }
 
@@ -6848,7 +7147,7 @@ inputs
 stat
 {
   create 1558983778
-  modify 1559055544
+  modify 1558984147
   author mikel@mikembp-sesi
   access 0777
 }
@@ -7242,102 +7541,24 @@ Content-Type: text/plain
         parmtag { "opfilter" "!!SOP!!" }
         parmtag { "oprelative" "." }
     }
-    parm {
-        name    "ropnetbuttom"
-        baseparm
-        label   "Ropnet Render"
-        export  none
-    }
-    parm {
-        name    "overridenode"
-        baseparm
-        label   "Override Node"
-        export  none
-    }
-    parm {
-        name    "initswitch"
-        baseparm
-        label   "Init Switch"
-        export  none
-    }
-    parm {
-        name    "uuid"
-        baseparm
-        label   "Unique ID"
-        export  none
-    }
-    parm {
-        name    "current_low_mesh"
-        baseparm
-        label   "Current Low Mesh"
-        export  none
-    }
-    parm {
-        name    "current_high_mesh"
-        baseparm
-        label   "Current High Mesh"
-        export  none
-    }
-    parm {
-        name    "tempexrpath"
-        baseparm
-        label   "Temp exr path"
-        export  none
-    }
-    parm {
-        name    "tempcoppath"
-        baseparm
-        label   "Temp cop path"
-        export  none
-    }
-    parm {
-        name    "udimpostprocess"
-        baseparm
-        label   "UDIM post Process"
-        export  none
-    }
-    parm {
-        name    "currentcoppath"
-        baseparm
-        label   "Current COP Path"
-        export  none
-    }
-    parm {
-        name    "currentcopoutput"
-        baseparm
-        label   "Current COP Output Picture"
-        export  none
-    }
-    parm {
-        name    "currentplane"
-        baseparm
-        label   "Current Color Plane"
-        export  none
-    }
-    parm {
-        name    "currentgamma"
-        baseparm
-        label   "Current Gamma"
-        export  none
-    }
-    parm {
-        name    "currentcustomattr"
-        baseparm
-        label   "Current Custom Attribute"
-        export  none
-    }
-    parm {
-        name    "currentcustomsuffix"
-        baseparm
-        label   "Current Custom Suffix"
-        export  none
-    }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
 Content-Disposition: attachment; filename="hdaroot/sop_simple_baker2.chn"
 Content-Type: text/plain
 
 {
+    channel f1 {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = $RFSTART }
+    }
+    channel f2 {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = $RFEND }
+    }
     channel base_path {
       lefttype = extend
       righttype = extend
@@ -7356,24 +7577,6 @@ return NewPath
       flags = 0
       segment { length = 0 expr = "detail(-1, \"iteration\", 0)" }
     }
-    channel ropnetbuttom {
-      lefttype = extend
-      righttype = extend
-      flags = 0
-      segment { length = 0 expr = ch(\"../ropnetbutton\") }
-    }
-    channel f1 {
-      lefttype = extend
-      righttype = extend
-      flags = 0
-      segment { length = 0 expr = $RFSTART }
-    }
-    channel f2 {
-      lefttype = extend
-      righttype = extend
-      flags = 0
-      segment { length = 0 expr = $RFEND }
-    }
   }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -7383,26 +7586,11 @@ Content-Type: text/plain
 {
 version 0.8
 execute	[ 0	locks=0 ]	(	0	)
-ropnetbuttom	[ 0	locks=0 ]	(	[ ropnetbuttom	0 ] 	)
 spacer	[ 0	locks=0 ]	(	""	)
 like_tool	[ 0	locks=0 ]	(	0	)
 dont_like	[ 0	locks=0 ]	(	0	)
 render	[ 0	locks=0 ]	(	0	)
-privateparmsfolder	[ 0	locks=0 ]	(	0	0	0	)
-overridenode	[ 0	locks=0 ]	(	`opfullpath(\".\")	)
-initswitch	[ 0	locks=0 ]	(	"on"	)
-uuid	[ 0	locks=0 ]	(	e114ce3b-8301-469c-997c-5a14873f1561	)
-current_low_mesh	[ 0	locks=0 ]	(	`opfullpath(\"./LOW\")	)
-current_high_mesh	[ 0	locks=0 ]	(	`opfullpath(\"./HIGH\")	)
-tempexrpath	[ 0	locks=0 ]	(	/tmp/houdini_temp/e114ce3b-8301-469c-997c-5a14873f1561_tmp_exr_path1.exr	)
-tempcoppath	[ 0	locks=0 ]	(	`chs(\"tempdirectory\")`/`chs(\"uuid\")`_tmp_cop_path.exr	)
-udimpostprocess	[ 0	locks=0 ]	(	diffusefill	)
-currentcoppath	[ 0	locks=0 ]	(	`opfullpath(\"./ropnet1/rop_games_baker/extract_net/base_image\")	)
-currentcopoutput	[ 0	locks=0 ]	(	`chs(\"./ropnet1/rop_games_baker/tempdirectory\")`/initcop.tga	)
-currentplane	[ 0	locks=0 ]	(	basecolor	)
-currentgamma	[ 0	locks=0 ]	(	2.2000000000000002	)
-currentcustomattr	[ 0	locks=0 ]	(	v	)
-currentcustomsuffix	[ 0	locks=0 ]	(	velocity	)
+folder0	[ 0	locks=0 ]	(	0	0	)
 vm_uvunwrapres	[ 0	locks=0 ]	(	1024	1024	)
 uvresmenu	[ 0	locks=0 ]	(	0	)
 base_path	[ 8	locks=0 ]	(	[ base_path	/Users/mikel/Documents/projects/GameDevShelf/hip/lodexport/sop_lod_create1_LOD_$(CHANNEL)_0.tga ] 	)
@@ -7468,6 +7656,424 @@ Content-Type: text/plain
 	"___Version___":{
 		"type":"string",
 		"value":"0.3"
+	}
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/sop_simple_baker2/ropnet1.def"
+Content-Type: text/plain
+
+comment ""
+position 3.14813 0.743844
+connectornextid 0
+flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
+outputsNamed3
+{
+}
+inputsNamed3
+{
+}
+inputs
+{
+}
+stat
+{
+  create 1509395633
+  modify 1541452297
+  author MAINGEAR@DESKTOP-P98C1VA
+  access 0777
+}
+color UT_Color RGB 0.55 0.3 0.4 
+delscript ""
+exprlanguage hscript
+end
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/sop_simple_baker2/ropnet1.parm"
+Content-Type: text/plain
+
+{
+version 0.8
+execute	[ 0	locks=0 ]	(	0	)
+renderdialog	[ 0	locks=0 ]	(	0	)
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/sop_simple_baker2/ropnet1.userdata"
+Content-Type: text/plain
+
+{
+	"___Version___":{
+		"type":"string",
+		"value":"17.5.258"
+	}
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/sop_simple_baker2/ropnet1/rop_games_baker.init"
+Content-Type: text/plain
+
+type = gamedev::rop_games_baker
+matchesdef = 1
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/sop_simple_baker2/ropnet1/rop_games_baker.def"
+Content-Type: text/plain
+
+comment ""
+position -3.61428 -3.81013
+connectornextid 0
+flags =  lock off model off template off footprint off xray off bypass off display on render on highlight off unload off savedata off compress on colordefault on exposed on
+outputsNamed3
+{
+}
+inputsNamed3
+{
+}
+inputs
+{
+}
+stat
+{
+  create 1510086161
+  modify 1558984248
+  author MAINGEAR@DESKTOP-P98C1VA
+  access 0777
+}
+color UT_Color RGB 0.8 0.8 0.8 
+delscript ""
+exprlanguage hscript
+end
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/sop_simple_baker2/ropnet1/rop_games_baker.multiparm"
+Content-Type: text/plain
+
+2
+custom_attribute_name_# ../../custom_attribute_name_#
+custom_attribute_suffix_# ../../custom_attribute_suffix_#
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/sop_simple_baker2/ropnet1/rop_games_baker.chn"
+Content-Type: text/plain
+
+{
+    channel f1 {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 value = 1 1 expr = ch(\"../../f1\") }
+    }
+    channel f2 {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 value = 240 240 expr = ch(\"../../f2\") }
+    }
+    channel vm_uvunwrapresx {
+      lefttype = extend
+      righttype = extend
+      default = 256
+      flags = 0
+      segment { length = 0 value = 256 256 expr = ch(\"../../vm_uvunwrapresx\") }
+    }
+    channel vm_uvunwrapresy {
+      lefttype = extend
+      righttype = extend
+      default = 256
+      flags = 0
+      segment { length = 0 value = 256 256 expr = ch(\"../../vm_uvunwrapresy\") }
+    }
+    channel base_path {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = chs(\"../../base_path\") }
+    }
+    channel bake_basecolor {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 value = 1 1 expr = ch(\"../../bake_basecolor\") }
+    }
+    channel basecolor_suffix {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = chs(\"../../basecolor_suffix\") }
+    }
+    channel bake_Nt {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 value = 1 1 expr = ch(\"../../bake_Nt\") }
+    }
+    channel Nt_suffix {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = chs(\"../../Nt_suffix\") }
+    }
+    channel bake_alpha {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = ch(\"../../bake_alpha\") }
+    }
+    channel alpha_suffix {
+      lefttype = extend
+      righttype = extend
+      defaultString = \"alpha\"
+      flags = 0
+      segment { length = 0 expr = chs(\"../../alpha_suffix\") }
+    }
+    channel bake_specrough {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = ch(\"../../bake_specrough\") }
+    }
+    channel specrough_suffix {
+      lefttype = extend
+      righttype = extend
+      defaultString = \"roughness\"
+      flags = 0
+      segment { length = 0 expr = chs(\"../../specrough_suffix\") }
+    }
+    channel bake_metallic {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = ch(\"../../bake_metallic\") }
+    }
+    channel metallic_suffix {
+      lefttype = extend
+      righttype = extend
+      defaultString = \"metallic\"
+      flags = 0
+      segment { length = 0 expr = chs(\"../../metallic_suffix\") }
+    }
+    channel bake_N {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = ch(\"../../bake_N\") }
+    }
+    channel N_suffix {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = chs(\"../../N_suffix\") }
+    }
+    channel bake_Oc {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = ch(\"../../bake_Oc\") }
+    }
+    channel Oc_suffix {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = chs(\"../../Oc_suffix\") }
+    }
+    channel bake_Cu {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = ch(\"../../bake_Cu\") }
+    }
+    channel Cu_suffix {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = chs(\"../../Cu_suffix\") }
+    }
+    channel bake_Th {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = ch(\"../../bake_Th\") }
+    }
+    channel Th_suffix {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = chs(\"../../Th_suffix\") }
+    }
+    channel bake_P {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = ch(\"../../bake_P\") }
+    }
+    channel P_suffix {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = chs(\"../../P_suffix\") }
+    }
+    channel bake_Ds {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = ch(\"../../bake_Ds\") }
+    }
+    channel Ds_suffix {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = chs(\"../../Ds_suffix\") }
+    }
+    channel trange {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = ch(\"../../trange\") }
+    }
+    channel f3 {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 value = 1 1 expr = ch(\"../../f3\") }
+    }
+    channel vm_bake_usemikkt {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 value = 1 1 expr = ch(\"../../vm_bake_usemikkt\") }
+    }
+    channel vm_bake_tangentnormalflipy {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = ch(\"../../vm_bake_tangentnormalflipy\") }
+    }
+    channel border_padding {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 value = 2 2 expr = ch(\"../../border_padding\") }
+    }
+    channel ray_bias {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 value = 0.01 0.01 expr = ch(\"../../ray_bias\") }
+    }
+    channel ray_distance {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 value = -1 -1 expr = ch(\"../../ray_distance\") }
+    }
+    channel bBasecolorLinearSpace {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = ch(\"../../bBasecolorLinearSpace\") }
+    }
+    channel vm_uvcageobject1 {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = chsop(\"../../vm_uvcageobject1\") }
+    }
+    channel custom_channels {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = ch(\"../../custom_channels\") }
+    }
+    channel vm_bake_skipcf {
+      lefttype = extend
+      righttype = extend
+      default = 1
+      flags = 0
+      segment { length = 0 value = 1 1 expr = ch(\"../../vm_bake_skipcf\") }
+    }
+    channel baking_samples {
+      lefttype = extend
+      righttype = extend
+      default = 4
+      flags = 0
+      segment { length = 0 value = 4 4 expr = ch(\"../../baking_samples\") }
+    }
+  }
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/sop_simple_baker2/ropnet1/rop_games_baker.parm"
+Content-Type: text/plain
+
+{
+version 0.8
+execute	[ 0	locks=0 ]	(	0	)
+renderdialog	[ 0	locks=0 ]	(	0	)
+meshes	[ 0	locks=0	autoscope=0 ]	(	1	)
+vm_uvunwrapres	[ 8	locks=0 ]	(	[ vm_uvunwrapresx	1024 ] 	[ vm_uvunwrapresy	1024 ] 	)
+uvresmenu	[ 0	locks=0 ]	(	0	)
+base_path	[ 0	locks=0	autoscope=0 ]	(	[ base_path	/Users/mikel/Documents/projects/GameDevShelf/hip/lodexport/sop_lod_create1_LOD_$(CHANNEL)_0.tga ] 	)
+tempdirectory	[ 0	locks=0 ]	(	$TEMP/houdini_temp	)
+privateparmsfolder	[ 0	locks=0 ]	(	0	0	0	)
+initswitch	[ 0	locks=0 ]	(	"on"	)
+uuid	[ 0	locks=0 ]	(	56f6f7df-b861-4a98-9233-de7957e719e2	)
+current_low_mesh	[ 0	locks=0 ]	(	../../LOW	)
+current_high_mesh	[ 0	locks=0 ]	(	../../HIGH	)
+tempexrpath	[ 0	locks=0 ]	(	/tmp/houdini_temp/56f6f7df-b861-4a98-9233-de7957e719e2_tmp_exr_path1.exr	)
+tempcoppath	[ 0	locks=0 ]	(	`chs(\"tempdirectory\")`/`chs(\"uuid\")`_tmp_cop_path.exr	)
+udimpostprocess	[ 0	locks=0 ]	(	diffusefill	)
+currentcoppath	[ 0	locks=0 ]	(	../extract_net/base_image	)
+currentcopoutput	[ 0	locks=0 ]	(	`chs(\"tempdirectory\")`/initcop.tga	)
+currentplane	[ 0	locks=0 ]	(	basecolor	)
+currentgamma	[ 0	locks=0 ]	(	2.2000000000000002	)
+currentcustomattr	[ 0	locks=0 ]	(	v	)
+currentcustomsuffix	[ 0	locks=0 ]	(	velocity	)
+bake_basecolor	[ 0	locks=0	autoscope=0 ]	(	[ bake_basecolor	0 ] 	)
+basecolor_suffix	[ 0	locks=0	autoscope=0 ]	(	[ basecolor_suffix	basecolor ] 	)
+bake_Nt	[ 0	locks=0	autoscope=0 ]	(	[ bake_Nt	1 ] 	)
+Nt_suffix	[ 0	locks=0	autoscope=0 ]	(	[ Nt_suffix	normal ] 	)
+bake_alpha	[ 0	locks=0 ]	(	[ bake_alpha	0 ] 	)
+alpha_suffix	[ 0	locks=0 ]	(	[ alpha_suffix	alpha ] 	)
+bake_specrough	[ 0	locks=0 ]	(	[ bake_specrough	0 ] 	)
+specrough_suffix	[ 0	locks=0 ]	(	[ specrough_suffix	roughness ] 	)
+bake_metallic	[ 0	locks=0 ]	(	[ bake_metallic	0 ] 	)
+metallic_suffix	[ 0	locks=0 ]	(	[ metallic_suffix	metallic ] 	)
+bake_N	[ 0	locks=0	autoscope=0 ]	(	[ bake_N	0 ] 	)
+N_suffix	[ 0	locks=0	autoscope=0 ]	(	[ N_suffix	worldnormal ] 	)
+bake_Oc	[ 0	locks=0	autoscope=0 ]	(	[ bake_Oc	0 ] 	)
+Oc_suffix	[ 0	locks=0	autoscope=0 ]	(	[ Oc_suffix	ao ] 	)
+bake_Cu	[ 0	locks=0	autoscope=0 ]	(	[ bake_Cu	0 ] 	)
+Cu_suffix	[ 0	locks=0	autoscope=0 ]	(	[ Cu_suffix	curvature ] 	)
+bake_Th	[ 0	locks=0	autoscope=0 ]	(	[ bake_Th	0 ] 	)
+Th_suffix	[ 0	locks=0	autoscope=0 ]	(	[ Th_suffix	thickness ] 	)
+bake_P	[ 0	locks=0	autoscope=0 ]	(	[ bake_P	0 ] 	)
+P_suffix	[ 0	locks=0	autoscope=0 ]	(	[ P_suffix	position ] 	)
+bake_Ds	[ 0	locks=0	autoscope=0 ]	(	[ bake_Ds	0 ] 	)
+Ds_suffix	[ 0	locks=0	autoscope=0 ]	(	[ Ds_suffix	height ] 	)
+custom_channels	[ 0	locks=0	autoscope=0 ]	(	[ custom_channels	0 ] 	)
+trange	[ 0	locks=0	autoscope=0 ]	(	[ trange	0 ] 	)
+f	[ 0	locks=0	autoscope=0 ]	(	[ f1	1 ] 	[ f2	240 ] 	[ f3	1 ] 	)
+vm_bake_usemikkt	[ 0	locks=0	autoscope=0 ]	(	[ vm_bake_usemikkt	1 ] 	)
+bBasecolorLinearSpace	[ 0	locks=0 ]	(	[ bBasecolorLinearSpace	0 ] 	)
+vm_bake_tangentnormalflipy	[ 0	locks=0	autoscope=0 ]	(	[ vm_bake_tangentnormalflipy	0 ] 	)
+vm_bake_skipcf	[ 0	locks=0 ]	(	[ vm_bake_skipcf	1 ] 	)
+vm_uvcageobject1	[ 0	locks=0	autoscope=0 ]	(	[ vm_uvcageobject1	"" ] 	)
+border_padding	[ 0	locks=0	autoscope=0 ]	(	[ border_padding	2 ] 	)
+baking_samples	[ 8	locks=0 ]	(	[ baking_samples	8 ] 	)
+ray_bias	[ 0	locks=0	autoscope=0 ]	(	[ ray_bias	0.01 ] 	)
+ray_distance	[ 0	locks=0	autoscope=0 ]	(	[ ray_distance	-1 ] 	)
+target_mesh_1	[ 0	locks=0	autoscope=0 ]	(	../../LOW	)
+source_mesh_1	[ 0	locks=0	autoscope=0 ]	(	../../HIGH	)
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/sop_simple_baker2/ropnet1/rop_games_baker.userdata"
+Content-Type: text/plain
+
+{
+	"___Version___":{
+		"type":"string",
+		"value":"0.6"
 	}
 }
 
@@ -7923,7 +8529,7 @@ inputs
 stat
 {
   create 1529661551
-  modify 1559054138
+  modify 1557360910
   author paula@DESKTOP-5213MPP
   access 0777
 }
@@ -7985,7 +8591,7 @@ renderdialog	[ 0	locks=0 ]	(	0	)
 trange	[ 0	locks=0 ]	(	"off"	)
 f	[ 0	locks=0 ]	(	[ f1	1 ] 	[ f2	240 ] 	1	)
 take	[ 0	locks=0 ]	(	_current_	)
-sopoutput	[ 0	locks=0 ]	(	[ sopoutput	/Users/mikel/Documents/projects/GameDevShelf/hip/lodexport/sop_lod_create1.fbx ] 	)
+sopoutput	[ 0	locks=0 ]	(	[ sopoutput	C:/temp/LODCReate/lodexport/sop_lod_create2.fbx ] 	)
 mkpath	[ 0	locks=0 ]	(	"on"	)
 startnode	[ 0	locks=0 ]	(	../../../objnet1/LOD-Export/LODGroup	)
 createsubnetroot	[ 0	locks=0 ]	(	"on"	)
@@ -10611,7 +11217,7 @@ inputs
 stat
 {
   create 1529849031
-  modify 1558985815
+  modify 1557360842
   author paula@DESKTOP-5213MPP
   access 0777
 }
@@ -10716,7 +11322,7 @@ inputs
 stat
 {
   create 1529849075
-  modify 1558985811
+  modify 1558984202
   author paula@DESKTOP-5213MPP
   access 0777
 }
@@ -11215,7 +11821,7 @@ inputs
 stat
 {
   create 1529849075
-  modify 1558985808
+  modify 1557360644
   author paula@DESKTOP-5213MPP
   access 0777
 }
@@ -12530,7 +13136,7 @@ use_dcolor	[ 0	locks=0 ]	(	"on"	)
 dcolor	[ 0	locks=0 ]	(	1	1	1	)
 impostor_rop	[ 0	locks=0 ]	(	../ropnet1/rop_impostor_texture1	)
 stdswitcher3	[ 0	locks=0 ]	(	0	0	)
-impostor_rop_full_path	[ 0	locks=0 ]	(	[ impostor_rop_full_path	/obj/geo1/sop_lod_create1/objnet1/ropnet1/rop_impostor_texture1 ] 	)
+impostor_rop_full_path	[ 0	locks=0 ]	(	[ impostor_rop_full_path	/obj/geo1/sop_lod_create2/objnet1/ropnet1/rop_impostor_texture1 ] 	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -13324,7 +13930,7 @@ inputs
 stat
 {
   create 1529669229
-  modify 1559055566
+  modify 1558985767
   author paula@DESKTOP-5213MPP
   access 0777
 }
@@ -14579,7 +15185,7 @@ inputs
 stat
 {
   create 1532341327
-  modify 1559055566
+  modify 1558985767
   author paula@DESKTOP-5213MPP
   access 0777
 }
@@ -17855,6 +18461,18 @@ Content-Type: text/plain
 		"value":"17.5.258"
 	}
 }
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/sop_simple_baker1/ropnet1.net"
+Content-Type: text/plain
+
+1
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/sop_simple_baker2/ropnet1.net"
+Content-Type: text/plain
+
+1
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
 Content-Disposition: attachment; filename="hdaroot/__dot1.networkdotinit"

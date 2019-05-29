@@ -217,9 +217,7 @@ def Export(a_Node):
         # Shader Consolidation
         if Node.parm("mConsolidateShader").evalAsInt() > 0:
                 #hou.node(Node.path()+"/sop_simple_baker1/").parm("execute").pressButton()
-                baker = Node.node("sop_simple_baker1")
-                baker.hdaModule().render(baker)
-                #hou.node(Node.path()+"/sop_simple_baker1/ropnet1").parm("execute").pressButton()
+                hou.node(Node.path()+"/sop_simple_baker1/ropnet1").parm("execute").pressButton()
 
         # Impostor Generation
         if Node.parm("bLastLODImpostor").evalAsInt() == 1:

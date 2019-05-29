@@ -109,6 +109,8 @@ def extract_planes(node):
             suffix = node.parm(channel_name + "_suffix").eval()
 
             if channel_name in normalized_maps:
+                print(node.path())
+                print(node.node("extract_net/normalized").path())
                 override_node.parm("currentcoppath").set(node.node("extract_net/normalized").path())
                 override_node.parm("currentgamma").set(1)
 

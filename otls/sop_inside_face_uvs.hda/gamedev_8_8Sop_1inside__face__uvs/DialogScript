@@ -3,7 +3,7 @@
 {
     name	gamedev::inside_face_uvs
     script	gamedev::inside_face_uvs
-    label	"Inside Face UVs"
+    label	"GameDev Inside Face UVs"
 
     help {
 	""
@@ -20,5 +20,16 @@
         type    float
         default { "1" }
         range   { 0 10 }
+    }
+    parm {
+        name    "method"
+        label   "UV Flattening Method"
+        type    ordinal
+        default { "abf" }
+        menu {
+            "scp"   "Spectral (SCP)"
+            "abf"   "Angle-Based (ABF)"
+        }
+        parmtag { "autoscope" "0000000000000000" }
     }
 }

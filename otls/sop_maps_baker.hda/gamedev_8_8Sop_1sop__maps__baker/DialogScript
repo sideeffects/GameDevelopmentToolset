@@ -15,6 +15,22 @@
     inputlabel	4	"Sub-Network Input #4"
     outputlabel	1	"Baked Map"
 
+    parm {
+        name    "intensity"
+        label   "Label"
+        type    float
+        invisible
+        default { "0" }
+        range   { 0 10 }
+    }
+    parm {
+        name    "gamma"
+        label   "Label"
+        type    float
+        invisible
+        default { "0" }
+        range   { 0 10 }
+    }
     groupsimple {
         name    "folder0"
         label   "Bake"
@@ -356,28 +372,18 @@
                 name    "maxdist"
                 label   "Maximum Ray Distance"
                 type    float
-                default { "2" }
+                default { "10" }
                 range   { 0! 1 }
                 parmtag { "autoscope" "0000000000000000" }
                 parmtag { "parmvop" "1" }
                 parmtag { "shaderparmcontexts" "cop2" }
             }
             parm {
-                name    "intensity"
-                label   "Intensity"
+                name    "bias"
+                label   "Bias"
                 type    float
-                default { "3" }
-                range   { 0 10 }
-                parmtag { "autoscope" "0000000000000000" }
-                parmtag { "parmvop" "1" }
-                parmtag { "shaderparmcontexts" "cop2" }
-            }
-            parm {
-                name    "gamma"
-                label   "Gamma"
-                type    float
-                default { "1" }
-                range   { 0 10 }
+                default { "0.5" }
+                range   { 0 1 }
                 parmtag { "autoscope" "0000000000000000" }
                 parmtag { "parmvop" "1" }
                 parmtag { "shaderparmcontexts" "cop2" }
@@ -386,7 +392,7 @@
                 name    "conewidth"
                 label   "Cone Width"
                 type    angle
-                default { "70" }
+                default { "90" }
                 range   { 1! 90! }
                 parmtag { "autoscope" "0000000000000000" }
                 parmtag { "parmvop" "1" }
@@ -396,6 +402,7 @@
                 name    "raybias"
                 label   "Ray Bias"
                 type    float
+                invisible
                 default { "0.001" }
                 range   { 0 0.1 }
                 parmtag { "autoscope" "0000000000000000" }

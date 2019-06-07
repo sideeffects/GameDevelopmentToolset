@@ -6,9 +6,26 @@
 #icon: 
 #tags: tech, model
 
-""" [Basic Description] """
+""" Generates textures bakes from a high resolution to low resolution model at near interactive speeds. """
 
-[ Detailed description]
+The map baker can transfer texture and data maps from high resolution to low resolution geometry. Unlike the games baker which relies on a mantra render, the maps baker uses a COPS network that is orders of magnitude faster than the mantra equivalent.
+
+:video:
+    #src:opdef:.?map_baker.mp4
+    
+== Using Maps Baker ==
+                    
+# Use a Gamedev Quick Material Sop to assign textures to a high resolution model
+
+# Use a normal sop to generate vertex normals on a high resolution model if they don't already exist
+            
+# Connect the low resoliotion objet to the first input, high resolutin object to the second input.
+            
+# Specify the maps required and the output path.
+
+# Click the 'Bake' button, textures will be baked and written to disk.
+
+
 
 @parameters
     == Bake ==
@@ -18,8 +35,6 @@
         Location to write maps to, use $(CHANNEL) in the path to ensure each map is written to a separate file.
     Resolution:
         Resolution of baked maps in pixels. Use the dropdown for some commonly used values.
-    Label:
-        Enable the position (@P) map bake.
     Tracing Mode:
         Set the method use to transfer information between the high and low res geometry. 'Nearest Surface' will trace the shortest ray between the surfaces, while 'Surface Normal' will trace along the nomal of the low res geometry.
     Max Trace Distance:
@@ -53,7 +68,7 @@
         Name for the position map.
     == Attributes ==
     Custom Attributes:
-        [Needs parameter tooltip]
+        Define custom geometry attributes to be baked to maps.
     == Advanced ==
     Manual Mode:
         Toggle if maps should be baked automatically on changes upstream, or if it should only bake when then 'Bake' button is pressed.

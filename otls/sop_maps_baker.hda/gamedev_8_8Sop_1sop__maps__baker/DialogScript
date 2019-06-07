@@ -15,6 +15,22 @@
     inputlabel	4	"Sub-Network Input #4"
     outputlabel	1	"Baked Map"
 
+    parm {
+        name    "intensity"
+        label   "Label"
+        type    float
+        invisible
+        default { "0" }
+        range   { 0 10 }
+    }
+    parm {
+        name    "gamma"
+        label   "Label"
+        type    float
+        invisible
+        default { "0" }
+        range   { 0 10 }
+    }
     groupsimple {
         name    "folder0"
         label   "Bake"
@@ -397,17 +413,22 @@
                 name    "maxdist"
                 label   "Maximum Ray Distance"
                 type    float
+<<<<<<< HEAD
                 default { "2" }
                 help    "Long rays can sometimes introduce over-occlusion, and cause long render times. Shorter rays will create cleaner looking occlusion, only darkening very occluded areas."
+=======
+                default { "10" }
+>>>>>>> upstream/Development
                 range   { 0! 1 }
                 parmtag { "autoscope" "0000000000000000" }
                 parmtag { "parmvop" "1" }
                 parmtag { "shaderparmcontexts" "cop2" }
             }
             parm {
-                name    "intensity"
-                label   "Intensity"
+                name    "bias"
+                label   "Bias"
                 type    float
+<<<<<<< HEAD
                 default { "3" }
                 help    "Multiplier of the AO shading, higher values will produce darker occlusion."
                 range   { 0 10 }
@@ -422,6 +443,10 @@
                 default { "1" }
                 help    "Adjust the gamma (contrast) of the occlusion."
                 range   { 0 10 }
+=======
+                default { "0.5" }
+                range   { 0 1 }
+>>>>>>> upstream/Development
                 parmtag { "autoscope" "0000000000000000" }
                 parmtag { "parmvop" "1" }
                 parmtag { "shaderparmcontexts" "cop2" }
@@ -430,8 +455,12 @@
                 name    "conewidth"
                 label   "Cone Width"
                 type    angle
+<<<<<<< HEAD
                 default { "70" }
                 help    "How wide will rays be fired from the sample point. 180 degrees will be a full hemisphere of samples, while 10 degrees will only generate occlusion in very tight corners or high occluded areas."
+=======
+                default { "90" }
+>>>>>>> upstream/Development
                 range   { 1! 90! }
                 parmtag { "autoscope" "0000000000000000" }
                 parmtag { "parmvop" "1" }
@@ -441,6 +470,7 @@
                 name    "raybias"
                 label   "Ray Bias"
                 type    float
+                invisible
                 default { "0.001" }
                 help    "Amount to move the start of a ray from its starting point. Sometimes rays can intersect from where they're fired; adjusting ray bias by small amounts can reduce self-intersection artifacts."
                 range   { 0 0.1 }

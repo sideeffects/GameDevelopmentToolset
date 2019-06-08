@@ -1,0 +1,18 @@
+= GameDev MatCap Shader =
+
+#type: node
+#context: sop
+#internal: gamedev::mat_matcap_shader
+#icon: 
+#tags: tech, model
+
+""" Apply a 'matcap' image to geometry in the style of Zbrush and other apps, giving a wide variety of looks at realtime framerates. """
+
+
+
+@parameters
+    MatCap Texture:
+        Texture to use as matcap, a photo or render of a sphere, cropped as tightly as pssible. The normals of the geometry will be matched with the implied normals of the sphere image, reading the pixel colour from the matching position.
+    Use MatCap Alpha:
+        If an alpha channel is in the texture, also map that into the shaded geometry.
+    

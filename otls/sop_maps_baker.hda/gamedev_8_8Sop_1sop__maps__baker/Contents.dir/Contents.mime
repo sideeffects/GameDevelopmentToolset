@@ -32,27 +32,26 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position -11.2142 -4.17547
-connectornextid 3
-flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
+position -3.12684 -1.57062
+connectornextid 2
+flags =  lock off model off template off footprint off xray off bypass off display on render on highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
 {
-2 "output1"
 }
 inputsNamed3
 {
-0 	file2 0 1 "input1"
-1 	paint1 1 1 "input2"
+0 	normal1 1 1 "input1"
+1 	sphere1 0 1 "input2"
 }
 inputs
 {
-0 	file2 0 1
-1 	paint1 0 1
+0 	normal1 0 1
+1 	sphere1 0 1
 }
 stat
 {
-  create 1556922873
-  modify 1559860255
+  create 1559931938
+  modify 1559932937
   author prisms@threadripper1
   access 0777
 }
@@ -90,7 +89,7 @@ Content-Type: text/plain
 }
 {
   create 1556202388
-  modify 1559856364
+  modify 1559933269
   author Paul_Ambrosiussen@LAPTOP-P8R7FBPF
   access 0777
 }
@@ -113,7 +112,7 @@ Content-Type: text/plain
 }
 {
   create 1556202405
-  modify 1559856364
+  modify 1559933268
   author Paul_Ambrosiussen@LAPTOP-P8R7FBPF
   access 0777
 }
@@ -136,7 +135,7 @@ Content-Type: text/plain
 }
 {
   create 1556920320
-  modify 1559856367
+  modify 1559933271
   author prisms@threadripper1
   access 0777
 }
@@ -264,7 +263,7 @@ inputs
 stat
 {
   create 1545250564
-  modify 1559856765
+  modify 1559932341
   author Paul_Ambrosiussen@LAPTOP-P8R7FBPF
   access 0777
 }
@@ -646,7 +645,7 @@ maskplane	[ 0	locks=0 ]	(	A	)
 maskresize	[ 0	locks=0 ]	(	"off"	)
 maskinvert	[ 0	locks=0 ]	(	"off"	)
 overridesize	[ 0	locks=0 ]	(	"on"	)
-size	[ 0	locks=0 ]	(	[ size1	512 ] 	[ size2	512 ] 	)
+size	[ 0	locks=0 ]	(	[ size1	1024 ] 	[ size2	1024 ] 	)
 sizemenu	[ 0	locks=0 ]	(	0	)
 overrideaspect	[ 0	locks=0 ]	(	"off"	)
 aspect	[ 0	locks=0 ]	(	[ aspect	1 ] 	)
@@ -1338,7 +1337,7 @@ inputs
 stat
 {
   create 1545250955
-  modify 1559860252
+  modify 1559932922
   author Paul_Ambrosiussen@LAPTOP-P8R7FBPF
   access 0777
 }
@@ -1689,7 +1688,7 @@ Content-Disposition: attachment; filename="hdaroot/cops_baking/XYZDist.cop2"
 Content-Type: text/plain
 
 2
-3987
+3989
 0
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -2020,7 +2019,7 @@ inputs
 stat
 {
   create 1551227689
-  modify 1559860250
+  modify 1559932920
   author Paul_Ambrosiussen@DESKTOP-A0373M3
   access 0777
 }
@@ -2124,7 +2123,7 @@ inputs
 stat
 {
   create 1551227689
-  modify 1559860250
+  modify 1559932920
   author Paul_Ambrosiussen@DESKTOP-A0373M3
   access 0777
 }
@@ -2745,7 +2744,7 @@ inputs
 stat
 {
   create 1558130666
-  modify 1559860250
+  modify 1559932920
   author prisms@threadripper1
   access 0777
 }
@@ -2823,7 +2822,7 @@ inputs
 stat
 {
   create 1558130666
-  modify 1559860250
+  modify 1559932920
   author prisms@threadripper1
   access 0777
 }
@@ -7818,7 +7817,7 @@ Content-Type: text/plain
 comment ""
 position 2.71988 -13.1995
 connectornextid 2
-flags =  lock off model off template off footprint off xray off bypass off display on render on highlight off unload off savedata off compress off colordefault off exposed on
+flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress off colordefault off exposed on
 outputsNamed3
 {
 0 "output1"
@@ -7834,7 +7833,7 @@ inputs
 stat
 {
   create 1545250955
-  modify 1559860051
+  modify 1559932343
   author Paul_Ambrosiussen@LAPTOP-P8R7FBPF
   access 0777
 }
@@ -10829,7 +10828,7 @@ Content-Type: text/plain
 comment ""
 position 5.78054 -13.1995
 connectornextid 2
-flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress off colordefault off exposed on
+flags =  lock off model off template off footprint off xray off bypass off display on render on highlight off unload off savedata off compress off colordefault off exposed on
 outputsNamed3
 {
 0 "output1"
@@ -10845,7 +10844,7 @@ inputs
 stat
 {
   create 1545250955
-  modify 1559837739
+  modify 1559933433
   author Paul_Ambrosiussen@LAPTOP-P8R7FBPF
   access 0777
 }
@@ -11089,6 +11088,15 @@ Content-Type: text/plain
         parmtag { "parmvop" "1" }
         parmtag { "shaderparmcontexts" "cop2" }
     }
+    parm {
+        name    "FlipX"
+        label   "FlipX"
+        type    integer
+        default { "0" }
+        range   { 0 10 }
+        parmtag { "parmvop" "1" }
+        parmtag { "shaderparmcontexts" "cop2" }
+    }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
 Content-Disposition: attachment; filename="hdaroot/cops_baking/Nt.chn"
@@ -11146,6 +11154,12 @@ Content-Type: text/plain
       flags = 0
       segment { length = 0 expr = ch(\"../../bFlipTangentY\") }
     }
+    channel FlipX {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = ch(\"../../bFlipTangentX\") }
+    }
   }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -11188,6 +11202,7 @@ posthold	[ 0	locks=0 ]	(	0	)
 stdswitcher5	[ 0	locks=0 ]	(	2	2	2	2	)
 LOW	[ 0	locks=0 ]	(	op:../../OUT_LOW_TARGET	)
 FlipY	[ 0	locks=0 ]	(	[ FlipY	0 ] 	)
+FlipX	[ 0	locks=0 ]	(	[ FlipX	0 ] 	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -11206,7 +11221,7 @@ Content-Disposition: attachment; filename="hdaroot/cops_baking/Nt.cop2"
 Content-Type: text/plain
 
 2
-4225
+4236
 0
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -11241,7 +11256,7 @@ inputs
 stat
 {
   create 1551230328
-  modify 1551486478
+  modify 1559933416
   author Paul_Ambrosiussen@DESKTOP-A0373M3
   access 0777
 }
@@ -11311,7 +11326,7 @@ inputs
 stat
 {
   create 1551230336
-  modify 1551486478
+  modify 1559933416
   author Paul_Ambrosiussen@DESKTOP-A0373M3
   access 0777
 }
@@ -11564,7 +11579,7 @@ Content-Type: text/plain
 
 comment ""
 position 11.0376 11.7725
-connectornextid 3
+connectornextid 9
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on lowdetail off mediumdetail off highdetail on material off
 outputsNamed3
 {
@@ -11578,6 +11593,8 @@ inputsNamed3
 5 	parm8 0 1 "LOW"
 6 	parm1 0 1 "FlipY"
 8 	bind5 0 1 "worldnormal"
+3 	bind1 0 1 "prim"
+7 	parm2 0 1 "FlipX"
 }
 inputs
 {
@@ -11586,11 +11603,13 @@ inputs
 2 	parm8 0 1
 3 	parm1 0 1
 4 	bind5 0 1
+5 	bind1 0 1
+6 	parm2 0 1
 }
 stat
 {
   create 1545251066
-  modify 1551486424
+  modify 1559933416
   author Paul_Ambrosiussen@LAPTOP-P8R7FBPF
   access 0777
 }
@@ -11614,12 +11633,12 @@ vector out_normal = normalize(set(dot($worldnormal, tangent2), dot($worldnormal,
 // move to 0-1 space 
 out_normal = (out_normal)*0.5 + 0.5;
 
-if ($FlipY > 0) {
-    $Nt = set(1.0-out_normal.x, 1.0-out_normal.y, out_normal.z);
-} else {
-    $Nt = set(out_normal.x, out_normal.y, out_normal.z);
-}
-"	)
+$Nt = set(out_normal.x, out_normal.y, out_normal.z);
+
+if ($FlipX) { $Nt.x = 1.0-$Nt.x; }
+if ($FlipY) { $Nt.y = 1.0-$Nt.y; }
+
+if (int($prim) < 0) { $Nt = set(0.5,0.5,1); }"	)
 includes	[ 0	locks=0 ]	(	""	)
 outercode	[ 0	locks=0 ]	(	""	)
 expandcode	[ 0	locks=0 ]	(	"off"	)
@@ -11882,7 +11901,7 @@ Content-Disposition: attachment; filename="hdaroot/cops_baking/Nt/parm1.def"
 Content-Type: text/plain
 
 comment ""
-position 9.20377 14.4715
+position 8.64314 15.7842
 connectornextid 1
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on lowdetail off mediumdetail off highdetail on material off
 outputsNamed3
@@ -11898,7 +11917,7 @@ inputs
 stat
 {
   create 1551472792
-  modify 1551473330
+  modify 1559933128
   author Paul_Ambrosiussen@DESKTOP-A0373M3
   access 0777
 }
@@ -12091,6 +12110,236 @@ exportcontext	[ 0	locks=0 ]	(	cop2	)
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
 Content-Disposition: attachment; filename="hdaroot/cops_baking/Nt/bind5.userdata"
+Content-Type: text/plain
+
+{
+	"___Version___":{
+		"type":"string",
+		"value":"17.5.258"
+	}
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/cops_baking/Nt/bind1.init"
+Content-Type: text/plain
+
+type = bind
+matchesdef = 0
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/cops_baking/Nt/bind1.def"
+Content-Type: text/plain
+
+comment ""
+position 7.62063 7.38763
+connectornextid 1
+flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on lowdetail off mediumdetail off highdetail on material off
+outputsNamed3
+{
+0 "prim"
+}
+inputsNamed3
+{
+}
+inputs
+{
+}
+stat
+{
+  create 1559932371
+  modify 1559933126
+  author prisms@threadripper1
+  access 0777
+}
+color UT_Color RGB 0.6 0.6 1 
+delscript ""
+exprlanguage hscript
+end
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/cops_baking/Nt/bind1.parm"
+Content-Type: text/plain
+
+{
+version 0.8
+parmname	[ 0	locks=0 ]	(	prim	)
+parmtype	[ 0	locks=0 ]	(	"float"	)
+parmtypename	[ 0	locks=0 ]	(	""	)
+overridetype	[ 0	locks=0 ]	(	"off"	)
+floatdef	[ 0	locks=0 ]	(	0	)
+intdef	[ 0	locks=0 ]	(	0	)
+toggledef	[ 0	locks=0 ]	(	"off"	)
+angledef	[ 0	locks=0 ]	(	0	)
+logfloatdef	[ 0	locks=0 ]	(	0	)
+float2def	[ 0	locks=0 ]	(	0	0	)
+float3def	[ 0	locks=0 ]	(	0	0	0	)
+vectordef	[ 0	locks=0 ]	(	0	0	0	)
+normaldef	[ 0	locks=0 ]	(	0	0	0	)
+pointdef	[ 0	locks=0 ]	(	0	0	0	)
+directiondef	[ 0	locks=0 ]	(	1	0	0	)
+float4def	[ 0	locks=0 ]	(	0	0	0	0	)
+floatm2def	[ 0	locks=0 ]	(	1	0	0	1	)
+float9def	[ 0	locks=0 ]	(	1	0	0	0	1	0	0	0	1	)
+float16def	[ 0	locks=0 ]	(	1	0	0	0	0	1	0	0	0	0	1	0	0	0	0	1	)
+stringdef	[ 0	locks=0 ]	(	""	)
+filedef	[ 0	locks=0 ]	(	""	)
+imagedef	[ 0	locks=0 ]	(	""	)
+geometrydef	[ 0	locks=0 ]	(	""	)
+colordef	[ 0	locks=0 ]	(	0	0	0	)
+color4def	[ 0	locks=0 ]	(	0	0	0	0	)
+bsdfdef	[ 0	locks=0 ]	(	""	)
+coshaderdef	[ 0	locks=0 ]	(	""	)
+floatadef	[ 0	locks=0 ]	(	)
+intadef	[ 0	locks=0 ]	(	)
+vector2adef	[ 0	locks=0 ]	(	)
+vectoradef	[ 0	locks=0 ]	(	)
+pointadef	[ 0	locks=0 ]	(	)
+normaladef	[ 0	locks=0 ]	(	)
+coloradef	[ 0	locks=0 ]	(	)
+floatm2adef	[ 0	locks=0 ]	(	)
+float4adef	[ 0	locks=0 ]	(	)
+float9adef	[ 0	locks=0 ]	(	)
+float16adef	[ 0	locks=0 ]	(	)
+stringadef	[ 0	locks=0 ]	(	)
+coshaderadef	[ 0	locks=0 ]	(	""	)
+structdef	[ 0	locks=0 ]	(	""	)
+useasparmdefiner	[ 0	locks=0 ]	(	"off"	)
+useownexportcontext	[ 0	locks=0 ]	(	"off"	)
+parmuniform	[ 0	locks=0 ]	(	"on"	)
+usebound	[ 0	locks=0 ]	(	"off"	)
+exportparm	[ 0	locks=0 ]	(	"off"	)
+exportcontext	[ 0	locks=0 ]	(	cop2	)
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/cops_baking/Nt/bind1.userdata"
+Content-Type: text/plain
+
+{
+	"___Version___":{
+		"type":"string",
+		"value":"17.5.258"
+	}
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/cops_baking/Nt/parm2.init"
+Content-Type: text/plain
+
+type = parameter
+matchesdef = 0
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/cops_baking/Nt/parm2.def"
+Content-Type: text/plain
+
+comment ""
+position 8.64314 14.6082
+connectornextid 1
+flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on lowdetail off mediumdetail off highdetail on material off
+outputsNamed3
+{
+0 "FlipX"
+}
+inputsNamed3
+{
+}
+inputs
+{
+}
+stat
+{
+  create 1551472792
+  modify 1559933132
+  author Paul_Ambrosiussen@DESKTOP-A0373M3
+  access 0777
+}
+color UT_Color RGB 1 1 0.4 
+delscript ""
+exprlanguage hscript
+end
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/cops_baking/Nt/parm2.parm"
+Content-Type: text/plain
+
+{
+version 0.8
+parmscope	[ 0	locks=0 ]	(	shaderparm	)
+parmaccess	[ 0	locks=0 ]	(	""	)
+parmname	[ 0	locks=0 ]	(	FlipX	)
+parmprefix	[ 0	locks=0 ]	(	""	)
+parmpostfix	[ 0	locks=0 ]	(	""	)
+parmlabel	[ 0	locks=0 ]	(	""	)
+showlabel	[ 0	locks=0 ]	(	"on"	)
+parmtype	[ 0	locks=0 ]	(	"int"	)
+parmtypename	[ 0	locks=0 ]	(	""	)
+floatdef	[ 0	locks=0 ]	(	0	)
+intdef	[ 0	locks=0 ]	(	0	)
+toggledef	[ 0	locks=0 ]	(	"off"	)
+angledef	[ 0	locks=0 ]	(	0	)
+logfloatdef	[ 0	locks=0 ]	(	0	)
+float2def	[ 0	locks=0 ]	(	0	0	)
+float3def	[ 0	locks=0 ]	(	0	0	0	)
+vectordef	[ 0	locks=0 ]	(	0	0	0	)
+normaldef	[ 0	locks=0 ]	(	0	0	0	)
+pointdef	[ 0	locks=0 ]	(	0	0	0	)
+directiondef	[ 0	locks=0 ]	(	1	0	0	)
+float4def	[ 0	locks=0 ]	(	0	0	0	0	)
+floatm2def	[ 0	locks=0 ]	(	1	0	0	1	)
+float9def	[ 0	locks=0 ]	(	1	0	0	0	1	0	0	0	1	)
+float16def	[ 0	locks=0 ]	(	1	0	0	0	0	1	0	0	0	0	1	0	0	0	0	1	)
+stringdef	[ 0	locks=0 ]	(	""	)
+filedef	[ 0	locks=0 ]	(	""	)
+imagedef	[ 0	locks=0 ]	(	""	)
+geometrydef	[ 0	locks=0 ]	(	""	)
+colordef	[ 0	locks=0 ]	(	0	0	0	)
+color4def	[ 0	locks=0 ]	(	0	0	0	0	)
+bsdfdef	[ 0	locks=0 ]	(	""	)
+coshaderdef	[ 0	locks=0 ]	(	""	)
+floatadef	[ 0	locks=0 ]	(	)
+intadef	[ 0	locks=0 ]	(	)
+vector2adef	[ 0	locks=0 ]	(	)
+vectoradef	[ 0	locks=0 ]	(	)
+pointadef	[ 0	locks=0 ]	(	)
+normaladef	[ 0	locks=0 ]	(	)
+coloradef	[ 0	locks=0 ]	(	)
+floatm2adef	[ 0	locks=0 ]	(	)
+float4adef	[ 0	locks=0 ]	(	)
+float9adef	[ 0	locks=0 ]	(	)
+float16adef	[ 0	locks=0 ]	(	)
+stringadef	[ 0	locks=0 ]	(	)
+coshaderadef	[ 0	locks=0 ]	(	""	)
+structdef	[ 0	locks=0 ]	(	""	)
+rangeflt	[ 0	locks=0 ]	(	0	1	)
+rangeint	[ 0	locks=0 ]	(	0	10	)
+stringtype	[ 0	locks=0 ]	(	off	)
+opfilter	[ 0	locks=0 ]	(	!!OBJ/LIGHT!!	)
+parmcomment	[ 0	locks=0 ]	(	""	)
+separator1	[ 0	locks=0 ]	(	)
+useasparmdefiner	[ 0	locks=0 ]	(	"off"	)
+useownexportcontext	[ 0	locks=0 ]	(	"off"	)
+parmuniform	[ 0	locks=0 ]	(	"on"	)
+usebound	[ 0	locks=0 ]	(	"off"	)
+hasconnector	[ 0	locks=0 ]	(	"on"	)
+exportparm	[ 0	locks=0 ]	(	"off"	)
+exportcontext	[ 0	locks=0 ]	(	cop2	)
+providemenu	[ 0	locks=0 ]	(	"off"	)
+menuchoices	[ 0	locks=0 ]	(	""	)
+menuscript	[ 0	locks=0 ]	(	""	)
+menuscriptlanguage	[ 0	locks=0 ]	(	"hscript"	)
+separator2	[ 0	locks=0 ]	(	)
+invisible	[ 0	locks=0 ]	(	"off"	)
+joinnext	[ 0	locks=0 ]	(	"off"	)
+disablewhen	[ 0	locks=0 ]	(	""	)
+hidewhen	[ 0	locks=0 ]	(	""	)
+callback	[ 0	locks=0 ]	(	""	)
+tags	[ 0	locks=0 ]	(	""	)
+help	[ 0	locks=0 ]	(	""	)
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/cops_baking/Nt/parm2.userdata"
 Content-Type: text/plain
 
 {
@@ -13636,7 +13885,7 @@ postextend	[ 0	locks=0 ]	(	"black"	)
 posthold	[ 0	locks=0 ]	(	0	)
 stdswitcher5	[ 0	locks=0 ]	(	2	2	2	2	)
 HIGH	[ 0	locks=0 ]	(	op:../../OUT_HIGH	)
-Attr	[ 0	locks=0	autoscope=1	autosel=4294967295 ]	(	[ Attr	myattr ] 	)
+Attr	[ 0	locks=0	autoscope=1	autosel=4294967295 ]	(	[ Attr	"" ] 	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -16639,7 +16888,7 @@ inputs
 stat
 {
   create 1551488396
-  modify 1559860255
+  modify 1559932936
   author Paul_Ambrosiussen@DESKTOP-A0373M3
   access 0777
 }
@@ -16874,7 +17123,7 @@ fakecausticsshadow	[ 0	locks=0 ]	(	1	)
 fakecausticsopacity	[ 0	locks=0 ]	(	0	)
 folder54	[ 0	locks=0 ]	(	0	)
 basecolor_useTexture	[ 0	locks=0 ]	(	"on"	)
-basecolor_texture	[ 0	locks=0	autoscope=1	autosel=4294967295 ]	(	[ basecolor_texture	C:/Projects/MapsBaker/render/BapsBaker_Video_01_ao.png ] 	)
+basecolor_texture	[ 0	locks=0	autoscope=1	autosel=4294967295 ]	(	[ basecolor_texture	C:/Users/prisms/AppData/Local/Temp/houdini_temp/render/crash.MapsBaker_06.prisms_56564_normal.png ] 	)
 basecolor_textureIntensity	[ 0	locks=0 ]	(	1	)
 basecolor_textureWrap	[ 0	locks=0 ]	(	repeat	)
 basecolor_textureColorSpace	[ 0	locks=0 ]	(	auto	)
@@ -18093,7 +18342,7 @@ coppath	[ 0	locks=0 ]	(	../Position	)
 tres	[ 0	locks=0 ]	(	"natural"	)
 res	[ 0	locks=0 ]	(	1024	1024	)
 resmenu	[ 0	locks=0 ]	(	0	)
-copoutput	[ 0	locks=0	autoscope=1	autosel=4294967295 ]	(	[ copoutput	C:/Projects/MapsBaker/render/BapsBaker_Video_01_position.png ] 	)
+copoutput	[ 0	locks=0	autoscope=1	autosel=4294967295 ]	(	[ copoutput	C:/Users/prisms/AppData/Local/Temp/houdini_temp/render/crash.MapsBaker_06.prisms_56564_position.png ] 	)
 mkpath	[ 0	locks=0 ]	(	"on"	)
 color	[ 0	locks=0 ]	(	C	)
 alpha	[ 0	locks=0 ]	(	""	)
@@ -18289,7 +18538,7 @@ coppath	[ 0	locks=0 ]	(	../../cops_baking/subnet1	)
 tres	[ 0	locks=0 ]	(	"natural"	)
 res	[ 0	locks=0 ]	(	512	512	)
 resmenu	[ 0	locks=0 ]	(	0	)
-copoutput	[ 0	locks=0	autoscope=1	autosel=4294967295 ]	(	[ copoutput	C:/Projects/MapsBaker/render/BapsBaker_Video_01_height.png ] 	)
+copoutput	[ 0	locks=0	autoscope=1	autosel=4294967295 ]	(	[ copoutput	C:/Users/prisms/AppData/Local/Temp/houdini_temp/render/crash.MapsBaker_06.prisms_56564_height.png ] 	)
 mkpath	[ 0	locks=0 ]	(	"on"	)
 color	[ 0	locks=0 ]	(	C	)
 alpha	[ 0	locks=0 ]	(	""	)
@@ -18459,7 +18708,7 @@ coppath	[ 0	locks=0 ]	(	../Alpha	)
 tres	[ 0	locks=0 ]	(	"natural"	)
 res	[ 0	locks=0 ]	(	1024	1024	)
 resmenu	[ 0	locks=0 ]	(	0	)
-copoutput	[ 0	locks=0	autoscope=1	autosel=4294967295 ]	(	[ copoutput	C:/Projects/MapsBaker/render/BapsBaker_Video_01_alpha.png ] 	)
+copoutput	[ 0	locks=0	autoscope=1	autosel=4294967295 ]	(	[ copoutput	C:/Users/prisms/AppData/Local/Temp/houdini_temp/render/crash.MapsBaker_06.prisms_56564_alpha.png ] 	)
 mkpath	[ 0	locks=0 ]	(	"on"	)
 color	[ 0	locks=0 ]	(	C	)
 alpha	[ 0	locks=0 ]	(	""	)
@@ -18629,7 +18878,7 @@ coppath	[ 0	locks=0 ]	(	../WorldNormal	)
 tres	[ 0	locks=0 ]	(	"natural"	)
 res	[ 0	locks=0 ]	(	1024	1024	)
 resmenu	[ 0	locks=0 ]	(	0	)
-copoutput	[ 0	locks=0	autoscope=1	autosel=4294967295 ]	(	[ copoutput	C:/Projects/MapsBaker/render/BapsBaker_Video_01_worldnormal.png ] 	)
+copoutput	[ 0	locks=0	autoscope=1	autosel=4294967295 ]	(	[ copoutput	C:/Users/prisms/AppData/Local/Temp/houdini_temp/render/crash.MapsBaker_06.prisms_56564_worldnormal.png ] 	)
 mkpath	[ 0	locks=0 ]	(	"on"	)
 color	[ 0	locks=0 ]	(	C	)
 alpha	[ 0	locks=0 ]	(	""	)
@@ -18922,7 +19171,7 @@ inputs
 stat
 {
   create 1551216308
-  modify 1559860219
+  modify 1559931996
   author Paul_Ambrosiussen@DESKTOP-A0373M3
   access 0777
 }
@@ -18968,9 +19217,9 @@ take	[ 0	locks=0 ]	(	_current_	)
 copswitcher	[ 0	locks=0 ]	(	0	0	0	0	0	)
 coppath	[ 0	locks=0 ]	(	../../cops_baking/AO	)
 tres	[ 0	locks=0 ]	(	"natural"	)
-res	[ 0	locks=0 ]	(	512	512	)
+res	[ 0	locks=0 ]	(	1024	1024	)
 resmenu	[ 0	locks=0 ]	(	0	)
-copoutput	[ 0	locks=0	autoscope=1	autosel=4294967295 ]	(	[ copoutput	C:/Projects/MapsBaker/render/BapsBaker_Video_01_ao.png ] 	)
+copoutput	[ 0	locks=0	autoscope=1	autosel=4294967295 ]	(	[ copoutput	C:/Users/prisms/AppData/Local/Temp/houdini_temp/render/crash.MapsBaker_06.prisms_56564_ao.png ] 	)
 mkpath	[ 0	locks=0 ]	(	"on"	)
 color	[ 0	locks=0 ]	(	C	)
 alpha	[ 0	locks=0 ]	(	""	)
@@ -18983,7 +19232,7 @@ batchmode	[ 0	locks=0 ]	(	"off"	)
 batchsize	[ 0	locks=0 ]	(	2	)
 reloadfiles	[ 0	locks=0 ]	(	"off"	)
 outputarea	[ 0	locks=0 ]	(	"frame"	)
-pixelcrop	[ 0	locks=0 ]	(	0	0	511	511	)
+pixelcrop	[ 0	locks=0 ]	(	0	0	1023	1023	)
 uvcrop	[ 0	locks=0 ]	(	0	0	1	1	)
 limitcanvaspixels	[ 0	locks=0 ]	(	"on"	)
 canvaspixels	[ 0	locks=0 ]	(	64	)
@@ -19047,7 +19296,7 @@ Content-Type: text/plain
 Content-Disposition: attachment; filename="hdaroot/cops_baking/Nt.order"
 Content-Type: text/plain
 
-7
+9
 vectofloat1
 output1
 parm8
@@ -19055,6 +19304,8 @@ global4
 world_to_tangent1
 parm1
 bind5
+bind1
+parm2
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
 Content-Disposition: attachment; filename="hdaroot/cops_baking/Nt.net"
@@ -19091,7 +19342,7 @@ inputs
 stat
 {
   create 1551216308
-  modify 1559856329
+  modify 1559932891
   author Paul_Ambrosiussen@DESKTOP-A0373M3
   access 0777
 }
@@ -19137,9 +19388,9 @@ take	[ 0	locks=0 ]	(	_current_	)
 copswitcher	[ 0	locks=0 ]	(	0	0	0	0	0	)
 coppath	[ 0	locks=0 ]	(	../Nt	)
 tres	[ 0	locks=0 ]	(	"natural"	)
-res	[ 0	locks=0 ]	(	512	512	)
+res	[ 0	locks=0 ]	(	1024	1024	)
 resmenu	[ 0	locks=0 ]	(	0	)
-copoutput	[ 0	locks=0	autoscope=1	autosel=4294967295 ]	(	[ copoutput	C:/Projects/MapsBaker/render/BapsBaker_Video_01_normal.png ] 	)
+copoutput	[ 0	locks=0	autoscope=1	autosel=4294967295 ]	(	[ copoutput	C:/Users/prisms/AppData/Local/Temp/houdini_temp/render/crash.MapsBaker_06.prisms_56564_normal.png ] 	)
 mkpath	[ 0	locks=0 ]	(	"on"	)
 color	[ 0	locks=0 ]	(	C	)
 alpha	[ 0	locks=0 ]	(	""	)
@@ -19152,7 +19403,7 @@ batchmode	[ 0	locks=0 ]	(	"off"	)
 batchsize	[ 0	locks=0 ]	(	2	)
 reloadfiles	[ 0	locks=0 ]	(	"off"	)
 outputarea	[ 0	locks=0 ]	(	"frame"	)
-pixelcrop	[ 0	locks=0 ]	(	0	0	511	511	)
+pixelcrop	[ 0	locks=0 ]	(	0	0	1023	1023	)
 uvcrop	[ 0	locks=0 ]	(	0	0	1	1	)
 limitcanvaspixels	[ 0	locks=0 ]	(	"on"	)
 canvaspixels	[ 0	locks=0 ]	(	64	)
@@ -19259,7 +19510,7 @@ inputs
 stat
 {
   create 1551216308
-  modify 1559774734
+  modify 1559931991
   author Paul_Ambrosiussen@DESKTOP-A0373M3
   access 0777
 }
@@ -19307,7 +19558,7 @@ coppath	[ 0	locks=0 ]	(	../Color	)
 tres	[ 0	locks=0 ]	(	"natural"	)
 res	[ 0	locks=0 ]	(	1024	1024	)
 resmenu	[ 0	locks=0 ]	(	0	)
-copoutput	[ 0	locks=0	autoscope=1	autosel=4294967295 ]	(	[ copoutput	C:/Projects/MapsBaker/render/BapsBaker_Video_01_color.png ] 	)
+copoutput	[ 0	locks=0	autoscope=1	autosel=4294967295 ]	(	[ copoutput	C:/Users/prisms/AppData/Local/Temp/houdini_temp/render/crash.MapsBaker_06.prisms_56564_color.png ] 	)
 mkpath	[ 0	locks=0 ]	(	"on"	)
 color	[ 0	locks=0 ]	(	C	)
 alpha	[ 0	locks=0 ]	(	""	)
@@ -19477,7 +19728,7 @@ coppath	[ 0	locks=0 ]	(	../CustomAttributes	)
 tres	[ 0	locks=0 ]	(	"natural"	)
 res	[ 0	locks=0 ]	(	1024	1024	)
 resmenu	[ 0	locks=0 ]	(	0	)
-copoutput	[ 0	locks=0	autoscope=1	autosel=4294967295 ]	(	[ copoutput	C:/Projects/MapsBaker/render/BapsBaker_Video_01_myattr.png ] 	)
+copoutput	[ 0	locks=0	autoscope=1	autosel=4294967295 ]	(	[ copoutput	C:/Users/prisms/AppData/Local/Temp/houdini_temp/render/crash.MapsBaker_06.prisms_56564_.png ] 	)
 mkpath	[ 0	locks=0 ]	(	"on"	)
 color	[ 0	locks=0 ]	(	C	)
 alpha	[ 0	locks=0 ]	(	""	)
@@ -19648,7 +19899,7 @@ coppath	[ 0	locks=0 ]	(	../PBRMaps	)
 tres	[ 0	locks=0 ]	(	"natural"	)
 res	[ 0	locks=0 ]	(	1024	1024	)
 resmenu	[ 0	locks=0 ]	(	0	)
-copoutput	[ 8	locks=0	autoscope=1	autosel=4294967295 ]	(	[ copoutput	C:/Projects/MapsBaker/render/BapsBaker_Video_01_.png ] 	)
+copoutput	[ 8	locks=0	autoscope=1	autosel=4294967295 ]	(	[ copoutput	C:/Users/prisms/AppData/Local/Temp/houdini_temp/render/crash.MapsBaker_06.prisms_56564_.png ] 	)
 mkpath	[ 0	locks=0 ]	(	"on"	)
 color	[ 0	locks=0 ]	(	C	)
 alpha	[ 0	locks=0 ]	(	""	)
@@ -20052,7 +20303,7 @@ inputs
 stat
 {
   create 1551227256
-  modify 1559860214
+  modify 1559932886
   author Paul_Ambrosiussen@DESKTOP-A0373M3
   access 0777
 }

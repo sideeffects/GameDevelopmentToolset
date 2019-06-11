@@ -80,7 +80,7 @@ def refresh(node, force=True):
     if abs(lon) > 360: 
         lon = lon%360 
     
-    if lon < 0: 
+    if lon < -180: 
         lon = 360+lon
 
     node.parm("lat_lon_zoomy").set(lon)

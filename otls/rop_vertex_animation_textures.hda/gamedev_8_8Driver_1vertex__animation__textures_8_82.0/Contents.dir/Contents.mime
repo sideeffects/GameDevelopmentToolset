@@ -46,7 +46,7 @@ inputs
 stat
 {
   create 1559225586
-  modify 1560260942
+  modify 1560302741
   author mikel@mikembp-sesi
   access 0777
 }
@@ -1748,8 +1748,8 @@ vex_matchattrib	[ 0	locks=0 ]	(	id	)
 vex_inplace	[ 0	locks=0 ]	(	"off"	)
 vex_selectiongroup	[ 0	locks=0 ]	(	""	)
 max_width	[ 0	locks=0 ]	(	[ max_width	1024 ] 	)
-numpt	[ 0	locks=0 ]	(	[ numpt	100 ] 	)
-frame_count	[ 0	locks=0 ]	(	[ frame_count	90 ] 	)
+numpt	[ 0	locks=0 ]	(	[ numpt	3000 ] 	)
+frame_count	[ 0	locks=0 ]	(	[ frame_count	99 ] 	)
 folder1	[ 0	locks=0 ]	(	0	0	)
 }
 
@@ -7180,7 +7180,7 @@ vex_updatenmls	[ 0	locks=0 ]	(	"off"	)
 vex_matchattrib	[ 0	locks=0 ]	(	id	)
 vex_inplace	[ 0	locks=0 ]	(	"off"	)
 vex_selectiongroup	[ 0	locks=0 ]	(	""	)
-max_points	[ 8	locks=0 ]	(	[ max_points	100 ] 	)
+max_points	[ 8	locks=0 ]	(	[ max_points	3000 ] 	)
 folder1	[ 0	locks=0 ]	(	0	0	)
 }
 
@@ -8566,7 +8566,7 @@ v	[ 0	locks=0 ]	(	0	0	0	)
 force	[ 0	locks=0 ]	(	0	0	0	)
 Cd	[ 0	locks=0 ]	(	1	1	1	)
 N	[ 0	locks=0 ]	(	0	0	0	)
-pivotTop	[ 8	locks=0 ]	(	[ pivotTop1	8 ] 	[ pivotTop2	0 ] 	[ pivotTop3	1 ] 	)
+pivotTop	[ 8	locks=0 ]	(	[ pivotTop1	0 ] 	[ pivotTop2	0.35882550477981567 ] 	[ pivotTop3	0 ] 	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -11989,7 +11989,7 @@ inputs
 stat
 {
   create 1462577487
-  modify 1560257455
+  modify 1560265878
   author belaid@BELAID-ART.redmond.corp.microsoft.com
   access 0777
 }
@@ -13983,7 +13983,7 @@ inputs
 stat
 {
   create 1462577487
-  modify 1560257455
+  modify 1560265878
   author belaid@BELAID-ART.redmond.corp.microsoft.com
   access 0777
 }
@@ -15109,7 +15109,7 @@ inputs
 stat
 {
   create 1476805668
-  modify 1560261482
+  modify 1560274094
   author Luiz@Luiz-PC
   access 0777
 }
@@ -15832,3329 +15832,6 @@ Content-Type: text/plain
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot/objects/debug/sprite_vertex_shader.init"
-Content-Type: text/plain
-
-type = attribvop
-matchesdef = 0
-
---HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot/objects/debug/sprite_vertex_shader.def"
-Content-Type: text/plain
-
-sopflags sopflags = 
-comment ""
-position 5.49655 1.85
-connectornextid 2
-flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault off exposed on
-outputsNamed3
-{
-1 "output1"
-}
-inputsNamed3
-{
-0 	switch_engine 0 1 "input1"
-}
-inputs
-{
-0 	switch_engine 0 1
-}
-stat
-{
-  create 1518209213
-  modify 1559330558
-  author blaidlaw@TOR-WKS-AB663.ubisoft.org
-  access 0777
-}
-color UT_Color RGB 0.475 0.812 0.204 
-delscript ""
-exprlanguage hscript
-end
-
---HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot/objects/debug/sprite_vertex_shader.spareparmdef"
-Content-Type: text/plain
-
-    parm {
-        name    "_speed"
-        label   "Speed"
-        type    float
-        default { "1.87" }
-        help    "This is a multiplier that controls the rate of time for different systems, so that you can produce a time cycle of one second for the frame range of your sim."
-        disablewhen "{ _animateTime == 1 }"
-        range   { 0 1 }
-        parmtag { "parmvop" "1" }
-        parmtag { "shaderparmcontexts" "cvex" }
-    }
-    parm {
-        name    "_numOfFrames"
-        label   "Frame Range"
-        type    float
-        default { "ch(\"../../../num_frames\")" }
-        disablewhen "{ _animateTime == 1 }"
-        range   { 0 1 }
-        parmtag { "parmvop" "1" }
-        parmtag { "shaderparmcontexts" "cvex" }
-    }
-    parm {
-        name    "_animateTime"
-        label   "Animate Time"
-        type    toggle
-        default { "off" }
-        parmtag { "parmvop" "1" }
-        parmtag { "shaderparmcontexts" "cvex" }
-    }
-    parm {
-        name    "_timeAnimated"
-        label   "Time Animated"
-        type    float
-        default { "0" }
-        disablewhen "{ _animateTime == 0 }"
-        range   { 0 1 }
-        parmtag { "parmvop" "1" }
-        parmtag { "shaderparmcontexts" "cvex" }
-    }
-    parm {
-        name    "_posTex"
-        label   "Position Map"
-        type    image
-        default { "`chs(\"../../../path_pos\")`" }
-        parmtag { "parmvop" "1" }
-        parmtag { "shaderparmcontexts" "cvex" }
-    }
-    parm {
-        name    "_posMax"
-        label   "Position Max"
-        type    float
-        default { "ch(\"../../../max_min_pos1\")" }
-        range   { 0 1 }
-        parmtag { "parmvop" "1" }
-        parmtag { "shaderparmcontexts" "cvex" }
-    }
-    parm {
-        name    "_posMin"
-        label   "Position Min"
-        type    float
-        default { "ch(\"../../../max_min_pos2\")" }
-        range   { 0 1 }
-        parmtag { "parmvop" "1" }
-        parmtag { "shaderparmcontexts" "cvex" }
-    }
-    parm {
-        name    "coord_swizzle"
-        label   "Coord Swizzle "
-        type    integer
-        default { "0" }
-        menu {
-            "0" "X Y Z"
-            "1" "X Z Y"
-            "2" "Y X Z"
-            "3" "Y Z X"
-            "4" "Z X Y"
-            "5" "Z Y X"
-        }
-        range   { 0 1 }
-        parmtag { "parmvop" "1" }
-        parmtag { "shaderparmcontexts" "cvex" }
-    }
-    parm {
-        name    "coord_flip"
-        label   "coord_flip"
-        type    integer
-        default { "0" }
-        menu {
-            "0" "+X +Y +Z"
-            "1" "-X +Y +Z"
-            "2" "+X -Y +Z"
-            "3" "+X +Y -Z"
-            "4" "-X -Y +Z"
-            "5" "-X +Y -Z"
-            "6" "-X -Y -Z"
-            "7" "+X -Y -Z"
-        }
-        range   { 0 1 }
-        parmtag { "parmvop" "1" }
-        parmtag { "shaderparmcontexts" "cvex" }
-    }
-    groupcollapsible {
-        name    "fd_AttrVopParameters"
-        label   "fd_AttrVopParameters"
-
-        parm {
-            name    "bindgroup"
-            baseparm
-            label   "Group"
-            export  none
-            bindselector uvselect "Modify Points"
-                "Select the points to affect and press Enter to complete."
-                0 1 0xffffffff 0 bindgrouptype 0
-        }
-        parm {
-            name    "bindgrouptype"
-            baseparm
-            label   "Group Type"
-            export  none
-        }
-        parm {
-            name    "bindclass"
-            baseparm
-            label   "Run Over"
-            export  none
-        }
-        parm {
-            name    "vex_numcount"
-            baseparm
-            label   "Number Count"
-            export  none
-        }
-        parm {
-            name    "vex_threadjobsize"
-            baseparm
-            label   "Thread Job Size"
-            export  none
-        }
-        group {
-            name    "stdswitcher3"
-            label   "Vex Setup"
-
-            parm {
-                name    "vexsrc"
-                baseparm
-                label   "Vex Source"
-                export  all
-            }
-            parm {
-                name    "shoppath"
-                baseparm
-                label   "Shop Path"
-                export  all
-            }
-            parm {
-                name    "script"
-                baseparm
-                label   "Script"
-                export  all
-            }
-            parm {
-                name    "clear"
-                baseparm
-                label   "Re-load VEX Functions"
-                export  all
-            }
-            parm {
-                name    "vop_compiler"
-                baseparm
-                label   "Compiler"
-                export  none
-            }
-            parm {
-                name    "vop_forcecompile"
-                baseparm
-                label   "Force Compile"
-                export  none
-            }
-            parm {
-                name    "vex_cwdpath"
-                baseparm
-                label   "Evaluation Node Path"
-                export  none
-            }
-            parm {
-                name    "vex_outputmask"
-                baseparm
-                label   "Export Parameters"
-                export  none
-            }
-            parm {
-                name    "vex_multithread"
-                baseparm
-                label   "Enable Multithreading"
-                export  none
-            }
-        }
-
-        group {
-            name    "stdswitcher3_1"
-            label   "Attribute Bindings"
-
-            parm {
-                name    "autobind"
-                baseparm
-                label   "Autobind by Name"
-                export  none
-            }
-            multiparm {
-                name    "bindings"
-                label    "Number of Bindings"
-                baseparm
-                default 0
-                parmtag { "multistartoffset" "1" }
-
-                parm {
-                    name    "bindname#"
-                    baseparm
-                    label   "Attribute Name"
-                    export  none
-                }
-                parm {
-                    name    "bindparm#"
-                    baseparm
-                    label   "VEX Parameter"
-                    export  none
-                }
-            }
-
-            parm {
-                name    "groupautobind"
-                baseparm
-                label   "Autobind Groups by Name"
-                export  none
-            }
-            multiparm {
-                name    "groupbindings"
-                label    "Group Bindings"
-                baseparm
-                default 0
-                parmtag { "multistartoffset" "1" }
-
-                parm {
-                    name    "bindgroupname#"
-                    baseparm
-                    label   "Group Name"
-                    export  none
-                }
-                parm {
-                    name    "bindgroupparm#"
-                    baseparm
-                    label   "VEX Parameter"
-                    export  none
-                }
-            }
-
-            parm {
-                name    "vex_updatenmls"
-                baseparm
-                label   "Update Normals If Displaced"
-                export  none
-            }
-            parm {
-                name    "vex_matchattrib"
-                baseparm
-                label   "Attribute to Match"
-                export  none
-            }
-            parm {
-                name    "vex_inplace"
-                baseparm
-                label   "Compute Results In Place"
-                export  none
-            }
-            parm {
-                name    "vex_selectiongroup"
-                baseparm
-                label   "Output Selection Group"
-                export  none
-            }
-        }
-
-    }
-
-    parm {
-        name    "uv"
-        label   "uv"
-        type    float
-        invisible
-        size    3
-        default { "0" "0" "0" }
-        range   { 0 10 }
-        parmtag { "parmvop" "1" }
-        parmtag { "shaderparmcontexts" "cvex" }
-    }
-    parm {
-        name    "P"
-        label   "P"
-        type    float
-        invisible
-        size    3
-        default { "0" "0" "0" }
-        range   { 0 10 }
-        parmtag { "parmvop" "1" }
-        parmtag { "shaderparmcontexts" "cvex" }
-    }
-    parm {
-        name    "v"
-        label   "Velocity"
-        type    float
-        invisible
-        size    3
-        default { "0" "0" "0" }
-        range   { 0 10 }
-        parmtag { "parmvop" "1" }
-        parmtag { "shaderparmcontexts" "cvex" }
-    }
-    parm {
-        name    "force"
-        label   "Force"
-        type    float
-        invisible
-        size    3
-        default { "0" "0" "0" }
-        range   { 0 10 }
-        parmtag { "parmvop" "1" }
-        parmtag { "shaderparmcontexts" "cvex" }
-    }
-    parm {
-        name    "Cd"
-        label   "Cd"
-        type    float
-        invisible
-        size    3
-        default { "1" "1" "1" }
-        range   { 0 10 }
-        parmtag { "parmvop" "1" }
-        parmtag { "shaderparmcontexts" "cvex" }
-    }
-    parm {
-        name    "N"
-        label   "N"
-        type    float
-        invisible
-        size    3
-        default { "0" "0" "0" }
-        range   { 0 10 }
-        parmtag { "parmvop" "1" }
-        parmtag { "shaderparmcontexts" "cvex" }
-    }
-    parm {
-        name    "ptnum"
-        label   "Point Number"
-        type    integer
-        invisible
-        default { "0" }
-        range   { 0 10 }
-        parmtag { "parmvop" "1" }
-        parmtag { "shaderparmcontexts" "cvex" }
-    }
-    parm {
-        name    "vtxnum"
-        label   "Vertex Number"
-        type    integer
-        invisible
-        default { "0" }
-        range   { 0 10 }
-        parmtag { "parmvop" "1" }
-        parmtag { "shaderparmcontexts" "cvex" }
-    }
-    parm {
-        name    "primnum"
-        label   "Primitive Number"
-        type    integer
-        invisible
-        default { "0" }
-        range   { 0 10 }
-        parmtag { "parmvop" "1" }
-        parmtag { "shaderparmcontexts" "cvex" }
-    }
-    parm {
-        name    "id"
-        label   "Id"
-        type    integer
-        invisible
-        default { "-1" }
-        range   { 0 10 }
-        parmtag { "parmvop" "1" }
-        parmtag { "shaderparmcontexts" "cvex" }
-    }
-    parm {
-        name    "numpt"
-        label   "Number of Points"
-        type    integer
-        invisible
-        default { "0" }
-        range   { 0 10 }
-        parmtag { "parmvop" "1" }
-        parmtag { "shaderparmcontexts" "cvex" }
-    }
-    parm {
-        name    "numvtx"
-        label   "Number of Vertices"
-        type    integer
-        invisible
-        default { "0" }
-        range   { 0 10 }
-        parmtag { "parmvop" "1" }
-        parmtag { "shaderparmcontexts" "cvex" }
-    }
-    parm {
-        name    "numprim"
-        label   "Number of Prims"
-        type    integer
-        invisible
-        default { "0" }
-        range   { 0 10 }
-        parmtag { "parmvop" "1" }
-        parmtag { "shaderparmcontexts" "cvex" }
-    }
-    parm {
-        name    "TimeInc"
-        label   "Time Inc"
-        type    float
-        invisible
-        default { "0" }
-        range   { 0 1 }
-        parmtag { "parmvop" "1" }
-        parmtag { "shaderparmcontexts" "cvex" }
-    }
-    parm {
-        name    "Frame"
-        label   "Frame"
-        type    float
-        invisible
-        default { "0" }
-        range   { 0 1 }
-        parmtag { "parmvop" "1" }
-        parmtag { "shaderparmcontexts" "cvex" }
-    }
-    parm {
-        name    "life"
-        label   "Life"
-        type    float
-        invisible
-        default { "0" }
-        range   { 0 1 }
-        parmtag { "parmvop" "1" }
-        parmtag { "shaderparmcontexts" "cvex" }
-    }
-    parm {
-        name    "age"
-        label   "Age"
-        type    float
-        invisible
-        default { "0" }
-        range   { 0 1 }
-        parmtag { "parmvop" "1" }
-        parmtag { "shaderparmcontexts" "cvex" }
-    }
-    parm {
-        name    "OpInput2"
-        label   "Second Input"
-        type    string
-        invisible
-        default { "" }
-        parmtag { "parmvop" "1" }
-        parmtag { "shaderparmcontexts" "cvex" }
-    }
-    parm {
-        name    "OpInput3"
-        label   "Third Input"
-        type    string
-        invisible
-        default { "" }
-        parmtag { "parmvop" "1" }
-        parmtag { "shaderparmcontexts" "cvex" }
-    }
-    parm {
-        name    "OpInput4"
-        label   "Fourth Input"
-        type    string
-        invisible
-        default { "" }
-        parmtag { "parmvop" "1" }
-        parmtag { "shaderparmcontexts" "cvex" }
-    }
-    parm {
-        name    "OpInput1"
-        label   "First Input"
-        type    string
-        invisible
-        default { "" }
-        parmtag { "parmvop" "1" }
-        parmtag { "shaderparmcontexts" "cvex" }
-    }
-    parm {
-        name    "Time"
-        label   "Time"
-        type    float
-        invisible
-        default { "0" }
-        range   { 0 1 }
-        parmtag { "parmvop" "1" }
-        parmtag { "shaderparmcontexts" "cvex" }
-    }
-
---HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot/objects/debug/sprite_vertex_shader.chn"
-Content-Type: text/plain
-
-{
-    channel _speed {
-      lefttype = extend
-      righttype = extend
-      default = 1.8700000000000001
-      flags = 0
-      segment { length = 0 value = 1.8700000000000001 1.8700000000000001 expr = ch(\"../../../speed\") }
-    }
-    channel coord_swizzle {
-      lefttype = extend
-      righttype = extend
-      flags = 0
-      segment { length = 0 expr = ch(\"../../../coord_pos\") }
-    }
-    channel coord_flip {
-      lefttype = extend
-      righttype = extend
-      flags = 0
-      segment { length = 0 expr = ch(\"../../../invert_pos\") }
-    }
-    channel _numOfFrames {
-      lefttype = extend
-      righttype = extend
-      flags = 0
-      segment { length = 0 expr = ch(\"../../../num_frames\") }
-    }
-    channel _posMax {
-      lefttype = extend
-      righttype = extend
-      flags = 0
-      segment { length = 0 expr = ch(\"../../../max_min_pos1\") }
-    }
-    channel _posMin {
-      lefttype = extend
-      righttype = extend
-      flags = 0
-      segment { length = 0 expr = ch(\"../../../max_min_pos2\") }
-    }
-  }
-
---HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot/objects/debug/sprite_vertex_shader.parm"
-Content-Type: text/plain
-
-{
-version 0.8
-bindgroup	[ 0	locks=0 ]	(	""	)
-bindgrouptype	[ 0	locks=0 ]	(	"guess"	)
-bindclass	[ 0	locks=0 ]	(	"point"	)
-vex_numcount	[ 0	locks=0 ]	(	10	)
-vex_threadjobsize	[ 0	locks=0 ]	(	1024	)
-stdswitcher	[ 0	locks=0 ]	(	0	0	)
-vexsrc	[ 0	locks=0 ]	(	"myself"	)
-shoppath	[ 0	locks=0 ]	(	""	)
-script	[ 0	locks=0 ]	(	null	)
-clear	[ 0	locks=0 ]	(	0	)
-vop_compiler	[ 0	locks=0 ]	(	"vcc -q $VOP_INCLUDEPATH -o $VOP_OBJECTFILE -e $VOP_ERRORFILE $VOP_SOURCEFILE"	)
-vop_forcecompile	[ 0	locks=0 ]	(	0	)
-vex_cwdpath	[ 0	locks=0 ]	(	""	)
-vex_outputmask	[ 0	locks=0 ]	(	*	)
-vex_multithread	[ 0	locks=0 ]	(	"on"	)
-autobind	[ 0	locks=0 ]	(	"on"	)
-bindings	[ 0	locks=0 ]	(	0	)
-groupautobind	[ 0	locks=0 ]	(	"on"	)
-groupbindings	[ 0	locks=0 ]	(	0	)
-vex_updatenmls	[ 0	locks=0 ]	(	"off"	)
-vex_matchattrib	[ 0	locks=0 ]	(	id	)
-vex_inplace	[ 0	locks=0 ]	(	"off"	)
-vex_selectiongroup	[ 0	locks=0 ]	(	""	)
-_speed	[ 0	locks=0 ]	(	[ _speed	0.24242424242424243 ] 	)
-_numOfFrames	[ 0	locks=0 ]	(	[ _numOfFrames	0 ] 	)
-_animateTime	[ 0	locks=0 ]	(	"off"	)
-_timeAnimated	[ 0	locks=0 ]	(	0	)
-_posTex	[ 0	locks=0 ]	(	`chs(\"../../../path_pos\")`	)
-_posMax	[ 0	locks=0 ]	(	[ _posMax	0 ] 	)
-_posMin	[ 0	locks=0 ]	(	[ _posMin	0 ] 	)
-coord_swizzle	[ 8	locks=0 ]	(	[ coord_swizzle	1 ] 	)
-coord_flip	[ 8	locks=0 ]	(	[ coord_flip	0 ] 	)
-fd_AttrVopParameters	[ 0	locks=0 ]	(	0	)
-stdswitcher3	[ 0	locks=0 ]	(	0	0	)
-uv	[ 0	locks=0 ]	(	0	0	0	)
-P	[ 0	locks=0 ]	(	0	0	0	)
-v	[ 0	locks=0 ]	(	0	0	0	)
-force	[ 0	locks=0 ]	(	0	0	0	)
-Cd	[ 0	locks=0 ]	(	1	1	1	)
-N	[ 0	locks=0 ]	(	0	0	0	)
-ptnum	[ 0	locks=0 ]	(	0	)
-vtxnum	[ 0	locks=0 ]	(	0	)
-primnum	[ 0	locks=0 ]	(	0	)
-id	[ 0	locks=0 ]	(	-1	)
-numpt	[ 0	locks=0 ]	(	0	)
-numvtx	[ 0	locks=0 ]	(	0	)
-numprim	[ 0	locks=0 ]	(	0	)
-TimeInc	[ 0	locks=0 ]	(	0	)
-Frame	[ 0	locks=0 ]	(	0	)
-life	[ 0	locks=0 ]	(	0	)
-age	[ 0	locks=0 ]	(	0	)
-OpInput2	[ 0	locks=0 ]	(	""	)
-OpInput3	[ 0	locks=0 ]	(	""	)
-OpInput4	[ 0	locks=0 ]	(	""	)
-OpInput1	[ 0	locks=0 ]	(	""	)
-Time	[ 0	locks=0 ]	(	0	)
-}
-
---HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot/objects/debug/sprite_vertex_shader.userdata"
-Content-Type: text/plain
-
-{
-	"___Version___":{
-		"type":"string",
-		"value":"17.5.258"
-	},
-	"nodeshape":{
-		"type":"string",
-		"value":"gurgle"
-	}
-}
-
---HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot/objects/debug/sprite_vertex_shader/OUT.init"
-Content-Type: text/plain
-
-type = geometryvopoutput
-matchesdef = 1
-
---HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot/objects/debug/sprite_vertex_shader/OUT.def"
-Content-Type: text/plain
-
-comment ""
-position 90.4401 -37.81
-connectornextid 5
-flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault off exposed on lowdetail off mediumdetail off highdetail on material off
-outputsNamed3
-{
-}
-inputsNamed3
-{
-0 	offset 2 1 "P"
-1 	"" "" 1 "v"
-2 	"" "" 1 "force"
-3 	"" "" 1 "Cd"
-4 	"" "" 1 "N"
-}
-inputs
-{
-0 	offset 0 1
-1 	"" 0 1
-2 	"" 0 1
-3 	"" 0 1
-4 	"" 0 1
-}
-stat
-{
-  create 1518209213
-  modify 1559660232
-  author blaidlaw@TOR-WKS-AB663.ubisoft.org
-  access 0777
-}
-color UT_Color RGB 0.302 0.525 0.114 
-delscript ""
-exprlanguage hscript
-end
-
---HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot/objects/debug/sprite_vertex_shader/OUT.parm"
-Content-Type: text/plain
-
-{
-version 0.8
-}
-
---HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot/objects/debug/sprite_vertex_shader/OUT.userdata"
-Content-Type: text/plain
-
-{
-	"___Version___":{
-		"type":"string",
-		"value":""
-	}
-}
-
---HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot/objects/debug/sprite_vertex_shader/_speed.init"
-Content-Type: text/plain
-
-type = parameter
-matchesdef = 0
-
---HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot/objects/debug/sprite_vertex_shader/_speed.def"
-Content-Type: text/plain
-
-comment ""
-position 48.5684 -41.2162
-connectornextid 1
-flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on lowdetail off mediumdetail off highdetail on material off
-outputsNamed3
-{
-0 "_speed"
-}
-inputsNamed3
-{
-}
-inputs
-{
-}
-stat
-{
-  create 1518209225
-  modify 1520039058
-  author blaidlaw@TOR-WKS-AB663.ubisoft.org
-  access 0777
-}
-color UT_Color RGB 1 1 0.4 
-delscript ""
-exprlanguage hscript
-end
-
---HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot/objects/debug/sprite_vertex_shader/_speed.parm"
-Content-Type: text/plain
-
-{
-version 0.8
-parmscope	[ 0	locks=0 ]	(	shaderparm	)
-parmaccess	[ 0	locks=0 ]	(	""	)
-parmname	[ 0	locks=0 ]	(	_speed	)
-parmprefix	[ 0	locks=0 ]	(	""	)
-parmpostfix	[ 0	locks=0 ]	(	""	)
-parmlabel	[ 0	locks=0 ]	(	Speed	)
-showlabel	[ 0	locks=0 ]	(	"on"	)
-parmtype	[ 0	locks=0 ]	(	"float"	)
-parmtypename	[ 0	locks=0 ]	(	""	)
-floatdef	[ 0	locks=0 ]	(	1.8700000000000001	)
-intdef	[ 0	locks=0 ]	(	0	)
-toggledef	[ 0	locks=0 ]	(	"off"	)
-angledef	[ 0	locks=0 ]	(	0	)
-logfloatdef	[ 0	locks=0 ]	(	0	)
-float2def	[ 0	locks=0 ]	(	0	0	)
-float3def	[ 0	locks=0 ]	(	0	0	0	)
-vectordef	[ 0	locks=0 ]	(	0	0	0	)
-normaldef	[ 0	locks=0 ]	(	0	0	0	)
-pointdef	[ 0	locks=0 ]	(	0	0	0	)
-directiondef	[ 0	locks=0 ]	(	1	0	0	)
-float4def	[ 0	locks=0 ]	(	0	0	0	0	)
-floatm2def	[ 0	locks=0 ]	(	1	0	0	1	)
-float9def	[ 0	locks=0 ]	(	1	0	0	0	1	0	0	0	1	)
-float16def	[ 0	locks=0 ]	(	1	0	0	0	0	1	0	0	0	0	1	0	0	0	0	1	)
-stringdef	[ 0	locks=0 ]	(	""	)
-filedef	[ 0	locks=0 ]	(	""	)
-imagedef	[ 0	locks=0 ]	(	""	)
-geometrydef	[ 0	locks=0 ]	(	""	)
-colordef	[ 0	locks=0 ]	(	0	0	0	)
-color4def	[ 0	locks=0 ]	(	0	0	0	0	)
-bsdfdef	[ 0	locks=0 ]	(	""	)
-coshaderdef	[ 0	locks=0 ]	(	""	)
-floatadef	[ 0	locks=0 ]	(	)
-intadef	[ 0	locks=0 ]	(	)
-vector2adef	[ 0	locks=0 ]	(	)
-vectoradef	[ 0	locks=0 ]	(	)
-pointadef	[ 0	locks=0 ]	(	)
-normaladef	[ 0	locks=0 ]	(	)
-coloradef	[ 0	locks=0 ]	(	)
-floatm2adef	[ 0	locks=0 ]	(	)
-float4adef	[ 0	locks=0 ]	(	)
-float9adef	[ 0	locks=0 ]	(	)
-float16adef	[ 0	locks=0 ]	(	)
-stringadef	[ 0	locks=0 ]	(	)
-coshaderadef	[ 0	locks=0 ]	(	""	)
-structdef	[ 0	locks=0 ]	(	""	)
-rangeflt	[ 0	locks=0 ]	(	0	1	)
-rangeint	[ 0	locks=0 ]	(	0	10	)
-stringtype	[ 0	locks=0 ]	(	off	)
-opfilter	[ 0	locks=0 ]	(	!!OBJ/LIGHT!!	)
-parmcomment	[ 0	locks=0 ]	(	""	)
-separator1	[ 0	locks=0 ]	(	)
-useasparmdefiner	[ 0	locks=0 ]	(	"off"	)
-useownexportcontext	[ 0	locks=0 ]	(	"off"	)
-parmuniform	[ 0	locks=0 ]	(	"on"	)
-usebound	[ 0	locks=0 ]	(	"off"	)
-hasconnector	[ 0	locks=0 ]	(	"on"	)
-exportparm	[ 0	locks=0 ]	(	"off"	)
-exportcontext	[ 0	locks=0 ]	(	cvex	)
-providemenu	[ 0	locks=0 ]	(	"off"	)
-menuchoices	[ 0	locks=0 ]	(	""	)
-menuscript	[ 0	locks=0 ]	(	""	)
-menuscriptlanguage	[ 0	locks=0 ]	(	"hscript"	)
-separator2	[ 0	locks=0 ]	(	)
-invisible	[ 0	locks=0 ]	(	"off"	)
-joinnext	[ 0	locks=0 ]	(	"off"	)
-disablewhen	[ 0	locks=0 ]	(	"{ _animateTime == 1 }"	)
-hidewhen	[ 0	locks=0 ]	(	""	)
-callback	[ 0	locks=0 ]	(	""	)
-tags	[ 0	locks=0 ]	(	""	)
-help	[ 0	locks=0 ]	(	"This is a multiplier that controls the rate of time for different systems, so that you can produce a time cycle of one second for the frame range of your sim."	)
-}
-
---HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot/objects/debug/sprite_vertex_shader/_speed.userdata"
-Content-Type: text/plain
-
-{
-	"___Version___":{
-		"type":"string",
-		"value":"17.5.258"
-	}
-}
-
---HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot/objects/debug/sprite_vertex_shader/changeTime.init"
-Content-Type: text/plain
-
-type = multiply
-matchesdef = 0
-
---HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot/objects/debug/sprite_vertex_shader/changeTime.def"
-Content-Type: text/plain
-
-comment ""
-position 51.552 -39.9712
-connectornextid 3
-flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on lowdetail off mediumdetail off highdetail on material off
-outputsNamed3
-{
-2 "product"
-}
-inputsNamed3
-{
-0 	Time 0 1 "input1"
-1 	_speed 0 1 "input2"
-}
-inputs
-{
-0 	Time 0 1
-1 	_speed 0 1
-}
-stat
-{
-  create 1518209236
-  modify 1520039058
-  author blaidlaw@TOR-WKS-AB663.ubisoft.org
-  access 0777
-}
-color UT_Color RGB 0.8 0.8 0.8 
-delscript ""
-exprlanguage hscript
-end
-
---HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot/objects/debug/sprite_vertex_shader/changeTime.parm"
-Content-Type: text/plain
-
-{
-version 0.8
-}
-
---HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot/objects/debug/sprite_vertex_shader/changeTime.userdata"
-Content-Type: text/plain
-
-{
-	"___Version___":{
-		"type":"string",
-		"value":"17.5.258"
-	}
-}
-
---HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot/objects/debug/sprite_vertex_shader/makeLoop.init"
-Content-Type: text/plain
-
-type = frac
-matchesdef = 0
-
---HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot/objects/debug/sprite_vertex_shader/makeLoop.def"
-Content-Type: text/plain
-
-comment ""
-position 54.5838 -40.1212
-connectornextid 2
-flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on lowdetail off mediumdetail off highdetail on material off
-outputsNamed3
-{
-1 "fraction"
-}
-inputsNamed3
-{
-0 	changeTime 2 1 "val"
-}
-inputs
-{
-0 	changeTime 0 1
-}
-stat
-{
-  create 1518209301
-  modify 1520039058
-  author blaidlaw@TOR-WKS-AB663.ubisoft.org
-  access 0777
-}
-color UT_Color RGB 0.8 0.8 0.8 
-delscript ""
-exprlanguage hscript
-end
-
---HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot/objects/debug/sprite_vertex_shader/makeLoop.parm"
-Content-Type: text/plain
-
-{
-version 0.8
-signature	[ 0	locks=0 ]	(	default	)
-val	[ 0	locks=0 ]	(	1	)
-val_i	[ 0	locks=0 ]	(	1	)
-val_u	[ 0	locks=0 ]	(	1	1	)
-val_v	[ 0	locks=0 ]	(	1	1	1	)
-val_p	[ 0	locks=0 ]	(	1	1	1	)
-val_n	[ 0	locks=0 ]	(	1	1	1	)
-val_c	[ 0	locks=0 ]	(	1	1	1	)
-val_v4	[ 0	locks=0 ]	(	1	1	1	1	)
-val_uf	[ 0	locks=0 ]	(	1	)
-val_uv	[ 0	locks=0 ]	(	1	1	1	)
-val_up	[ 0	locks=0 ]	(	1	1	1	)
-val_un	[ 0	locks=0 ]	(	1	1	1	)
-val_uc	[ 0	locks=0 ]	(	1	1	1	)
-}
-
---HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot/objects/debug/sprite_vertex_shader/makeLoop.userdata"
-Content-Type: text/plain
-
-{
-	"___Version___":{
-		"type":"string",
-		"value":""
-	}
-}
-
---HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot/objects/debug/sprite_vertex_shader/makeLoop.outputinfos"
-Content-Type: application/octet-stream
-Content-Transfer-Encoding: base64
-
-TnVtSW5mb3MgMQpWYWx1ZXNCaW5hcnkgMQpCZWdpbkluZm8KT3V0cHV0TmFtZSBmcmFjdGlvbgpEZWJ1Z0NvcnJJbnB1dE5hbWUgX19kZWZhdWx0X18KQnlwYXNzQ29ycklucHV0TmFtZSBfX2RlZmF1bHRfXwpOb3JtYWxNb2Q=
-ZSAwCkJ5cGFzc01vZGUgMQpVc2VEZWZhdWx0VmFsdWUgMQpFbmRJbmZvCgAAAAAAAAAA
-
---HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot/objects/debug/sprite_vertex_shader/FrameFloat.init"
-Content-Type: text/plain
-
-type = multiply
-matchesdef = 0
-
---HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot/objects/debug/sprite_vertex_shader/FrameFloat.def"
-Content-Type: text/plain
-
-comment ""
-position 60.607 -39.9712
-connectornextid 3
-flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on lowdetail off mediumdetail off highdetail on material off
-outputsNamed3
-{
-2 "product"
-}
-inputsNamed3
-{
-1 	switch_animateTime 3 1 "input1"
-0 	_numOfFrames 0 1 "input2"
-}
-inputs
-{
-0 	switch_animateTime 0 1
-1 	_numOfFrames 0 1
-}
-stat
-{
-  create 1518209308
-  modify 1520039058
-  author blaidlaw@TOR-WKS-AB663.ubisoft.org
-  access 0777
-}
-color UT_Color RGB 0.8 0.8 0.8 
-delscript ""
-exprlanguage hscript
-end
-
---HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot/objects/debug/sprite_vertex_shader/FrameFloat.parm"
-Content-Type: text/plain
-
-{
-version 0.8
-}
-
---HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot/objects/debug/sprite_vertex_shader/FrameFloat.userdata"
-Content-Type: text/plain
-
-{
-	"___Version___":{
-		"type":"string",
-		"value":"17.5.258"
-	}
-}
-
---HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot/objects/debug/sprite_vertex_shader/_numOfFrames.init"
-Content-Type: text/plain
-
-type = parameter
-matchesdef = 0
-
---HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot/objects/debug/sprite_vertex_shader/_numOfFrames.def"
-Content-Type: text/plain
-
-comment ""
-position 57.552 -42.0462
-connectornextid 1
-flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on lowdetail off mediumdetail off highdetail on material off
-outputsNamed3
-{
-0 "_numOfFrames"
-}
-inputsNamed3
-{
-}
-inputs
-{
-}
-stat
-{
-  create 1518209315
-  modify 1542761258
-  author blaidlaw@TOR-WKS-AB663.ubisoft.org
-  access 0777
-}
-color UT_Color RGB 1 1 0.4 
-delscript ""
-exprlanguage hscript
-end
-
---HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot/objects/debug/sprite_vertex_shader/_numOfFrames.chn"
-Content-Type: text/plain
-
-{
-    channel floatdef {
-      lefttype = extend
-      righttype = extend
-      default = 16
-      flags = 0
-      segment { length = 0 value = 16 16 expr = ch(\"../../../num_frames\") }
-    }
-  }
-
---HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot/objects/debug/sprite_vertex_shader/_numOfFrames.parm"
-Content-Type: text/plain
-
-{
-version 0.8
-parmscope	[ 0	locks=0 ]	(	shaderparm	)
-parmaccess	[ 0	locks=0 ]	(	""	)
-parmname	[ 0	locks=0 ]	(	_numOfFrames	)
-parmprefix	[ 0	locks=0 ]	(	""	)
-parmpostfix	[ 0	locks=0 ]	(	""	)
-parmlabel	[ 0	locks=0 ]	(	"Frame Range"	)
-showlabel	[ 0	locks=0 ]	(	"on"	)
-parmtype	[ 0	locks=0 ]	(	"float"	)
-parmtypename	[ 0	locks=0 ]	(	""	)
-floatdef	[ 8	locks=0 ]	(	[ floatdef	0 ] 	)
-intdef	[ 0	locks=0 ]	(	0	)
-toggledef	[ 0	locks=0 ]	(	"off"	)
-angledef	[ 0	locks=0 ]	(	0	)
-logfloatdef	[ 0	locks=0 ]	(	0	)
-float2def	[ 0	locks=0 ]	(	0	0	)
-float3def	[ 0	locks=0 ]	(	0	0	0	)
-vectordef	[ 0	locks=0 ]	(	0	0	0	)
-normaldef	[ 0	locks=0 ]	(	0	0	0	)
-pointdef	[ 0	locks=0 ]	(	0	0	0	)
-directiondef	[ 0	locks=0 ]	(	1	0	0	)
-float4def	[ 0	locks=0 ]	(	0	0	0	0	)
-floatm2def	[ 0	locks=0 ]	(	1	0	0	1	)
-float9def	[ 0	locks=0 ]	(	1	0	0	0	1	0	0	0	1	)
-float16def	[ 0	locks=0 ]	(	1	0	0	0	0	1	0	0	0	0	1	0	0	0	0	1	)
-stringdef	[ 0	locks=0 ]	(	""	)
-filedef	[ 0	locks=0 ]	(	""	)
-imagedef	[ 0	locks=0 ]	(	""	)
-geometrydef	[ 0	locks=0 ]	(	""	)
-colordef	[ 0	locks=0 ]	(	0	0	0	)
-color4def	[ 0	locks=0 ]	(	0	0	0	0	)
-bsdfdef	[ 0	locks=0 ]	(	""	)
-coshaderdef	[ 0	locks=0 ]	(	""	)
-floatadef	[ 0	locks=0 ]	(	)
-intadef	[ 0	locks=0 ]	(	)
-vector2adef	[ 0	locks=0 ]	(	)
-vectoradef	[ 0	locks=0 ]	(	)
-pointadef	[ 0	locks=0 ]	(	)
-normaladef	[ 0	locks=0 ]	(	)
-coloradef	[ 0	locks=0 ]	(	)
-floatm2adef	[ 0	locks=0 ]	(	)
-float4adef	[ 0	locks=0 ]	(	)
-float9adef	[ 0	locks=0 ]	(	)
-float16adef	[ 0	locks=0 ]	(	)
-stringadef	[ 0	locks=0 ]	(	)
-coshaderadef	[ 0	locks=0 ]	(	""	)
-structdef	[ 0	locks=0 ]	(	""	)
-rangeflt	[ 0	locks=0 ]	(	0	1	)
-rangeint	[ 0	locks=0 ]	(	0	10	)
-stringtype	[ 0	locks=0 ]	(	off	)
-opfilter	[ 0	locks=0 ]	(	!!OBJ/LIGHT!!	)
-parmcomment	[ 0	locks=0 ]	(	""	)
-separator1	[ 0	locks=0 ]	(	)
-useasparmdefiner	[ 0	locks=0 ]	(	"off"	)
-useownexportcontext	[ 0	locks=0 ]	(	"off"	)
-parmuniform	[ 0	locks=0 ]	(	"on"	)
-usebound	[ 0	locks=0 ]	(	"off"	)
-hasconnector	[ 0	locks=0 ]	(	"on"	)
-exportparm	[ 0	locks=0 ]	(	"off"	)
-exportcontext	[ 0	locks=0 ]	(	cvex	)
-providemenu	[ 0	locks=0 ]	(	"off"	)
-menuchoices	[ 0	locks=0 ]	(	""	)
-menuscript	[ 0	locks=0 ]	(	""	)
-menuscriptlanguage	[ 0	locks=0 ]	(	"hscript"	)
-separator2	[ 0	locks=0 ]	(	)
-invisible	[ 0	locks=0 ]	(	"off"	)
-joinnext	[ 0	locks=0 ]	(	"off"	)
-disablewhen	[ 0	locks=0 ]	(	"{ _animateTime == 1 }"	)
-hidewhen	[ 0	locks=0 ]	(	""	)
-callback	[ 0	locks=0 ]	(	""	)
-tags	[ 0	locks=0 ]	(	""	)
-help	[ 0	locks=0 ]	(	""	)
-}
-
---HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot/objects/debug/sprite_vertex_shader/_numOfFrames.userdata"
-Content-Type: text/plain
-
-{
-	"___Version___":{
-		"type":"string",
-		"value":"17.5.258"
-	}
-}
-
---HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot/objects/debug/sprite_vertex_shader/frameInteger.init"
-Content-Type: text/plain
-
-type = ceiling
-matchesdef = 0
-
---HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot/objects/debug/sprite_vertex_shader/frameInteger.def"
-Content-Type: text/plain
-
-comment ""
-position 63.552 -39.9712
-connectornextid 2
-flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on lowdetail off mediumdetail off highdetail on material off
-outputsNamed3
-{
-1 "ceil"
-}
-inputsNamed3
-{
-0 	FrameFloat 2 1 "val"
-}
-inputs
-{
-0 	FrameFloat 0 1
-}
-stat
-{
-  create 1518209341
-  modify 1520039058
-  author blaidlaw@TOR-WKS-AB663.ubisoft.org
-  access 0777
-}
-color UT_Color RGB 0.8 0.8 0.8 
-delscript ""
-exprlanguage hscript
-end
-
---HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot/objects/debug/sprite_vertex_shader/frameInteger.parm"
-Content-Type: text/plain
-
-{
-version 0.8
-signature	[ 0	locks=0 ]	(	default	)
-val	[ 0	locks=0 ]	(	1	)
-val_u	[ 0	locks=0 ]	(	1	1	)
-val_v	[ 0	locks=0 ]	(	1	1	1	)
-val_p	[ 0	locks=0 ]	(	1	1	1	)
-val_n	[ 0	locks=0 ]	(	1	1	1	)
-val_c	[ 0	locks=0 ]	(	1	1	1	)
-val_v4	[ 0	locks=0 ]	(	1	1	1	1	)
-val_uf	[ 0	locks=0 ]	(	1	)
-val_uv	[ 0	locks=0 ]	(	1	1	1	)
-val_up	[ 0	locks=0 ]	(	1	1	1	)
-val_un	[ 0	locks=0 ]	(	1	1	1	)
-val_uc	[ 0	locks=0 ]	(	1	1	1	)
-}
-
---HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot/objects/debug/sprite_vertex_shader/frameInteger.userdata"
-Content-Type: text/plain
-
-{
-	"___Version___":{
-		"type":"string",
-		"value":""
-	}
-}
-
---HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot/objects/debug/sprite_vertex_shader/range0to1.init"
-Content-Type: text/plain
-
-type = divide
-matchesdef = 0
-
---HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot/objects/debug/sprite_vertex_shader/range0to1.def"
-Content-Type: text/plain
-
-comment ""
-position 66.526 -39.81
-connectornextid 3
-flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on lowdetail off mediumdetail off highdetail on material off
-outputsNamed3
-{
-2 "div"
-}
-inputsNamed3
-{
-0 	frameInteger 1 1 "input1"
-1 	_numOfFrames 0 1 "input2"
-}
-inputs
-{
-0 	frameInteger 0 1
-1 	_numOfFrames 0 1
-}
-stat
-{
-  create 1518209357
-  modify 1520039058
-  author blaidlaw@TOR-WKS-AB663.ubisoft.org
-  access 0777
-}
-color UT_Color RGB 0.8 0.8 0.8 
-delscript ""
-exprlanguage hscript
-end
-
---HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot/objects/debug/sprite_vertex_shader/range0to1.parm"
-Content-Type: text/plain
-
-{
-version 0.8
-}
-
---HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot/objects/debug/sprite_vertex_shader/range0to1.userdata"
-Content-Type: text/plain
-
-{
-	"___Version___":{
-		"type":"string",
-		"value":"17.5.258"
-	}
-}
-
---HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot/objects/debug/sprite_vertex_shader/uv2_RisPixelIndexGisMax1.init"
-Content-Type: text/plain
-
-type = importvertex
-matchesdef = 1
-
---HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot/objects/debug/sprite_vertex_shader/uv2_RisPixelIndexGisMax1.def"
-Content-Type: text/plain
-
-comment ""
-position 63.5 -37.66
-connectornextid 6
-flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault off exposed on lowdetail off mediumdetail off highdetail on material off
-outputsNamed3
-{
-5 "result"
-}
-inputsNamed3
-{
-0 	"" "" 1 "defvalue"
-1 	"" "" 1 "file"
-2 	"" "" 1 "attribute"
-3 	"" "" 1 "primnum"
-4 	"" "" 1 "vtxnum"
-}
-inputs
-{
-0 	"" 0 1
-1 	"" 0 1
-2 	"" 0 1
-3 	"" 0 1
-4 	"" 0 1
-}
-stat
-{
-  create 1518209589
-  modify 1520010828
-  author blaidlaw@TOR-WKS-AB663.ubisoft.org
-  access 0777
-}
-color UT_Color RGB 0.451 0.369 0.796 
-delscript ""
-exprlanguage hscript
-end
-
---HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot/objects/debug/sprite_vertex_shader/uv2_RisPixelIndexGisMax1.parm"
-Content-Type: text/plain
-
-{
-version 0.8
-signature	[ 0	locks=0 ]	(	v	)
-opinput	[ 0	locks=0 ]	(	opinput:0	)
-file	[ 0	locks=0 ]	(	defgeo.bgeo	)
-attribute	[ 0	locks=0 ]	(	uv2	)
-}
-
---HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot/objects/debug/sprite_vertex_shader/uv2_RisPixelIndexGisMax1.userdata"
-Content-Type: text/plain
-
-{
-	"___Version___":{
-		"type":"string",
-		"value":""
-	}
-}
-
---HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot/objects/debug/sprite_vertex_shader/loadPositionTexture2.init"
-Content-Type: text/plain
-
-type = texture::2.0
-matchesdef = 1
-
---HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot/objects/debug/sprite_vertex_shader/loadPositionTexture2.def"
-Content-Type: text/plain
-
-comment ""
-position 75.5 -37.81
-connectornextid 18
-flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on lowdetail off mediumdetail on highdetail off material off
-outputsNamed3
-{
-17 "clr"
-}
-inputsNamed3
-{
-0 	mergUV1 3 1 "uv"
-1 	"" "" 1 "duv"
-2 	_posTex 0 1 "map"
-3 	"" "" 1 "udim"
-4 	"" "" 1 "srccolorspace"
-5 	"" "" 1 "wrap"
-6 	"" "" 1 "filter"
-7 	"" "" 1 "width"
-8 	"" "" 1 "blur"
-9 	"" "" 1 "pixelblur"
-10 	"" "" 1 "border"
-11 	"" "" 1 "extrapol"
-12 	"" "" 1 "interp"
-13 	"" "" 1 "defclr"
-14 	"" "" 1 "channel"
-15 	"" "" 1 "ptexface"
-16 	"" "" 1 "orient"
-}
-inputs
-{
-0 	mergUV1 0 1
-1 	"" 0 1
-2 	_posTex 0 1
-3 	"" 0 1
-4 	"" 0 1
-5 	"" 0 1
-6 	"" 0 1
-7 	"" 0 1
-8 	"" 0 1
-9 	"" 0 1
-10 	"" 0 1
-11 	"" 0 1
-12 	"" 0 1
-13 	"" 0 1
-14 	"" 0 1
-15 	"" 0 1
-16 	"" 0 1
-}
-stat
-{
-  create 1518209607
-  modify 1520024342
-  author blaidlaw@TOR-WKS-AB663.ubisoft.org
-  access 0777
-}
-color UT_Color RGB 0.8 0.8 0.8 
-delscript ""
-exprlanguage hscript
-end
-
---HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot/objects/debug/sprite_vertex_shader/loadPositionTexture2.parm"
-Content-Type: text/plain
-
-{
-version 0.8
-signature	[ 0	locks=0 ]	(	default	)
-map	[ 0	locks=0 ]	(	$HIP/export/fx_example_vertex_animation_soft1_p.tga	)
-udim	[ 0	locks=0 ]	(	"on"	)
-srccolorspace	[ 0	locks=0 ]	(	linear	)
-wrap	[ 0	locks=0 ]	(	repeat	)
-filter	[ 0	locks=0 ]	(	box	)
-width	[ 0	locks=0 ]	(	1	)
-blur	[ 0	locks=0 ]	(	0	)
-pixelblur	[ 0	locks=0 ]	(	0	)
-border	[ 0	locks=0 ]	(	0	0	0	1	)
-extrapol	[ 0	locks=0 ]	(	"on"	)
-interp	[ 0	locks=0 ]	(	"off"	)
-defclr	[ 0	locks=0 ]	(	0	0	0	0	)
-channel	[ 0	locks=0 ]	(	""	)
-ptexface	[ 0	locks=0 ]	(	0	)
-orient	[ 0	locks=0 ]	(	0	)
-}
-
---HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot/objects/debug/sprite_vertex_shader/loadPositionTexture2.userdata"
-Content-Type: text/plain
-
-{
-	"___Version___":{
-		"type":"string",
-		"value":""
-	},
-	"___toolcount___":{
-		"type":"string",
-		"value":"32"
-	},
-	"___toolid___":{
-		"type":"string",
-		"value":"tool_2"
-	}
-}
-
---HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot/objects/debug/sprite_vertex_shader/splitUV1.init"
-Content-Type: text/plain
-
-type = vectofloat
-matchesdef = 0
-
---HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot/objects/debug/sprite_vertex_shader/splitUV1.def"
-Content-Type: text/plain
-
-comment ""
-position 66.526 -37.9712
-connectornextid 3
-flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on lowdetail off mediumdetail off highdetail on material off
-outputsNamed3
-{
-1 "fval1"
-2 "fval2"
-}
-inputsNamed3
-{
-0 	uv2_RisPixelIndexGisMax1 5 1 "vec"
-}
-inputs
-{
-0 	uv2_RisPixelIndexGisMax1 0 1
-}
-stat
-{
-  create 1518209626
-  modify 1520010828
-  author blaidlaw@TOR-WKS-AB663.ubisoft.org
-  access 0777
-}
-color UT_Color RGB 0.8 0.8 0.8 
-delscript ""
-exprlanguage hscript
-end
-
---HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot/objects/debug/sprite_vertex_shader/splitUV1.parm"
-Content-Type: text/plain
-
-{
-version 0.8
-signature	[ 0	locks=0 ]	(	default	)
-vec	[ 0	locks=0 ]	(	0	0	0	)
-vec_p	[ 0	locks=0 ]	(	0	0	0	)
-vec_n	[ 0	locks=0 ]	(	0	0	0	)
-vec_c	[ 0	locks=0 ]	(	0	0	0	)
-vec_uv	[ 0	locks=0 ]	(	0	0	0	)
-vec_up	[ 0	locks=0 ]	(	0	0	0	)
-vec_un	[ 0	locks=0 ]	(	0	0	0	)
-vec_uc	[ 0	locks=0 ]	(	0	0	0	)
-}
-
---HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot/objects/debug/sprite_vertex_shader/splitUV1.userdata"
-Content-Type: text/plain
-
-{
-	"___Version___":{
-		"type":"string",
-		"value":""
-	}
-}
-
---HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot/objects/debug/sprite_vertex_shader/addStaticToDynamic.init"
-Content-Type: text/plain
-
-type = add
-matchesdef = 0
-
---HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot/objects/debug/sprite_vertex_shader/addStaticToDynamic.def"
-Content-Type: text/plain
-
-comment ""
-position 69.5 -39.81
-connectornextid 3
-flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on lowdetail off mediumdetail off highdetail on material off
-outputsNamed3
-{
-2 "sum"
-}
-inputsNamed3
-{
-0 	splitUV1 2 1 "input1"
-1 	range0to1 2 1 "input2"
-}
-inputs
-{
-0 	splitUV1 1 1
-1 	range0to1 0 1
-}
-stat
-{
-  create 1518209646
-  modify 1520024341
-  author blaidlaw@TOR-WKS-AB663.ubisoft.org
-  access 0777
-}
-color UT_Color RGB 0.8 0.8 0.8 
-delscript ""
-exprlanguage hscript
-end
-
---HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot/objects/debug/sprite_vertex_shader/addStaticToDynamic.parm"
-Content-Type: text/plain
-
-{
-version 0.8
-}
-
---HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot/objects/debug/sprite_vertex_shader/addStaticToDynamic.userdata"
-Content-Type: text/plain
-
-{
-	"___Version___":{
-		"type":"string",
-		"value":"17.5.258"
-	}
-}
-
---HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot/objects/debug/sprite_vertex_shader/mergUV1.init"
-Content-Type: text/plain
-
-type = floattovec
-matchesdef = 0
-
---HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot/objects/debug/sprite_vertex_shader/mergUV1.def"
-Content-Type: text/plain
-
-comment ""
-position 72.4618 -37.81
-connectornextid 4
-flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on lowdetail off mediumdetail off highdetail on material off
-outputsNamed3
-{
-3 "vec"
-}
-inputsNamed3
-{
-0 	splitUV1 1 1 "fval1"
-1 	addStaticToDynamic 2 1 "fval2"
-2 	"" "" 1 "fval3"
-}
-inputs
-{
-0 	splitUV1 0 1
-1 	addStaticToDynamic 0 1
-2 	"" 0 1
-}
-stat
-{
-  create 1518209666
-  modify 1520024340
-  author blaidlaw@TOR-WKS-AB663.ubisoft.org
-  access 0777
-}
-color UT_Color RGB 0.8 0.8 0.8 
-delscript ""
-exprlanguage hscript
-end
-
---HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot/objects/debug/sprite_vertex_shader/mergUV1.parm"
-Content-Type: text/plain
-
-{
-version 0.8
-signature	[ 0	locks=0 ]	(	default	)
-fval1	[ 0	locks=0 ]	(	0	)
-fval2	[ 0	locks=0 ]	(	0	)
-fval3	[ 0	locks=0 ]	(	0	)
-fval1_uv	[ 0	locks=0 ]	(	0	)
-fval2_uv	[ 0	locks=0 ]	(	0	)
-fval3_uv	[ 0	locks=0 ]	(	0	)
-}
-
---HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot/objects/debug/sprite_vertex_shader/mergUV1.userdata"
-Content-Type: text/plain
-
-{
-	"___Version___":{
-		"type":"string",
-		"value":""
-	}
-}
-
---HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot/objects/debug/sprite_vertex_shader/offset.init"
-Content-Type: text/plain
-
-type = add
-matchesdef = 0
-
---HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot/objects/debug/sprite_vertex_shader/offset.def"
-Content-Type: text/plain
-
-comment ""
-position 87.5 -37.81
-connectornextid 3
-flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on lowdetail off mediumdetail off highdetail on material off
-outputsNamed3
-{
-2 "sum"
-}
-inputsNamed3
-{
-0 	P 0 1 "input1"
-1 	coord_swizzle_vector1 4 1 "input2"
-}
-inputs
-{
-0 	P 0 1
-1 	coord_swizzle_vector1 0 1
-}
-stat
-{
-  create 1518209846
-  modify 1559660232
-  author blaidlaw@TOR-WKS-AB663.ubisoft.org
-  access 0777
-}
-color UT_Color RGB 0.8 0.8 0.8 
-delscript ""
-exprlanguage hscript
-end
-
---HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot/objects/debug/sprite_vertex_shader/offset.parm"
-Content-Type: text/plain
-
-{
-version 0.8
-}
-
---HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot/objects/debug/sprite_vertex_shader/offset.userdata"
-Content-Type: text/plain
-
-{
-	"___Version___":{
-		"type":"string",
-		"value":"17.5.258"
-	}
-}
-
---HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot/objects/debug/sprite_vertex_shader/P.init"
-Content-Type: text/plain
-
-type = geometryvopglobal::2.0
-matchesdef = 1
-
---HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot/objects/debug/sprite_vertex_shader/P.def"
-Content-Type: text/plain
-
-comment ""
-position 84.4236 -35.885
-connectornextid 1
-flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault off exposed on lowdetail off mediumdetail on highdetail off material off
-outputsNamed3
-{
-0 "P"
-}
-inputsNamed3
-{
-}
-inputs
-{
-}
-stat
-{
-  create 1518209874
-  modify 1520010747
-  author blaidlaw@TOR-WKS-AB663.ubisoft.org
-  access 0777
-}
-color UT_Color RGB 0.451 0.369 0.796 
-delscript ""
-exprlanguage hscript
-end
-
---HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot/objects/debug/sprite_vertex_shader/P.parm"
-Content-Type: text/plain
-
-{
-version 0.8
-}
-
---HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot/objects/debug/sprite_vertex_shader/P.userdata"
-Content-Type: text/plain
-
-{
-	"___Version___":{
-		"type":"string",
-		"value":""
-	}
-}
-
---HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot/objects/debug/sprite_vertex_shader/boundSize1.init"
-Content-Type: text/plain
-
-type = subtract
-matchesdef = 0
-
---HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot/objects/debug/sprite_vertex_shader/boundSize1.def"
-Content-Type: text/plain
-
-comment ""
-position 75.5 -39.81
-connectornextid 3
-flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on lowdetail off mediumdetail off highdetail on material off
-outputsNamed3
-{
-2 "diff"
-}
-inputsNamed3
-{
-0 	_posMax 0 1 "input1"
-1 	_posMin 0 1 "input2"
-}
-inputs
-{
-0 	_posMax 0 1
-1 	_posMin 0 1
-}
-stat
-{
-  create 1518280847
-  modify 1520009930
-  author LaidlawFX@LaidlawFX
-  access 0777
-}
-color UT_Color RGB 0.8 0.8 0.8 
-delscript ""
-exprlanguage hscript
-end
-
---HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot/objects/debug/sprite_vertex_shader/boundSize1.parm"
-Content-Type: text/plain
-
-{
-version 0.8
-}
-
---HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot/objects/debug/sprite_vertex_shader/boundSize1.userdata"
-Content-Type: text/plain
-
-{
-	"___Version___":{
-		"type":"string",
-		"value":"17.5.258"
-	}
-}
-
---HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot/objects/debug/sprite_vertex_shader/unNormalize.init"
-Content-Type: text/plain
-
-type = multiply
-matchesdef = 0
-
---HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot/objects/debug/sprite_vertex_shader/unNormalize.def"
-Content-Type: text/plain
-
-comment ""
-position 78.4998 -37.81
-connectornextid 3
-flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on lowdetail off mediumdetail off highdetail on material off
-outputsNamed3
-{
-2 "product"
-}
-inputsNamed3
-{
-0 	loadPositionTexture2 17 1 "input1"
-1 	boundSize1 2 1 "input2"
-}
-inputs
-{
-0 	loadPositionTexture2 0 1
-1 	boundSize1 0 1
-}
-stat
-{
-  create 1518280872
-  modify 1520024341
-  author LaidlawFX@LaidlawFX
-  access 0777
-}
-color UT_Color RGB 0.8 0.8 0.8 
-delscript ""
-exprlanguage hscript
-end
-
---HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot/objects/debug/sprite_vertex_shader/unNormalize.parm"
-Content-Type: text/plain
-
-{
-version 0.8
-}
-
---HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot/objects/debug/sprite_vertex_shader/unNormalize.userdata"
-Content-Type: text/plain
-
-{
-	"___Version___":{
-		"type":"string",
-		"value":"17.5.258"
-	}
-}
-
---HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot/objects/debug/sprite_vertex_shader/shiftMinSize.init"
-Content-Type: text/plain
-
-type = add
-matchesdef = 0
-
---HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot/objects/debug/sprite_vertex_shader/shiftMinSize.def"
-Content-Type: text/plain
-
-comment ""
-position 81.5 -37.81
-connectornextid 3
-flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on lowdetail off mediumdetail off highdetail on material off
-outputsNamed3
-{
-2 "sum"
-}
-inputsNamed3
-{
-0 	unNormalize 2 1 "input1"
-1 	_posMin 0 1 "input2"
-}
-inputs
-{
-0 	unNormalize 0 1
-1 	_posMin 0 1
-}
-stat
-{
-  create 1518280895
-  modify 1520024341
-  author LaidlawFX@LaidlawFX
-  access 0777
-}
-color UT_Color RGB 0.8 0.8 0.8 
-delscript ""
-exprlanguage hscript
-end
-
---HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot/objects/debug/sprite_vertex_shader/shiftMinSize.parm"
-Content-Type: text/plain
-
-{
-version 0.8
-}
-
---HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot/objects/debug/sprite_vertex_shader/shiftMinSize.userdata"
-Content-Type: text/plain
-
-{
-	"___Version___":{
-		"type":"string",
-		"value":"17.5.258"
-	}
-}
-
---HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot/objects/debug/sprite_vertex_shader/Time.init"
-Content-Type: text/plain
-
-type = parameter
-matchesdef = 0
-
---HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot/objects/debug/sprite_vertex_shader/Time.def"
-Content-Type: text/plain
-
-comment ""
-position 48.5684 -40.0462
-connectornextid 3
-flags =  lock off model off template off footprint off xray off bypass off display on render on highlight off unload off savedata off compress on colordefault off exposed on lowdetail off mediumdetail off highdetail on material off
-outputsNamed3
-{
-0 "Time"
-1 "bound_Time"
-}
-inputsNamed3
-{
-2 	"" "" 1 "input"
-}
-inputs
-{
-0 	"" 0 1
-}
-stat
-{
-  create 1340291964
-  modify 1520039058
-  author jlait@andorra.sidefx.com
-  access 0777
-}
-color UT_Color RGB 0.451 0.369 0.796 
-delscript ""
-exprlanguage hscript
-end
-
---HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot/objects/debug/sprite_vertex_shader/Time.parm"
-Content-Type: text/plain
-
-{
-version 0.8
-parmscope	[ 0	locks=0 ]	(	shaderparm	)
-parmaccess	[ 0	locks=0 ]	(	""	)
-parmname	[ 0	locks=0 ]	(	Time	)
-parmprefix	[ 0	locks=0 ]	(	""	)
-parmpostfix	[ 0	locks=0 ]	(	""	)
-parmlabel	[ 0	locks=0 ]	(	Time	)
-showlabel	[ 0	locks=0 ]	(	"on"	)
-parmtype	[ 0	locks=0 ]	(	"float"	)
-parmtypename	[ 0	locks=0 ]	(	""	)
-floatdef	[ 0	locks=0 ]	(	0	)
-intdef	[ 0	locks=0 ]	(	0	)
-toggledef	[ 0	locks=0 ]	(	"off"	)
-angledef	[ 0	locks=0 ]	(	0	)
-logfloatdef	[ 0	locks=0 ]	(	0	)
-float2def	[ 0	locks=0 ]	(	0	0	)
-float3def	[ 0	locks=0 ]	(	0	0	0	)
-vectordef	[ 0	locks=0 ]	(	0	0	0	)
-normaldef	[ 0	locks=0 ]	(	0	0	0	)
-pointdef	[ 0	locks=0 ]	(	0	0	0	)
-directiondef	[ 0	locks=0 ]	(	1	0	0	)
-float4def	[ 0	locks=0 ]	(	0	0	0	0	)
-floatm2def	[ 0	locks=0 ]	(	1	0	0	1	)
-float9def	[ 0	locks=0 ]	(	1	0	0	0	1	0	0	0	1	)
-float16def	[ 0	locks=0 ]	(	1	0	0	0	0	1	0	0	0	0	1	0	0	0	0	1	)
-stringdef	[ 0	locks=0 ]	(	""	)
-filedef	[ 0	locks=0 ]	(	""	)
-imagedef	[ 0	locks=0 ]	(	""	)
-geometrydef	[ 0	locks=0 ]	(	""	)
-colordef	[ 0	locks=0 ]	(	0	0	0	)
-color4def	[ 0	locks=0 ]	(	0	0	0	0	)
-bsdfdef	[ 0	locks=0 ]	(	""	)
-coshaderdef	[ 0	locks=0 ]	(	""	)
-floatadef	[ 0	locks=0 ]	(	)
-intadef	[ 0	locks=0 ]	(	)
-vector2adef	[ 0	locks=0 ]	(	)
-vectoradef	[ 0	locks=0 ]	(	)
-pointadef	[ 0	locks=0 ]	(	)
-normaladef	[ 0	locks=0 ]	(	)
-coloradef	[ 0	locks=0 ]	(	)
-floatm2adef	[ 0	locks=0 ]	(	)
-float4adef	[ 0	locks=0 ]	(	)
-float9adef	[ 0	locks=0 ]	(	)
-float16adef	[ 0	locks=0 ]	(	)
-stringadef	[ 0	locks=0 ]	(	)
-coshaderadef	[ 0	locks=0 ]	(	""	)
-structdef	[ 0	locks=0 ]	(	""	)
-rangeflt	[ 0	locks=0 ]	(	0	1	)
-rangeint	[ 0	locks=0 ]	(	0	10	)
-stringtype	[ 0	locks=0 ]	(	off	)
-opfilter	[ 0	locks=0 ]	(	!!OBJ/LIGHT!!	)
-parmcomment	[ 0	locks=0 ]	(	""	)
-separator1	[ 0	locks=0 ]	(	)
-useasparmdefiner	[ 0	locks=0 ]	(	"off"	)
-useownexportcontext	[ 0	locks=0 ]	(	"off"	)
-parmuniform	[ 0	locks=0 ]	(	"on"	)
-usebound	[ 0	locks=0 ]	(	"off"	)
-hasconnector	[ 0	locks=0 ]	(	"on"	)
-exportparm	[ 0	locks=0 ]	(	"off"	)
-exportcontext	[ 0	locks=0 ]	(	cvex	)
-providemenu	[ 0	locks=0 ]	(	"off"	)
-menuchoices	[ 0	locks=0 ]	(	""	)
-menuscript	[ 0	locks=0 ]	(	""	)
-menuscriptlanguage	[ 0	locks=0 ]	(	"hscript"	)
-separator2	[ 0	locks=0 ]	(	)
-invisible	[ 0	locks=0 ]	(	"on"	)
-joinnext	[ 0	locks=0 ]	(	"off"	)
-disablewhen	[ 0	locks=0 ]	(	""	)
-hidewhen	[ 0	locks=0 ]	(	""	)
-callback	[ 0	locks=0 ]	(	""	)
-tags	[ 0	locks=0 ]	(	""	)
-help	[ 0	locks=0 ]	(	""	)
-}
-
---HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot/objects/debug/sprite_vertex_shader/Time.userdata"
-Content-Type: text/plain
-
-{
-	"___Version___":{
-		"type":"string",
-		"value":"17.5.258"
-	}
-}
-
---HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot/objects/debug/sprite_vertex_shader/_posTex.init"
-Content-Type: text/plain
-
-type = parameter
-matchesdef = 0
-
---HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot/objects/debug/sprite_vertex_shader/_posTex.def"
-Content-Type: text/plain
-
-comment ""
-position 72.4618 -35.4658
-connectornextid 1
-flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on lowdetail off mediumdetail off highdetail on material off
-outputsNamed3
-{
-0 "_posTex"
-}
-inputsNamed3
-{
-}
-inputs
-{
-}
-stat
-{
-  create 1518461513
-  modify 1542761258
-  author blaidlaw@TOR-WKS-AB663.ubisoft.org
-  access 0777
-}
-color UT_Color RGB 1 1 0.4 
-delscript ""
-exprlanguage hscript
-end
-
---HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot/objects/debug/sprite_vertex_shader/_posTex.parm"
-Content-Type: text/plain
-
-{
-version 0.8
-parmscope	[ 0	locks=0 ]	(	shaderparm	)
-parmaccess	[ 0	locks=0 ]	(	""	)
-parmname	[ 0	locks=0 ]	(	_posTex	)
-parmprefix	[ 0	locks=0 ]	(	""	)
-parmpostfix	[ 0	locks=0 ]	(	""	)
-parmlabel	[ 0	locks=0 ]	(	"Position Map"	)
-showlabel	[ 0	locks=0 ]	(	"on"	)
-parmtype	[ 0	locks=0 ]	(	"image"	)
-parmtypename	[ 0	locks=0 ]	(	""	)
-floatdef	[ 0	locks=0 ]	(	0	)
-intdef	[ 0	locks=0 ]	(	0	)
-toggledef	[ 0	locks=0 ]	(	"off"	)
-angledef	[ 0	locks=0 ]	(	0	)
-logfloatdef	[ 0	locks=0 ]	(	0	)
-float2def	[ 0	locks=0 ]	(	0	0	)
-float3def	[ 0	locks=0 ]	(	0	0	0	)
-vectordef	[ 0	locks=0 ]	(	0	0	0	)
-normaldef	[ 0	locks=0 ]	(	0	0	0	)
-pointdef	[ 0	locks=0 ]	(	0	0	0	)
-directiondef	[ 0	locks=0 ]	(	1	0	0	)
-float4def	[ 0	locks=0 ]	(	0	0	0	0	)
-floatm2def	[ 0	locks=0 ]	(	1	0	0	1	)
-float9def	[ 0	locks=0 ]	(	1	0	0	0	1	0	0	0	1	)
-float16def	[ 0	locks=0 ]	(	1	0	0	0	0	1	0	0	0	0	1	0	0	0	0	1	)
-stringdef	[ 0	locks=0 ]	(	""	)
-filedef	[ 0	locks=0 ]	(	""	)
-imagedef	[ 0	locks=0 ]	(	`chs(\"../../../path_pos\")`	)
-geometrydef	[ 0	locks=0 ]	(	""	)
-colordef	[ 0	locks=0 ]	(	0	0	0	)
-color4def	[ 0	locks=0 ]	(	0	0	0	0	)
-bsdfdef	[ 0	locks=0 ]	(	""	)
-coshaderdef	[ 0	locks=0 ]	(	""	)
-floatadef	[ 0	locks=0 ]	(	)
-intadef	[ 0	locks=0 ]	(	)
-vector2adef	[ 0	locks=0 ]	(	)
-vectoradef	[ 0	locks=0 ]	(	)
-pointadef	[ 0	locks=0 ]	(	)
-normaladef	[ 0	locks=0 ]	(	)
-coloradef	[ 0	locks=0 ]	(	)
-floatm2adef	[ 0	locks=0 ]	(	)
-float4adef	[ 0	locks=0 ]	(	)
-float9adef	[ 0	locks=0 ]	(	)
-float16adef	[ 0	locks=0 ]	(	)
-stringadef	[ 0	locks=0 ]	(	)
-coshaderadef	[ 0	locks=0 ]	(	""	)
-structdef	[ 0	locks=0 ]	(	""	)
-rangeflt	[ 0	locks=0 ]	(	0	1	)
-rangeint	[ 0	locks=0 ]	(	0	10	)
-stringtype	[ 0	locks=0 ]	(	off	)
-opfilter	[ 0	locks=0 ]	(	!!OBJ/LIGHT!!	)
-parmcomment	[ 0	locks=0 ]	(	""	)
-separator1	[ 0	locks=0 ]	(	)
-useasparmdefiner	[ 0	locks=0 ]	(	"off"	)
-useownexportcontext	[ 0	locks=0 ]	(	"off"	)
-parmuniform	[ 0	locks=0 ]	(	"on"	)
-usebound	[ 0	locks=0 ]	(	"off"	)
-hasconnector	[ 0	locks=0 ]	(	"on"	)
-exportparm	[ 0	locks=0 ]	(	"off"	)
-exportcontext	[ 0	locks=0 ]	(	cvex	)
-providemenu	[ 0	locks=0 ]	(	"off"	)
-menuchoices	[ 0	locks=0 ]	(	""	)
-menuscript	[ 0	locks=0 ]	(	""	)
-menuscriptlanguage	[ 0	locks=0 ]	(	"hscript"	)
-separator2	[ 0	locks=0 ]	(	)
-invisible	[ 0	locks=0 ]	(	"off"	)
-joinnext	[ 0	locks=0 ]	(	"off"	)
-disablewhen	[ 0	locks=0 ]	(	""	)
-hidewhen	[ 0	locks=0 ]	(	""	)
-callback	[ 0	locks=0 ]	(	""	)
-tags	[ 0	locks=0 ]	(	""	)
-help	[ 0	locks=0 ]	(	""	)
-}
-
---HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot/objects/debug/sprite_vertex_shader/_posTex.userdata"
-Content-Type: text/plain
-
-{
-	"___Version___":{
-		"type":"string",
-		"value":"17.5.258"
-	}
-}
-
---HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot/objects/debug/sprite_vertex_shader/_posMin.init"
-Content-Type: text/plain
-
-type = parameter
-matchesdef = 0
-
---HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot/objects/debug/sprite_vertex_shader/_posMin.def"
-Content-Type: text/plain
-
-comment ""
-position 72.4618 -41.885
-connectornextid 1
-flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on lowdetail off mediumdetail off highdetail on material off
-outputsNamed3
-{
-0 "_posMin"
-}
-inputsNamed3
-{
-}
-inputs
-{
-}
-stat
-{
-  create 1518280800
-  modify 1542761258
-  author LaidlawFX@LaidlawFX
-  access 0777
-}
-color UT_Color RGB 1 1 0.4 
-delscript ""
-exprlanguage hscript
-end
-
---HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot/objects/debug/sprite_vertex_shader/_posMin.chn"
-Content-Type: text/plain
-
-{
-    channel floatdef {
-      lefttype = extend
-      righttype = extend
-      flags = 0
-      segment { length = 0 expr = ch(\"../../../max_min_pos2\") }
-    }
-  }
-
---HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot/objects/debug/sprite_vertex_shader/_posMin.parm"
-Content-Type: text/plain
-
-{
-version 0.8
-parmscope	[ 0	locks=0 ]	(	shaderparm	)
-parmaccess	[ 0	locks=0 ]	(	""	)
-parmname	[ 0	locks=0 ]	(	_posMin	)
-parmprefix	[ 0	locks=0 ]	(	""	)
-parmpostfix	[ 0	locks=0 ]	(	""	)
-parmlabel	[ 0	locks=0 ]	(	"Position Min"	)
-showlabel	[ 0	locks=0 ]	(	"on"	)
-parmtype	[ 0	locks=0 ]	(	"float"	)
-parmtypename	[ 0	locks=0 ]	(	""	)
-floatdef	[ 8	locks=0 ]	(	[ floatdef	0 ] 	)
-intdef	[ 0	locks=0 ]	(	0	)
-toggledef	[ 0	locks=0 ]	(	"off"	)
-angledef	[ 0	locks=0 ]	(	0	)
-logfloatdef	[ 0	locks=0 ]	(	0	)
-float2def	[ 0	locks=0 ]	(	0	0	)
-float3def	[ 0	locks=0 ]	(	0	0	0	)
-vectordef	[ 0	locks=0 ]	(	0	0	0	)
-normaldef	[ 0	locks=0 ]	(	0	0	0	)
-pointdef	[ 0	locks=0 ]	(	0	0	0	)
-directiondef	[ 0	locks=0 ]	(	1	0	0	)
-float4def	[ 0	locks=0 ]	(	0	0	0	0	)
-floatm2def	[ 0	locks=0 ]	(	1	0	0	1	)
-float9def	[ 0	locks=0 ]	(	1	0	0	0	1	0	0	0	1	)
-float16def	[ 0	locks=0 ]	(	1	0	0	0	0	1	0	0	0	0	1	0	0	0	0	1	)
-stringdef	[ 0	locks=0 ]	(	""	)
-filedef	[ 0	locks=0 ]	(	""	)
-imagedef	[ 0	locks=0 ]	(	""	)
-geometrydef	[ 0	locks=0 ]	(	""	)
-colordef	[ 0	locks=0 ]	(	0	0	0	)
-color4def	[ 0	locks=0 ]	(	0	0	0	0	)
-bsdfdef	[ 0	locks=0 ]	(	""	)
-coshaderdef	[ 0	locks=0 ]	(	""	)
-floatadef	[ 0	locks=0 ]	(	)
-intadef	[ 0	locks=0 ]	(	)
-vector2adef	[ 0	locks=0 ]	(	)
-vectoradef	[ 0	locks=0 ]	(	)
-pointadef	[ 0	locks=0 ]	(	)
-normaladef	[ 0	locks=0 ]	(	)
-coloradef	[ 0	locks=0 ]	(	)
-floatm2adef	[ 0	locks=0 ]	(	)
-float4adef	[ 0	locks=0 ]	(	)
-float9adef	[ 0	locks=0 ]	(	)
-float16adef	[ 0	locks=0 ]	(	)
-stringadef	[ 0	locks=0 ]	(	)
-coshaderadef	[ 0	locks=0 ]	(	""	)
-structdef	[ 0	locks=0 ]	(	""	)
-rangeflt	[ 0	locks=0 ]	(	0	1	)
-rangeint	[ 0	locks=0 ]	(	0	10	)
-stringtype	[ 0	locks=0 ]	(	off	)
-opfilter	[ 0	locks=0 ]	(	!!OBJ/LIGHT!!	)
-parmcomment	[ 0	locks=0 ]	(	""	)
-separator1	[ 0	locks=0 ]	(	)
-useasparmdefiner	[ 0	locks=0 ]	(	"off"	)
-useownexportcontext	[ 0	locks=0 ]	(	"off"	)
-parmuniform	[ 0	locks=0 ]	(	"on"	)
-usebound	[ 0	locks=0 ]	(	"off"	)
-hasconnector	[ 0	locks=0 ]	(	"on"	)
-exportparm	[ 0	locks=0 ]	(	"off"	)
-exportcontext	[ 0	locks=0 ]	(	cvex	)
-providemenu	[ 0	locks=0 ]	(	"off"	)
-menuchoices	[ 0	locks=0 ]	(	""	)
-menuscript	[ 0	locks=0 ]	(	""	)
-menuscriptlanguage	[ 0	locks=0 ]	(	"hscript"	)
-separator2	[ 0	locks=0 ]	(	)
-invisible	[ 0	locks=0 ]	(	"off"	)
-joinnext	[ 0	locks=0 ]	(	"off"	)
-disablewhen	[ 0	locks=0 ]	(	""	)
-hidewhen	[ 0	locks=0 ]	(	""	)
-callback	[ 0	locks=0 ]	(	""	)
-tags	[ 0	locks=0 ]	(	""	)
-help	[ 0	locks=0 ]	(	""	)
-}
-
---HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot/objects/debug/sprite_vertex_shader/_posMin.userdata"
-Content-Type: text/plain
-
-{
-	"___Version___":{
-		"type":"string",
-		"value":"17.5.258"
-	}
-}
-
---HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot/objects/debug/sprite_vertex_shader/_posMax.init"
-Content-Type: text/plain
-
-type = parameter
-matchesdef = 0
-
---HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot/objects/debug/sprite_vertex_shader/_posMax.def"
-Content-Type: text/plain
-
-comment ""
-position 72.4618 -39.81
-connectornextid 1
-flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on lowdetail off mediumdetail off highdetail on material off
-outputsNamed3
-{
-0 "_posMax"
-}
-inputsNamed3
-{
-}
-inputs
-{
-}
-stat
-{
-  create 1518280805
-  modify 1542761258
-  author LaidlawFX@LaidlawFX
-  access 0777
-}
-color UT_Color RGB 1 1 0.4 
-delscript ""
-exprlanguage hscript
-end
-
---HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot/objects/debug/sprite_vertex_shader/_posMax.chn"
-Content-Type: text/plain
-
-{
-    channel floatdef {
-      lefttype = extend
-      righttype = extend
-      default = 100
-      flags = 0
-      segment { length = 0 value = 100 100 expr = ch(\"../../../max_min_pos1\") }
-    }
-  }
-
---HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot/objects/debug/sprite_vertex_shader/_posMax.parm"
-Content-Type: text/plain
-
-{
-version 0.8
-parmscope	[ 0	locks=0 ]	(	shaderparm	)
-parmaccess	[ 0	locks=0 ]	(	""	)
-parmname	[ 0	locks=0 ]	(	_posMax	)
-parmprefix	[ 0	locks=0 ]	(	""	)
-parmpostfix	[ 0	locks=0 ]	(	""	)
-parmlabel	[ 0	locks=0 ]	(	"Position Max"	)
-showlabel	[ 0	locks=0 ]	(	"on"	)
-parmtype	[ 0	locks=0 ]	(	"float"	)
-parmtypename	[ 0	locks=0 ]	(	""	)
-floatdef	[ 8	locks=0 ]	(	[ floatdef	0 ] 	)
-intdef	[ 0	locks=0 ]	(	0	)
-toggledef	[ 0	locks=0 ]	(	"off"	)
-angledef	[ 0	locks=0 ]	(	0	)
-logfloatdef	[ 0	locks=0 ]	(	0	)
-float2def	[ 0	locks=0 ]	(	0	0	)
-float3def	[ 0	locks=0 ]	(	0	0	0	)
-vectordef	[ 0	locks=0 ]	(	0	0	0	)
-normaldef	[ 0	locks=0 ]	(	0	0	0	)
-pointdef	[ 0	locks=0 ]	(	0	0	0	)
-directiondef	[ 0	locks=0 ]	(	1	0	0	)
-float4def	[ 0	locks=0 ]	(	0	0	0	0	)
-floatm2def	[ 0	locks=0 ]	(	1	0	0	1	)
-float9def	[ 0	locks=0 ]	(	1	0	0	0	1	0	0	0	1	)
-float16def	[ 0	locks=0 ]	(	1	0	0	0	0	1	0	0	0	0	1	0	0	0	0	1	)
-stringdef	[ 0	locks=0 ]	(	""	)
-filedef	[ 0	locks=0 ]	(	""	)
-imagedef	[ 0	locks=0 ]	(	""	)
-geometrydef	[ 0	locks=0 ]	(	""	)
-colordef	[ 0	locks=0 ]	(	0	0	0	)
-color4def	[ 0	locks=0 ]	(	0	0	0	0	)
-bsdfdef	[ 0	locks=0 ]	(	""	)
-coshaderdef	[ 0	locks=0 ]	(	""	)
-floatadef	[ 0	locks=0 ]	(	)
-intadef	[ 0	locks=0 ]	(	)
-vector2adef	[ 0	locks=0 ]	(	)
-vectoradef	[ 0	locks=0 ]	(	)
-pointadef	[ 0	locks=0 ]	(	)
-normaladef	[ 0	locks=0 ]	(	)
-coloradef	[ 0	locks=0 ]	(	)
-floatm2adef	[ 0	locks=0 ]	(	)
-float4adef	[ 0	locks=0 ]	(	)
-float9adef	[ 0	locks=0 ]	(	)
-float16adef	[ 0	locks=0 ]	(	)
-stringadef	[ 0	locks=0 ]	(	)
-coshaderadef	[ 0	locks=0 ]	(	""	)
-structdef	[ 0	locks=0 ]	(	""	)
-rangeflt	[ 0	locks=0 ]	(	0	1	)
-rangeint	[ 0	locks=0 ]	(	0	10	)
-stringtype	[ 0	locks=0 ]	(	off	)
-opfilter	[ 0	locks=0 ]	(	!!OBJ/LIGHT!!	)
-parmcomment	[ 0	locks=0 ]	(	""	)
-separator1	[ 0	locks=0 ]	(	)
-useasparmdefiner	[ 0	locks=0 ]	(	"off"	)
-useownexportcontext	[ 0	locks=0 ]	(	"off"	)
-parmuniform	[ 0	locks=0 ]	(	"on"	)
-usebound	[ 0	locks=0 ]	(	"off"	)
-hasconnector	[ 0	locks=0 ]	(	"on"	)
-exportparm	[ 0	locks=0 ]	(	"off"	)
-exportcontext	[ 0	locks=0 ]	(	cvex	)
-providemenu	[ 0	locks=0 ]	(	"off"	)
-menuchoices	[ 0	locks=0 ]	(	""	)
-menuscript	[ 0	locks=0 ]	(	""	)
-menuscriptlanguage	[ 0	locks=0 ]	(	"hscript"	)
-separator2	[ 0	locks=0 ]	(	)
-invisible	[ 0	locks=0 ]	(	"off"	)
-joinnext	[ 0	locks=0 ]	(	"off"	)
-disablewhen	[ 0	locks=0 ]	(	""	)
-hidewhen	[ 0	locks=0 ]	(	""	)
-callback	[ 0	locks=0 ]	(	""	)
-tags	[ 0	locks=0 ]	(	""	)
-help	[ 0	locks=0 ]	(	""	)
-}
-
---HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot/objects/debug/sprite_vertex_shader/_posMax.userdata"
-Content-Type: text/plain
-
-{
-	"___Version___":{
-		"type":"string",
-		"value":"17.5.258"
-	}
-}
-
---HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot/objects/debug/sprite_vertex_shader/switch_animateTime.init"
-Content-Type: text/plain
-
-type = switch
-matchesdef = 0
-
---HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot/objects/debug/sprite_vertex_shader/switch_animateTime.def"
-Content-Type: text/plain
-
-comment ""
-position 57.552 -39.8962
-connectornextid 4
-flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on lowdetail off mediumdetail off highdetail on material off
-outputsNamed3
-{
-3 "result"
-}
-inputsNamed3
-{
-0 	_animateTime 1 1 "switcher"
-2 	makeLoop 1 1 "input1"
-1 	_timeAnimated 0 1 "input2"
-}
-inputs
-{
-0 	_animateTime 1 1
-1 	makeLoop 0 1
-2 	_timeAnimated 0 1
-}
-stat
-{
-  create 1520009460
-  modify 1520039058
-  author LaidlawFX@LaidlawFX
-  access 0777
-}
-color UT_Color RGB 0.8 0.8 0.8 
-delscript ""
-exprlanguage hscript
-end
-
---HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot/objects/debug/sprite_vertex_shader/switch_animateTime.parm"
-Content-Type: text/plain
-
-{
-version 0.8
-switcher	[ 0	locks=0 ]	(	0	)
-outofbounds	[ 0	locks=0 ]	(	"last"	)
-}
-
---HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot/objects/debug/sprite_vertex_shader/switch_animateTime.userdata"
-Content-Type: text/plain
-
-{
-	"___Version___":{
-		"type":"string",
-		"value":"17.5.258"
-	}
-}
-
---HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot/objects/debug/sprite_vertex_shader/_animateTime.init"
-Content-Type: text/plain
-
-type = parameter
-matchesdef = 0
-
---HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot/objects/debug/sprite_vertex_shader/_animateTime.def"
-Content-Type: text/plain
-
-comment ""
-position 54.5838 -37.0462
-connectornextid 2
-flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on lowdetail off mediumdetail off highdetail on material off
-outputsNamed3
-{
-0 "_animateTime"
-1 "bound__animateTime"
-}
-inputsNamed3
-{
-}
-inputs
-{
-}
-stat
-{
-  create 1520009465
-  modify 1520039058
-  author LaidlawFX@LaidlawFX
-  access 0777
-}
-color UT_Color RGB 1 1 0.4 
-delscript ""
-exprlanguage hscript
-end
-
---HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot/objects/debug/sprite_vertex_shader/_animateTime.parm"
-Content-Type: text/plain
-
-{
-version 0.8
-parmscope	[ 0	locks=0 ]	(	shaderparm	)
-parmaccess	[ 0	locks=0 ]	(	""	)
-parmname	[ 0	locks=0 ]	(	_animateTime	)
-parmprefix	[ 0	locks=0 ]	(	""	)
-parmpostfix	[ 0	locks=0 ]	(	""	)
-parmlabel	[ 0	locks=0 ]	(	"Animate Time"	)
-showlabel	[ 0	locks=0 ]	(	"on"	)
-parmtype	[ 0	locks=0 ]	(	"toggle"	)
-parmtypename	[ 0	locks=0 ]	(	""	)
-floatdef	[ 0	locks=0 ]	(	0	)
-intdef	[ 0	locks=0 ]	(	0	)
-toggledef	[ 0	locks=0 ]	(	"off"	)
-angledef	[ 0	locks=0 ]	(	0	)
-logfloatdef	[ 0	locks=0 ]	(	0	)
-float2def	[ 0	locks=0 ]	(	0	0	)
-float3def	[ 0	locks=0 ]	(	0	0	0	)
-vectordef	[ 0	locks=0 ]	(	0	0	0	)
-normaldef	[ 0	locks=0 ]	(	0	0	0	)
-pointdef	[ 0	locks=0 ]	(	0	0	0	)
-directiondef	[ 0	locks=0 ]	(	1	0	0	)
-float4def	[ 0	locks=0 ]	(	0	0	0	0	)
-floatm2def	[ 0	locks=0 ]	(	1	0	0	1	)
-float9def	[ 0	locks=0 ]	(	1	0	0	0	1	0	0	0	1	)
-float16def	[ 0	locks=0 ]	(	1	0	0	0	0	1	0	0	0	0	1	0	0	0	0	1	)
-stringdef	[ 0	locks=0 ]	(	""	)
-filedef	[ 0	locks=0 ]	(	""	)
-imagedef	[ 0	locks=0 ]	(	""	)
-geometrydef	[ 0	locks=0 ]	(	""	)
-colordef	[ 0	locks=0 ]	(	0	0	0	)
-color4def	[ 0	locks=0 ]	(	0	0	0	0	)
-bsdfdef	[ 0	locks=0 ]	(	""	)
-coshaderdef	[ 0	locks=0 ]	(	""	)
-floatadef	[ 0	locks=0 ]	(	)
-intadef	[ 0	locks=0 ]	(	)
-vector2adef	[ 0	locks=0 ]	(	)
-vectoradef	[ 0	locks=0 ]	(	)
-pointadef	[ 0	locks=0 ]	(	)
-normaladef	[ 0	locks=0 ]	(	)
-coloradef	[ 0	locks=0 ]	(	)
-floatm2adef	[ 0	locks=0 ]	(	)
-float4adef	[ 0	locks=0 ]	(	)
-float9adef	[ 0	locks=0 ]	(	)
-float16adef	[ 0	locks=0 ]	(	)
-stringadef	[ 0	locks=0 ]	(	)
-coshaderadef	[ 0	locks=0 ]	(	""	)
-structdef	[ 0	locks=0 ]	(	""	)
-rangeflt	[ 0	locks=0 ]	(	0	1	)
-rangeint	[ 0	locks=0 ]	(	0	10	)
-stringtype	[ 0	locks=0 ]	(	off	)
-opfilter	[ 0	locks=0 ]	(	!!OBJ/LIGHT!!	)
-parmcomment	[ 0	locks=0 ]	(	""	)
-separator1	[ 0	locks=0 ]	(	)
-useasparmdefiner	[ 0	locks=0 ]	(	"off"	)
-useownexportcontext	[ 0	locks=0 ]	(	"off"	)
-parmuniform	[ 0	locks=0 ]	(	"on"	)
-usebound	[ 0	locks=0 ]	(	"off"	)
-hasconnector	[ 0	locks=0 ]	(	"on"	)
-exportparm	[ 0	locks=0 ]	(	"off"	)
-exportcontext	[ 0	locks=0 ]	(	cvex	)
-providemenu	[ 0	locks=0 ]	(	"off"	)
-menuchoices	[ 0	locks=0 ]	(	""	)
-menuscript	[ 0	locks=0 ]	(	""	)
-menuscriptlanguage	[ 0	locks=0 ]	(	"hscript"	)
-separator2	[ 0	locks=0 ]	(	)
-invisible	[ 0	locks=0 ]	(	"off"	)
-joinnext	[ 0	locks=0 ]	(	"off"	)
-disablewhen	[ 0	locks=0 ]	(	""	)
-hidewhen	[ 0	locks=0 ]	(	""	)
-callback	[ 0	locks=0 ]	(	""	)
-tags	[ 0	locks=0 ]	(	""	)
-help	[ 0	locks=0 ]	(	""	)
-}
-
---HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot/objects/debug/sprite_vertex_shader/_animateTime.userdata"
-Content-Type: text/plain
-
-{
-	"___Version___":{
-		"type":"string",
-		"value":"17.5.258"
-	}
-}
-
---HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot/objects/debug/sprite_vertex_shader/_timeAnimated.init"
-Content-Type: text/plain
-
-type = parameter
-matchesdef = 0
-
---HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot/objects/debug/sprite_vertex_shader/_timeAnimated.def"
-Content-Type: text/plain
-
-comment ""
-position 54.5838 -38.0462
-connectornextid 2
-flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on lowdetail off mediumdetail off highdetail on material off
-outputsNamed3
-{
-0 "_timeAnimated"
-1 "bound__timeAnimated"
-}
-inputsNamed3
-{
-}
-inputs
-{
-}
-stat
-{
-  create 1520009465
-  modify 1520039058
-  author LaidlawFX@LaidlawFX
-  access 0777
-}
-color UT_Color RGB 1 1 0.4 
-delscript ""
-exprlanguage hscript
-end
-
---HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot/objects/debug/sprite_vertex_shader/_timeAnimated.parm"
-Content-Type: text/plain
-
-{
-version 0.8
-parmscope	[ 0	locks=0 ]	(	shaderparm	)
-parmaccess	[ 0	locks=0 ]	(	""	)
-parmname	[ 0	locks=0 ]	(	_timeAnimated	)
-parmprefix	[ 0	locks=0 ]	(	""	)
-parmpostfix	[ 0	locks=0 ]	(	""	)
-parmlabel	[ 0	locks=0 ]	(	"Time Animated"	)
-showlabel	[ 0	locks=0 ]	(	"on"	)
-parmtype	[ 0	locks=0 ]	(	"float"	)
-parmtypename	[ 0	locks=0 ]	(	""	)
-floatdef	[ 0	locks=0 ]	(	0	)
-intdef	[ 0	locks=0 ]	(	0	)
-toggledef	[ 0	locks=0 ]	(	"off"	)
-angledef	[ 0	locks=0 ]	(	0	)
-logfloatdef	[ 0	locks=0 ]	(	0	)
-float2def	[ 0	locks=0 ]	(	0	0	)
-float3def	[ 0	locks=0 ]	(	0	0	0	)
-vectordef	[ 0	locks=0 ]	(	0	0	0	)
-normaldef	[ 0	locks=0 ]	(	0	0	0	)
-pointdef	[ 0	locks=0 ]	(	0	0	0	)
-directiondef	[ 0	locks=0 ]	(	1	0	0	)
-float4def	[ 0	locks=0 ]	(	0	0	0	0	)
-floatm2def	[ 0	locks=0 ]	(	1	0	0	1	)
-float9def	[ 0	locks=0 ]	(	1	0	0	0	1	0	0	0	1	)
-float16def	[ 0	locks=0 ]	(	1	0	0	0	0	1	0	0	0	0	1	0	0	0	0	1	)
-stringdef	[ 0	locks=0 ]	(	""	)
-filedef	[ 0	locks=0 ]	(	""	)
-imagedef	[ 0	locks=0 ]	(	""	)
-geometrydef	[ 0	locks=0 ]	(	""	)
-colordef	[ 0	locks=0 ]	(	0	0	0	)
-color4def	[ 0	locks=0 ]	(	0	0	0	0	)
-bsdfdef	[ 0	locks=0 ]	(	""	)
-coshaderdef	[ 0	locks=0 ]	(	""	)
-floatadef	[ 0	locks=0 ]	(	)
-intadef	[ 0	locks=0 ]	(	)
-vector2adef	[ 0	locks=0 ]	(	)
-vectoradef	[ 0	locks=0 ]	(	)
-pointadef	[ 0	locks=0 ]	(	)
-normaladef	[ 0	locks=0 ]	(	)
-coloradef	[ 0	locks=0 ]	(	)
-floatm2adef	[ 0	locks=0 ]	(	)
-float4adef	[ 0	locks=0 ]	(	)
-float9adef	[ 0	locks=0 ]	(	)
-float16adef	[ 0	locks=0 ]	(	)
-stringadef	[ 0	locks=0 ]	(	)
-coshaderadef	[ 0	locks=0 ]	(	""	)
-structdef	[ 0	locks=0 ]	(	""	)
-rangeflt	[ 0	locks=0 ]	(	0	1	)
-rangeint	[ 0	locks=0 ]	(	0	10	)
-stringtype	[ 0	locks=0 ]	(	off	)
-opfilter	[ 0	locks=0 ]	(	!!OBJ/LIGHT!!	)
-parmcomment	[ 0	locks=0 ]	(	""	)
-separator1	[ 0	locks=0 ]	(	)
-useasparmdefiner	[ 0	locks=0 ]	(	"off"	)
-useownexportcontext	[ 0	locks=0 ]	(	"off"	)
-parmuniform	[ 0	locks=0 ]	(	"on"	)
-usebound	[ 0	locks=0 ]	(	"off"	)
-hasconnector	[ 0	locks=0 ]	(	"on"	)
-exportparm	[ 0	locks=0 ]	(	"off"	)
-exportcontext	[ 0	locks=0 ]	(	cvex	)
-providemenu	[ 0	locks=0 ]	(	"off"	)
-menuchoices	[ 0	locks=0 ]	(	""	)
-menuscript	[ 0	locks=0 ]	(	""	)
-menuscriptlanguage	[ 0	locks=0 ]	(	"hscript"	)
-separator2	[ 0	locks=0 ]	(	)
-invisible	[ 0	locks=0 ]	(	"off"	)
-joinnext	[ 0	locks=0 ]	(	"off"	)
-disablewhen	[ 0	locks=0 ]	(	"{ _animateTime == 0 }"	)
-hidewhen	[ 0	locks=0 ]	(	""	)
-callback	[ 0	locks=0 ]	(	""	)
-tags	[ 0	locks=0 ]	(	""	)
-help	[ 0	locks=0 ]	(	""	)
-}
-
---HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot/objects/debug/sprite_vertex_shader/_timeAnimated.userdata"
-Content-Type: text/plain
-
-{
-	"___Version___":{
-		"type":"string",
-		"value":"17.5.258"
-	}
-}
-
---HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot/objects/debug/sprite_vertex_shader/_debug.init"
-Content-Type: text/plain
-
-type = bind
-matchesdef = 0
-
---HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot/objects/debug/sprite_vertex_shader/_debug.def"
-Content-Type: text/plain
-
-comment ""
-position 54.526 -35.885
-connectornextid 1
-flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on lowdetail off mediumdetail off highdetail on material off
-outputsNamed3
-{
-}
-inputsNamed3
-{
-0 	"" "" 1 "input"
-}
-inputs
-{
-0 	"" 0 1
-}
-stat
-{
-  create 1520016425
-  modify 1520019424
-  author LaidlawFX@LaidlawFX
-  access 0777
-}
-color UT_Color RGB 0.6 0.6 1 
-delscript ""
-exprlanguage hscript
-end
-
---HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot/objects/debug/sprite_vertex_shader/_debug.parm"
-Content-Type: text/plain
-
-{
-version 0.8
-parmname	[ 0	locks=0 ]	(	_debug	)
-parmtype	[ 0	locks=0 ]	(	"float4"	)
-parmtypename	[ 0	locks=0 ]	(	""	)
-overridetype	[ 0	locks=0 ]	(	"on"	)
-floatdef	[ 0	locks=0 ]	(	0	)
-intdef	[ 0	locks=0 ]	(	0	)
-toggledef	[ 0	locks=0 ]	(	"off"	)
-angledef	[ 0	locks=0 ]	(	0	)
-logfloatdef	[ 0	locks=0 ]	(	0	)
-float2def	[ 0	locks=0 ]	(	0	0	)
-float3def	[ 0	locks=0 ]	(	0	0	0	)
-vectordef	[ 0	locks=0 ]	(	0	0	0	)
-normaldef	[ 0	locks=0 ]	(	0	0	0	)
-pointdef	[ 0	locks=0 ]	(	0	0	0	)
-directiondef	[ 0	locks=0 ]	(	1	0	0	)
-float4def	[ 0	locks=0 ]	(	0	0	0	0	)
-floatm2def	[ 0	locks=0 ]	(	1	0	0	1	)
-float9def	[ 0	locks=0 ]	(	1	0	0	0	1	0	0	0	1	)
-float16def	[ 0	locks=0 ]	(	1	0	0	0	0	1	0	0	0	0	1	0	0	0	0	1	)
-stringdef	[ 0	locks=0 ]	(	""	)
-filedef	[ 0	locks=0 ]	(	""	)
-imagedef	[ 0	locks=0 ]	(	""	)
-geometrydef	[ 0	locks=0 ]	(	""	)
-colordef	[ 0	locks=0 ]	(	0	0	0	)
-color4def	[ 0	locks=0 ]	(	0	0	0	0	)
-bsdfdef	[ 0	locks=0 ]	(	""	)
-coshaderdef	[ 0	locks=0 ]	(	""	)
-floatadef	[ 0	locks=0 ]	(	)
-intadef	[ 0	locks=0 ]	(	)
-vector2adef	[ 0	locks=0 ]	(	)
-vectoradef	[ 0	locks=0 ]	(	)
-pointadef	[ 0	locks=0 ]	(	)
-normaladef	[ 0	locks=0 ]	(	)
-coloradef	[ 0	locks=0 ]	(	)
-floatm2adef	[ 0	locks=0 ]	(	)
-float4adef	[ 0	locks=0 ]	(	)
-float9adef	[ 0	locks=0 ]	(	)
-float16adef	[ 0	locks=0 ]	(	)
-stringadef	[ 0	locks=0 ]	(	)
-coshaderadef	[ 0	locks=0 ]	(	""	)
-structdef	[ 0	locks=0 ]	(	""	)
-useasparmdefiner	[ 0	locks=0 ]	(	"on"	)
-useownexportcontext	[ 0	locks=0 ]	(	"off"	)
-parmuniform	[ 0	locks=0 ]	(	"on"	)
-usebound	[ 0	locks=0 ]	(	"off"	)
-exportparm	[ 0	locks=0 ]	(	"whenconnected"	)
-exportcontext	[ 0	locks=0 ]	(	cvex	)
-}
-
---HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot/objects/debug/sprite_vertex_shader/_debug.userdata"
-Content-Type: text/plain
-
-{
-	"___Version___":{
-		"type":"string",
-		"value":"17.5.258"
-	}
-}
-
---HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot/objects/debug/sprite_vertex_shader/coord_swizzle.init"
-Content-Type: text/plain
-
-type = parameter
-matchesdef = 0
-
---HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot/objects/debug/sprite_vertex_shader/coord_swizzle.def"
-Content-Type: text/plain
-
-comment ""
-position 81.9479 -41.5498
-connectornextid 2
-flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on lowdetail off mediumdetail off highdetail on material off
-outputsNamed3
-{
-0 "coord_swizzle"
-1 "bound_coord_swizzle"
-}
-inputsNamed3
-{
-}
-inputs
-{
-}
-stat
-{
-  create 1519024894
-  modify 1520041041
-  author LaidlawFX@LaidlawFX
-  access 0777
-}
-color UT_Color RGB 1 1 0.4 
-delscript ""
-exprlanguage hscript
-end
-
---HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot/objects/debug/sprite_vertex_shader/coord_swizzle.parm"
-Content-Type: text/plain
-
-{
-version 0.8
-parmscope	[ 0	locks=0 ]	(	shaderparm	)
-parmaccess	[ 0	locks=0 ]	(	""	)
-parmname	[ 0	locks=0 ]	(	coord_swizzle	)
-parmprefix	[ 0	locks=0 ]	(	""	)
-parmpostfix	[ 0	locks=0 ]	(	""	)
-parmlabel	[ 0	locks=0 ]	(	"Coord Swizzle "	)
-showlabel	[ 0	locks=0 ]	(	"on"	)
-parmtype	[ 0	locks=0 ]	(	"int"	)
-parmtypename	[ 0	locks=0 ]	(	""	)
-floatdef	[ 0	locks=0 ]	(	0	)
-intdef	[ 0	locks=0 ]	(	0	)
-toggledef	[ 0	locks=0 ]	(	"off"	)
-angledef	[ 0	locks=0 ]	(	0	)
-logfloatdef	[ 0	locks=0 ]	(	0	)
-float2def	[ 0	locks=0 ]	(	0	0	)
-float3def	[ 0	locks=0 ]	(	0	0	0	)
-vectordef	[ 0	locks=0 ]	(	0	0	0	)
-normaldef	[ 0	locks=0 ]	(	0	0	0	)
-pointdef	[ 0	locks=0 ]	(	0	0	0	)
-directiondef	[ 0	locks=0 ]	(	1	0	0	)
-float4def	[ 0	locks=0 ]	(	0	0	0	0	)
-floatm2def	[ 0	locks=0 ]	(	1	0	0	1	)
-float9def	[ 0	locks=0 ]	(	1	0	0	0	1	0	0	0	1	)
-float16def	[ 0	locks=0 ]	(	1	0	0	0	0	1	0	0	0	0	1	0	0	0	0	1	)
-stringdef	[ 0	locks=0 ]	(	012	)
-filedef	[ 0	locks=0 ]	(	""	)
-imagedef	[ 0	locks=0 ]	(	""	)
-geometrydef	[ 0	locks=0 ]	(	""	)
-colordef	[ 0	locks=0 ]	(	0	0	0	)
-color4def	[ 0	locks=0 ]	(	0	0	0	0	)
-bsdfdef	[ 0	locks=0 ]	(	""	)
-coshaderdef	[ 0	locks=0 ]	(	""	)
-floatadef	[ 0	locks=0 ]	(	)
-intadef	[ 0	locks=0 ]	(	)
-vector2adef	[ 0	locks=0 ]	(	)
-vectoradef	[ 0	locks=0 ]	(	)
-pointadef	[ 0	locks=0 ]	(	)
-normaladef	[ 0	locks=0 ]	(	)
-coloradef	[ 0	locks=0 ]	(	)
-floatm2adef	[ 0	locks=0 ]	(	)
-float4adef	[ 0	locks=0 ]	(	)
-float9adef	[ 0	locks=0 ]	(	)
-float16adef	[ 0	locks=0 ]	(	)
-stringadef	[ 0	locks=0 ]	(	)
-coshaderadef	[ 0	locks=0 ]	(	""	)
-structdef	[ 0	locks=0 ]	(	""	)
-rangeflt	[ 0	locks=0 ]	(	0	1	)
-rangeint	[ 0	locks=0 ]	(	0	1	)
-stringtype	[ 0	locks=0 ]	(	off	)
-opfilter	[ 0	locks=0 ]	(	!!OBJ/LIGHT!!	)
-parmcomment	[ 0	locks=0 ]	(	""	)
-separator1	[ 0	locks=0 ]	(	)
-useasparmdefiner	[ 0	locks=0 ]	(	"off"	)
-useownexportcontext	[ 0	locks=0 ]	(	"off"	)
-parmuniform	[ 0	locks=0 ]	(	"on"	)
-usebound	[ 0	locks=0 ]	(	"off"	)
-hasconnector	[ 0	locks=0 ]	(	"on"	)
-exportparm	[ 0	locks=0 ]	(	"off"	)
-exportcontext	[ 0	locks=0 ]	(	cop2	)
-providemenu	[ 0	locks=0 ]	(	"on"	)
-menuchoices	[ 0	locks=0 ]	(	"0 \"X Y Z\" 1 \"X Z Y\" 2 \"Y X Z\" 3 \"Y Z X\" 4 \"Z X Y\" 5 \"Z Y X\""	)
-menuscript	[ 0	locks=0 ]	(	""	)
-menuscriptlanguage	[ 0	locks=0 ]	(	"hscript"	)
-separator2	[ 0	locks=0 ]	(	)
-invisible	[ 0	locks=0 ]	(	"off"	)
-joinnext	[ 0	locks=0 ]	(	"off"	)
-disablewhen	[ 0	locks=0 ]	(	""	)
-hidewhen	[ 0	locks=0 ]	(	""	)
-callback	[ 0	locks=0 ]	(	""	)
-tags	[ 0	locks=0 ]	(	""	)
-help	[ 0	locks=0 ]	(	""	)
-}
-
---HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot/objects/debug/sprite_vertex_shader/coord_swizzle.userdata"
-Content-Type: text/plain
-
-{
-	"___Version___":{
-		"type":"string",
-		"value":"17.5.258"
-	}
-}
-
---HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot/objects/debug/sprite_vertex_shader/coord_swizzle.outputinfos"
-Content-Type: application/octet-stream
-Content-Transfer-Encoding: base64
-
-TnVtSW5mb3MgMgpWYWx1ZXNCaW5hcnkgMQpCZWdpbkluZm8KT3V0cHV0TmFtZSBib3VuZF9wYXJtCkRlYnVnQ29ycklucHV0TmFtZSBfX2RlZmF1bHRfXwpCeXBhc3NDb3JySW5wdXROYW1lIF9fZGVmYXVsdF9fCk5vcm1hbE0=
-b2RlIDAKQnlwYXNzTW9kZSAxClVzZURlZmF1bHRWYWx1ZSAxCkVuZEluZm8KAAAAAAAAAABCZWdpbkluZm8KT3V0cHV0TmFtZSBwYXJtCkRlYnVnQ29ycklucHV0TmFtZSBfX2RlZmF1bHRfXwpCeXBhc3NDb3JySW5wdXROYW0=
-ZSBfX2RlZmF1bHRfXwpOb3JtYWxNb2RlIDAKQnlwYXNzTW9kZSAxClVzZURlZmF1bHRWYWx1ZSAxCkVuZEluZm8KAAAAAAAAAAA=
-
---HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot/objects/debug/sprite_vertex_shader/coord_flip.init"
-Content-Type: text/plain
-
-type = parameter
-matchesdef = 0
-
---HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot/objects/debug/sprite_vertex_shader/coord_flip.def"
-Content-Type: text/plain
-
-comment ""
-position 81.9479 -43.2034
-connectornextid 2
-flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on lowdetail off mediumdetail off highdetail on material off
-outputsNamed3
-{
-0 "coord_flip"
-1 "bound_coord_flip"
-}
-inputsNamed3
-{
-}
-inputs
-{
-}
-stat
-{
-  create 1519024894
-  modify 1520041041
-  author LaidlawFX@LaidlawFX
-  access 0777
-}
-color UT_Color RGB 1 1 0.4 
-delscript ""
-exprlanguage hscript
-end
-
---HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot/objects/debug/sprite_vertex_shader/coord_flip.parm"
-Content-Type: text/plain
-
-{
-version 0.8
-parmscope	[ 0	locks=0 ]	(	shaderparm	)
-parmaccess	[ 0	locks=0 ]	(	""	)
-parmname	[ 0	locks=0 ]	(	coord_flip	)
-parmprefix	[ 0	locks=0 ]	(	""	)
-parmpostfix	[ 0	locks=0 ]	(	""	)
-parmlabel	[ 0	locks=0 ]	(	coord_flip	)
-showlabel	[ 0	locks=0 ]	(	"on"	)
-parmtype	[ 0	locks=0 ]	(	"int"	)
-parmtypename	[ 0	locks=0 ]	(	""	)
-floatdef	[ 0	locks=0 ]	(	0	)
-intdef	[ 0	locks=0 ]	(	0	)
-toggledef	[ 0	locks=0 ]	(	"off"	)
-angledef	[ 0	locks=0 ]	(	0	)
-logfloatdef	[ 0	locks=0 ]	(	0	)
-float2def	[ 0	locks=0 ]	(	0	0	)
-float3def	[ 0	locks=0 ]	(	0	0	0	)
-vectordef	[ 0	locks=0 ]	(	0	0	0	)
-normaldef	[ 0	locks=0 ]	(	0	0	0	)
-pointdef	[ 0	locks=0 ]	(	0	0	0	)
-directiondef	[ 0	locks=0 ]	(	1	0	0	)
-float4def	[ 0	locks=0 ]	(	0	0	0	0	)
-floatm2def	[ 0	locks=0 ]	(	1	0	0	1	)
-float9def	[ 0	locks=0 ]	(	1	0	0	0	1	0	0	0	1	)
-float16def	[ 0	locks=0 ]	(	1	0	0	0	0	1	0	0	0	0	1	0	0	0	0	1	)
-stringdef	[ 0	locks=0 ]	(	012	)
-filedef	[ 0	locks=0 ]	(	""	)
-imagedef	[ 0	locks=0 ]	(	""	)
-geometrydef	[ 0	locks=0 ]	(	""	)
-colordef	[ 0	locks=0 ]	(	0	0	0	)
-color4def	[ 0	locks=0 ]	(	0	0	0	0	)
-bsdfdef	[ 0	locks=0 ]	(	""	)
-coshaderdef	[ 0	locks=0 ]	(	""	)
-floatadef	[ 0	locks=0 ]	(	)
-intadef	[ 0	locks=0 ]	(	)
-vector2adef	[ 0	locks=0 ]	(	)
-vectoradef	[ 0	locks=0 ]	(	)
-pointadef	[ 0	locks=0 ]	(	)
-normaladef	[ 0	locks=0 ]	(	)
-coloradef	[ 0	locks=0 ]	(	)
-floatm2adef	[ 0	locks=0 ]	(	)
-float4adef	[ 0	locks=0 ]	(	)
-float9adef	[ 0	locks=0 ]	(	)
-float16adef	[ 0	locks=0 ]	(	)
-stringadef	[ 0	locks=0 ]	(	)
-coshaderadef	[ 0	locks=0 ]	(	""	)
-structdef	[ 0	locks=0 ]	(	""	)
-rangeflt	[ 0	locks=0 ]	(	0	1	)
-rangeint	[ 0	locks=0 ]	(	0	1	)
-stringtype	[ 0	locks=0 ]	(	off	)
-opfilter	[ 0	locks=0 ]	(	!!OBJ/LIGHT!!	)
-parmcomment	[ 0	locks=0 ]	(	""	)
-separator1	[ 0	locks=0 ]	(	)
-useasparmdefiner	[ 0	locks=0 ]	(	"off"	)
-useownexportcontext	[ 0	locks=0 ]	(	"off"	)
-parmuniform	[ 0	locks=0 ]	(	"on"	)
-usebound	[ 0	locks=0 ]	(	"off"	)
-hasconnector	[ 0	locks=0 ]	(	"on"	)
-exportparm	[ 0	locks=0 ]	(	"off"	)
-exportcontext	[ 0	locks=0 ]	(	cop2	)
-providemenu	[ 0	locks=0 ]	(	"on"	)
-menuchoices	[ 0	locks=0 ]	(	"0 \"+X +Y +Z\" 1 \"-X +Y +Z\" 2 \"+X -Y +Z\" 3 \"+X +Y -Z\" 4 \"-X -Y +Z\" 5 \"-X +Y -Z\" 6 \"-X -Y -Z\" 7 \"+X -Y -Z\" "	)
-menuscript	[ 0	locks=0 ]	(	""	)
-menuscriptlanguage	[ 0	locks=0 ]	(	"hscript"	)
-separator2	[ 0	locks=0 ]	(	)
-invisible	[ 0	locks=0 ]	(	"off"	)
-joinnext	[ 0	locks=0 ]	(	"off"	)
-disablewhen	[ 0	locks=0 ]	(	""	)
-hidewhen	[ 0	locks=0 ]	(	""	)
-callback	[ 0	locks=0 ]	(	""	)
-tags	[ 0	locks=0 ]	(	""	)
-help	[ 0	locks=0 ]	(	""	)
-}
-
---HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot/objects/debug/sprite_vertex_shader/coord_flip.userdata"
-Content-Type: text/plain
-
-{
-	"___Version___":{
-		"type":"string",
-		"value":"17.5.258"
-	}
-}
-
---HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot/objects/debug/sprite_vertex_shader/coord_flip.outputinfos"
-Content-Type: application/octet-stream
-Content-Transfer-Encoding: base64
-
-TnVtSW5mb3MgMgpWYWx1ZXNCaW5hcnkgMQpCZWdpbkluZm8KT3V0cHV0TmFtZSBib3VuZF9wYXJtCkRlYnVnQ29ycklucHV0TmFtZSBfX2RlZmF1bHRfXwpCeXBhc3NDb3JySW5wdXROYW1lIF9fZGVmYXVsdF9fCk5vcm1hbE0=
-b2RlIDAKQnlwYXNzTW9kZSAxClVzZURlZmF1bHRWYWx1ZSAxCkVuZEluZm8KAAAAAAAAAABCZWdpbkluZm8KT3V0cHV0TmFtZSBwYXJtCkRlYnVnQ29ycklucHV0TmFtZSBfX2RlZmF1bHRfXwpCeXBhc3NDb3JySW5wdXROYW0=
-ZSBfX2RlZmF1bHRfXwpOb3JtYWxNb2RlIDAKQnlwYXNzTW9kZSAxClVzZURlZmF1bHRWYWx1ZSAxCkVuZEluZm8KAAAAAAAAAAA=
-
---HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot/objects/debug/sprite_vertex_shader/coord_swizzle_vector1.init"
-Content-Type: text/plain
-
-type = gamedev::coord_swizzle_vector::1.0
-matchesdef = 1
-
---HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot/objects/debug/sprite_vertex_shader/coord_swizzle_vector1.def"
-Content-Type: text/plain
-
-comment ""
-position 84.4236 -39.66
-connectornextid 5
-flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault off exposed on lowdetail off mediumdetail off highdetail on material off
-outputsNamed3
-{
-4 "vec"
-}
-inputsNamed3
-{
-0 	shiftMinSize 2 1 "coord"
-1 	coord_swizzle 0 1 "coord_swizzle"
-2 	coord_flip 0 1 "coord_flip"
-3 	"" "" 1 "invert"
-}
-inputs
-{
-0 	shiftMinSize 0 1
-1 	coord_swizzle 0 1
-2 	coord_flip 0 1
-3 	"" 0 1
-}
-stat
-{
-  create 1559311389
-  modify 1559660233
-  author mikel@mikembp-sesi
-  access 0777
-}
-color UT_Color RGB 0.584 0.776 1 
-delscript ""
-exprlanguage hscript
-end
-
---HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot/objects/debug/sprite_vertex_shader/coord_swizzle_vector1.parm"
-Content-Type: text/plain
-
-{
-version 0.8
-coord	[ 0	locks=0 ]	(	0	0	0	)
-coord_swizzle	[ 0	locks=0 ]	(	0	)
-coord_flip	[ 0	locks=0 ]	(	0	)
-invert	[ 0	locks=0 ]	(	"off"	)
-}
-
---HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot/objects/debug/sprite_vertex_shader/coord_swizzle_vector1.userdata"
-Content-Type: text/plain
-
-{
-	"___Version___":{
-		"type":"string",
-		"value":""
-	},
-	"nodeshape":{
-		"type":"string",
-		"value":"tilted"
-	}
-}
-
---HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
 Content-Disposition: attachment; filename="hdaroot/objects/debug/soft_vertex_shader.init"
 Content-Type: text/plain
 
@@ -19185,7 +15862,7 @@ inputs
 stat
 {
   create 1495492095
-  modify 1560194735
+  modify 1560279253
   author mike@mikembp.local
   access 0777
 }
@@ -19417,6 +16094,19 @@ Content-Type: text/plain
             "7" "+X -Y -Z"
         }
     }
+    parm {
+        name    "offset"
+        label   "Offset"
+        type    float
+        default { "0" }
+        range   { 0 1 }
+    }
+    parm {
+        name    "textureCd"
+        label   "Texturecd"
+        type    string
+        default { "" }
+    }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
 Content-Disposition: attachment; filename="hdaroot/objects/debug/soft_vertex_shader.chn"
@@ -19510,16 +16200,21 @@ float timeInFrames = ((ceil(frac(@Time * ch(\"speed\") + ch(\"offset\")) * ch(\"
 //get position from textures
 int vtxnum = pointvertex(0, @ptnum);
 vector uv2 = vertex(0, \"uv2\", vtxnum);
-vector texturePos = rawcolormap(chs(\"texturePos\"),uv2.x, (1- timeInFrames) + uv2.y, \"filter\", \"point\");
-
+vector4 texturePos = colormap(chs(\"texturePos\"),uv2.x, (1- timeInFrames) + uv2.y, \"filter\", \"point\");
+float alpha = texturePos.w;
+if(chi(\"../../../enable_col\"))
+{
+vector textureCd = colormap(chs(\"textureCd\"),uv2.x, (1- timeInFrames) + uv2.y, \"filter\", \"point\");
+@Cd = textureCd;
+}
 //expand normalised position texture values to world space
 if(chi(\"../../../normalize_data\"))
 {
     float boundingMax = ch(\"boundingMax\") * (1/ch(\"../../../scale\"));
     float boundingMin = ch(\"boundingMin\") * (1/ch(\"../../../scale\"));
     float expand = boundingMax - boundingMin;
-    texturePos.xyz *= expand;
-    texturePos.xyz += boundingMin;
+    texturePos *= set(vector(expand));
+    texturePos += set(vector(boundingMin));
 }
 else
 {
@@ -19527,7 +16222,26 @@ texturePos /= ch(\"../../../scale\");
 }
 texturePos = coord_swizzle_vector(texturePos, ch(\"coord_swizzle\"), ch(\"coord_flip\"), 0);  //swizzle y and z because textures are exported with z-up
 v@texPos = texturePos;
-@P += texturePos;"	)
+@P += set(vector(texturePos));
+
+if(chi(\"../../../pack_norm\"))
+    {
+    //decode float to float2
+    alpha *= 1023.0;
+    vector2 f2;
+    f2.x = floor(alpha / 32.0) / 31.0;
+    f2.y = (alpha - (floor(alpha / 32.0)*32.0)) / 31.5;
+
+    //decode float2 to float3
+    vector f3;
+    f2 *= 4;
+    f2 -= 2;
+    float f2dot = dot(f2,f2);
+    f3 = set(vector2(sqrt(1 - (f2dot/4.0)) * f2));
+    f3.z = 1 - (f2dot/2.0);
+    vector tempf3 = f3.xyz;
+    @N = tempf3;
+    }"	)
 exportlist	[ 0	locks=0 ]	(	*	)
 vex_strict	[ 0	locks=0 ]	(	"off"	)
 autobind	[ 0	locks=0 ]	(	"on"	)
@@ -19543,11 +16257,13 @@ vex_selectiongroup	[ 0	locks=0 ]	(	""	)
 folder1	[ 0	locks=0 ]	(	0	0	)
 speed	[ 0	locks=0 ]	(	[ speed	0.24242424242424243 ] 	)
 numOfFrames	[ 0	locks=0 ]	(	[ numOfFrames	99 ] 	)
-boundingMax	[ 8	locks=0 ]	(	[ boundingMax	398.36095999999998 ] 	)
-boundingMin	[ 8	locks=0 ]	(	[ boundingMin	-114.5754 ] 	)
+boundingMax	[ 8	locks=0 ]	(	[ boundingMax	469.98259999999999 ] 	)
+boundingMin	[ 8	locks=0 ]	(	[ boundingMin	-423.36016000000001 ] 	)
 texturePos	[ 0	locks=0 ]	(	`chs(\"../../../path_pos\")`	)
 coord_swizzle	[ 0	locks=0 ]	(	[ coord_swizzle	1 ] 	)
 coord_flip	[ 0	locks=0 ]	(	[ coord_flip	0 ] 	)
+offset	[ 0	locks=0 ]	(	0	)
+textureCd	[ 0	locks=0 ]	(	`chs(\"../../../path_col\")`	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -19596,7 +16312,7 @@ inputs
 stat
 {
   create 1495492095
-  modify 1559912397
+  modify 1560280980
   author mike@mikembp.local
   access 0777
 }
@@ -20019,8 +16735,8 @@ vector texturePos = rawcolormap(chs(\"texturePos\"),uv2.x, (1- timeInFrames) + u
 vector4 textureRot = colormap(chs(\"textureRot\"),uv2.x, (1 - timeInFrames) + uv2.y, \"filter\", \"point\");
 
 //expand normalised position texture values to world space
-float boundingMax = ch(\"boundingMax\") * 0.01;
-float boundingMin = ch(\"boundingMin\") * 0.01;
+float boundingMax = ch(\"boundingMax\") * (1/ch(\"../../../scale\"));
+float boundingMin = ch(\"boundingMin\") * (1/ch(\"../../../scale\"));
 float expand = boundingMax - boundingMin;
 texturePos.xyz *= expand;
 texturePos.xyz += boundingMin;
@@ -20028,8 +16744,8 @@ texturePos = coord_swizzle_vector(texturePos, ch(\"coord_swizzle\"), ch(\"coord_
 
 //expand normalised pivot vertex colour values to world space
 vector pivot = @Cd;
-float pivotMax = ch(\"pivotMax\") * 0.01;
-float pivotMin = ch(\"pivotMin\") * 0.01;
+float pivotMax = ch(\"pivotMax\") * (1/ch(\"../../../scale\"));
+float pivotMin = ch(\"pivotMin\") * (1/ch(\"../../../scale\"));
 float expand1 = pivotMax - pivotMin;
 pivot *= expand1;
 pivot += pivotMin;
@@ -20047,7 +16763,7 @@ p@rot = textureRot;
 //quat.z = textureRot.y;
 //quat.w = textureRot.w;
 vector4 quat = coord_swizzle_quaternion(textureRot, ch(\"quaternion_flip\"));
-vector quat3 = set(quat.x,quat.y,quat.z);
+vector quat3 = set(vector(quat));
 vector crosses = cross(quat3, cross(quat3,atOrigin) + (atOrigin * quat.w)) * 2;
 vector added = pivot + atOrigin + crosses;
 
@@ -20057,7 +16773,8 @@ Pos = rotated;
 Pos += pivot;
 Pos += texturePos;
 
-@P = texturePos + added;"	)
+@P = texturePos + added;
+//@P = Pos;"	)
 exportlist	[ 0	locks=0 ]	(	*	)
 vex_strict	[ 0	locks=0 ]	(	"off"	)
 autobind	[ 0	locks=0 ]	(	"on"	)
@@ -20073,8 +16790,8 @@ vex_selectiongroup	[ 0	locks=0 ]	(	""	)
 folder1	[ 0	locks=0 ]	(	0	0	)
 speed	[ 0	locks=0 ]	(	[ speed	0.24242424242424243 ] 	)
 numOfFrames	[ 0	locks=0 ]	(	[ numOfFrames	99 ] 	)
-boundingMax	[ 0	locks=0 ]	(	[ boundingMax	398.36095999999998 ] 	)
-boundingMin	[ 0	locks=0 ]	(	[ boundingMin	-114.5754 ] 	)
+boundingMax	[ 0	locks=0 ]	(	[ boundingMax	799.99981000000002 ] 	)
+boundingMin	[ 0	locks=0 ]	(	[ boundingMin	-799.99992999999995 ] 	)
 texturePos	[ 0	locks=0 ]	(	`chs(\"../../../path_pos\")`	)
 coord_swizzle	[ 0	locks=0 ]	(	[ coord_swizzle	1 ] 	)
 coord_flip	[ 0	locks=0 ]	(	[ coord_flip	0 ] 	)
@@ -20101,14 +16818,14 @@ Content-Type: text/plain
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot/objects/debug/fluid_vertex_shader1.init"
+Content-Disposition: attachment; filename="hdaroot/objects/debug/fluid_vertex_shader.init"
 Content-Type: text/plain
 
 type = attribwrangle
 matchesdef = 1
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot/objects/debug/fluid_vertex_shader1.def"
+Content-Disposition: attachment; filename="hdaroot/objects/debug/fluid_vertex_shader.def"
 Content-Type: text/plain
 
 sopflags sopflags = 
@@ -20131,7 +16848,7 @@ inputs
 stat
 {
   create 1495492095
-  modify 1560261492
+  modify 1560279074
   author mike@mikembp.local
   access 0777
 }
@@ -20141,7 +16858,7 @@ exprlanguage hscript
 end
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot/objects/debug/fluid_vertex_shader1.spareparmdef"
+Content-Disposition: attachment; filename="hdaroot/objects/debug/fluid_vertex_shader.spareparmdef"
 Content-Type: text/plain
 
     group {
@@ -20371,7 +17088,7 @@ Content-Type: text/plain
     }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot/objects/debug/fluid_vertex_shader1.chn"
+Content-Disposition: attachment; filename="hdaroot/objects/debug/fluid_vertex_shader.chn"
 Content-Type: text/plain
 
 {
@@ -20419,7 +17136,7 @@ Content-Type: text/plain
   }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot/objects/debug/fluid_vertex_shader1.parm"
+Content-Disposition: attachment; filename="hdaroot/objects/debug/fluid_vertex_shader.parm"
 Content-Type: text/plain
 
 {
@@ -20477,7 +17194,7 @@ texturePos += set(vector(boundingMin));
 texturePos = set(vector(coord_swizzle_vector(texturePos, ch(\"coord_swizzle\"), ch(\"coord_flip\"), 0)));  //swizzle y and z because textures are exported with z-up
 v@texPos = set(vector(texturePos));
 @P = set(vector(texturePos));
-f@a = alpha;
+
 if(chi(\"../../../pack_norm\"))
     {
     //decode float to float2
@@ -20521,7 +17238,431 @@ coord_flip	[ 0	locks=0 ]	(	[ coord_flip	0 ] 	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot/objects/debug/fluid_vertex_shader1.userdata"
+Content-Disposition: attachment; filename="hdaroot/objects/debug/fluid_vertex_shader.userdata"
+Content-Type: text/plain
+
+{
+	"___Version___":{
+		"type":"string",
+		"value":""
+	},
+	"nodeshape":{
+		"type":"string",
+		"value":"gurgle"
+	}
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/objects/debug/sprite_vertex_shader.init"
+Content-Type: text/plain
+
+type = attribwrangle
+matchesdef = 1
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/objects/debug/sprite_vertex_shader.def"
+Content-Type: text/plain
+
+sopflags sopflags = 
+comment ""
+position 4.58276 1.85
+connectornextid 2
+flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault off exposed on
+outputsNamed3
+{
+1 "output1"
+}
+inputsNamed3
+{
+0 	switch_engine 0 1 "input1"
+}
+inputs
+{
+0 	switch_engine 0 1
+}
+stat
+{
+  create 1495492095
+  modify 1560274109
+  author mike@mikembp.local
+  access 0777
+}
+color UT_Color RGB 0.475 0.812 0.204 
+delscript ""
+exprlanguage hscript
+end
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/objects/debug/sprite_vertex_shader.spareparmdef"
+Content-Type: text/plain
+
+    group {
+        name    "folder1"
+        label   "Code"
+
+        parm {
+            name    "group"
+            baseparm
+            label   "Group"
+            export  none
+            bindselector uvselect "Modify Points"
+                "Select the points to affect and press Enter to complete."
+                0 1 0xffffffff 0 grouptype 0
+        }
+        parm {
+            name    "grouptype"
+            baseparm
+            label   "Group Type"
+            export  none
+        }
+        parm {
+            name    "class"
+            baseparm
+            label   "Run Over"
+            export  none
+        }
+        parm {
+            name    "vex_numcount"
+            baseparm
+            label   "Number Count"
+            export  none
+        }
+        parm {
+            name    "vex_threadjobsize"
+            baseparm
+            label   "Thread Job Size"
+            export  none
+        }
+        parm {
+            name    "snippet"
+            baseparm
+            label   "VEXpression"
+            export  all
+        }
+        parm {
+            name    "exportlist"
+            baseparm
+            label   "Attributes to Create"
+            export  none
+        }
+        parm {
+            name    "vex_strict"
+            baseparm
+            label   "Enforce Prototypes"
+            export  none
+        }
+    }
+
+    group {
+        name    "folder1_1"
+        label   "Bindings"
+
+        parm {
+            name    "autobind"
+            baseparm
+            label   "Autobind by Name"
+            export  none
+        }
+        multiparm {
+            name    "bindings"
+            label    "Number of Bindings"
+            baseparm
+            default 0
+            parmtag { "autoscope" "0000000000000000" }
+            parmtag { "multistartoffset" "1" }
+
+            parm {
+                name    "bindname#"
+                baseparm
+                label   "Attribute Name"
+                export  none
+            }
+            parm {
+                name    "bindparm#"
+                baseparm
+                label   "VEX Parameter"
+                export  none
+            }
+        }
+
+        parm {
+            name    "groupautobind"
+            baseparm
+            label   "Autobind Groups by Name"
+            export  none
+        }
+        multiparm {
+            name    "groupbindings"
+            label    "Group Bindings"
+            baseparm
+            default 0
+            parmtag { "autoscope" "0000000000000000" }
+            parmtag { "multistartoffset" "1" }
+
+            parm {
+                name    "bindgroupname#"
+                baseparm
+                label   "Group Name"
+                export  none
+            }
+            parm {
+                name    "bindgroupparm#"
+                baseparm
+                label   "VEX Parameter"
+                export  none
+            }
+        }
+
+        parm {
+            name    "vex_cwdpath"
+            baseparm
+            label   "Evaluation Node Path"
+            export  none
+        }
+        parm {
+            name    "vex_outputmask"
+            baseparm
+            label   "Export Parameters"
+            export  none
+        }
+        parm {
+            name    "vex_updatenmls"
+            baseparm
+            label   "Update Normals If Displaced"
+            export  none
+        }
+        parm {
+            name    "vex_matchattrib"
+            baseparm
+            label   "Attribute to Match"
+            export  none
+        }
+        parm {
+            name    "vex_inplace"
+            baseparm
+            label   "Compute Results In Place"
+            export  none
+        }
+        parm {
+            name    "vex_selectiongroup"
+            baseparm
+            label   "Output Selection Group"
+            export  none
+        }
+    }
+
+    parm {
+        name    "speed"
+        label   "Speed"
+        type    float
+        default { "0" }
+        range   { 0 1 }
+    }
+    parm {
+        name    "numOfFrames"
+        label   "Numofframes"
+        type    float
+        default { "0" }
+        range   { 0 1 }
+    }
+    parm {
+        name    "boundingMax"
+        label   "Boundingmax"
+        type    float
+        default { "0" }
+        range   { 0 1 }
+    }
+    parm {
+        name    "boundingMin"
+        label   "Boundingmin"
+        type    float
+        default { "0" }
+        range   { 0 1 }
+    }
+    parm {
+        name    "texturePos"
+        label   "Position Map"
+        type    image
+        default { "" }
+    }
+    parm {
+        name    "textureCd"
+        label   "Colour Map"
+        type    image
+        default { "" }
+    }
+    parm {
+        name    "coord_swizzle"
+        label   "Coord Swizzle"
+        type    ordinal
+        default { "0" }
+        menu {
+            "0" "X Y Z"
+            "1" "X Z Y"
+            "2" "Y X Z"
+            "3" "Y Z X"
+            "4" "Z X Y"
+            "5" "Z Y X"
+        }
+    }
+    parm {
+        name    "coord_flip"
+        label   "Coord Flip"
+        type    ordinal
+        default { "0" }
+        menu {
+            "0" "+X +Y +Z"
+            "1" "-X +Y +Z"
+            "2" "+X -Y +Z"
+            "3" "+X +Y -Z"
+            "4" "-X -Y +Z"
+            "5" "-X +Y -Z"
+            "6" "-X -Y -Z"
+            "7" "+X -Y -Z"
+        }
+    }
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/objects/debug/sprite_vertex_shader.chn"
+Content-Type: text/plain
+
+{
+    channel speed {
+      lefttype = extend
+      righttype = extend
+      default = 0.242424
+      flags = 0
+      segment { length = 0 value = 0.242424 0.242424 expr = ch(\"../../../speed\") }
+    }
+    channel numOfFrames {
+      lefttype = extend
+      righttype = extend
+      default = 99
+      flags = 0
+      segment { length = 0 value = 99 99 expr = ch(\"../../../num_frames\") }
+    }
+    channel boundingMax {
+      lefttype = extend
+      righttype = extend
+      default = 107.82231
+      flags = 0
+      segment { length = 0 value = 107.82231 107.82231 expr = ch(\"../../../max_min_pos1\") }
+    }
+    channel boundingMin {
+      lefttype = extend
+      righttype = extend
+      default = -152.18295000000001
+      flags = 0
+      segment { length = 0 value = -152.18295000000001 -152.18295000000001 expr = ch(\"../../../max_min_pos2\") }
+    }
+    channel coord_swizzle {
+      lefttype = extend
+      righttype = extend
+      default = 1
+      flags = 0
+      segment { length = 0 value = 1 1 expr = ch(\"../../../coord_pos\") }
+    }
+    channel coord_flip {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = ch(\"../../../invert_pos\") }
+    }
+  }
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/objects/debug/sprite_vertex_shader.parm"
+Content-Type: text/plain
+
+{
+version 0.8
+folder0	[ 0	locks=0 ]	(	0	0	)
+group	[ 0	locks=0 ]	(	""	)
+grouptype	[ 0	locks=0 ]	(	"guess"	)
+class	[ 0	locks=0 ]	(	"point"	)
+vex_numcount	[ 0	locks=0 ]	(	10	)
+vex_threadjobsize	[ 0	locks=0 ]	(	1024	)
+snippet	[ 0	locks=0 ]	(	"vector coord_swizzle_vector(vector coord; int coord_swizzle, coord_flip, inv;)
+{
+        vector result;
+        vector swizzle;
+        if (coord_swizzle == 0) swizzle = set(0, 1, 2);
+        else if (coord_swizzle == 1) swizzle = set(0, 2, 1);
+        else if (coord_swizzle == 2) swizzle = set(1, 0, 2);
+        else if (coord_swizzle == 3) swizzle = set(1, 2, 0);
+        else if (coord_swizzle == 4) swizzle = set(2, 0, 1);
+        else if (coord_swizzle == 5) swizzle = set(2, 1, 0);
+        
+        vector flip;
+        if (coord_flip == 0) flip = set(1,1,1);
+        else if (coord_flip == 1) flip = set(-1,1,1);
+        else if (coord_flip == 2) flip = set(1,-1,1);
+        else if (coord_flip == 3) flip = set(1,1,-1);
+        else if (coord_flip == 4) flip = set(-1,-1,1);
+        else if (coord_flip == 5) flip = set(-1,1,-1);
+        else if (coord_flip == 6) flip = set(-1,-1,-1);
+        else if (coord_flip == 7) flip = set(1,-1,-1);
+        
+        result = swizzle(coord, int(swizzle.x), int(swizzle.y), int(swizzle.z)) * flip;
+
+        return result;
+}
+
+float speed = 1.0/24.0;
+float timeInFrames = ((ceil(frac(@Time * ch(\"speed\") + ch(\"offset\")) * ch(\"numOfFrames\")))/ch(\"numOfFrames\"));// + (1.0/ch(\"numOfFrames\"));
+
+//get position from textures
+int vtxnum = pointvertex(0, @ptnum);
+vector uv = vertex(0, \"uv\", vtxnum);
+vector uv2 = vertex(0, \"uv2\", vtxnum);
+vector4 texturePos = colormap(chs(\"texturePos\"),uv2.x, (1- timeInFrames) + uv2.y, \"filter\", \"point\");
+vector textureCd = colormap(chs(\"textureCd\"),uv2.x, (1- timeInFrames) + uv2.y, \"filter\", \"point\");
+vector rgb = textureCd;
+float alpha = texturePos.w;
+@Cd = rgb;
+
+//expand normalised position texture values to world space
+float boundingMax = ch(\"boundingMax\") * (1/ch(\"../../../scale\"));
+float boundingMin = ch(\"boundingMin\") * (1/ch(\"../../../scale\"));
+float expand = boundingMax - boundingMin;
+texturePos *= set(vector(expand));
+texturePos += set(vector(boundingMin));
+texturePos = set(vector(coord_swizzle_vector(texturePos, ch(\"coord_swizzle\"), ch(\"coord_flip\"), 0)));  //swizzle y and z because textures are exported with z-up
+v@texPos = set(vector(texturePos));
+
+//create camera facing billboard based on uv coordinates
+vector cameraF = set(uv.x - 0.5, uv.y - 0.5, 0);
+vector scale = {0.1,0.1,1};
+cameraF *= scale;
+texturePos += cameraF;
+
+@P = set(vector(texturePos));
+"	)
+exportlist	[ 0	locks=0 ]	(	*	)
+vex_strict	[ 0	locks=0 ]	(	"off"	)
+autobind	[ 0	locks=0 ]	(	"on"	)
+bindings	[ 0	locks=0 ]	(	0	)
+groupautobind	[ 0	locks=0 ]	(	"on"	)
+groupbindings	[ 0	locks=0 ]	(	0	)
+vex_cwdpath	[ 0	locks=0 ]	(	.	)
+vex_outputmask	[ 0	locks=0 ]	(	*	)
+vex_updatenmls	[ 0	locks=0 ]	(	"off"	)
+vex_matchattrib	[ 0	locks=0 ]	(	id	)
+vex_inplace	[ 0	locks=0 ]	(	"off"	)
+vex_selectiongroup	[ 0	locks=0 ]	(	""	)
+folder1	[ 0	locks=0 ]	(	0	0	)
+speed	[ 0	locks=0 ]	(	[ speed	0.24242424242424243 ] 	)
+numOfFrames	[ 0	locks=0 ]	(	[ numOfFrames	99 ] 	)
+boundingMax	[ 0	locks=0 ]	(	[ boundingMax	799.99981000000002 ] 	)
+boundingMin	[ 0	locks=0 ]	(	[ boundingMin	-799.99992999999995 ] 	)
+texturePos	[ 0	locks=0 ]	(	`chs(\"../../../path_pos\")`	)
+textureCd	[ 0	locks=0 ]	(	`chs(\"../../../path_col\")`	)
+coord_swizzle	[ 0	locks=0 ]	(	[ coord_swizzle	1 ] 	)
+coord_flip	[ 0	locks=0 ]	(	[ coord_flip	0 ] 	)
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/objects/debug/sprite_vertex_shader.userdata"
 Content-Type: text/plain
 
 {
@@ -20604,7 +17745,7 @@ Content-Type: text/plain
 comment ""
 position -12.5 13.0248
 connectornextid 2
-flags =  lock off model off template off footprint off xray off bypass off display on render off highlight off unload off savedata off compress off colordefault off exposed on
+flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress off colordefault off exposed on
 outputsNamed3
 {
 1 "output1"
@@ -20620,7 +17761,7 @@ inputs
 stat
 {
   create 1499280403
-  modify 1560260269
+  modify 1560266989
   author mikel@mikembp-sesi.local
   access 0777
 }
@@ -20749,13 +17890,13 @@ Content-Type: text/plain
             baseparm
             label   "Raster Depth"
             joinnext
-            export  dialog
+            export  all
         }
         parm {
             name    "depthmenu"
             baseparm
             label   "Depth Menu"
-            export  dialog
+            export  all
         }
         parm {
             name    "depthglobal"
@@ -20769,13 +17910,13 @@ Content-Type: text/plain
             baseparm
             label   "Use Custom Black/White Points"
             joinnext
-            export  dialog
+            export  all
         }
         parm {
             name    "bwpoints"
             baseparm
             label   "Black/White Points"
-            export  dialog
+            export  all
         }
         parm {
             name    "interlace"
@@ -20801,25 +17942,25 @@ Content-Type: text/plain
             name    "overriderange"
             baseparm
             label   "Override Global Range"
-            export  dialog
+            export  all
         }
         parm {
             name    "singleimage"
             baseparm
             label   "Still Image"
-            export  dialog
+            export  all
         }
         parm {
             name    "start"
             baseparm
             label   "Start Frame"
-            export  dialog
+            export  all
         }
         parm {
             name    "length"
             baseparm
             label   "Length"
-            export  dialog
+            export  all
         }
         parm {
             name    "preextend"
@@ -20970,6 +18111,7 @@ preextend	[ 0	locks=0 ]	(	"black"	)
 prehold	[ 0	locks=0 ]	(	0	)
 postextend	[ 0	locks=0 ]	(	"black"	)
 posthold	[ 0	locks=0 ]	(	0	)
+stdswitcher5	[ 0	locks=0 ]	(	0	0	0	0	)
 coord_swizzle	[ 0	locks=0 ]	(	[ coord_swizzle	1 ] 	)
 coord_flip	[ 0	locks=0 ]	(	0	)
 }
@@ -23038,8 +20180,8 @@ postextend	[ 0	locks=0 ]	(	"black"	)
 posthold	[ 0	locks=0 ]	(	0	)
 path	[ 0	locks=0 ]	(	`opfullpath(\"../../objects/TEXTURE/OUT\")`	)
 geo	[ 0	locks=0 ]	(	op:`opfullpath(chs(\"path\"))`	)
-target_texture_size	[ 0	locks=0 ]	(	[ target_texture_size	0 ] 	)
-numpt	[ 0	locks=0 ]	(	[ numpt	0 ] 	)
+target_texture_size	[ 0	locks=0 ]	(	[ target_texture_size	1024 ] 	)
+numpt	[ 0	locks=0 ]	(	[ numpt	20 ] 	)
 rbd_frame_export_attribute	[ 0	locks=0 ]	(	orient	)
 quaternion_flip	[ 0	locks=0 ]	(	[ quaternion_flip	8 ] 	)
 coord_swizzle	[ 8	locks=0 ]	(	[ coord_swizzle	1 ] 	)
@@ -23104,7 +20246,7 @@ inputs
 stat
 {
   create 1499134361
-  modify 1559660232
+  modify 1560302480
   author mikel@mikembp-sesi.local
   access 0777
 }
@@ -23767,16 +20909,16 @@ outputsNamed3
 }
 inputsNamed3
 {
-0 	coord_swizzle_vector1 4 1 "vec"
+0 	hvectovec2 1 1 "vec"
 }
 inputs
 {
-0 	coord_swizzle_vector1 0 1
+0 	hvectovec2 0 1
 }
 stat
 {
   create 1499134514
-  modify 1559660232
+  modify 1560302480
   author mikel@mikembp-sesi.local
   access 0777
 }
@@ -23852,7 +20994,7 @@ inputs
 stat
 {
   create 1519789175
-  modify 1559660235
+  modify 1560302481
   author LaidlawFX@LaidlawFX
   access 0777
 }
@@ -24418,7 +21560,7 @@ Content-Disposition: attachment; filename="hdaroot/textures/orient/coord_swizzle
 Content-Type: text/plain
 
 comment ""
-position 31.2964 -5.05534
+position 31.7859 -2.46783
 connectornextid 5
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault off exposed on lowdetail off mediumdetail off highdetail on material off
 outputsNamed3
@@ -24442,7 +21584,7 @@ inputs
 stat
 {
   create 1559309682
-  modify 1559660235
+  modify 1560302482
   author mikel@mikembp-sesi
   access 0777
 }
@@ -27458,8 +24600,8 @@ posthold	[ 0	locks=0 ]	(	0	)
 path	[ 0	locks=0 ]	(	`opfullpath(\"../../objects/TEXTURE/OUT\")`	)
 geo	[ 0	locks=0 ]	(	op:`opfullpath(chs(\"path\"))`	)
 export_attribute	[ 0	locks=0 ]	(	N	)
-target_texture_size	[ 0	locks=0 ]	(	[ target_texture_size	1023 ] 	)
-numpt	[ 0	locks=0 ]	(	[ numpt	3072 ] 	)
+target_texture_size	[ 0	locks=0 ]	(	[ target_texture_size	0 ] 	)
+numpt	[ 0	locks=0 ]	(	[ numpt	0 ] 	)
 coord_swizzle	[ 0	locks=0 ]	(	[ coord_swizzle	1 ] 	)
 coord_flip	[ 0	locks=0 ]	(	[ coord_flip	0 ] 	)
 stdswitcher5	[ 0	locks=0 ]	(	0	0	0	0	)
@@ -29358,15 +26500,15 @@ preextend	[ 0	locks=0 ]	(	"black"	)
 prehold	[ 0	locks=0 ]	(	0	)
 postextend	[ 0	locks=0 ]	(	"black"	)
 posthold	[ 0	locks=0 ]	(	0	)
-m	[ 0	locks=0 ]	(	[ m	2 ] 	)
+m	[ 0	locks=0 ]	(	[ m	0 ] 	)
 geo_path	[ 0	locks=0 ]	(	`opfullpath(\"../../objects/TEXTURE/OUT\")`	)
 geo	[ 0	locks=0 ]	(	op:`chs(\"geo_path\")`	)
 export_attribute_p	[ 0	locks=0 ]	(	P	)
 rest_path	[ 0	locks=0 ]	(	`opfullpath(\"../../objects/MESH/soft/OUT\")`	)
 rest	[ 0	locks=0 ]	(	op:`chs(\"rest_path\")`	)
 export_attribute_rest	[ 0	locks=0 ]	(	rest	)
-target_texture_size	[ 0	locks=0 ]	(	[ target_texture_size	1023 ] 	)
-numpt	[ 0	locks=0 ]	(	[ numpt	3072 ] 	)
+target_texture_size	[ 0	locks=0 ]	(	[ target_texture_size	0 ] 	)
+numpt	[ 0	locks=0 ]	(	[ numpt	0 ] 	)
 coord_swizzle	[ 0	locks=0 ]	(	[ coord_swizzle	1 ] 	)
 coord_flip	[ 0	locks=0 ]	(	[ coord_flip	0 ] 	)
 stdswitcher5	[ 0	locks=0 ]	(	0	0	0	0	)
@@ -31800,9 +28942,9 @@ Content-Disposition: attachment; filename="hdaroot/textures/pscale.def"
 Content-Type: text/plain
 
 comment ""
-position -6.5 17.0248
+position -6.45778 17.25
 connectornextid 2
-flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress off colordefault off exposed on
+flags =  lock off model off template off footprint off xray off bypass off display on render off highlight off unload off savedata off compress off colordefault off exposed on
 outputsNamed3
 {
 1 "output1"
@@ -31818,7 +28960,7 @@ inputs
 stat
 {
   create 1499134361
-  modify 1559310382
+  modify 1560266991
   author mikel@mikembp-sesi.local
   access 0777
 }
@@ -32194,11 +29336,11 @@ preextend	[ 0	locks=0 ]	(	"black"	)
 prehold	[ 0	locks=0 ]	(	0	)
 postextend	[ 0	locks=0 ]	(	"black"	)
 posthold	[ 0	locks=0 ]	(	0	)
-m	[ 0	locks=0 ]	(	[ m	0 ] 	)
+m	[ 0	locks=0 ]	(	[ m	1 ] 	)
 path	[ 0	locks=0 ]	(	`opfullpath(\"../../objects/TEXTURE/OUT\")`	)
 geo	[ 0	locks=0 ]	(	op:`opfullpath(chs(\"path\"))`	)
-target_texture_size	[ 0	locks=0 ]	(	[ target_texture_size	0 ] 	)
-numpt	[ 0	locks=0 ]	(	[ numpt	0 ] 	)
+target_texture_size	[ 0	locks=0 ]	(	[ target_texture_size	1024 ] 	)
+numpt	[ 0	locks=0 ]	(	[ numpt	20 ] 	)
 export_attribute	[ 0	locks=0 ]	(	pscale	)
 stdswitcher5	[ 0	locks=0 ]	(	0	0	0	0	)
 }
@@ -35406,7 +32548,7 @@ Content-Type: text/plain
 
 {
 version 0.8
-input	[ 0	locks=0 ]	(	[ input	2 ] 	)
+input	[ 0	locks=0 ]	(	[ input	3 ] 	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -36020,7 +33162,7 @@ t	[ 0	locks=0 ]	(	0	0	0	)
 r	[ 0	locks=0 ]	(	0	0	0	)
 s	[ 8	locks=0 ]	(	1	1	1	)
 shear	[ 0	locks=0 ]	(	0	0	0	)
-scale	[ 8	locks=0 ]	(	[ scale	0.0021201813075943875 ] 	)
+scale	[ 8	locks=0 ]	(	[ scale	0.0021005085117774117 ] 	)
 parmgroup_pivotxform	[ 0	locks=0 ]	(	0	)
 p	[ 0	locks=0 ]	(	0	0	0	)
 pr	[ 0	locks=0 ]	(	0	0	0	)
@@ -36121,7 +33263,7 @@ t	[ 0	locks=0 ]	(	0	0	0	)
 r	[ 0	locks=0 ]	(	0	0	0	)
 s	[ 0	locks=0 ]	(	1	1	1	)
 shear	[ 0	locks=0 ]	(	0	0	0	)
-scale	[ 0	locks=0 ]	(	[ scale	471.65777587890625 ] 	)
+scale	[ 0	locks=0 ]	(	[ scale	476.0751953125 ] 	)
 parmgroup_pivotxform	[ 0	locks=0 ]	(	0	)
 p	[ 0	locks=0 ]	(	0	0	0	)
 pr	[ 0	locks=0 ]	(	0	0	0	)
@@ -36250,7 +33392,7 @@ inputs
 stat
 {
   create 1477494663
-  modify 1542761258
+  modify 1560264421
   author Luiz@Luiz-PC
   access 0777
 }
@@ -36268,7 +33410,14 @@ Content-Type: text/plain
       lefttype = extend
       righttype = extend
       flags = 0
-      segment { length = 0 expr = $RFSTART }
+      segment { length = 0 expr = ch(\"../../../../f1\") }
+    }
+    channel iterations {
+      lefttype = extend
+      righttype = extend
+      default = 32
+      flags = 0
+      segment { length = 0 value = 32 32 expr = "ch(\"../../../../f2\") - ch(\"../../../../f1\")" }
     }
   }
 
@@ -36280,7 +33429,7 @@ Content-Type: text/plain
 version 0.8
 itermethod	[ 0	locks=0 ]	(	"count"	)
 method	[ 0	locks=0 ]	(	"merge"	)
-iterations	[ 0	locks=0 ]	(	32	)
+iterations	[ 0	locks=0 ]	(	[ iterations	99 ] 	)
 startvalue	[ 0	locks=0 ]	(	[ startvalue	1 ] 	)
 increment	[ 0	locks=0 ]	(	1	)
 class	[ 0	locks=0 ]	(	"point"	)
@@ -36337,7 +33486,7 @@ inputs
 stat
 {
   create 1477494663
-  modify 1542761258
+  modify 1560264706
   author Luiz@Luiz-PC
   access 0777
 }
@@ -36398,7 +33547,7 @@ inputs
 stat
 {
   create 1477494667
-  modify 1560260930
+  modify 1560302810
   author Luiz@Luiz-PC
   access 0777
 }
@@ -36522,11 +33671,11 @@ Content-Type: text/plain
 {
 version 0.8
 method	[ 0	locks=0 ]	(	"byframe"	)
-frame	[ 8	locks=0 ]	(	[ frame	32 ] 	)
+frame	[ 8	locks=0 ]	(	[ frame	99 ] 	)
 integerframe	[ 0	locks=0 ]	(	"on"	)
-time	[ 0	locks=0 ]	(	[ time	0 ] 	)
+time	[ 0	locks=0 ]	(	[ time	4.125 ] 	)
 rangeclamp	[ 0	locks=0 ]	(	"none"	)
-frange	[ 0	locks=0 ]	(	[ frange1	1 ] 	[ frange2	33 ] 	)
+frange	[ 0	locks=0 ]	(	[ frange1	1 ] 	[ frange2	240 ] 	)
 trange	[ 0	locks=0 ]	(	[ trange1	0 ] 	[ trange2	9.9583333333333339 ] 	)
 }
 
@@ -36609,7 +33758,7 @@ t	[ 0	locks=0 ]	(	0	0	0	)
 r	[ 0	locks=0 ]	(	0	0	0	)
 s	[ 0	locks=0 ]	(	1	1	1	)
 shear	[ 0	locks=0 ]	(	0	0	0	)
-scale	[ 8	locks=0 ]	(	[ scale	100 ] 	)
+scale	[ 0	locks=0 ]	(	[ scale	100 ] 	)
 parmgroup_pivotxform	[ 0	locks=0 ]	(	0	)
 p	[ 0	locks=0 ]	(	0	0	0	)
 pr	[ 0	locks=0 ]	(	0	0	0	)
@@ -37758,7 +34907,7 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position 7.505 -12.2609
+position 7.5 -12.725
 connectornextid 1
 flags =  lock off model off template off footprint off xray off bypass off display on render on highlight off unload off savedata off compress on colordefault off exposed on
 outputsNamed3
@@ -37775,7 +34924,7 @@ inputs
 stat
 {
   create 1518978071
-  modify 1521333184
+  modify 1560265864
   author LaidlawFX@LaidlawFX
   access 0777
 }
@@ -37954,7 +35103,7 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position 5.505 -7.15
+position 5.505 -8.15
 connectornextid 2
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault off exposed on
 outputsNamed3
@@ -37972,7 +35121,7 @@ inputs
 stat
 {
   create 1427214513
-  modify 1519779236
+  modify 1560265823
   author mlyndon@MLYNDON-PC1.northamerica.corp.microsoft.com
   access 0777
 }
@@ -38030,7 +35179,7 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position 7.50155 -10.15
+position 7.49655 -10.6141
 connectornextid 2
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault off exposed on
 outputsNamed3
@@ -38048,7 +35197,7 @@ inputs
 stat
 {
   create 1427214597
-  modify 1519779236
+  modify 1560265828
   author mlyndon@MLYNDON-PC1.northamerica.corp.microsoft.com
   access 0777
 }
@@ -38098,7 +35247,7 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position 5.505 -8.15
+position 5.505 -4.15
 connectornextid 2
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
@@ -38107,16 +35256,16 @@ outputsNamed3
 }
 inputsNamed3
 {
-0 	facet4 1 1 "input1"
+0 	circle2 0 1 "input1"
 }
 inputs
 {
-0 	facet4 0 1
+0 	circle2 0 1
 }
 stat
 {
   create 1486172169
-  modify 1542761258
+  modify 1560265825
   author Luiz@LAPTOP-LKBBB5D4
   access 0777
 }
@@ -38199,7 +35348,7 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position 5.505 -4.15
+position 5.505 -5.15
 connectornextid 2
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
@@ -38208,16 +35357,16 @@ outputsNamed3
 }
 inputsNamed3
 {
-0 	circle2 0 1 "input1"
+0 	transform4 1 1 "input1"
 }
 inputs
 {
-0 	circle2 0 1
+0 	transform4 0 1
 }
 stat
 {
   create 1486484632
-  modify 1519779236
+  modify 1560265824
   author Luiz@LAPTOP-LKBBB5D4
   access 0777
 }
@@ -38551,7 +35700,7 @@ areaattrib	[ 0	locks=0 ]	(	area	)
 indepvoxel	[ 0	locks=0 ]	(	"off"	)
 useareaforvolumes	[ 0	locks=0 ]	(	"off"	)
 forcetotal	[ 0	locks=0 ]	(	"on"	)
-npts	[ 8	locks=0 ]	(	[ npts	100 ] 	)
+npts	[ 8	locks=0 ]	(	[ npts	3000 ] 	)
 usedensitytexture	[ 0	locks=0 ]	(	"off"	)
 densitytexture	[ 0	locks=0 ]	(	default.pic	)
 primcountattrib	[ 0	locks=0 ]	(	count	)
@@ -38660,7 +35809,7 @@ t	[ 0	locks=0 ]	(	0	0	0	)
 r	[ 0	locks=0 ]	(	0	0	0	)
 s	[ 8	locks=0 ]	(	1	1	1	)
 shear	[ 0	locks=0 ]	(	0	0	0	)
-scale	[ 8	locks=0 ]	(	[ scale	0.001281190305868546 ] 	)
+scale	[ 8	locks=0 ]	(	[ scale	0.00062500009536744616 ] 	)
 parmgroup_pivotxform	[ 0	locks=0 ]	(	0	)
 p	[ 0	locks=0 ]	(	0	0	0	)
 pr	[ 0	locks=0 ]	(	0	0	0	)
@@ -38761,7 +35910,7 @@ t	[ 0	locks=0 ]	(	0	0	0	)
 r	[ 0	locks=0 ]	(	0	0	0	)
 s	[ 0	locks=0 ]	(	1	1	1	)
 shear	[ 0	locks=0 ]	(	0	0	0	)
-scale	[ 0	locks=0 ]	(	[ scale	780.524169921875 ] 	)
+scale	[ 0	locks=0 ]	(	[ scale	1599.999755859375 ] 	)
 parmgroup_pivotxform	[ 0	locks=0 ]	(	0	)
 p	[ 0	locks=0 ]	(	0	0	0	)
 pr	[ 0	locks=0 ]	(	0	0	0	)
@@ -39041,7 +36190,7 @@ version 0.8
 method	[ 0	locks=0 ]	(	"byframe"	)
 frame	[ 8	locks=0 ]	(	[ frame	99 ] 	)
 integerframe	[ 0	locks=0 ]	(	"on"	)
-time	[ 0	locks=0 ]	(	[ time	3.25 ] 	)
+time	[ 0	locks=0 ]	(	[ time	2.9583332538604736 ] 	)
 rangeclamp	[ 0	locks=0 ]	(	"none"	)
 frange	[ 0	locks=0 ]	(	[ frange1	1 ] 	[ frange2	240 ] 	)
 trange	[ 0	locks=0 ]	(	[ trange1	0 ] 	[ trange2	9.9583333333333339 ] 	)
@@ -39087,7 +36236,7 @@ inputs
 stat
 {
   create 1486172943
-  modify 1560261072
+  modify 1560302993
   author Luiz@LAPTOP-LKBBB5D4
   access 0777
 }
@@ -39294,7 +36443,7 @@ inputs
 stat
 {
   create 1486172928
-  modify 1560261072
+  modify 1560302993
   author Luiz@LAPTOP-LKBBB5D4
   access 0777
 }
@@ -39433,7 +36582,7 @@ inputs
 stat
 {
   create 1505935989
-  modify 1519779294
+  modify 1560263456
   author mikel@mikembp-sesi.local
   access 0777
 }
@@ -39498,7 +36647,7 @@ inputs
 stat
 {
   create 1505935989
-  modify 1542761258
+  modify 1560265864
   author mikel@mikembp-sesi.local
   access 0777
 }
@@ -39512,18 +36661,19 @@ Content-Disposition: attachment; filename="hdaroot/objects/MESH/sprite/end1.chn"
 Content-Type: text/plain
 
 {
-    channel stopcondition {
-      lefttype = extend
-      righttype = extend
-      flags = 0
-      segment { length = 0 expr = "detail(\"../metadata1\", \"iteration\", 0) = 1" }
-    }
     channel iterations {
       lefttype = extend
       righttype = extend
       default = 32
       flags = 0
       segment { length = 0 value = 32 32 expr = "ch(\"../../../../f2\") - ch(\"../../../../f1\")" }
+    }
+    channel startvalue {
+      lefttype = extend
+      righttype = extend
+      default = 1
+      flags = 0
+      segment { length = 0 value = 1 1 expr = ch(\"../../../../f1\") }
     }
   }
 
@@ -39535,8 +36685,8 @@ Content-Type: text/plain
 version 0.8
 itermethod	[ 0	locks=0 ]	(	"count"	)
 method	[ 0	locks=0 ]	(	"merge"	)
-iterations	[ 8	locks=0 ]	(	[ iterations	90 ] 	)
-startvalue	[ 0	locks=0 ]	(	1	)
+iterations	[ 0	locks=0 ]	(	[ iterations	99 ] 	)
+startvalue	[ 0	locks=0 ]	(	[ startvalue	1 ] 	)
 increment	[ 0	locks=0 ]	(	1	)
 class	[ 0	locks=0 ]	(	"point"	)
 useattrib	[ 0	locks=0 ]	(	"on"	)
@@ -39548,7 +36698,7 @@ templatepath	[ 0	locks=0 ]	(	""	)
 resetcookpass	[ 0	locks=0 ]	(	0	)
 dosinglepass	[ 0	locks=0 ]	(	"off"	)
 singlepass	[ 0	locks=0 ]	(	0	)
-stopcondition	[ 8	locks=0 ]	(	[ stopcondition	0 ] 	)
+stopcondition	[ 0	locks=0 ]	(	0	)
 multithread	[ 0	locks=0 ]	(	"off"	)
 }
 
@@ -39655,7 +36805,7 @@ inputs
 stat
 {
   create 1505935989
-  modify 1542761258
+  modify 1560302909
   author mikel@mikembp-sesi.local
   access 0777
 }
@@ -39778,11 +36928,11 @@ Content-Type: text/plain
 {
 version 0.8
 method	[ 0	locks=0 ]	(	"byframe"	)
-frame	[ 8	locks=0 ]	(	[ frame	90 ] 	)
+frame	[ 8	locks=0 ]	(	[ frame	99 ] 	)
 integerframe	[ 0	locks=0 ]	(	"on"	)
-time	[ 0	locks=0 ]	(	[ time	1.0666666666666667 ] 	)
+time	[ 0	locks=0 ]	(	[ time	4.125 ] 	)
 rangeclamp	[ 0	locks=0 ]	(	"none"	)
-frange	[ 0	locks=0 ]	(	[ frange1	1 ] 	[ frange2	33 ] 	)
+frange	[ 0	locks=0 ]	(	[ frange1	1 ] 	[ frange2	240 ] 	)
 trange	[ 0	locks=0 ]	(	[ trange1	0 ] 	[ trange2	0 ] 	)
 }
 
@@ -39828,7 +36978,7 @@ inputs
 stat
 {
   create 1505935989
-  modify 1542761258
+  modify 1560263487
   author mikel@mikembp-sesi.local
   access 0777
 }
@@ -39994,7 +37144,7 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position 7.505 -9.15
+position 7.5 -9.61415
 connectornextid 3
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
@@ -40003,18 +37153,18 @@ outputsNamed3
 }
 inputsNamed3
 {
-0 	transform4 1 1 "input1"
+0 	facet4 1 1 "input1"
 1 	createAttr_uv2_sprite 1 1 "input2"
 }
 inputs
 {
-0 	transform4 0 1
+0 	facet4 0 1
 1 	createAttr_uv2_sprite 0 1
 }
 stat
 {
   create 1518981612
-  modify 1520780797
+  modify 1560265828
   author LaidlawFX@LaidlawFX
   access 0777
 }
@@ -40076,7 +37226,7 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position 3.505 -5.15
+position 3.505 -6.15
 connectornextid 2
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
@@ -40094,7 +37244,7 @@ inputs
 stat
 {
   create 1519063879
-  modify 1519779236
+  modify 1560265823
   author LaidlawFX@LaidlawFX
   access 0777
 }
@@ -40139,7 +37289,7 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position 5.505 -6.1502
+position 5.505 -7.1502
 connectornextid 3
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
@@ -40159,7 +37309,7 @@ inputs
 stat
 {
   create 1519082351
-  modify 1542761258
+  modify 1560265823
   author LaidlawFX@LaidlawFX
   access 0777
 }
@@ -40274,7 +37424,7 @@ Content-Type: text/plain
 
 {
 version 0.8
-input	[ 0	locks=0 ]	(	[ input	2 ] 	)
+input	[ 0	locks=0 ]	(	[ input	3 ] 	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -40384,7 +37534,7 @@ inputs
 stat
 {
   create 1518977628
-  modify 1542761258
+  modify 1560263501
   author LaidlawFX@LaidlawFX
   access 0777
 }
@@ -40498,7 +37648,7 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position 7.5 -11.1502
+position 7.495 -11.6143
 connectornextid 5
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
@@ -40522,7 +37672,7 @@ inputs
 stat
 {
   create 1518977628
-  modify 1542761258
+  modify 1560265828
   author LaidlawFX@LaidlawFX
   access 0777
 }
@@ -40577,7 +37727,7 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position 9.5 -10.155
+position 9.495 -9.61915
 connectornextid 1
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault off exposed on
 outputsNamed3
@@ -40593,7 +37743,7 @@ inputs
 stat
 {
   create 1519758294
-  modify 1519779309
+  modify 1560265828
   author blaidlaw@TOR-WKS-AB663.ubisoft.org
   access 0777
 }
@@ -40895,7 +38045,7 @@ version 0.8
 method	[ 0	locks=0 ]	(	"byframe"	)
 frame	[ 0	locks=0 ]	(	[ frame	1 ] 	)
 integerframe	[ 0	locks=0 ]	(	"on"	)
-time	[ 0	locks=0 ]	(	[ time	3.25 ] 	)
+time	[ 0	locks=0 ]	(	[ time	2.9583332538604736 ] 	)
 rangeclamp	[ 0	locks=0 ]	(	"none"	)
 frange	[ 0	locks=0 ]	(	[ frange1	1 ] 	[ frange2	240 ] 	)
 trange	[ 0	locks=0 ]	(	[ trange1	0 ] 	[ trange2	9.9583333333333339 ] 	)
@@ -41825,7 +38975,7 @@ Content-Type: text/plain
 
 {
 version 0.8
-input	[ 0	locks=0 ]	(	[ input	2 ] 	)
+input	[ 0	locks=0 ]	(	[ input	3 ] 	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -42262,7 +39412,7 @@ version 0.8
 method	[ 0	locks=0 ]	(	"byframe"	)
 frame	[ 0	locks=0 ]	(	[ frame	1 ] 	)
 integerframe	[ 0	locks=0 ]	(	"on"	)
-time	[ 0	locks=0 ]	(	[ time	3.25 ] 	)
+time	[ 0	locks=0 ]	(	[ time	2.9583332538604736 ] 	)
 rangeclamp	[ 0	locks=0 ]	(	"none"	)
 frange	[ 0	locks=0 ]	(	[ frange1	1 ] 	[ frange2	240 ] 	)
 trange	[ 0	locks=0 ]	(	[ trange1	0 ] 	[ trange2	9.9583333333333339 ] 	)
@@ -42829,7 +39979,7 @@ version 0.8
 method	[ 0	locks=0 ]	(	"byframe"	)
 frame	[ 0	locks=0 ]	(	[ frame	1 ] 	)
 integerframe	[ 0	locks=0 ]	(	"on"	)
-time	[ 0	locks=0 ]	(	[ time	3.25 ] 	)
+time	[ 0	locks=0 ]	(	[ time	2.9583332538604736 ] 	)
 rangeclamp	[ 0	locks=0 ]	(	"none"	)
 frange	[ 0	locks=0 ]	(	[ frange1	1 ] 	[ frange2	240 ] 	)
 trange	[ 0	locks=0 ]	(	[ trange1	0 ] 	[ trange2	9.9583333333333339 ] 	)
@@ -42986,7 +40136,7 @@ Content-Type: text/plain
 
 {
 version 0.8
-input	[ 0	locks=0 ]	(	[ input	2 ] 	)
+input	[ 0	locks=0 ]	(	[ input	3 ] 	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -43600,7 +40750,7 @@ version 0.8
 itermethod	[ 0	locks=0 ]	(	"count"	)
 method	[ 0	locks=0 ]	(	"merge"	)
 iterations	[ 8	locks=0 ]	(	[ iterations	99 ] 	)
-startvalue	[ 0	locks=0 ]	(	[ startvalue	100 ] 	)
+startvalue	[ 0	locks=0 ]	(	[ startvalue	1 ] 	)
 increment	[ 0	locks=0 ]	(	1	)
 class	[ 0	locks=0 ]	(	"primitive"	)
 useattrib	[ 0	locks=0 ]	(	"on"	)
@@ -43783,7 +40933,7 @@ version 0.8
 method	[ 0	locks=0 ]	(	"byframe"	)
 frame	[ 8	locks=0 ]	(	[ frame	99 ] 	)
 integerframe	[ 0	locks=0 ]	(	"on"	)
-time	[ 0	locks=0 ]	(	[ time	3.25 ] 	)
+time	[ 0	locks=0 ]	(	[ time	2.9583332538604736 ] 	)
 rangeclamp	[ 0	locks=0 ]	(	"none"	)
 frange	[ 0	locks=0 ]	(	[ frange1	1 ] 	[ frange2	240 ] 	)
 trange	[ 0	locks=0 ]	(	[ trange1	0 ] 	[ trange2	9.9583333333333339 ] 	)
@@ -43828,7 +40978,7 @@ inputs
 stat
 {
   create 1499281135
-  modify 1560261630
+  modify 1560302631
   author mikel@mikembp-sesi.local
   access 0777
 }
@@ -43926,7 +41076,7 @@ Content-Type: text/plain
 
 {
 version 0.8
-input	[ 8	locks=0 ]	(	[ input	2 ] 	)
+input	[ 8	locks=0 ]	(	[ input	1 ] 	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -44005,7 +41155,7 @@ Content-Type: text/plain
 
 {
 version 0.8
-input	[ 8	locks=0 ]	(	[ input	2 ] 	)
+input	[ 8	locks=0 ]	(	[ input	1 ] 	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -46498,7 +43648,7 @@ inputs
 stat
 {
   create 1462816670
-  modify 1543805894
+  modify 1560279635
   author belaid@BELAID-ART.redmond.corp.microsoft.com
   access 0777
 }
@@ -46824,13 +43974,13 @@ group	[ 0	locks=0 ]	(	""	)
 grouptype	[ 0	locks=0 ]	(	"guess"	)
 xOrd	[ 0	locks=0 ]	(	"srt"	)
 rOrd	[ 0	locks=0 ]	(	"xyz"	)
-t	[ 0	locks=0 ]	(	[ tx	-8 ] 	[ ty	-0 ] 	[ tz	-1 ] 	)
+t	[ 0	locks=0 ]	(	[ tx	-0 ] 	[ ty	-0.35882550477981567 ] 	[ tz	-0 ] 	)
 r	[ 0	locks=0 ]	(	0	0	0	)
 s	[ 0	locks=0 ]	(	1	1	1	)
 shear	[ 0	locks=0 ]	(	0	0	0	)
 scale	[ 0	locks=0 ]	(	1	)
 parmgroup_pivotxform	[ 0	locks=0 ]	(	0	)
-p	[ 0	locks=0 ]	(	[ px	8 ] 	[ py	0 ] 	[ pz	1 ] 	)
+p	[ 0	locks=0 ]	(	[ px	0 ] 	[ py	0.35882550477981567 ] 	[ pz	0 ] 	)
 pr	[ 0	locks=0 ]	(	0	0	0	)
 parmgroup_prexform	[ 0	locks=0 ]	(	0	)
 prexform_xOrd	[ 0	locks=0 ]	(	"srt"	)
@@ -47018,7 +44168,7 @@ size1	[ 0	locks=0 ]	(	3	)
 default1v	[ 0	locks=0 ]	(	0	0	0	0	)
 writevalues1	[ 0	locks=0 ]	(	"on"	)
 uselocal1	[ 0	locks=0 ]	(	"on"	)
-value1v	[ 0	locks=0 ]	(	[ value1v1	8 ] 	[ value1v2	0 ] 	[ value1v3	1 ] 	0	)
+value1v	[ 0	locks=0 ]	(	[ value1v1	0 ] 	[ value1v2	0.35882550477981567 ] 	[ value1v3	0 ] 	0	)
 string1	[ 0	locks=0 ]	(	""	)
 }
 
@@ -48756,13 +45906,13 @@ group	[ 0	locks=0 ]	(	""	)
 grouptype	[ 0	locks=0 ]	(	"guess"	)
 xOrd	[ 0	locks=0 ]	(	"srt"	)
 rOrd	[ 0	locks=0 ]	(	"xyz"	)
-t	[ 0	locks=0 ]	(	[ tx	-7.822993278503418 ] 	[ ty	-1.0441403388977051 ] 	[ tz	-0.48620796203613281 ] 	)
+t	[ 0	locks=0 ]	(	[ tx	0.0058122575283050537 ] 	[ ty	0.4599701464176178 ] 	[ tz	-0.12472996115684509 ] 	)
 r	[ 0	locks=0 ]	(	0	0	0	)
 s	[ 0	locks=0 ]	(	1	1	1	)
 shear	[ 0	locks=0 ]	(	0	0	0	)
 scale	[ 0	locks=0 ]	(	1	)
 parmgroup_pivotxform	[ 0	locks=0 ]	(	0	)
-p	[ 0	locks=0 ]	(	[ px	7.822993278503418 ] 	[ py	1.0441403388977051 ] 	[ pz	0.48620796203613281 ] 	)
+p	[ 0	locks=0 ]	(	[ px	-0.0058122575283050537 ] 	[ py	-0.4599701464176178 ] 	[ pz	0.12472996115684509 ] 	)
 pr	[ 0	locks=0 ]	(	0	0	0	)
 parmgroup_prexform	[ 0	locks=0 ]	(	0	)
 prexform_xOrd	[ 0	locks=0 ]	(	"srt"	)
@@ -48923,7 +46073,7 @@ Content-Type: text/plain
 
 {
 version 0.8
-input	[ 8	locks=0 ]	(	[ input	0 ] 	)
+input	[ 8	locks=0 ]	(	[ input	1 ] 	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -49067,7 +46217,7 @@ Content-Type: text/plain
 
 {
 version 0.8
-input	[ 8	locks=0 ]	(	[ input	2 ] 	)
+input	[ 8	locks=0 ]	(	[ input	3 ] 	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -51194,7 +48344,7 @@ Content-Type: text/plain
 
 {
 version 0.8
-input	[ 8	locks=0 ]	(	[ input	1 ] 	)
+input	[ 8	locks=0 ]	(	[ input	0 ] 	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -51965,7 +49115,7 @@ Content-Type: text/plain
 
 {
 version 0.8
-input	[ 8	locks=0 ]	(	[ input	0 ] 	)
+input	[ 0	locks=0 ]	(	[ input	0 ] 	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -52341,7 +49491,7 @@ inputs
 stat
 {
   create 1534533243
-  modify 1560261071
+  modify 1560303092
   author MAINGEAR@DESKTOP-P98C1VA
   access 0777
 }
@@ -52402,7 +49552,7 @@ inputs
 stat
 {
   create 1534533243
-  modify 1560261071
+  modify 1560303092
   author MAINGEAR@DESKTOP-P98C1VA
   access 0777
 }
@@ -52528,7 +49678,7 @@ version 0.8
 method	[ 0	locks=0 ]	(	"byframe"	)
 frame	[ 8	locks=0 ]	(	[ frame	99 ] 	)
 integerframe	[ 0	locks=0 ]	(	"on"	)
-time	[ 0	locks=0 ]	(	[ time	3.25 ] 	)
+time	[ 0	locks=0 ]	(	[ time	2.9583332538604736 ] 	)
 rangeclamp	[ 0	locks=0 ]	(	"none"	)
 frange	[ 0	locks=0 ]	(	[ frange1	1 ] 	[ frange2	240 ] 	)
 trange	[ 0	locks=0 ]	(	[ trange1	0 ] 	[ trange2	9.9583333333333339 ] 	)
@@ -52691,7 +49841,7 @@ inputs
 stat
 {
   create 1518557022
-  modify 1559745171
+  modify 1560262928
   author blaidlaw@TOR-WKS-AB663.ubisoft.org
   access 0777
 }
@@ -52902,7 +50052,7 @@ inputs
 stat
 {
   create 1519768261
-  modify 1559745274
+  modify 1560263345
   author blaidlaw@TOR-WKS-AB663.ubisoft.org
   access 0777
 }
@@ -53017,7 +50167,7 @@ inputs
 stat
 {
   create 1520004754
-  modify 1560260907
+  modify 1560279596
   author LaidlawFX@LaidlawFX
   access 0777
 }
@@ -53150,7 +50300,7 @@ inputs
 stat
 {
   create 1520006646
-  modify 1560261492
+  modify 1560279596
   author LaidlawFX@LaidlawFX
   access 0777
 }
@@ -53207,20 +50357,20 @@ inputsNamed3
 {
 2 	soft_vertex_shader 1 1 "input1"
 0 	rigid_vertex_shader 1 1 "input2"
-3 	fluid_vertex_shader1 1 1 "input3"
+3 	fluid_vertex_shader 1 1 "input3"
 4 	sprite_vertex_shader 1 1 "input4"
 }
 inputs
 {
 0 	soft_vertex_shader 0 1
 1 	rigid_vertex_shader 0 1
-2 	fluid_vertex_shader1 0 1
+2 	fluid_vertex_shader 0 1
 3 	sprite_vertex_shader 0 1
 }
 stat
 {
   create 1520006661
-  modify 1560261464
+  modify 1560274090
   author LaidlawFX@LaidlawFX
   access 0777
 }
@@ -53248,7 +50398,7 @@ Content-Type: text/plain
 
 {
 version 0.8
-input	[ 0	locks=0 ]	(	[ input	2 ] 	)
+input	[ 0	locks=0 ]	(	[ input	3 ] 	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -53261,47 +50411,6 @@ Content-Type: text/plain
 		"value":"17.5.258"
 	}
 }
-
---HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot/objects/debug/sprite_vertex_shader.order"
-Content-Type: text/plain
-
-29
-OUT
-_speed
-changeTime
-makeLoop
-FrameFloat
-_numOfFrames
-frameInteger
-range0to1
-uv2_RisPixelIndexGisMax1
-loadPositionTexture2
-splitUV1
-addStaticToDynamic
-mergUV1
-offset
-P
-boundSize1
-unNormalize
-shiftMinSize
-Time
-_posTex
-_posMin
-_posMax
-switch_animateTime
-_animateTime
-_timeAnimated
-_debug
-coord_swizzle
-coord_flip
-coord_swizzle_vector1
-
---HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot/objects/debug/sprite_vertex_shader.net"
-Content-Type: text/plain
-
-1
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
 Content-Disposition: attachment; filename="hdaroot/objects/debug/template.init"
@@ -53332,7 +50441,7 @@ inputs
 stat
 {
   create 1477419638
-  modify 1560261482
+  modify 1560274117
   author Luiz@Luiz-PC
   access 0777
 }
@@ -53366,7 +50475,7 @@ pivot	[ 0	locks=0 ]	(	"centroid"	)
 viewportlod	[ 0	locks=0 ]	(	"full"	)
 addpath	[ 0	locks=0 ]	(	"on"	)
 enable1	[ 0	locks=0 ]	(	"on"	)
-objpath1	[ 0	locks=0 ]	(	`chsop(\"../../../soppath\")`	)
+objpath1	[ 8	locks=0 ]	(	`chsop(\"../../../soppath\")`	)
 group1	[ 0	locks=0 ]	(	""	)
 expand1	[ 0	locks=0 ]	(	"off"	)
 }
@@ -53393,11 +50502,11 @@ switch_engine
 noScale
 OUT
 switch_method
-sprite_vertex_shader
 template
 soft_vertex_shader
 rigid_vertex_shader
-fluid_vertex_shader1
+fluid_vertex_shader
+sprite_vertex_shader
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
 Content-Disposition: attachment; filename="hdaroot/objects/debug.net"
@@ -55148,7 +52257,7 @@ maskplane	[ 0	locks=0 ]	(	A	)
 maskresize	[ 0	locks=0 ]	(	"off"	)
 maskinvert	[ 0	locks=0 ]	(	"off"	)
 overridesize	[ 0	locks=0 ]	(	"on"	)
-size	[ 0	locks=0 ]	(	[ size1	1024 ] 	[ size2	396 ] 	)
+size	[ 0	locks=0 ]	(	[ size1	1024 ] 	[ size2	297 ] 	)
 sizemenu	[ 0	locks=0 ]	(	0	)
 overrideaspect	[ 0	locks=0 ]	(	"off"	)
 aspect	[ 0	locks=0 ]	(	[ aspect	1 ] 	)
@@ -55171,11 +52280,11 @@ preextend	[ 0	locks=0 ]	(	"black"	)
 prehold	[ 0	locks=0 ]	(	0	)
 postextend	[ 0	locks=0 ]	(	"black"	)
 posthold	[ 0	locks=0 ]	(	0	)
-m	[ 0	locks=0 ]	(	[ m	2 ] 	)
+m	[ 0	locks=0 ]	(	[ m	3 ] 	)
 s	[ 0	locks=0 ]	(	[ s1	0 ] 	[ s2	0 ] 	)
 r	[ 0	locks=0 ]	(	[ r1	0 ] 	[ r2	0 ] 	)
-f	[ 8	locks=0 ]	(	[ f1	1024 ] 	[ f2	396 ] 	)
-p	[ 0	locks=0 ]	(	[ p1	0 ] 	[ p2	0 ] 	)
+f	[ 8	locks=0 ]	(	[ f1	1024 ] 	[ f2	0 ] 	)
+p	[ 0	locks=0 ]	(	[ p1	1024 ] 	[ p2	297 ] 	)
 stdswitcher5	[ 0	locks=0 ]	(	2	2	2	2	)
 }
 
@@ -64056,7 +61165,7 @@ Content-Type: text/plain
 version 0.8
 execute	[ 0	locks=0 ]	(	0	)
 renderdialog	[ 0	locks=0 ]	(	0	)
-index	[ 8	locks=0 ]	(	[ index	2 ] 	)
+index	[ 8	locks=0 ]	(	[ index	3 ] 	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY

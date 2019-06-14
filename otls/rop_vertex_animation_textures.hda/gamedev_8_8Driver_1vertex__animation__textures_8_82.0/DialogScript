@@ -188,6 +188,17 @@
             parmtag { "units" "" }
         }
         parm {
+            name    "active_pixels"
+            label   "Active Pixels"
+            type    string
+            size    2
+            default { "0" "0" }
+            help    "Set width and height from houdini for your sprite scale."
+            hidewhen "{ padpowtwo == 0 }"
+            range   { 0 10 }
+            parmtag { "units" "" }
+        }
+        parm {
             name    "normalize_data"
             label   "Normalize data range to 0-1 space"
             type    toggle
@@ -814,6 +825,12 @@
             parmtag { "autoscope" "0000000000000000" }
             parmtag { "parmvop" "1" }
             parmtag { "shaderparmcontexts" "cop2" }
+        }
+        parm {
+            name    "padpowtwo"
+            label   "Pad to Power of 2"
+            type    toggle
+            default { "0" }
         }
         parm {
             name    "target_polycount"

@@ -306,3 +306,34 @@ def mat_update(node):
         if "_height"      != -1 :  
             list[height-1]      = '    - _height: '     +_height+'\n'            
         open(path,'w').write(''.join(list))       
+        
+def padding_pow_two(node):
+    size = hou.node(node.path() + "/textures/size")
+    scale1 = hou.node(node.path() + "/textures/scale1")
+    x = size.evalParm('size1')
+    y = size.evalParm('size2')
+    max_size = max(x, y)
+    
+    padded_size = 4
+    if max_size > 4096:
+        padded_size = 8192
+    elif max_size > 2048:
+        padded_size = 4096
+    elif max_size > 1024:
+        padded_size = 2048
+    elif max_size > 512:
+        padded_size = 1024
+    elif max_size > 256:
+        padded_size = 512
+    elif max_size > 128:
+        padded_size = 256
+    elif max_size > 64:
+        padded_size = 128
+    elif max_size > 32:
+        padded_size = 64
+    elif max_size > 16:
+        padded_size = 32
+    else:
+        padded_size = 16
+        
+    return padded_size 

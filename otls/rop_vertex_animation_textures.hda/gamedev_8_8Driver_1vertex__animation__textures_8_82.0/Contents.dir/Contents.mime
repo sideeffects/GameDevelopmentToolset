@@ -46,7 +46,7 @@ inputs
 stat
 {
   create 1559225586
-  modify 1560302741
+  modify 1560517592
   author mikel@mikembp-sesi
   access 0777
 }
@@ -11989,7 +11989,7 @@ inputs
 stat
 {
   create 1462577487
-  modify 1560265878
+  modify 1560516630
   author belaid@BELAID-ART.redmond.corp.microsoft.com
   access 0777
 }
@@ -13983,7 +13983,7 @@ inputs
 stat
 {
   create 1462577487
-  modify 1560265878
+  modify 1560516630
   author belaid@BELAID-ART.redmond.corp.microsoft.com
   access 0777
 }
@@ -15862,7 +15862,7 @@ inputs
 stat
 {
   create 1495492095
-  modify 1560279253
+  modify 1560460443
   author mike@mikembp.local
   access 0777
 }
@@ -16107,6 +16107,27 @@ Content-Type: text/plain
         type    string
         default { "" }
     }
+    parm {
+        name    "image_height"
+        label   "Image Height"
+        type    float
+        default { "0" }
+        range   { 0 1 }
+    }
+    parm {
+        name    "padded_size"
+        label   "Padded Size"
+        type    float
+        default { "0" }
+        range   { 0 1 }
+    }
+    parm {
+        name    "image_width"
+        label   "Image Width"
+        type    float
+        default { "0" }
+        range   { 0 1 }
+    }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
 Content-Disposition: attachment; filename="hdaroot/objects/debug/soft_vertex_shader.chn"
@@ -16154,6 +16175,27 @@ Content-Type: text/plain
       flags = 0
       segment { length = 0 expr = ch(\"../../../invert_pos\") }
     }
+    channel image_width {
+      lefttype = extend
+      righttype = extend
+      default = 1024
+      flags = 0
+      segment { length = 0 value = 1024 1024 expr = ch(\"../../../textures/size/size1\") }
+    }
+    channel image_height {
+      lefttype = extend
+      righttype = extend
+      default = 297
+      flags = 0
+      segment { length = 0 value = 297 297 expr = ch(\"../../../textures/size/size2\") }
+    }
+    channel padded_size {
+      lefttype = extend
+      righttype = extend
+      default = 1024
+      flags = 0
+      segment { length = 0 value = 1024 1024 expr = ch(\"../../../textures/null1/padded_size\") }
+    }
   }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -16195,31 +16237,45 @@ snippet	[ 0	locks=0 ]	(	"vector coord_swizzle_vector(vector coord; int coord_swi
 }
 
 float speed = 1.0/24.0;
-float timeInFrames = ((ceil(frac(@Time * ch(\"speed\") + ch(\"offset\")) * ch(\"numOfFrames\")))/ch(\"numOfFrames\"));// + (1.0/ch(\"numOfFrames\"));
+float x_ratio = chf(\"image_width\")/chf(\"padded_size\");
+float y_ratio = chf(\"image_height\")/chf(\"padded_size\");
+float timeInFrames = ((ceil(frac(@Time * ch(\"speed\")) * ch(\"numOfFrames\")))/ch(\"numOfFrames\"));// + (1.0/ch(\"numOfFrames\"));
 
 //get position from textures
 int vtxnum = pointvertex(0, @ptnum);
 vector uv2 = vertex(0, \"uv2\", vtxnum);
-vector4 texturePos = colormap(chs(\"texturePos\"),uv2.x, (1- timeInFrames) + uv2.y, \"filter\", \"point\");
+float uv2y = 0;
+float uv2x = 0;
+if (chi(\"../../../padpowtwo\"))
+    {
+    uv2x = uv2.x * x_ratio;
+    uv2y = (1 - (timeInFrames * y_ratio)) + (1 - ((1 - uv2.y) * y_ratio));
+    }
+    else
+    {
+    uv2y = (1 - timeInFrames) + uv2.y;
+    uv2x = uv2.x;
+    }
+vector4 texturePos = colormap(chs(\"texturePos\"),uv2x, uv2y, \"filter\", \"point\");
 float alpha = texturePos.w;
 if(chi(\"../../../enable_col\"))
-{
-vector textureCd = colormap(chs(\"textureCd\"),uv2.x, (1- timeInFrames) + uv2.y, \"filter\", \"point\");
-@Cd = textureCd;
-}
+    {
+    vector textureCd = colormap(chs(\"textureCd\"),uv2x, uv2y, \"filter\", \"point\");
+    //@Cd = textureCd;
+    }
 //expand normalised position texture values to world space
 if(chi(\"../../../normalize_data\"))
-{
+    {
     float boundingMax = ch(\"boundingMax\") * (1/ch(\"../../../scale\"));
     float boundingMin = ch(\"boundingMin\") * (1/ch(\"../../../scale\"));
     float expand = boundingMax - boundingMin;
     texturePos *= set(vector(expand));
     texturePos += set(vector(boundingMin));
-}
+    }
 else
-{
-texturePos /= ch(\"../../../scale\");
-}
+    {
+    texturePos /= ch(\"../../../scale\");
+    }
 texturePos = coord_swizzle_vector(texturePos, ch(\"coord_swizzle\"), ch(\"coord_flip\"), 0);  //swizzle y and z because textures are exported with z-up
 v@texPos = texturePos;
 @P += set(vector(texturePos));
@@ -16264,6 +16320,9 @@ coord_swizzle	[ 0	locks=0 ]	(	[ coord_swizzle	1 ] 	)
 coord_flip	[ 0	locks=0 ]	(	[ coord_flip	0 ] 	)
 offset	[ 0	locks=0 ]	(	0	)
 textureCd	[ 0	locks=0 ]	(	`chs(\"../../../path_col\")`	)
+image_height	[ 8	locks=0 ]	(	[ image_height	99 ] 	)
+padded_size	[ 8	locks=0 ]	(	[ padded_size	128 ] 	)
+image_width	[ 8	locks=0 ]	(	[ image_width	20 ] 	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -16312,7 +16371,7 @@ inputs
 stat
 {
   create 1495492095
-  modify 1560280980
+  modify 1560460469
   author mike@mikembp.local
   access 0777
 }
@@ -16594,6 +16653,27 @@ Content-Type: text/plain
         default { "0" }
         range   { 0 1 }
     }
+    parm {
+        name    "image_width"
+        label   "Image Width"
+        type    float
+        default { "0" }
+        range   { 0 1 }
+    }
+    parm {
+        name    "padded_size"
+        label   "Padded Size"
+        type    float
+        default { "0" }
+        range   { 0 1 }
+    }
+    parm {
+        name    "image_height"
+        label   "Image Height"
+        type    float
+        default { "0" }
+        range   { 0 1 }
+    }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
 Content-Disposition: attachment; filename="hdaroot/objects/debug/rigid_vertex_shader.chn"
@@ -16659,6 +16739,24 @@ Content-Type: text/plain
       default = 8
       flags = 0
       segment { length = 0 value = 8 8 expr = ch(\"../../../coord_rot\") }
+    }
+    channel image_width {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = ch(\"../../../textures/size/size1\") }
+    }
+    channel image_height {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = ch(\"../../../textures/size/size2\") }
+    }
+    channel padded_size {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = ch(\"../../../textures/null1/padded_size\") }
     }
   }
 
@@ -16726,13 +16824,27 @@ function vector4 coord_swizzle_quaternion(vector4 src; int quaternion_flip;)
 }
 
 float speed = 1.0/24.0;
+float x_ratio = chf(\"image_width\")/chf(\"padded_size\");
+float y_ratio = chf(\"image_height\")/chf(\"padded_size\");
 float timeInFrames = ((ceil(frac(@Time * ch(\"speed\") + ch(\"offset\")) * ch(\"numOfFrames\")))/ch(\"numOfFrames\"));// + (1.0/ch(\"numOfFrames\"));
 
 //get position and rotation(quaternion) from textures
 int vtxnum = pointvertex(0, @ptnum);
 vector uv2 = vertex(0, \"uv2\", vtxnum);
-vector texturePos = rawcolormap(chs(\"texturePos\"),uv2.x, (1- timeInFrames) + uv2.y, \"filter\", \"point\");
-vector4 textureRot = colormap(chs(\"textureRot\"),uv2.x, (1 - timeInFrames) + uv2.y, \"filter\", \"point\");
+float uv2y = 0;
+float uv2x = 0;
+if (chi(\"../../../padpowtwo\"))
+    {
+    uv2x = uv2.x * x_ratio;
+    uv2y = (1 - (timeInFrames * y_ratio)) + (1 - ((1 - uv2.y) * y_ratio));
+    }
+    else
+    {
+    uv2y = (1 - timeInFrames) + uv2.y;
+    uv2x = uv2.x;
+    }
+vector texturePos = rawcolormap(chs(\"texturePos\"),uv2x, uv2y, \"filter\", \"point\");
+vector4 textureRot = colormap(chs(\"textureRot\"),uv2x, uv2y, \"filter\", \"point\");
 
 //expand normalised position texture values to world space
 float boundingMax = ch(\"boundingMax\") * (1/ch(\"../../../scale\"));
@@ -16790,8 +16902,8 @@ vex_selectiongroup	[ 0	locks=0 ]	(	""	)
 folder1	[ 0	locks=0 ]	(	0	0	)
 speed	[ 0	locks=0 ]	(	[ speed	0.24242424242424243 ] 	)
 numOfFrames	[ 0	locks=0 ]	(	[ numOfFrames	99 ] 	)
-boundingMax	[ 0	locks=0 ]	(	[ boundingMax	799.99981000000002 ] 	)
-boundingMin	[ 0	locks=0 ]	(	[ boundingMin	-799.99992999999995 ] 	)
+boundingMax	[ 0	locks=0 ]	(	[ boundingMax	469.98259999999999 ] 	)
+boundingMin	[ 0	locks=0 ]	(	[ boundingMin	-423.36016000000001 ] 	)
 texturePos	[ 0	locks=0 ]	(	`chs(\"../../../path_pos\")`	)
 coord_swizzle	[ 0	locks=0 ]	(	[ coord_swizzle	1 ] 	)
 coord_flip	[ 0	locks=0 ]	(	[ coord_flip	0 ] 	)
@@ -16800,6 +16912,9 @@ offset	[ 0	locks=0 ]	(	0	)
 textureRot	[ 8	locks=0 ]	(	`chs(\"../../../path_rot\")`	)
 pivotMax	[ 0	locks=0 ]	(	[ pivotMax	447.04698999999999 ] 	)
 pivotMin	[ 0	locks=0 ]	(	[ pivotMin	-65.378330000000005 ] 	)
+image_width	[ 8	locks=0 ]	(	[ image_width	20 ] 	)
+padded_size	[ 8	locks=0 ]	(	[ padded_size	128 ] 	)
+image_height	[ 8	locks=0 ]	(	[ image_height	99 ] 	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -16848,7 +16963,7 @@ inputs
 stat
 {
   create 1495492095
-  modify 1560279074
+  modify 1560460773
   author mike@mikembp.local
   access 0777
 }
@@ -17086,6 +17201,34 @@ Content-Type: text/plain
             "7" "+X -Y -Z"
         }
     }
+    parm {
+        name    "offset"
+        label   "Offset"
+        type    float
+        default { "0" }
+        range   { 0 1 }
+    }
+    parm {
+        name    "image_width"
+        label   "Image Width"
+        type    float
+        default { "0" }
+        range   { 0 1 }
+    }
+    parm {
+        name    "padded_size"
+        label   "Padded Size"
+        type    float
+        default { "0" }
+        range   { 0 1 }
+    }
+    parm {
+        name    "image_height"
+        label   "Image Height"
+        type    float
+        default { "0" }
+        range   { 0 1 }
+    }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
 Content-Disposition: attachment; filename="hdaroot/objects/debug/fluid_vertex_shader.chn"
@@ -17133,6 +17276,24 @@ Content-Type: text/plain
       flags = 0
       segment { length = 0 expr = ch(\"../../../invert_pos\") }
     }
+    channel image_width {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = ch(\"../../../textures/size/size1\") }
+    }
+    channel padded_size {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = ch(\"../../../textures/null1/padded_size\") }
+    }
+    channel image_height {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = ch(\"../../../textures/size/size2\") }
+    }
   }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -17174,13 +17335,27 @@ snippet	[ 0	locks=0 ]	(	"vector coord_swizzle_vector(vector coord; int coord_swi
 }
 
 float speed = 1.0/24.0;
+float x_ratio = chf(\"image_width\")/chf(\"padded_size\");
+float y_ratio = chf(\"image_height\")/chf(\"padded_size\");
 float timeInFrames = ((ceil(frac(@Time * ch(\"speed\") + ch(\"offset\")) * ch(\"numOfFrames\")))/ch(\"numOfFrames\"));// + (1.0/ch(\"numOfFrames\"));
 
 //get position from textures
 int vtxnum = pointvertex(0, @ptnum);
 vector uv = vertex(0, \"uv\", vtxnum);
-vector4 texturePos = colormap(chs(\"texturePos\"),uv.x, (1- timeInFrames) + uv.y, \"filter\", \"point\");
-vector textureCd = colormap(chs(\"textureCd\"),uv.x, (1- timeInFrames) + uv.y, \"filter\", \"point\");
+float uvy = 0;
+float uvx = 0;
+if (chi(\"../../../padpowtwo\"))
+    {
+    uvx = uv.x * x_ratio;
+    uvy = (1 - (timeInFrames * y_ratio)) + (1 - ((1 - uv.y) * y_ratio));
+    }
+    else
+    {
+    uvy = (1 - timeInFrames) + uv.y;
+    uvx = uv.x;
+    }
+vector4 texturePos = colormap(chs(\"texturePos\"),uvx, uvy, \"filter\", \"point\");
+vector textureCd = colormap(chs(\"textureCd\"),uvx, uvy, \"filter\", \"point\");
 vector rgb = textureCd;
 float alpha = texturePos.w;
 @Cd = rgb;
@@ -17192,7 +17367,6 @@ float expand = boundingMax - boundingMin;
 texturePos *= set(vector(expand));
 texturePos += set(vector(boundingMin));
 texturePos = set(vector(coord_swizzle_vector(texturePos, ch(\"coord_swizzle\"), ch(\"coord_flip\"), 0)));  //swizzle y and z because textures are exported with z-up
-v@texPos = set(vector(texturePos));
 @P = set(vector(texturePos));
 
 if(chi(\"../../../pack_norm\"))
@@ -17229,12 +17403,16 @@ vex_selectiongroup	[ 0	locks=0 ]	(	""	)
 folder1	[ 0	locks=0 ]	(	0	0	)
 speed	[ 0	locks=0 ]	(	[ speed	0.24242424242424243 ] 	)
 numOfFrames	[ 0	locks=0 ]	(	[ numOfFrames	99 ] 	)
-boundingMax	[ 0	locks=0 ]	(	[ boundingMax	398.36095999999998 ] 	)
-boundingMin	[ 0	locks=0 ]	(	[ boundingMin	-114.5754 ] 	)
+boundingMax	[ 0	locks=0 ]	(	[ boundingMax	469.98259999999999 ] 	)
+boundingMin	[ 0	locks=0 ]	(	[ boundingMin	-423.36016000000001 ] 	)
 texturePos	[ 0	locks=0 ]	(	`chs(\"../../../path_pos\")`	)
 textureCd	[ 0	locks=0 ]	(	`chs(\"../../../path_col\")`	)
 coord_swizzle	[ 0	locks=0 ]	(	[ coord_swizzle	1 ] 	)
 coord_flip	[ 0	locks=0 ]	(	[ coord_flip	0 ] 	)
+offset	[ 0	locks=0 ]	(	0	)
+image_width	[ 8	locks=0 ]	(	[ image_width	20 ] 	)
+padded_size	[ 8	locks=0 ]	(	[ padded_size	128 ] 	)
+image_height	[ 8	locks=0 ]	(	[ image_height	99 ] 	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -17283,7 +17461,7 @@ inputs
 stat
 {
   create 1495492095
-  modify 1560274109
+  modify 1560460951
   author mike@mikembp.local
   access 0777
 }
@@ -17521,6 +17699,34 @@ Content-Type: text/plain
             "7" "+X -Y -Z"
         }
     }
+    parm {
+        name    "offset"
+        label   "Offset"
+        type    float
+        default { "0" }
+        range   { 0 1 }
+    }
+    parm {
+        name    "image_width"
+        label   "Image Width"
+        type    float
+        default { "0" }
+        range   { 0 1 }
+    }
+    parm {
+        name    "padded_size"
+        label   "Padded Size"
+        type    float
+        default { "0" }
+        range   { 0 1 }
+    }
+    parm {
+        name    "image_height"
+        label   "Image Height"
+        type    float
+        default { "0" }
+        range   { 0 1 }
+    }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
 Content-Disposition: attachment; filename="hdaroot/objects/debug/sprite_vertex_shader.chn"
@@ -17568,6 +17774,24 @@ Content-Type: text/plain
       flags = 0
       segment { length = 0 expr = ch(\"../../../invert_pos\") }
     }
+    channel image_width {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = ch(\"../../../textures/size/size1\") }
+    }
+    channel padded_size {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = ch(\"../../../textures/null1/padded_size\") }
+    }
+    channel image_height {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = ch(\"../../../textures/size/size2\") }
+    }
   }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -17609,14 +17833,28 @@ snippet	[ 0	locks=0 ]	(	"vector coord_swizzle_vector(vector coord; int coord_swi
 }
 
 float speed = 1.0/24.0;
+float x_ratio = chf(\"image_width\")/chf(\"padded_size\");
+float y_ratio = chf(\"image_height\")/chf(\"padded_size\");
 float timeInFrames = ((ceil(frac(@Time * ch(\"speed\") + ch(\"offset\")) * ch(\"numOfFrames\")))/ch(\"numOfFrames\"));// + (1.0/ch(\"numOfFrames\"));
 
 //get position from textures
 int vtxnum = pointvertex(0, @ptnum);
 vector uv = vertex(0, \"uv\", vtxnum);
 vector uv2 = vertex(0, \"uv2\", vtxnum);
-vector4 texturePos = colormap(chs(\"texturePos\"),uv2.x, (1- timeInFrames) + uv2.y, \"filter\", \"point\");
-vector textureCd = colormap(chs(\"textureCd\"),uv2.x, (1- timeInFrames) + uv2.y, \"filter\", \"point\");
+float uv2y = 0;
+float uv2x = 0;
+if (chi(\"../../../padpowtwo\"))
+    {
+    uv2x = uv2.x * x_ratio;
+    uv2y = (1 - (timeInFrames * y_ratio)) + (1 - ((1 - uv2.y) * y_ratio));
+    }
+    else
+    {
+    uv2y = (1 - timeInFrames) + uv2.y;
+    uv2x = uv2.x;
+    }
+vector4 texturePos = colormap(chs(\"texturePos\"),uv2x, uv2y, \"filter\", \"point\");
+vector textureCd = colormap(chs(\"textureCd\"),uv2x, uv2y, \"filter\", \"point\");
 vector rgb = textureCd;
 float alpha = texturePos.w;
 @Cd = rgb;
@@ -17653,12 +17891,16 @@ vex_selectiongroup	[ 0	locks=0 ]	(	""	)
 folder1	[ 0	locks=0 ]	(	0	0	)
 speed	[ 0	locks=0 ]	(	[ speed	0.24242424242424243 ] 	)
 numOfFrames	[ 0	locks=0 ]	(	[ numOfFrames	99 ] 	)
-boundingMax	[ 0	locks=0 ]	(	[ boundingMax	799.99981000000002 ] 	)
-boundingMin	[ 0	locks=0 ]	(	[ boundingMin	-799.99992999999995 ] 	)
+boundingMax	[ 0	locks=0 ]	(	[ boundingMax	469.98259999999999 ] 	)
+boundingMin	[ 0	locks=0 ]	(	[ boundingMin	-423.36016000000001 ] 	)
 texturePos	[ 0	locks=0 ]	(	`chs(\"../../../path_pos\")`	)
 textureCd	[ 0	locks=0 ]	(	`chs(\"../../../path_col\")`	)
 coord_swizzle	[ 0	locks=0 ]	(	[ coord_swizzle	1 ] 	)
 coord_flip	[ 0	locks=0 ]	(	[ coord_flip	0 ] 	)
+offset	[ 0	locks=0 ]	(	0	)
+image_width	[ 0	locks=0 ]	(	[ image_width	20 ] 	)
+padded_size	[ 0	locks=0 ]	(	[ padded_size	128 ] 	)
+image_height	[ 0	locks=0 ]	(	[ image_height	99 ] 	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -17703,7 +17945,7 @@ inputs
 stat
 {
   create 1499279709
-  modify 1560193524
+  modify 1560346400
   author mikel@mikembp-sesi.local
   access 0777
 }
@@ -17743,7 +17985,7 @@ Content-Disposition: attachment; filename="hdaroot/textures/pack_normals.def"
 Content-Type: text/plain
 
 comment ""
-position -12.5 13.0248
+position -12.677 11.6752
 connectornextid 2
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress off colordefault off exposed on
 outputsNamed3
@@ -17761,7 +18003,7 @@ inputs
 stat
 {
   create 1499280403
-  modify 1560266989
+  modify 1560345405
   author mikel@mikembp-sesi.local
   access 0777
 }
@@ -20180,8 +20422,8 @@ postextend	[ 0	locks=0 ]	(	"black"	)
 posthold	[ 0	locks=0 ]	(	0	)
 path	[ 0	locks=0 ]	(	`opfullpath(\"../../objects/TEXTURE/OUT\")`	)
 geo	[ 0	locks=0 ]	(	op:`opfullpath(chs(\"path\"))`	)
-target_texture_size	[ 0	locks=0 ]	(	[ target_texture_size	1024 ] 	)
-numpt	[ 0	locks=0 ]	(	[ numpt	20 ] 	)
+target_texture_size	[ 0	locks=0 ]	(	[ target_texture_size	0 ] 	)
+numpt	[ 0	locks=0 ]	(	[ numpt	0 ] 	)
 rbd_frame_export_attribute	[ 0	locks=0 ]	(	orient	)
 quaternion_flip	[ 0	locks=0 ]	(	[ quaternion_flip	8 ] 	)
 coord_swizzle	[ 8	locks=0 ]	(	[ coord_swizzle	1 ] 	)
@@ -22624,7 +22866,7 @@ export_attribute_alpha	[ 0	locks=0 ]	(	Alpha	)
 coord_swizzle	[ 0	locks=0 ]	(	[ coord_swizzle	0 ] 	)
 coord_flip	[ 0	locks=0 ]	(	[ coord_flip	0 ] 	)
 stdswitcher5	[ 0	locks=0 ]	(	0	0	0	0	)
-m	[ 8	locks=0 ]	(	[ m	2 ] 	)
+m	[ 8	locks=0 ]	(	[ m	0 ] 	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -24605,7 +24847,7 @@ numpt	[ 0	locks=0 ]	(	[ numpt	0 ] 	)
 coord_swizzle	[ 0	locks=0 ]	(	[ coord_swizzle	1 ] 	)
 coord_flip	[ 0	locks=0 ]	(	[ coord_flip	0 ] 	)
 stdswitcher5	[ 0	locks=0 ]	(	0	0	0	0	)
-m	[ 8	locks=0 ]	(	[ m	2 ] 	)
+m	[ 8	locks=0 ]	(	[ m	1 ] 	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -26004,7 +26246,7 @@ Content-Disposition: attachment; filename="hdaroot/textures/position.def"
 Content-Type: text/plain
 
 comment ""
-position -12.5 17.0248
+position -12.5194 17.25
 connectornextid 2
 flags =  lock off model off template off footprint off xray off bypass off display off render on highlight off unload off savedata off compress off colordefault off exposed on
 outputsNamed3
@@ -26022,7 +26264,7 @@ inputs
 stat
 {
   create 1499134361
-  modify 1559928676
+  modify 1560345957
   author mikel@mikembp-sesi.local
   access 0777
 }
@@ -26477,7 +26719,7 @@ maskplane	[ 0	locks=0 ]	(	A	)
 maskresize	[ 0	locks=0 ]	(	"off"	)
 maskinvert	[ 0	locks=0 ]	(	"off"	)
 overridesize	[ 0	locks=0 ]	(	"on"	)
-size	[ 0	locks=0 ]	(	8	48	)
+size	[ 0	locks=0 ]	(	1024	297	)
 sizemenu	[ 0	locks=0 ]	(	0	)
 overrideaspect	[ 0	locks=0 ]	(	"off"	)
 aspect	[ 0	locks=0 ]	(	[ aspect	1 ] 	)
@@ -26536,7 +26778,7 @@ Content-Disposition: attachment; filename="hdaroot/textures/position.cop2"
 Content-Type: text/plain
 
 2
-404
+409
 0
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -28944,7 +29186,7 @@ Content-Type: text/plain
 comment ""
 position -6.45778 17.25
 connectornextid 2
-flags =  lock off model off template off footprint off xray off bypass off display on render off highlight off unload off savedata off compress off colordefault off exposed on
+flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress off colordefault off exposed on
 outputsNamed3
 {
 1 "output1"
@@ -28960,7 +29202,7 @@ inputs
 stat
 {
   create 1499134361
-  modify 1560266991
+  modify 1560342937
   author mikel@mikembp-sesi.local
   access 0777
 }
@@ -29336,11 +29578,11 @@ preextend	[ 0	locks=0 ]	(	"black"	)
 prehold	[ 0	locks=0 ]	(	0	)
 postextend	[ 0	locks=0 ]	(	"black"	)
 posthold	[ 0	locks=0 ]	(	0	)
-m	[ 0	locks=0 ]	(	[ m	1 ] 	)
+m	[ 0	locks=0 ]	(	[ m	0 ] 	)
 path	[ 0	locks=0 ]	(	`opfullpath(\"../../objects/TEXTURE/OUT\")`	)
 geo	[ 0	locks=0 ]	(	op:`opfullpath(chs(\"path\"))`	)
-target_texture_size	[ 0	locks=0 ]	(	[ target_texture_size	1024 ] 	)
-numpt	[ 0	locks=0 ]	(	[ numpt	20 ] 	)
+target_texture_size	[ 0	locks=0 ]	(	[ target_texture_size	0 ] 	)
+numpt	[ 0	locks=0 ]	(	[ numpt	0 ] 	)
 export_attribute	[ 0	locks=0 ]	(	pscale	)
 stdswitcher5	[ 0	locks=0 ]	(	0	0	0	0	)
 }
@@ -32038,7 +32280,7 @@ Content-Disposition: attachment; filename="hdaroot/textures/normalize_position.d
 Content-Type: text/plain
 
 comment ""
-position -10.1728 15.0248
+position -10.217 13.8854
 connectornextid 3
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress off colordefault off exposed on
 outputsNamed3
@@ -32058,7 +32300,7 @@ inputs
 stat
 {
   create 1559310513
-  modify 1559660233
+  modify 1560345847
   author mikel@mikembp-sesi
   access 0777
 }
@@ -32086,7 +32328,7 @@ Content-Type: text/plain
 
 {
 version 0.8
-enable	[ 0	locks=0 ]	(	[ enable	0 ] 	)
+enable	[ 0	locks=0 ]	(	[ enable	1 ] 	)
 max	[ 0	locks=0 ]	(	0	)
 min	[ 0	locks=0 ]	(	0	)
 }
@@ -32122,7 +32364,7 @@ Content-Disposition: attachment; filename="hdaroot/textures/normalize_pscale.def
 Content-Type: text/plain
 
 comment ""
-position -6.6667 15.0248
+position -6.71095 13.8854
 connectornextid 3
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress off colordefault off exposed on
 outputsNamed3
@@ -32142,7 +32384,7 @@ inputs
 stat
 {
   create 1559310546
-  modify 1559660233
+  modify 1560345411
   author mikel@mikembp-sesi
   access 0777
 }
@@ -32170,7 +32412,7 @@ Content-Type: text/plain
 
 {
 version 0.8
-enable	[ 8	locks=0 ]	(	[ enable	0 ] 	)
+enable	[ 8	locks=0 ]	(	[ enable	1 ] 	)
 max	[ 0	locks=0 ]	(	0	)
 min	[ 0	locks=0 ]	(	0	)
 }
@@ -32206,7 +32448,7 @@ Content-Disposition: attachment; filename="hdaroot/textures/normalize_scale.def"
 Content-Type: text/plain
 
 comment ""
-position -3.655 15.0248
+position -3.69925 13.8854
 connectornextid 3
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress off colordefault off exposed on
 outputsNamed3
@@ -32226,7 +32468,7 @@ inputs
 stat
 {
   create 1559310575
-  modify 1559660233
+  modify 1560345411
   author mikel@mikembp-sesi
   access 0777
 }
@@ -32290,7 +32532,7 @@ Content-Disposition: attachment; filename="hdaroot/OUT.def"
 Content-Type: text/plain
 
 comment ""
-position -6.495 -20.155
+position -6.495 -22.0456
 connectornextid 1
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault off exposed on descriptivename off
 outputsNamed3
@@ -32307,7 +32549,7 @@ inputs
 stat
 {
   create 1518973687
-  modify 1522088074
+  modify 1560517088
   author LaidlawFX@LaidlawFX
   access 0777
 }
@@ -32548,7 +32790,7 @@ Content-Type: text/plain
 
 {
 version 0.8
-input	[ 0	locks=0 ]	(	[ input	3 ] 	)
+input	[ 0	locks=0 ]	(	[ input	1 ] 	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -36190,7 +36432,7 @@ version 0.8
 method	[ 0	locks=0 ]	(	"byframe"	)
 frame	[ 8	locks=0 ]	(	[ frame	99 ] 	)
 integerframe	[ 0	locks=0 ]	(	"on"	)
-time	[ 0	locks=0 ]	(	[ time	2.9583332538604736 ] 	)
+time	[ 0	locks=0 ]	(	[ time	1.4166666269302368 ] 	)
 rangeclamp	[ 0	locks=0 ]	(	"none"	)
 frange	[ 0	locks=0 ]	(	[ frange1	1 ] 	[ frange2	240 ] 	)
 trange	[ 0	locks=0 ]	(	[ trange1	0 ] 	[ trange2	9.9583333333333339 ] 	)
@@ -36236,7 +36478,7 @@ inputs
 stat
 {
   create 1486172943
-  modify 1560302993
+  modify 1560517819
   author Luiz@LAPTOP-LKBBB5D4
   access 0777
 }
@@ -36443,7 +36685,7 @@ inputs
 stat
 {
   create 1486172928
-  modify 1560302993
+  modify 1560517819
   author Luiz@LAPTOP-LKBBB5D4
   access 0777
 }
@@ -37424,7 +37666,7 @@ Content-Type: text/plain
 
 {
 version 0.8
-input	[ 0	locks=0 ]	(	[ input	3 ] 	)
+input	[ 0	locks=0 ]	(	[ input	1 ] 	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -38045,7 +38287,7 @@ version 0.8
 method	[ 0	locks=0 ]	(	"byframe"	)
 frame	[ 0	locks=0 ]	(	[ frame	1 ] 	)
 integerframe	[ 0	locks=0 ]	(	"on"	)
-time	[ 0	locks=0 ]	(	[ time	2.9583332538604736 ] 	)
+time	[ 0	locks=0 ]	(	[ time	1.4166666269302368 ] 	)
 rangeclamp	[ 0	locks=0 ]	(	"none"	)
 frange	[ 0	locks=0 ]	(	[ frange1	1 ] 	[ frange2	240 ] 	)
 trange	[ 0	locks=0 ]	(	[ trange1	0 ] 	[ trange2	9.9583333333333339 ] 	)
@@ -38975,7 +39217,7 @@ Content-Type: text/plain
 
 {
 version 0.8
-input	[ 0	locks=0 ]	(	[ input	3 ] 	)
+input	[ 0	locks=0 ]	(	[ input	1 ] 	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -39412,7 +39654,7 @@ version 0.8
 method	[ 0	locks=0 ]	(	"byframe"	)
 frame	[ 0	locks=0 ]	(	[ frame	1 ] 	)
 integerframe	[ 0	locks=0 ]	(	"on"	)
-time	[ 0	locks=0 ]	(	[ time	2.9583332538604736 ] 	)
+time	[ 0	locks=0 ]	(	[ time	1.4166666269302368 ] 	)
 rangeclamp	[ 0	locks=0 ]	(	"none"	)
 frange	[ 0	locks=0 ]	(	[ frange1	1 ] 	[ frange2	240 ] 	)
 trange	[ 0	locks=0 ]	(	[ trange1	0 ] 	[ trange2	9.9583333333333339 ] 	)
@@ -39979,7 +40221,7 @@ version 0.8
 method	[ 0	locks=0 ]	(	"byframe"	)
 frame	[ 0	locks=0 ]	(	[ frame	1 ] 	)
 integerframe	[ 0	locks=0 ]	(	"on"	)
-time	[ 0	locks=0 ]	(	[ time	2.9583332538604736 ] 	)
+time	[ 0	locks=0 ]	(	[ time	1.4166666269302368 ] 	)
 rangeclamp	[ 0	locks=0 ]	(	"none"	)
 frange	[ 0	locks=0 ]	(	[ frange1	1 ] 	[ frange2	240 ] 	)
 trange	[ 0	locks=0 ]	(	[ trange1	0 ] 	[ trange2	9.9583333333333339 ] 	)
@@ -40136,7 +40378,7 @@ Content-Type: text/plain
 
 {
 version 0.8
-input	[ 0	locks=0 ]	(	[ input	3 ] 	)
+input	[ 0	locks=0 ]	(	[ input	1 ] 	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -40933,7 +41175,7 @@ version 0.8
 method	[ 0	locks=0 ]	(	"byframe"	)
 frame	[ 8	locks=0 ]	(	[ frame	99 ] 	)
 integerframe	[ 0	locks=0 ]	(	"on"	)
-time	[ 0	locks=0 ]	(	[ time	2.9583332538604736 ] 	)
+time	[ 0	locks=0 ]	(	[ time	1.4166666269302368 ] 	)
 rangeclamp	[ 0	locks=0 ]	(	"none"	)
 frange	[ 0	locks=0 ]	(	[ frange1	1 ] 	[ frange2	240 ] 	)
 trange	[ 0	locks=0 ]	(	[ trange1	0 ] 	[ trange2	9.9583333333333339 ] 	)
@@ -40978,7 +41220,7 @@ inputs
 stat
 {
   create 1499281135
-  modify 1560302631
+  modify 1560459135
   author mikel@mikembp-sesi.local
   access 0777
 }
@@ -43648,7 +43890,7 @@ inputs
 stat
 {
   create 1462816670
-  modify 1560279635
+  modify 1560458833
   author belaid@BELAID-ART.redmond.corp.microsoft.com
   access 0777
 }
@@ -45906,13 +46148,13 @@ group	[ 0	locks=0 ]	(	""	)
 grouptype	[ 0	locks=0 ]	(	"guess"	)
 xOrd	[ 0	locks=0 ]	(	"srt"	)
 rOrd	[ 0	locks=0 ]	(	"xyz"	)
-t	[ 0	locks=0 ]	(	[ tx	0.0058122575283050537 ] 	[ ty	0.4599701464176178 ] 	[ tz	-0.12472996115684509 ] 	)
+t	[ 0	locks=0 ]	(	[ tx	0.042291641235351562 ] 	[ ty	0.45126017928123474 ] 	[ tz	-0.11355596780776978 ] 	)
 r	[ 0	locks=0 ]	(	0	0	0	)
 s	[ 0	locks=0 ]	(	1	1	1	)
 shear	[ 0	locks=0 ]	(	0	0	0	)
 scale	[ 0	locks=0 ]	(	1	)
 parmgroup_pivotxform	[ 0	locks=0 ]	(	0	)
-p	[ 0	locks=0 ]	(	[ px	-0.0058122575283050537 ] 	[ py	-0.4599701464176178 ] 	[ pz	0.12472996115684509 ] 	)
+p	[ 0	locks=0 ]	(	[ px	-0.042291641235351562 ] 	[ py	-0.45126017928123474 ] 	[ pz	0.11355596780776978 ] 	)
 pr	[ 0	locks=0 ]	(	0	0	0	)
 parmgroup_prexform	[ 0	locks=0 ]	(	0	)
 prexform_xOrd	[ 0	locks=0 ]	(	"srt"	)
@@ -46217,7 +46459,7 @@ Content-Type: text/plain
 
 {
 version 0.8
-input	[ 8	locks=0 ]	(	[ input	3 ] 	)
+input	[ 8	locks=0 ]	(	[ input	1 ] 	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -47332,7 +47574,7 @@ version 0.8
 group	[ 0	locks=0 ]	(	""	)
 keep	[ 0	locks=0 ]	(	"off"	)
 ptsperpt	[ 0	locks=0 ]	(	"off"	)
-npts	[ 8	locks=0 ]	(	[ npts	-2046 ] 	)
+npts	[ 8	locks=0 ]	(	[ npts	1006 ] 	)
 nptsperpt	[ 0	locks=0 ]	(	10	)
 doattrib	[ 0	locks=0 ]	(	"off"	)
 attrib	[ 0	locks=0 ]	(	""	)
@@ -47917,7 +48159,7 @@ Content-Type: text/plain
 
 {
 version 0.8
-input	[ 8	locks=0 ]	(	[ input	0 ] 	)
+input	[ 8	locks=0 ]	(	[ input	1 ] 	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -49491,7 +49733,7 @@ inputs
 stat
 {
   create 1534533243
-  modify 1560303092
+  modify 1560517819
   author MAINGEAR@DESKTOP-P98C1VA
   access 0777
 }
@@ -49552,7 +49794,7 @@ inputs
 stat
 {
   create 1534533243
-  modify 1560303092
+  modify 1560517819
   author MAINGEAR@DESKTOP-P98C1VA
   access 0777
 }
@@ -49678,7 +49920,7 @@ version 0.8
 method	[ 0	locks=0 ]	(	"byframe"	)
 frame	[ 8	locks=0 ]	(	[ frame	99 ] 	)
 integerframe	[ 0	locks=0 ]	(	"on"	)
-time	[ 0	locks=0 ]	(	[ time	2.9583332538604736 ] 	)
+time	[ 0	locks=0 ]	(	[ time	1.4166666269302368 ] 	)
 rangeclamp	[ 0	locks=0 ]	(	"none"	)
 frange	[ 0	locks=0 ]	(	[ frange1	1 ] 	[ frange2	240 ] 	)
 trange	[ 0	locks=0 ]	(	[ trange1	0 ] 	[ trange2	9.9583333333333339 ] 	)
@@ -50167,7 +50409,7 @@ inputs
 stat
 {
   create 1520004754
-  modify 1560279596
+  modify 1560349715
   author LaidlawFX@LaidlawFX
   access 0777
 }
@@ -50300,7 +50542,7 @@ inputs
 stat
 {
   create 1520006646
-  modify 1560279596
+  modify 1560460469
   author LaidlawFX@LaidlawFX
   access 0777
 }
@@ -50398,7 +50640,7 @@ Content-Type: text/plain
 
 {
 version 0.8
-input	[ 0	locks=0 ]	(	[ input	3 ] 	)
+input	[ 0	locks=0 ]	(	[ input	1 ] 	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -50441,7 +50683,7 @@ inputs
 stat
 {
   create 1477419638
-  modify 1560274117
+  modify 1560460394
   author Luiz@Luiz-PC
   access 0777
 }
@@ -50912,7 +51154,7 @@ Content-Type: text/plain
 {
 version 0.8
 stdswitcher	[ 0	locks=0 ]	(	0	)
-depth	[ 8	locks=0 ]	(	[ depth	0 ] 	)
+depth	[ 8	locks=0 ]	(	[ depth	7 ] 	)
 bwpoints	[ 0	locks=0 ]	(	`chs(\"../../bwpoints1\")`	`chs(\"../../bwpoints2\")`	)
 scope	[ 0	locks=0 ]	(	*	)
 }
@@ -50996,7 +51238,7 @@ Content-Type: text/plain
 {
 version 0.8
 stdswitcher	[ 0	locks=0 ]	(	0	)
-depth	[ 0	locks=0 ]	(	[ depth	0 ] 	)
+depth	[ 0	locks=0 ]	(	[ depth	7 ] 	)
 bwpoints	[ 0	locks=0 ]	(	`chs(\"../../bwpoints1\")`	`chs(\"../../bwpoints2\")`	)
 scope	[ 0	locks=0 ]	(	*	)
 }
@@ -51032,7 +51274,7 @@ Content-Disposition: attachment; filename="hdaroot/textures/raster_depth0.def"
 Content-Type: text/plain
 
 comment ""
-position -14.132 2.74233
+position -14.132 3.07757
 connectornextid 2
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress off colordefault on exposed on
 outputsNamed3
@@ -51050,7 +51292,7 @@ inputs
 stat
 {
   create 1513082568
-  modify 1560189946
+  modify 1560346409
   author mikel@mikembp-sesi.local
   access 0777
 }
@@ -51164,7 +51406,7 @@ Content-Type: text/plain
 {
 version 0.8
 stdswitcher	[ 0	locks=0 ]	(	0	)
-depth	[ 8	locks=0 ]	(	[ depth	0 ] 	)
+depth	[ 8	locks=0 ]	(	[ depth	7 ] 	)
 bwpoints	[ 0	locks=0 ]	(	`chs(\"../../bwpoints1\")`	`chs(\"../../bwpoints2\")`	)
 scope	[ 0	locks=0 ]	(	*	)
 }
@@ -51397,7 +51639,7 @@ Content-Type: text/plain
 {
 version 0.8
 stdswitcher	[ 0	locks=0 ]	(	0	)
-depth	[ 8	locks=0 ]	(	[ depth	0 ] 	)
+depth	[ 8	locks=0 ]	(	[ depth	7 ] 	)
 bwpoints	[ 0	locks=0 ]	(	`chs(\"../../bwpoints1\")`	`chs(\"../../bwpoints2\")`	)
 scope	[ 0	locks=0 ]	(	*	)
 }
@@ -51636,7 +51878,7 @@ Content-Type: text/plain
 {
 version 0.8
 stdswitcher	[ 0	locks=0 ]	(	0	)
-depth	[ 8	locks=0 ]	(	[ depth	0 ] 	)
+depth	[ 8	locks=0 ]	(	[ depth	7 ] 	)
 bwpoints	[ 0	locks=0 ]	(	`chs(\"../../bwpoints1\")`	`chs(\"../../bwpoints2\")`	)
 scope	[ 0	locks=0 ]	(	*	)
 }
@@ -51720,7 +51962,7 @@ Content-Type: text/plain
 {
 version 0.8
 stdswitcher	[ 0	locks=0 ]	(	0	)
-depth	[ 8	locks=0 ]	(	[ depth	0 ] 	)
+depth	[ 8	locks=0 ]	(	[ depth	7 ] 	)
 bwpoints	[ 0	locks=0 ]	(	`chs(\"../../bwpoints1\")`	`chs(\"../../bwpoints2\")`	)
 scope	[ 0	locks=0 ]	(	*	)
 }
@@ -51804,7 +52046,7 @@ Content-Type: text/plain
 {
 version 0.8
 stdswitcher	[ 0	locks=0 ]	(	0	)
-depth	[ 8	locks=0 ]	(	[ depth	0 ] 	)
+depth	[ 8	locks=0 ]	(	[ depth	7 ] 	)
 bwpoints	[ 0	locks=0 ]	(	`chs(\"../../bwpoints1\")`	`chs(\"../../bwpoints2\")`	)
 scope	[ 0	locks=0 ]	(	*	)
 }
@@ -51840,7 +52082,7 @@ Content-Disposition: attachment; filename="hdaroot/textures/size.def"
 Content-Type: text/plain
 
 comment ""
-position -10.5 19.0248
+position -10.5965 21.8597
 connectornextid 1
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress off colordefault off exposed on
 outputsNamed3
@@ -51856,7 +52098,7 @@ inputs
 stat
 {
   create 1499279728
-  modify 1559921630
+  modify 1560345979
   author mikel@mikembp-sesi.local
   access 0777
 }
@@ -52257,7 +52499,7 @@ maskplane	[ 0	locks=0 ]	(	A	)
 maskresize	[ 0	locks=0 ]	(	"off"	)
 maskinvert	[ 0	locks=0 ]	(	"off"	)
 overridesize	[ 0	locks=0 ]	(	"on"	)
-size	[ 0	locks=0 ]	(	[ size1	1024 ] 	[ size2	297 ] 	)
+size	[ 0	locks=0 ]	(	[ size1	20 ] 	[ size2	99 ] 	)
 sizemenu	[ 0	locks=0 ]	(	0	)
 overrideaspect	[ 0	locks=0 ]	(	"off"	)
 aspect	[ 0	locks=0 ]	(	[ aspect	1 ] 	)
@@ -52280,11 +52522,11 @@ preextend	[ 0	locks=0 ]	(	"black"	)
 prehold	[ 0	locks=0 ]	(	0	)
 postextend	[ 0	locks=0 ]	(	"black"	)
 posthold	[ 0	locks=0 ]	(	0	)
-m	[ 0	locks=0 ]	(	[ m	3 ] 	)
+m	[ 0	locks=0 ]	(	[ m	1 ] 	)
 s	[ 0	locks=0 ]	(	[ s1	0 ] 	[ s2	0 ] 	)
-r	[ 0	locks=0 ]	(	[ r1	0 ] 	[ r2	0 ] 	)
-f	[ 8	locks=0 ]	(	[ f1	1024 ] 	[ f2	0 ] 	)
-p	[ 0	locks=0 ]	(	[ p1	1024 ] 	[ p2	297 ] 	)
+r	[ 0	locks=0 ]	(	[ r1	20 ] 	[ r2	99 ] 	)
+f	[ 0	locks=0 ]	(	[ f1	1024 ] 	[ f2	99 ] 	)
+p	[ 0	locks=0 ]	(	[ p1	0 ] 	[ p2	0 ] 	)
 stdswitcher5	[ 0	locks=0 ]	(	2	2	2	2	)
 }
 
@@ -52363,7 +52605,7 @@ Content-Disposition: attachment; filename="hdaroot/textures/ORIENT.def"
 Content-Type: text/plain
 
 comment ""
-position -20.5 7.0248
+position -20.5 5.86436
 connectornextid 1
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress off colordefault off exposed on
 outputsNamed3
@@ -52371,16 +52613,16 @@ outputsNamed3
 }
 inputsNamed3
 {
-0 	raster_depth3 1 1 "input1"
+0 	switch3 2 1 "input1"
 }
 inputs
 {
-0 	raster_depth3 0 1
+0 	switch3 0 1
 }
 stat
 {
   create 1521120922
-  modify 1521162344
+  modify 1560346528
   author blaidlaw@TOR-WKS-AB663.ubisoft.org
   access 0777
 }
@@ -53127,7 +53369,7 @@ Content-Disposition: attachment; filename="hdaroot/textures/COLOR.def"
 Content-Type: text/plain
 
 comment ""
-position -16.5 7.0248
+position -16.99 5.86436
 connectornextid 1
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress off colordefault off exposed on
 outputsNamed3
@@ -53135,16 +53377,16 @@ outputsNamed3
 }
 inputsNamed3
 {
-0 	raster_depth1 1 1 "input1"
+0 	switch4 2 1 "input1"
 }
 inputs
 {
-0 	raster_depth1 0 1
+0 	switch4 0 1
 }
 stat
 {
   create 1521120922
-  modify 1521162340
+  modify 1560346636
   author blaidlaw@TOR-WKS-AB663.ubisoft.org
   access 0777
 }
@@ -53798,7 +54040,7 @@ Content-Disposition: attachment; filename="hdaroot/textures/NORMAL.def"
 Content-Type: text/plain
 
 comment ""
-position -14.5 7.0248
+position -14.5 5.86436
 connectornextid 1
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress off colordefault off exposed on
 outputsNamed3
@@ -53806,16 +54048,16 @@ outputsNamed3
 }
 inputsNamed3
 {
-0 	raster_depth 1 1 "input1"
+0 	switch5 2 1 "input1"
 }
 inputs
 {
-0 	raster_depth 0 1
+0 	switch5 0 1
 }
 stat
 {
   create 1521120922
-  modify 1521162336
+  modify 1560346677
   author blaidlaw@TOR-WKS-AB663.ubisoft.org
   access 0777
 }
@@ -54469,7 +54711,7 @@ Content-Disposition: attachment; filename="hdaroot/textures/POSITION_AND_PACKED_
 Content-Type: text/plain
 
 comment ""
-position -14.132 1.20674
+position -14.132 -0.510489
 connectornextid 1
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress off colordefault off exposed on
 outputsNamed3
@@ -54477,16 +54719,16 @@ outputsNamed3
 }
 inputsNamed3
 {
-0 	raster_depth0 1 1 "input1"
+0 	switch2 2 1 "input1"
 }
 inputs
 {
-0 	raster_depth0 0 1
+0 	switch2 0 1
 }
 stat
 {
   create 1521120922
-  modify 1560258598
+  modify 1560458864
   author blaidlaw@TOR-WKS-AB663.ubisoft.org
   access 0777
 }
@@ -55140,7 +55382,7 @@ Content-Disposition: attachment; filename="hdaroot/textures/POSITION.def"
 Content-Type: text/plain
 
 comment ""
-position -7.89504 0.509769
+position -8.16581 -0.510489
 connectornextid 1
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress off colordefault off exposed on
 outputsNamed3
@@ -55148,16 +55390,16 @@ outputsNamed3
 }
 inputsNamed3
 {
-0 	raster_depth2 1 1 "input1"
+0 	switch6 2 1 "input1"
 }
 inputs
 {
-0 	raster_depth2 0 1
+0 	switch6 0 1
 }
 stat
 {
   create 1521120922
-  modify 1560189948
+  modify 1560346715
   author blaidlaw@TOR-WKS-AB663.ubisoft.org
   access 0777
 }
@@ -55811,7 +56053,7 @@ Content-Disposition: attachment; filename="hdaroot/textures/POSITION_AND_PACKED_
 Content-Type: text/plain
 
 comment ""
-position -5.89504 -0.159906
+position -5.08273 -0.869065
 connectornextid 1
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress off colordefault off exposed on
 outputsNamed3
@@ -55819,16 +56061,16 @@ outputsNamed3
 }
 inputsNamed3
 {
-0 	raster_depth4 1 1 "input1"
+0 	switch7 2 1 "input1"
 }
 inputs
 {
-0 	raster_depth4 0 1
+0 	switch7 0 1
 }
 stat
 {
   create 1521120922
-  modify 1560189948
+  modify 1560346734
   author blaidlaw@TOR-WKS-AB663.ubisoft.org
   access 0777
 }
@@ -56482,7 +56724,7 @@ Content-Disposition: attachment; filename="hdaroot/textures/PSCALE.def"
 Content-Type: text/plain
 
 comment ""
-position -3.89504 0.625194
+position -2.39936 -0.0968584
 connectornextid 1
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress off colordefault off exposed on
 outputsNamed3
@@ -56490,16 +56732,16 @@ outputsNamed3
 }
 inputsNamed3
 {
-0 	raster_depth5 1 1 "input1"
+0 	switch8 2 1 "input1"
 }
 inputs
 {
-0 	raster_depth5 0 1
+0 	switch8 0 1
 }
 stat
 {
   create 1521120922
-  modify 1560189948
+  modify 1560346768
   author blaidlaw@TOR-WKS-AB663.ubisoft.org
   access 0777
 }
@@ -57153,7 +57395,7 @@ Content-Disposition: attachment; filename="hdaroot/textures/SCALE.def"
 Content-Type: text/plain
 
 comment ""
-position -4.5 7.0248
+position -3.2622 6.13513
 connectornextid 1
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress off colordefault off exposed on
 outputsNamed3
@@ -57161,16 +57403,16 @@ outputsNamed3
 }
 inputsNamed3
 {
-0 	raster_depth6 1 1 "input1"
+0 	switch9 2 1 "input1"
 }
 inputs
 {
-0 	raster_depth6 0 1
+0 	switch9 0 1
 }
 stat
 {
   create 1521120922
-  modify 1521162351
+  modify 1560346783
   author blaidlaw@TOR-WKS-AB663.ubisoft.org
   access 0777
 }
@@ -57824,7 +58066,7 @@ Content-Disposition: attachment; filename="hdaroot/textures/rasterControls.def"
 Content-Type: text/plain
 
 comment ""
-position -7.46027 19.243
+position -5.93365 19.2541
 connectornextid 0
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress off colordefault off exposed on
 outputsNamed3
@@ -57839,7 +58081,7 @@ inputs
 stat
 {
   create 1521162564
-  modify 1560191629
+  modify 1560345347
   author LaidlawFX@LaidlawFX
   access 0777
 }
@@ -58183,7 +58425,7 @@ preextend	[ 0	locks=0 ]	(	"black"	)
 prehold	[ 0	locks=0 ]	(	0	)
 postextend	[ 0	locks=0 ]	(	"black"	)
 posthold	[ 0	locks=0 ]	(	0	)
-_depth	[ 0	locks=0 ]	(	[ _depth	7 ] 	)
+_depth	[ 8	locks=0 ]	(	[ _depth	7 ] 	)
 stdswitcher5	[ 0	locks=0 ]	(	2	2	2	2	)
 }
 
@@ -58456,10 +58698,1566 @@ Content-Type: text/plain
 0
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/textures/crop1.init"
+Content-Type: text/plain
+
+type = crop
+matchesdef = 0
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/textures/crop1.def"
+Content-Type: text/plain
+
+comment ""
+position -12.8923 1.96348
+connectornextid 2
+flags =  lock off model off template off footprint off xray off bypass off display on render off highlight off unload off savedata off compress off colordefault on exposed on
+outputsNamed3
+{
+1 "output1"
+}
+inputsNamed3
+{
+0 	raster_depth0 1 1 "input1"
+}
+inputs
+{
+0 	raster_depth0 0 1
+}
+stat
+{
+  create 1560344748
+  modify 1560458892
+  author mikel@mikembp-sesi
+  access 0777
+}
+color UT_Color RGB 0.8 0.8 0.8 
+delscript ""
+exprlanguage hscript
+end
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/textures/crop1.chn"
+Content-Type: text/plain
+
+{
+    channel hcrop2 {
+      lefttype = extend
+      righttype = extend
+      default = 1024
+      flags = 0
+      segment { length = 0 value = 1024 1024 expr = ch(\"../null1/padded_size\") }
+    }
+    channel vcrop2 {
+      lefttype = extend
+      righttype = extend
+      default = 1024
+      flags = 0
+      segment { length = 0 value = 1024 1024 expr = ch(\"hcrop2\") }
+    }
+    channel offset2 {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = "ch(\"hcrop2\") - ch(\"../size/size2\")" }
+    }
+  }
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/textures/crop1.parm"
+Content-Type: text/plain
+
+{
+version 0.8
+stdswitcher	[ 0	locks=0 ]	(	0	)
+crop	[ 0	locks=0 ]	(	"corners"	)
+units	[ 0	locks=0 ]	(	"pixel"	)
+hcrop	[ 0	locks=0 ]	(	0	[ hcrop2	128 ] 	)
+vcrop	[ 0	locks=0 ]	(	0	[ vcrop2	128 ] 	)
+offset	[ 0	locks=0 ]	(	0	[ offset2	29 ] 	)
+hold	[ 0	locks=0 ]	(	"off"	)
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/textures/crop1.userdata"
+Content-Type: text/plain
+
+{
+	"___Version___":{
+		"type":"string",
+		"value":"17.5.258"
+	}
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/textures/crop1.cop2"
+Content-Type: text/plain
+
+2
+2
+0
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/textures/null1.init"
+Content-Type: text/plain
+
+type = null
+matchesdef = 0
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/textures/null1.def"
+Content-Type: text/plain
+
+comment ""
+position -5.93365 20.1833
+connectornextid 0
+flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress off colordefault off exposed on
+outputsNamed3
+{
+}
+inputsNamed3
+{
+}
+inputs
+{
+}
+stat
+{
+  create 1560345175
+  modify 1560346847
+  author mikel@mikembp-sesi
+  access 0777
+}
+color UT_Color RGB 0.7 0.7 0.5 
+delscript ""
+exprlanguage hscript
+end
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/textures/null1.spareparmdef"
+Content-Type: text/plain
+
+    parm {
+        name    "padded_size"
+        label   "Padded Size"
+        type    integer
+        default { "0" }
+        range   { 0 10 }
+    }
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/textures/null1.chn"
+Content-Type: text/plain
+
+{
+    channel padded_size {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = "import toolutils
+node = hou.node('../../')
+vat_utils = toolutils.createModuleFromSection(\"vat_utils\",node.type(),\"vat_utils.py\")
+return vat_utils.padding_pow_two(node)" language = python }
+    }
+  }
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/textures/null1.parm"
+Content-Type: text/plain
+
+{
+version 0.8
+padded_size	[ 0	locks=0 ]	(	[ padded_size	128 ] 	)
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/textures/null1.userdata"
+Content-Type: text/plain
+
+{
+	"___Version___":{
+		"type":"string",
+		"value":"17.5.258"
+	}
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/textures/null1.cop2"
+Content-Type: text/plain
+
+2
+0
+0
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/textures/switch2.init"
+Content-Type: text/plain
+
+type = switch
+matchesdef = 0
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/textures/switch2.def"
+Content-Type: text/plain
+
+comment ""
+position -14.132 1.01098
+connectornextid 3
+flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress off colordefault off exposed on
+outputsNamed3
+{
+2 "output1"
+}
+inputsNamed3
+{
+0 	raster_depth0 1 1 "input1"
+1 	crop1 1 1 "input2"
+}
+inputs
+{
+0 	raster_depth0 0 1
+1 	crop1 0 1
+}
+stat
+{
+  create 1560345417
+  modify 1560346421
+  author mikel@mikembp-sesi
+  access 0777
+}
+color UT_Color RGB 0.7 0.7 0.5 
+delscript ""
+exprlanguage hscript
+end
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/textures/switch2.chn"
+Content-Type: text/plain
+
+{
+    channel index {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = ch(\"../../padpowtwo\") }
+    }
+  }
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/textures/switch2.parm"
+Content-Type: text/plain
+
+{
+version 0.8
+stdswitcher	[ 0	locks=0 ]	(	0	)
+index	[ 8	locks=0 ]	(	[ index	1 ] 	)
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/textures/switch2.userdata"
+Content-Type: text/plain
+
+{
+	"___Version___":{
+		"type":"string",
+		"value":"17.5.258"
+	}
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/textures/switch2.cop2"
+Content-Type: text/plain
+
+2
+0
+0
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/textures/crop2.init"
+Content-Type: text/plain
+
+type = crop
+matchesdef = 0
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/textures/crop2.def"
+Content-Type: text/plain
+
+comment ""
+position -19.5017 7.9773
+connectornextid 2
+flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress off colordefault on exposed on
+outputsNamed3
+{
+1 "output1"
+}
+inputsNamed3
+{
+0 	raster_depth3 1 1 "input1"
+}
+inputs
+{
+0 	raster_depth3 0 1
+}
+stat
+{
+  create 1560344748
+  modify 1560458909
+  author mikel@mikembp-sesi
+  access 0777
+}
+color UT_Color RGB 0.8 0.8 0.8 
+delscript ""
+exprlanguage hscript
+end
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/textures/crop2.chn"
+Content-Type: text/plain
+
+{
+    channel hcrop2 {
+      lefttype = extend
+      righttype = extend
+      default = 1024
+      flags = 0
+      segment { length = 0 value = 1024 1024 expr = ch(\"../null1/padded_size\") }
+    }
+    channel vcrop2 {
+      lefttype = extend
+      righttype = extend
+      default = 1024
+      flags = 0
+      segment { length = 0 value = 1024 1024 expr = ch(\"hcrop2\") }
+    }
+    channel offset2 {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = "ch(\"hcrop2\") - ch(\"../size/size2\")" }
+    }
+  }
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/textures/crop2.parm"
+Content-Type: text/plain
+
+{
+version 0.8
+stdswitcher	[ 0	locks=0 ]	(	0	)
+crop	[ 0	locks=0 ]	(	"corners"	)
+units	[ 0	locks=0 ]	(	"pixel"	)
+hcrop	[ 0	locks=0 ]	(	0	[ hcrop2	128 ] 	)
+vcrop	[ 0	locks=0 ]	(	0	[ vcrop2	128 ] 	)
+offset	[ 8	locks=0 ]	(	0	[ offset2	29 ] 	)
+hold	[ 0	locks=0 ]	(	"off"	)
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/textures/crop2.userdata"
+Content-Type: text/plain
+
+{
+	"___Version___":{
+		"type":"string",
+		"value":"17.5.258"
+	}
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/textures/crop2.cop2"
+Content-Type: text/plain
+
+2
+13
+0
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/textures/switch3.init"
+Content-Type: text/plain
+
+type = switch
+matchesdef = 0
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/textures/switch3.def"
+Content-Type: text/plain
+
+comment ""
+position -20.7414 7.0248
+connectornextid 3
+flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress off colordefault off exposed on
+outputsNamed3
+{
+2 "output1"
+}
+inputsNamed3
+{
+0 	raster_depth3 1 1 "input1"
+1 	crop2 1 1 "input2"
+}
+inputs
+{
+0 	raster_depth3 0 1
+1 	crop2 0 1
+}
+stat
+{
+  create 1560345417
+  modify 1560346534
+  author mikel@mikembp-sesi
+  access 0777
+}
+color UT_Color RGB 0.7 0.7 0.5 
+delscript ""
+exprlanguage hscript
+end
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/textures/switch3.chn"
+Content-Type: text/plain
+
+{
+    channel index {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = ch(\"../../padpowtwo\") }
+    }
+  }
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/textures/switch3.parm"
+Content-Type: text/plain
+
+{
+version 0.8
+stdswitcher	[ 0	locks=0 ]	(	0	)
+index	[ 8	locks=0 ]	(	[ index	0 ] 	)
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/textures/switch3.userdata"
+Content-Type: text/plain
+
+{
+	"___Version___":{
+		"type":"string",
+		"value":"17.5.258"
+	}
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/textures/switch3.cop2"
+Content-Type: text/plain
+
+2
+0
+0
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/textures/crop3.init"
+Content-Type: text/plain
+
+type = crop
+matchesdef = 0
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/textures/crop3.def"
+Content-Type: text/plain
+
+comment ""
+position -16.2267 7.9773
+connectornextid 2
+flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress off colordefault on exposed on
+outputsNamed3
+{
+1 "output1"
+}
+inputsNamed3
+{
+0 	raster_depth1 1 1 "input1"
+}
+inputs
+{
+0 	raster_depth1 0 1
+}
+stat
+{
+  create 1560344748
+  modify 1560458914
+  author mikel@mikembp-sesi
+  access 0777
+}
+color UT_Color RGB 0.8 0.8 0.8 
+delscript ""
+exprlanguage hscript
+end
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/textures/crop3.chn"
+Content-Type: text/plain
+
+{
+    channel hcrop2 {
+      lefttype = extend
+      righttype = extend
+      default = 1024
+      flags = 0
+      segment { length = 0 value = 1024 1024 expr = ch(\"../null1/padded_size\") }
+    }
+    channel vcrop2 {
+      lefttype = extend
+      righttype = extend
+      default = 1024
+      flags = 0
+      segment { length = 0 value = 1024 1024 expr = ch(\"hcrop2\") }
+    }
+    channel offset2 {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = "ch(\"hcrop2\") - ch(\"../size/size2\")" }
+    }
+  }
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/textures/crop3.parm"
+Content-Type: text/plain
+
+{
+version 0.8
+stdswitcher	[ 0	locks=0 ]	(	0	)
+crop	[ 0	locks=0 ]	(	"corners"	)
+units	[ 0	locks=0 ]	(	"pixel"	)
+hcrop	[ 0	locks=0 ]	(	0	[ hcrop2	128 ] 	)
+vcrop	[ 0	locks=0 ]	(	0	[ vcrop2	128 ] 	)
+offset	[ 8	locks=0 ]	(	0	[ offset2	29 ] 	)
+hold	[ 0	locks=0 ]	(	"off"	)
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/textures/crop3.userdata"
+Content-Type: text/plain
+
+{
+	"___Version___":{
+		"type":"string",
+		"value":"17.5.258"
+	}
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/textures/crop3.cop2"
+Content-Type: text/plain
+
+2
+2
+0
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/textures/switch4.init"
+Content-Type: text/plain
+
+type = switch
+matchesdef = 0
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/textures/switch4.def"
+Content-Type: text/plain
+
+comment ""
+position -16.99 6.92165
+connectornextid 3
+flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress off colordefault off exposed on
+outputsNamed3
+{
+2 "output1"
+}
+inputsNamed3
+{
+0 	raster_depth1 1 1 "input1"
+1 	crop3 1 1 "input2"
+}
+inputs
+{
+0 	raster_depth1 0 1
+1 	crop3 0 1
+}
+stat
+{
+  create 1560345417
+  modify 1560346636
+  author mikel@mikembp-sesi
+  access 0777
+}
+color UT_Color RGB 0.7 0.7 0.5 
+delscript ""
+exprlanguage hscript
+end
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/textures/switch4.chn"
+Content-Type: text/plain
+
+{
+    channel index {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = ch(\"../../padpowtwo\") }
+    }
+  }
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/textures/switch4.parm"
+Content-Type: text/plain
+
+{
+version 0.8
+stdswitcher	[ 0	locks=0 ]	(	0	)
+index	[ 8	locks=0 ]	(	[ index	0 ] 	)
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/textures/switch4.userdata"
+Content-Type: text/plain
+
+{
+	"___Version___":{
+		"type":"string",
+		"value":"17.5.258"
+	}
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/textures/switch4.cop2"
+Content-Type: text/plain
+
+2
+0
+0
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/textures/crop4.init"
+Content-Type: text/plain
+
+type = crop
+matchesdef = 0
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/textures/crop4.def"
+Content-Type: text/plain
+
+comment ""
+position -13.4287 7.9773
+connectornextid 2
+flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress off colordefault on exposed on
+outputsNamed3
+{
+1 "output1"
+}
+inputsNamed3
+{
+0 	raster_depth 1 1 "input1"
+}
+inputs
+{
+0 	raster_depth 0 1
+}
+stat
+{
+  create 1560344748
+  modify 1560458922
+  author mikel@mikembp-sesi
+  access 0777
+}
+color UT_Color RGB 0.8 0.8 0.8 
+delscript ""
+exprlanguage hscript
+end
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/textures/crop4.chn"
+Content-Type: text/plain
+
+{
+    channel hcrop2 {
+      lefttype = extend
+      righttype = extend
+      default = 1024
+      flags = 0
+      segment { length = 0 value = 1024 1024 expr = ch(\"../null1/padded_size\") }
+    }
+    channel vcrop2 {
+      lefttype = extend
+      righttype = extend
+      default = 1024
+      flags = 0
+      segment { length = 0 value = 1024 1024 expr = ch(\"hcrop2\") }
+    }
+    channel offset2 {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = "ch(\"hcrop2\") - ch(\"../size/size2\")" }
+    }
+  }
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/textures/crop4.parm"
+Content-Type: text/plain
+
+{
+version 0.8
+stdswitcher	[ 0	locks=0 ]	(	0	)
+crop	[ 0	locks=0 ]	(	"corners"	)
+units	[ 0	locks=0 ]	(	"pixel"	)
+hcrop	[ 0	locks=0 ]	(	0	[ hcrop2	128 ] 	)
+vcrop	[ 0	locks=0 ]	(	0	[ vcrop2	128 ] 	)
+offset	[ 8	locks=0 ]	(	0	[ offset2	29 ] 	)
+hold	[ 0	locks=0 ]	(	"off"	)
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/textures/crop4.userdata"
+Content-Type: text/plain
+
+{
+	"___Version___":{
+		"type":"string",
+		"value":"17.5.258"
+	}
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/textures/crop4.cop2"
+Content-Type: text/plain
+
+2
+2
+0
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/textures/switch5.init"
+Content-Type: text/plain
+
+type = switch
+matchesdef = 0
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/textures/switch5.def"
+Content-Type: text/plain
+
+comment ""
+position -14.3074 7.15898
+connectornextid 3
+flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress off colordefault off exposed on
+outputsNamed3
+{
+2 "output1"
+}
+inputsNamed3
+{
+0 	raster_depth 1 1 "input1"
+1 	crop4 1 1 "input2"
+}
+inputs
+{
+0 	raster_depth 0 1
+1 	crop4 0 1
+}
+stat
+{
+  create 1560345417
+  modify 1560346675
+  author mikel@mikembp-sesi
+  access 0777
+}
+color UT_Color RGB 0.7 0.7 0.5 
+delscript ""
+exprlanguage hscript
+end
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/textures/switch5.chn"
+Content-Type: text/plain
+
+{
+    channel index {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = ch(\"../../padpowtwo\") }
+    }
+  }
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/textures/switch5.parm"
+Content-Type: text/plain
+
+{
+version 0.8
+stdswitcher	[ 0	locks=0 ]	(	0	)
+index	[ 8	locks=0 ]	(	[ index	0 ] 	)
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/textures/switch5.userdata"
+Content-Type: text/plain
+
+{
+	"___Version___":{
+		"type":"string",
+		"value":"17.5.258"
+	}
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/textures/switch5.cop2"
+Content-Type: text/plain
+
+2
+0
+0
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/textures/crop5.init"
+Content-Type: text/plain
+
+type = crop
+matchesdef = 0
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/textures/crop5.def"
+Content-Type: text/plain
+
+comment ""
+position -7.23973 1.48407
+connectornextid 2
+flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress off colordefault on exposed on
+outputsNamed3
+{
+1 "output1"
+}
+inputsNamed3
+{
+0 	raster_depth2 1 1 "input1"
+}
+inputs
+{
+0 	raster_depth2 0 1
+}
+stat
+{
+  create 1560344748
+  modify 1560458934
+  author mikel@mikembp-sesi
+  access 0777
+}
+color UT_Color RGB 0.8 0.8 0.8 
+delscript ""
+exprlanguage hscript
+end
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/textures/crop5.chn"
+Content-Type: text/plain
+
+{
+    channel hcrop2 {
+      lefttype = extend
+      righttype = extend
+      default = 1024
+      flags = 0
+      segment { length = 0 value = 1024 1024 expr = ch(\"../null1/padded_size\") }
+    }
+    channel vcrop2 {
+      lefttype = extend
+      righttype = extend
+      default = 1024
+      flags = 0
+      segment { length = 0 value = 1024 1024 expr = ch(\"hcrop2\") }
+    }
+    channel offset2 {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = "ch(\"hcrop2\") - ch(\"../size/size2\")" }
+    }
+  }
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/textures/crop5.parm"
+Content-Type: text/plain
+
+{
+version 0.8
+stdswitcher	[ 0	locks=0 ]	(	0	)
+crop	[ 0	locks=0 ]	(	"corners"	)
+units	[ 0	locks=0 ]	(	"pixel"	)
+hcrop	[ 0	locks=0 ]	(	0	[ hcrop2	128 ] 	)
+vcrop	[ 0	locks=0 ]	(	0	[ vcrop2	128 ] 	)
+offset	[ 8	locks=0 ]	(	0	[ offset2	29 ] 	)
+hold	[ 0	locks=0 ]	(	"off"	)
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/textures/crop5.userdata"
+Content-Type: text/plain
+
+{
+	"___Version___":{
+		"type":"string",
+		"value":"17.5.258"
+	}
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/textures/crop5.cop2"
+Content-Type: text/plain
+
+2
+2
+0
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/textures/switch6.init"
+Content-Type: text/plain
+
+type = switch
+matchesdef = 0
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/textures/switch6.def"
+Content-Type: text/plain
+
+comment ""
+position -8.16581 0.621826
+connectornextid 3
+flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress off colordefault off exposed on
+outputsNamed3
+{
+2 "output1"
+}
+inputsNamed3
+{
+0 	raster_depth2 1 1 "input1"
+1 	crop5 1 1 "input2"
+}
+inputs
+{
+0 	raster_depth2 0 1
+1 	crop5 0 1
+}
+stat
+{
+  create 1560345417
+  modify 1560346718
+  author mikel@mikembp-sesi
+  access 0777
+}
+color UT_Color RGB 0.7 0.7 0.5 
+delscript ""
+exprlanguage hscript
+end
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/textures/switch6.chn"
+Content-Type: text/plain
+
+{
+    channel index {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = ch(\"../../padpowtwo\") }
+    }
+  }
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/textures/switch6.parm"
+Content-Type: text/plain
+
+{
+version 0.8
+stdswitcher	[ 0	locks=0 ]	(	0	)
+index	[ 8	locks=0 ]	(	[ index	0 ] 	)
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/textures/switch6.userdata"
+Content-Type: text/plain
+
+{
+	"___Version___":{
+		"type":"string",
+		"value":"17.5.258"
+	}
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/textures/switch6.cop2"
+Content-Type: text/plain
+
+2
+0
+0
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/textures/crop6.init"
+Content-Type: text/plain
+
+type = crop
+matchesdef = 0
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/textures/crop6.def"
+Content-Type: text/plain
+
+comment ""
+position -4.72544 1.76773
+connectornextid 2
+flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress off colordefault on exposed on
+outputsNamed3
+{
+1 "output1"
+}
+inputsNamed3
+{
+0 	raster_depth4 1 1 "input1"
+}
+inputs
+{
+0 	raster_depth4 0 1
+}
+stat
+{
+  create 1560344748
+  modify 1560458941
+  author mikel@mikembp-sesi
+  access 0777
+}
+color UT_Color RGB 0.8 0.8 0.8 
+delscript ""
+exprlanguage hscript
+end
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/textures/crop6.chn"
+Content-Type: text/plain
+
+{
+    channel hcrop2 {
+      lefttype = extend
+      righttype = extend
+      default = 1024
+      flags = 0
+      segment { length = 0 value = 1024 1024 expr = ch(\"../null1/padded_size\") }
+    }
+    channel vcrop2 {
+      lefttype = extend
+      righttype = extend
+      default = 1024
+      flags = 0
+      segment { length = 0 value = 1024 1024 expr = ch(\"hcrop2\") }
+    }
+    channel offset2 {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = "ch(\"hcrop2\") - ch(\"../size/size2\")" }
+    }
+  }
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/textures/crop6.parm"
+Content-Type: text/plain
+
+{
+version 0.8
+stdswitcher	[ 0	locks=0 ]	(	0	)
+crop	[ 0	locks=0 ]	(	"corners"	)
+units	[ 0	locks=0 ]	(	"pixel"	)
+hcrop	[ 0	locks=0 ]	(	0	[ hcrop2	128 ] 	)
+vcrop	[ 0	locks=0 ]	(	0	[ vcrop2	128 ] 	)
+offset	[ 8	locks=0 ]	(	0	[ offset2	29 ] 	)
+hold	[ 0	locks=0 ]	(	"off"	)
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/textures/crop6.userdata"
+Content-Type: text/plain
+
+{
+	"___Version___":{
+		"type":"string",
+		"value":"17.5.258"
+	}
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/textures/crop6.cop2"
+Content-Type: text/plain
+
+2
+2
+0
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/textures/switch7.init"
+Content-Type: text/plain
+
+type = switch
+matchesdef = 0
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/textures/switch7.def"
+Content-Type: text/plain
+
+comment ""
+position -5.30756 0.84102
+connectornextid 3
+flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress off colordefault off exposed on
+outputsNamed3
+{
+2 "output1"
+}
+inputsNamed3
+{
+0 	raster_depth4 1 1 "input1"
+1 	crop6 1 1 "input2"
+}
+inputs
+{
+0 	raster_depth4 0 1
+1 	crop6 0 1
+}
+stat
+{
+  create 1560345417
+  modify 1560346737
+  author mikel@mikembp-sesi
+  access 0777
+}
+color UT_Color RGB 0.7 0.7 0.5 
+delscript ""
+exprlanguage hscript
+end
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/textures/switch7.chn"
+Content-Type: text/plain
+
+{
+    channel index {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = ch(\"../../padpowtwo\") }
+    }
+  }
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/textures/switch7.parm"
+Content-Type: text/plain
+
+{
+version 0.8
+stdswitcher	[ 0	locks=0 ]	(	0	)
+index	[ 8	locks=0 ]	(	[ index	0 ] 	)
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/textures/switch7.userdata"
+Content-Type: text/plain
+
+{
+	"___Version___":{
+		"type":"string",
+		"value":"17.5.258"
+	}
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/textures/switch7.cop2"
+Content-Type: text/plain
+
+2
+0
+0
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/textures/crop7.init"
+Content-Type: text/plain
+
+type = crop
+matchesdef = 0
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/textures/crop7.def"
+Content-Type: text/plain
+
+comment ""
+position -1.87591 1.76773
+connectornextid 2
+flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress off colordefault on exposed on
+outputsNamed3
+{
+1 "output1"
+}
+inputsNamed3
+{
+0 	raster_depth5 1 1 "input1"
+}
+inputs
+{
+0 	raster_depth5 0 1
+}
+stat
+{
+  create 1560344748
+  modify 1560458947
+  author mikel@mikembp-sesi
+  access 0777
+}
+color UT_Color RGB 0.8 0.8 0.8 
+delscript ""
+exprlanguage hscript
+end
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/textures/crop7.chn"
+Content-Type: text/plain
+
+{
+    channel hcrop2 {
+      lefttype = extend
+      righttype = extend
+      default = 1024
+      flags = 0
+      segment { length = 0 value = 1024 1024 expr = ch(\"../null1/padded_size\") }
+    }
+    channel vcrop2 {
+      lefttype = extend
+      righttype = extend
+      default = 1024
+      flags = 0
+      segment { length = 0 value = 1024 1024 expr = ch(\"hcrop2\") }
+    }
+    channel offset2 {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = "ch(\"hcrop2\") - ch(\"../size/size2\")" }
+    }
+  }
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/textures/crop7.parm"
+Content-Type: text/plain
+
+{
+version 0.8
+stdswitcher	[ 0	locks=0 ]	(	0	)
+crop	[ 0	locks=0 ]	(	"corners"	)
+units	[ 0	locks=0 ]	(	"pixel"	)
+hcrop	[ 0	locks=0 ]	(	0	[ hcrop2	128 ] 	)
+vcrop	[ 0	locks=0 ]	(	0	[ vcrop2	128 ] 	)
+offset	[ 8	locks=0 ]	(	0	[ offset2	29 ] 	)
+hold	[ 0	locks=0 ]	(	"off"	)
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/textures/crop7.userdata"
+Content-Type: text/plain
+
+{
+	"___Version___":{
+		"type":"string",
+		"value":"17.5.258"
+	}
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/textures/crop7.cop2"
+Content-Type: text/plain
+
+2
+2
+0
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/textures/switch8.init"
+Content-Type: text/plain
+
+type = switch
+matchesdef = 0
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/textures/switch8.def"
+Content-Type: text/plain
+
+comment ""
+position -2.67722 0.84102
+connectornextid 3
+flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress off colordefault off exposed on
+outputsNamed3
+{
+2 "output1"
+}
+inputsNamed3
+{
+0 	raster_depth5 1 1 "input1"
+1 	crop7 1 1 "input2"
+}
+inputs
+{
+0 	raster_depth5 0 1
+1 	crop7 0 1
+}
+stat
+{
+  create 1560345417
+  modify 1560346769
+  author mikel@mikembp-sesi
+  access 0777
+}
+color UT_Color RGB 0.7 0.7 0.5 
+delscript ""
+exprlanguage hscript
+end
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/textures/switch8.chn"
+Content-Type: text/plain
+
+{
+    channel index {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = ch(\"../../padpowtwo\") }
+    }
+  }
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/textures/switch8.parm"
+Content-Type: text/plain
+
+{
+version 0.8
+stdswitcher	[ 0	locks=0 ]	(	0	)
+index	[ 8	locks=0 ]	(	[ index	0 ] 	)
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/textures/switch8.userdata"
+Content-Type: text/plain
+
+{
+	"___Version___":{
+		"type":"string",
+		"value":"17.5.258"
+	}
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/textures/switch8.cop2"
+Content-Type: text/plain
+
+2
+0
+0
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/textures/crop8.init"
+Content-Type: text/plain
+
+type = crop
+matchesdef = 0
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/textures/crop8.def"
+Content-Type: text/plain
+
+comment ""
+position -2.67722 7.9773
+connectornextid 2
+flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress off colordefault on exposed on
+outputsNamed3
+{
+1 "output1"
+}
+inputsNamed3
+{
+0 	raster_depth6 1 1 "input1"
+}
+inputs
+{
+0 	raster_depth6 0 1
+}
+stat
+{
+  create 1560344748
+  modify 1560459011
+  author mikel@mikembp-sesi
+  access 0777
+}
+color UT_Color RGB 0.8 0.8 0.8 
+delscript ""
+exprlanguage hscript
+end
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/textures/crop8.chn"
+Content-Type: text/plain
+
+{
+    channel hcrop2 {
+      lefttype = extend
+      righttype = extend
+      default = 1024
+      flags = 0
+      segment { length = 0 value = 1024 1024 expr = ch(\"../null1/padded_size\") }
+    }
+    channel vcrop2 {
+      lefttype = extend
+      righttype = extend
+      default = 1024
+      flags = 0
+      segment { length = 0 value = 1024 1024 expr = ch(\"hcrop2\") }
+    }
+    channel offset2 {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = "ch(\"hcrop2\") - ch(\"../size/size2\")" }
+    }
+  }
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/textures/crop8.parm"
+Content-Type: text/plain
+
+{
+version 0.8
+stdswitcher	[ 0	locks=0 ]	(	0	)
+crop	[ 0	locks=0 ]	(	"corners"	)
+units	[ 0	locks=0 ]	(	"pixel"	)
+hcrop	[ 0	locks=0 ]	(	0	[ hcrop2	128 ] 	)
+vcrop	[ 0	locks=0 ]	(	0	[ vcrop2	128 ] 	)
+offset	[ 8	locks=0 ]	(	0	[ offset2	29 ] 	)
+hold	[ 0	locks=0 ]	(	"off"	)
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/textures/crop8.userdata"
+Content-Type: text/plain
+
+{
+	"___Version___":{
+		"type":"string",
+		"value":"17.5.258"
+	}
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/textures/crop8.cop2"
+Content-Type: text/plain
+
+2
+2
+0
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/textures/switch9.init"
+Content-Type: text/plain
+
+type = switch
+matchesdef = 0
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/textures/switch9.def"
+Content-Type: text/plain
+
+comment ""
+position -3.60558 7.0248
+connectornextid 3
+flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress off colordefault off exposed on
+outputsNamed3
+{
+2 "output1"
+}
+inputsNamed3
+{
+0 	raster_depth6 1 1 "input1"
+1 	crop8 1 1 "input2"
+}
+inputs
+{
+0 	raster_depth6 0 1
+1 	crop8 0 1
+}
+stat
+{
+  create 1560345417
+  modify 1560346784
+  author mikel@mikembp-sesi
+  access 0777
+}
+color UT_Color RGB 0.7 0.7 0.5 
+delscript ""
+exprlanguage hscript
+end
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/textures/switch9.chn"
+Content-Type: text/plain
+
+{
+    channel index {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = ch(\"../../padpowtwo\") }
+    }
+  }
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/textures/switch9.parm"
+Content-Type: text/plain
+
+{
+version 0.8
+stdswitcher	[ 0	locks=0 ]	(	0	)
+index	[ 8	locks=0 ]	(	[ index	1 ] 	)
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/textures/switch9.userdata"
+Content-Type: text/plain
+
+{
+	"___Version___":{
+		"type":"string",
+		"value":"17.5.258"
+	}
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/textures/switch9.cop2"
+Content-Type: text/plain
+
+2
+0
+0
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
 Content-Disposition: attachment; filename="hdaroot/textures.order"
 Content-Type: text/plain
 
-38
+55
 pack_normals
 orient
 normalise_orient
@@ -58498,6 +60296,23 @@ add_default_alpha1
 normalize_position
 normalize_pscale
 normalize_scale
+crop1
+null1
+switch2
+crop2
+switch3
+crop3
+switch4
+crop4
+switch5
+crop5
+switch6
+crop6
+switch7
+crop7
+switch8
+crop8
+switch9
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
 Content-Disposition: attachment; filename="hdaroot/textures.net"
@@ -59491,7 +61306,7 @@ Content-Type: text/plain
 version 0.8
 execute	[ 0	locks=0 ]	(	0	)
 renderdialog	[ 0	locks=0 ]	(	0	)
-index	[ 8	locks=0 ]	(	[ index	0 ] 	)
+index	[ 8	locks=0 ]	(	[ index	1 ] 	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -60538,7 +62353,7 @@ Content-Disposition: attachment; filename="hdaroot/set_num_frames_speed.def"
 Content-Type: text/plain
 
 comment ""
-position -6.5 -13.15
+position -6.5 -15.0406
 connectornextid 2
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault off exposed on
 outputsNamed3
@@ -60547,16 +62362,16 @@ outputsNamed3
 }
 inputsNamed3
 {
-0 	enable_color 1 1 "input1"
+0 	pad_power_of_two 1 1 "input1"
 }
 inputs
 {
-0 	enable_color 0 1
+0 	pad_power_of_two 0 1
 }
 stat
 {
   create 1519012933
-  modify 1542761258
+  modify 1560517089
   author LaidlawFX@LaidlawFX
   access 0777
 }
@@ -60777,7 +62592,7 @@ Content-Disposition: attachment; filename="hdaroot/post_render_script.def"
 Content-Type: text/plain
 
 comment ""
-position -6.5 -19.15
+position -6.5 -21.0406
 connectornextid 2
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault off exposed on
 outputsNamed3
@@ -60795,7 +62610,7 @@ inputs
 stat
 {
   create 1519012933
-  modify 1542761258
+  modify 1560517088
   author LaidlawFX@LaidlawFX
   access 0777
 }
@@ -61165,7 +62980,7 @@ Content-Type: text/plain
 version 0.8
 execute	[ 0	locks=0 ]	(	0	)
 renderdialog	[ 0	locks=0 ]	(	0	)
-index	[ 8	locks=0 ]	(	[ index	3 ] 	)
+index	[ 8	locks=0 ]	(	[ index	1 ] 	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -62089,7 +63904,7 @@ Content-Disposition: attachment; filename="hdaroot/reload_debug_geo.def"
 Content-Type: text/plain
 
 comment ""
-position -6.5 -14.15
+position -6.5 -16.0406
 connectornextid 2
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault off exposed on
 outputsNamed3
@@ -62107,7 +63922,7 @@ inputs
 stat
 {
   create 1519012933
-  modify 1542761258
+  modify 1560517088
   author LaidlawFX@LaidlawFX
   access 0777
 }
@@ -62191,7 +64006,7 @@ Content-Disposition: attachment; filename="hdaroot/update_material.def"
 Content-Type: text/plain
 
 comment ""
-position -6.5 -15.15
+position -6.5 -17.0406
 connectornextid 2
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault off exposed on
 outputsNamed3
@@ -62209,7 +64024,7 @@ inputs
 stat
 {
   create 1519012933
-  modify 1542761258
+  modify 1560517088
   author LaidlawFX@LaidlawFX
   access 0777
 }
@@ -75352,7 +77167,7 @@ Content-Disposition: attachment; filename="hdaroot/switch_material_update.def"
 Content-Type: text/plain
 
 comment ""
-position -6.5 -16.15
+position -6.5 -18.0406
 connectornextid 9
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
@@ -75384,7 +77199,7 @@ inputs
 stat
 {
   create 1521483536
-  modify 1542761258
+  modify 1560517088
   author LaidlawFX@LaidlawFX
   access 0777
 }
@@ -75440,7 +77255,7 @@ Content-Disposition: attachment; filename="hdaroot/update_data_for_realtime_shad
 Content-Type: text/plain
 
 comment ""
-position -6.5 -17.15
+position -6.5 -19.0406
 connectornextid 2
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault off exposed on
 outputsNamed3
@@ -75458,7 +77273,7 @@ inputs
 stat
 {
   create 1519012933
-  modify 1559315753
+  modify 1560517088
   author LaidlawFX@LaidlawFX
   access 0777
 }
@@ -75550,7 +77365,7 @@ Content-Disposition: attachment; filename="hdaroot/switch_data_for_realtime_shad
 Content-Type: text/plain
 
 comment ""
-position -6.5 -18.15
+position -6.5 -20.0406
 connectornextid 3
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
@@ -75570,7 +77385,7 @@ inputs
 stat
 {
   create 1521483536
-  modify 1542761258
+  modify 1560517088
   author LaidlawFX@LaidlawFX
   access 0777
 }
@@ -75615,10 +77430,188 @@ Content-Type: text/plain
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/set_active_pixels.init"
+Content-Type: text/plain
+
+type = shell
+matchesdef = 0
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/set_active_pixels.def"
+Content-Type: text/plain
+
+comment ""
+position -4.69192 -13.1659
+connectornextid 2
+flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault off exposed on
+outputsNamed3
+{
+1 "output1"
+}
+inputsNamed3
+{
+0 	enable_color 1 1 "input1"
+}
+inputs
+{
+0 	enable_color 0 1
+}
+stat
+{
+  create 1560517081
+  modify 1560517524
+  author mikel@mikembp-sesi
+  access 0777
+}
+color UT_Color RGB 0.451 0.369 0.796 
+delscript ""
+exprlanguage hscript
+end
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/set_active_pixels.chn"
+Content-Type: text/plain
+
+{
+    channel f1 {
+      lefttype = extend
+      righttype = extend
+      default = 1
+      flags = 0
+      segment { length = 0 value = 1 1 expr = $FSTART }
+    }
+    channel f2 {
+      lefttype = extend
+      righttype = extend
+      default = 240
+      flags = 0
+      segment { length = 0 value = 240 240 expr = $FEND }
+    }
+  }
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/set_active_pixels.parm"
+Content-Type: text/plain
+
+{
+version 0.8
+execute	[ 0	locks=0 ]	(	0	)
+renderdialog	[ 0	locks=0 ]	(	0	)
+trange	[ 0	locks=0 ]	(	"off"	)
+f	[ 0	locks=0 ]	(	[ f1	1 ] 	[ f2	240 ] 	1	)
+take	[ 0	locks=0 ]	(	_current_	)
+switcher	[ 0	locks=0 ]	(	1	1	)
+command	[ 0	locks=0 ]	(	""	)
+shellexec	[ 0	locks=0 ]	(	"off"	)
+initsim	[ 0	locks=0 ]	(	"off"	)
+tprerender	[ 0	locks=0 ]	(	"on"	)
+prerender	[ 0	locks=0 ]	(	"node = hou.node(\"../textures/size\")
+hou.pwd().parent().parm(\"active_pixels1\").set(str(node.evalParm('size1')))
+hou.pwd().parent().parm(\"active_pixels2\").set(str(node.evalParm('size2')))"	)
+lprerender	[ 0	locks=0 ]	(	python	)
+tpreframe	[ 0	locks=0 ]	(	"off"	)
+preframe	[ 0	locks=0 ]	(	""	)
+lpreframe	[ 0	locks=0 ]	(	hscript	)
+tpostframe	[ 0	locks=0 ]	(	"off"	)
+postframe	[ 0	locks=0 ]	(	""	)
+lpostframe	[ 0	locks=0 ]	(	hscript	)
+tpostrender	[ 0	locks=0 ]	(	"off"	)
+postrender	[ 0	locks=0 ]	(	""	)
+lpostrender	[ 0	locks=0 ]	(	hscript	)
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/set_active_pixels.userdata"
+Content-Type: text/plain
+
+{
+	"___Version___":{
+		"type":"string",
+		"value":"17.5.258"
+	}
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/pad_power_of_two.init"
+Content-Type: text/plain
+
+type = switch
+matchesdef = 0
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/pad_power_of_two.def"
+Content-Type: text/plain
+
+comment ""
+position -6.5 -14.0406
+connectornextid 3
+flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
+outputsNamed3
+{
+1 "output1"
+}
+inputsNamed3
+{
+0 	enable_color 1 1 "input1"
+2 	set_active_pixels 1 1 "input2"
+}
+inputs
+{
+0 	enable_color 0 1
+1 	set_active_pixels 0 1
+}
+stat
+{
+  create 1560517087
+  modify 1560517424
+  author mikel@mikembp-sesi
+  access 0777
+}
+color UT_Color RGB 0.8 1 0.7 
+delscript ""
+exprlanguage hscript
+end
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/pad_power_of_two.chn"
+Content-Type: text/plain
+
+{
+    channel index {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = ch(\"../padpowtwo\") }
+    }
+  }
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/pad_power_of_two.parm"
+Content-Type: text/plain
+
+{
+version 0.8
+execute	[ 0	locks=0 ]	(	0	)
+renderdialog	[ 0	locks=0 ]	(	0	)
+index	[ 8	locks=0 ]	(	[ index	1 ] 	)
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/pad_power_of_two.userdata"
+Content-Type: text/plain
+
+{
+	"___Version___":{
+		"type":"string",
+		"value":"17.5.258"
+	}
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
 Content-Disposition: attachment; filename="hdaroot.order"
 Content-Type: text/plain
 
-41
+43
 OUT
 objects
 textures
@@ -75660,6 +77653,8 @@ render_normal
 switch_material_update
 update_data_for_realtime_shader
 switch_data_for_realtime_shader
+set_active_pixels
+pad_power_of_two
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
 Content-Disposition: attachment; filename="hdaroot.net"

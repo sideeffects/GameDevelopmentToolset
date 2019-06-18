@@ -14,28 +14,62 @@
     inputlabel	3	"Sub-Network Input #3"
     inputlabel	4	"Sub-Network Input #4"
 
-    parm {
-        name    "mode"
-        label   "Mode"
-        type    ordinal
-        default { "0" }
-        menu {
-            "0" "Area"
-            "1" "Perimeter"
+    groupsimple {
+        name    "folder0"
+        label   "General"
+
+        parm {
+            name    "mode"
+            label   "Mode"
+            type    ordinal
+            default { "area" }
+            menu {
+                "perimeter" "Perimeter"
+                "area"      "Area"
+            }
+            parmtag { "autoscope" "0000000000000000" }
+        }
+        parm {
+            name    "bKeeplargest"
+            label   "Extract Largest Piece"
+            type    toggle
+            default { "0" }
+        }
+        parm {
+            name    "threshold"
+            label   "Threshold"
+            type    float
+            default { "0.1" }
+            disablewhen "{ bKeeplargest == 1 }"
+            range   { 0 100 }
+        }
+        parm {
+            name    "negate"
+            label   "Delete Non Selected"
+            type    toggle
+            default { "off" }
+            disablewhen "{ bKeeplargest == 1 }"
+            parmtag { "autoscope" "0000000000000000" }
         }
     }
-    parm {
-        name    "threshold"
-        label   "Threshold"
-        type    float
-        default { "0.1" }
-        range   { 0 100 }
+
+    groupsimple {
+        name    "folder1"
+        label   "Advanced"
+
+        parm {
+            name    "bCalculatePieceAttr"
+            label   "Calculate Piece Attribute"
+            type    toggle
+            default { "1" }
+        }
+        parm {
+            name    "sPieceAttr"
+            label   "Piece Attribute"
+            type    string
+            default { "class" }
+            disablewhen "{ bCalculatePieceAttr == 1 }"
+        }
     }
-    parm {
-        name    "negate"
-        label   "Delete Non Selected"
-        type    toggle
-        default { "off" }
-        parmtag { "autoscope" "0000000000000000" }
-    }
+
 }

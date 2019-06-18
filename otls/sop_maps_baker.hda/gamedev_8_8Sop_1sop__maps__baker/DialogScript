@@ -15,6 +15,22 @@
     inputlabel	4	"Sub-Network Input #4"
     outputlabel	1	"Baked Map"
 
+    parm {
+        name    "intensity"
+        label   "Label"
+        type    float
+        invisible
+        default { "0" }
+        range   { 0 10 }
+    }
+    parm {
+        name    "gamma"
+        label   "Label"
+        type    float
+        invisible
+        default { "0" }
+        range   { 0 10 }
+    }
     groupsimple {
         name    "folder0"
         label   "Bake"
@@ -369,6 +385,12 @@
             grouptag { "group_type" "simple" }
 
             parm {
+                name    "bFlipTangentX"
+                label   "Tangent Normal Flip X"
+                type    toggle
+                default { "0" }
+            }
+            parm {
                 name    "bFlipTangentY"
                 label   "Tangent Normal Flip Y"
                 type    toggle
@@ -405,8 +427,8 @@
                 parmtag { "shaderparmcontexts" "cop2" }
             }
             parm {
-                name    "intensity"
-                label   "Intensity"
+                name    "bias"
+                label   "Bias"
                 type    float
                 default { "3" }
                 help    "Multiplier of the AO shading, higher values will produce darker occlusion."
@@ -441,6 +463,7 @@
                 name    "raybias"
                 label   "Ray Bias"
                 type    float
+                invisible
                 default { "0.001" }
                 help    "Amount to move the start of a ray from its starting point. Sometimes rays can intersect from where they're fired; adjusting ray bias by small amounts can reduce self-intersection artifacts."
                 range   { 0 0.1 }

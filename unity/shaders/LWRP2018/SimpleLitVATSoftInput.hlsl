@@ -47,7 +47,7 @@ VATAttributes GetAttributesFromTexture(TEXTURE2D_ARGS(posTex, samplerPosTex),
     //Use the line below if you want to use time to animate the object
     float timeInFrames = frac(FPS_div_Frames * _speed * _Time.y);
     //The line below is particle age to drive the animation. Comment it out if you want to use time above.
-    timeInFrames = uv.z;
+    //timeInFrames = uv.z;
 
     timeInFrames = ceil(timeInFrames * _numOfFrames);
     timeInFrames /= _numOfFrames;

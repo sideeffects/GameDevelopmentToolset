@@ -32,7 +32,7 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position 0.473813 0.0218494
+position -4.5927 1.55611
 connectornextid 1
 flags =  lock off model off template on footprint off xray off bypass off display on render on highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
@@ -48,9 +48,9 @@ inputs
 }
 stat
 {
-  create 1559949856
-  modify 1559950490
-  author prisms@threadripper1
+  create 1560386930
+  modify 1560387190
+  author MAINGEAR@DESKTOP-P98C1VA
   access 0777
 }
 color UT_Color RGB 0.8 0.8 0.8 
@@ -87,7 +87,7 @@ Content-Type: text/plain
 }
 {
   create 1504631027
-  modify 1559950118
+  modify 1560386936
   author Luiz@Luiz-PC
   access 0777
 }
@@ -110,7 +110,7 @@ Content-Type: text/plain
 }
 {
   create 1504631032
-  modify 1559950120
+  modify 1560386938
   author Luiz@Luiz-PC
   access 0777
 }
@@ -133,7 +133,7 @@ Content-Type: text/plain
 }
 {
   create 1504631040
-  modify 1559950122
+  modify 1560386940
   author Luiz@Luiz-PC
   access 0777
 }
@@ -156,7 +156,7 @@ Content-Type: text/plain
 }
 {
   create 1504631044
-  modify 1559950122
+  modify 1560386940
   author Luiz@Luiz-PC
   access 0777
 }
@@ -179,7 +179,7 @@ Content-Type: text/plain
 }
 {
   create 1504632698
-  modify 1559950121
+  modify 1560386939
   author Luiz@Luiz-PC
   access 0777
 }
@@ -202,7 +202,7 @@ Content-Type: text/plain
 }
 {
   create 1504632933
-  modify 1559950121
+  modify 1560386939
   author Luiz@Luiz-PC
   access 0777
 }
@@ -225,7 +225,7 @@ Content-Type: text/plain
 }
 {
   create 1504633954
-  modify 1559950120
+  modify 1560386938
   author Luiz@Luiz-PC
   access 0777
 }
@@ -569,11 +569,11 @@ folder1	[ 0	locks=0 ]	(	0	0	)
 min_curv	[ 8	locks=0 ]	(	0	)
 max_curv	[ 8	locks=0 ]	(	0	)
 concave_range_scale	[ 8	locks=0 ]	(	[ concave_range_scale	10 ] 	)
-convex_range_scale	[ 8	locks=0 ]	(	[ convex_range_scale	10 ] 	)
+convex_range_scale	[ 8	locks=0 ]	(	[ convex_range_scale	2 ] 	)
 concave_contrast	[ 8	locks=0 ]	(	[ concave_contrast	0 ] 	)
-concave_intensity	[ 8	locks=0 ]	(	[ concave_intensity	3.4700000000000002 ] 	)
-convex_contrast	[ 8	locks=0 ]	(	[ convex_contrast	0.98999999999999999 ] 	)
-convex_intensity	[ 8	locks=0 ]	(	[ convex_intensity	0.16 ] 	)
+concave_intensity	[ 8	locks=0 ]	(	[ concave_intensity	1 ] 	)
+convex_contrast	[ 8	locks=0 ]	(	[ convex_contrast	0 ] 	)
+convex_intensity	[ 8	locks=0 ]	(	[ convex_intensity	1 ] 	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -618,7 +618,7 @@ inputs
 stat
 {
   create 1504538033
-  modify 1559949856
+  modify 1560386946
   author MAINGEAR@DESKTOP-P98C1VA
   access 0777
 }
@@ -637,7 +637,7 @@ Content-Type: text/plain
       righttype = extend
       default = 15
       flags = 0
-      segment { length = 0 value = 15 15 expr = ch(\"../concave_blur_ammount\") }
+      segment { length = 0 value = 15 15 expr = ch(\"../convex_blur_ammount\") }
     }
   }
 
@@ -650,7 +650,7 @@ version 0.8
 group	[ 0	locks=0 ]	(	""	)
 attributes	[ 0	locks=0 ]	(	concavity	)
 method	[ 0	locks=0 ]	(	"uniform"	)
-iterations	[ 8	locks=0 ]	(	[ iterations	1 ] 	)
+iterations	[ 8	locks=0 ]	(	[ iterations	94.700000000000003 ] 	)
 mode	[ 0	locks=0 ]	(	"laplacian"	)
 frequency	[ 0	locks=0 ]	(	0.090800000000000006	)
 stepsize	[ 0	locks=0 ]	(	0.029999999999999999	)
@@ -737,7 +737,7 @@ version 0.8
 group	[ 0	locks=0 ]	(	""	)
 attributes	[ 0	locks=0 ]	(	convexity	)
 method	[ 0	locks=0 ]	(	"uniform"	)
-iterations	[ 8	locks=0 ]	(	[ iterations	1 ] 	)
+iterations	[ 8	locks=0 ]	(	[ iterations	100 ] 	)
 mode	[ 0	locks=0 ]	(	"laplacian"	)
 frequency	[ 0	locks=0 ]	(	0.090800000000000006	)
 stepsize	[ 0	locks=0 ]	(	0.029999999999999999	)
@@ -1096,7 +1096,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.258"
+		"value":"17.5.259"
 	}
 }
 
@@ -1252,7 +1252,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.258"
+		"value":"17.5.259"
 	}
 }
 
@@ -1408,7 +1408,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.258"
+		"value":"17.5.259"
 	}
 }
 
@@ -1849,7 +1849,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.258"
+		"value":"17.5.259"
 	}
 }
 
@@ -3440,7 +3440,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.258"
+		"value":"17.5.259"
 	}
 }
 
@@ -3892,7 +3892,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.258"
+		"value":"17.5.259"
 	}
 }
 
@@ -4344,7 +4344,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.258"
+		"value":"17.5.259"
 	}
 }
 
@@ -4767,7 +4767,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.258"
+		"value":"17.5.259"
 	}
 }
 
@@ -5274,7 +5274,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.258"
+		"value":"17.5.259"
 	}
 }
 
@@ -6036,7 +6036,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.258"
+		"value":"17.5.259"
 	}
 }
 
@@ -6104,7 +6104,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.258"
+		"value":"17.5.259"
 	}
 }
 
@@ -6336,7 +6336,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.258"
+		"value":"17.5.259"
 	}
 }
 
@@ -6418,7 +6418,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.258"
+		"value":"17.5.259"
 	}
 }
 
@@ -6488,7 +6488,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.258"
+		"value":"17.5.259"
 	}
 }
 
@@ -6560,7 +6560,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.258"
+		"value":"17.5.259"
 	}
 }
 
@@ -6642,7 +6642,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.258"
+		"value":"17.5.259"
 	}
 }
 
@@ -6799,7 +6799,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.258"
+		"value":"17.5.259"
 	}
 }
 
@@ -6863,7 +6863,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.258"
+		"value":"17.5.259"
 	}
 }
 
@@ -6955,7 +6955,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.258"
+		"value":"17.5.259"
 	}
 }
 
@@ -7058,7 +7058,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.258"
+		"value":"17.5.259"
 	}
 }
 
@@ -7122,7 +7122,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.258"
+		"value":"17.5.259"
 	}
 }
 
@@ -7214,7 +7214,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.258"
+		"value":"17.5.259"
 	}
 }
 
@@ -7331,7 +7331,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.258"
+		"value":"17.5.259"
 	}
 }
 
@@ -7413,7 +7413,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.258"
+		"value":"17.5.259"
 	}
 }
 
@@ -7495,7 +7495,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.258"
+		"value":"17.5.259"
 	}
 }
 
@@ -7565,7 +7565,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.258"
+		"value":"17.5.259"
 	}
 }
 
@@ -7637,7 +7637,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.258"
+		"value":"17.5.259"
 	}
 }
 
@@ -7804,7 +7804,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.258"
+		"value":"17.5.259"
 	}
 }
 
@@ -7874,7 +7874,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.258"
+		"value":"17.5.259"
 	}
 }
 
@@ -7946,7 +7946,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.258"
+		"value":"17.5.259"
 	}
 }
 
@@ -8098,7 +8098,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.258"
+		"value":"17.5.259"
 	}
 }
 
@@ -8180,7 +8180,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.258"
+		"value":"17.5.259"
 	}
 }
 
@@ -8250,7 +8250,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.258"
+		"value":"17.5.259"
 	}
 }
 
@@ -8322,7 +8322,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.258"
+		"value":"17.5.259"
 	}
 }
 
@@ -8474,7 +8474,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.258"
+		"value":"17.5.259"
 	}
 }
 
@@ -8558,7 +8558,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.258"
+		"value":"17.5.259"
 	}
 }
 
@@ -8647,7 +8647,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.258"
+		"value":"17.5.259"
 	}
 }
 
@@ -8731,7 +8731,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.258"
+		"value":"17.5.259"
 	}
 }
 
@@ -8820,7 +8820,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.258"
+		"value":"17.5.259"
 	}
 }
 
@@ -8904,7 +8904,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.258"
+		"value":"17.5.259"
 	}
 }
 
@@ -8993,7 +8993,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.258"
+		"value":"17.5.259"
 	}
 }
 
@@ -9091,7 +9091,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.258"
+		"value":"17.5.259"
 	}
 }
 
@@ -9180,7 +9180,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.258"
+		"value":"17.5.259"
 	}
 }
 
@@ -9248,7 +9248,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.258"
+		"value":"17.5.259"
 	}
 }
 
@@ -9390,7 +9390,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.258"
+		"value":"17.5.259"
 	}
 }
 
@@ -9491,7 +9491,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.258"
+		"value":"17.5.259"
 	}
 }
 
@@ -9568,7 +9568,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.258"
+		"value":"17.5.259"
 	}
 }
 
@@ -9650,7 +9650,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.258"
+		"value":"17.5.259"
 	}
 }
 
@@ -9720,7 +9720,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.258"
+		"value":"17.5.259"
 	}
 }
 
@@ -9792,7 +9792,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.258"
+		"value":"17.5.259"
 	}
 }
 
@@ -9930,7 +9930,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.258"
+		"value":"17.5.259"
 	}
 }
 
@@ -10072,7 +10072,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.258"
+		"value":"17.5.259"
 	}
 }
 
@@ -10171,7 +10171,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.258"
+		"value":"17.5.259"
 	}
 }
 
@@ -10255,7 +10255,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.258"
+		"value":"17.5.259"
 	}
 }
 
@@ -10332,7 +10332,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.258"
+		"value":"17.5.259"
 	}
 }
 
@@ -10400,7 +10400,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.258"
+		"value":"17.5.259"
 	}
 }
 
@@ -10498,7 +10498,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.258"
+		"value":"17.5.259"
 	}
 }
 
@@ -10568,7 +10568,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.258"
+		"value":"17.5.259"
 	}
 }
 
@@ -10640,7 +10640,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.258"
+		"value":"17.5.259"
 	}
 }
 
@@ -10792,7 +10792,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.258"
+		"value":"17.5.259"
 	}
 }
 
@@ -10860,7 +10860,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.258"
+		"value":"17.5.259"
 	}
 }
 
@@ -10965,7 +10965,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.258"
+		"value":"17.5.259"
 	}
 }
 
@@ -11037,7 +11037,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.258"
+		"value":"17.5.259"
 	}
 }
 
@@ -11109,7 +11109,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.258"
+		"value":"17.5.259"
 	}
 }
 
@@ -11177,7 +11177,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.258"
+		"value":"17.5.259"
 	}
 }
 
@@ -11275,7 +11275,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.258"
+		"value":"17.5.259"
 	}
 }
 
@@ -11345,7 +11345,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.258"
+		"value":"17.5.259"
 	}
 }
 
@@ -11417,7 +11417,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.258"
+		"value":"17.5.259"
 	}
 }
 
@@ -11569,7 +11569,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.258"
+		"value":"17.5.259"
 	}
 }
 
@@ -11628,7 +11628,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.258"
+		"value":"17.5.259"
 	},
 	"nodeshape":{
 		"type":"string",
@@ -11700,7 +11700,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.258"
+		"value":"17.5.259"
 	}
 }
 
@@ -11768,7 +11768,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.258"
+		"value":"17.5.259"
 	}
 }
 
@@ -11969,7 +11969,7 @@ Content-Type: text/plain
 
 {
 version 0.8
-input	[ 8	locks=0 ]	(	[ input	1 ] 	)
+input	[ 8	locks=0 ]	(	[ input	0 ] 	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -11979,7 +11979,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.258"
+		"value":"17.5.259"
 	}
 }
 

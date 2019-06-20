@@ -97,17 +97,19 @@ def upload(node, model_file):
     description = node.parm("model_description").eval()
     tags = node.parm("model_tags").eval()
     tags += " houdini"
+    isPublished = node.parm("model_publish")
     
     data = {
         'name': name,
         'description': description,
         'tags': tags,
-        'source': "houdini"
+        'source': "houdini",
         #'categories': categories,
         #'license': license,
         #'isDownloadable':0,
         #'private': private,
         #'password': password
+        'isPublished': isPublished, 
     }
 
     f = open(model_file, 'rb')

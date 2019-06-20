@@ -1191,11 +1191,23 @@ Content-Type: text/plain
       flags = 0
       segment { length = 0 expr = chs(\"../../model_description\") }
     }
+    channel model_category {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = ch(\"../../model_category\") }
+    }
     channel model_tags {
       lefttype = extend
       righttype = extend
       flags = 0
       segment { length = 0 expr = chs(\"../../model_tags\") }
+    }
+    channel model_publish {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = ch(\"../../model_publish\") }
     }
     channel authentication_method {
       lefttype = extend

@@ -95,6 +95,8 @@ def upload(node, model_file):
 
     name = node.parm("model_title").eval()
     description = node.parm("model_description").eval()
+    category_parm = node.parm("model_category")
+    category = category_parm.menuItems()[category_parm.eval()]
     tags = node.parm("model_tags").eval()
     tags += " houdini"
     isPublished = node.parm("model_publish")
@@ -104,7 +106,7 @@ def upload(node, model_file):
         'description': description,
         'tags': tags,
         'source': "houdini",
-        #'categories': categories,
+        'categories': [category],
         #'license': license,
         #'isDownloadable':0,
         #'private': private,

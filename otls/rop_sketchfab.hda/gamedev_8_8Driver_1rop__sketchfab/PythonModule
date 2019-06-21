@@ -99,7 +99,7 @@ def upload(node, model_file):
     category = category_parm.menuItems()[category_parm.eval()]
     tags = node.parm("model_tags").eval()
     tags += " houdini"
-    isPublished = node.parm("model_publish")
+    isPublished = node.parm("model_publish").eval()
     
     data = {
         'name': name,

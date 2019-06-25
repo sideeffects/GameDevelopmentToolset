@@ -49,6 +49,7 @@
         label   "Look Up"
         type    button
         default { "0" }
+        help    "Launch the GUI to select the map region to download."
         parmtag { "script_callback" "hou.pwd().hdaModule().launch_map()" }
         parmtag { "script_callback_language" "python" }
     }
@@ -61,6 +62,7 @@
             label   "Mapbox API Key"
             type    string
             default { "" }
+            help    "The API key required by mapbox. Register an account at mapbox.com, from your account.mapbox.com page is an API key. Copy and paste that key into this field, and either save it with a preset, or save it as an environment variable MAPBOX_API."
         }
     }
 
@@ -75,6 +77,7 @@
             joinnext
             size    3
             default { "0" "0" "0" }
+            help    "The coordinates of the map region to download. Can be set mamually, or automatically filled out with the GUI browser launched from the 'Look Up' button."
             range   { -180! 180! }
             parmtag { "script_callback" "" }
             parmtag { "script_callback_language" "python" }
@@ -84,6 +87,7 @@
             label   "Refresh"
             type    button
             default { "0" }
+            help    "Re-download the maps with the current co-ordinates."
             parmtag { "script_callback" "hou.pwd().hdaModule().update(hou.pwd())" }
             parmtag { "script_callback_language" "python" }
         }
@@ -93,6 +97,7 @@
             type    vector2
             size    2
             default { "0" "0" }
+            help    "Offset from the latlong, useful for setting up tiles of downloads."
             range   { -1 1 }
             parmtag { "script_callback" "hou.pwd().hdaModule().update(hou.pwd())" }
             parmtag { "script_callback_language" "python" }

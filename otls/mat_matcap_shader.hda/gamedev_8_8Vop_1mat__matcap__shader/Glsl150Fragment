@@ -152,7 +152,7 @@ vec4 HOUwireColor(vec3 edges, int edgeflags, float selected);
 void main()
 {
 
-    vec3 nN = fsIn.normal;
+    vec3 nN = normalize(fsIn.normal);
     vec4 tex = HOUsampleDiffuseMap(nN.xy * .5 + .5); 
     float alpha = tex.a; 
     

@@ -32,23 +32,25 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position 11.296 2.7108
-connectornextid 0
-flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
+position -2.27065 -1.5939
+connectornextid 1
+flags =  lock off model off template on footprint off xray off bypass off display on render on highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
 {
 }
 inputsNamed3
 {
+0 	sop_quickmaterial1 1 1 "input1"
 }
 inputs
 {
+0 	sop_quickmaterial1 0 1
 }
 stat
 {
-  create 1537468953
-  modify 1537469039
-  author MAINGEAR@DESKTOP-P98C1VA
+  create 1561137782
+  modify 1561139550
+  author prisms@threadripper1
   access 0777
 }
 color UT_Color RGB 0.8 0.8 0.8 
@@ -164,7 +166,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.584"
+		"value":"17.5.293"
 	}
 }
 
@@ -974,7 +976,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.584"
+		"value":"17.5.293"
 	}
 }
 
@@ -1052,7 +1054,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.584"
+		"value":"17.5.293"
 	}
 }
 
@@ -1134,7 +1136,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.584"
+		"value":"17.5.293"
 	}
 }
 
@@ -1165,7 +1167,7 @@ inputs
 stat
 {
   create 1526915787
-  modify 1526915838
+  modify 1561139536
   author MAINGEAR@DESKTOP-P98C1VA
   access 0777
 }
@@ -1191,11 +1193,23 @@ Content-Type: text/plain
       flags = 0
       segment { length = 0 expr = chs(\"../../model_description\") }
     }
+    channel model_category {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = ch(\"../../model_category\") }
+    }
     channel model_tags {
       lefttype = extend
       righttype = extend
       flags = 0
       segment { length = 0 expr = chs(\"../../model_tags\") }
+    }
+    channel model_publish {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = ch(\"../../model_publish\") }
     }
     channel authentication_method {
       lefttype = extend
@@ -1238,22 +1252,24 @@ version 0.8
 execute	[ 0	locks=0 ]	(	0	)
 renderdialog	[ 0	locks=0 ]	(	0	)
 soppath	[ 0	locks=0	autoscope=0 ]	(	`opfullpath(\"../../objnet1/geo1\")`	)
-parm	[ 0	locks=0	autoscope=0 ]	(	""	)
-model_details	[ 0	locks=0	autoscope=0 ]	(	0	)
-model_title	[ 0	locks=0	autoscope=0 ]	(	[ model_title	"" ] 	)
-model_description	[ 0	locks=0	autoscope=0 ]	(	[ model_description	"" ] 	)
-model_tags	[ 0	locks=0	autoscope=0 ]	(	[ model_tags	"" ] 	)
-folder1	[ 0	locks=0	autoscope=0 ]	(	0	)
-authentication_method	[ 0	locks=0	autoscope=0 ]	(	[ authentication_method	1 ] 	)
-api_key	[ 0	locks=0	autoscope=0 ]	(	[ api_key	"" ] 	)
+parm	[ 0	locks=0 ]	(	""	)
+model_details	[ 0	locks=0 ]	(	0	)
+model_title	[ 0	locks=0	autoscope=0 ]	(	[ model_title	TestMesh4 ] 	)
+model_description	[ 0	locks=0	autoscope=0 ]	(	[ model_description	"This is a mesh I uploaded from inside Houdini" ] 	)
+model_category	[ 0	locks=0 ]	(	[ model_category	18 ] 	)
+model_tags	[ 0	locks=0	autoscope=0 ]	(	[ model_tags	"My Tags Are Awesome" ] 	)
+model_publish	[ 0	locks=0 ]	(	[ model_publish	1 ] 	)
+folder1	[ 0	locks=0 ]	(	0	)
+authentication_method	[ 0	locks=0	autoscope=0 ]	(	[ authentication_method	0 ] 	)
+api_key	[ 0	locks=0	autoscope=0 ]	(	[ api_key	96ec51475cb449b8a2d0b4f551ff17f9 ] 	)
 launch_page	[ 0	locks=0 ]	(	[ launch_page	0 ] 	)
 access_token	[ 0	locks=0	autoscope=0 ]	(	rRpIfie6B7hsh9uLQMIzgwKplhByHV	)
 logged_in	[ 0	locks=0 ]	(	""	)
 username	[ 0	locks=0	autoscope=0 ]	(	[ username	lkruel@gmail.com ] 	)
 login	[ 0	locks=0 ]	(	[ login	0 ] 	)
-tmp_filename	[ 0	locks=0	autoscope=0 ]	(	c:/work/SideFX/p4/users/luiz/models/catwalk/export/catwalk_railing_metallic.tga	)
-tmp_jpg_path	[ 0	locks=0	autoscope=0 ]	(	C:/Users/MAINGEAR\\export\\principledshader1_roughness.jpg	)
-tmp_fbx_path	[ 0	locks=0	autoscope=0 ]	(	C:/Users/MAINGEAR\\export\\mesh.fbx	)
+tmp_filename	[ 0	locks=0	autoscope=0 ]	(	""	)
+tmp_jpg_path	[ 0	locks=0	autoscope=0 ]	(	""	)
+tmp_fbx_path	[ 0	locks=0	autoscope=0 ]	(	""	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -1330,7 +1346,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.584"
+		"value":"17.5.293"
 	}
 }
 
@@ -1389,7 +1405,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"16.5.584"
+		"value":"17.5.293"
 	}
 }
 

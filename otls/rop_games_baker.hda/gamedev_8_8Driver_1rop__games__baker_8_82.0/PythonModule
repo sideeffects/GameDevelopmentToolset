@@ -77,15 +77,19 @@ def custom_multi_render(node):
     current_high_mesh.set(node.node(node.parm("source_mesh_%s" % 1).eval()).path())
     
 def multi_custom_planes(node):
+    file_path = node.evalParm("base_path")
     override_node = hou.node(node.parm("overridenode").eval())
     channel_count = node.parm("custom_channels").eval()
     custom_batch = hou.node("%s/prepost3" % node.path())
     for i in range(channel_count):
         current_attribute = node.parm("custom_attribute_name_%s" % (i+1)).eval()
         current_suffix = node.parm("custom_attribute_suffix_%s" % (i+1)).eval()
+        new_path = file_path.replace("$(CHANNEL)", current_suffix)
+        override_node.parm("currentcopoutput").set(new_path)
         override_node.parm("currentcustomattr").set(current_attribute)
         override_node.parm("currentcustomsuffix").set(current_suffix)
         custom_batch.render()
+    override_node.parm("currentcopoutput").revertToDefaults()
         
 def extract_planes(node):
     override_node = hou.node(node.parm("overridenode").eval())
@@ -435,11 +439,20 @@ def post_bake(node):
 
     for i in range(mesh_count):
         exr_path = os.path.join(temp_dir, "%s_tmp_exr_path%s.exr" % (current_uuid, i+1))
-        os.remove(exr_path)
+        try:
+            os.remove(exr_path)
+        except:
+            pass
     temp_cop_path = os.path.join(temp_dir, "%s_tmp_cop_path.exr" % current_uuid)
-    os.remove(temp_cop_path)
+    try:
+        os.remove(temp_cop_path)
+    except:
+        pass
     init_cop = os.path.join(temp_dir, "initcop.tga")
-    os.remove(init_cop)
+    try:
+        os.remove(init_cop)
+    except:
+        pass
     hou.hscript("glcache -c;") #refresh textures
 
 
@@ -450,27 +463,26 @@ def CheckExportPath(node):
         pass
         
 def setplane(node):
-    if node.evalParm("bake_basecolor"):
+    bake_parms = ["bake_basecolor", "bake_Nt", "bake_specrough", "bake_metallic",
+        "bake_N", "bake_Oc", "bake_Cu", "bake_P", "bake_Th", "bake_Ds" ]
+    no_standard_bakes = 1
+    for bake_parm in bake_parms:
+        should_bake = node.parm(bake_parm).eval()
+        if should_bake:
+            channel_name = bake_parm.split("_")[-1]
+            no_standard_bakes = 0
+            return channel_name
+    if no_standard_bakes:
         return "basecolor"
-    elif node.evalParm("bake_Nt"):
-        return "Nt"
-    elif node.evalParm("bake_alpha"):
-        return "alpha"
-    elif node.evalParm("bake_specrough"):
-        return "specrough"
-    elif node.evalParm("bake_metallic"):
-        return "metallic"
-    elif node.evalParm("bake_N"):
-        return "N"
-    elif node.evalParm("bake_Oc"):
-        return "Oc"
-    elif node.evalParm("bake_Cu"):
-        return "Cu"
-    elif node.evalParm("bake_Th"):
-        return "Th"
-    elif node.evalParm("bake_P"):
-        return "P"
-    elif node.evalParm("bake_Ds"):
-        return "Ds"
-    else:
-        return "basecolor"
+        
+def checkchannels(node):
+    bake_parms = ["bake_basecolor", "bake_Nt", "bake_specrough", "bake_metallic",
+        "bake_N", "bake_Oc", "bake_Cu", "bake_P", "bake_Th", "bake_Ds" ]
+    no_standard_bakes = 1
+    for bake_parm in bake_parms:
+        should_bake = node.parm(bake_parm).eval()
+        if should_bake:
+            no_standard_bakes = 0
+            return 1
+    if no_standard_bakes:
+        return 0

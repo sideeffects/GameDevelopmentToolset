@@ -448,3 +448,29 @@ def CheckExportPath(node):
         hou.node(node.path()+'/objnet/warningchecking/FrameRangeWarning').cook(force=True)
     except:
         pass
+        
+def setplane(node):
+    if node.evalParm("bake_basecolor"):
+        return "basecolor"
+    elif node.evalParm("bake_Nt"):
+        return "Nt"
+    elif node.evalParm("bake_alpha"):
+        return "alpha"
+    elif node.evalParm("bake_specrough"):
+        return "specrough"
+    elif node.evalParm("bake_metallic"):
+        return "metallic"
+    elif node.evalParm("bake_N"):
+        return "N"
+    elif node.evalParm("bake_Oc"):
+        return "Oc"
+    elif node.evalParm("bake_Cu"):
+        return "Cu"
+    elif node.evalParm("bake_Th"):
+        return "Th"
+    elif node.evalParm("bake_P"):
+        return "P"
+    elif node.evalParm("bake_Ds"):
+        return "Ds"
+    else:
+        return "basecolor"

@@ -19,6 +19,7 @@
         label   "Number of Samples"
         type    integer
         default { "50" }
+        help    "Density of samples over surface. Higher sample numbers generate more accurate results, at a cost of computation time. 50 is a resonable starting number."
         range   { 1! 1000 }
         parmtag { "autoscope" "0000000000000000" }
     }
@@ -27,6 +28,7 @@
         label   "Blurring Iterations"
         type    integer
         default { "30" }
+        help    "How much to blur the sample colours. At low values the sample regions will be visible as patches. At high values the samples will be overblurred, missing lighting detail. Ideally aim for enough blur to blend the sample patches together."
         range   { 0 100 }
         parmtag { "autoscope" "0000000000000000" }
     }
@@ -50,12 +52,14 @@
         label   "AO Brightening"
         type    toggle
         default { "0" }
+        help    "Toggle to enable the brightening of crevices and overhangs via interted ambient occlusion."
     }
     parm {
         name    "ao_strength"
         label   "AO Strength"
         type    float
         default { "1" }
+        help    "How much to brighten occluded areas. Aim to make crevices blend in with unoccluded neighbouring areas. Values which are too low will appear shadowed, values which are too high will make crevices glow."
         disablewhen "{ ao_brightening == 0 }"
         range   { 0 10 }
     }

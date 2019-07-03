@@ -32,12 +32,11 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position 27.201 -66.3257
-connectornextid 3
-flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
+position 29.3232 -66.3354
+connectornextid 2
+flags =  lock off model off template on footprint off xray off bypass off display on render on highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
 {
-2 "output1"
 }
 inputsNamed3
 {
@@ -51,9 +50,9 @@ inputs
 }
 stat
 {
-  create 1548976308
-  modify 1548981264
-  author Paul_Ambrosiussen@LAPTOP-P8R7FBPF
+  create 1561507250
+  modify 1561654829
+  author prisms@threadripper1
   access 0777
 }
 color UT_Color RGB 0.8 0.8 0.8 
@@ -79,18 +78,18 @@ Content-Type: text/plain
 2
 2
 {
-	color := "UT_Color RGB 0.38 0.408 0.553 ";
 	autofit := 0;
-	height := 42.20879174472131;
-	width := 21.421908415262525;
+	color := "UT_Color RGB 0.38 0.408 0.553 ";
 	comment := "GENERATE PIVOTS";
-	y_position := 17.287168161023001;
+	height := 42.20879174472131;
 	minimized := 0;
+	width := 21.421908415262525;
 	x_position := -23.527938997094264;
+	y_position := 17.287168161023001;
 }
 {
   create 1502819760
-  modify 1548981270
+  modify 1561654449
   author admin@DESKTOP-PINH
   access 0777
 }
@@ -102,18 +101,18 @@ Content-Type: text/plain
 2
 2
 {
-	color := "UT_Color RGB 0.188 0.529 0.459 ";
 	autofit := 0;
-	height := 34.112931575865247;
-	width := 15.325355681160792;
+	color := "UT_Color RGB 0.188 0.529 0.459 ";
 	comment := "CUSTOM PIVOTS";
-	y_position := 17.287168161023001;
+	height := 34.112931575865247;
 	minimized := 0;
+	width := 15.325355681160792;
 	x_position := 0.55168101978279083;
+	y_position := 17.287168161023001;
 }
 {
   create 1502819970
-  modify 1548981221
+  modify 1561654400
   author admin@DESKTOP-PINH
   access 0777
 }
@@ -264,7 +263,7 @@ inputs
 stat
 {
   create 1501993647
-  modify 1548979478
+  modify 1561654633
   author paula@DESKTOP-JOVQSE4
   access 0777
 }
@@ -305,7 +304,7 @@ float VertAlpha = vector(point(0, \"Cd\", @ptnum)).r; //len(vector(point(0, \"Cd
 VertColor = fit11( (VertColor) * {1, -1, 1}, {0,0,0}, {1,1,1} );
 
 //ASSIGNING VALUES
-v@uv1 = v@uv;
+//v@uv1 = v@uv;
 
 //Set Pivot Position Attributes
 v@`chs(\"../pivotPos1\")` = UV2.x;
@@ -320,7 +319,9 @@ v@`chs(\"../forwardAxis3\")` = VertColor.z;
 
 //Set Motion Mask
 f@`chs(\"../motionMask\")` = VertAlpha;
-"	)
+
+setattribtypeinfo(0, \"point\", \"uv2\", \"texturecoord\");
+setattribtypeinfo(0, \"point\", \"uv3\", \"texturecoord\");"	)
 exportlist	[ 0	locks=0 ]	(	*	)
 vex_strict	[ 0	locks=0 ]	(	"off"	)
 autobind	[ 0	locks=0 ]	(	"on"	)
@@ -819,7 +820,7 @@ inputs
 stat
 {
   create 1501993647
-  modify 1548981250
+  modify 1561655796
   author paula@DESKTOP-JOVQSE4
   access 0777
 }
@@ -862,7 +863,7 @@ float VertAlpha = vector(point(0, \"Cd\", @ptnum)).r; //len(vector(point(0, \"Cd
 VertColor = fit11( (VertColor) * {1, -1, 1}, {0,0,0}, {1,1,1} );
 
 //ASSIGNING VALUES
-v@uv1 = v@uv;
+//v@uv1 = v@uv;
 
 //Set Pivot Position Attributes
 v@`chs(\"../pivotPos1\")` = UV2.x;
@@ -877,7 +878,9 @@ v@`chs(\"../forwardAxis3\")` = VertColor.z;
 
 //Set Motion Mask
 f@`chs(\"../motionMask\")` = VertAlpha;
-"	)
+
+setattribtypeinfo(0, \"point\", \"uv2\", \"texturecoord\");
+setattribtypeinfo(0, \"point\", \"uv3\", \"texturecoord\");"	)
 exportlist	[ 0	locks=0 ]	(	*	)
 vex_strict	[ 0	locks=0 ]	(	"off"	)
 autobind	[ 0	locks=0 ]	(	"on"	)
@@ -1221,7 +1224,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.456"
+		"value":"17.5.293"
 	}
 }
 
@@ -1278,7 +1281,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.456"
+		"value":"17.5.293"
 	}
 }
 
@@ -1336,7 +1339,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.456"
+		"value":"17.5.293"
 	}
 }
 
@@ -1394,7 +1397,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.456"
+		"value":"17.5.293"
 	}
 }
 
@@ -1453,7 +1456,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.456"
+		"value":"17.5.293"
 	}
 }
 
@@ -1512,7 +1515,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.456"
+		"value":"17.5.293"
 	}
 }
 
@@ -1571,7 +1574,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.456"
+		"value":"17.5.293"
 	}
 }
 
@@ -1628,7 +1631,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.456"
+		"value":"17.5.293"
 	}
 }
 
@@ -1686,7 +1689,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.456"
+		"value":"17.5.293"
 	}
 }
 
@@ -1744,7 +1747,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.456"
+		"value":"17.5.293"
 	}
 }
 
@@ -1803,7 +1806,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.456"
+		"value":"17.5.293"
 	}
 }
 
@@ -1862,7 +1865,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.456"
+		"value":"17.5.293"
 	}
 }
 
@@ -1921,7 +1924,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.456"
+		"value":"17.5.293"
 	}
 }
 
@@ -3988,6 +3991,84 @@ Content-Type: text/plain
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/attribwrangle8.init"
+Content-Type: text/plain
+
+type = attribwrangle
+matchesdef = 1
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/attribwrangle8.def"
+Content-Type: text/plain
+
+sopflags sopflags = 
+comment ""
+position -12.7311 -4.19937
+connectornextid 2
+flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
+outputsNamed3
+{
+1 "output1"
+}
+inputsNamed3
+{
+0 	Lightmap_UVs 2 1 "input1"
+}
+inputs
+{
+0 	Lightmap_UVs 0 1
+}
+stat
+{
+  create 1561654483
+  modify 1561654543
+  author prisms@threadripper1
+  access 0777
+}
+color UT_Color RGB 0.8 0.8 0.8 
+delscript ""
+exprlanguage hscript
+end
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/attribwrangle8.parm"
+Content-Type: text/plain
+
+{
+version 0.8
+folder0	[ 0	locks=0 ]	(	0	0	)
+group	[ 0	locks=0 ]	(	""	)
+grouptype	[ 0	locks=0 ]	(	"guess"	)
+class	[ 0	locks=0 ]	(	"point"	)
+vex_numcount	[ 0	locks=0 ]	(	10	)
+vex_threadjobsize	[ 0	locks=0 ]	(	1024	)
+snippet	[ 0	locks=0 ]	(	""	)
+exportlist	[ 0	locks=0 ]	(	*	)
+vex_strict	[ 0	locks=0 ]	(	"off"	)
+autobind	[ 0	locks=0 ]	(	"on"	)
+bindings	[ 0	locks=0 ]	(	0	)
+groupautobind	[ 0	locks=0 ]	(	"on"	)
+groupbindings	[ 0	locks=0 ]	(	0	)
+vex_cwdpath	[ 0	locks=0 ]	(	.	)
+vex_outputmask	[ 0	locks=0 ]	(	*	)
+vex_updatenmls	[ 0	locks=0 ]	(	"off"	)
+vex_matchattrib	[ 0	locks=0 ]	(	id	)
+vex_inplace	[ 0	locks=0 ]	(	"off"	)
+vex_selectiongroup	[ 0	locks=0 ]	(	""	)
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/attribwrangle8.userdata"
+Content-Type: text/plain
+
+{
+	"___Version___":{
+		"type":"string",
+		"value":""
+	}
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
 Content-Disposition: attachment; filename="hdaroot/OUT.init"
 Content-Type: text/plain
 
@@ -4017,7 +4098,7 @@ inputs
 stat
 {
   create 1502126939
-  modify 1543881429
+  modify 1561654620
   author admin@VENTURA
   access 0777
 }
@@ -4042,7 +4123,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.456"
+		"value":"17.5.293"
 	}
 }
 
@@ -4167,7 +4248,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.456"
+		"value":"17.5.293"
 	}
 }
 
@@ -4242,7 +4323,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.456"
+		"value":"17.5.293"
 	}
 }
 
@@ -4277,7 +4358,7 @@ inputs
 stat
 {
   create 1502320080
-  modify 1503084248
+  modify 1561655257
   author admin@DESKTOP-PINH
   access 0777
 }
@@ -4328,7 +4409,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.456"
+		"value":"17.5.293"
 	}
 }
 
@@ -4355,17 +4436,17 @@ outputsNamed3
 inputsNamed3
 {
 2 	PIVOTPAINTER_1.1_Attr 1 1 "input1"
-0 	PIVOTPAINTER_1.0_Attr1 0 1 "input2"
+0 	PIVOTPAINTER_1.0_Attr 1 1 "input2"
 }
 inputs
 {
 0 	PIVOTPAINTER_1.1_Attr 0 1
-1 	PIVOTPAINTER_1.0_Attr1 0 1
+1 	PIVOTPAINTER_1.0_Attr 0 1
 }
 stat
 {
   create 1502385219
-  modify 1503080802
+  modify 1561507547
   author admin@DESKTOP-PINH
   access 0777
 }
@@ -4403,7 +4484,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.456"
+		"value":"17.5.293"
 	}
 }
 
@@ -4422,7 +4503,7 @@ sopflags sopflags =
 comment ""
 position -11.0097 0.69922
 connectornextid 2
-flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault off exposed on
+flags =  lock off model off template on footprint off xray off bypass off display on render on highlight off unload off savedata off compress on colordefault off exposed on
 outputsNamed3
 {
 1 "output1"
@@ -4438,7 +4519,7 @@ inputs
 stat
 {
   create 1502320080
-  modify 1503081215
+  modify 1561655476
   author admin@DESKTOP-PINH
   access 0777
 }
@@ -4453,7 +4534,7 @@ Content-Type: text/plain
 
 {
 version 0.8
-inname	[ 8	locks=0 ]	(	"Alpha uv uv1 uv2 uv3 Cd"	)
+inname	[ 8	locks=0 ]	(	"Alpha uv2 uv3 Cd"	)
 inclass	[ 0	locks=0 ]	(	"point"	)
 outclass	[ 0	locks=0 ]	(	"vertex"	)
 usepieceattrib	[ 0	locks=0 ]	(	"off"	)
@@ -4471,7 +4552,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.456"
+		"value":"17.5.293"
 	}
 }
 
@@ -4536,7 +4617,7 @@ Content-Type: text/plain
 
 {
 version 0.8
-input	[ 8	locks=0 ]	(	[ input	1 ] 	)
+input	[ 8	locks=0 ]	(	[ input	0 ] 	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -4546,7 +4627,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.456"
+		"value":"17.5.293"
 	}
 }
 
@@ -4607,7 +4688,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.456"
+		"value":"17.5.293"
 	}
 }
 
@@ -4759,7 +4840,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.456"
+		"value":"17.5.293"
 	}
 }
 
@@ -4794,7 +4875,7 @@ inputs
 stat
 {
   create 1502524823
-  modify 1548980979
+  modify 1561654946
   author paula@DESKTOP-JOVQSE4
   access 0777
 }
@@ -4829,7 +4910,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.456"
+		"value":"17.5.293"
 	}
 }
 
@@ -4903,7 +4984,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.456"
+		"value":"17.5.293"
 	}
 }
 
@@ -4955,6 +5036,7 @@ Content-Type: text/plain
 version 0.8
 group	[ 0	locks=0 ]	(	`chs(\"../leavesGroup\")`	)
 grouptype	[ 0	locks=0 ]	(	"points"	)
+encodenames	[ 0	locks=0 ]	(	"off"	)
 numattr	[ 0	locks=0 ]	(	1	)
 enable1	[ 0	locks=0 ]	(	"on"	)
 name1	[ 0	locks=0 ]	(	Leaf	)
@@ -4987,7 +5069,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.456"
+		"value":"17.5.293"
 	}
 }
 
@@ -5039,6 +5121,7 @@ Content-Type: text/plain
 version 0.8
 group	[ 8	locks=0 ]	(	`chs(\"../branchGroup\")`	)
 grouptype	[ 0	locks=0 ]	(	"guess"	)
+encodenames	[ 0	locks=0 ]	(	"off"	)
 numattr	[ 0	locks=0 ]	(	1	)
 enable1	[ 0	locks=0 ]	(	"on"	)
 name1	[ 0	locks=0 ]	(	Branch	)
@@ -5071,7 +5154,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.456"
+		"value":"17.5.293"
 	}
 }
 
@@ -5174,7 +5257,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.456"
+		"value":"17.5.293"
 	}
 }
 
@@ -5260,7 +5343,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.456"
+		"value":"17.5.293"
 	}
 }
 
@@ -5364,7 +5447,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.456"
+		"value":"17.5.293"
 	}
 }
 
@@ -5485,6 +5568,7 @@ Content-Type: text/plain
 {
 version 0.8
 deletions	[ 0	locks=0 ]	(	1	)
+removegrp	[ 0	locks=0 ]	(	"off"	)
 enable1	[ 0	locks=0 ]	(	"on"	)
 grouptype1	[ 0	locks=0 ]	(	"any"	)
 group1	[ 0	locks=0 ]	(	`chs(\"../grouppromote_BranchesLeaves/group2\")`	)
@@ -5503,7 +5587,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.456"
+		"value":"17.5.293"
 	}
 }
 
@@ -5570,7 +5654,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.456"
+		"value":"17.5.293"
 	}
 }
 
@@ -5637,7 +5721,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.456"
+		"value":"17.5.293"
 	}
 }
 
@@ -5704,7 +5788,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.456"
+		"value":"17.5.293"
 	}
 }
 
@@ -5778,7 +5862,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.456"
+		"value":"17.5.293"
 	}
 }
 
@@ -5845,7 +5929,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.456"
+		"value":"17.5.293"
 	}
 }
 
@@ -5927,7 +6011,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.456"
+		"value":"17.5.293"
 	}
 }
 
@@ -5962,7 +6046,7 @@ inputs
 stat
 {
   create 1502524823
-  modify 1548980780
+  modify 1561654836
   author paula@DESKTOP-JOVQSE4
   access 0777
 }
@@ -5997,7 +6081,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.456"
+		"value":"17.5.293"
 	}
 }
 
@@ -6071,7 +6155,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.456"
+		"value":"17.5.293"
 	}
 }
 
@@ -6157,7 +6241,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.456"
+		"value":"17.5.293"
 	}
 }
 
@@ -6224,7 +6308,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.456"
+		"value":"17.5.293"
 	}
 }
 
@@ -6291,7 +6375,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.456"
+		"value":"17.5.293"
 	}
 }
 
@@ -6435,7 +6519,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.456"
+		"value":"17.5.293"
 	}
 }
 
@@ -6509,7 +6593,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.456"
+		"value":"17.5.293"
 	}
 }
 
@@ -6528,7 +6612,7 @@ sopflags sopflags =
 comment ""
 position -5.27441 12.0851
 connectornextid 3
-flags =  lock off model off template on footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
+flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
 {
 2 "output1"
@@ -6546,7 +6630,7 @@ inputs
 stat
 {
   create 1502750400
-  modify 1548980801
+  modify 1561507345
   author admin@DESKTOP-PINH
   access 0777
 }
@@ -6574,7 +6658,7 @@ Content-Type: text/plain
 
 {
 version 0.8
-input	[ 8	locks=0 ]	(	[ input	1 ] 	)
+input	[ 8	locks=0 ]	(	[ input	0 ] 	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -6584,7 +6668,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.456"
+		"value":"17.5.293"
 	}
 }
 
@@ -6603,7 +6687,7 @@ sopflags sopflags =
 comment ""
 position -0.0278057 11.7762
 connectornextid 3
-flags =  lock off model off template off footprint off xray off bypass off display on render on highlight off unload off savedata off compress on colordefault on exposed on
+flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
 {
 2 "output1"
@@ -6621,7 +6705,7 @@ inputs
 stat
 {
   create 1502750400
-  modify 1548980801
+  modify 1561507347
   author admin@DESKTOP-PINH
   access 0777
 }
@@ -6649,7 +6733,7 @@ Content-Type: text/plain
 
 {
 version 0.8
-input	[ 8	locks=0 ]	(	[ input	1 ] 	)
+input	[ 8	locks=0 ]	(	[ input	0 ] 	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -6659,7 +6743,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.456"
+		"value":"17.5.293"
 	}
 }
 
@@ -6735,7 +6819,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.456"
+		"value":"17.5.293"
 	}
 }
 
@@ -6809,7 +6893,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.456"
+		"value":"17.5.293"
 	}
 }
 
@@ -6883,16 +6967,16 @@ outputsNamed3
 }
 inputsNamed3
 {
-0 	Custom_vs_Default 1 1 "input1"
+0 	attribwrangle8 1 1 "input1"
 }
 inputs
 {
-0 	Custom_vs_Default 0 1
+0 	attribwrangle8 0 1
 }
 stat
 {
   create 1502738840
-  modify 1503084465
+  modify 1561654483
   author admin@DESKTOP-PINH
   access 0777
 }
@@ -6926,7 +7010,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.456"
+		"value":"17.5.293"
 	}
 }
 
@@ -7030,7 +7114,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.456"
+		"value":"17.5.293"
 	}
 }
 
@@ -7112,7 +7196,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.456"
+		"value":"17.5.293"
 	}
 }
 
@@ -7182,7 +7266,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.456"
+		"value":"17.5.293"
 	}
 }
 
@@ -7249,7 +7333,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.456"
+		"value":"17.5.293"
 	}
 }
 
@@ -7371,6 +7455,7 @@ Content-Type: text/plain
 version 0.8
 group	[ 0	locks=0 ]	(	`chs(\"../leavesGroup\")`	)
 grouptype	[ 0	locks=0 ]	(	"guess"	)
+encodenames	[ 0	locks=0 ]	(	"off"	)
 numattr	[ 0	locks=0 ]	(	1	)
 enable1	[ 0	locks=0 ]	(	"on"	)
 name1	[ 0	locks=0 ]	(	Leaf	)
@@ -7403,7 +7488,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.456"
+		"value":"17.5.293"
 	}
 }
 
@@ -7455,6 +7540,7 @@ Content-Type: text/plain
 version 0.8
 group	[ 0	locks=0 ]	(	`chs(\"../branchGroup\")`	)
 grouptype	[ 0	locks=0 ]	(	"guess"	)
+encodenames	[ 0	locks=0 ]	(	"off"	)
 numattr	[ 0	locks=0 ]	(	1	)
 enable1	[ 0	locks=0 ]	(	"on"	)
 name1	[ 0	locks=0 ]	(	Branch	)
@@ -7487,7 +7573,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.456"
+		"value":"17.5.293"
 	}
 }
 
@@ -7561,7 +7647,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.456"
+		"value":"17.5.293"
 	}
 }
 
@@ -7705,7 +7791,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.456"
+		"value":"17.5.293"
 	}
 }
 
@@ -7878,7 +7964,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.456"
+		"value":"17.5.293"
 	}
 }
 
@@ -7945,7 +8031,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.456"
+		"value":"17.5.293"
 	}
 }
 
@@ -8012,7 +8098,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.456"
+		"value":"17.5.293"
 	}
 }
 
@@ -8118,7 +8204,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.456"
+		"value":"17.5.293"
 	}
 }
 
@@ -8225,7 +8311,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.456"
+		"value":"17.5.293"
 	}
 }
 
@@ -8331,7 +8417,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.456"
+		"value":"17.5.293"
 	}
 }
 
@@ -8438,7 +8524,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.456"
+		"value":"17.5.293"
 	}
 }
 
@@ -8505,7 +8591,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.456"
+		"value":"17.5.293"
 	}
 }
 
@@ -8584,7 +8670,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.456"
+		"value":"17.5.293"
 	}
 }
 
@@ -8663,7 +8749,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.456"
+		"value":"17.5.293"
 	}
 }
 
@@ -8724,7 +8810,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.456"
+		"value":"17.5.293"
 	}
 }
 
@@ -8799,7 +8885,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.456"
+		"value":"17.5.293"
 	}
 }
 
@@ -8867,7 +8953,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.456"
+		"value":"17.5.293"
 	}
 }
 
@@ -8953,75 +9039,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.456"
-	}
-}
-
---HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot/PIVOTPAINTER_1.0_Attr1.init"
-Content-Type: text/plain
-
-type = attribpromote
-matchesdef = 0
-
---HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot/PIVOTPAINTER_1.0_Attr1.def"
-Content-Type: text/plain
-
-sopflags sopflags = 
-comment ""
-position -15.2898 -0.349765
-connectornextid 2
-flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault off exposed on
-outputsNamed3
-{
-0 "output1"
-}
-inputsNamed3
-{
-1 	PIVOTPAINTER_1.0_Attr 1 1 "input1"
-}
-inputs
-{
-0 	PIVOTPAINTER_1.0_Attr 0 1
-}
-stat
-{
-  create 1503080340
-  modify 1503084248
-  author admin@DESKTOP-PINH
-  access 0777
-}
-color UT_Color RGB 0.475 0.812 0.204 
-delscript ""
-exprlanguage hscript
-end
-
---HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot/PIVOTPAINTER_1.0_Attr1.parm"
-Content-Type: text/plain
-
-{
-version 0.8
-inname	[ 0	locks=0 ]	(	"uv uv1"	)
-inclass	[ 0	locks=0 ]	(	"point"	)
-outclass	[ 0	locks=0 ]	(	"vertex"	)
-usepieceattrib	[ 0	locks=0 ]	(	"off"	)
-pieceattrib	[ 0	locks=0 ]	(	name	)
-method	[ 0	locks=0 ]	(	"mean"	)
-useoutname	[ 0	locks=0 ]	(	"off"	)
-outname	[ 0	locks=0 ]	(	""	)
-deletein	[ 0	locks=0 ]	(	"on"	)
-}
-
---HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot/PIVOTPAINTER_1.0_Attr1.userdata"
-Content-Type: text/plain
-
-{
-	"___Version___":{
-		"type":"string",
-		"value":"17.0.456"
+		"value":"17.5.293"
 	}
 }
 
@@ -9056,7 +9074,7 @@ inputs
 stat
 {
   create 1502525144
-  modify 1543877237
+  modify 1561654390
   author paula@DESKTOP-JOVQSE4
   access 0777
 }
@@ -9072,7 +9090,7 @@ Content-Type: text/plain
 {
 version 0.8
 ptdel	[ 0	locks=0 ]	(	"* ^name ^N ^uv ^Cd"	)
-vtxdel	[ 0	locks=0 ]	(	"* ^uv"	)
+vtxdel	[ 0	locks=0 ]	(	"* ^uv ^N"	)
 primdel	[ 0	locks=0 ]	(	*	)
 dtldel	[ 0	locks=0 ]	(	""	)
 updatevar	[ 0	locks=0 ]	(	"on"	)
@@ -9086,74 +9104,6 @@ Content-Type: text/plain
 	"___Version___":{
 		"type":"string",
 		"value":""
-	}
-}
-
---HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot/attribpromote2.init"
-Content-Type: text/plain
-
-type = attribpromote
-matchesdef = 0
-
---HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot/attribpromote2.def"
-Content-Type: text/plain
-
-sopflags sopflags = 
-comment ""
-position -15.2932 10.0838
-connectornextid 2
-flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
-outputsNamed3
-{
-1 "output1"
-}
-inputsNamed3
-{
-0 	switch3 2 1 "input1"
-}
-inputs
-{
-0 	switch3 0 1
-}
-stat
-{
-  create 1503080802
-  modify 1543863450
-  author admin@DESKTOP-PINH
-  access 0777
-}
-color UT_Color RGB 0.8 0.8 0.8 
-delscript ""
-exprlanguage hscript
-end
-
---HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot/attribpromote2.parm"
-Content-Type: text/plain
-
-{
-version 0.8
-inname	[ 0	locks=0 ]	(	uv	)
-inclass	[ 0	locks=0 ]	(	"vertex"	)
-outclass	[ 0	locks=0 ]	(	"point"	)
-usepieceattrib	[ 0	locks=0 ]	(	"off"	)
-pieceattrib	[ 0	locks=0 ]	(	name	)
-method	[ 0	locks=0 ]	(	"mean"	)
-useoutname	[ 0	locks=0 ]	(	"off"	)
-outname	[ 0	locks=0 ]	(	""	)
-deletein	[ 0	locks=0 ]	(	"on"	)
-}
-
---HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot/attribpromote2.userdata"
-Content-Type: text/plain
-
-{
-	"___Version___":{
-		"type":"string",
-		"value":"17.0.456"
 	}
 }
 
@@ -9188,7 +9138,7 @@ inputs
 stat
 {
   create 1502525144
-  modify 1533230810
+  modify 1561654397
   author paula@DESKTOP-JOVQSE4
   access 0777
 }
@@ -9204,7 +9154,7 @@ Content-Type: text/plain
 {
 version 0.8
 ptdel	[ 0	locks=0 ]	(	"* ^name ^N ^uv"	)
-vtxdel	[ 0	locks=0 ]	(	"* ^uv"	)
+vtxdel	[ 0	locks=0 ]	(	"* ^uv ^N"	)
 primdel	[ 0	locks=0 ]	(	*	)
 dtldel	[ 0	locks=0 ]	(	""	)
 updatevar	[ 0	locks=0 ]	(	"on"	)
@@ -9285,7 +9235,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.456"
+		"value":"17.5.293"
 	}
 }
 
@@ -9311,16 +9261,16 @@ outputsNamed3
 }
 inputsNamed3
 {
-0 	attribpromote2 1 1 "input1"
+0 	switch3 2 1 "input1"
 }
 inputs
 {
-0 	attribpromote2 0 1
+0 	switch3 0 1
 }
 stat
 {
   create 1502823348
-  modify 1548977796
+  modify 1561507353
   author admin@DESKTOP-PINH
   access 0777
 }
@@ -9372,7 +9322,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.456"
+		"value":"17.5.293"
 	}
 }
 
@@ -9459,7 +9409,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.456"
+		"value":"17.5.293"
 	}
 }
 
@@ -9546,7 +9496,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.456"
+		"value":"17.5.293"
 	}
 }
 
@@ -9633,7 +9583,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.456"
+		"value":"17.5.293"
 	}
 }
 
@@ -9720,7 +9670,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.456"
+		"value":"17.5.293"
 	}
 }
 
@@ -9824,7 +9774,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.456"
+		"value":"17.5.293"
 	}
 }
 
@@ -9932,7 +9882,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.456"
+		"value":"17.5.293"
 	}
 }
 
@@ -10014,7 +9964,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.456"
+		"value":"17.5.293"
 	}
 }
 
@@ -10049,7 +9999,7 @@ inputs
 stat
 {
   create 1543528638
-  modify 1554646088
+  modify 1561657850
   author Paul_Ambrosiussen@LAPTOP-P8R7FBPF
   access 0777
 }
@@ -10084,7 +10034,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.456"
+		"value":"17.5.293"
 	}
 }
 
@@ -10156,7 +10106,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.456"
+		"value":"17.5.293"
 	}
 }
 
@@ -10242,7 +10192,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.456"
+		"value":"17.5.293"
 	}
 }
 
@@ -10313,7 +10263,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.456"
+		"value":"17.5.293"
 	}
 }
 
@@ -10384,7 +10334,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.456"
+		"value":"17.5.293"
 	}
 }
 
@@ -10455,7 +10405,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.456"
+		"value":"17.5.293"
 	}
 }
 
@@ -10515,6 +10465,8 @@ tangentuon	[ 0	locks=0 ]	(	"on"	)
 tangentu	[ 0	locks=0 ]	(	N	)
 tangentvon	[ 0	locks=0 ]	(	"off"	)
 tangentv	[ 0	locks=0 ]	(	tangentv	)
+signson	[ 0	locks=0 ]	(	"off"	)
+signs	[ 0	locks=0 ]	(	signs	)
 ortho	[ 0	locks=0 ]	(	"off"	)
 lefthanded	[ 0	locks=0 ]	(	"off"	)
 }
@@ -10532,7 +10484,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.456"
+		"value":"17.5.293"
 	}
 }
 
@@ -10621,7 +10573,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.456"
+		"value":"17.5.293"
 	}
 }
 
@@ -10729,7 +10681,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.456"
+		"value":"17.5.293"
 	}
 }
 
@@ -10764,7 +10716,7 @@ inputs
 stat
 {
   create 1543528638
-  modify 1548983802
+  modify 1561656973
   author Paul_Ambrosiussen@LAPTOP-P8R7FBPF
   access 0777
 }
@@ -10799,7 +10751,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.456"
+		"value":"17.5.293"
 	}
 }
 
@@ -10885,7 +10837,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.456"
+		"value":"17.5.293"
 	}
 }
 
@@ -10945,6 +10897,8 @@ tangentuon	[ 0	locks=0 ]	(	"on"	)
 tangentu	[ 0	locks=0 ]	(	N	)
 tangentvon	[ 0	locks=0 ]	(	"off"	)
 tangentv	[ 0	locks=0 ]	(	tangentv	)
+signson	[ 0	locks=0 ]	(	"off"	)
+signs	[ 0	locks=0 ]	(	signs	)
 ortho	[ 0	locks=0 ]	(	"off"	)
 lefthanded	[ 0	locks=0 ]	(	"off"	)
 }
@@ -10962,7 +10916,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.456"
+		"value":"17.5.293"
 	}
 }
 
@@ -11044,7 +10998,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.456"
+		"value":"17.5.293"
 	}
 }
 
@@ -11116,7 +11070,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.456"
+		"value":"17.5.293"
 	}
 }
 
@@ -11187,7 +11141,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.456"
+		"value":"17.5.293"
 	}
 }
 
@@ -11258,7 +11212,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.456"
+		"value":"17.5.293"
 	}
 }
 
@@ -11347,7 +11301,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.456"
+		"value":"17.5.293"
 	}
 }
 
@@ -11418,7 +11372,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.456"
+		"value":"17.5.293"
 	}
 }
 
@@ -11498,7 +11452,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.456"
+		"value":"17.5.293"
 	}
 }
 
@@ -11578,7 +11532,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.456"
+		"value":"17.5.293"
 	}
 }
 
@@ -11630,9 +11584,16 @@ Content-Type: text/plain
 version 0.8
 group	[ 0	locks=0 ]	(	""	)
 grouptype	[ 0	locks=0 ]	(	"guess"	)
+overridenormal	[ 0	locks=0 ]	(	"off"	)
+normalattrib	[ 0	locks=0 ]	(	N	)
+construct	[ 0	locks=0 ]	(	0	)
+docompute	[ 0	locks=0 ]	(	"on"	)
 type	[ 0	locks=0 ]	(	"typepoint"	)
 cuspangle	[ 0	locks=0 ]	(	60	)
 method	[ 0	locks=0 ]	(	1	)
+modify	[ 0	locks=0 ]	(	0	)
+normalize	[ 0	locks=0 ]	(	"off"	)
+reverse	[ 0	locks=0 ]	(	"off"	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -11648,7 +11609,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.456"
+		"value":"17.5.293"
 	}
 }
 
@@ -11718,7 +11679,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.456"
+		"value":"17.5.293"
 	}
 }
 
@@ -11789,7 +11750,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.456"
+		"value":"17.5.293"
 	}
 }
 
@@ -11860,7 +11821,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.456"
+		"value":"17.5.293"
 	}
 }
 
@@ -11935,7 +11896,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.456"
+		"value":"17.5.293"
 	}
 }
 
@@ -12010,7 +11971,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.456"
+		"value":"17.5.293"
 	}
 }
 
@@ -12085,7 +12046,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.456"
+		"value":"17.5.293"
 	}
 }
 
@@ -12160,7 +12121,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.456"
+		"value":"17.5.293"
 	}
 }
 
@@ -12246,7 +12207,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.456"
+		"value":"17.5.293"
 	}
 }
 
@@ -12316,7 +12277,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.456"
+		"value":"17.5.293"
 	}
 }
 
@@ -12402,7 +12363,81 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.456"
+		"value":"17.5.293"
+	}
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/Lightmap_UVs.init"
+Content-Type: text/plain
+
+type = attribcopy
+matchesdef = 0
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/Lightmap_UVs.def"
+Content-Type: text/plain
+
+sopflags sopflags = 
+comment ""
+position -12.7345 -2.90058
+connectornextid 3
+flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault off exposed on
+outputsNamed3
+{
+2 "output1"
+}
+inputsNamed3
+{
+0 	Custom_vs_Default 1 1 "input1"
+1 	Custom_vs_Default 1 1 "input2"
+}
+inputs
+{
+0 	Custom_vs_Default 0 1
+1 	Custom_vs_Default 0 1
+}
+stat
+{
+  create 1561507363
+  modify 1561507608
+  author prisms@threadripper1
+  access 0777
+}
+color UT_Color RGB 0.475 0.812 0.204 
+delscript ""
+exprlanguage hscript
+end
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/Lightmap_UVs.parm"
+Content-Type: text/plain
+
+{
+version 0.8
+srcgroup	[ 0	locks=0 ]	(	""	)
+srcgrouptype	[ 0	locks=0 ]	(	"vertices"	)
+destgroup	[ 0	locks=0 ]	(	""	)
+destgrouptype	[ 0	locks=0 ]	(	"vertices"	)
+matchbyattribute	[ 0	locks=0 ]	(	"off"	)
+attributetomatch	[ 0	locks=0 ]	(	piece	)
+attrib	[ 0	locks=0 ]	(	"otherattrib"	)
+attribname	[ 0	locks=0 ]	(	uv	)
+copyp	[ 0	locks=0 ]	(	"on"	)
+usenewname	[ 0	locks=0 ]	(	"on"	)
+newname	[ 0	locks=0 ]	(	uv1	)
+class	[ 0	locks=0 ]	(	"guess"	)
+copyvariable	[ 0	locks=0 ]	(	"on"	)
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/Lightmap_UVs.userdata"
+Content-Type: text/plain
+
+{
+	"___Version___":{
+		"type":"string",
+		"value":"17.5.293"
 	}
 }
 
@@ -12635,9 +12670,7 @@ PIVOTPAINTER_HIERARCHY_LEAF_1.1
 PIVOTPAINTER_HIERARCHY_BRANCHPRE_1.1
 PIVOTPAINTER_HIERARCHY_1.1_Attr
 PIVOTPAINTER_HIERARCHY_1.0_Attr
-PIVOTPAINTER_1.0_Attr1
 attribdelete_CleanGeo_2
-attribpromote2
 attribdelete_CleanGeo_3
 PIVOTPAINTER_1.0_Attr2
 attribwrangle17
@@ -12695,6 +12728,8 @@ foreach_begin_Branches_metadata1_metadata1
 attribwrangle10
 attribwrangle11
 sort4
+Lightmap_UVs
+attribwrangle8
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
 Content-Disposition: attachment; filename="hdaroot.net"

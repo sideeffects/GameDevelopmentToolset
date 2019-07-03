@@ -89,7 +89,6 @@
     group {
         name    "privateparmsfolder"
         label   "Private Parms Folder"
-        invisibletab
 
         parm {
             name    "overridenode"
@@ -165,7 +164,7 @@
             name    "currentplane"
             label   "Current Color Plane"
             type    string
-            default { "basecolor" }
+            default { [ "hou.pwd().hdaModule().setplane(hou.pwd())" python ] }
         }
         parm {
             name    "currentgamma"

@@ -159,53 +159,62 @@ def grab_textures(material):
 def export(node):
 
     geo_path = node.parm("soppath").eval()
+    ProcessNode = hou.node(geo_path)
+    geo_path_children = [ProcessNode]
 
-    geo = hou.node(geo_path).renderNode().geometry()
-    
-    if geo.findPrimAttrib("shop_materialpath"):
-        materials = geo.primStringAttribValues("shop_materialpath")
-        materials = list(set(materials))
-    else:
-        materials = []
+    if ProcessNode.type().name() != "geo":
+        geo_path_children = [x for x in ProcessNode.allSubChildren(top_down=True, recurse_in_locked_nodes=True) if x.type().name() == "geo"]
 
-    
-    suffixes = {"basecolor_texture":"basecolor",
-            "baseNormal_texture":"normal",
-            "rough_texture":"roughness",
-            "metallic_texture":"metallic",
-            "baseColorMap":"basecolor"}
     files_to_upload = []
     
-    for material in materials:
-        mat_node = hou.node(material)
-        if not os.path.exists(os.path.join( os.environ["HIP"] , "export")):
-            os.makedirs(os.path.join( os.environ["HIP"] , "export"))
-            
-        textures = grab_textures(mat_node)
-        if not textures: 
-            continue 
-            
-        for texture in textures:
-            path = textures[texture]
-            jpg_path = os.path.join( os.environ["HIP"] , "export", mat_node.name() + "_" + suffixes[texture] + ".jpg")
-            if not os.path.exists(path):
-                continue
-            if path.upper().endswith("JPG"):
-                # handle JPG 
-                shutil.copy(path, jpg_path)
-                files_to_upload.append(jpg_path)
-            else:    
-                basename = os.path.basename(path)
-                basename = os.path.splitext(basename)[0]
+    for i, geoNode in enumerate(geo_path_children):
+        geo = geoNode.renderNode().geometry()
+
+    
+        if geo.findPrimAttrib("shop_materialpath"):
+            materials = geo.primStringAttribValues("shop_materialpath")
+            materials = list(set(materials))
+        else:
+            materials = []
+
+        
+        suffixes = {"basecolor_texture":"basecolor",
+                "baseNormal_texture":"normal",
+                "rough_texture":"roughness",
+                "metallic_texture":"metallic",
+                "baseColorMap":"basecolor"}
+        
+        
+        for material in materials:
+            mat_node = hou.node(material)
+            if not os.path.exists(os.path.join( os.environ["HIP"] , "export")):
+                os.makedirs(os.path.join( os.environ["HIP"] , "export"))
                 
-                cop_file = node.node("copnet/cop_file")
-                node.parm("tmp_filename").set(path)
+            textures = grab_textures(mat_node)
+            if not textures: 
+                continue 
                 
-                jpg_converter = node.node("jpg_converter")
-                
-                node.parm("tmp_jpg_path").set(jpg_path)
-                jpg_converter.render()
-                files_to_upload.append(jpg_path)
+            for texture in textures:
+                path = textures[texture]
+                jpg_path = os.path.join( os.environ["HIP"] , "export", mat_node.name() + "_{}".format(i) + "_" + suffixes[texture] + ".jpg")
+                if not os.path.exists(path):
+                    continue
+                if path.upper().endswith("JPG"):
+                    # handle JPG 
+                    shutil.copy(path, jpg_path)
+                    files_to_upload.append(jpg_path)
+                else:    
+                    basename = os.path.basename(path)
+                    basename = os.path.splitext(basename)[0]
+                    
+                    cop_file = node.node("copnet/cop_file")
+                    node.parm("tmp_filename").set(path)
+                    
+                    jpg_converter = node.node("jpg_converter")
+                    
+                    node.parm("tmp_jpg_path").set(jpg_path)
+                    jpg_converter.render()
+                    files_to_upload.append(jpg_path)
     
     fbx_exporter = node.node("geo_exporter")    
     node.parm("tmp_fbx_path").set(os.path.join( os.environ["HIP"] , "export", "mesh.fbx"))

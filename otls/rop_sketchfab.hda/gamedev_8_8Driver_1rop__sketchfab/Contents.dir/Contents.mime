@@ -31,7 +31,7 @@ Content-Disposition: attachment; filename="hdaroot.def"
 Content-Type: text/plain
 
 comment ""
-position -1.78206 6.32473
+position -22.261 7.88632
 connectornextid 0
 flags =  lock off model off template off footprint off xray off bypass off display on render on highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
@@ -45,9 +45,9 @@ inputs
 }
 stat
 {
-  create 1526915787
-  modify 1561139524
-  author MAINGEAR@DESKTOP-P98C1VA
+  create 1562108763
+  modify 1562112408
+  author prisms@threadripper1
   access 0777
 }
 color UT_Color RGB 0.8 0.8 0.8 
@@ -78,7 +78,7 @@ Content-Disposition: attachment; filename="hdaroot/shell1.def"
 Content-Type: text/plain
 
 comment ""
-position -0.387063 4.6667
+position 0.69883 4.6667
 connectornextid 1
 flags =  lock off model off template off footprint off xray off bypass off display on render on highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
@@ -94,7 +94,7 @@ inputs
 stat
 {
   create 1479762718
-  modify 1520884949
+  modify 1562110986
   author Luiz@Luiz-PC
   access 0777
 }
@@ -133,7 +133,7 @@ version 0.8
 execute	[ 0	locks=0 ]	(	0	)
 renderdialog	[ 0	locks=0 ]	(	0	)
 trange	[ 0	locks=0 ]	(	"off"	)
-f	[ 0	locks=0 ]	(	[ f1	1 ] 	[ f2	240 ] 	1	)
+f	[ 0	locks=0 ]	(	[ f1	1 ] 	[ f2	40 ] 	1	)
 take	[ 0	locks=0 ]	(	_current_	)
 switcher	[ 0	locks=0 ]	(	1	1	)
 command	[ 0	locks=0 ]	(	""	)
@@ -176,7 +176,7 @@ Content-Disposition: attachment; filename="hdaroot/geo_exporter.def"
 Content-Type: text/plain
 
 comment ""
-position 4.78557 3.25917
+position 5.86815 3.25917
 connectornextid 1
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
@@ -192,7 +192,7 @@ inputs
 stat
 {
   create 1503691054
-  modify 1526915787
+  modify 1562110981
   author Luiz@Luiz-PC
   access 0777
 }
@@ -211,14 +211,28 @@ Content-Type: text/plain
       righttype = extend
       default = 1
       flags = 0
-      segment { length = 0 value = 1 1 expr = $FSTART }
+      segment { length = 0 value = 1 1 expr = ch(\"../f1\") }
     }
     channel f2 {
       lefttype = extend
       righttype = extend
-      default = 240
+      default = 40
       flags = 0
-      segment { length = 0 value = 240 240 expr = $FEND }
+      segment { length = 0 value = 40 40 expr = ch(\"../f2\") }
+    }
+    channel trange {
+      lefttype = extend
+      righttype = extend
+      default = 1
+      flags = 0
+      segment { length = 0 value = 1 1 expr = ch(\"../trange\") }
+    }
+    channel f3 {
+      lefttype = extend
+      righttype = extend
+      default = 1
+      flags = 0
+      segment { length = 0 value = 1 1 expr = ch(\"../f3\") }
     }
   }
 
@@ -230,8 +244,8 @@ Content-Type: text/plain
 version 0.8
 execute	[ 0	locks=0 ]	(	0	)
 renderdialog	[ 0	locks=0 ]	(	0	)
-trange	[ 0	locks=0 ]	(	"off"	)
-f	[ 0	locks=0 ]	(	[ f1	1 ] 	[ f2	240 ] 	1	)
+trange	[ 0	locks=0 ]	(	[ trange	1 ] 	)
+f	[ 0	locks=0 ]	(	[ f1	1 ] 	[ f2	40 ] 	[ f3	1 ] 	)
 take	[ 0	locks=0 ]	(	_current_	)
 sopoutput	[ 0	locks=0 ]	(	`chs(\"../tmp_fbx_path\")`	)
 mkpath	[ 0	locks=0 ]	(	"on"	)
@@ -288,7 +302,7 @@ Content-Disposition: attachment; filename="hdaroot/copnet.def"
 Content-Type: text/plain
 
 comment ""
-position 5.15002 4.6667
+position 5.86815 4.6667
 connectornextid 0
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
@@ -303,7 +317,7 @@ inputs
 stat
 {
   create 1503691077
-  modify 1520952477
+  modify 1562110984
   author Luiz@Luiz-PC
   access 0777
 }
@@ -358,7 +372,7 @@ inputs
 stat
 {
   create 1503691091
-  modify 1561139485
+  modify 1562112192
   author Luiz@Luiz-PC
   access 0777
 }
@@ -392,7 +406,7 @@ nodename	[ 0	locks=0 ]	(	"userdef"	)
 reload	[ 0	locks=0 ]	(	0	)
 subframes	[ 0	locks=0 ]	(	"off"	)
 overridesize	[ 0	locks=0 ]	(	"natural"	)
-size	[ 0	locks=0 ]	(	1082	607	)
+size	[ 0	locks=0 ]	(	1532	867	)
 sizemenu	[ 0	locks=0 ]	(	0	)
 filter	[ 0	locks=0 ]	(	box	)
 overrideaspect	[ 0	locks=0 ]	(	"off"	)
@@ -471,7 +485,7 @@ Content-Disposition: attachment; filename="hdaroot/jpg_converter.def"
 Content-Type: text/plain
 
 comment ""
-position 2.78254 3.39683
+position 2.92618 3.25917
 connectornextid 1
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
@@ -487,7 +501,7 @@ inputs
 stat
 {
   create 1503691079
-  modify 1561139490
+  modify 1562112212
   author Luiz@Luiz-PC
   access 0777
 }
@@ -505,12 +519,12 @@ version 0.8
 execute	[ 0	locks=0 ]	(	0	)
 renderdialog	[ 0	locks=0 ]	(	0	)
 trange	[ 0	locks=0 ]	(	"off"	)
-f	[ 0	locks=0 ]	(	0	0	1	)
+f	[ 0	locks=0 ]	(	1	1	1	)
 take	[ 0	locks=0 ]	(	_current_	)
 copswitcher	[ 0	locks=0 ]	(	0	0	0	0	0	)
 coppath	[ 0	locks=0 ]	(	../copnet/cop_file	)
 tres	[ 0	locks=0 ]	(	"natural"	)
-res	[ 0	locks=0 ]	(	1082	607	)
+res	[ 0	locks=0 ]	(	1532	867	)
 resmenu	[ 0	locks=0 ]	(	0	)
 copoutput	[ 0	locks=0 ]	(	`chs(\"../tmp_jpg_path\")`	)
 mkpath	[ 0	locks=0 ]	(	"on"	)
@@ -525,7 +539,7 @@ batchmode	[ 0	locks=0 ]	(	"off"	)
 batchsize	[ 0	locks=0 ]	(	2	)
 reloadfiles	[ 0	locks=0 ]	(	"off"	)
 outputarea	[ 0	locks=0 ]	(	"frame"	)
-pixelcrop	[ 0	locks=0 ]	(	0	0	1081	606	)
+pixelcrop	[ 0	locks=0 ]	(	0	0	1531	866	)
 uvcrop	[ 0	locks=0 ]	(	0	0	1	1	)
 limitcanvaspixels	[ 0	locks=0 ]	(	"on"	)
 canvaspixels	[ 0	locks=0 ]	(	64	)
@@ -597,7 +611,7 @@ Content-Disposition: attachment; filename="hdaroot/switch1.def"
 Content-Type: text/plain
 
 comment ""
-position 3.27029 1.60432
+position 2.92618 1.63624
 connectornextid 3
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
@@ -618,7 +632,7 @@ inputs
 stat
 {
   create 1520969611
-  modify 1520969674
+  modify 1562110982
   author MAINGEAR@DESKTOP-P98C1VA
   access 0777
 }

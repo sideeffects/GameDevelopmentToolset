@@ -25,14 +25,42 @@
         nolabel
         export  none
     }
-    parm {
-        name    "soppath"
-        label   "Geo Path"
-        type    oppath
-        default { "" }
-        parmtag { "opfilter" "!!OBJ/GEOMETRY!!" }
-        parmtag { "oprelative" "." }
+    groupsimple {
+        name    "folder0"
+        label   "Export"
+
+        parm {
+            name    "trange"
+            label   "Valid Frame Range"
+            type    ordinal
+            default { "off" }
+            menu {
+                "off"       "Render Current Frame"
+                "normal"    "Render Frame Range"
+                "on"        "Render Frame Range Only (Strict)"
+            }
+            parmtag { "autoscope" "0000000000000000" }
+        }
+        parm {
+            name    "f"
+            label   "Start/End/Inc"
+            type    float
+            size    3
+            default { [ "$FSTART" hscript-expr ] [ "$FEND" hscript-expr ] "1" }
+            disablewhen "{ trange == off }"
+            range   { 0 10 }
+            parmtag { "autoscope" "0000000000000000" }
+        }
+        parm {
+            name    "soppath"
+            label   "Geo Path"
+            type    oppath
+            default { "" }
+            parmtag { "opfilter" "!!OBJ/GEOMETRY!!" }
+            parmtag { "oprelative" "." }
+        }
     }
+
     parm {
         name    "parm"
         label   "Model Type"
@@ -173,6 +201,7 @@
         name    "tmp_filename"
         label   "Label"
         type    string
+        invisible
         nolabel
         default { "" }
     }
@@ -180,6 +209,7 @@
         name    "tmp_jpg_path"
         label   "Label"
         type    string
+        invisible
         nolabel
         default { "" }
     }
@@ -187,6 +217,7 @@
         name    "tmp_fbx_path"
         label   "Label"
         type    string
+        invisible
         nolabel
         default { "" }
     }

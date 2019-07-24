@@ -9,7 +9,7 @@
 """ Calculate the slope of a surface by comparing to a direction, and optionally blur and remap the result. """
 
 :video:
-    #src:opdef:.?calculate_slope.mp4
+    #src:opdef:.?calculateslope.mp4
 
 The slope of a surface can be calculated by comparing geometry normals to a vector. Eg, compare the normals of a sphere to a vector that points straight up along the Y-axis, ie a vector of {0,1,0}. Points at the top
 of the sphere will be parallel to {0,1,0}, so get a value of 1. Points at the equator are perpendicular to the Y-axis, so get a value of 0. Any points with a normal below the equator will get negative values, going to -1 at the south pole, but for the slope those values are clamped to 0.

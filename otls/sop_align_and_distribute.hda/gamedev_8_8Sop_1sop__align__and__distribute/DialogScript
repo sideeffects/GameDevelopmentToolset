@@ -19,6 +19,7 @@
         label   "Split By "
         type    ordinal
         default { "0" }
+        help    "How to identify elements to be distributed; by contiguous islands (connectivity), or by @name."
         menu {
             "0" "Connectivity"
             "1" "Name"
@@ -29,6 +30,7 @@
         label   "Sort By"
         type    ordinal
         default { "0" }
+        help    "Choose to not sort, or sort by name, or by size."
         menu {
             "0" "None"
             "1" "Size"
@@ -40,11 +42,13 @@
         label   "Spacing"
         type    float
         default { "1" }
+        help    "Spacing applied between each element."
         range   { 0 10 }
     }
     groupsimple {
         name    "folder0"
         label   "Global Alignment"
+        grouptag { "group_type" "simple" }
 
         parm {
             name    "axis"
@@ -52,6 +56,7 @@
             type    ordinal
             joinnext
             default { "0" }
+            help    "Determine which axis the elements should be spread along."
             menu {
                 "0" "X"
                 "1" "Y"
@@ -63,6 +68,7 @@
             label   "Alignment"
             type    ordinal
             default { "0" }
+            help    "Determine if elements should be spread along the positive or negative direction of the selected axis."
             menu {
                 "0" "Positive"
                 "1" "Center"

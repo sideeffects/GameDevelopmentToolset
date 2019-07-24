@@ -275,6 +275,21 @@
                 disablewhen "{ bAO == 0 }"
             }
             parm {
+                name    "bCurvature"
+                label   "Label"
+                type    toggle
+                nolabel
+                joinnext
+                default { "1" }
+            }
+            parm {
+                name    "sCurvature"
+                label   "Curvature"
+                type    string
+                default { "curvature" }
+                disablewhen "{ bCurvature == 0 }"
+            }
+            parm {
                 name    "bWorldNormal"
                 label   "Label"
                 type    toggle
@@ -467,6 +482,72 @@
                 default { "0.001" }
                 help    "Amount to move the start of a ray from its starting point. Sometimes rays can intersect from where they're fired; adjusting ray bias by small amounts can reduce self-intersection artifacts."
                 range   { 0 0.1 }
+                parmtag { "autoscope" "0000000000000000" }
+                parmtag { "parmvop" "1" }
+                parmtag { "shaderparmcontexts" "cop2" }
+            }
+        }
+
+        groupsimple {
+            name    "folder9"
+            label   "Curvature Map"
+
+            parm {
+                name    "iNumRaysCurvature"
+                label   "Number of Rays"
+                type    integer
+                default { "50" }
+                range   { 1! 100 }
+                parmtag { "autoscope" "0000000000000000" }
+                parmtag { "parmvop" "1" }
+                parmtag { "shaderparmcontexts" "cop2" }
+            }
+            parm {
+                name    "fMaxRayDistCurvature"
+                label   "Maximum Ray Distance"
+                type    float
+                default { "0.1" }
+                range   { 0! 1 }
+                parmtag { "autoscope" "0000000000000000" }
+                parmtag { "parmvop" "1" }
+                parmtag { "shaderparmcontexts" "cop2" }
+            }
+            parm {
+                name    "fCurvatureBias"
+                label   "Bias"
+                type    float
+                default { "0.5" }
+                range   { 0 1 }
+                parmtag { "autoscope" "0000000000000000" }
+                parmtag { "parmvop" "1" }
+                parmtag { "shaderparmcontexts" "cop2" }
+            }
+            parm {
+                name    "fConeWidthCurvature"
+                label   "Cone Width"
+                type    angle
+                default { "90" }
+                range   { 1! 90! }
+                parmtag { "autoscope" "0000000000000000" }
+                parmtag { "parmvop" "1" }
+                parmtag { "shaderparmcontexts" "cop2" }
+            }
+            parm {
+                name    "fCurvaturescale"
+                label   "Scale"
+                type    float
+                default { "1" }
+                range   { 0 2 }
+                parmtag { "autoscope" "0000000000000000" }
+                parmtag { "parmvop" "1" }
+                parmtag { "shaderparmcontexts" "cop2" }
+            }
+            parm {
+                name    "fFlatbias"
+                label   "Flatness Filter"
+                type    angle
+                default { "0.02" }
+                range   { 0.001! 0.1 }
                 parmtag { "autoscope" "0000000000000000" }
                 parmtag { "parmvop" "1" }
                 parmtag { "shaderparmcontexts" "cop2" }

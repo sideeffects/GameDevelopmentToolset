@@ -35,6 +35,21 @@
             }
         }
         parm {
+            name    "bLayoutLightmap"
+            label   "Layout Lightmap UVs"
+            type    toggle
+            default { "1" }
+        }
+        parm {
+            name    "uvpadding"
+            label   "UV Padding"
+            type    integer
+            default { "5" }
+            disablewhen "{ bLayoutLightmap == 0 }"
+            range   { 0! 20 }
+            parmtag { "autoscope" "0000000000000000" }
+        }
+        parm {
             name    "sepparm2"
             label   "Separator"
             type    separator

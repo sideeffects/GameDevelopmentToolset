@@ -46,6 +46,7 @@
             type    button
             nolabel
             default { "0" }
+            help    "Bake textures and meshes to disk."
             parmtag { "script_callback" "kwargs['node'].hm().Export(kwargs['node'])" }
             parmtag { "script_callback_language" "python" }
         }
@@ -61,18 +62,21 @@
             type    toggle
             joinnext
             default { "1" }
+            help    "Enable text label in viewport to display current LOD and polygon count."
         }
         parm {
             name    "bViewAllLOD"
             label   "Debug All LOD"
             type    toggle
             default { "0" }
+            help    "Display all LOD levels side by side."
         }
         parm {
             name    "mViewingMode"
             label   "LOD Viewing Mode"
             type    ordinal
             default { "0" }
+            help    "Choose to select the viewed LOD with the LOD slider, or based on distance to a camera, or don't display."
             menu usetokenvalue {
                 "0" "Forced"
                 "1" "Camera Distance"
@@ -84,6 +88,7 @@
             label   "Camera"
             type    oppath
             default { "" }
+            help    "Camera to use to select which LOD level to display."
             disablewhen "{ bViewAllLOD == 1 }"
             hidewhen "{ mViewingMode == 0 } { mViewingMode == 2 }"
             parmtag { "opfilter" "!!OBJ/CAMERA!!" }
@@ -94,6 +99,7 @@
             label   "LOD"
             type    integer
             default { "0" }
+            help    "Slider to select what LOD level to display."
             disablewhen "{ bDebugCamera == 1 } { bViewAllLOD == 1 }"
             hidewhen "{ mViewingMode == 1 } { mViewingMode == 2 }"
             range   { 0 10 }

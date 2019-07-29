@@ -19,6 +19,13 @@ class TestStringMethods(unittest.TestCase):
                 print "opening", demo_file
                 try:
                     hou.hipFile.load(os.path.join(os.path.dirname(local_dir), "hip", demo_file).replace("\\", "/"))
+
+                    GameDevNodeInstances = [x for x in hou.node("/").allSubChildren() if x.type().nameComponents()[1] == "gamedev"] 
+
+                    for node in GameDevNodeInstances:
+                        if node.type().definition().nodeType().name() != hou.nodeType(node.type().definition().nodeTypeCategory(), node.type().definition().nodeTypeName()).namespaceOrder()[0]:
+                            print "Warning... Node instance is using older definition:", node.path()
+                            
                 except Exception, e:
                     print str(e)
                     pass

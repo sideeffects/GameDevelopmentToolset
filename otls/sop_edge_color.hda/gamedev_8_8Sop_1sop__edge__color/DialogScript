@@ -21,6 +21,7 @@
         type    color
         size    3
         default { "1" "1" "1" }
+        help    "Color to use for edges."
         range   { 0 1 }
         parmtag { "autoscope" "0000000000000000" }
     }
@@ -45,12 +46,14 @@
     groupsimple {
         name    "folder0"
         label   "Convex "
+        grouptag { "group_type" "simple" }
 
         parm {
             name    "concave_range_scale"
             label   "Intensity"
             type    float
             default { "1" }
+            help    "How bright to mask the convex edges."
             range   { 0 10 }
             parmtag { "autoscope" "0000000000000000" }
         }
@@ -59,14 +62,16 @@
             label   "Contrast"
             type    float
             default { "1" }
+            help    "How much contrast to add, making edge masking appear thinner or thicker."
             range   { 0 10 }
             parmtag { "autoscope" "0000000000000000" }
         }
         parm {
             name    "concave_blur_ammount"
-            label   "Blur Ammount"
+            label   "Blur Amount"
             type    float
             default { "30" }
+            help    "Amount to blur and soften the result."
             range   { 0 100 }
             parmtag { "autoscope" "0000000000000000" }
         }
@@ -75,12 +80,14 @@
     groupsimple {
         name    "folder1"
         label   "Concave"
+        grouptag { "group_type" "simple" }
 
         parm {
             name    "convex_range_scale"
             label   "Intensity"
             type    float
             default { "0" }
+            help    "Intensity to mask convex edges."
             range   { 0 10 }
             parmtag { "autoscope" "0000000000000000" }
         }
@@ -89,14 +96,16 @@
             label   "Contrast"
             type    float
             default { "1" }
+            help    "How much contrast to add, making edge masking appear thinner or thicker."
             range   { 0 10 }
             parmtag { "autoscope" "0000000000000000" }
         }
         parm {
             name    "convex_blur_ammount"
-            label   "Blur Ammount"
+            label   "Blur Amount"
             type    float
             default { "30" }
+            help    "Amount to blur and soften the result."
             range   { 0 100 }
             parmtag { "autoscope" "0000000000000000" }
         }

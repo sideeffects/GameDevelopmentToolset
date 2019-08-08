@@ -14,11 +14,13 @@ def get_latest_houdini_version():
             logging.info("Latest Local Houdini Install is %s..."%possible_dir)
             return os.path.join(sidefx_path, possible_dir)
 
-
 latest_houdini = get_latest_houdini_version()
 #print latest_houdini
 local_dir = os.path.dirname(__file__)
 
 for filename in os.listdir(local_dir):
+    #print filename
     if "test" in filename:
+        print "Running Test:", filename
         subprocess.call([latest_houdini + "/bin/hython2.7.exe", os.path.join(local_dir, filename)])
+    

@@ -17,12 +17,14 @@
     groupsimple {
         name    "folder0"
         label   "Base Settings"
+        grouptag { "group_type" "simple" }
 
         parm {
             name    "axis"
             label   "Axis"
             type    ordinal
             default { "0" }
+            help    "Which axis to align along the curve. Eg, the tommy sop has his head pointing up on Y, so the axis to choose is +Y."
             menu {
                 "0" "+X"
                 "1" "+Y"
@@ -37,6 +39,7 @@
             label   "Curve Offset"
             type    float
             default { "0" }
+            help    "Where to place geometry on the curve. 0 is the start, 1 is the end. Animate this value to move your geo down the curve."
             range   { 0 1 }
         }
         parm {
@@ -44,6 +47,7 @@
             label   "Curve Resolution"
             type    float
             default { "0.1" }
+            help    "Quality of the curve resample used internally. Higher values will deform the geometry more accurately, but can slow performance."
             range   { 0 10 }
         }
         parm {
@@ -60,6 +64,7 @@
             type    toggle
             joinnext
             default { "0" }
+            help    "Toggle to clip the geo if it extends before the start of the curve."
         }
         parm {
             name    "clip_max"
@@ -67,24 +72,28 @@
             type    toggle
             joinnext
             default { "0" }
+            help    "Toggle to clip the geo if it extends beyond the end of the curve."
         }
         parm {
             name    "collapse"
             label   "Collapse Instead of Clip"
             type    toggle
             default { "1" }
+            help    "Toggle to 'crunch' the geo at the ends rather than clip it and change the point count."
         }
     }
 
     groupsimple {
         name    "folder1"
         label   "Scale Controls"
+        grouptag { "group_type" "simple" }
 
         parm {
             name    "scale_to_length"
             label   "Scale To Curve Length"
             type    float
             default { "0" }
+            help    "Stretch the geo along the curve. A value of 1 will make the geo take up the entire length of the curve."
             range   { 0 1 }
         }
         parm {
@@ -92,6 +101,7 @@
             label   "Scale"
             type    float
             default { "1" }
+            help    "Scale the input geometry perpendicular to the curve."
             range   { 0 1 }
             parmtag { "autoscope" "0000000000000000" }
         }
@@ -100,6 +110,7 @@
             label   "Scale Ramp"
             type    ramp_flt
             default { "2" }
+            help    "Ramp to control scale along the length of the curve, left side of the ramp represents the start of the curve, right side the end. This value is multiplied against the scale parameter."
             range   { 1! 10 }
             parmtag { "autoscope" "0000000000000000" }
             parmtag { "rampfloatdefault" "1pos ( 0 ) 1value ( 1 ) 1interp ( linear ) 2pos ( 1 ) 2value ( 1 ) 2interp ( linear )" }
@@ -110,12 +121,14 @@
     groupsimple {
         name    "folder2"
         label   "Twist Controls"
+        grouptag { "group_type" "simple" }
 
         parm {
             name    "twist"
             label   "Twist"
             type    float
             default { "0" }
+            help    "Twist the geometry along the tangent of the curve. Note that more controllable results can be achieved by pre-rotating the input geometry."
             range   { 0 100 }
         }
         parm {
@@ -123,6 +136,7 @@
             label   "Twist Ramp"
             type    ramp_flt
             default { "2" }
+            help    "Ramp to drive twist along the length of the curve."
             range   { 1! 10 }
             parmtag { "autoscope" "0000000000000000" }
             parmtag { "rampfloatdefault" "1pos ( 0 ) 1value ( 0 ) 1interp ( linear ) 2pos ( 1 ) 2value ( 1 ) 2interp ( linear )" }

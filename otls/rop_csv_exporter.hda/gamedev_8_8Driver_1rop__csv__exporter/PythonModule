@@ -24,6 +24,9 @@ def export(node):
 
 
     export_node = node.node(node_name)
+
+    if export_node.type().name() == "geo":
+        export_node = export_node.renderNode()
     geo = export_node.geometry()
 
     # Determine the order & filter of exporting process

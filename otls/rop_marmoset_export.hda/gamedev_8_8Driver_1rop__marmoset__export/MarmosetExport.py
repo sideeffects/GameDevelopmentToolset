@@ -81,6 +81,10 @@ for item in Items['TEXDATA']:
                 Material.reflectivity.setField('Specular Map', mset.Texture(Items['TEXDATA'][item]['Specular']))
         if 'Displacement' in MaterialTextures:
                 Material.displacement.setField('Displacement Map', mset.Texture(Items['TEXDATA'][item]['Displacement']))
+        if 'Opacity' in MaterialTextures:
+                Material.setSubroutine("transparency", "Cutout")
+                Material.transparency.setField('Alpha Map', mset.Texture(Items['TEXDATA'][item]['Opacity']))
+                Material.transparency.setField('Channel', 0)
 
 UseTransparency = True if Items["TRANSPARENT"] == 1 else False
 

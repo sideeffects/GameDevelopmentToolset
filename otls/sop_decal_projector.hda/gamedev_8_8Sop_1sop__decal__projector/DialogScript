@@ -33,6 +33,7 @@
     groupsimple {
         name    "transform"
         label   "Transform"
+        grouptag { "group_type" "simple" }
 
         parm {
             name    "t"
@@ -40,6 +41,7 @@
             type    vector
             size    3
             default { "0" "0" "0" }
+            help    "Position of projection plane."
             range   { -1 1 }
             parmtag { "autoscope" "0000000000000000" }
         }
@@ -49,6 +51,7 @@
             type    vector
             size    3
             default { "0" "0" "0" }
+            help    "Rotation of projection plane."
             range   { 0 360 }
             parmtag { "autoscope" "0000000000000000" }
         }
@@ -58,12 +61,14 @@
             type    vector
             size    3
             default { "1" "1" "1" }
+            help    "Scale of projection plane."
             range   { -1 1 }
             parmtag { "autoscope" "0000000000000000" }
         }
         groupcollapsible {
             name    "pivots"
             label   "Pivots"
+            grouptag { "group_type" "collapsible" }
 
             parm {
                 name    "pr"
@@ -71,6 +76,7 @@
                 type    vector
                 size    3
                 default { "0" "0" "0" }
+                help    "Position of rotation pivot of projection plane."
                 range   { 0 360 }
                 parmtag { "autoscope" "0000000000000000" }
             }
@@ -80,6 +86,7 @@
                 type    vector
                 size    3
                 default { "0" "0" "0" }
+                help    "Position of translation pivot of projection plane."
                 range   { -1 1 }
                 parmtag { "autoscope" "0000000000000000" }
             }
@@ -90,6 +97,7 @@
             label   "Uniform Scale"
             type    float
             default { "1" }
+            help    "Scale of projection plane."
             range   { 0 10 }
             parmtag { "autoscope" "0000000000000000" }
         }
@@ -100,12 +108,14 @@
         label   "Height Map"
         type    image
         default { "" }
+        help    "Texture map used for projection, ideally a grayscale 'heightmap' image. Note that this refers to a texture to be used as a heightmap, not a houdini heightfield node!"
     }
     parm {
         name    "strength"
         label   "Strength"
         type    float
         default { "50" }
+        help    "Multiplier to alter the strength of the heightmap."
         range   { 0 10 }
     }
     parm {
@@ -113,12 +123,14 @@
         label   "Use Inverted Height as AO"
         type    toggle
         default { "0" }
+        help    "When enabled the lowest parts of the heightmap will be darkened with a 2d ambient occlusion filter, useful to enhance detail and visually separate high and low parts of the heightmap."
     }
     parm {
         name    "max_distance"
         label   "Max Distance"
         type    float
         default { "1" }
+        help    "Maximum distance the surface can be away from the projector handle. If the projection is further than this distance, the projection will be clipped."
         range   { 0 10 }
     }
     parm {
@@ -126,6 +138,7 @@
         label   "Floating Distance"
         type    float
         default { "0.01" }
+        help    "Distance to float the projection above the target surface. Ideally this should be as close as possible, but not so close that it causes flickering or Z-fighting issues."
         range   { 0 10 }
     }
     parm {
@@ -134,6 +147,7 @@
         type    vector2
         size    2
         default { "0" "0" }
+        help    "Clip or 'barn doors' for the left and right side of the projection."
         range   { -1 1 }
     }
     parm {
@@ -142,6 +156,7 @@
         type    vector2
         size    2
         default { "0" "0" }
+        help    "Clip or 'barn doors' for the top and bottom of the projection."
         range   { -1 1 }
     }
 }

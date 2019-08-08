@@ -6723,7 +6723,7 @@ ogl_alpha	[ 0	locks=0 ]	(	1	)
 ogl_cutout	[ 0	locks=0 ]	(	"on"	)
 ogl_amb	[ 0	locks=0 ]	(	1	1	1	)
 sepparm12	[ 0	locks=0 ]	(	)
-ogl_diff	[ 0	locks=0 ]	(	[ ogl_diffr	0 ] 	[ ogl_diffg	0 ] 	[ ogl_diffb	0 ] 	)
+ogl_diff	[ 0	locks=0 ]	(	[ ogl_diffr	1 ] 	[ ogl_diffg	1 ] 	[ ogl_diffb	1 ] 	)
 ogl_numtex	[ 0	locks=0	autoscope=0 ]	(	1	)
 ogl_tex1	[ 0	locks=0	autoscope=0 ]	(	`chs(\"dif_map\")`	)
 ogl_tex_min_filter1	[ 0	locks=0	autoscope=0 ]	(	GL_LINEAR_MIPMAP_LINEAR	)
@@ -26475,7 +26475,7 @@ Content-Disposition: attachment; filename="hdaroot/posTextureCop/calculate_delta
 Content-Type: text/plain
 
 2
-110
+108
 0
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -32240,7 +32240,7 @@ Content-Disposition: attachment; filename="hdaroot/posTextureCop/calculate_norma
 Content-Type: text/plain
 
 2
-113
+111
 0
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -34721,7 +34721,7 @@ Content-Disposition: attachment; filename="hdaroot/posTextureCop/calculate_Cd.co
 Content-Type: text/plain
 
 2
-108
+106
 0
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -65133,7 +65133,7 @@ Content-Type: text/plain
 
 {
 version 0.8
-input	[ 8	locks=0 ]	(	[ input	1 ] 	)
+input	[ 8	locks=0 ]	(	[ input	0 ] 	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -82944,14 +82944,14 @@ Content-Type: text/plain
       righttype = extend
       default = 1920
       flags = 0
-      segment { length = 0 value = 1920 1920 expr = min(npoints(\"../../soft_obj/STATIC_MESH/SIM_GEO\"),ch(\"../../target_texture_size\")) }
+      segment { length = 0 value = 1920 1920 expr = min(npoints(\"../../rigid_obj/REFERENCE_MESH/object_merge1\"),ch(\"../../target_texture_size\")) }
     }
     channel size2 {
       lefttype = extend
       righttype = extend
       default = 1080
       flags = 0
-      segment { length = 0 value = 1080 1080 expr = "(ch(\"../../fFrame\") - ch(\"../../iFrame\")) * ceil(npoints(\"../../soft_obj/STATIC_MESH/SIM_GEO\")/ch(\"../../target_texture_size\"))" }
+      segment { length = 0 value = 1080 1080 expr = "(ch(\"../../fFrame\") - ch(\"../../iFrame\")) * ceil(npoints(\"../../rigid_obj/REFERENCE_MESH/object_merge1\")/ch(\"../../target_texture_size\"))" }
     }
     channel aspect {
       lefttype = extend
@@ -82979,7 +82979,7 @@ Content-Type: text/plain
 
 {
 version 0.8
-stdswitcher	[ 0	locks=0 ]	(	0	0	0	0	)
+stdswitcher	[ 0	locks=0 ]	(	2	2	2	2	)
 color	[ 0	locks=0 ]	(	1	1	1	1	)
 comp4	[ 0	locks=0 ]	(	1	)
 scalar	[ 0	locks=0 ]	(	1	)

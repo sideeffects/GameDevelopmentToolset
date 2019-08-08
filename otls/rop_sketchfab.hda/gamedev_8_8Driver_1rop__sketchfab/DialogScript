@@ -25,14 +25,42 @@
         nolabel
         export  none
     }
-    parm {
-        name    "soppath"
-        label   "Geo Path"
-        type    oppath
-        default { "" }
-        parmtag { "opfilter" "!!OBJ/GEOMETRY!!" }
-        parmtag { "oprelative" "." }
+    groupsimple {
+        name    "folder0"
+        label   "Export"
+
+        parm {
+            name    "trange"
+            label   "Valid Frame Range"
+            type    ordinal
+            default { "off" }
+            menu {
+                "off"       "Render Current Frame"
+                "normal"    "Render Frame Range"
+                "on"        "Render Frame Range Only (Strict)"
+            }
+            parmtag { "autoscope" "0000000000000000" }
+        }
+        parm {
+            name    "f"
+            label   "Start/End/Inc"
+            type    float
+            size    3
+            default { [ "$FSTART" hscript-expr ] [ "$FEND" hscript-expr ] "1" }
+            disablewhen "{ trange == off }"
+            range   { 0 10 }
+            parmtag { "autoscope" "0000000000000000" }
+        }
+        parm {
+            name    "soppath"
+            label   "Geo Path"
+            type    oppath
+            default { "" }
+            parmtag { "opfilter" "!!OBJ/GEOMETRY!!" }
+            parmtag { "oprelative" "." }
+        }
     }
+
     parm {
         name    "parm"
         label   "Model Type"
@@ -63,10 +91,43 @@
             default { "" }
         }
         parm {
+            name    "model_category"
+            label   "Category"
+            type    ordinal
+            default { "0" }
+            menu {
+                ""                          "No Category"
+                "animals-pets"              "Animals & Pets"
+                "architecture"              "Architecture"
+                "art-abstract"              "Art & Abstract"
+                "cars-vehicles"             "Cars & vehicles"
+                "characters-creatures"      "Characters & Creatures"
+                "cultural-heritage-history" "Cultural Heritage & History"
+                "electronics-gadgets"       "Electronics & Gadgets"
+                "fashion-style"             "Fashion & Style"
+                "food-drink"                "Food & Drink"
+                "furniture-home"            "Furniture & Home"
+                "music"                     "Music"
+                "nature-plants"             "Nature & Plants"
+                "news-politics"             "News & Politics"
+                "people"                    "People"
+                "places-travel"             "Places & Travel"
+                "sciene-technology"         "Science & Technology"
+                "sports-fitness"            "Sports & Fitness"
+                "weapons-military"          "Weapons & Military"
+            }
+        }
+        parm {
             name    "model_tags"
             label   "Tags"
             type    string
             default { "" }
+        }
+        parm {
+            name    "model_publish"
+            label   "Publish"
+            type    toggle
+            default { "0" }
         }
     }
 
@@ -140,6 +201,7 @@
         name    "tmp_filename"
         label   "Label"
         type    string
+        invisible
         nolabel
         default { "" }
     }
@@ -147,6 +209,7 @@
         name    "tmp_jpg_path"
         label   "Label"
         type    string
+        invisible
         nolabel
         default { "" }
     }
@@ -154,6 +217,7 @@
         name    "tmp_fbx_path"
         label   "Label"
         type    string
+        invisible
         nolabel
         default { "" }
     }

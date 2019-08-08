@@ -243,4 +243,55 @@
         }
     }
 
+    group {
+        name    "folder0"
+        label   "Material Paths"
+
+        parm {
+            name    "maya_toggle"
+            label   "Maya Shading Group"
+            type    toggle
+            joinnext
+            default { "0" }
+        }
+        parm {
+            name    "maya_path"
+            label   "Maya Shading Group"
+            type    string
+            nolabel
+            default { "ShaderGroupNodeSG" }
+            disablewhen "{ maya_toggle == 0 }"
+        }
+        parm {
+            name    "unity_toggle"
+            label   "Unity Material Path"
+            type    toggle
+            joinnext
+            default { "0" }
+        }
+        parm {
+            name    "unity_path"
+            label   "Unity Material Path"
+            type    string
+            nolabel
+            default { "Assets/Materials/Your_Material.mat" }
+            disablewhen "{ unity_toggle == 0 }"
+        }
+        parm {
+            name    "ue4_toggle"
+            label   "UE4 Material Path"
+            type    toggle
+            joinnext
+            default { "0" }
+        }
+        parm {
+            name    "ue4_path"
+            label   "UE4 Material Path"
+            type    string
+            nolabel
+            default { "Material'/Game/Path/To/Your/Material'" }
+            disablewhen "{ ue4_toggle == 0 }"
+        }
+    }
+
 }

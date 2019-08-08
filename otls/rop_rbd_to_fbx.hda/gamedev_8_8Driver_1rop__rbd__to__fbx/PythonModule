@@ -268,15 +268,9 @@ class FractureExporter(object):
                 pivot = prim.intrinsicValue("pivot")
                 pivot_2 = [houdini_node.parm("px").eval(), houdini_node.parm("py").eval(), houdini_node.parm("pz").eval()]
 
-
-                # invert if not a zero scale matrix
-                try:
-                    baked_transform = export_object.initial_packed_transform.inverted()
-                    baked_transform *= hou.Matrix4(prim.intrinsicValue("packedfulltransform"))
-                    baked_transform *= self.selected_obj_node.worldTransform()
-                except: 
-                    raise hou.Error("Invalid transforms found. Ensure your packed geometry has valid intrinsic:packedfulltransform values")
-
+                baked_transform = export_object.initial_packed_transform.inverted()
+                baked_transform *= hou.Matrix4(prim.intrinsicValue("packedfulltransform"))
+                baked_transform *= self.selected_obj_node.worldTransform()
 
                 pos = baked_transform.extractTranslates()
                 rot = baked_transform.extractRotates()

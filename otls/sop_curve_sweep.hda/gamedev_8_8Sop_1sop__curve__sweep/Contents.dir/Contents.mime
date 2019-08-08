@@ -32,27 +32,26 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position -5.6212 -5.53764
+position -2.7177 -2.25444
 connectornextid 2
-flags =  lock off model off template off footprint off xray off bypass off display on render on highlight off unload off savedata off compress on colordefault on exposed on
+flags =  lock off model off template on footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
 {
+1 "output1"
 }
 inputsNamed3
 {
-0 	attribdelete1 1 1 "input1"
-1 	circle1 0 1 "input2"
+0 	curve1 0 1 "input1"
 }
 inputs
 {
-0 	attribdelete1 0 1
-1 	circle1 0 1
+0 	curve1 0 1
 }
 stat
 {
-  create 1558419299
-  modify 1558421207
-  author matt@tatooine
+  create 1556052284
+  modify 1556055293
+  author MAINGEAR@DESKTOP-P98C1VA
   access 0777
 }
 color UT_Color RGB 0.8 0.8 0.8 
@@ -271,7 +270,7 @@ inputs
 stat
 {
   create 1542817461
-  modify 1558419596
+  modify 1556052469
   author MAINGEAR@DESKTOP-P98C1VA
   access 0777
 }
@@ -514,6 +513,44 @@ Content-Type: text/plain
       flags = 0
       segment { length = 0 value = 2 2 expr = ch(\"../scaleramp\") }
     }
+    channel scaleramp3pos {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = ch(\"../scaleramp3pos\") }
+    }
+    channel scaleramp3value {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = ch(\"../scaleramp3value\") }
+    }
+    channel scaleramp3interp {
+      lefttype = extend
+      righttype = extend
+      default = 1
+      flags = 0
+      segment { length = 0 value = 1 1 expr = ch(\"../scaleramp3interp\") }
+    }
+    channel scaleramp4pos {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = ch(\"../scaleramp4pos\") }
+    }
+    channel scaleramp4value {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = ch(\"../scaleramp4value\") }
+    }
+    channel scaleramp4interp {
+      lefttype = extend
+      righttype = extend
+      default = 1
+      flags = 0
+      segment { length = 0 value = 1 1 expr = ch(\"../scaleramp4interp\") }
+    }
   }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -543,14 +580,20 @@ vex_matchattrib	[ 0	locks=0 ]	(	id	)
 vex_inplace	[ 0	locks=0 ]	(	"off"	)
 vex_selectiongroup	[ 0	locks=0 ]	(	""	)
 folder1	[ 0	locks=0 ]	(	0	0	)
-scaleramp	[ 0	locks=0 ]	(	[ scaleramp	2 ] 	)
+scaleramp	[ 0	locks=0 ]	(	[ scaleramp	4 ] 	)
 scaleramp1pos	[ 0	locks=0 ]	(	[ scaleramp1pos	0 ] 	)
-scaleramp1value	[ 0	locks=0 ]	(	[ scaleramp1value	1 ] 	)
+scaleramp1value	[ 0	locks=0 ]	(	[ scaleramp1value	0 ] 	)
 scaleramp1interp	[ 0	locks=0 ]	(	[ scaleramp1interp	1 ] 	)
-scaleramp2pos	[ 0	locks=0 ]	(	[ scaleramp2pos	1 ] 	)
+scale	[ 0	locks=0 ]	(	1	)
+scaleramp2pos	[ 0	locks=0 ]	(	[ scaleramp2pos	0.2291666716337204 ] 	)
 scaleramp2value	[ 0	locks=0 ]	(	[ scaleramp2value	1 ] 	)
 scaleramp2interp	[ 0	locks=0 ]	(	[ scaleramp2interp	1 ] 	)
-scale	[ 0	locks=0 ]	(	1	)
+scaleramp3pos	[ 0	locks=0 ]	(	[ scaleramp3pos	0.44230768084526062 ] 	)
+scaleramp3value	[ 0	locks=0 ]	(	[ scaleramp3value	1 ] 	)
+scaleramp3interp	[ 0	locks=0 ]	(	[ scaleramp3interp	1 ] 	)
+scaleramp4pos	[ 0	locks=0 ]	(	[ scaleramp4pos	1 ] 	)
+scaleramp4value	[ 0	locks=0 ]	(	[ scaleramp4value	0 ] 	)
+scaleramp4interp	[ 0	locks=0 ]	(	[ scaleramp4interp	1 ] 	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -790,9 +833,9 @@ orient	[ 0	locks=0 ]	(	"xy"	)
 rad	[ 0	locks=0 ]	(	1	1	)
 t	[ 0	locks=0 ]	(	0	0	0	)
 r	[ 8	locks=0 ]	(	0	0	0	)
-scale	[ 8	locks=0 ]	(	[ scale	0.75 ] 	)
+scale	[ 8	locks=0 ]	(	[ scale	0.089999999999999997 ] 	)
 order	[ 0	locks=0 ]	(	4	)
-divs	[ 0	locks=0 ]	(	[ divs	6 ] 	)
+divs	[ 0	locks=0 ]	(	[ divs	11 ] 	)
 arc	[ 0	locks=0 ]	(	"closed"	)
 angle	[ 0	locks=0 ]	(	0	360	)
 imperfect	[ 0	locks=0 ]	(	"on"	)
@@ -805,7 +848,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.249"
+		"value":"17.5.210"
 	}
 }
 
@@ -887,7 +930,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.249"
+		"value":"17.5.210"
 	}
 }
 
@@ -963,9 +1006,9 @@ Content-Type: text/plain
 {
 version 0.8
 type	[ 0	locks=0 ]	(	"poly"	)
-origin	[ 8	locks=0 ]	(	[ originx	-0.5 ] 	0	0	)
+origin	[ 8	locks=0 ]	(	[ originx	-0.19 ] 	0	0	)
 dir	[ 0	locks=0 ]	(	1	0	0	)
-dist	[ 8	locks=0 ]	(	[ dist	1 ] 	)
+dist	[ 8	locks=0 ]	(	[ dist	0.38 ] 	)
 points	[ 8	locks=0 ]	(	[ points	6 ] 	)
 order	[ 0	locks=0 ]	(	4	)
 }
@@ -977,7 +1020,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.249"
+		"value":"17.5.210"
 	}
 }
 
@@ -1053,7 +1096,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.249"
+		"value":"17.5.210"
 	}
 }
 
@@ -1123,7 +1166,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.249"
+		"value":"17.5.210"
 	}
 }
 
@@ -1189,7 +1232,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.249"
+		"value":"17.5.210"
 	}
 }
 
@@ -1248,7 +1291,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.249"
+		"value":"17.5.210"
 	},
 	"nodeshape":{
 		"type":"string",
@@ -1337,7 +1380,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.249"
+		"value":"17.5.210"
 	}
 }
 
@@ -1403,7 +1446,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.249"
+		"value":"17.5.210"
 	}
 }
 
@@ -1420,7 +1463,7 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position 3.56506 -16.5934
+position 3.6879 -16.1462
 connectornextid 2
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault off exposed on
 outputsNamed3
@@ -1438,7 +1481,7 @@ inputs
 stat
 {
   create 1550789985
-  modify 1558419911
+  modify 1556052371
   author MAINGEAR@DESKTOP-P98C1VA
   access 0777
 }
@@ -1479,7 +1522,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.249"
+		"value":"17.5.210"
 	}
 }
 
@@ -1514,7 +1557,7 @@ inputs
 stat
 {
   create 1550789985
-  modify 1558429407
+  modify 1556052931
   author MAINGEAR@DESKTOP-P98C1VA
   access 0777
 }
@@ -1543,7 +1586,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.249"
+		"value":"17.5.210"
 	}
 }
 
@@ -1616,7 +1659,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.249"
+		"value":"17.5.210"
 	}
 }
 
@@ -1693,7 +1736,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.249"
+		"value":"17.5.210"
 	}
 }
 
@@ -1770,7 +1813,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.249"
+		"value":"17.5.210"
 	}
 }
 
@@ -1831,7 +1874,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.249"
+		"value":"17.5.210"
 	}
 }
 
@@ -1908,7 +1951,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.249"
+		"value":"17.5.210"
 	}
 }
 
@@ -1978,7 +2021,7 @@ type	[ 0	locks=0 ]	(	"sarclen"	)
 axis	[ 0	locks=0 ]	(	"y"	)
 campath	[ 0	locks=0 ]	(	""	)
 coord	[ 0	locks=0 ]	(	"point"	)
-s	[ 8	locks=0 ]	(	[ su	175.08909869194031 ] 	1	1	)
+s	[ 8	locks=0 ]	(	[ su	2.6630334854125977 ] 	1	1	)
 offset	[ 0	locks=0 ]	(	0	0	0	)
 angle	[ 0	locks=0 ]	(	0	)
 fixseams	[ 0	locks=0 ]	(	"off"	)
@@ -1991,7 +2034,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.249"
+		"value":"17.5.210"
 	}
 }
 
@@ -2068,7 +2111,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.249"
+		"value":"17.5.210"
 	}
 }
 
@@ -2129,7 +2172,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.249"
+		"value":"17.5.210"
 	}
 }
 
@@ -2195,7 +2238,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.249"
+		"value":"17.5.210"
 	}
 }
 
@@ -2270,7 +2313,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.249"
+		"value":"17.5.210"
 	}
 }
 
@@ -2331,7 +2374,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.249"
+		"value":"17.5.210"
 	}
 }
 
@@ -2414,7 +2457,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.249"
+		"value":"17.5.210"
 	}
 }
 
@@ -2477,7 +2520,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.249"
+		"value":"17.5.210"
 	}
 }
 
@@ -2554,7 +2597,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.249"
+		"value":"17.5.210"
 	}
 }
 
@@ -2636,7 +2679,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.249"
+		"value":"17.5.210"
 	}
 }
 
@@ -2718,7 +2761,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.249"
+		"value":"17.5.210"
 	}
 }
 
@@ -2786,7 +2829,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.249"
+		"value":"17.5.210"
 	}
 }
 
@@ -2861,7 +2904,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.249"
+		"value":"17.5.210"
 	}
 }
 
@@ -2927,7 +2970,7 @@ Content-Type: text/plain
 
 {
 version 0.8
-input	[ 8	locks=0 ]	(	[ input	1 ] 	)
+input	[ 8	locks=0 ]	(	[ input	0 ] 	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -2937,7 +2980,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.249"
+		"value":"17.5.210"
 	}
 }
 
@@ -2998,7 +3041,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.249"
+		"value":"17.5.210"
 	}
 }
 
@@ -3073,7 +3116,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.249"
+		"value":"17.5.210"
 	}
 }
 
@@ -3134,7 +3177,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.249"
+		"value":"17.5.210"
 	}
 }
 
@@ -3209,7 +3252,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.249"
+		"value":"17.5.210"
 	}
 }
 
@@ -3270,7 +3313,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.249"
+		"value":"17.5.210"
 	}
 }
 
@@ -3340,7 +3383,7 @@ type	[ 0	locks=0 ]	(	"sarclen"	)
 axis	[ 0	locks=0 ]	(	"y"	)
 campath	[ 0	locks=0 ]	(	""	)
 coord	[ 0	locks=0 ]	(	"vertex"	)
-s	[ 8	locks=0 ]	(	[ su	5.1961524486541748 ] 	1	1	)
+s	[ 8	locks=0 ]	(	[ su	0.55783045291900635 ] 	1	1	)
 offset	[ 0	locks=0 ]	(	0	0	0	)
 angle	[ 0	locks=0 ]	(	-90	)
 fixseams	[ 0	locks=0 ]	(	"off"	)
@@ -3353,7 +3396,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.249"
+		"value":"17.5.210"
 	}
 }
 

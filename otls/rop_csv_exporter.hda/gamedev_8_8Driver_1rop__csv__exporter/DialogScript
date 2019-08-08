@@ -28,7 +28,6 @@
         label   "Export Node"
         type    oppath
         default { "" }
-        help    "Export a CSV file to the specified location."
         parmtag { "opfilter" "!!SOP!!" }
         parmtag { "oprelative" "." }
     }
@@ -37,7 +36,6 @@
         label   "CSV Path"
         type    file
         default { "$HIP/export.csv" }
-        help    "Location and name to save the CSV file."
         parmtag { "filechooser_pattern" "*.csv" }
     }
     parm {
@@ -45,7 +43,6 @@
         label   "Separate Vector Components"
         type    toggle
         default { "0" }
-        help    "Export the vector components into separate columns of a spreadsheet when enabled. If disabled, vectors will be saved in curly braces, eg {1,2,3}."
     }
     parm {
         name    "suff_x"
@@ -53,7 +50,6 @@
         type    string
         joinnext
         default { "x" }
-        help    "Suffix to use for vector components, so if the suffix is x, and the vector is P, the column name will be Px."
         disablewhen "{ separate_components == 0 }"
     }
     parm {
@@ -87,12 +83,10 @@
         label   "Filtered Export"
         type    toggle
         default { "0" }
-        help    "When enabled use the following multiparm to define which attributes to export, otherwise just export @P."
     }
     multiparm {
         name    "mAttributes"
         label    "Export Attributes"
-        default 0
         disablewhen "{ bFilteredExport == 0 }"
 
         parm {

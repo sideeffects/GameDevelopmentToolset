@@ -33,7 +33,6 @@
             label   "Module Name"
             type    string
             default { "" }
-            help    "Name to assign incoming geo."
             parmtag { "autoscope" "0000000000000000" }
         }
         parm {
@@ -42,7 +41,6 @@
             type    float
             size    2
             default { "0" "0" }
-            help    "Target width and height of module in Houdini units. This is manually defined as the automatic bounds may not correspond to intent; eg flagpoles that extend away from the module surface."
             range   { 0 10 }
             parmtag { "autoscope" "0000000000000000" }
         }
@@ -57,7 +55,6 @@
             label   "Action"
             type    ordinal
             default { "hide" }
-            help    "Display or hide the bounding box reference."
             menu {
                 "hide"      "Hide Bounding Box"
                 "expose"    "Show Bounding Box"
@@ -69,12 +66,10 @@
             label   "Use Embedded Boundingbox"
             type    toggle
             default { "1" }
-            help    "Enable the bounding box utility to visually set the dimensions of this handplaced module."
         }
         groupsimple {
             name    "folder1"
             label   "Bounds Properties"
-            grouptag { "group_type" "simple" }
 
             parm {
                 name    "t"
@@ -82,7 +77,6 @@
                 type    vector
                 size    3
                 default { "0" "0" "0" }
-                help    "Center of module."
                 disablewhen "{ bUseInternalBBox == 0 }"
                 range   { -1 1 }
                 parmtag { "autoscope" "0000000000000000" }
@@ -93,7 +87,6 @@
                 type    vector
                 size    3
                 default { "1" "1" "1" }
-                help    "Size of module."
                 disablewhen "{ bUseInternalBBox == 0 }"
                 range   { -1 1 }
                 parmtag { "autoscope" "0000000000000000" }
@@ -103,7 +96,6 @@
                 label   "Uniform Scale"
                 type    float
                 default { "1" }
-                help    "Uniform scale of module, the 3-value scale is multiplied by this value."
                 disablewhen "{ bUseInternalBBox == 0 }"
                 range   { 0 10 }
                 parmtag { "autoscope" "0000000000000000" }
@@ -114,7 +106,6 @@
                 type    vector
                 size    3
                 default { "0" "0" "0" }
-                help    "Rotation of this module."
                 disablewhen "{ bUseInternalBBox == 0 }"
                 range   { 0 360 }
                 parmtag { "autoscope" "0000000000000000" }
@@ -132,7 +123,6 @@
             label   "Module Name"
             type    string
             default { "" }
-            help    "Module to apply within the bounding box(es) connected to the second input."
             parmtag { "autoscope" "0000000000000000" }
         }
     }

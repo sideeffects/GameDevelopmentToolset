@@ -3,7 +3,7 @@
 {
     name	gamedev::sop_curve_branches
     script	gamedev::sop_curve_branches
-    label	"GameDev Curve Branches"
+    label	"GameDev Simple L System"
 
     help {
 	""
@@ -20,7 +20,6 @@
         type    color
         size    3
         default { "0" "1" "0" }
-        help    "Color of the generated branches."
         range   { 0 1 }
         parmtag { "autoscope" "0000000000000000" }
     }
@@ -30,7 +29,6 @@
         type    float
         joinnext
         default { "0" }
-        help    "Minimum distance along input curve(s) where branches can start growing. A value of 0.5 will mean branches can only grow from halfway down the input curve."
         range   { 0! 1! }
         parmtag { "autoscope" "0000000000000000" }
     }
@@ -39,7 +37,6 @@
         label   "Finish"
         type    float
         default { "1" }
-        help    "Maximum distance along input curve(s) where branches can start growing. A value of 0.7 will mean branches will stop being generated at 70% of the original curve input."
         range   { 0! 1! }
         parmtag { "autoscope" "0000000000000000" }
     }
@@ -49,7 +46,6 @@
         type    integer
         joinnext
         default { "4" }
-        help    "Number of branches to generate per input curve."
         range   { 1 100 }
         parmtag { "autoscope" "0000000000000000" }
     }
@@ -58,7 +54,6 @@
         label   "Variation +-"
         type    integer
         default { "0" }
-        help    "Add randomness to the amount of child curves generated per input curve."
         range   { 1 100 }
         parmtag { "autoscope" "0000000000000000" }
     }
@@ -68,7 +63,6 @@
         type    float
         joinnext
         default { "0.2" }
-        help    "Length of the generated branches."
         range   { 0 10 }
         parmtag { "autoscope" "0000000000000000" }
     }
@@ -77,7 +71,6 @@
         label   "Variation +- "
         type    float
         default { "0" }
-        help    "Length variation per generated branch."
         range   { 0 10 }
         parmtag { "autoscope" "0000000000000000" }
     }
@@ -87,16 +80,13 @@
         type    float
         joinnext
         default { "3" }
-        help    "Offset added to Y component of branch direction vector. A value of 0 will make branches grow perpendicular to the input curves."
         range   { -100 100 }
-        parmtag { "autoscope" "0000000000000000" }
     }
     parm {
         name    "vertical_offset_variation"
         label   "Variation +-"
         type    float
         default { "0" }
-        help    "Amount of random offset of the vertical offset."
         range   { -100 100 }
     }
     parm {
@@ -104,7 +94,6 @@
         label   "Mirror X "
         type    toggle
         default { "0" }
-        help    "Duplicate "
     }
     parm {
         name    "spread"
@@ -112,7 +101,6 @@
         type    float
         joinnext
         default { "1" }
-        help    "Amount that branches twist around the input curves. A value of 0 means all branches will stay on the same plane (relative to the input curve), low spread values will spiral branches around the input curves, high spread values look more organic and chaotic."
         range   { 0 1 }
         parmtag { "autoscope" "0000000000000000" }
     }
@@ -129,21 +117,18 @@
         label   "Curl"
         type    float
         default { "0" }
-        help    "Apply a curl effect to the branches, approximating the look of vines and organic plant shapes."
         range   { -1 1 }
         parmtag { "autoscope" "0000000000000000" }
     }
     groupsimple {
         name    "folder0"
         label   "Noise"
-        grouptag { "group_type" "simple" }
 
         parm {
             name    "noise_intensity"
             label   "Intensity"
             type    ramp_flt
             default { "2" }
-            help    "Control where noise gets applied along the length of the branch. The left side of the ramp represents the start of the branc, the right side represents the end."
             range   { 1! 10 }
             parmtag { "autoscope" "0000000000000000" }
             parmtag { "rampfloatdefault" "1pos ( 0 ) 1value ( 0 ) 1interp ( linear ) 2pos ( 0.55176931619644165 ) 2value ( 0.63333332538604736 ) 2interp ( linear )" }
@@ -153,7 +138,6 @@
             label   "Amplitude"
             type    float
             default { "0.05" }
-            help    "Amplitude of noise, multiplied against the Intensity ramp."
             range   { -1 1 }
             parmtag { "autoscope" "0000000000000000" }
             parmtag { "parmvop" "1" }
@@ -165,7 +149,6 @@
             type    float
             size    3
             default { "20" "20" "20" }
-            help    "Frequency of the noise."
             range   { 0 10 }
             parmtag { "autoscope" "0000000000000000" }
             parmtag { "parmvop" "1" }
@@ -177,7 +160,6 @@
             type    float
             size    3
             default { "0" "0" "0" }
-            help    "Offset of noise."
             range   { 0 10 }
             parmtag { "autoscope" "0000000000000000" }
             parmtag { "parmvop" "1" }

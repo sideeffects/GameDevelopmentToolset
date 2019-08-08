@@ -1,4 +1,3 @@
-import hou
 import pprint
 
 MULTIPARM_TYPES = [hou.folderType.MultiparmBlock,

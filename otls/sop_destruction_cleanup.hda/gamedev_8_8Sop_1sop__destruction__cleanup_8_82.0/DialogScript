@@ -28,20 +28,19 @@
         label   "ThirdIsConnected"
         type    integer
         invisible
-        default { [ "opexist(opinputpath('.',1))" hscript-expr ] }
+        default { "opexist(opinputpath('.',1))" }
         range   { 0 10 }
     }
     groupsimple {
         name    "folder2"
         label   "Basic"
-        grouptag { "group_type" "simple" }
 
         parm {
             name    "simulationRange"
             label   "Simulation Range"
             type    intvector2
             size    2
-            default { [ "$RFSTART" hscript-expr ] [ "$RFEND" hscript-expr ] }
+            default { "$RFSTART" "$RFEND" }
             help    "The simulation range determines what the framerange is that will be used for the data analysis. It is recommended to leave these to the start and end frame of your simulation."
             range   { -1 1 }
         }
@@ -51,25 +50,25 @@
             type    toggle
             default { "0" }
             help    "This controls whether or not unique chunks should be colorcoded."
+            range   { 0 1 }
         }
     }
 
     parm {
         name    "sepparm2"
-        label   "sepparm2"
+        label   "Separator"
         type    separator
         invisible
         default { "" }
+        range   { 0 1 }
     }
     groupsimple {
         name    "folder1"
         label   "Cleanup Properties"
-        grouptag { "group_type" "simple" }
 
         groupsimple {
             name    "folder4"
             label   "Insides"
-            grouptag { "group_type" "simple" }
 
             parm {
                 name    "bFuseSurface"
@@ -77,6 +76,7 @@
                 type    toggle
                 default { "1" }
                 help    "This controls if surface points should be fused together. This will also trigger the removal of inside faces."
+                range   { 0 1 }
             }
             parm {
                 name    "fuseDistance"
@@ -92,7 +92,6 @@
         groupsimple {
             name    "folder3"
             label   "Cusping"
-            grouptag { "group_type" "simple" }
 
             parm {
                 name    "bCuspPolygons"
@@ -100,6 +99,7 @@
                 type    toggle
                 default { "0" }
                 help    "This controls if polygon cusping should be applied to the newly generated geometry."
+                range   { 0 1 }
             }
             parm {
                 name    "mCuspMode"
@@ -219,7 +219,6 @@
         groupsimple {
             name    "folder5"
             label   "Piece Names"
-            grouptag { "group_type" "simple" }
 
             parm {
                 name    "bGenerateName"
@@ -241,7 +240,6 @@
         groupsimple {
             name    "folder0"
             label   "Advanced"
-            grouptag { "group_type" "simple" }
 
             parm {
                 name    "bFreezeThreshold"
@@ -266,6 +264,7 @@
                 default { "0" }
                 help    "This controls whether or not to apply bound optimization."
                 disablewhen "{ thirdinput == 0 }"
+                range   { 0 1 }
             }
             parm {
                 name    "clampPos"

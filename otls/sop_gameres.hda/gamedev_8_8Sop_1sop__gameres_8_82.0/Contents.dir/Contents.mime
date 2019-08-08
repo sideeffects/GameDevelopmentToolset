@@ -32,24 +32,22 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position -4.71856 -12.9224
-connectornextid 1
+position -4.15086 0.14027
+connectornextid 0
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
 {
 }
 inputsNamed3
 {
-0 	HIGH 1 1 "input1"
 }
 inputs
 {
-0 	HIGH 0 1
 }
 stat
 {
-  create 1559140439
-  modify 1564770115
+  create 1559138123
+  modify 1559138328
   author mikel@mikembp-sesi
   access 0777
 }
@@ -73,7 +71,7 @@ Content-Type: text/plain
 	},
 	"___toolid___":{
 		"type":"string",
-		"value":"gamedev::sop_gameres"
+		"value":"gamedev::sop_gameres::2.0"
 	}
 }
 
@@ -443,7 +441,7 @@ Content-Type: text/plain
 version 0.8
 folder1	[ 0	locks=0 ]	(	0	)
 uvattrib	[ 0	locks=0 ]	(	uv	)
-method	[ 0	locks=0 ]	(	[ method	3 ] 	)
+method	[ 0	locks=0 ]	(	[ method	2 ] 	)
 fuse_distance	[ 0	locks=0 ]	(	[ fuse_distance	0.01 ] 	)
 num_points	[ 0	locks=0 ]	(	[ num_points	25 ] 	)
 convex_multiplier	[ 0	locks=0 ]	(	[ convex_multiplier	0.10000000000000001 ] 	)
@@ -653,7 +651,7 @@ inputs
 stat
 {
   create 1559138314
-  modify 1564769367
+  modify 1559138621
   author mikel@mikembp-sesi
   access 0777
 }
@@ -1050,34 +1048,34 @@ Content-Type: text/plain
 {
 version 0.8
 execute	[ 0	locks=0 ]	(	[ execute	0 ] 	)
-spacer	[ 0	locks=0 ]	(	""	)
+spacer	[ 0	locks=0	autoscope=0 ]	(	""	)
 like_tool	[ 0	locks=0 ]	(	0	)
 dont_like	[ 0	locks=0 ]	(	0	)
 render	[ 0	locks=0 ]	(	[ render	0 ] 	)
-privateparmsfolder	[ 0	locks=0 ]	(	0	0	0	)
-overridenode	[ 0	locks=0	autoscope=0 ]	(	[ overridenode	/obj/geo1/sop_gameres1 ] 	)
-initswitch	[ 0	locks=0	autoscope=0 ]	(	[ initswitch	1 ] 	)
-uuid	[ 0	locks=0	autoscope=0 ]	(	[ uuid	b923c4e2-1733-40d7-aca8-bb510a9ff4dc ] 	)
-current_low_mesh	[ 0	locks=0	autoscope=0 ]	(	[ current_low_mesh	/obj/geo1/sop_gameres1/sop_simple_baker1/LOW ] 	)
-current_high_mesh	[ 0	locks=0	autoscope=0 ]	(	[ current_high_mesh	/obj/geo1/sop_gameres1/sop_simple_baker1/HIGH ] 	)
-tempexrpath	[ 0	locks=0	autoscope=0 ]	(	[ tempexrpath	/tmp/houdini_temp/b923c4e2-1733-40d7-aca8-bb510a9ff4dc_tmp_exr_path1.exr ] 	)
-tempcoppath	[ 0	locks=0	autoscope=0 ]	(	[ tempcoppath	/tmp/houdini_temp/b923c4e2-1733-40d7-aca8-bb510a9ff4dc_tmp_cop_path.exr ] 	)
+privateparmsfolder	[ 0	locks=0	autoscope=0 ]	(	0	0	0	)
+overridenode	[ 0	locks=0	autoscope=0 ]	(	[ overridenode	`opfullpath(\".\") ] 	)
+initswitch	[ 0	locks=0	autoscope=0 ]	(	[ initswitch	0 ] 	)
+uuid	[ 0	locks=0	autoscope=0 ]	(	[ uuid	e114ce3b-8301-469c-997c-5a14873f1561 ] 	)
+current_low_mesh	[ 0	locks=0	autoscope=0 ]	(	[ current_low_mesh	`opfullpath(\"./LOW\") ] 	)
+current_high_mesh	[ 0	locks=0	autoscope=0 ]	(	[ current_high_mesh	`opfullpath(\"./HIGH\") ] 	)
+tempexrpath	[ 0	locks=0	autoscope=0 ]	(	[ tempexrpath	`chs(\"./ropnet1/rop_games_baker/tempdirectory\")`/`chs(\"uuid\")`_tmp_exr_path1.exr ] 	)
+tempcoppath	[ 0	locks=0	autoscope=0 ]	(	[ tempcoppath	`chs(\"./ropnet1/rop_games_baker/tempdirectory\")`/`chs(\"uuid\")`_tmp_cop_path.exr ] 	)
 udimpostprocess	[ 0	locks=0	autoscope=0 ]	(	[ udimpostprocess	diffusefill ] 	)
-currentcoppath	[ 0	locks=0	autoscope=0 ]	(	[ currentcoppath	/obj/geo1/sop_gameres1/sop_simple_baker1/ropnet1/rop_games_baker/extract_net/base_image ] 	)
-currentcopoutput	[ 0	locks=0	autoscope=0 ]	(	[ currentcopoutput	/tmp/houdini_temp/initcop.tga ] 	)
-currentplane	[ 0	locks=0	autoscope=0 ]	(	[ currentplane	"" ] 	)
+currentcoppath	[ 0	locks=0	autoscope=0 ]	(	[ currentcoppath	`opfullpath(\"./ropnet1/rop_games_baker/extract_net/base_image\") ] 	)
+currentcopoutput	[ 0	locks=0	autoscope=0 ]	(	[ currentcopoutput	`chs(\"./ropnet1/rop_games_baker/tempdirectory\")`/initcop.tga ] 	)
+currentplane	[ 0	locks=0	autoscope=0 ]	(	[ currentplane	basecolor ] 	)
 currentgamma	[ 0	locks=0	autoscope=0 ]	(	[ currentgamma	2.2000000000000002 ] 	)
 currentcustomattr	[ 0	locks=0	autoscope=0 ]	(	[ currentcustomattr	v ] 	)
 currentcustomsuffix	[ 0	locks=0	autoscope=0 ]	(	[ currentcustomsuffix	velocity ] 	)
-vm_uvunwrapres	[ 0	locks=0	autoscope=0 ]	(	[ vm_uvunwrapresx	2048 ] 	[ vm_uvunwrapresy	2048 ] 	)
+vm_uvunwrapres	[ 0	locks=0	autoscope=0 ]	(	[ vm_uvunwrapresx	512 ] 	[ vm_uvunwrapresy	512 ] 	)
 uvresmenu	[ 0	locks=0 ]	(	0	)
-base_path	[ 0	locks=0	autoscope=0 ]	(	[ base_path	/Users/mikel/Documents/projects/GameDevShelf/hip/render/gameres_$(CHANNEL).tga ] 	)
+base_path	[ 0	locks=0	autoscope=0 ]	(	[ base_path	$HIP/render/${HIPNAME}_$(CHANNEL).tga ] 	)
 export_fbx	[ 0	locks=0	autoscope=0 ]	(	[ export_fbx	0 ] 	)
-fbx_path	[ 0	locks=0	autoscope=0 ]	(	[ fbx_path	/Users/mikel/Documents/projects/GameDevShelf/hip/render/games_baker_refactor_v02.fbx ] 	)
-channels	[ 0	locks=0 ]	(	0	0	)
+fbx_path	[ 0	locks=0	autoscope=0 ]	(	[ fbx_path	$HIP/render/${HIPNAME}.fbx ] 	)
+channels	[ 0	locks=0	autoscope=0 ]	(	0	0	)
 bake_basecolor	[ 0	locks=0	autoscope=0 ]	(	[ bake_basecolor	0 ] 	)
 basecolor_suffix	[ 0	locks=0	autoscope=0 ]	(	[ basecolor_suffix	basecolor ] 	)
-bake_Nt	[ 0	locks=0	autoscope=0 ]	(	[ bake_Nt	1 ] 	)
+bake_Nt	[ 0	locks=0	autoscope=0 ]	(	[ bake_Nt	0 ] 	)
 Nt_suffix	[ 0	locks=0	autoscope=0 ]	(	[ Nt_suffix	normal ] 	)
 bake_alpha	[ 0	locks=0	autoscope=0 ]	(	[ bake_alpha	0 ] 	)
 alpha_suffix	[ 0	locks=0	autoscope=0 ]	(	[ alpha_suffix	alpha ] 	)
@@ -1099,20 +1097,20 @@ bake_Ds	[ 0	locks=0	autoscope=0 ]	(	[ bake_Ds	0 ] 	)
 Ds_suffix	[ 0	locks=0	autoscope=0 ]	(	[ Ds_suffix	height ] 	)
 custom_channels	[ 0	locks=0	autoscope=0 ]	(	[ custom_channels	0 ] 	)
 trange	[ 0	locks=0	autoscope=0 ]	(	[ trange	0 ] 	)
-f	[ 0	locks=0	autoscope=0 ]	(	[ f1	1 ] 	[ f2	240 ] 	[ f3	1 ] 	)
-vm_bake_usemikkt	[ 0	locks=0	autoscope=0 ]	(	[ vm_bake_usemikkt	1 ] 	)
-bBasecolorLinearSpace	[ 0	locks=0 ]	(	"off"	)
+f	[ 0	locks=0	autoscope=0 ]	(	[ f1	0 ] 	[ f2	0 ] 	[ f3	1 ] 	)
+vm_bake_usemikkt	[ 0	locks=0	autoscope=0 ]	(	[ vm_bake_usemikkt	0 ] 	)
+bBasecolorLinearSpace	[ 0	locks=0	autoscope=0 ]	(	"off"	)
 vm_bake_tangentnormalflipy	[ 0	locks=0	autoscope=0 ]	(	[ vm_bake_tangentnormalflipy	0 ] 	)
-vm_bake_skipcf	[ 0	locks=0 ]	(	"on"	)
+vm_bake_skipcf	[ 0	locks=0	autoscope=0 ]	(	"on"	)
 vm_uvcageobject1	[ 0	locks=0	autoscope=0 ]	(	[ vm_uvcageobject1	"" ] 	)
 border_padding	[ 0	locks=0	autoscope=0 ]	(	[ border_padding	2 ] 	)
 baking_samples	[ 0	locks=0	autoscope=0 ]	(	[ baking_samples	8 ] 	)
 ray_bias	[ 0	locks=0	autoscope=0 ]	(	[ ray_bias	0.01 ] 	)
 ray_distance	[ 0	locks=0	autoscope=0 ]	(	[ ray_distance	-1 ] 	)
-basecolor	[ 0	locks=0	autoscope=0 ]	(	[ basecolorr	0.40000000000000002 ] 	[ basecolorg	0.40000000000000002 ] 	[ basecolorb	0.40000000000000002 ] 	)
-ior	[ 0	locks=0	autoscope=0 ]	(	[ ior	1.52 ] 	)
-rough	[ 0	locks=0	autoscope=0 ]	(	[ rough	0.51800000000000002 ] 	)
-visualize_channel	[ 0	locks=0	autoscope=0 ]	(	[ visualize_channel	ao ] 	)
+basecolor	[ 0	locks=0	autoscope=0 ]	(	[ basecolorr	1 ] 	[ basecolorg	1 ] 	[ basecolorb	1 ] 	)
+ior	[ 0	locks=0	autoscope=0 ]	(	[ ior	1 ] 	)
+rough	[ 0	locks=0	autoscope=0 ]	(	[ rough	1 ] 	)
+visualize_channel	[ 0	locks=0	autoscope=0 ]	(	[ visualize_channel	basecolor ] 	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -1417,7 +1415,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.330"
+		"value":"17.5.258"
 	}
 }
 
@@ -1488,7 +1486,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.330"
+		"value":"17.5.258"
 	}
 }
 
@@ -1563,7 +1561,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.330"
+		"value":"17.5.258"
 	}
 }
 
@@ -1600,7 +1598,7 @@ inputs
 stat
 {
   create 1520972602
-  modify 1564769855
+  modify 1559138314
   author MAINGEAR@DESKTOP-P98C1VA
   access 0777
 }
@@ -1628,7 +1626,7 @@ Content-Type: text/plain
 
 {
 version 0.8
-input	[ 8	locks=0 ]	(	[ input	0 ] 	)
+input	[ 8	locks=0 ]	(	[ input	1 ] 	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -1638,7 +1636,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.330"
+		"value":"17.5.258"
 	}
 }
 
@@ -1673,7 +1671,7 @@ inputs
 stat
 {
   create 1520972606
-  modify 1564769855
+  modify 1559138314
   author MAINGEAR@DESKTOP-P98C1VA
   access 0777
 }
@@ -1706,7 +1704,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.330"
+		"value":"17.5.258"
 	}
 }
 
@@ -1749,7 +1747,7 @@ inputs
 stat
 {
   create 1520973314
-  modify 1564769855
+  modify 1559057417
   author MAINGEAR@DESKTOP-P98C1VA
   access 0777
 }
@@ -1787,7 +1785,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.330"
+		"value":"17.5.258"
 	}
 }
 
@@ -1821,7 +1819,7 @@ inputs
 stat
 {
   create 1520973515
-  modify 1564769855
+  modify 1559057417
   author MAINGEAR@DESKTOP-P98C1VA
   access 0777
 }
@@ -1846,7 +1844,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.330"
+		"value":"17.5.258"
 	}
 }
 
@@ -1917,7 +1915,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.330"
+		"value":"17.5.258"
 	}
 }
 
@@ -2075,7 +2073,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.330"
+		"value":"17.5.258"
 	}
 }
 

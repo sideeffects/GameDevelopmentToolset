@@ -177,7 +177,6 @@ void SimpleLightingModel(in vec3 P, in vec3 nN, inout vec3 lDiff, vec3 lightPos)
     S = smoothstep(0.29, 0.3, clamp(dot(normalize(L), nN), 0, 1));
     S = step(threshold + (1 - occlusion) + aoMap, dot(normalize(L), nN));
     vec3 base = mix(baseColour * tintColour, baseColour, S);
-    base = base * lightColour * lightIntensity;
     //lDiff = mix(emit, base, shifted);
     lDiff = base + emit;
     //lDiff = base;

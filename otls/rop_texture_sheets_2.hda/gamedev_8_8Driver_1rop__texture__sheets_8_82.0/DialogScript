@@ -15,7 +15,6 @@
         name    "execute"
         baseparm
         label   "Render"
-        invisible
         joinnext
         export  none
     }
@@ -24,16 +23,7 @@
         baseparm
         label   "Controls..."
         nolabel
-        invisible
         export  none
-    }
-    parm {
-        name    "force_render"
-        label   "Render"
-        type    button
-        default { "0" }
-        parmtag { "script_callback" "hou.node(\"%s/null1\" % hou.pwd().path()).render()" }
-        parmtag { "script_callback_language" "python" }
     }
     group {
         name    "channel_packing_folder_2"

@@ -227,7 +227,7 @@
             name    "double_textures"
             label   "Double Textures (Higher Precision)"
             type    toggle
-            default { "1" }
+            default { "0" }
             help    "Stores the pscale data into the alpha channel of the position map to save texture space."
             range   { 0 10 }
         }
@@ -368,6 +368,39 @@
             parmtag { "autoscope" "0000000000000000" }
             parmtag { "button_icon" "SOP_file" }
             parmtag { "script_callback" "import toolutils; node = hou.pwd(); explore = toolutils.createModuleFromSection(\"explore\",node.type(),\"explore.py\"); explore.path(kwargs['node'], hou.ch(\"path_pos))" }
+            parmtag { "script_callback_language" "python" }
+        }
+        parm {
+            name    "enable_pos2"
+            label   "enable_pos"
+            type    toggle
+            nolabel
+            joinnext
+            default { "1" }
+            help    "Enable export of position."
+        }
+        parm {
+            name    "path_pos2"
+            label   "Position2"
+            type    image
+            joinnext
+            default { "`chs(\"_project\")`/textures/`chs(\"_component\")`_pos2.exr" }
+            help    "Path on disk to save the position map."
+            disablewhen "{ enable_pos2 != 1 }"
+            range   { 0 1 }
+        }
+        parm {
+            name    "explore_path_pos2"
+            label   "Browse Path"
+            type    button
+            nolabel
+            default { "0" }
+            help    "Opens an explorer window to the listed directory"
+            disablewhen "{ enable_pos2 != 1 }"
+            range   { 0 1 }
+            parmtag { "autoscope" "0000000000000000" }
+            parmtag { "button_icon" "SOP_file" }
+            parmtag { "script_callback" "import toolutils; node = hou.pwd(); explore = toolutils.createModuleFromSection(\"explore\",node.type(),\"explore.py\"); explore.path(kwargs['node'], hou.ch(\"path_pos2))" }
             parmtag { "script_callback_language" "python" }
         }
         parm {

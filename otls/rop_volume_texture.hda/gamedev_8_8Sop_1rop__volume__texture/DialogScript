@@ -34,6 +34,21 @@
                 "1" "Z"
             }
         }
+        parm {
+            name    "bFrozenFrame"
+            label   "Frame Frozen"
+            type    toggle
+            default { "1" }
+        }
+        parm {
+            name    "frame"
+            label   "Frame"
+            type    integer
+            default { [ "$RFSTART" hscript-expr ] }
+            disablewhen "{ bFrozenFrame == 0 }"
+            range   { 1 240 }
+            parmtag { "autoscope" "0000000000000000" }
+        }
     }
 
     groupsimple {

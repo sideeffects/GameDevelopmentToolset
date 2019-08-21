@@ -42,6 +42,12 @@ def data(node):
     _pivMax      = str(node.evalParm('max_min_piv1'))
     _pivMin      = str(node.evalParm('max_min_piv2'))
     _packNorm    = str(node.evalParm('pack_norm'))
+    _doubleTex   = str(node.evalParm('double_textures'))
+    _padPowTwo   = str(node.evalParm('padpowtwo'))
+    _textureSizeX= str(node.evalParm('active_pixels1'))
+    _textureSizeY= str(node.evalParm('active_pixels2'))
+    _paddedSizeX = str(node.evalParm('padded_size1'))
+    _paddedSizeY = str(node.evalParm('padded_size2'))
     _packPscale  = str(node.evalParm('pack_pscale'))
     _normData    = str(node.evalParm('normalize_data'))
     _width       = str(node.evalParm('width_height1'))
@@ -59,6 +65,12 @@ def data(node):
         '_pivMax'       : _pivMax,
         '_pivMin'       : _pivMin,
         '_packNorm'     : _packNorm,
+        '_doubleTex'    : _doubleTex,
+        '_padPowTwo'    : _padPowTwo,
+        '_textureSizeX' : _textureSizeX,
+        '_textureSizeY' : _textureSizeY,
+        '_paddedSizeX' : _paddedSizeX,
+        '_paddedSizeY' : _paddedSizeY,
         '_packPscale'   : _packPscale,
         '_normData'     : _normData,
         '_width'        : _width,
@@ -149,26 +161,51 @@ def _depth(node):
 
 def shader(node):
     path = os.path.abspath(node.evalParm('path_shader'))
+    
     if not os.path.isfile(path) :
         engine = node.evalParm('engine') 
         method = node.evalParm('method')
         if   method == 0:
             smethod = 'soft'
+            fname = 'Soft'
         elif method == 1:
-            smethod = 'rigid'   
+            smethod = 'rigid'
+            fname = 'Rigid'
         elif method == 2:
-            smethod = 'fluid' 
+            smethod = 'fluid'
+            fname = 'Fluid'
         elif method == 3:
             smethod = 'sprite'
-        parm = smethod +"_shader_"+str(engine)
+            fname = 'Sprite'
+        parm = smethod +"_main_shader_"+str(engine)
         node.parm(parm).revertToDefaults()
-        shader = node.evalParm(parm) 
+        main_shader = node.evalParm(parm)
+        parm = smethod +"_forward_pass_shader_"+str(engine)
+        node.parm(parm).revertToDefaults()
+        forward_pass_shader = node.evalParm(parm)
+        parm = smethod +"_input_shader_"+str(engine)
+        node.parm(parm).revertToDefaults()
+        input_shader = node.evalParm(parm)
+        
+        main_shader_path = "%s/SimpleLitVAT%s.shader" % (path, fname)
+        forward_pass_path = "%s/SimpleLitVAT%sForwardPass.hlsl" % (path, fname)
+        input_path = "%s/SimpleLitVAT%sInput.hlsl" % (path, fname)
 
         directory = os.path.dirname(path)
         if not os.path.exists(directory):
-            os.makedirs(directory)   
-        with open(path,'w+') as f:
-            f.write(shader)            
+            os.makedirs(directory)
+        if not os.path.isfile(main_shader_path):
+            print("main shader doesn't exist")
+            with open(main_shader_path,'w+') as f:
+                f.write(main_shader)
+        if not os.path.isfile(forward_pass_path):
+            print("forward pass shader doesn't exist")
+            with open(forward_pass_path,'w+') as f:
+                f.write(forward_pass_shader)
+        if not os.path.isfile(input_path):
+            print("input shader doesn't exist")
+            with open(input_path,'w+') as f:
+                f.write(input_shader)
 
 # -----------------------------------------------------------------------------
 #    Name: mat_check(node)
@@ -180,6 +217,7 @@ def shader(node):
 def mat_check(node):
     path = os.path.abspath(node.evalParm('path_mat'))
     if not os.path.isfile(path) :
+        print("material doesn't exist")
         engine = node.evalParm('engine') 
         method = node.evalParm('method')
         if   method == 0:
@@ -217,6 +255,8 @@ def mat_check(node):
 
 def mat_update(node):
     #print 'Updating Material'
+    mat_check(node)
+    shader(node)
     path = os.path.abspath(node.evalParm('path_mat'))  
     if os.path.isfile(path) :
         engine       = str(node.evalParm('engine'))
@@ -230,6 +270,12 @@ def mat_update(node):
         _pivMax      = str(node.evalParm('max_min_piv1'))
         _pivMin      = str(node.evalParm('max_min_piv2'))
         _packNorm    = str(node.evalParm('pack_norm'))
+        _doubleTex   = str(node.evalParm('double_textures'))
+        _padPowTwo   = str(node.evalParm('padpowtwo'))
+        _textureSizeX= str(node.evalParm('active_pixels1'))
+        _textureSizeY= str(node.evalParm('active_pixels2'))
+        _paddedSizeX = str(node.evalParm('padded_size1'))
+        _paddedSizeY = str(node.evalParm('padded_size2'))
         _packPscale  = str(node.evalParm('pack_pscale'))
         _normData    = str(node.evalParm('normalize_data'))
         _width       = str(node.evalParm('width_height1'))
@@ -244,6 +290,12 @@ def mat_update(node):
         pivMax       = -1
         pivMin       = -1
         packNorm     = -1
+        doubleTex    = -1
+        padPowTwo    = -1
+        textureSizeX = -1
+        textureSizeY = -1
+        paddedSizeX  = -1
+        paddedSizeY  = -1
         packPscale   = -1
         normData     = -1
         width        = -1
@@ -269,6 +321,18 @@ def mat_update(node):
                     pivMin      = num
                 if "_packNorm"  in line:
                     packNorm    = num
+                if "_doubleTex" in line:
+                    doubleTex   = num
+                if "_padPowTwo" in line:
+                    padPowTwo   = num
+                if "_textureSizeX" in line:
+                    textureSizeX= num
+                if "_textureSizeY" in line:
+                    textureSizeY= num
+                if "_paddedSizeX" in line:
+                    paddedSizeX = num
+                if "_paddedSizeY" in line:
+                    paddedSizeY = num
                 if "_packPscale" in line:
                     packPscale  = num 
                 if "_normData"  in line:
@@ -297,6 +361,18 @@ def mat_update(node):
             list[pivMin-1]      = '    - _pivMin: '     +_pivMin+'\n'
         if "_packNorm"    != -1 :  
             list[packNorm-1]    = '    - _packNorm: '   +_packNorm+'\n'
+        if "_doubleTex"    != -1 :  
+            list[doubleTex-1]    = '    - _doubleTex: '   +_doubleTex+'\n'
+        if "_padPowTwo"    != -1 :  
+            list[padPowTwo-1]    = '    - _padPowTwo: '   +_padPowTwo+'\n'
+        if "_textureSizeX"    != -1 :  
+            list[textureSizeX-1] = '    - _textureSizeX: '   +_textureSizeX+'\n'
+        if "_textureSizeY"    != -1 :  
+            list[textureSizeY-1] = '    - _textureSizeY: '   +_textureSizeY+'\n'
+        if "_paddedSizeX"    != -1 :  
+            list[paddedSizeX-1] = '    - _paddedSizeX: '   +_paddedSizeX+'\n'
+        if "_paddedSizeY"    != -1 :  
+            list[paddedSizeY-1] = '    - _paddedSizeY: '   +_paddedSizeY+'\n'
         if "_packPscale"  != -1 :    
             list[packPscale-1]  = '    - _packPscale: ' +_packPscale+'\n'
         if "_normData"    != -1 :    
@@ -305,35 +381,37 @@ def mat_update(node):
             list[width-1]       = '    - _width: '      +_width+'\n'
         if "_height"      != -1 :  
             list[height-1]      = '    - _height: '     +_height+'\n'            
-        open(path,'w').write(''.join(list))       
-        
+        open(path,'w').write(''.join(list))
+    
 def padding_pow_two(node):
     size = hou.node(node.path() + "/textures/size")
     scale1 = hou.node(node.path() + "/textures/scale1")
     x = size.evalParm('size1')
     y = size.evalParm('size2')
+    size = [x,y]
+    padded_size = [4,4]
     max_size = max(x, y)
     
-    padded_size = 4
-    if max_size > 4096:
-        padded_size = 8192
-    elif max_size > 2048:
-        padded_size = 4096
-    elif max_size > 1024:
-        padded_size = 2048
-    elif max_size > 512:
-        padded_size = 1024
-    elif max_size > 256:
-        padded_size = 512
-    elif max_size > 128:
-        padded_size = 256
-    elif max_size > 64:
-        padded_size = 128
-    elif max_size > 32:
-        padded_size = 64
-    elif max_size > 16:
-        padded_size = 32
-    else:
-        padded_size = 16
+    for i in range(2):
+        if size[i] > 4096:
+            padded_size[i] = 8192
+        elif size[i] > 2048:
+            padded_size[i] = 4096
+        elif size[i] > 1024:
+            padded_size[i] = 2048
+        elif size[i] > 512:
+            padded_size[i] = 1024
+        elif size[i] > 256:
+            padded_size[i] = 512
+        elif size[i] > 128:
+            padded_size[i] = 256
+        elif size[i] > 64:
+            padded_size[i] = 128
+        elif size[i] > 32:
+            padded_size[i] = 64
+        elif size[i] > 16:
+            padded_size[i] = 32
+        else:
+            padded_size[i] = 16
         
     return padded_size 

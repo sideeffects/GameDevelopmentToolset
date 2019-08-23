@@ -2,6 +2,12 @@ MIME-Version: 1.0
 Content-Type: multipart/mixed; boundary="HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY"
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename=".OPfallbacks"
+Content-Type: application/external-reference
+
+.OPfallbacks
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
 Content-Disposition: attachment; filename=".OPdummydefs"
 Content-Type: application/external-reference
 
@@ -17,7 +23,7 @@ Sop
 Content-Disposition: attachment; filename="hdaroot.init"
 Content-Type: text/plain
 
-type = gamedev::sop_gea_tor_processor
+type = gamedev::sop_gaea_tor_processor
 matchesdef = 0
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -26,31 +32,312 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position -1.35058 1.82236
+position -1.89062 0.995185
 connectornextid 1
-flags =  lock off model off template off footprint off xray off bypass off display on render on highlight off unload off savedata off compress on colordefault on exposed on
+flags =  lock off model off template on footprint off xray off bypass off display on render on highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
 {
 }
 inputsNamed3
 {
-0 	heightfield1 0 1 "input1"
+0 	heightfield_drawmask1 1 1 "input1"
 }
 inputs
 {
-0 	heightfield1 0 1
+0 	heightfield_drawmask1 0 1
 }
 stat
 {
-  create 1565377501
-  modify 1565377786
-  author Paul_Ambrosiussen@LAPTOP-P8R7FBPF
+  create 1566601913
+  modify 1566602486
+  author prisms@threadripper1
   access 0777
 }
 color UT_Color RGB 0.8 0.8 0.8 
 delscript ""
 exprlanguage hscript
 end
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot.spareparmdef"
+Content-Type: text/plain
+
+    parm {
+        name    "bResetNode"
+        baseparm
+        label   "Reset Parameters"
+        joinnext
+        export  none
+    }
+    parm {
+        name    "automation_file"
+        baseparm
+        label   "Gaea Automation File"
+        export  none
+    }
+    parm {
+        name    "execute"
+        baseparm
+        label   "Cook"
+        joinnext
+        export  none
+    }
+    parm {
+        name    "bAutoCook"
+        baseparm
+        label   "Auto Cook"
+        export  none
+    }
+    parm {
+        name    "sepparm"
+        baseparm
+        label   "Separator"
+        export  none
+    }
+    groupsimple {
+        name    "generated_gaeaparms"
+        label   "Gaea Controls"
+
+        parm {
+            name    "duration"
+            label   "Duration"
+            type    float
+            default { "0.04" }
+            range   { 0.001! 1! }
+            parmtag { "script_callback" "kwargs[\"node\"].hm().ParmCallback(kwargs[\"node\"])" }
+            parmtag { "script_callback_language" "python" }
+        }
+        parm {
+            name    "rocksoftness"
+            label   "Rock Softness"
+            type    float
+            default { "0.65" }
+            range   { 0.05! 1! }
+            parmtag { "script_callback" "kwargs[\"node\"].hm().ParmCallback(kwargs[\"node\"])" }
+            parmtag { "script_callback_language" "python" }
+        }
+        parm {
+            name    "strength"
+            label   "Strength"
+            type    float
+            default { "0.5" }
+            range   { 0.001! 1! }
+            parmtag { "script_callback" "kwargs[\"node\"].hm().ParmCallback(kwargs[\"node\"])" }
+            parmtag { "script_callback_language" "python" }
+        }
+        parm {
+            name    "inhibition"
+            label   "Inhibition"
+            type    float
+            default { "0.5" }
+            range   { 0! 1! }
+            parmtag { "script_callback" "kwargs[\"node\"].hm().ParmCallback(kwargs[\"node\"])" }
+            parmtag { "script_callback_language" "python" }
+        }
+        parm {
+            name    "baselevel"
+            label   "Base Level"
+            type    float
+            default { "0" }
+            range   { 0! 1! }
+            parmtag { "script_callback" "kwargs[\"node\"].hm().ParmCallback(kwargs[\"node\"])" }
+            parmtag { "script_callback_language" "python" }
+        }
+        parm {
+            name    "realscale"
+            label   "Real Scale"
+            type    toggle
+            default { "1" }
+            parmtag { "script_callback" "kwargs[\"node\"].hm().ParmCallback(kwargs[\"node\"])" }
+            parmtag { "script_callback_language" "python" }
+        }
+        parm {
+            name    "featurescale"
+            label   "Feature Scale"
+            type    integer
+            default { "2000" }
+            range   { 50! 20000! }
+            parmtag { "script_callback" "kwargs[\"node\"].hm().ParmCallback(kwargs[\"node\"])" }
+            parmtag { "script_callback_language" "python" }
+        }
+        parm {
+            name    "terrainscale"
+            label   "Terrain Scale"
+            type    integer
+            default { "10000" }
+            range   { 500! 20000! }
+            parmtag { "script_callback" "kwargs[\"node\"].hm().ParmCallback(kwargs[\"node\"])" }
+            parmtag { "script_callback_language" "python" }
+        }
+        parm {
+            name    "verticality"
+            label   "Verticality"
+            type    integer
+            default { "2000" }
+            range   { 50! 20000! }
+            parmtag { "script_callback" "kwargs[\"node\"].hm().ParmCallback(kwargs[\"node\"])" }
+            parmtag { "script_callback_language" "python" }
+        }
+        parm {
+            name    "seed"
+            label   "Seed"
+            type    integer
+            default { "3594" }
+            range   { 0! 128000! }
+            parmtag { "script_callback" "kwargs[\"node\"].hm().ParmCallback(kwargs[\"node\"])" }
+            parmtag { "script_callback_language" "python" }
+        }
+        parm {
+            name    "mask"
+            label   "Mask"
+            type    ordinal
+            default { "2" }
+            menu {
+                "Erosion Strength"      "Erosion Strength"
+                "Rock Softness"         "Rock Softness"
+                "Precipitation Amount"  "Precipitation Amount"
+                "None"                  "None"
+            }
+            parmtag { "script_callback" "kwargs[\"node\"].hm().ParmCallback(kwargs[\"node\"])" }
+            parmtag { "script_callback_language" "python" }
+        }
+        parm {
+            name    "aggressivemode"
+            label   "Aggressive Mode"
+            type    toggle
+            default { "1" }
+            parmtag { "script_callback" "kwargs[\"node\"].hm().ParmCallback(kwargs[\"node\"])" }
+            parmtag { "script_callback_language" "python" }
+        }
+        groupsimple {
+            name    "generated_houdinioutputfolder"
+            label   "To Gaea"
+
+            parm {
+                name    "filein"
+                label   "Heightfield In"
+                type    string
+                default { "" }
+                menureplace {
+                    [ "import hou" ]
+                    [ "AllModuleNames = set(kwargs['node'].node('in').geometry().primStringAttribValues('name'))" ]
+                    [ "ModulePairs = [[x, x] for x in AllModuleNames]" ]
+                    [ "return sum(ModulePairs, [])" ]
+                    language python
+                }
+                parmtag { "script_callback" "kwargs[\"node\"].hm().ParmCallback(kwargs[\"node\"])" }
+                parmtag { "script_callback_language" "python" }
+            }
+            parm {
+                name    "rainmask"
+                label   "Mask In"
+                type    string
+                default { "" }
+                menureplace {
+                    [ "import hou" ]
+                    [ "AllModuleNames = set(kwargs['node'].node('in').geometry().primStringAttribValues('name'))" ]
+                    [ "ModulePairs = [[x, x] for x in AllModuleNames]" ]
+                    [ "return sum(ModulePairs, [])" ]
+                    language python
+                }
+                parmtag { "script_callback" "kwargs[\"node\"].hm().ParmCallback(kwargs[\"node\"])" }
+                parmtag { "script_callback_language" "python" }
+            }
+        }
+
+        groupsimple {
+            name    "generated_houdiniinputfolder"
+            label   "From Gaea"
+
+            parm {
+                name    "fileout"
+                label   "Height Out"
+                type    string
+                default { "" }
+                menureplace {
+                    [ "import hou" ]
+                    [ "AllModuleNames = set(kwargs['node'].node('in').geometry().primStringAttribValues('name'))" ]
+                    [ "ModulePairs = [[x, x] for x in AllModuleNames]" ]
+                    [ "return sum(ModulePairs, [])" ]
+                    language python
+                }
+                parmtag { "script_callback" "kwargs[\"node\"].hm().ParmCallback(kwargs[\"node\"])" }
+                parmtag { "script_callback_language" "python" }
+            }
+            parm {
+                name    "outWear"
+                label   "Wear Mask"
+                type    string
+                default { "" }
+                menureplace {
+                    [ "import hou" ]
+                    [ "AllModuleNames = set(kwargs['node'].node('in').geometry().primStringAttribValues('name'))" ]
+                    [ "ModulePairs = [[x, x] for x in AllModuleNames]" ]
+                    [ "return sum(ModulePairs, [])" ]
+                    language python
+                }
+                parmtag { "script_callback" "kwargs[\"node\"].hm().ParmCallback(kwargs[\"node\"])" }
+                parmtag { "script_callback_language" "python" }
+            }
+            parm {
+                name    "outDeposit"
+                label   "Deposit Mask"
+                type    string
+                default { "" }
+                menureplace {
+                    [ "import hou" ]
+                    [ "AllModuleNames = set(kwargs['node'].node('in').geometry().primStringAttribValues('name'))" ]
+                    [ "ModulePairs = [[x, x] for x in AllModuleNames]" ]
+                    [ "return sum(ModulePairs, [])" ]
+                    language python
+                }
+                parmtag { "script_callback" "kwargs[\"node\"].hm().ParmCallback(kwargs[\"node\"])" }
+                parmtag { "script_callback_language" "python" }
+            }
+            parm {
+                name    "outFlow"
+                label   "Flow Mask"
+                type    string
+                default { "" }
+                menureplace {
+                    [ "import hou" ]
+                    [ "AllModuleNames = set(kwargs['node'].node('in').geometry().primStringAttribValues('name'))" ]
+                    [ "ModulePairs = [[x, x] for x in AllModuleNames]" ]
+                    [ "return sum(ModulePairs, [])" ]
+                    language python
+                }
+                parmtag { "script_callback" "kwargs[\"node\"].hm().ParmCallback(kwargs[\"node\"])" }
+                parmtag { "script_callback_language" "python" }
+            }
+        }
+
+    }
+
+    groupsimple {
+        name    "mesh_settings_2"
+        label   "Settings"
+        grouptag { "group_type" "simple" }
+
+        parm {
+            name    "gaea_exe"
+            baseparm
+            label   "Gaea Location"
+            export  none
+        }
+        parm {
+            name    "sTempDir"
+            baseparm
+            label   "Cache Dir"
+            export  none
+        }
+        parm {
+            name    "hide_gaea_dialog"
+            baseparm
+            label   "Hide Gaea Dialog"
+            export  none
+        }
+    }
+
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
 Content-Disposition: attachment; filename="hdaroot.userdata"
@@ -81,7 +368,7 @@ Content-Type: text/plain
 }
 {
   create 1565312758
-  modify 1565377959
+  modify 1566601915
   author Paul_Ambrosiussen@LAPTOP-P8R7FBPF
   access 0777
 }
@@ -104,7 +391,7 @@ Content-Type: text/plain
 }
 {
   create 1565312894
-  modify 1565377960
+  modify 1566601916
   author Paul_Ambrosiussen@LAPTOP-P8R7FBPF
   access 0777
 }
@@ -127,7 +414,7 @@ Content-Type: text/plain
 }
 {
   create 1565312900
-  modify 1565377958
+  modify 1566601914
   author Paul_Ambrosiussen@LAPTOP-P8R7FBPF
   access 0777
 }
@@ -238,7 +525,7 @@ inputs
 stat
 {
   create 1541633966
-  modify 1565374398
+  modify 1566601956
   author Paul_Ambrosiussen@LAPTOP-P8R7FBPF
   access 0777
 }
@@ -394,8 +681,8 @@ out_format	[ 0	locks=0 ]	(	"single"	)
 output_type	[ 0	locks=0 ]	(	"i16"	)
 specify_res	[ 0	locks=0 ]	(	"off"	)
 resolution	[ 0	locks=0 ]	(	256	256	)
-volume_res	[ 0	locks=0 ]	(	[ volume_resx	1024 ] 	[ volume_resy	1024 ] 	)
-actual_res	[ 0	locks=0 ]	(	1024	1024	)
+volume_res	[ 0	locks=0 ]	(	[ volume_resx	500 ] 	[ volume_resy	500 ] 	)
+actual_res	[ 0	locks=0 ]	(	500	500	)
 trange	[ 0	locks=0 ]	(	"off"	)
 f	[ 0	locks=0 ]	(	[ f1	1 ] 	[ f2	240 ] 	1	)
 folder3	[ 0	locks=0 ]	(	1	)
@@ -729,7 +1016,7 @@ Content-Type: text/plain
 version 0.8
 source	[ 0	locks=0 ]	(	"file"	)
 coppath	[ 0	locks=0 ]	(	""	)
-filename	[ 0	locks=0	autoscope=1	autosel=4294967295 ]	(	[ filename	C:/Projects/Gaea/render/read_sop_gea_bridge1_height.png ] 	)
+filename	[ 0	locks=0	autoscope=1	autosel=4294967295 ]	(	[ filename	C:/Projects/Support/GAEA/render/read_sop_gaea_tor_processor1_height.png ] 	)
 reload	[ 8	locks=0 ]	(	0	)
 monoop	[ 0	locks=0 ]	(	"lum"	)
 type	[ 0	locks=0 ]	(	"heightfield"	)
@@ -1036,7 +1323,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.327"
+		"value":"17.5.356"
 	}
 }
 
@@ -1095,7 +1382,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.327"
+		"value":"17.5.356"
 	}
 }
 
@@ -1121,7 +1408,7 @@ inputs
 stat
 {
   create 1474476437
-  modify 1565374441
+  modify 1566601966
   author nobody@nowhere
   access 0777
 }
@@ -1178,7 +1465,7 @@ take	[ 0	locks=0 ]	(	_current_	)
 copswitcher	[ 0	locks=0 ]	(	0	0	0	0	0	)
 coppath	[ 0	locks=0 ]	(	../../../heightfield_output_height/cop2net1/flip1	)
 tres	[ 0	locks=0 ]	(	"natural"	)
-res	[ 0	locks=0 ]	(	1024	1024	)
+res	[ 0	locks=0 ]	(	500	500	)
 resmenu	[ 0	locks=0 ]	(	0	)
 copoutput	[ 0	locks=0 ]	(	`chs(\"../../output\")`	)
 mkpath	[ 0	locks=0 ]	(	"on"	)
@@ -1193,7 +1480,7 @@ batchmode	[ 0	locks=0 ]	(	"off"	)
 batchsize	[ 0	locks=0 ]	(	2	)
 reloadfiles	[ 0	locks=0 ]	(	"off"	)
 outputarea	[ 0	locks=0 ]	(	"frame"	)
-pixelcrop	[ 0	locks=0 ]	(	0	0	1023	1023	)
+pixelcrop	[ 0	locks=0 ]	(	0	0	499	499	)
 uvcrop	[ 0	locks=0 ]	(	0	0	1	1	)
 limitcanvaspixels	[ 0	locks=0 ]	(	"on"	)
 canvaspixels	[ 0	locks=0 ]	(	64	)
@@ -1249,7 +1536,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.327"
+		"value":"17.5.356"
 	}
 }
 
@@ -1879,7 +2166,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.327"
+		"value":"17.5.356"
 	}
 }
 
@@ -1912,7 +2199,7 @@ inputs
 stat
 {
   create 1564189494
-  modify 1565376421
+  modify 1566601955
   author Paul_Ambrosiussen@LAPTOP-P8R7FBPF
   access 0777
 }
@@ -1966,7 +2253,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.327"
+		"value":"17.5.356"
 	}
 }
 
@@ -2120,7 +2407,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.327"
+		"value":"17.5.356"
 	}
 }
 
@@ -2756,7 +3043,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.327"
+		"value":"17.5.356"
 	}
 }
 
@@ -2791,7 +3078,7 @@ inputs
 stat
 {
   create 1564253167
-  modify 1565374407
+  modify 1566601963
   author Paul_Ambrosiussen@LAPTOP-P8R7FBPF
   access 0777
 }
@@ -2849,7 +3136,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.327"
+		"value":"17.5.356"
 	}
 }
 
@@ -2884,7 +3171,7 @@ inputs
 stat
 {
   create 1564253697
-  modify 1565374407
+  modify 1566601963
   author Paul_Ambrosiussen@LAPTOP-P8R7FBPF
   access 0777
 }
@@ -2925,7 +3212,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.327"
+		"value":"17.5.356"
 	}
 }
 
@@ -2989,7 +3276,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.327"
+		"value":"17.5.356"
 	}
 }
 
@@ -3054,7 +3341,7 @@ Content-Type: text/plain
 
 {
 version 0.8
-input	[ 8	locks=0 ]	(	[ input	0 ] 	)
+input	[ 8	locks=0 ]	(	[ input	1 ] 	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -3064,7 +3351,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.327"
+		"value":"17.5.356"
 	}
 }
 
@@ -3125,7 +3412,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.327"
+		"value":"17.5.356"
 	}
 }
 
@@ -3196,7 +3483,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.327"
+		"value":"17.5.356"
 	}
 }
 
@@ -3267,7 +3554,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.327"
+		"value":"17.5.356"
 	}
 }
 
@@ -3338,7 +3625,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.327"
+		"value":"17.5.356"
 	}
 }
 
@@ -3419,7 +3706,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.327"
+		"value":"17.5.356"
 	}
 }
 
@@ -3497,7 +3784,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.327"
+		"value":"17.5.356"
 	}
 }
 
@@ -3557,7 +3844,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.327"
+		"value":"17.5.356"
 	}
 }
 
@@ -3627,7 +3914,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.327"
+		"value":"17.5.356"
 	}
 }
 
@@ -3688,7 +3975,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.327"
+		"value":"17.5.356"
 	}
 }
 
@@ -3749,7 +4036,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.327"
+		"value":"17.5.356"
 	}
 }
 
@@ -3810,7 +4097,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.327"
+		"value":"17.5.356"
 	}
 }
 
@@ -3871,7 +4158,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.327"
+		"value":"17.5.356"
 	}
 }
 
@@ -3932,7 +4219,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.327"
+		"value":"17.5.356"
 	}
 }
 
@@ -3993,7 +4280,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.327"
+		"value":"17.5.356"
 	}
 }
 

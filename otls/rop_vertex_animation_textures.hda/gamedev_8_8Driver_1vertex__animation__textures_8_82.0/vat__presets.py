@@ -65,7 +65,11 @@ def reset(node):
     node.parm('max_min_scale2').revertToDefaults()
     node.parm('width_height1').revertToDefaults() 
     node.parm('width_height2').revertToDefaults()     
-    node.parm('normalize_data').revertToDefaults() 
+    node.parm('normalize_data').revertToDefaults()
+    node.parm('active_pixels1').revertToDefaults()
+    node.parm('active_pixels2').revertToDefaults()
+    node.parm('padded_size1').revertToDefaults()
+    node.parm('padded_size2').revertToDefaults()
     node.parm('enable_geo').revertToDefaults() 
     node.parm('path_geo').revertToDefaults()
     node.parm('enable_pos').revertToDefaults() 
@@ -147,21 +151,21 @@ def unity(node,method):
     node.parm('coord_rot').set(11)     
     if method == 0 :
         node.parm('path_shader').deleteAllKeyframes()
-        node.parm('path_shader').set('`chs("_project")`/shaders/vertex_soft.shader')         
+        node.parm('path_shader').set('`chs("_project")`/shaders/SimpleLitVATSoft.shader')         
     elif method == 1 :
         node.parm('path_shader').deleteAllKeyframes()
-        node.parm('path_shader').set('`chs("_project")`/shaders/vertex_rigid.shader')         
+        node.parm('path_shader').set('`chs("_project")`/shaders/SimpleLitVATRigid.shader')         
     elif method == 2 :
         vat_utils.primcount(node)
         node.parm('path_shader').deleteAllKeyframes()
-        node.parm('path_shader').set('`chs("_project")`/shaders/vertex_fluid.shader')
+        node.parm('path_shader').set('`chs("_project")`/shaders/SimpleLitVATFluid.shader')
         node.parm('target_texture_size').deleteAllKeyframes()
         node.parm('target_texture_size').setExpression('ch("target_polycount")*3')
     elif method == 3 :
         node.parm('reverse_norm').deleteAllKeyframes()
         node.parm('reverse_norm').set(1)    
         node.parm('path_shader').deleteAllKeyframes()
-        node.parm('path_shader').set('`chs("_project")`/shaders/vertex_sprite.shader')
+        node.parm('path_shader').set('`chs("_project")`/shaders/SimpleLitVATSprite.shader')
 #    vat_utils.mat_check(node) 
 #    vat_utils.shader(node)     
     

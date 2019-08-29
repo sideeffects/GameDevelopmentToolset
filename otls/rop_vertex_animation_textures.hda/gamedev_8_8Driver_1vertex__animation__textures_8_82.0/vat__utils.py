@@ -53,29 +53,54 @@ def data(node):
     _width       = str(node.evalParm('width_height1'))
     _height      = str(node.evalParm('width_height2'))        
        
-    data = {}  
-    data[component] = []  
-    data[component].append({ 
-        '_numOfFrames'  : _numOfFrames,
-        '_speed'        : _speed,
-        '_posMax'       : _posMax,
-        '_posMin'       : _posMin,
-        '_scaleMax'     : _scaleMax,
-        '_scaleMin'     : _scaleMin,
-        '_pivMax'       : _pivMax,
-        '_pivMin'       : _pivMin,
-        '_packNorm'     : _packNorm,
-        '_doubleTex'    : _doubleTex,
-        '_padPowTwo'    : _padPowTwo,
-        '_textureSizeX' : _textureSizeX,
-        '_textureSizeY' : _textureSizeY,
-        '_paddedSizeX' : _paddedSizeX,
-        '_paddedSizeY' : _paddedSizeY,
-        '_packPscale'   : _packPscale,
-        '_normData'     : _normData,
-        '_width'        : _width,
-        '_height'       : _height         
-    })
+    data = {}
+    if engine == 'unity':
+        data[component] = []  
+        data[component].append({ 
+            '_numOfFrames'  : _numOfFrames,
+            '_speed'        : _speed,
+            '_posMax'       : _posMax,
+            '_posMin'       : _posMin,
+            '_scaleMax'     : _scaleMax,
+            '_scaleMin'     : _scaleMin,
+            '_pivMax'       : _pivMax,
+            '_pivMin'       : _pivMin,
+            '_packNorm'     : _packNorm,
+            '_doubleTex'    : _doubleTex,
+            '_padPowTwo'    : _padPowTwo,
+            '_textureSizeX' : _textureSizeX,
+            '_textureSizeY' : _textureSizeY,
+            '_paddedSizeX' : _paddedSizeX,
+            '_paddedSizeY' : _paddedSizeY,
+            '_packPscale'   : _packPscale,
+            '_normData'     : _normData,
+            '_width'        : _width,
+            '_height'       : _height         
+        })
+    else:
+        data = []
+        data.append({
+            'Name' : "Soft",
+            'numOfFrames'  : int(_numOfFrames),
+            'speed'        : float(_speed),
+            'posMax' : float(_posMax),
+            'posMin' : float(_posMin),
+            'scaleMax' : float(_scaleMax),
+            'scaleMin' : float(_scaleMin),
+            'pivMax' : float(_pivMax),
+            'pivMin' : float(_pivMin),
+            'packNorm' : int(_packNorm),
+            'doubleTex' : int(_doubleTex),
+            'padPowTwo' : int(_padPowTwo),
+            'textureSizeX' : int(_textureSizeX),
+            'textureSizeY' : int(_textureSizeY),
+            'paddedSizeX' : int(_paddedSizeX),
+            'paddedSizeY' : int(_paddedSizeY),
+            'packPscale' : int(_packPscale),
+            'normData' : int(_normData),
+            'width' : float(_width),
+            'height' : float(_height)
+        })
     with open(path, 'w') as f:  
         json.dump(data, f, indent=4, sort_keys=True)
                   
@@ -187,11 +212,13 @@ def shader(node):
         node.parm(parm).revertToDefaults()
         input_shader = node.evalParm(parm)
         
-        main_shader_path = "%s/SimpleLitVAT%s.shader" % (path, fname)
-        forward_pass_path = "%s/SimpleLitVAT%sForwardPass.hlsl" % (path, fname)
-        input_path = "%s/SimpleLitVAT%sInput.hlsl" % (path, fname)
-
         directory = os.path.dirname(path)
+        main_shader_path = "%s/SimpleLitVAT%s.shader" % (directory, fname)
+        forward_pass_path = "%s/SimpleLitVAT%sForwardPass.hlsl" % (directory, fname)
+        input_path = "%s/SimpleLitVAT%sInput.hlsl" % (directory, fname)
+
+        
+        print("path is: %s" % path)
         if not os.path.exists(directory):
             os.makedirs(directory)
         if not os.path.isfile(main_shader_path):

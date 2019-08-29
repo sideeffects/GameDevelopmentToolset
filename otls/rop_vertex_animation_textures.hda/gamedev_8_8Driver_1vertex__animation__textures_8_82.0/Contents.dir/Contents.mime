@@ -31,7 +31,7 @@ Content-Disposition: attachment; filename="hdaroot.def"
 Content-Type: text/plain
 
 comment ""
-position 0.476499 0.42978
+position -3.1738 -1.454
 connectornextid 0
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault off exposed on
 outputsNamed3
@@ -45,9 +45,9 @@ inputs
 }
 stat
 {
-  create 1566234680
-  modify 1566425928
-  author mikel@mikembp-sesi.local
+  create 1559227093
+  modify 1567092865
+  author mikel@mikembp-sesi
   access 0777
 }
 color UT_Color RGB 0 0.6 1 
@@ -198,7 +198,7 @@ inputs
 stat
 {
   create 1476805668
-  modify 1566423251
+  modify 1567025084
   author Luiz@Luiz-PC
   access 0777
 }
@@ -1028,7 +1028,7 @@ inputs
 stat
 {
   create 1477498323
-  modify 1566423251
+  modify 1567025084
   author Luiz@Luiz-PC
   access 0777
 }
@@ -1414,7 +1414,7 @@ inputs
 stat
 {
   create 1486172989
-  modify 1566423251
+  modify 1567025084
   author Luiz@LAPTOP-LKBBB5D4
   access 0777
 }
@@ -1492,7 +1492,7 @@ inputs
 stat
 {
   create 1486486757
-  modify 1566423251
+  modify 1567025084
   author Luiz@LAPTOP-LKBBB5D4
   access 0777
 }
@@ -1876,7 +1876,7 @@ inputs
 stat
 {
   create 1500046207
-  modify 1566423251
+  modify 1567025084
   author mikel@mikembp-sesi.local
   access 0777
 }
@@ -2128,7 +2128,7 @@ sopflags sopflags =
 comment ""
 position -0.503 -8.151
 connectornextid 2
-flags =  lock off model off template off footprint off xray off bypass off display on render on highlight off unload off savedata off compress on colordefault on exposed on
+flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
 {
 3 "output1"
@@ -2146,7 +2146,7 @@ inputs
 stat
 {
   create 1500046275
-  modify 1566423251
+  modify 1567025084
   author mikel@mikembp-sesi.local
   access 0777
 }
@@ -2159,13 +2159,6 @@ end
 Content-Disposition: attachment; filename="hdaroot/objects/MESH/rigid/wrangle_pivot.spareparmdef"
 Content-Type: text/plain
 
-    parm {
-        name    "scale"
-        label   "Scale"
-        type    float
-        default { "0" }
-        range   { 0 1 }
-    }
     group {
         name    "folder1"
         label   "Code"
@@ -2321,6 +2314,13 @@ Content-Type: text/plain
         }
     }
 
+    parm {
+        name    "scale"
+        label   "Scale"
+        type    float
+        default { "0" }
+        range   { 0 1 }
+    }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
 Content-Disposition: attachment; filename="hdaroot/objects/MESH/rigid/wrangle_pivot.chn"
@@ -2331,7 +2331,7 @@ Content-Type: text/plain
       lefttype = extend
       righttype = extend
       flags = 0
-      segment { length = 0 expr = ch(\"../../../../scale\") }
+      segment { length = 0 expr = ch('../../../../scale') }
     }
   }
 
@@ -2354,6 +2354,7 @@ v@pivot;
 @pivotNorm.x = fit(@pivot.x * ch(\"scale\"), @pivot_min, @pivot_max,0,1);
 @pivotNorm.y = fit(@pivot.y * ch(\"scale\"), @pivot_min, @pivot_max,0,1);
 @pivotNorm.z = fit(@pivot.z * ch(\"scale\"), @pivot_min, @pivot_max,0,1);
+
 //@pivotNorm   = swizzle(@pivotNorm,0,2,1);
 @Cd          = @pivotNorm;
 i@class      = @ptnum; "	)
@@ -2369,8 +2370,8 @@ vex_updatenmls	[ 0	locks=0 ]	(	"off"	)
 vex_matchattrib	[ 0	locks=0 ]	(	id	)
 vex_inplace	[ 0	locks=0 ]	(	"off"	)
 vex_selectiongroup	[ 0	locks=0 ]	(	""	)
-scale	[ 0	locks=0 ]	(	[ scale	100 ] 	)
 folder1	[ 0	locks=0 ]	(	0	0	)
+scale	[ 0	locks=0 ]	(	[ scale	100 ] 	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -2415,7 +2416,7 @@ inputs
 stat
 {
   create 1501156913
-  modify 1566423251
+  modify 1567025084
   author Matthewes@AL-PC
   access 0777
 }
@@ -2496,7 +2497,7 @@ inputs
 stat
 {
   create 1519581423
-  modify 1566423252
+  modify 1567089760
   author LaidlawFX@LaidlawFX
   access 0777
 }
@@ -3370,7 +3371,7 @@ inputs
 stat
 {
   create 1520002779
-  modify 1566423252
+  modify 1567089760
   author LaidlawFX@LaidlawFX
   access 0777
 }
@@ -5004,7 +5005,7 @@ inputs
 stat
 {
   create 1500046437
-  modify 1566423251
+  modify 1567025084
   author mikel@mikembp-sesi.local
   access 0777
 }
@@ -5387,7 +5388,7 @@ inputs
 stat
 {
   create 1462577487
-  modify 1566307875
+  modify 1567089765
   author belaid@BELAID-ART.redmond.corp.microsoft.com
   access 0777
 }
@@ -5883,7 +5884,7 @@ inputs
 stat
 {
   create 1477498323
-  modify 1566423251
+  modify 1567025084
   author Luiz@Luiz-PC
   access 0777
 }
@@ -6140,7 +6141,7 @@ vex_inplace	[ 0	locks=0 ]	(	"off"	)
 vex_selectiongroup	[ 0	locks=0 ]	(	""	)
 max_width	[ 0	locks=0 ]	(	[ max_width	1024 ] 	)
 numpt	[ 8	locks=0 ]	(	[ numpt	12 ] 	)
-frame_count	[ 0	locks=0 ]	(	[ frame_count	89 ] 	)
+frame_count	[ 0	locks=0 ]	(	[ frame_count	99 ] 	)
 folder1	[ 0	locks=0 ]	(	0	0	)
 }
 
@@ -6267,7 +6268,7 @@ inputs
 stat
 {
   create 1462577487
-  modify 1566397957
+  modify 1567089765
   author belaid@BELAID-ART.redmond.corp.microsoft.com
   access 0777
 }
@@ -6763,7 +6764,7 @@ inputs
 stat
 {
   create 1477498323
-  modify 1566423251
+  modify 1567025084
   author Luiz@Luiz-PC
   access 0777
 }
@@ -7070,7 +7071,7 @@ inputs
 stat
 {
   create 1561673989
-  modify 1566423251
+  modify 1567025084
   author mikel@mikembp-sesi
   access 0777
 }
@@ -8138,7 +8139,7 @@ inputs
 stat
 {
   create 1505933555
-  modify 1566423251
+  modify 1567025084
   author mikel@mikembp-sesi.local
   access 0777
 }
@@ -8407,7 +8408,7 @@ inputs
 stat
 {
   create 1500045825
-  modify 1566423251
+  modify 1567025084
   author mikel@mikembp-sesi.local
   access 0777
 }
@@ -8751,7 +8752,7 @@ inputs
 stat
 {
   create 1462577487
-  modify 1566307875
+  modify 1567089765
   author belaid@BELAID-ART.redmond.corp.microsoft.com
   access 0777
 }
@@ -9247,7 +9248,7 @@ inputs
 stat
 {
   create 1462815320
-  modify 1566423252
+  modify 1567089782
   author belaid@BELAID-ART.redmond.corp.microsoft.com
   access 0777
 }
@@ -9791,7 +9792,7 @@ inputs
 stat
 {
   create 1423789047
-  modify 1566423251
+  modify 1567025084
   author v-belaid@V-BELAID-ART.redmond.corp.microsoft.com
   access 0777
 }
@@ -13082,7 +13083,7 @@ inputs
 stat
 {
   create 1520469619
-  modify 1566423251
+  modify 1567025084
   author LaidlawFX@LaidlawFX
   access 0777
 }
@@ -13170,7 +13171,7 @@ inputs
 stat
 {
   create 1462577487
-  modify 1566397957
+  modify 1567089765
   author belaid@BELAID-ART.redmond.corp.microsoft.com
   access 0777
 }
@@ -13666,7 +13667,7 @@ inputs
 stat
 {
   create 1520476685
-  modify 1566423251
+  modify 1567025084
   author LaidlawFX@LaidlawFX
   access 0777
 }
@@ -13754,7 +13755,7 @@ inputs
 stat
 {
   create 1520476685
-  modify 1566423251
+  modify 1567025084
   author LaidlawFX@LaidlawFX
   access 0777
 }
@@ -13842,7 +13843,7 @@ inputs
 stat
 {
   create 1520476685
-  modify 1566423251
+  modify 1567025084
   author LaidlawFX@LaidlawFX
   access 0777
 }
@@ -13930,7 +13931,7 @@ inputs
 stat
 {
   create 1520476685
-  modify 1566423251
+  modify 1567025084
   author LaidlawFX@LaidlawFX
   access 0777
 }
@@ -14018,7 +14019,7 @@ inputs
 stat
 {
   create 1520476685
-  modify 1566423251
+  modify 1567025084
   author LaidlawFX@LaidlawFX
   access 0777
 }
@@ -14106,7 +14107,7 @@ inputs
 stat
 {
   create 1520476685
-  modify 1566423251
+  modify 1567025084
   author LaidlawFX@LaidlawFX
   access 0777
 }
@@ -14196,7 +14197,7 @@ inputs
 stat
 {
   create 1520469619
-  modify 1566423251
+  modify 1567025084
   author LaidlawFX@LaidlawFX
   access 0777
 }
@@ -14284,7 +14285,7 @@ inputs
 stat
 {
   create 1520480580
-  modify 1566423252
+  modify 1567089782
   author LaidlawFX@LaidlawFX
   access 0777
 }
@@ -15164,7 +15165,7 @@ inputs
 stat
 {
   create 1462577487
-  modify 1566397957
+  modify 1567089765
   author belaid@BELAID-ART.redmond.corp.microsoft.com
   access 0777
 }
@@ -15897,7 +15898,7 @@ inputs
 stat
 {
   create 1521578458
-  modify 1566423251
+  modify 1567025084
   author LaidlawFX@LaidlawFX
   access 0777
 }
@@ -15976,7 +15977,7 @@ inputs
 stat
 {
   create 1521578458
-  modify 1566423251
+  modify 1567025084
   author LaidlawFX@LaidlawFX
   access 0777
 }
@@ -16054,7 +16055,7 @@ inputs
 stat
 {
   create 1521578458
-  modify 1566423251
+  modify 1567025084
   author LaidlawFX@LaidlawFX
   access 0777
 }
@@ -16134,7 +16135,7 @@ inputs
 stat
 {
   create 1534533355
-  modify 1566423251
+  modify 1567025084
   author MAINGEAR@DESKTOP-P98C1VA
   access 0777
 }
@@ -16213,7 +16214,7 @@ inputs
 stat
 {
   create 1534533355
-  modify 1566423251
+  modify 1567025084
   author MAINGEAR@DESKTOP-P98C1VA
   access 0777
 }
@@ -16290,7 +16291,7 @@ inputs
 stat
 {
   create 1476805668
-  modify 1566423251
+  modify 1567025084
   author Luiz@Luiz-PC
   access 0777
 }
@@ -17043,7 +17044,7 @@ inputs
 stat
 {
   create 1495492095
-  modify 1566423251
+  modify 1567025084
   author mike@mikembp.local
   access 0777
 }
@@ -17588,17 +17589,17 @@ folder1	[ 0	locks=0 ]	(	0	0	)
 engine	[ 0	locks=0 ]	(	`chs(\"../../../engine\")`	)
 speed	[ 0	locks=0 ]	(	[ speed	0.24242424242424243 ] 	)
 numOfFrames	[ 0	locks=0 ]	(	[ numOfFrames	99 ] 	)
-boundingMax	[ 0	locks=0 ]	(	[ boundingMax	4.0262859999999998 ] 	)
-boundingMin	[ 0	locks=0 ]	(	[ boundingMin	-1.1457539999999999 ] 	)
+boundingMax	[ 0	locks=0 ]	(	[ boundingMax	469.98259999999999 ] 	)
+boundingMin	[ 0	locks=0 ]	(	[ boundingMin	-423.36016000000001 ] 	)
 texturePos	[ 8	locks=0 ]	(	`chs(\"../../../path_pos\")`	)
 texturePos2	[ 8	locks=0 ]	(	`chs(\"../../../path_pos2\")`	)
-coord_swizzle	[ 0	locks=0 ]	(	[ coord_swizzle	0 ] 	)
-coord_flip	[ 0	locks=0 ]	(	[ coord_flip	1 ] 	)
+coord_swizzle	[ 0	locks=0 ]	(	[ coord_swizzle	1 ] 	)
+coord_flip	[ 0	locks=0 ]	(	[ coord_flip	0 ] 	)
 offset	[ 0	locks=0 ]	(	0	)
 textureCd	[ 0	locks=0 ]	(	`chs(\"../../../path_col\")`	)
-image_height	[ 0	locks=0 ]	(	[ image_height	396 ] 	)
-image_width	[ 0	locks=0 ]	(	[ image_width	1024 ] 	)
-padded_size	[ 8	locks=0 ]	(	[ padded_sizex	1024 ] 	[ padded_sizey	512 ] 	)
+image_height	[ 0	locks=0 ]	(	[ image_height	99 ] 	)
+image_width	[ 0	locks=0 ]	(	[ image_width	20 ] 	)
+padded_size	[ 8	locks=0 ]	(	[ padded_sizex	32 ] 	[ padded_sizey	128 ] 	)
 enable_col	[ 0	locks=0 ]	(	[ enable_col	0 ] 	)
 padpowtwo	[ 0	locks=0 ]	(	[ padpowtwo	0 ] 	)
 doubleprecision	[ 0	locks=0 ]	(	[ doubleprecision	0 ] 	)
@@ -17653,7 +17654,7 @@ inputs
 stat
 {
   create 1495492095
-  modify 1566423251
+  modify 1567025084
   author mike@mikembp.local
   access 0777
 }
@@ -17936,7 +17937,7 @@ Content-Type: text/plain
     parm {
         name    "textureRot"
         label   "Texturerot"
-        type    string
+        type    image
         default { "" }
     }
     parm {
@@ -18173,7 +18174,7 @@ if (chi(\"padpowtwo\"))
 vector4 texturePos = rawcolormap(chs(\"texturePos\"),uv2x, uv2y, \"filter\", \"point\");
 if (chi(\"doubleprecision\"))
     {
-    vector4 texturePos2 = colormap(chs(\"texturePos2\"),uv2x, uv2y, \"filter\", \"point\");
+    vector texturePos2 = colormap(chs(\"texturePos2\"),uv2x, uv2y, \"filter\", \"point\");
     float tempA = texturePos.w;
     vector tempPos = vector(texturePos) + (texturePos2 * 0.01);
     texturePos = set(tempPos);
@@ -18205,8 +18206,8 @@ else
     {
     texturePos /= ch(\"scale\");
     }
-texturePos = coord_swizzle_vector(texturePos, chi(\"coord_swizzle\"), chi(\"coord_flip\"), 0);  //swizzle y and z because textures are exported with z-up
 
+texturePos = coord_swizzle_vector(vector(texturePos), chi(\"coord_swizzle\"), chi(\"coord_flip\"), 0);  //swizzle y and z because textures are exported with z-up
 //expand normalised pivot vertex colour values to world space
 vector pivot = @Cd;
 float pivotMin;
@@ -18220,22 +18221,28 @@ else {
     pivotMin = ch(\"pivotMin\");
     }
 float expand1 = pivotMax - pivotMin;
-pivot *= expand1;
-pivot += pivotMin;
+pivot *= set(vector(expand1));
+
+pivot += set(vector(pivotMin));
+
 pivot = coord_swizzle_vector(pivot, chi(\"coord_swizzle\"), chi(\"coord_flip\"), 0);
+
 vector atOrigin = @P - pivot;
 
 //calculate rotation
-
-textureRot *= 2.0;
-textureRot -= 1.0;
+if (chi('normalize_data')){
+    textureRot *= 2.0;
+    textureRot -= 1.0;
+    }
 p@rot = textureRot;
 //vector4 quat;
 //quat.x = textureRot.x;
 //quat.y = textureRot.z;
 //quat.z = textureRot.y;
 //quat.w = textureRot.w;
-vector4 quat = coord_swizzle_quaternion(textureRot, chi(\"quaternion_flip\"));
+vector4 quat = coord_swizzle_vector(vector(textureRot), chi(\"coord_swizzle\"), chi(\"coord_flip\"), 0);
+quat.w = textureRot.w;
+quat = coord_swizzle_quaternion(quat, chi(\"quaternion_flip\"));
 vector quat3 = set(vector(quat));
 vector crosses = cross(quat3, cross(quat3,atOrigin) + (atOrigin * quat.w)) * 2;
 vector added = pivot + atOrigin + crosses;
@@ -18244,9 +18251,9 @@ vector rotated = atOrigin + 2.0 * cross(quat3, cross(quat3, atOrigin) + quat.w *
 vector Pos = 0;
 Pos = rotated;
 Pos += pivot;
-Pos += texturePos;
+Pos += vector(texturePos);
 
-@P = texturePos + added;
+@P = vector(texturePos) + added;
 //@P = Pos;"	)
 exportlist	[ 0	locks=0 ]	(	*	)
 vex_strict	[ 0	locks=0 ]	(	"off"	)
@@ -18264,26 +18271,26 @@ folder1	[ 0	locks=0 ]	(	0	0	)
 engine	[ 0	locks=0 ]	(	`chs(\"../../../engine\")`	)
 speed	[ 0	locks=0 ]	(	[ speed	0.24242424242424243 ] 	)
 numOfFrames	[ 0	locks=0 ]	(	[ numOfFrames	99 ] 	)
-boundingMax	[ 0	locks=0 ]	(	[ boundingMax	7.9999981 ] 	)
-boundingMin	[ 0	locks=0 ]	(	[ boundingMin	-7.9999992999999998 ] 	)
+boundingMax	[ 0	locks=0 ]	(	[ boundingMax	6.2959605999999999 ] 	)
+boundingMin	[ 0	locks=0 ]	(	[ boundingMin	-5.1158812999999999 ] 	)
 texturePos	[ 0	locks=0 ]	(	`chs(\"../../../path_pos\")`	)
 texturePos2	[ 0	locks=0 ]	(	`chs(\"../../../path_pos2\")`	)
 coord_swizzle	[ 0	locks=0 ]	(	[ coord_swizzle	0 ] 	)
 coord_flip	[ 0	locks=0 ]	(	[ coord_flip	1 ] 	)
 quaternion_flip	[ 0	locks=0 ]	(	[ quaternion_flip	11 ] 	)
 offset	[ 0	locks=0 ]	(	0	)
-textureRot	[ 8	locks=0 ]	(	`chs(\"../../../path_rot\")`	)
-pivotMax	[ 0	locks=0 ]	(	[ pivotMax	4.4704699000000003 ] 	)
-pivotMin	[ 0	locks=0 ]	(	[ pivotMin	-0.63310750000000005 ] 	)
-image_width	[ 0	locks=0 ]	(	[ image_width	1024 ] 	)
-padded_size	[ 0	locks=0 ]	(	[ padded_size	1024 ] 	)
-image_height	[ 0	locks=0 ]	(	[ image_height	297 ] 	)
-padpowtwo	[ 0	locks=0 ]	(	[ padpowtwo	1 ] 	)
+textureRot	[ 0	locks=0 ]	(	`chs(\"../../../path_rot\")`	)
+pivotMax	[ 0	locks=0 ]	(	[ pivotMax	5.1667101999999998 ] 	)
+pivotMin	[ 0	locks=0 ]	(	[ pivotMin	-0.67643240000000004 ] 	)
+image_width	[ 0	locks=0 ]	(	[ image_width	20 ] 	)
+padded_size	[ 0	locks=0 ]	(	[ padded_size	32 ] 	)
+image_height	[ 0	locks=0 ]	(	[ image_height	99 ] 	)
+padpowtwo	[ 0	locks=0 ]	(	[ padpowtwo	0 ] 	)
 scale	[ 0	locks=0 ]	(	[ scale	100 ] 	)
-doubleprecision	[ 0	locks=0 ]	(	[ doubleprecision	1 ] 	)
+doubleprecision	[ 0	locks=0 ]	(	[ doubleprecision	0 ] 	)
 normalize_data	[ 0	locks=0 ]	(	[ normalize_data	1 ] 	)
-padded_sizex	[ 8	locks=0 ]	(	[ padded_sizex	1024 ] 	)
-padded_sizey	[ 8	locks=0 ]	(	[ padded_sizey	512 ] 	)
+padded_sizex	[ 0	locks=0 ]	(	[ padded_sizex	32 ] 	)
+padded_sizey	[ 0	locks=0 ]	(	[ padded_sizey	128 ] 	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -18332,7 +18339,7 @@ inputs
 stat
 {
   create 1495492095
-  modify 1566423251
+  modify 1567025084
   author mike@mikembp.local
   access 0777
 }
@@ -18944,7 +18951,7 @@ inputs
 stat
 {
   create 1495492095
-  modify 1566424707
+  modify 1567025084
   author mike@mikembp.local
   access 0777
 }
@@ -19535,7 +19542,7 @@ inputs
 stat
 {
   create 1495492095
-  modify 1566423251
+  modify 1567025084
   author mike@mikembp.local
   access 0777
 }
@@ -20066,7 +20073,7 @@ inputs
 stat
 {
   create 1566244307
-  modify 1566423251
+  modify 1567025084
   author mikel@mikembp-sesi.local
   access 0777
 }
@@ -20370,7 +20377,7 @@ inputs
 stat
 {
   create 1499280403
-  modify 1566423252
+  modify 1567089761
   author mikel@mikembp-sesi.local
   access 0777
 }
@@ -20721,7 +20728,7 @@ prehold	[ 0	locks=0 ]	(	0	)
 postextend	[ 0	locks=0 ]	(	"black"	)
 posthold	[ 0	locks=0 ]	(	0	)
 stdswitcher5	[ 0	locks=0 ]	(	0	0	0	0	)
-coord_swizzle	[ 0	locks=0 ]	(	[ coord_swizzle	0 ] 	)
+coord_swizzle	[ 0	locks=0 ]	(	[ coord_swizzle	1 ] 	)
 coord_flip	[ 0	locks=0 ]	(	0	)
 }
 
@@ -20741,7 +20748,7 @@ Content-Disposition: attachment; filename="hdaroot/textures/pack_normals.cop2"
 Content-Type: text/plain
 
 2
-50
+52
 0
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -22370,7 +22377,7 @@ inputs
 stat
 {
   create 1499134361
-  modify 1566423818
+  modify 1567089777
   author mikel@mikembp-sesi.local
   access 0777
 }
@@ -22681,6 +22688,25 @@ Content-Type: text/plain
         }
     }
 
+    parm {
+        name    "coord_flip"
+        label   "coord_flip"
+        type    integer
+        default { "0" }
+        menu {
+            "0" "+X +Y +Z"
+            "1" "-X +Y +Z"
+            "2" "+X -Y +Z"
+            "3" "+X +Y -Z"
+            "4" "-X -Y +Z"
+            "5" "-X +Y -Z"
+            "6" "-X -Y -Z"
+            "7" "+X -Y -Z"
+        }
+        range   { 0 1 }
+        parmtag { "parmvop" "1" }
+        parmtag { "shaderparmcontexts" "cop2" }
+    }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
 Content-Disposition: attachment; filename="hdaroot/textures/orient.chn"
@@ -22735,6 +22761,12 @@ Content-Type: text/plain
       righttype = extend
       flags = 0
       segment { length = 0 expr = ch(\"../../coord_pos\") }
+    }
+    channel coord_flip {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = ch(\"../../invert_pos\") }
     }
     channel target_texture_size {
       lefttype = extend
@@ -22795,6 +22827,7 @@ rbd_frame_export_attribute	[ 0	locks=0 ]	(	orient	)
 quaternion_flip	[ 0	locks=0 ]	(	[ quaternion_flip	11 ] 	)
 coord_swizzle	[ 8	locks=0 ]	(	[ coord_swizzle	0 ] 	)
 stdswitcher5	[ 0	locks=0 ]	(	2	2	2	2	)
+coord_flip	[ 0	locks=0 ]	(	[ coord_flip	1 ] 	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -22817,7 +22850,7 @@ Content-Disposition: attachment; filename="hdaroot/textures/orient.cop2"
 Content-Type: text/plain
 
 2
-309
+312
 0
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -22855,7 +22888,7 @@ inputs
 stat
 {
   create 1499134361
-  modify 1560302480
+  modify 1566853760
   author mikel@mikembp-sesi.local
   access 0777
 }
@@ -22914,7 +22947,7 @@ inputs
 stat
 {
   create 1499134421
-  modify 1566423251
+  modify 1567025084
   author mikel@mikembp-sesi.local
   access 0777
 }
@@ -23116,7 +23149,7 @@ inputs
 stat
 {
   create 1499725252
-  modify 1566423251
+  modify 1567025084
   author mikel@mikembp-sesi.local
   access 0777
 }
@@ -23256,7 +23289,7 @@ inputs
 stat
 {
   create 1499725252
-  modify 1566423251
+  modify 1567025084
   author mikel@mikembp-sesi.local
   access 0777
 }
@@ -23518,16 +23551,16 @@ outputsNamed3
 }
 inputsNamed3
 {
-0 	hvectovec2 1 1 "vec"
+0 	coord_swizzle_vector1 4 1 "vec"
 }
 inputs
 {
-0 	hvectovec2 0 1
+0 	coord_swizzle_vector1 0 1
 }
 stat
 {
   create 1499134514
-  modify 1560302480
+  modify 1566853760
   author mikel@mikembp-sesi.local
   access 0777
 }
@@ -23603,7 +23636,7 @@ inputs
 stat
 {
   create 1519789175
-  modify 1560302481
+  modify 1566853761
   author LaidlawFX@LaidlawFX
   access 0777
 }
@@ -23845,7 +23878,7 @@ Content-Disposition: attachment; filename="hdaroot/textures/orient/coord_swizzle
 Content-Type: text/plain
 
 comment ""
-position 28.6248 -3.3
+position 28.8378 -2.16032
 connectornextid 2
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on lowdetail off mediumdetail off highdetail on material off
 outputsNamed3
@@ -23862,7 +23895,7 @@ inputs
 stat
 {
   create 1519024894
-  modify 1521486091
+  modify 1566853608
   author LaidlawFX@LaidlawFX
   access 0777
 }
@@ -24169,7 +24202,7 @@ Content-Disposition: attachment; filename="hdaroot/textures/orient/coord_swizzle
 Content-Type: text/plain
 
 comment ""
-position 31.7859 -2.46783
+position 31.4052 -2.99032
 connectornextid 5
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault off exposed on lowdetail off mediumdetail off highdetail on material off
 outputsNamed3
@@ -24180,20 +24213,20 @@ inputsNamed3
 {
 0 	hvectovec2 1 1 "coord"
 1 	coord_swizzle 0 1 "coord_swizzle"
-2 	"" "" 1 "coord_flip"
+2 	coord_flip 0 1 "coord_flip"
 3 	"" "" 1 "invert"
 }
 inputs
 {
 0 	hvectovec2 0 1
 1 	coord_swizzle 0 1
-2 	"" 0 1
+2 	coord_flip 0 1
 3 	"" 0 1
 }
 stat
 {
   create 1559309682
-  modify 1560302482
+  modify 1566853689
   author mikel@mikembp-sesi
   access 0777
 }
@@ -24228,6 +24261,143 @@ Content-Type: text/plain
 		"value":"tilted"
 	}
 }
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/textures/orient/coord_flip.init"
+Content-Type: text/plain
+
+type = parameter
+matchesdef = 0
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/textures/orient/coord_flip.def"
+Content-Type: text/plain
+
+comment ""
+position 28.4325 -4.61253
+connectornextid 2
+flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on lowdetail off mediumdetail off highdetail on material off
+outputsNamed3
+{
+0 "coord_flip"
+1 "bound_coord_flip"
+}
+inputsNamed3
+{
+}
+inputs
+{
+}
+stat
+{
+  create 1519024894
+  modify 1566853692
+  author LaidlawFX@LaidlawFX
+  access 0777
+}
+color UT_Color RGB 1 1 0.4 
+delscript ""
+exprlanguage hscript
+end
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/textures/orient/coord_flip.parm"
+Content-Type: text/plain
+
+{
+version 0.8
+parmscope	[ 0	locks=0 ]	(	shaderparm	)
+parmaccess	[ 0	locks=0 ]	(	""	)
+parmname	[ 0	locks=0 ]	(	coord_flip	)
+parmprefix	[ 0	locks=0 ]	(	""	)
+parmpostfix	[ 0	locks=0 ]	(	""	)
+parmlabel	[ 0	locks=0 ]	(	coord_flip	)
+showlabel	[ 0	locks=0 ]	(	"on"	)
+parmtype	[ 0	locks=0 ]	(	"int"	)
+parmtypename	[ 0	locks=0 ]	(	""	)
+floatdef	[ 0	locks=0 ]	(	0	)
+intdef	[ 0	locks=0 ]	(	0	)
+toggledef	[ 0	locks=0 ]	(	"off"	)
+angledef	[ 0	locks=0 ]	(	0	)
+logfloatdef	[ 0	locks=0 ]	(	0	)
+float2def	[ 0	locks=0 ]	(	0	0	)
+float3def	[ 0	locks=0 ]	(	0	0	0	)
+vectordef	[ 0	locks=0 ]	(	0	0	0	)
+normaldef	[ 0	locks=0 ]	(	0	0	0	)
+pointdef	[ 0	locks=0 ]	(	0	0	0	)
+directiondef	[ 0	locks=0 ]	(	1	0	0	)
+float4def	[ 0	locks=0 ]	(	0	0	0	0	)
+floatm2def	[ 0	locks=0 ]	(	1	0	0	1	)
+float9def	[ 0	locks=0 ]	(	1	0	0	0	1	0	0	0	1	)
+float16def	[ 0	locks=0 ]	(	1	0	0	0	0	1	0	0	0	0	1	0	0	0	0	1	)
+stringdef	[ 0	locks=0 ]	(	012	)
+filedef	[ 0	locks=0 ]	(	""	)
+imagedef	[ 0	locks=0 ]	(	""	)
+geometrydef	[ 0	locks=0 ]	(	""	)
+colordef	[ 0	locks=0 ]	(	0	0	0	)
+color4def	[ 0	locks=0 ]	(	0	0	0	0	)
+bsdfdef	[ 0	locks=0 ]	(	""	)
+coshaderdef	[ 0	locks=0 ]	(	""	)
+floatadef	[ 0	locks=0 ]	(	)
+intadef	[ 0	locks=0 ]	(	)
+vector2adef	[ 0	locks=0 ]	(	)
+vectoradef	[ 0	locks=0 ]	(	)
+pointadef	[ 0	locks=0 ]	(	)
+normaladef	[ 0	locks=0 ]	(	)
+coloradef	[ 0	locks=0 ]	(	)
+floatm2adef	[ 0	locks=0 ]	(	)
+float4adef	[ 0	locks=0 ]	(	)
+float9adef	[ 0	locks=0 ]	(	)
+float16adef	[ 0	locks=0 ]	(	)
+stringadef	[ 0	locks=0 ]	(	)
+coshaderadef	[ 0	locks=0 ]	(	""	)
+structdef	[ 0	locks=0 ]	(	""	)
+rangeflt	[ 0	locks=0 ]	(	0	1	)
+rangeint	[ 0	locks=0 ]	(	0	1	)
+stringtype	[ 0	locks=0 ]	(	off	)
+opfilter	[ 0	locks=0 ]	(	!!OBJ/LIGHT!!	)
+parmcomment	[ 0	locks=0 ]	(	""	)
+separator1	[ 0	locks=0 ]	(	)
+useasparmdefiner	[ 0	locks=0 ]	(	"off"	)
+useownexportcontext	[ 0	locks=0 ]	(	"off"	)
+parmuniform	[ 0	locks=0 ]	(	"on"	)
+usebound	[ 0	locks=0 ]	(	"off"	)
+hasconnector	[ 0	locks=0 ]	(	"on"	)
+exportparm	[ 0	locks=0 ]	(	"off"	)
+exportcontext	[ 0	locks=0 ]	(	cop2	)
+providemenu	[ 0	locks=0 ]	(	"on"	)
+menuchoices	[ 0	locks=0 ]	(	"0 \"+X +Y +Z\" 1 \"-X +Y +Z\" 2 \"+X -Y +Z\" 3 \"+X +Y -Z\" 4 \"-X -Y +Z\" 5 \"-X +Y -Z\" 6 \"-X -Y -Z\" 7 \"+X -Y -Z\" "	)
+menuscript	[ 0	locks=0 ]	(	""	)
+menuscriptlanguage	[ 0	locks=0 ]	(	"hscript"	)
+separator2	[ 0	locks=0 ]	(	)
+invisible	[ 0	locks=0 ]	(	"off"	)
+joinnext	[ 0	locks=0 ]	(	"off"	)
+disablewhen	[ 0	locks=0 ]	(	""	)
+hidewhen	[ 0	locks=0 ]	(	""	)
+callback	[ 0	locks=0 ]	(	""	)
+tags	[ 0	locks=0 ]	(	""	)
+help	[ 0	locks=0 ]	(	""	)
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/textures/orient/coord_flip.userdata"
+Content-Type: text/plain
+
+{
+	"___Version___":{
+		"type":"string",
+		"value":"17.5.347"
+	}
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/textures/orient/coord_flip.outputinfos"
+Content-Type: application/octet-stream
+Content-Transfer-Encoding: base64
+
+TnVtSW5mb3MgMgpWYWx1ZXNCaW5hcnkgMQpCZWdpbkluZm8KT3V0cHV0TmFtZSBib3VuZF9wYXJtCkRlYnVnQ29ycklucHV0TmFtZSBfX2RlZmF1bHRfXwpCeXBhc3NDb3JySW5wdXROYW1lIF9fZGVmYXVsdF9fCk5vcm1hbE0=
+b2RlIDAKQnlwYXNzTW9kZSAxClVzZURlZmF1bHRWYWx1ZSAxCkVuZEluZm8KAAAAAAAAAABCZWdpbkluZm8KT3V0cHV0TmFtZSBwYXJtCkRlYnVnQ29ycklucHV0TmFtZSBfX2RlZmF1bHRfXwpCeXBhc3NDb3JySW5wdXROYW0=
+ZSBfX2RlZmF1bHRfXwpOb3JtYWxNb2RlIDAKQnlwYXNzTW9kZSAxClVzZURlZmF1bHRWYWx1ZSAxCkVuZEluZm8KAAAAAAAAAAA=
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
 Content-Disposition: attachment; filename="hdaroot/textures/normalise_orient.init"
@@ -24792,7 +24962,7 @@ inputs
 stat
 {
   create 1499134361
-  modify 1566423819
+  modify 1567089778
   author mikel@mikembp-sesi.local
   access 0777
 }
@@ -25206,7 +25376,7 @@ sizemenu	[ 0	locks=0 ]	(	0	)
 overrideaspect	[ 0	locks=0 ]	(	"off"	)
 aspect	[ 0	locks=0 ]	(	[ aspect	1 ] 	)
 planes	[ 0	locks=0 ]	(	"rgba"	)
-addplanes	[ 0	locks=0 ]	(	"m"	)
+addplanes	[ 0	locks=0 ]	(	"a"	)
 addplaneop	[ 0	locks=0 ]	(	"replace"	)
 customplanes	[ 0	locks=0 ]	(	""	)
 depth	[ 0	locks=0 ]	(	"default"	)
@@ -25232,8 +25402,8 @@ export_attribute_cd	[ 0	locks=0 ]	(	Cd	)
 export_attribute_alpha	[ 0	locks=0 ]	(	Alpha	)
 coord_swizzle	[ 0	locks=0 ]	(	[ coord_swizzle	0 ] 	)
 coord_flip	[ 0	locks=0 ]	(	[ coord_flip	0 ] 	)
-stdswitcher5	[ 0	locks=0 ]	(	0	0	0	0	)
-m	[ 8	locks=0 ]	(	[ m	0 ] 	)
+stdswitcher5	[ 0	locks=0 ]	(	2	2	2	2	)
+m	[ 8	locks=0 ]	(	[ m	3 ] 	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -25256,7 +25426,7 @@ Content-Disposition: attachment; filename="hdaroot/textures/color.cop2"
 Content-Type: text/plain
 
 2
-290
+296
 0
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -25272,7 +25442,7 @@ Content-Type: text/plain
 
 comment ""
 position 16.5143 -4.18656
-connectornextid 4
+connectornextid 8
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on lowdetail off mediumdetail off highdetail on material off
 outputsNamed3
 {
@@ -25283,6 +25453,10 @@ inputsNamed3
 1 	vectofloat1 2 1 "G"
 2 	vectofloat1 3 1 "B"
 3 	getattrib3 6 1 "A"
+4 	"" "" 1 "Cr"
+5 	"" "" 1 "Cg"
+6 	"" "" 1 "Cb"
+7 	"" "" 1 "C4"
 }
 inputs
 {
@@ -25290,11 +25464,15 @@ inputs
 1 	vectofloat1 1 1
 2 	vectofloat1 2 1
 3 	getattrib3 0 1
+4 	"" 0 1
+5 	"" 0 1
+6 	"" 0 1
+7 	"" 0 1
 }
 stat
 {
   create 1499134361
-  modify 1559660233
+  modify 1566926226
   author mikel@mikembp-sesi.local
   access 0777
 }
@@ -25353,7 +25531,7 @@ inputs
 stat
 {
   create 1499134421
-  modify 1566423251
+  modify 1567025084
   author mikel@mikembp-sesi.local
   access 0777
 }
@@ -25624,7 +25802,7 @@ inputs
 stat
 {
   create 1499725252
-  modify 1566423251
+  modify 1567025084
   author mikel@mikembp-sesi.local
   access 0777
 }
@@ -25764,7 +25942,7 @@ inputs
 stat
 {
   create 1499725252
-  modify 1566423251
+  modify 1567025084
   author mikel@mikembp-sesi.local
   access 0777
 }
@@ -26640,7 +26818,7 @@ inputs
 stat
 {
   create 1520767857
-  modify 1566423251
+  modify 1567025084
   author LaidlawFX@LaidlawFX
   access 0777
 }
@@ -26782,7 +26960,7 @@ inputs
 stat
 {
   create 1499134361
-  modify 1566423818
+  modify 1567089777
   author mikel@mikembp-sesi.local
   access 0777
 }
@@ -27211,10 +27389,10 @@ geo	[ 0	locks=0 ]	(	op:`opfullpath(chs(\"path\"))`	)
 export_attribute	[ 0	locks=0 ]	(	N	)
 target_texture_size	[ 0	locks=0 ]	(	[ target_texture_size	0 ] 	)
 numpt	[ 0	locks=0 ]	(	[ numpt	0 ] 	)
-coord_swizzle	[ 0	locks=0 ]	(	[ coord_swizzle	0 ] 	)
-coord_flip	[ 0	locks=0 ]	(	[ coord_flip	1 ] 	)
+coord_swizzle	[ 0	locks=0 ]	(	[ coord_swizzle	1 ] 	)
+coord_flip	[ 0	locks=0 ]	(	[ coord_flip	0 ] 	)
 stdswitcher5	[ 0	locks=0 ]	(	0	0	0	0	)
-m	[ 8	locks=0 ]	(	[ m	2 ] 	)
+m	[ 8	locks=0 ]	(	[ m	3 ] 	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -27237,7 +27415,7 @@ Content-Disposition: attachment; filename="hdaroot/textures/normal.cop2"
 Content-Type: text/plain
 
 2
-244
+246
 0
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -27334,7 +27512,7 @@ inputs
 stat
 {
   create 1499134421
-  modify 1566423251
+  modify 1567025084
   author mikel@mikembp-sesi.local
   access 0777
 }
@@ -28076,7 +28254,7 @@ inputs
 stat
 {
   create 1499725252
-  modify 1566423251
+  modify 1567025084
   author mikel@mikembp-sesi.local
   access 0777
 }
@@ -28216,7 +28394,7 @@ inputs
 stat
 {
   create 1499725252
-  modify 1566423251
+  modify 1567025084
   author mikel@mikembp-sesi.local
   access 0777
 }
@@ -28489,7 +28667,7 @@ inputs
 stat
 {
   create 1520767857
-  modify 1566423251
+  modify 1567025084
   author LaidlawFX@LaidlawFX
   access 0777
 }
@@ -28631,7 +28809,7 @@ inputs
 stat
 {
   create 1499134361
-  modify 1566423828
+  modify 1567089787
   author mikel@mikembp-sesi.local
   access 0777
 }
@@ -29109,15 +29287,15 @@ preextend	[ 0	locks=0 ]	(	"black"	)
 prehold	[ 0	locks=0 ]	(	0	)
 postextend	[ 0	locks=0 ]	(	"black"	)
 posthold	[ 0	locks=0 ]	(	0	)
-m	[ 0	locks=0 ]	(	[ m	3 ] 	)
+m	[ 0	locks=0 ]	(	[ m	0 ] 	)
 geo_path	[ 0	locks=0 ]	(	`opfullpath(\"../../objects/TEXTURE/OUT\")`	)
 geo	[ 0	locks=0 ]	(	op:`chs(\"geo_path\")`	)
 export_attribute_p	[ 0	locks=0 ]	(	P	)
 rest_path	[ 0	locks=0 ]	(	`opfullpath(\"../../objects/MESH/soft/OUT\")`	)
 rest	[ 0	locks=0 ]	(	op:`chs(\"rest_path\")`	)
 export_attribute_rest	[ 0	locks=0 ]	(	rest	)
-target_texture_size	[ 0	locks=0 ]	(	[ target_texture_size	1024 ] 	)
-numpt	[ 0	locks=0 ]	(	[ numpt	3000 ] 	)
+target_texture_size	[ 0	locks=0 ]	(	[ target_texture_size	0 ] 	)
+numpt	[ 0	locks=0 ]	(	[ numpt	0 ] 	)
 coord_swizzle	[ 0	locks=0 ]	(	[ coord_swizzle	0 ] 	)
 coord_flip	[ 0	locks=0 ]	(	[ coord_flip	1 ] 	)
 stdswitcher5	[ 0	locks=0 ]	(	0	0	0	0	)
@@ -29145,7 +29323,7 @@ Content-Disposition: attachment; filename="hdaroot/textures/position.cop2"
 Content-Type: text/plain
 
 2
-426
+428
 0
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -29242,7 +29420,7 @@ inputs
 stat
 {
   create 1499134421
-  modify 1566423251
+  modify 1567025084
   author mikel@mikembp-sesi.local
   access 0777
 }
@@ -29369,7 +29547,7 @@ inputs
 stat
 {
   create 1499134421
-  modify 1566423251
+  modify 1567025084
   author mikel@mikembp-sesi.local
   access 0777
 }
@@ -29784,7 +29962,7 @@ inputs
 stat
 {
   create 1499725252
-  modify 1566423251
+  modify 1567025084
   author mikel@mikembp-sesi.local
   access 0777
 }
@@ -29924,7 +30102,7 @@ inputs
 stat
 {
   create 1499725252
-  modify 1566423251
+  modify 1567025084
   author mikel@mikembp-sesi.local
   access 0777
 }
@@ -30465,7 +30643,7 @@ inputs
 stat
 {
   create 1520767857
-  modify 1566423251
+  modify 1567025084
   author LaidlawFX@LaidlawFX
   access 0777
 }
@@ -31569,7 +31747,7 @@ inputs
 stat
 {
   create 1499134361
-  modify 1566423825
+  modify 1567089784
   author mikel@mikembp-sesi.local
   access 0777
 }
@@ -31945,11 +32123,11 @@ preextend	[ 0	locks=0 ]	(	"black"	)
 prehold	[ 0	locks=0 ]	(	0	)
 postextend	[ 0	locks=0 ]	(	"black"	)
 posthold	[ 0	locks=0 ]	(	0	)
-m	[ 0	locks=0 ]	(	[ m	3 ] 	)
+m	[ 0	locks=0 ]	(	[ m	0 ] 	)
 path	[ 0	locks=0 ]	(	`opfullpath(\"../../objects/TEXTURE/OUT\")`	)
 geo	[ 0	locks=0 ]	(	op:`opfullpath(chs(\"path\"))`	)
-target_texture_size	[ 0	locks=0 ]	(	[ target_texture_size	1024 ] 	)
-numpt	[ 0	locks=0 ]	(	[ numpt	3000 ] 	)
+target_texture_size	[ 0	locks=0 ]	(	[ target_texture_size	0 ] 	)
+numpt	[ 0	locks=0 ]	(	[ numpt	0 ] 	)
 export_attribute	[ 0	locks=0 ]	(	pscale	)
 stdswitcher5	[ 0	locks=0 ]	(	0	0	0	0	)
 }
@@ -31974,7 +32152,7 @@ Content-Disposition: attachment; filename="hdaroot/textures/pscale.cop2"
 Content-Type: text/plain
 
 2
-262
+264
 0
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -32071,7 +32249,7 @@ inputs
 stat
 {
   create 1499134421
-  modify 1566423251
+  modify 1567025084
   author mikel@mikembp-sesi.local
   access 0777
 }
@@ -32273,7 +32451,7 @@ inputs
 stat
 {
   create 1499725252
-  modify 1566423251
+  modify 1567025084
   author mikel@mikembp-sesi.local
   access 0777
 }
@@ -32413,7 +32591,7 @@ inputs
 stat
 {
   create 1499725252
-  modify 1566423251
+  modify 1567025084
   author mikel@mikembp-sesi.local
   access 0777
 }
@@ -32680,7 +32858,7 @@ inputs
 stat
 {
   create 1520767857
-  modify 1566423251
+  modify 1567025084
   author LaidlawFX@LaidlawFX
   access 0777
 }
@@ -32890,7 +33068,7 @@ inputs
 stat
 {
   create 1499134361
-  modify 1566423827
+  modify 1567089786
   author mikel@mikembp-sesi.local
   access 0777
 }
@@ -33333,7 +33511,7 @@ Content-Disposition: attachment; filename="hdaroot/textures/scale.cop2"
 Content-Type: text/plain
 
 2
-248
+250
 0
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -33430,7 +33608,7 @@ inputs
 stat
 {
   create 1499134421
-  modify 1566423251
+  modify 1567025084
   author mikel@mikembp-sesi.local
   access 0777
 }
@@ -33557,7 +33735,7 @@ inputs
 stat
 {
   create 1499725252
-  modify 1566423251
+  modify 1567025084
   author mikel@mikembp-sesi.local
   access 0777
 }
@@ -33697,7 +33875,7 @@ inputs
 stat
 {
   create 1499725252
-  modify 1566423251
+  modify 1567025084
   author mikel@mikembp-sesi.local
   access 0777
 }
@@ -33964,7 +34142,7 @@ inputs
 stat
 {
   create 1520767857
-  modify 1566423251
+  modify 1567025084
   author LaidlawFX@LaidlawFX
   access 0777
 }
@@ -34667,7 +34845,7 @@ inputs
 stat
 {
   create 1559310513
-  modify 1566423251
+  modify 1567025084
   author mikel@mikembp-sesi
   access 0777
 }
@@ -34716,7 +34894,7 @@ Content-Disposition: attachment; filename="hdaroot/textures/normalize_position.c
 Content-Type: text/plain
 
 2
-14
+16
 0
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -34751,7 +34929,7 @@ inputs
 stat
 {
   create 1559310546
-  modify 1566423251
+  modify 1567025084
   author mikel@mikembp-sesi
   access 0777
 }
@@ -34800,7 +34978,7 @@ Content-Disposition: attachment; filename="hdaroot/textures/normalize_pscale.cop
 Content-Type: text/plain
 
 2
-14
+16
 0
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -34835,7 +35013,7 @@ inputs
 stat
 {
   create 1559310575
-  modify 1566423251
+  modify 1567025084
   author mikel@mikembp-sesi
   access 0777
 }
@@ -34884,7 +35062,7 @@ Content-Disposition: attachment; filename="hdaroot/textures/normalize_scale.cop2
 Content-Type: text/plain
 
 2
-14
+16
 0
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -34917,7 +35095,7 @@ inputs
 stat
 {
   create 1499134361
-  modify 1566423821
+  modify 1567089780
   author mikel@mikembp-sesi.local
   access 0777
 }
@@ -35431,7 +35609,7 @@ Content-Disposition: attachment; filename="hdaroot/textures/position1.cop2"
 Content-Type: text/plain
 
 2
-670
+672
 0
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -35534,7 +35712,7 @@ inputs
 stat
 {
   create 1499134421
-  modify 1566423251
+  modify 1567025084
   author mikel@mikembp-sesi.local
   access 0777
 }
@@ -35661,7 +35839,7 @@ inputs
 stat
 {
   create 1499134421
-  modify 1566423251
+  modify 1567025084
   author mikel@mikembp-sesi.local
   access 0777
 }
@@ -36204,7 +36382,7 @@ inputs
 stat
 {
   create 1499725252
-  modify 1566423251
+  modify 1567025084
   author mikel@mikembp-sesi.local
   access 0777
 }
@@ -36745,7 +36923,7 @@ inputs
 stat
 {
   create 1520767857
-  modify 1566423251
+  modify 1567025084
   author LaidlawFX@LaidlawFX
   access 0777
 }
@@ -40291,7 +40469,7 @@ inputs
 stat
 {
   create 1559310513
-  modify 1566423251
+  modify 1567025084
   author mikel@mikembp-sesi
   access 0777
 }
@@ -40340,7 +40518,7 @@ Content-Disposition: attachment; filename="hdaroot/textures/normalize_position1.
 Content-Type: text/plain
 
 2
-14
+16
 0
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -42068,7 +42246,7 @@ inputs
 stat
 {
   create 1427245269
-  modify 1566423251
+  modify 1567025084
   author mlyndon@MLYNDON-PC1.northamerica.corp.microsoft.com
   access 0777
 }
@@ -42218,7 +42396,7 @@ inputs
 stat
 {
   create 1518977628
-  modify 1566423251
+  modify 1567025084
   author LaidlawFX@LaidlawFX
   access 0777
 }
@@ -42246,7 +42424,7 @@ Content-Type: text/plain
 
 {
 version 0.8
-input	[ 0	locks=0 ]	(	[ input	3 ] 	)
+input	[ 0	locks=0 ]	(	[ input	1 ] 	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -42575,7 +42753,7 @@ inputs
 stat
 {
   create 1427214479
-  modify 1566423251
+  modify 1567025084
   author mlyndon@MLYNDON-PC1.northamerica.corp.microsoft.com
   access 0777
 }
@@ -42823,7 +43001,7 @@ inputs
 stat
 {
   create 1487954255
-  modify 1566423251
+  modify 1567025084
   author Luiz@Luiz-PC
   access 0777
 }
@@ -42924,7 +43102,7 @@ inputs
 stat
 {
   create 1487954314
-  modify 1566423251
+  modify 1567025084
   author Luiz@Luiz-PC
   access 0777
 }
@@ -43090,7 +43268,7 @@ inputs
 stat
 {
   create 1477494663
-  modify 1566423251
+  modify 1567025084
   author Luiz@Luiz-PC
   access 0777
 }
@@ -43184,7 +43362,7 @@ inputs
 stat
 {
   create 1477494663
-  modify 1566423251
+  modify 1567025084
   author Luiz@Luiz-PC
   access 0777
 }
@@ -43245,7 +43423,7 @@ inputs
 stat
 {
   create 1477494667
-  modify 1566423377
+  modify 1567025084
   author Luiz@Luiz-PC
   access 0777
 }
@@ -43309,7 +43487,7 @@ inputs
 stat
 {
   create 1477494689
-  modify 1566423251
+  modify 1567025084
   author Luiz@Luiz-PC
   access 0777
 }
@@ -43419,7 +43597,7 @@ inputs
 stat
 {
   create 1427214181
-  modify 1566423251
+  modify 1567025084
   author mlyndon@MLYNDON-PC1.northamerica.corp.microsoft.com
   access 0777
 }
@@ -43750,7 +43928,7 @@ inputs
 stat
 {
   create 1519082351
-  modify 1566423251
+  modify 1567025084
   author LaidlawFX@LaidlawFX
   access 0777
 }
@@ -43837,7 +44015,7 @@ inputs
 stat
 {
   create 1518977628
-  modify 1566423251
+  modify 1567025084
   author LaidlawFX@LaidlawFX
   access 0777
 }
@@ -43975,7 +44153,7 @@ inputs
 stat
 {
   create 1518977628
-  modify 1566423251
+  modify 1567025084
   author LaidlawFX@LaidlawFX
   access 0777
 }
@@ -44113,7 +44291,7 @@ inputs
 stat
 {
   create 1518977628
-  modify 1566423251
+  modify 1567025084
   author LaidlawFX@LaidlawFX
   access 0777
 }
@@ -44245,7 +44423,7 @@ inputs
 stat
 {
   create 1427214479
-  modify 1566423251
+  modify 1567025084
   author mlyndon@MLYNDON-PC1.northamerica.corp.microsoft.com
   access 0777
 }
@@ -44355,7 +44533,7 @@ inputs
 stat
 {
   create 1520808547
-  modify 1566423251
+  modify 1567025084
   author LaidlawFX@LaidlawFX
   access 0777
 }
@@ -44963,7 +45141,7 @@ inputs
 stat
 {
   create 1486172169
-  modify 1566423251
+  modify 1567025084
   author Luiz@LAPTOP-LKBBB5D4
   access 0777
 }
@@ -45358,7 +45536,7 @@ inputs
 stat
 {
   create 1427214479
-  modify 1566423251
+  modify 1567025084
   author mlyndon@MLYNDON-PC1.northamerica.corp.microsoft.com
   access 0777
 }
@@ -45470,7 +45648,7 @@ inputs
 stat
 {
   create 1487954255
-  modify 1566423251
+  modify 1567025084
   author Luiz@Luiz-PC
   access 0777
 }
@@ -45571,7 +45749,7 @@ inputs
 stat
 {
   create 1487954314
-  modify 1566423251
+  modify 1567025084
   author Luiz@Luiz-PC
   access 0777
 }
@@ -45672,7 +45850,7 @@ inputs
 stat
 {
   create 1486172928
-  modify 1566423251
+  modify 1567025084
   author Luiz@LAPTOP-LKBBB5D4
   access 0777
 }
@@ -45762,7 +45940,7 @@ inputs
 stat
 {
   create 1486172928
-  modify 1566423251
+  modify 1567025084
   author Luiz@LAPTOP-LKBBB5D4
   access 0777
 }
@@ -45826,7 +46004,7 @@ inputs
 stat
 {
   create 1486172934
-  modify 1566423251
+  modify 1567025084
   author Luiz@LAPTOP-LKBBB5D4
   access 0777
 }
@@ -45934,7 +46112,7 @@ inputs
 stat
 {
   create 1486172943
-  modify 1566429811
+  modify 1567093001
   author Luiz@LAPTOP-LKBBB5D4
   access 0777
 }
@@ -46141,7 +46319,7 @@ inputs
 stat
 {
   create 1486172928
-  modify 1566429811
+  modify 1567093001
   author Luiz@LAPTOP-LKBBB5D4
   access 0777
 }
@@ -46207,7 +46385,7 @@ inputs
 stat
 {
   create 1505939827
-  modify 1566423251
+  modify 1567025084
   author mikel@mikembp-sesi.local
   access 0777
 }
@@ -46345,7 +46523,7 @@ inputs
 stat
 {
   create 1505935989
-  modify 1566423251
+  modify 1567025084
   author mikel@mikembp-sesi.local
   access 0777
 }
@@ -46442,7 +46620,7 @@ inputs
 stat
 {
   create 1505935989
-  modify 1566423251
+  modify 1567025084
   author mikel@mikembp-sesi.local
   access 0777
 }
@@ -46503,7 +46681,7 @@ inputs
 stat
 {
   create 1505935989
-  modify 1566426080
+  modify 1567025084
   author mikel@mikembp-sesi.local
   access 0777
 }
@@ -46567,7 +46745,7 @@ inputs
 stat
 {
   create 1505935989
-  modify 1566423251
+  modify 1567025084
   author mikel@mikembp-sesi.local
   access 0777
 }
@@ -46676,7 +46854,7 @@ inputs
 stat
 {
   create 1505935989
-  modify 1566423251
+  modify 1567025084
   author mikel@mikembp-sesi.local
   access 0777
 }
@@ -47007,7 +47185,7 @@ inputs
 stat
 {
   create 1519082351
-  modify 1566423251
+  modify 1567025084
   author LaidlawFX@LaidlawFX
   access 0777
 }
@@ -47094,7 +47272,7 @@ inputs
 stat
 {
   create 1518977628
-  modify 1566423251
+  modify 1567025084
   author LaidlawFX@LaidlawFX
   access 0777
 }
@@ -47122,7 +47300,7 @@ Content-Type: text/plain
 
 {
 version 0.8
-input	[ 0	locks=0 ]	(	[ input	3 ] 	)
+input	[ 0	locks=0 ]	(	[ input	0 ] 	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -47232,7 +47410,7 @@ inputs
 stat
 {
   create 1518977628
-  modify 1566423251
+  modify 1567025084
   author LaidlawFX@LaidlawFX
   access 0777
 }
@@ -47370,7 +47548,7 @@ inputs
 stat
 {
   create 1518977628
-  modify 1566423251
+  modify 1567025084
   author LaidlawFX@LaidlawFX
   access 0777
 }
@@ -47537,7 +47715,7 @@ sopflags sopflags =
 comment ""
 position -0.495 -17.155
 connectornextid 1
-flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault off exposed on
+flags =  lock off model off template off footprint off xray off bypass off display on render on highlight off unload off savedata off compress on colordefault off exposed on
 outputsNamed3
 {
 }
@@ -47552,7 +47730,7 @@ inputs
 stat
 {
   create 1518978071
-  modify 1565380653
+  modify 1566852757
   author LaidlawFX@LaidlawFX
   access 0777
 }
@@ -47681,7 +47859,7 @@ inputs
 stat
 {
   create 1478276145
-  modify 1566423251
+  modify 1567025084
   author Luiz@Luiz-PC
   access 0777
 }
@@ -48003,7 +48181,7 @@ inputs
 stat
 {
   create 1481047011
-  modify 1566423251
+  modify 1567025084
   author Luiz@Luiz-PC
   access 0777
 }
@@ -48031,7 +48209,7 @@ Content-Type: text/plain
 
 {
 version 0.8
-input	[ 8	locks=0 ]	(	[ input	0 ] 	)
+input	[ 8	locks=0 ]	(	[ input	1 ] 	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -48212,7 +48390,7 @@ inputs
 stat
 {
   create 1489095957
-  modify 1566423251
+  modify 1567025084
   author Luiz@Luiz-PC
   access 0777
 }
@@ -48645,7 +48823,7 @@ inputs
 stat
 {
   create 1518977628
-  modify 1566423251
+  modify 1567025084
   author LaidlawFX@LaidlawFX
   access 0777
 }
@@ -48673,7 +48851,7 @@ Content-Type: text/plain
 
 {
 version 0.8
-input	[ 0	locks=0 ]	(	[ input	3 ] 	)
+input	[ 0	locks=0 ]	(	[ input	0 ] 	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -49048,7 +49226,7 @@ inputs
 stat
 {
   create 1477597181
-  modify 1566423251
+  modify 1567025084
   author Luiz@Luiz-PC
   access 0777
 }
@@ -49228,7 +49406,7 @@ inputs
 stat
 {
   create 1481047011
-  modify 1566423251
+  modify 1567025084
   author Luiz@Luiz-PC
   access 0777
 }
@@ -49256,7 +49434,7 @@ Content-Type: text/plain
 
 {
 version 0.8
-input	[ 8	locks=0 ]	(	[ input	0 ] 	)
+input	[ 8	locks=0 ]	(	[ input	1 ] 	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -49437,7 +49615,7 @@ inputs
 stat
 {
   create 1481925608
-  modify 1566423251
+  modify 1567025084
   author Luiz@Luiz-PC
   access 0777
 }
@@ -49616,7 +49794,7 @@ inputs
 stat
 {
   create 1518997023
-  modify 1566423251
+  modify 1567025084
   author LaidlawFX@LaidlawFX
   access 0777
 }
@@ -49727,7 +49905,7 @@ inputs
 stat
 {
   create 1518997078
-  modify 1566423251
+  modify 1567025084
   author LaidlawFX@LaidlawFX
   access 0777
 }
@@ -49806,7 +49984,7 @@ inputs
 stat
 {
   create 1518977628
-  modify 1566423251
+  modify 1567025084
   author LaidlawFX@LaidlawFX
   access 0777
 }
@@ -49834,7 +50012,7 @@ Content-Type: text/plain
 
 {
 version 0.8
-input	[ 0	locks=0 ]	(	[ input	3 ] 	)
+input	[ 0	locks=0 ]	(	[ input	0 ] 	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -50093,7 +50271,7 @@ inputs
 stat
 {
   create 1477597181
-  modify 1566423251
+  modify 1567025084
   author Luiz@Luiz-PC
   access 0777
 }
@@ -50273,7 +50451,7 @@ inputs
 stat
 {
   create 1481047011
-  modify 1566423251
+  modify 1567025084
   author Luiz@Luiz-PC
   access 0777
 }
@@ -50482,7 +50660,7 @@ inputs
 stat
 {
   create 1481925608
-  modify 1566423251
+  modify 1567025084
   author Luiz@Luiz-PC
   access 0777
 }
@@ -50661,7 +50839,7 @@ inputs
 stat
 {
   create 1518997023
-  modify 1566423251
+  modify 1567025084
   author LaidlawFX@LaidlawFX
   access 0777
 }
@@ -50772,7 +50950,7 @@ inputs
 stat
 {
   create 1518997078
-  modify 1566423251
+  modify 1567025084
   author LaidlawFX@LaidlawFX
   access 0777
 }
@@ -50851,7 +51029,7 @@ inputs
 stat
 {
   create 1518977628
-  modify 1566423251
+  modify 1567025084
   author LaidlawFX@LaidlawFX
   access 0777
 }
@@ -51098,7 +51276,7 @@ inputs
 stat
 {
   create 1477419638
-  modify 1566423251
+  modify 1567025084
   author Luiz@Luiz-PC
   access 0777
 }
@@ -51179,7 +51357,7 @@ inputs
 stat
 {
   create 1481925608
-  modify 1566423251
+  modify 1567025084
   author Luiz@Luiz-PC
   access 0777
 }
@@ -51282,7 +51460,7 @@ inputs
 stat
 {
   create 1481925391
-  modify 1566423251
+  modify 1567025084
   author Luiz@Luiz-PC
   access 0777
 }
@@ -51426,7 +51604,7 @@ inputs
 stat
 {
   create 1518968984
-  modify 1566423251
+  modify 1567025084
   author LaidlawFX@LaidlawFX
   access 0777
 }
@@ -51525,7 +51703,7 @@ inputs
 stat
 {
   create 1499281116
-  modify 1566423251
+  modify 1567025084
   author mikel@mikembp-sesi.local
   access 0777
 }
@@ -51622,7 +51800,7 @@ inputs
 stat
 {
   create 1499281116
-  modify 1566423251
+  modify 1567025084
   author mikel@mikembp-sesi.local
   access 0777
 }
@@ -51686,7 +51864,7 @@ inputs
 stat
 {
   create 1499281126
-  modify 1566423251
+  modify 1567025084
   author mikel@mikembp-sesi.local
   access 0777
 }
@@ -51792,7 +51970,7 @@ inputs
 stat
 {
   create 1499281135
-  modify 1566425761
+  modify 1567025960
   author mikel@mikembp-sesi.local
   access 0777
 }
@@ -51862,7 +52040,7 @@ inputs
 stat
 {
   create 1518977628
-  modify 1566423251
+  modify 1567025084
   author LaidlawFX@LaidlawFX
   access 0777
 }
@@ -51890,7 +52068,7 @@ Content-Type: text/plain
 
 {
 version 0.8
-input	[ 8	locks=0 ]	(	[ input	3 ] 	)
+input	[ 8	locks=0 ]	(	[ input	1 ] 	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -51941,7 +52119,7 @@ inputs
 stat
 {
   create 1518977628
-  modify 1566423251
+  modify 1567025084
   author LaidlawFX@LaidlawFX
   access 0777
 }
@@ -51969,7 +52147,7 @@ Content-Type: text/plain
 
 {
 version 0.8
-input	[ 8	locks=0 ]	(	[ input	3 ] 	)
+input	[ 8	locks=0 ]	(	[ input	1 ] 	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -52014,7 +52192,7 @@ inputs
 stat
 {
   create 1518992799
-  modify 1566423251
+  modify 1567025084
   author LaidlawFX@LaidlawFX
   access 0777
 }
@@ -52390,7 +52568,7 @@ inputs
 stat
 {
   create 1423788829
-  modify 1566423251
+  modify 1567025084
   author v-belaid@V-BELAID-ART.redmond.corp.microsoft.com
   access 0777
 }
@@ -53195,7 +53373,7 @@ inputs
 stat
 {
   create 1424021205
-  modify 1566423251
+  modify 1567025084
   author v-belaid@V-BELAID-ART.redmond.corp.microsoft.com
   access 0777
 }
@@ -53374,7 +53552,7 @@ inputs
 stat
 {
   create 1424021205
-  modify 1566423251
+  modify 1567025084
   author v-belaid@V-BELAID-ART.redmond.corp.microsoft.com
   access 0777
 }
@@ -54161,7 +54339,7 @@ inputs
 stat
 {
   create 1424021205
-  modify 1566423251
+  modify 1567025084
   author v-belaid@V-BELAID-ART.redmond.corp.microsoft.com
   access 0777
 }
@@ -54386,7 +54564,7 @@ inputs
 stat
 {
   create 1462816670
-  modify 1566423251
+  modify 1567025084
   author belaid@BELAID-ART.redmond.corp.microsoft.com
   access 0777
 }
@@ -54462,7 +54640,7 @@ inputs
 stat
 {
   create 1462816670
-  modify 1566423251
+  modify 1567025084
   author belaid@BELAID-ART.redmond.corp.microsoft.com
   access 0777
 }
@@ -54524,7 +54702,7 @@ inputs
 stat
 {
   create 1462816670
-  modify 1566423251
+  modify 1567025084
   author belaid@BELAID-ART.redmond.corp.microsoft.com
   access 0777
 }
@@ -54726,7 +54904,7 @@ inputs
 stat
 {
   create 1518567713
-  modify 1566423251
+  modify 1567025084
   author LaidlawFX@LaidlawFX
   access 0777
 }
@@ -54856,7 +55034,7 @@ inputs
 stat
 {
   create 1518571581
-  modify 1566423251
+  modify 1567025084
   author LaidlawFX@LaidlawFX
   access 0777
 }
@@ -54924,7 +55102,7 @@ inputs
 stat
 {
   create 1518572438
-  modify 1566423251
+  modify 1567025084
   author LaidlawFX@LaidlawFX
   access 0777
 }
@@ -55228,7 +55406,7 @@ inputs
 stat
 {
   create 1518997023
-  modify 1566423251
+  modify 1567025084
   author LaidlawFX@LaidlawFX
   access 0777
 }
@@ -55339,7 +55517,7 @@ inputs
 stat
 {
   create 1518997078
-  modify 1566423251
+  modify 1567025084
   author LaidlawFX@LaidlawFX
   access 0777
 }
@@ -55414,7 +55592,7 @@ inputs
 stat
 {
   create 1518997078
-  modify 1566423251
+  modify 1567025084
   author LaidlawFX@LaidlawFX
   access 0777
 }
@@ -55924,7 +56102,7 @@ inputs
 stat
 {
   create 1518997078
-  modify 1566423251
+  modify 1567025084
   author LaidlawFX@LaidlawFX
   access 0777
 }
@@ -56366,7 +56544,7 @@ inputs
 stat
 {
   create 1518567713
-  modify 1566423251
+  modify 1567025084
   author LaidlawFX@LaidlawFX
   access 0777
 }
@@ -56496,7 +56674,7 @@ inputs
 stat
 {
   create 1518567713
-  modify 1566423251
+  modify 1567025084
   author LaidlawFX@LaidlawFX
   access 0777
 }
@@ -56658,7 +56836,7 @@ inputs
 stat
 {
   create 1518567713
-  modify 1566423251
+  modify 1567025084
   author LaidlawFX@LaidlawFX
   access 0777
 }
@@ -56859,7 +57037,7 @@ inputs
 stat
 {
   create 1518991802
-  modify 1566423251
+  modify 1567025084
   author LaidlawFX@LaidlawFX
   access 0777
 }
@@ -56887,7 +57065,7 @@ Content-Type: text/plain
 
 {
 version 0.8
-input	[ 8	locks=0 ]	(	[ input	0 ] 	)
+input	[ 8	locks=0 ]	(	[ input	1 ] 	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -57003,7 +57181,7 @@ inputs
 stat
 {
   create 1518977628
-  modify 1566423251
+  modify 1567025084
   author LaidlawFX@LaidlawFX
   access 0777
 }
@@ -57031,7 +57209,7 @@ Content-Type: text/plain
 
 {
 version 0.8
-input	[ 8	locks=0 ]	(	[ input	3 ] 	)
+input	[ 8	locks=0 ]	(	[ input	0 ] 	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -57510,7 +57688,7 @@ inputs
 stat
 {
   create 1427214143
-  modify 1566423251
+  modify 1567025084
   author mlyndon@MLYNDON-PC1.northamerica.corp.microsoft.com
   access 0777
 }
@@ -58114,7 +58292,7 @@ inputs
 stat
 {
   create 1520036085
-  modify 1566423251
+  modify 1567025084
   author GDC_Houdini@AUSTIN
   access 0777
 }
@@ -58146,7 +58324,7 @@ version 0.8
 group	[ 0	locks=0 ]	(	""	)
 keep	[ 0	locks=0 ]	(	"off"	)
 ptsperpt	[ 0	locks=0 ]	(	"off"	)
-npts	[ 8	locks=0 ]	(	[ npts	1026 ] 	)
+npts	[ 8	locks=0 ]	(	[ npts	963 ] 	)
 nptsperpt	[ 0	locks=0 ]	(	10	)
 doattrib	[ 0	locks=0 ]	(	"off"	)
 attrib	[ 0	locks=0 ]	(	""	)
@@ -58335,7 +58513,7 @@ inputs
 stat
 {
   create 1521572100
-  modify 1566423251
+  modify 1567025084
   author LaidlawFX@LaidlawFX
   access 0777
 }
@@ -58478,7 +58656,7 @@ inputs
 stat
 {
   create 1521572361
-  modify 1566423251
+  modify 1567025084
   author LaidlawFX@LaidlawFX
   access 0777
 }
@@ -58553,7 +58731,7 @@ inputs
 stat
 {
   create 1521572361
-  modify 1566423251
+  modify 1567025084
   author LaidlawFX@LaidlawFX
   access 0777
 }
@@ -58628,7 +58806,7 @@ inputs
 stat
 {
   create 1521572361
-  modify 1566423251
+  modify 1567025084
   author LaidlawFX@LaidlawFX
   access 0777
 }
@@ -58703,7 +58881,7 @@ inputs
 stat
 {
   create 1521572100
-  modify 1566423251
+  modify 1567025084
   author LaidlawFX@LaidlawFX
   access 0777
 }
@@ -58731,7 +58909,7 @@ Content-Type: text/plain
 
 {
 version 0.8
-input	[ 8	locks=0 ]	(	[ input	1 ] 	)
+input	[ 8	locks=0 ]	(	[ input	0 ] 	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -59130,7 +59308,7 @@ inputs
 stat
 {
   create 1521572100
-  modify 1566423251
+  modify 1567025084
   author LaidlawFX@LaidlawFX
   access 0777
 }
@@ -59273,7 +59451,7 @@ inputs
 stat
 {
   create 1521572361
-  modify 1566423251
+  modify 1567025084
   author LaidlawFX@LaidlawFX
   access 0777
 }
@@ -59348,7 +59526,7 @@ inputs
 stat
 {
   create 1521572361
-  modify 1566423251
+  modify 1567025084
   author LaidlawFX@LaidlawFX
   access 0777
 }
@@ -59423,7 +59601,7 @@ inputs
 stat
 {
   create 1521572361
-  modify 1566423251
+  modify 1567025084
   author LaidlawFX@LaidlawFX
   access 0777
 }
@@ -59498,7 +59676,7 @@ inputs
 stat
 {
   create 1521572100
-  modify 1566423251
+  modify 1567025084
   author LaidlawFX@LaidlawFX
   access 0777
 }
@@ -59901,7 +60079,7 @@ inputs
 stat
 {
   create 1521578621
-  modify 1566423251
+  modify 1567025084
   author LaidlawFX@LaidlawFX
   access 0777
 }
@@ -59976,7 +60154,7 @@ inputs
 stat
 {
   create 1521578621
-  modify 1566423251
+  modify 1567025084
   author LaidlawFX@LaidlawFX
   access 0777
 }
@@ -60217,7 +60395,7 @@ inputs
 stat
 {
   create 1534533243
-  modify 1566423251
+  modify 1567025084
   author MAINGEAR@DESKTOP-P98C1VA
   access 0777
 }
@@ -60305,7 +60483,7 @@ inputs
 stat
 {
   create 1534533243
-  modify 1566426574
+  modify 1567092998
   author MAINGEAR@DESKTOP-P98C1VA
   access 0777
 }
@@ -60366,7 +60544,7 @@ inputs
 stat
 {
   create 1534533243
-  modify 1566426574
+  modify 1567092998
   author MAINGEAR@DESKTOP-P98C1VA
   access 0777
 }
@@ -60430,7 +60608,7 @@ inputs
 stat
 {
   create 1477427837
-  modify 1566423251
+  modify 1567025084
   author Luiz@Luiz-PC
   access 0777
 }
@@ -60655,7 +60833,7 @@ inputs
 stat
 {
   create 1518557022
-  modify 1566425365
+  modify 1567025822
   author blaidlaw@TOR-WKS-AB663.ubisoft.org
   access 0777
 }
@@ -60866,7 +61044,7 @@ inputs
 stat
 {
   create 1519768261
-  modify 1566423251
+  modify 1567025084
   author blaidlaw@TOR-WKS-AB663.ubisoft.org
   access 0777
 }
@@ -60981,7 +61159,7 @@ inputs
 stat
 {
   create 1520004754
-  modify 1566423251
+  modify 1567025084
   author LaidlawFX@LaidlawFX
   access 0777
 }
@@ -61115,7 +61293,7 @@ inputs
 stat
 {
   create 1520006646
-  modify 1566311116
+  modify 1566852852
   author LaidlawFX@LaidlawFX
   access 0777
 }
@@ -61185,7 +61363,7 @@ inputs
 stat
 {
   create 1520006661
-  modify 1566423251
+  modify 1567025084
   author LaidlawFX@LaidlawFX
   access 0777
 }
@@ -61213,7 +61391,7 @@ Content-Type: text/plain
 
 {
 version 0.8
-input	[ 0	locks=0 ]	(	[ input	3 ] 	)
+input	[ 0	locks=0 ]	(	[ input	1 ] 	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -61256,7 +61434,7 @@ inputs
 stat
 {
   create 1477419638
-  modify 1566424444
+  modify 1567025084
   author Luiz@Luiz-PC
   access 0777
 }
@@ -61337,7 +61515,7 @@ inputs
 stat
 {
   create 1519768261
-  modify 1566423251
+  modify 1567025084
   author blaidlaw@TOR-WKS-AB663.ubisoft.org
   access 0777
 }
@@ -61557,7 +61735,7 @@ Content-Type: text/plain
 Content-Disposition: attachment; filename="hdaroot/textures/orient.order"
 Content-Type: text/plain
 
-15
+16
 OUT
 geo
 getattrib2
@@ -61573,6 +61751,7 @@ null2
 vertical_point_index2
 coord_swizzle_quaternion1
 coord_swizzle_vector1
+coord_flip
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
 Content-Disposition: attachment; filename="hdaroot/textures/orient.net"
@@ -61871,7 +62050,7 @@ inputs
 stat
 {
   create 1513082568
-  modify 1566423251
+  modify 1567025084
   author mikel@mikembp-sesi.local
   access 0777
 }
@@ -61922,7 +62101,7 @@ Content-Disposition: attachment; filename="hdaroot/textures/raster_depth.cop2"
 Content-Type: text/plain
 
 2
-46
+48
 0
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -61955,7 +62134,7 @@ inputs
 stat
 {
   create 1513082568
-  modify 1566423251
+  modify 1567025084
   author mikel@mikembp-sesi.local
   access 0777
 }
@@ -61985,7 +62164,7 @@ Content-Type: text/plain
 {
 version 0.8
 stdswitcher	[ 0	locks=0 ]	(	0	)
-depth	[ 0	locks=0 ]	(	[ depth	0 ] 	)
+depth	[ 0	locks=0 ]	(	[ depth	7 ] 	)
 bwpoints	[ 0	locks=0 ]	(	`chs(\"../../bwpoints1\")`	`chs(\"../../bwpoints2\")`	)
 scope	[ 0	locks=0 ]	(	*	)
 }
@@ -62006,7 +62185,7 @@ Content-Disposition: attachment; filename="hdaroot/textures/raster_depth1.cop2"
 Content-Type: text/plain
 
 2
-46
+48
 0
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -62039,7 +62218,7 @@ inputs
 stat
 {
   create 1513082568
-  modify 1566423251
+  modify 1567025084
   author mikel@mikembp-sesi.local
   access 0777
 }
@@ -62090,7 +62269,7 @@ Content-Disposition: attachment; filename="hdaroot/textures/raster_depth0.cop2"
 Content-Type: text/plain
 
 2
-45
+47
 0
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -62123,7 +62302,7 @@ inputs
 stat
 {
   create 1513082568
-  modify 1566423251
+  modify 1567025084
   author mikel@mikembp-sesi.local
   access 0777
 }
@@ -62174,7 +62353,7 @@ Content-Disposition: attachment; filename="hdaroot/textures/raster_depth2.cop2"
 Content-Type: text/plain
 
 2
-45
+47
 0
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -62275,7 +62454,7 @@ inputs
 stat
 {
   create 1500047082
-  modify 1566423251
+  modify 1567025084
   author mikel@mikembp-sesi.local
   access 0777
 }
@@ -62323,7 +62502,7 @@ Content-Disposition: attachment; filename="hdaroot/textures/switch_normalize1.co
 Content-Type: text/plain
 
 2
-51
+53
 0
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -62356,7 +62535,7 @@ inputs
 stat
 {
   create 1513082568
-  modify 1566423251
+  modify 1567025084
   author mikel@mikembp-sesi.local
   access 0777
 }
@@ -62386,7 +62565,7 @@ Content-Type: text/plain
 {
 version 0.8
 stdswitcher	[ 0	locks=0 ]	(	0	)
-depth	[ 8	locks=0 ]	(	[ depth	7 ] 	)
+depth	[ 8	locks=0 ]	(	[ depth	2 ] 	)
 bwpoints	[ 0	locks=0 ]	(	`chs(\"../../bwpoints1\")`	`chs(\"../../bwpoints2\")`	)
 scope	[ 0	locks=0 ]	(	*	)
 }
@@ -62407,7 +62586,7 @@ Content-Disposition: attachment; filename="hdaroot/textures/raster_depth3.cop2"
 Content-Type: text/plain
 
 2
-45
+47
 0
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -62595,7 +62774,7 @@ inputs
 stat
 {
   create 1513082568
-  modify 1566423251
+  modify 1567025084
   author mikel@mikembp-sesi.local
   access 0777
 }
@@ -62625,7 +62804,7 @@ Content-Type: text/plain
 {
 version 0.8
 stdswitcher	[ 0	locks=0 ]	(	0	)
-depth	[ 8	locks=0 ]	(	[ depth	7 ] 	)
+depth	[ 8	locks=0 ]	(	[ depth	2 ] 	)
 bwpoints	[ 0	locks=0 ]	(	`chs(\"../../bwpoints1\")`	`chs(\"../../bwpoints2\")`	)
 scope	[ 0	locks=0 ]	(	*	)
 }
@@ -62646,7 +62825,7 @@ Content-Disposition: attachment; filename="hdaroot/textures/raster_depth4.cop2"
 Content-Type: text/plain
 
 2
-45
+47
 0
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -62679,7 +62858,7 @@ inputs
 stat
 {
   create 1513082568
-  modify 1566423251
+  modify 1567025084
   author mikel@mikembp-sesi.local
   access 0777
 }
@@ -62730,7 +62909,7 @@ Content-Disposition: attachment; filename="hdaroot/textures/raster_depth5.cop2"
 Content-Type: text/plain
 
 2
-45
+47
 0
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -62763,7 +62942,7 @@ inputs
 stat
 {
   create 1513082568
-  modify 1566423251
+  modify 1567025084
   author mikel@mikembp-sesi.local
   access 0777
 }
@@ -62814,7 +62993,7 @@ Content-Disposition: attachment; filename="hdaroot/textures/raster_depth6.cop2"
 Content-Type: text/plain
 
 2
-45
+47
 0
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -62845,7 +63024,7 @@ inputs
 stat
 {
   create 1499279728
-  modify 1566423251
+  modify 1567025084
   author mikel@mikembp-sesi.local
   access 0777
 }
@@ -63269,11 +63448,11 @@ preextend	[ 0	locks=0 ]	(	"black"	)
 prehold	[ 0	locks=0 ]	(	0	)
 postextend	[ 0	locks=0 ]	(	"black"	)
 posthold	[ 0	locks=0 ]	(	0	)
-m	[ 0	locks=0 ]	(	[ m	3 ] 	)
-s	[ 0	locks=0 ]	(	[ s1	0 ] 	[ s2	0 ] 	)
-r	[ 0	locks=0 ]	(	[ r1	0 ] 	[ r2	0 ] 	)
-f	[ 0	locks=0 ]	(	[ f1	1024 ] 	[ f2	0 ] 	)
-p	[ 0	locks=0 ]	(	[ p1	1024 ] 	[ p2	297 ] 	)
+m	[ 0	locks=0 ]	(	[ m	0 ] 	)
+s	[ 8	locks=0 ]	(	[ s1	1024 ] 	[ s2	297 ] 	)
+r	[ 8	locks=0 ]	(	[ r1	0 ] 	[ r2	0 ] 	)
+f	[ 8	locks=0 ]	(	[ f1	1024 ] 	[ f2	396 ] 	)
+p	[ 8	locks=0 ]	(	[ p1	0 ] 	[ p2	0 ] 	)
 stdswitcher5	[ 0	locks=0 ]	(	2	2	2	2	)
 }
 
@@ -63293,7 +63472,7 @@ Content-Disposition: attachment; filename="hdaroot/textures/size.cop2"
 Content-Type: text/plain
 
 2
-77
+79
 0
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -65460,7 +65639,7 @@ Content-Type: text/plain
 comment ""
 position -14.132 -0.510489
 connectornextid 1
-flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress off colordefault off exposed on
+flags =  lock off model off template off footprint off xray off bypass off display on render off highlight off unload off savedata off compress off colordefault off exposed on
 outputsNamed3
 {
 }
@@ -65475,7 +65654,7 @@ inputs
 stat
 {
   create 1521120922
-  modify 1566314104
+  modify 1566926295
   author blaidlaw@TOR-WKS-AB663.ubisoft.org
   access 0777
 }
@@ -68828,7 +69007,7 @@ inputs
 stat
 {
   create 1521162564
-  modify 1566423251
+  modify 1567025084
   author LaidlawFX@LaidlawFX
   access 0777
 }
@@ -69172,7 +69351,7 @@ preextend	[ 0	locks=0 ]	(	"black"	)
 prehold	[ 0	locks=0 ]	(	0	)
 postextend	[ 0	locks=0 ]	(	"black"	)
 posthold	[ 0	locks=0 ]	(	0	)
-_depth	[ 8	locks=0 ]	(	[ _depth	7 ] 	)
+_depth	[ 8	locks=0 ]	(	[ _depth	2 ] 	)
 stdswitcher5	[ 0	locks=0 ]	(	2	2	2	2	)
 }
 
@@ -69192,7 +69371,7 @@ Content-Disposition: attachment; filename="hdaroot/textures/rasterControls.cop2"
 Content-Type: text/plain
 
 2
-19
+21
 0
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -69310,7 +69489,7 @@ inputs
 stat
 {
   create 1522075110
-  modify 1566423251
+  modify 1567025084
   author LaidlawFX@LaidlawFX
   access 0777
 }
@@ -69358,7 +69537,7 @@ Content-Disposition: attachment; filename="hdaroot/textures/switch_default_Alpha
 Content-Type: text/plain
 
 2
-16
+18
 0
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -69524,7 +69703,7 @@ Content-Type: text/plain
 
 {
 version 0.8
-padded_size	[ 0	locks=0 ]	(	[ padded_sizex	1024 ] 	[ padded_sizey	512 ] 	)
+padded_size	[ 0	locks=0 ]	(	[ padded_sizex	1024 ] 	[ padded_sizey	128 ] 	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -69578,7 +69757,7 @@ inputs
 stat
 {
   create 1560345417
-  modify 1566423251
+  modify 1567025084
   author mikel@mikembp-sesi
   access 0777
 }
@@ -69626,7 +69805,7 @@ Content-Disposition: attachment; filename="hdaroot/textures/switch2.cop2"
 Content-Type: text/plain
 
 2
-13
+15
 0
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -69661,7 +69840,7 @@ inputs
 stat
 {
   create 1560345417
-  modify 1566423251
+  modify 1567025084
   author mikel@mikembp-sesi
   access 0777
 }
@@ -69690,7 +69869,7 @@ Content-Type: text/plain
 {
 version 0.8
 stdswitcher	[ 0	locks=0 ]	(	0	)
-index	[ 8	locks=0 ]	(	[ index	1 ] 	)
+index	[ 8	locks=0 ]	(	[ index	0 ] 	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -69709,7 +69888,7 @@ Content-Disposition: attachment; filename="hdaroot/textures/switch3.cop2"
 Content-Type: text/plain
 
 2
-13
+15
 0
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -69744,7 +69923,7 @@ inputs
 stat
 {
   create 1560345417
-  modify 1566423251
+  modify 1567025084
   author mikel@mikembp-sesi
   access 0777
 }
@@ -69792,7 +69971,7 @@ Content-Disposition: attachment; filename="hdaroot/textures/switch4.cop2"
 Content-Type: text/plain
 
 2
-13
+15
 0
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -69827,7 +70006,7 @@ inputs
 stat
 {
   create 1560345417
-  modify 1566423251
+  modify 1567025084
   author mikel@mikembp-sesi
   access 0777
 }
@@ -69875,7 +70054,7 @@ Content-Disposition: attachment; filename="hdaroot/textures/switch5.cop2"
 Content-Type: text/plain
 
 2
-13
+15
 0
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -69910,7 +70089,7 @@ inputs
 stat
 {
   create 1560345417
-  modify 1566423251
+  modify 1567025084
   author mikel@mikembp-sesi
   access 0777
 }
@@ -69958,7 +70137,7 @@ Content-Disposition: attachment; filename="hdaroot/textures/switch6.cop2"
 Content-Type: text/plain
 
 2
-13
+15
 0
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -69993,7 +70172,7 @@ inputs
 stat
 {
   create 1560345417
-  modify 1566423251
+  modify 1567025084
   author mikel@mikembp-sesi
   access 0777
 }
@@ -70022,7 +70201,7 @@ Content-Type: text/plain
 {
 version 0.8
 stdswitcher	[ 0	locks=0 ]	(	0	)
-index	[ 8	locks=0 ]	(	[ index	1 ] 	)
+index	[ 8	locks=0 ]	(	[ index	0 ] 	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -70041,7 +70220,7 @@ Content-Disposition: attachment; filename="hdaroot/textures/switch7.cop2"
 Content-Type: text/plain
 
 2
-13
+15
 0
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -70076,7 +70255,7 @@ inputs
 stat
 {
   create 1560345417
-  modify 1566423251
+  modify 1567025084
   author mikel@mikembp-sesi
   access 0777
 }
@@ -70124,7 +70303,7 @@ Content-Disposition: attachment; filename="hdaroot/textures/switch8.cop2"
 Content-Type: text/plain
 
 2
-13
+15
 0
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -70159,7 +70338,7 @@ inputs
 stat
 {
   create 1560345417
-  modify 1566423251
+  modify 1567025084
   author mikel@mikembp-sesi
   access 0777
 }
@@ -70207,7 +70386,7 @@ Content-Disposition: attachment; filename="hdaroot/textures/switch9.cop2"
 Content-Type: text/plain
 
 2
-13
+15
 0
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -70238,7 +70417,7 @@ inputs
 stat
 {
   create 1499279728
-  modify 1566423251
+  modify 1567025084
   author mikel@mikembp-sesi.local
   access 0777
 }
@@ -70686,7 +70865,7 @@ Content-Disposition: attachment; filename="hdaroot/textures/size1.cop2"
 Content-Type: text/plain
 
 2
-76
+78
 0
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -71247,7 +71426,7 @@ inputs
 stat
 {
   create 1565366109
-  modify 1566423251
+  modify 1567025084
   author mikel@mikembp-sesi.local
   access 0777
 }
@@ -71276,7 +71455,7 @@ Content-Type: text/plain
 {
 version 0.8
 stdswitcher	[ 0	locks=0 ]	(	0	)
-index	[ 0	locks=0 ]	(	[ index	1 ] 	)
+index	[ 0	locks=0 ]	(	[ index	0 ] 	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -71295,7 +71474,7 @@ Content-Disposition: attachment; filename="hdaroot/textures/extra_precision.cop2
 Content-Type: text/plain
 
 2
-10
+12
 0
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -71328,7 +71507,7 @@ inputs
 stat
 {
   create 1513082568
-  modify 1566423251
+  modify 1567025084
   author mikel@mikembp-sesi.local
   access 0777
 }
@@ -71358,7 +71537,7 @@ Content-Type: text/plain
 {
 version 0.8
 stdswitcher	[ 0	locks=0 ]	(	0	)
-depth	[ 8	locks=0 ]	(	[ depth	7 ] 	)
+depth	[ 8	locks=0 ]	(	[ depth	2 ] 	)
 bwpoints	[ 0	locks=0 ]	(	`chs(\"../../bwpoints1\")`	`chs(\"../../bwpoints2\")`	)
 scope	[ 0	locks=0 ]	(	*	)
 }
@@ -71379,7 +71558,7 @@ Content-Disposition: attachment; filename="hdaroot/textures/raster_depth7.cop2"
 Content-Type: text/plain
 
 2
-45
+47
 0
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -72085,7 +72264,7 @@ inputs
 stat
 {
   create 1560345417
-  modify 1566423251
+  modify 1567025084
   author mikel@mikembp-sesi
   access 0777
 }
@@ -72114,7 +72293,7 @@ Content-Type: text/plain
 {
 version 0.8
 stdswitcher	[ 0	locks=0 ]	(	0	)
-index	[ 8	locks=0 ]	(	[ index	1 ] 	)
+index	[ 8	locks=0 ]	(	[ index	0 ] 	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -72133,7 +72312,7 @@ Content-Disposition: attachment; filename="hdaroot/textures/switch10.cop2"
 Content-Type: text/plain
 
 2
-13
+15
 0
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -72166,7 +72345,7 @@ inputs
 stat
 {
   create 1560344748
-  modify 1566423251
+  modify 1567025084
   author mikel@mikembp-sesi
   access 0777
 }
@@ -72233,7 +72412,7 @@ Content-Disposition: attachment; filename="hdaroot/textures/crop10.cop2"
 Content-Type: text/plain
 
 2
-21
+23
 0
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -72266,7 +72445,7 @@ inputs
 stat
 {
   create 1560344748
-  modify 1566423251
+  modify 1567025084
   author mikel@mikembp-sesi
   access 0777
 }
@@ -72333,7 +72512,7 @@ Content-Disposition: attachment; filename="hdaroot/textures/crop11.cop2"
 Content-Type: text/plain
 
 2
-34
+36
 0
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -72366,7 +72545,7 @@ inputs
 stat
 {
   create 1560344748
-  modify 1566423251
+  modify 1567025084
   author mikel@mikembp-sesi
   access 0777
 }
@@ -72433,7 +72612,7 @@ Content-Disposition: attachment; filename="hdaroot/textures/crop12.cop2"
 Content-Type: text/plain
 
 2
-21
+23
 0
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -72466,7 +72645,7 @@ inputs
 stat
 {
   create 1560344748
-  modify 1566423251
+  modify 1567025084
   author mikel@mikembp-sesi
   access 0777
 }
@@ -72513,7 +72692,7 @@ crop	[ 0	locks=0 ]	(	"corners"	)
 units	[ 0	locks=0 ]	(	"pixel"	)
 hcrop	[ 0	locks=0 ]	(	0	[ hcrop2	1024 ] 	)
 vcrop	[ 0	locks=0 ]	(	0	[ vcrop2	512 ] 	)
-offset	[ 0	locks=0 ]	(	0	[ offset2	116 ] 	)
+offset	[ 0	locks=0 ]	(	0	[ offset2	215 ] 	)
 hold	[ 0	locks=0 ]	(	"off"	)
 }
 
@@ -72533,7 +72712,7 @@ Content-Disposition: attachment; filename="hdaroot/textures/crop13.cop2"
 Content-Type: text/plain
 
 2
-21
+23
 0
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -72566,7 +72745,7 @@ inputs
 stat
 {
   create 1560344748
-  modify 1566423251
+  modify 1567025084
   author mikel@mikembp-sesi
   access 0777
 }
@@ -72633,7 +72812,7 @@ Content-Disposition: attachment; filename="hdaroot/textures/crop14.cop2"
 Content-Type: text/plain
 
 2
-21
+23
 0
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -72666,7 +72845,7 @@ inputs
 stat
 {
   create 1560344748
-  modify 1566423251
+  modify 1567025084
   author mikel@mikembp-sesi
   access 0777
 }
@@ -72733,7 +72912,7 @@ Content-Disposition: attachment; filename="hdaroot/textures/crop15.cop2"
 Content-Type: text/plain
 
 2
-21
+23
 0
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -72766,7 +72945,7 @@ inputs
 stat
 {
   create 1560344748
-  modify 1566423251
+  modify 1567025084
   author mikel@mikembp-sesi
   access 0777
 }
@@ -72833,7 +73012,7 @@ Content-Disposition: attachment; filename="hdaroot/textures/crop16.cop2"
 Content-Type: text/plain
 
 2
-21
+23
 0
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -72866,7 +73045,7 @@ inputs
 stat
 {
   create 1560344748
-  modify 1566423251
+  modify 1567025084
   author mikel@mikembp-sesi
   access 0777
 }
@@ -72933,7 +73112,7 @@ Content-Disposition: attachment; filename="hdaroot/textures/crop17.cop2"
 Content-Type: text/plain
 
 2
-21
+23
 0
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -72966,7 +73145,7 @@ inputs
 stat
 {
   create 1560344748
-  modify 1566423251
+  modify 1567025084
   author mikel@mikembp-sesi
   access 0777
 }
@@ -73033,7 +73212,7 @@ Content-Disposition: attachment; filename="hdaroot/textures/crop18.cop2"
 Content-Type: text/plain
 
 2
-21
+23
 0
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -73148,7 +73327,7 @@ inputs
 stat
 {
   create 1427215397
-  modify 1566423251
+  modify 1567025084
   author mlyndon@MLYNDON-PC1.northamerica.corp.microsoft.com
   access 0777
 }
@@ -73538,7 +73717,7 @@ inputs
 stat
 {
   create 1486075889
-  modify 1566423251
+  modify 1567025084
   author Luiz@LAPTOP-LKBBB5D4
   access 0777
 }
@@ -73612,7 +73791,7 @@ inputs
 stat
 {
   create 1486075905
-  modify 1566423251
+  modify 1567025084
   author Luiz@LAPTOP-LKBBB5D4
   access 0777
 }
@@ -73737,7 +73916,7 @@ inputs
 stat
 {
   create 1487361480
-  modify 1566423251
+  modify 1567025084
   author Luiz@Luiz-PC
   access 0777
 }
@@ -73813,7 +73992,7 @@ inputs
 stat
 {
   create 1482252357
-  modify 1566423251
+  modify 1567025084
   author Luiz@LAPTOP-LKBBB5D4
   access 0777
 }
@@ -73949,7 +74128,7 @@ inputs
 stat
 {
   create 1518974270
-  modify 1566423251
+  modify 1567025084
   author LaidlawFX@LaidlawFX
   access 0777
 }
@@ -74025,7 +74204,7 @@ inputs
 stat
 {
   create 1518975595
-  modify 1566423251
+  modify 1567025084
   author LaidlawFX@LaidlawFX
   access 0777
 }
@@ -74101,7 +74280,7 @@ inputs
 stat
 {
   create 1518975674
-  modify 1566423251
+  modify 1567025084
   author LaidlawFX@LaidlawFX
   access 0777
 }
@@ -74131,7 +74310,7 @@ Content-Type: text/plain
 version 0.8
 execute	[ 0	locks=0 ]	(	0	)
 renderdialog	[ 0	locks=0 ]	(	0	)
-index	[ 8	locks=0 ]	(	[ index	0 ] 	)
+index	[ 8	locks=0 ]	(	[ index	1 ] 	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -74177,7 +74356,7 @@ inputs
 stat
 {
   create 1518988936
-  modify 1566423251
+  modify 1567025084
   author LaidlawFX@LaidlawFX
   access 0777
 }
@@ -74250,7 +74429,7 @@ inputs
 stat
 {
   create 1518990343
-  modify 1519784699
+  modify 1565359522
   author LaidlawFX@LaidlawFX
   access 0777
 }
@@ -74344,7 +74523,7 @@ inputs
 stat
 {
   create 1518990359
-  modify 1566423251
+  modify 1559742072
   author LaidlawFX@LaidlawFX
   access 0777
 }
@@ -75104,7 +75283,7 @@ inputs
 stat
 {
   create 1518990371
-  modify 1566423251
+  modify 1559742072
   author LaidlawFX@LaidlawFX
   access 0777
 }
@@ -75196,7 +75375,7 @@ inputs
 stat
 {
   create 1519012933
-  modify 1566423251
+  modify 1567025084
   author LaidlawFX@LaidlawFX
   access 0777
 }
@@ -75306,7 +75485,7 @@ inputs
 stat
 {
   create 1519033846
-  modify 1566423251
+  modify 1567025084
   author LaidlawFX@LaidlawFX
   access 0777
 }
@@ -75435,7 +75614,7 @@ inputs
 stat
 {
   create 1519012933
-  modify 1566423251
+  modify 1567025084
   author LaidlawFX@LaidlawFX
   access 0777
 }
@@ -75539,7 +75718,7 @@ inputs
 stat
 {
   create 1519012933
-  modify 1566423251
+  modify 1567025084
   author LaidlawFX@LaidlawFX
   access 0777
 }
@@ -75652,7 +75831,7 @@ inputs
 stat
 {
   create 1519033846
-  modify 1566423251
+  modify 1567025084
   author LaidlawFX@LaidlawFX
   access 0777
 }
@@ -75775,7 +75954,7 @@ inputs
 stat
 {
   create 1487361480
-  modify 1566423251
+  modify 1567025084
   author Luiz@Luiz-PC
   access 0777
 }
@@ -75805,7 +75984,7 @@ Content-Type: text/plain
 version 0.8
 execute	[ 0	locks=0 ]	(	0	)
 renderdialog	[ 0	locks=0 ]	(	0	)
-index	[ 8	locks=0 ]	(	[ index	3 ] 	)
+index	[ 8	locks=0 ]	(	[ index	1 ] 	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -75851,7 +76030,7 @@ inputs
 stat
 {
   create 1487361480
-  modify 1566423251
+  modify 1567025084
   author Luiz@Luiz-PC
   access 0777
 }
@@ -75927,7 +76106,7 @@ inputs
 stat
 {
   create 1518988936
-  modify 1566423251
+  modify 1567025084
   author LaidlawFX@LaidlawFX
   access 0777
 }
@@ -76003,7 +76182,7 @@ inputs
 stat
 {
   create 1518975595
-  modify 1566423251
+  modify 1567025084
   author LaidlawFX@LaidlawFX
   access 0777
 }
@@ -76077,7 +76256,7 @@ inputs
 stat
 {
   create 1519033846
-  modify 1566423251
+  modify 1567025084
   author LaidlawFX@LaidlawFX
   access 0777
 }
@@ -76197,7 +76376,7 @@ inputs
 stat
 {
   create 1518975595
-  modify 1566423251
+  modify 1567025084
   author LaidlawFX@LaidlawFX
   access 0777
 }
@@ -76271,7 +76450,7 @@ inputs
 stat
 {
   create 1519033846
-  modify 1566423251
+  modify 1567025084
   author LaidlawFX@LaidlawFX
   access 0777
 }
@@ -76387,7 +76566,7 @@ inputs
 stat
 {
   create 1519033846
-  modify 1566423251
+  modify 1567025084
   author LaidlawFX@LaidlawFX
   access 0777
 }
@@ -76503,7 +76682,7 @@ inputs
 stat
 {
   create 1519033846
-  modify 1566423251
+  modify 1567025084
   author LaidlawFX@LaidlawFX
   access 0777
 }
@@ -76625,7 +76804,7 @@ inputs
 stat
 {
   create 1519033846
-  modify 1566423251
+  modify 1567025084
   author LaidlawFX@LaidlawFX
   access 0777
 }
@@ -76747,7 +76926,7 @@ inputs
 stat
 {
   create 1519012933
-  modify 1566423251
+  modify 1567025084
   author LaidlawFX@LaidlawFX
   access 0777
 }
@@ -76849,7 +77028,7 @@ inputs
 stat
 {
   create 1519012933
-  modify 1566423251
+  modify 1567025084
   author LaidlawFX@LaidlawFX
   access 0777
 }
@@ -77057,7 +77236,7 @@ inputs
 stat
 {
   create 1499288484
-  modify 1566425082
+  modify 1567025084
   author mikel@mikembp-sesi.local
   access 0777
 }
@@ -77107,7 +77286,7 @@ take	[ 0	locks=0 ]	(	`chs(\"../../take\")`	)
 copswitcher	[ 0	locks=0 ]	(	4	4	4	4	4	)
 coppath	[ 0	locks=0 ]	(	../../textures/POSITION_AND_PACKED_PSCALE/XYZW	)
 tres	[ 0	locks=0 ]	(	"natural"	)
-res	[ 0	locks=0 ]	(	1024	512	)
+res	[ 0	locks=0 ]	(	63	99	)
 resmenu	[ 0	locks=0 ]	(	0	)
 copoutput	[ 0	locks=0 ]	(	`chs(\"../../path_pos\")`	)
 mkpath	[ 0	locks=0 ]	(	"on"	)
@@ -77122,7 +77301,7 @@ batchmode	[ 0	locks=0 ]	(	"off"	)
 batchsize	[ 0	locks=0 ]	(	2	)
 reloadfiles	[ 0	locks=0 ]	(	"off"	)
 outputarea	[ 0	locks=0 ]	(	"frame"	)
-pixelcrop	[ 0	locks=0 ]	(	0	0	1023	511	)
+pixelcrop	[ 0	locks=0 ]	(	0	0	62	98	)
 uvcrop	[ 0	locks=0 ]	(	0	0	1	1	)
 limitcanvaspixels	[ 0	locks=0 ]	(	"on"	)
 canvaspixels	[ 0	locks=0 ]	(	64	)
@@ -77226,7 +77405,7 @@ inputs
 stat
 {
   create 1521122551
-  modify 1566423251
+  modify 1567025084
   author blaidlaw@TOR-WKS-AB663.ubisoft.org
   access 0777
 }
@@ -77366,7 +77545,7 @@ inputs
 stat
 {
   create 1499288484
-  modify 1566423251
+  modify 1567025084
   author mikel@mikembp-sesi.local
   access 0777
 }
@@ -77527,7 +77706,7 @@ inputs
 stat
 {
   create 1499288484
-  modify 1566423251
+  modify 1567025084
   author mikel@mikembp-sesi.local
   access 0777
 }
@@ -77688,7 +77867,7 @@ inputs
 stat
 {
   create 1499288484
-  modify 1566423251
+  modify 1567025084
   author mikel@mikembp-sesi.local
   access 0777
 }
@@ -77849,7 +78028,7 @@ inputs
 stat
 {
   create 1499288484
-  modify 1566423251
+  modify 1567025084
   author mikel@mikembp-sesi.local
   access 0777
 }
@@ -78191,7 +78370,7 @@ inputs
 stat
 {
   create 1499288484
-  modify 1566423251
+  modify 1567025084
   author mikel@mikembp-sesi.local
   access 0777
 }
@@ -78352,7 +78531,7 @@ inputs
 stat
 {
   create 1499288484
-  modify 1566423251
+  modify 1567025084
   author mikel@mikembp-sesi.local
   access 0777
 }
@@ -78637,7 +78816,7 @@ inputs
 stat
 {
   create 1499288484
-  modify 1566423251
+  modify 1567025084
   author mikel@mikembp-sesi.local
   access 0777
 }
@@ -78930,7 +79109,7 @@ inputs
 stat
 {
   create 1521122551
-  modify 1566423251
+  modify 1567025084
   author blaidlaw@TOR-WKS-AB663.ubisoft.org
   access 0777
 }
@@ -79070,7 +79249,7 @@ inputs
 stat
 {
   create 1499288484
-  modify 1566423251
+  modify 1567025084
   author mikel@mikembp-sesi.local
   access 0777
 }
@@ -79231,7 +79410,7 @@ inputs
 stat
 {
   create 1499288484
-  modify 1566423251
+  modify 1567025084
   author mikel@mikembp-sesi.local
   access 0777
 }
@@ -79392,7 +79571,7 @@ inputs
 stat
 {
   create 1499288484
-  modify 1566423251
+  modify 1567025084
   author mikel@mikembp-sesi.local
   access 0777
 }
@@ -79553,7 +79732,7 @@ inputs
 stat
 {
   create 1499288484
-  modify 1566423251
+  modify 1567025084
   author mikel@mikembp-sesi.local
   access 0777
 }
@@ -79895,7 +80074,7 @@ inputs
 stat
 {
   create 1499288484
-  modify 1566423251
+  modify 1567025084
   author mikel@mikembp-sesi.local
   access 0777
 }
@@ -80056,7 +80235,7 @@ inputs
 stat
 {
   create 1499288484
-  modify 1566423251
+  modify 1567025084
   author mikel@mikembp-sesi.local
   access 0777
 }
@@ -80217,7 +80396,7 @@ inputs
 stat
 {
   create 1499288484
-  modify 1566423251
+  modify 1567025084
   author mikel@mikembp-sesi.local
   access 0777
 }
@@ -80502,7 +80681,7 @@ inputs
 stat
 {
   create 1499288484
-  modify 1566423251
+  modify 1567025084
   author mikel@mikembp-sesi.local
   access 0777
 }
@@ -80795,7 +80974,7 @@ inputs
 stat
 {
   create 1521122551
-  modify 1566423251
+  modify 1567025084
   author blaidlaw@TOR-WKS-AB663.ubisoft.org
   access 0777
 }
@@ -80935,7 +81114,7 @@ inputs
 stat
 {
   create 1499288484
-  modify 1566423251
+  modify 1567025084
   author mikel@mikembp-sesi.local
   access 0777
 }
@@ -81096,7 +81275,7 @@ inputs
 stat
 {
   create 1499288484
-  modify 1566423251
+  modify 1567025084
   author mikel@mikembp-sesi.local
   access 0777
 }
@@ -81257,7 +81436,7 @@ inputs
 stat
 {
   create 1499288484
-  modify 1566423251
+  modify 1567025084
   author mikel@mikembp-sesi.local
   access 0777
 }
@@ -81418,7 +81597,7 @@ inputs
 stat
 {
   create 1499288484
-  modify 1566423251
+  modify 1567025084
   author mikel@mikembp-sesi.local
   access 0777
 }
@@ -81760,7 +81939,7 @@ inputs
 stat
 {
   create 1499288484
-  modify 1566423251
+  modify 1567025084
   author mikel@mikembp-sesi.local
   access 0777
 }
@@ -81921,7 +82100,7 @@ inputs
 stat
 {
   create 1499288484
-  modify 1566423251
+  modify 1567025084
   author mikel@mikembp-sesi.local
   access 0777
 }
@@ -82082,7 +82261,7 @@ inputs
 stat
 {
   create 1499288484
-  modify 1566423251
+  modify 1567025084
   author mikel@mikembp-sesi.local
   access 0777
 }
@@ -82367,7 +82546,7 @@ inputs
 stat
 {
   create 1499288484
-  modify 1566423251
+  modify 1567025084
   author mikel@mikembp-sesi.local
   access 0777
 }
@@ -82652,7 +82831,7 @@ inputs
 stat
 {
   create 1500047215
-  modify 1566423251
+  modify 1567025084
   author mikel@mikembp-sesi.local
   access 0777
 }
@@ -82702,7 +82881,7 @@ take	[ 0	locks=0 ]	(	`chs(\"../../take\")`	)
 copswitcher	[ 0	locks=0 ]	(	4	4	4	4	4	)
 coppath	[ 0	locks=0 ]	(	../../textures/ORIENT/XYZW	)
 tres	[ 0	locks=0 ]	(	"natural"	)
-res	[ 0	locks=0 ]	(	32	128	)
+res	[ 0	locks=0 ]	(	63	99	)
 resmenu	[ 0	locks=0 ]	(	0	)
 copoutput	[ 0	locks=0 ]	(	`chs(\"../../path_rot\")`	)
 mkpath	[ 0	locks=0 ]	(	"on"	)
@@ -82717,7 +82896,7 @@ batchmode	[ 0	locks=0 ]	(	"off"	)
 batchsize	[ 0	locks=0 ]	(	2	)
 reloadfiles	[ 0	locks=0 ]	(	"off"	)
 outputarea	[ 0	locks=0 ]	(	"frame"	)
-pixelcrop	[ 0	locks=0 ]	(	0	0	31	127	)
+pixelcrop	[ 0	locks=0 ]	(	0	0	62	98	)
 uvcrop	[ 0	locks=0 ]	(	0	0	1	1	)
 limitcanvaspixels	[ 0	locks=0 ]	(	"on"	)
 canvaspixels	[ 0	locks=0 ]	(	64	)
@@ -82821,7 +83000,7 @@ inputs
 stat
 {
   create 1521122551
-  modify 1566423251
+  modify 1567025084
   author blaidlaw@TOR-WKS-AB663.ubisoft.org
   access 0777
 }
@@ -82961,7 +83140,7 @@ inputs
 stat
 {
   create 1499288484
-  modify 1566423251
+  modify 1567025084
   author mikel@mikembp-sesi.local
   access 0777
 }
@@ -83122,7 +83301,7 @@ inputs
 stat
 {
   create 1499288484
-  modify 1566423251
+  modify 1567025084
   author mikel@mikembp-sesi.local
   access 0777
 }
@@ -83283,7 +83462,7 @@ inputs
 stat
 {
   create 1499288484
-  modify 1566423251
+  modify 1567025084
   author mikel@mikembp-sesi.local
   access 0777
 }
@@ -83444,7 +83623,7 @@ inputs
 stat
 {
   create 1499288484
-  modify 1566423251
+  modify 1567025084
   author mikel@mikembp-sesi.local
   access 0777
 }
@@ -83786,7 +83965,7 @@ inputs
 stat
 {
   create 1499288484
-  modify 1566423251
+  modify 1567025084
   author mikel@mikembp-sesi.local
   access 0777
 }
@@ -83947,7 +84126,7 @@ inputs
 stat
 {
   create 1499288484
-  modify 1566423251
+  modify 1567025084
   author mikel@mikembp-sesi.local
   access 0777
 }
@@ -84108,7 +84287,7 @@ inputs
 stat
 {
   create 1499288484
-  modify 1566423251
+  modify 1567025084
   author mikel@mikembp-sesi.local
   access 0777
 }
@@ -84525,7 +84704,7 @@ inputs
 stat
 {
   create 1521122551
-  modify 1566423251
+  modify 1567025084
   author blaidlaw@TOR-WKS-AB663.ubisoft.org
   access 0777
 }
@@ -84665,7 +84844,7 @@ inputs
 stat
 {
   create 1499288484
-  modify 1566423251
+  modify 1567025084
   author mikel@mikembp-sesi.local
   access 0777
 }
@@ -84826,7 +85005,7 @@ inputs
 stat
 {
   create 1499288484
-  modify 1566423251
+  modify 1567025084
   author mikel@mikembp-sesi.local
   access 0777
 }
@@ -84987,7 +85166,7 @@ inputs
 stat
 {
   create 1499288484
-  modify 1566423251
+  modify 1567025084
   author mikel@mikembp-sesi.local
   access 0777
 }
@@ -85148,7 +85327,7 @@ inputs
 stat
 {
   create 1499288484
-  modify 1566423251
+  modify 1567025084
   author mikel@mikembp-sesi.local
   access 0777
 }
@@ -85490,7 +85669,7 @@ inputs
 stat
 {
   create 1499288484
-  modify 1566423251
+  modify 1567025084
   author mikel@mikembp-sesi.local
   access 0777
 }
@@ -85651,7 +85830,7 @@ inputs
 stat
 {
   create 1499288484
-  modify 1566423251
+  modify 1567025084
   author mikel@mikembp-sesi.local
   access 0777
 }
@@ -85812,7 +85991,7 @@ inputs
 stat
 {
   create 1499288484
-  modify 1566423251
+  modify 1567025084
   author mikel@mikembp-sesi.local
   access 0777
 }
@@ -86097,7 +86276,7 @@ inputs
 stat
 {
   create 1499288484
-  modify 1566423251
+  modify 1567025084
   author mikel@mikembp-sesi.local
   access 0777
 }
@@ -86147,7 +86326,7 @@ take	[ 0	locks=0 ]	(	`chs(\"../../take\")`	)
 copswitcher	[ 0	locks=0 ]	(	0	0	0	0	0	)
 coppath	[ 0	locks=0 ]	(	../../textures/COLOR/XYZW	)
 tres	[ 0	locks=0 ]	(	"natural"	)
-res	[ 0	locks=0 ]	(	1	1	)
+res	[ 0	locks=0 ]	(	1024	512	)
 resmenu	[ 0	locks=0 ]	(	0	)
 copoutput	[ 8	locks=0 ]	(	`chs(\"../../path_col\")`	)
 mkpath	[ 0	locks=0 ]	(	"on"	)
@@ -86162,7 +86341,7 @@ batchmode	[ 0	locks=0 ]	(	"off"	)
 batchsize	[ 0	locks=0 ]	(	2	)
 reloadfiles	[ 0	locks=0 ]	(	"off"	)
 outputarea	[ 0	locks=0 ]	(	"frame"	)
-pixelcrop	[ 0	locks=0 ]	(	0	0	0	0	)
+pixelcrop	[ 0	locks=0 ]	(	0	0	1023	511	)
 uvcrop	[ 0	locks=0 ]	(	0	0	1	1	)
 limitcanvaspixels	[ 0	locks=0 ]	(	"on"	)
 canvaspixels	[ 0	locks=0 ]	(	64	)
@@ -86390,7 +86569,7 @@ inputs
 stat
 {
   create 1521122551
-  modify 1566423251
+  modify 1567025084
   author blaidlaw@TOR-WKS-AB663.ubisoft.org
   access 0777
 }
@@ -86530,7 +86709,7 @@ inputs
 stat
 {
   create 1499288484
-  modify 1566423251
+  modify 1567025084
   author mikel@mikembp-sesi.local
   access 0777
 }
@@ -86691,7 +86870,7 @@ inputs
 stat
 {
   create 1499288484
-  modify 1566423251
+  modify 1567025084
   author mikel@mikembp-sesi.local
   access 0777
 }
@@ -86852,7 +87031,7 @@ inputs
 stat
 {
   create 1499288484
-  modify 1566423251
+  modify 1567025084
   author mikel@mikembp-sesi.local
   access 0777
 }
@@ -87013,7 +87192,7 @@ inputs
 stat
 {
   create 1499288484
-  modify 1566423251
+  modify 1567025084
   author mikel@mikembp-sesi.local
   access 0777
 }
@@ -87355,7 +87534,7 @@ inputs
 stat
 {
   create 1499288484
-  modify 1566423251
+  modify 1567025084
   author mikel@mikembp-sesi.local
   access 0777
 }
@@ -87516,7 +87695,7 @@ inputs
 stat
 {
   create 1499288484
-  modify 1566423251
+  modify 1567025084
   author mikel@mikembp-sesi.local
   access 0777
 }
@@ -87677,7 +87856,7 @@ inputs
 stat
 {
   create 1499288484
-  modify 1566423251
+  modify 1567025084
   author mikel@mikembp-sesi.local
   access 0777
 }
@@ -87962,7 +88141,7 @@ inputs
 stat
 {
   create 1499288484
-  modify 1566423251
+  modify 1567025084
   author mikel@mikembp-sesi.local
   access 0777
 }
@@ -88255,7 +88434,7 @@ inputs
 stat
 {
   create 1521122551
-  modify 1566423251
+  modify 1567025084
   author blaidlaw@TOR-WKS-AB663.ubisoft.org
   access 0777
 }
@@ -88395,7 +88574,7 @@ inputs
 stat
 {
   create 1499288484
-  modify 1566423251
+  modify 1567025084
   author mikel@mikembp-sesi.local
   access 0777
 }
@@ -88556,7 +88735,7 @@ inputs
 stat
 {
   create 1499288484
-  modify 1566423251
+  modify 1567025084
   author mikel@mikembp-sesi.local
   access 0777
 }
@@ -88717,7 +88896,7 @@ inputs
 stat
 {
   create 1499288484
-  modify 1566423251
+  modify 1567025084
   author mikel@mikembp-sesi.local
   access 0777
 }
@@ -88878,7 +89057,7 @@ inputs
 stat
 {
   create 1499288484
-  modify 1566423251
+  modify 1567025084
   author mikel@mikembp-sesi.local
   access 0777
 }
@@ -89220,7 +89399,7 @@ inputs
 stat
 {
   create 1499288484
-  modify 1566423251
+  modify 1567025084
   author mikel@mikembp-sesi.local
   access 0777
 }
@@ -89381,7 +89560,7 @@ inputs
 stat
 {
   create 1499288484
-  modify 1566423251
+  modify 1567025084
   author mikel@mikembp-sesi.local
   access 0777
 }
@@ -89542,7 +89721,7 @@ inputs
 stat
 {
   create 1499288484
-  modify 1566423251
+  modify 1567025084
   author mikel@mikembp-sesi.local
   access 0777
 }
@@ -89827,7 +90006,7 @@ inputs
 stat
 {
   create 1499288484
-  modify 1566423251
+  modify 1567025084
   author mikel@mikembp-sesi.local
   access 0777
 }
@@ -90017,7 +90196,7 @@ inputs
 stat
 {
   create 1521483536
-  modify 1566423251
+  modify 1567025084
   author LaidlawFX@LaidlawFX
   access 0777
 }
@@ -90091,7 +90270,7 @@ inputs
 stat
 {
   create 1519012933
-  modify 1566423251
+  modify 1567025084
   author LaidlawFX@LaidlawFX
   access 0777
 }
@@ -90203,7 +90382,7 @@ inputs
 stat
 {
   create 1521483536
-  modify 1566423251
+  modify 1567025084
   author LaidlawFX@LaidlawFX
   access 0777
 }
@@ -90384,7 +90563,7 @@ inputs
 stat
 {
   create 1560517087
-  modify 1566423251
+  modify 1567025084
   author mikel@mikembp-sesi
   access 0777
 }
@@ -90414,7 +90593,7 @@ Content-Type: text/plain
 version 0.8
 execute	[ 0	locks=0 ]	(	0	)
 renderdialog	[ 0	locks=0 ]	(	0	)
-index	[ 8	locks=0 ]	(	[ index	1 ] 	)
+index	[ 8	locks=0 ]	(	[ index	0 ] 	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -90563,7 +90742,7 @@ inputs
 stat
 {
   create 1521122551
-  modify 1566423251
+  modify 1567025084
   author blaidlaw@TOR-WKS-AB663.ubisoft.org
   access 0777
 }
@@ -90703,7 +90882,7 @@ inputs
 stat
 {
   create 1499288484
-  modify 1566423251
+  modify 1567025084
   author mikel@mikembp-sesi.local
   access 0777
 }
@@ -90864,7 +91043,7 @@ inputs
 stat
 {
   create 1499288484
-  modify 1566423251
+  modify 1567025084
   author mikel@mikembp-sesi.local
   access 0777
 }
@@ -91025,7 +91204,7 @@ inputs
 stat
 {
   create 1499288484
-  modify 1566423251
+  modify 1567025084
   author mikel@mikembp-sesi.local
   access 0777
 }
@@ -91186,7 +91365,7 @@ inputs
 stat
 {
   create 1499288484
-  modify 1566423251
+  modify 1567025084
   author mikel@mikembp-sesi.local
   access 0777
 }
@@ -91528,7 +91707,7 @@ inputs
 stat
 {
   create 1499288484
-  modify 1566423251
+  modify 1567025084
   author mikel@mikembp-sesi.local
   access 0777
 }
@@ -91689,7 +91868,7 @@ inputs
 stat
 {
   create 1499288484
-  modify 1566423251
+  modify 1567025084
   author mikel@mikembp-sesi.local
   access 0777
 }
@@ -91850,7 +92029,7 @@ inputs
 stat
 {
   create 1499288484
-  modify 1566425081
+  modify 1567025084
   author mikel@mikembp-sesi.local
   access 0777
 }
@@ -91900,7 +92079,7 @@ take	[ 0	locks=0 ]	(	`chs(\"../../take\")`	)
 copswitcher	[ 0	locks=0 ]	(	0	0	0	0	0	)
 coppath	[ 0	locks=0 ]	(	../../textures/POSITION2/XYZW	)
 tres	[ 0	locks=0 ]	(	"natural"	)
-res	[ 0	locks=0 ]	(	1024	512	)
+res	[ 0	locks=0 ]	(	63	99	)
 resmenu	[ 0	locks=0 ]	(	0	)
 copoutput	[ 0	locks=0 ]	(	`chs(\"../../path_pos2\")`	)
 mkpath	[ 0	locks=0 ]	(	"on"	)
@@ -91915,7 +92094,7 @@ batchmode	[ 0	locks=0 ]	(	"off"	)
 batchsize	[ 0	locks=0 ]	(	2	)
 reloadfiles	[ 0	locks=0 ]	(	"off"	)
 outputarea	[ 0	locks=0 ]	(	"frame"	)
-pixelcrop	[ 0	locks=0 ]	(	0	0	1023	511	)
+pixelcrop	[ 0	locks=0 ]	(	0	0	62	98	)
 uvcrop	[ 0	locks=0 ]	(	0	0	1	1	)
 limitcanvaspixels	[ 0	locks=0 ]	(	"on"	)
 canvaspixels	[ 0	locks=0 ]	(	64	)
@@ -92135,7 +92314,7 @@ inputs
 stat
 {
   create 1499288484
-  modify 1566423251
+  modify 1567025084
   author mikel@mikembp-sesi.local
   access 0777
 }
@@ -92325,7 +92504,7 @@ inputs
 stat
 {
   create 1518975595
-  modify 1566423251
+  modify 1567025084
   author LaidlawFX@LaidlawFX
   access 0777
 }
@@ -92355,7 +92534,7 @@ Content-Type: text/plain
 version 0.8
 execute	[ 0	locks=0 ]	(	0	)
 renderdialog	[ 0	locks=0 ]	(	0	)
-index	[ 8	locks=0 ]	(	[ index	1 ] 	)
+index	[ 8	locks=0 ]	(	[ index	0 ] 	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY

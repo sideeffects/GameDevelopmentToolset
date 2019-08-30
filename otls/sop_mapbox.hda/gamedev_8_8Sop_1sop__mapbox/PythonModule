@@ -25,10 +25,9 @@ def latlong_distance(lat_long_1, lat_long_2):
     return distance * 1000
 
 def update(node):
-
-    launch_map(hidden=True)
-    #time.sleep(3)
-    hou.session.mapbox_web.urlChanged.connect(url_changed)
+    if hou.updateModeSetting() != hou.updateMode.Manual:
+        launch_map(hidden=True)
+        hou.session.mapbox_web.urlChanged.connect(url_changed)
 
 
 def url_changed(new_url):

@@ -20,6 +20,27 @@
         type    button
         default { "0" }
     }
+    parm {
+        name    "trange"
+        label   "Valid Frame Range"
+        type    ordinal
+        default { "off" }
+        menu {
+            "off"       "Render Current Frame"
+            "normal"    "Render Frame Range"
+            "on"        "Render Frame Range Only (Strict)"
+        }
+        parmtag { "autoscope" "0000000000000000" }
+    }
+    parm {
+        name    "f"
+        label   "Start/End/Inc"
+        type    float
+        size    3
+        default { "$RFSTART" "$RFEND" "1" }
+        range   { 0 10 }
+        parmtag { "autoscope" "0000000000000000" }
+    }
     groupsimple {
         name    "folder2"
         label   "Sampling"
@@ -33,6 +54,23 @@
                 "0" "Y"
                 "1" "Z"
             }
+        }
+        parm {
+            name    "bFrozenFrame"
+            label   "Frame Frozen"
+            type    toggle
+            invisible
+            default { "1" }
+        }
+        parm {
+            name    "frame"
+            label   "Frame"
+            type    integer
+            invisible
+            default { [ "$RFSTART" hscript-expr ] }
+            disablewhen "{ bFrozenFrame == 0 }"
+            range   { 1 240 }
+            parmtag { "autoscope" "0000000000000000" }
         }
     }
 
@@ -103,7 +141,7 @@
             name    "output_picture"
             label   "Output Picture"
             type    image
-            default { "$HIP/render/${OS}.exr" }
+            default { "$HIP/render/${OS}.$F4.exr" }
         }
     }
 

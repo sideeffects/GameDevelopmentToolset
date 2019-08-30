@@ -43,7 +43,7 @@
         type    integer
         joinnext
         size    2
-        default { "$RFSTART" "$RFEND" }
+        default { [ "$RFSTART" hscript-expr ] [ "$RFEND" hscript-expr ] }
         help    "This is the begining and end frame of the export. Please account for the one frame offset of the start frame to the end frame. By default the exporter will break the dynamic variables on creation."
         range   { 0 10 }
     }
@@ -52,9 +52,8 @@
         label   "Set Play Range"
         type    button
         nolabel
-        default { "1" }
+        default { "0" }
         help    "Sets the play range based on the start and end frames."
-        range   { 0 1 }
         parmtag { "button_icon" "PLAYBAR_keyframe_next" }
         parmtag { "script_callback" "import toolutils; playbar = toolutils.createModuleFromSection(\"playbar\",kwargs['type'],\"playbar.py\"); playbar.set_range(kwargs['node'])" }
         parmtag { "script_callback_language" "python" }
@@ -123,12 +122,13 @@
     groupsimple {
         name    "fd_dataForRealtimeMaterial"
         label   "Data For Realtime Material"
+        grouptag { "group_type" "simple" }
 
         parm {
             name    "num_frames"
             label   "Frame Range"
             type    integer
-            default { "ch(\"f2\")-ch(\"f1\")" }
+            default { [ "ch(\"f2\")-ch(\"f1\")" hscript-expr ] }
             help    "The number of calculated frames. Your end position minus your start."
             range   { 0 240 }
             parmtag { "units" "" }
@@ -137,7 +137,7 @@
             name    "speed"
             label   "Speed"
             type    float
-            default { "$FPS/ch(\"num_frames\")" }
+            default { [ "$FPS/ch(\"num_frames\")" hscript-expr ] }
             help    "The rate in houdini of your frames per a second divide by your frame range. In your engine this may vary if your frame rate is different or varying."
             range   { 0 240 }
             parmtag { "units" "" }
@@ -150,7 +150,6 @@
             default { "0" "0" }
             help    "Remaps the max and min position delta over the course of the entire time range."
             disablewhen "{ normalize_data == 0 }"
-            range   { 0 10 }
             parmtag { "units" "" }
         }
         parm {
@@ -161,7 +160,6 @@
             default { "0" "0" }
             help    "Pivot can not be unormalized as it passes through the Cd Attribute. This is the min and max values of all the static pivots."
             hidewhen "{ method != 1 }"
-            range   { 0 10 }
             parmtag { "units" "" }
         }
         parm {
@@ -173,7 +171,6 @@
             help    "Remaps the max and min scale over the course of the entire time range."
             disablewhen "{ normalize_data == 0 }"
             hidewhen "{ method == 0 } { method == 2 } { enable_scale == 0 pack_pscale == 0 }"
-            range   { 0 10 }
             parmtag { "units" "" }
         }
         parm {
@@ -184,7 +181,6 @@
             default { ".1" ".1" }
             help    "Set width and height from houdini for your sprite scale."
             hidewhen "{ method != 3 } { engine != unity }"
-            range   { 0 10 }
             parmtag { "units" "" }
         }
         parm {
@@ -195,7 +191,6 @@
             default { "0" "0" }
             help    "Set width and height from houdini for your sprite scale."
             hidewhen "{ padpowtwo == 0 }"
-            range   { 0 10 }
             parmtag { "units" "" }
         }
         parm {
@@ -206,7 +201,6 @@
             default { "0" "0" }
             help    "Set width and height from houdini for your sprite scale."
             hidewhen "{ padpowtwo == 0 }"
-            range   { 0 10 }
             parmtag { "units" "" }
         }
         parm {
@@ -223,7 +217,6 @@
             default { "1" }
             help    "Stores the normal data into the alpha channel of the position map to save texture space."
             hidewhen "{ method == 1 } { method == 3 }"
-            range   { 0 10 }
         }
         parm {
             name    "pack_pscale"
@@ -232,7 +225,6 @@
             default { "1" }
             help    "Stores the pscale data into the alpha channel of the position map to save texture space."
             hidewhen "{ method == 0 } { method == 2 }"
-            range   { 0 10 }
         }
         parm {
             name    "padpowtwo"
@@ -246,7 +238,6 @@
             type    toggle
             default { "0" }
             help    "If your engine is limited to 8bit textures a second texture can be used for higher precision."
-            range   { 0 10 }
         }
         parm {
             name    "wrap_data"
@@ -254,13 +245,13 @@
             type    toggle
             invisible
             default { "0" }
-            range   { 0 10 }
         }
     }
 
     groupsimple {
         name    "fd_paths"
         label   "Paths"
+        grouptag { "group_type" "simple" }
 
         parm {
             name    "enable_project"
@@ -279,7 +270,6 @@
             default { "$HIP/export" }
             help    "Your parent project directory, by default this is the $JOB for those studios that use it."
             disablewhen "{ enable_project == 0 }"
-            range   { 0 1 }
         }
         parm {
             name    "_project"
@@ -295,9 +285,8 @@
             type    toggle
             nolabel
             joinnext
-            default { "off" }
+            default { [ "off" hscript-expr ] }
             help    "This allows you to override the Asset name in the file path. This is typically 'opname(\"..\")', the parent node of this sop area. This allows you to copy and paste this render object or unique asset as many times as you need. If within a subnet this will reflect the subnet name."
-            range   { 0 1 }
             parmtag { "autoscope" "0000000000000000" }
         }
         parm {
@@ -308,7 +297,6 @@
             default { "" }
             help    "By default this will refer to the name of the parent object, or subnet of this node, so you can perform a lot of copy and paste name space tricks to duplicate assets. If you need you can override the Asset name and enter any string or expression you need in there."
             disablewhen "{ component_enable == 0 }"
-            range   { 0 1 }
             parmtag { "autoscope" "0000000000000000" }
         }
         parm {
@@ -319,7 +307,6 @@
             default { [ "import toolutils\nnode = hou.pwd()\npath = toolutils.createModuleFromSection(\"path\",node.type(),\"path.py\")\nif hou.getenv(\"HOUDINI_ADMIN\"):\n        reload(path)\nreturn path.component(hou.node('.'))" python ] }
             help    "By default this will refer to the name of the parent object, or subnet of this node, so you can perform a lot of copy and paste name space tricks to duplicate assets. If you need you can override the Asset name and enter any string or expression you need in there."
             disablewhen "{ component_enable == 0 } { ui == 0 }"
-            range   { 0 1 }
         }
         parm {
             name    "enable_geo"
@@ -338,7 +325,6 @@
             default { "`chs(\"_project\")`/meshes/`chs(\"_component\")`_mesh.fbx" }
             help    "Path on disk to save the geometry."
             disablewhen "{ enable_geo != 1 }"
-            range   { 0 1 }
             parmtag { "filechooser_pattern" "*.fbx" }
         }
         parm {
@@ -349,7 +335,6 @@
             default { "0" }
             help    "Opens an explorer window to the listed directory."
             disablewhen "{ enable_geo != 1 }"
-            range   { 0 1 }
             parmtag { "autoscope" "0000000000000000" }
             parmtag { "button_icon" "SOP_file" }
             parmtag { "script_callback" "import toolutils; node = hou.pwd(); explore = toolutils.createModuleFromSection(\"explore\",node.type(),\"explore.py\"); explore.path(kwargs['node'], hou.ch(\"path_geo\"))" }
@@ -372,7 +357,6 @@
             default { "`chs(\"_project\")`/textures/`chs(\"_component\")`_pos.exr" }
             help    "Path on disk to save the position map."
             disablewhen "{ enable_pos != 1 }"
-            range   { 0 1 }
         }
         parm {
             name    "explore_path_pos"
@@ -382,7 +366,6 @@
             default { "0" }
             help    "Opens an explorer window to the listed directory"
             disablewhen "{ enable_pos != 1 }"
-            range   { 0 1 }
             parmtag { "autoscope" "0000000000000000" }
             parmtag { "button_icon" "SOP_file" }
             parmtag { "script_callback" "import toolutils; node = hou.pwd(); explore = toolutils.createModuleFromSection(\"explore\",node.type(),\"explore.py\"); explore.path(kwargs['node'], hou.ch(\"path_pos))" }
@@ -404,8 +387,7 @@
             joinnext
             default { "`chs(\"_project\")`/textures/`chs(\"_component\")`_pos2.exr" }
             help    "Path on disk to save the position map."
-            disablewhen "{ enable_pos2 != 1 }"
-            range   { 0 1 }
+            disablewhen "{ enable_pos2 != 1 } { double_textures == 0 }"
         }
         parm {
             name    "explore_path_pos2"
@@ -415,7 +397,6 @@
             default { "0" }
             help    "Opens an explorer window to the listed directory"
             disablewhen "{ enable_pos2 != 1 }"
-            range   { 0 1 }
             parmtag { "autoscope" "0000000000000000" }
             parmtag { "button_icon" "SOP_file" }
             parmtag { "script_callback" "import toolutils; node = hou.pwd(); explore = toolutils.createModuleFromSection(\"explore\",node.type(),\"explore.py\"); explore.path(kwargs['node'], hou.ch(\"path_pos2))" }
@@ -440,7 +421,6 @@
             help    "Path on disk to save the rotation map."
             disablewhen "{ enable_rot != 1 }"
             hidewhen "{ method != 1 }"
-            range   { 0 1 }
         }
         parm {
             name    "explore_path_rot"
@@ -451,7 +431,6 @@
             help    "Opens an explorer window to the listed directory"
             disablewhen "{ enable_rot != 1 }"
             hidewhen "{ method != 1 }"
-            range   { 0 1 }
             parmtag { "autoscope" "0000000000000000" }
             parmtag { "button_icon" "SOP_file" }
             parmtag { "script_callback" "import toolutils; node = hou.pwd(); explore = toolutils.createModuleFromSection(\"explore\",node.type(),\"explore.py\"); explore.path(kwargs['node'], hou.ch(\"path_rot\"))" }
@@ -476,7 +455,6 @@
             help    "Path on disk to save the scale map, when not using packed pscale into the position alpha."
             disablewhen "{ enable_scale != 1 }"
             hidewhen "{ method == 0 } { method == 2 } { pack_pscale == 1 }"
-            range   { 0 1 }
         }
         parm {
             name    "explore_path_scale"
@@ -487,7 +465,6 @@
             help    "Opens an explorer window to the listed directory"
             disablewhen "{ enable_scale != 1 }"
             hidewhen "{ method == 0 } { method == 2 } { pack_pscale == 1 }"
-            range   { 0 1 }
             parmtag { "autoscope" "0000000000000000" }
             parmtag { "button_icon" "SOP_file" }
             parmtag { "script_callback" "import toolutils; node = hou.pwd(); explore = toolutils.createModuleFromSection(\"explore\",node.type(),\"explore.py\"); explore.path(kwargs['node'], hou.ch(\"path_scale\"))" }
@@ -512,7 +489,6 @@
             help    "Path on disk to save normal map, when not using the packed normals in the alpha of the position map."
             disablewhen "{ enable_norm != 1 }"
             hidewhen "{ method == 1 } { method == 3 } { pack_norm == 1 }"
-            range   { 0 1 }
         }
         parm {
             name    "explore_path_norm"
@@ -523,7 +499,6 @@
             help    "Opens an explorer window to the listed directory"
             disablewhen "{ enable_norm != 1 }"
             hidewhen "{ method == 1 } { method == 3 } { pack_norm == 1 }"
-            range   { 0 1 }
             parmtag { "autoscope" "0000000000000000" }
             parmtag { "button_icon" "SOP_file" }
             parmtag { "script_callback" "import toolutils; node = hou.pwd(); explore = toolutils.createModuleFromSection(\"explore\",node.type(),\"explore.py\"); explore.path(kwargs['node'], hou.ch(\"path_norm\"))" }
@@ -546,7 +521,6 @@
             default { "`chs(\"_project\")`/textures/`chs(\"_component\")`_col.exr" }
             help    "Path on disk to save the color map."
             disablewhen "{ enable_col == 0 }"
-            range   { 0 1 }
         }
         parm {
             name    "explore_path_col"
@@ -556,7 +530,6 @@
             default { "0" }
             help    "Opens an explorer window to the listed directory"
             disablewhen "{ enable_col == 0 }"
-            range   { 0 1 }
             parmtag { "autoscope" "0000000000000000" }
             parmtag { "button_icon" "SOP_file" }
             parmtag { "script_callback" "import toolutils; node = hou.pwd(); explore = toolutils.createModuleFromSection(\"explore\",node.type(),\"explore.py\"); explore.path(kwargs['node'], hou.ch(\"path_col\"))" }
@@ -581,7 +554,6 @@
             help    "Path on disk to save the material with the preset, and for which to update."
             disablewhen "{ update_mat == 0 }"
             hidewhen "{ engine != unity }"
-            range   { 0 1 }
         }
         parm {
             name    "explore_path_mat"
@@ -592,7 +564,6 @@
             help    "Opens an explorer window to the listed directory"
             disablewhen "{ update_mat == 0 }"
             hidewhen "{ engine != unity }"
-            range   { 0 1 }
             parmtag { "autoscope" "0000000000000000" }
             parmtag { "button_icon" "SOP_file" }
             parmtag { "script_callback" "import toolutils; node = hou.pwd(); explore = toolutils.createModuleFromSection(\"explore\",node.type(),\"explore.py\"); explore.path(kwargs['node'], hou.ch(\"path_mat\"))" }
@@ -615,7 +586,6 @@
             default { "`chs(\"_project\")`/materials/`chs(\"_component\")`_data.json" }
             help    "Path on disk to save the data for the real time shader."
             disablewhen "{ create_data == 0 }"
-            range   { 0 1 }
         }
         parm {
             name    "explore_path_data"
@@ -625,7 +595,6 @@
             default { "0" }
             help    "Opens an explorer window to the listed directory"
             disablewhen "{ create_data == 0 }"
-            range   { 0 1 }
             parmtag { "autoscope" "0000000000000000" }
             parmtag { "button_icon" "SOP_file" }
             parmtag { "script_callback" "import toolutils; node = hou.pwd(); explore = toolutils.createModuleFromSection(\"explore\",node.type(),\"explore.py\"); explore.path(kwargs['node'], hou.ch(\"path_data\"))" }
@@ -650,7 +619,6 @@
             help    "Path on disk to save the shader."
             disablewhen "{ create_shader == 0 }"
             hidewhen "{ engine != unity }"
-            range   { 0 1 }
         }
         parm {
             name    "explore_path_shader"
@@ -661,7 +629,6 @@
             help    "Opens an explorer window to the listed directory"
             disablewhen "{ create_shader == 0 }"
             hidewhen "{ engine != unity }"
-            range   { 0 1 }
             parmtag { "autoscope" "0000000000000000" }
             parmtag { "button_icon" "SOP_file" }
             parmtag { "script_callback" "import toolutils; node = hou.pwd(); explore = toolutils.createModuleFromSection(\"explore\",node.type(),\"explore.py\"); explore.path(kwargs['node'], hou.ch(\"path_shader\"))" }
@@ -678,7 +645,7 @@
             name    "initsim"
             label   "Initialize Simulation OPs"
             type    toggle
-            default { "off" }
+            default { [ "off" hscript-expr ] }
             help    "Triggers all simulation contexts to run in the cook chain prior to export."
             parmtag { "autoscope" "0000000000000000" }
         }
@@ -724,8 +691,8 @@
         parm {
             name    "depthmenu"
             label   "Depth Menu"
-            type    button
-            default { "int8 0 255" }
+            type    ordinal
+            default { [ "int8 0 255" hscript-expr ] }
             help    "Selection menu for an array of different bit depth presets."
             menumini {
                 [ "opmenu -l textures/rasterControls depthmenu" ]
@@ -738,7 +705,7 @@
             type    toggle
             nolabel
             joinnext
-            default { "off" }
+            default { [ "off" hscript-expr ] }
             help    "Enables to change the black and white value."
             disablewhen "{ depth == float16 } { depth == float32 }"
             parmtag { "autoscope" "0000000000000000" }
@@ -935,7 +902,6 @@
                 "4096"  "4096"
                 "8196"  "8196"
             }
-            range   { 0 1024 }
         }
         parm {
             name    "lb_curColumn"
@@ -951,7 +917,7 @@
             type    integer
             invisible
             nolabel
-            default { "(ceil(ch(\"target_texture_size\")/3)*3-npoints(\"objects/TEXTURE/SIM_GEO\"))/3" }
+            default { [ "(ceil(ch(\"target_texture_size\")/3)*3-npoints(\"objects/TEXTURE/SIM_GEO\"))/3" hscript-expr ] }
             range   { 0 10 }
         }
         parm {
@@ -960,7 +926,7 @@
             type    integer
             invisible
             nolabel
-            default { "ch(\"_fluidTexSize\")/abs(ch(\"_fluidTexSize\"))" }
+            default { [ "ch(\"_fluidTexSize\")/abs(ch(\"_fluidTexSize\"))" hscript-expr ] }
             range   { 0 10 }
         }
         parm {
@@ -1009,6 +975,7 @@
         groupcollapsible {
             name    "fd_position"
             label   "Position"
+            grouptag { "group_type" "collapsible" }
 
             parm {
                 name    "t"
@@ -1246,6 +1213,7 @@
             name    "folder6"
             label   "Soft Vertex Material Function"
             hidewhentab "{ method != 0 } { engine != ue4 }"
+            grouptag { "group_type" "collapsible" }
 
             parm {
                 name    "soft_shader_ue4"
@@ -1261,6 +1229,7 @@
             name    "folder4"
             label   "Rigid Vertex Material Function"
             hidewhentab "{ method != 1 } { engine != ue4 }"
+            grouptag { "group_type" "collapsible" }
 
             parm {
                 name    "rigid_shader_ue4"
@@ -1276,6 +1245,7 @@
             name    "folder5"
             label   "Fluid Vertex Material Function"
             hidewhentab "{ method != 2 } { engine != ue4 }"
+            grouptag { "group_type" "collapsible" }
 
             parm {
                 name    "fluid_shader_ue4"
@@ -1291,6 +1261,7 @@
             name    "folder8"
             label   "Sprite Vertex Material Function"
             hidewhentab "{ method != 3 } { engine != ue4 }"
+            grouptag { "group_type" "collapsible" }
 
             parm {
                 name    "sprite_shader_ue4"
@@ -1306,6 +1277,7 @@
             name    "folder9"
             label   "Soft Vertex Shader"
             hidewhentab "{ method != 0 } { engine != unity }"
+            grouptag { "group_type" "collapsible" }
 
             parm {
                 name    "soft_shader_unity"
@@ -1346,6 +1318,7 @@
             name    "folder11"
             label   "Soft Vertex Material"
             hidewhentab "{ method != 0 } { engine != unity }"
+            grouptag { "group_type" "collapsible" }
 
             parm {
                 name    "soft_mat_unity"
@@ -1361,6 +1334,7 @@
             name    "folder10"
             label   "Rigid Vertex Shader"
             hidewhentab "{ method != 1 } { engine != unity }"
+            grouptag { "group_type" "collapsible" }
 
             parm {
                 name    "rigid_shader_unity"
@@ -1401,6 +1375,7 @@
             name    "folder12"
             label   "Rigid Vertex Material"
             hidewhentab "{ method != 1 } { engine != unity }"
+            grouptag { "group_type" "collapsible" }
 
             parm {
                 name    "rigid_mat_unity"
@@ -1416,6 +1391,7 @@
             name    "folder13"
             label   "Fluid Vertex Shader"
             hidewhentab "{ method != 2 } { engine != unity }"
+            grouptag { "group_type" "collapsible" }
 
             parm {
                 name    "fluid_shader_unity"
@@ -1456,6 +1432,7 @@
             name    "folder27"
             label   "Fluid Vertex Material"
             hidewhentab "{ method != 2 } { engine != unity }"
+            grouptag { "group_type" "collapsible" }
 
             parm {
                 name    "fluid_mat_unity"
@@ -1471,6 +1448,7 @@
             name    "folder14"
             label   "Sprite Vertex Shader"
             hidewhentab "{ method != 3 } { engine != unity }"
+            grouptag { "group_type" "collapsible" }
 
             parm {
                 name    "sprite_shader_unity"
@@ -1511,6 +1489,7 @@
             name    "folder28"
             label   "Sprite Vertex Material"
             hidewhentab "{ method != 3 } { engine != unity }"
+            grouptag { "group_type" "collapsible" }
 
             parm {
                 name    "sprite_mat_unity"
@@ -1526,6 +1505,7 @@
             name    "folder15"
             label   "Soft Vertex Shader"
             hidewhentab "{ method != 0 } { engine != lumberyard }"
+            grouptag { "group_type" "collapsible" }
 
             parm {
                 name    "soft_shader_lumberyard"
@@ -1541,6 +1521,7 @@
             name    "folder16"
             label   "Rigid Vertex Shader"
             hidewhentab "{ method != 1 } { engine != lumberyard }"
+            grouptag { "group_type" "collapsible" }
 
             parm {
                 name    "rigid_shader_lumberyard"
@@ -1556,6 +1537,7 @@
             name    "folder17"
             label   "Fluid Vertex Shader"
             hidewhentab "{ method != 2 } { engine != lumberyard }"
+            grouptag { "group_type" "collapsible" }
 
             parm {
                 name    "fluid_shader_lumberyard"
@@ -1571,6 +1553,7 @@
             name    "folder18"
             label   "Sprite Vertex Shader"
             hidewhentab "{ method != 3 } { engine != lumberyard }"
+            grouptag { "group_type" "collapsible" }
 
             parm {
                 name    "sprite_shader_lumberyard"
@@ -1586,6 +1569,7 @@
             name    "folder23"
             label   "Soft Vertex Shader"
             hidewhentab "{ method != 0 } { engine != cryengine }"
+            grouptag { "group_type" "collapsible" }
 
             parm {
                 name    "soft_shader_cryengine"
@@ -1601,6 +1585,7 @@
             name    "folder24"
             label   "Rigid Vertex Shader"
             hidewhentab "{ method != 1 } { engine != cryengine }"
+            grouptag { "group_type" "collapsible" }
 
             parm {
                 name    "rigid_shader_cryengine"
@@ -1616,6 +1601,7 @@
             name    "folder25"
             label   "Fluid Vertex Shader"
             hidewhentab "{ method != 2 } { engine != cryengine }"
+            grouptag { "group_type" "collapsible" }
 
             parm {
                 name    "fluid_shader_cryengine"
@@ -1631,6 +1617,7 @@
             name    "folder26"
             label   "Sprite Vertex Shader"
             hidewhentab "{ method != 3 } { engine != cryengine }"
+            grouptag { "group_type" "collapsible" }
 
             parm {
                 name    "sprite_shader_cryengine"
@@ -1646,6 +1633,7 @@
             name    "folder19"
             label   "Soft Vertex Shader"
             hidewhentab "{ method != 0 } { engine != gamemaker }"
+            grouptag { "group_type" "collapsible" }
 
             parm {
                 name    "soft_shader_gamemaker"
@@ -1661,6 +1649,7 @@
             name    "folder20"
             label   "Rigid Vertex Shader"
             hidewhentab "{ method != 1 } { engine != gamemaker }"
+            grouptag { "group_type" "collapsible" }
 
             parm {
                 name    "rigid_shader_gamemaker"
@@ -1676,6 +1665,7 @@
             name    "folder21"
             label   "Fluid Vertex Shader"
             hidewhentab "{ method != 2 } { engine != gamemaker }"
+            grouptag { "group_type" "collapsible" }
 
             parm {
                 name    "fluid_shader_gamemaker"
@@ -1691,6 +1681,7 @@
             name    "folder22"
             label   "Sprite Vertex Shader"
             hidewhentab "{ method != 3 } { engine != gamemaker }"
+            grouptag { "group_type" "collapsible" }
 
             parm {
                 name    "sprite_shader_gamemaker"
@@ -1750,9 +1741,8 @@
             type    toggle
             nolabel
             joinnext
-            default { "off" }
+            default { [ "off" hscript-expr ] }
             help    "Enables the pre-render script."
-            range   { 0 1 }
             parmtag { "autoscope" "0000000000000000" }
         }
         parm {
@@ -1766,7 +1756,6 @@
             menureplace {
                 [ "opmenu -l geometry prerender" ]
             }
-            range   { 0 1 }
             parmtag { "autoscope" "0000000000000000" }
             parmtag { "filechooser_mode" "read" }
         }
@@ -1782,7 +1771,6 @@
                 "hscript"   "Hscript"
                 "python"    "Python"
             }
-            range   { 0 1 }
             parmtag { "autoscope" "0000000000000000" }
         }
         parm {
@@ -1791,9 +1779,8 @@
             type    toggle
             nolabel
             joinnext
-            default { "off" }
+            default { [ "off" hscript-expr ] }
             help    "Enables the post-render script."
-            range   { 0 1 }
             parmtag { "autoscope" "0000000000000000" }
         }
         parm {
@@ -1807,7 +1794,6 @@
             menureplace {
                 [ "opmenu -l geometry postrender" ]
             }
-            range   { 0 1 }
             parmtag { "autoscope" "0000000000000000" }
             parmtag { "filechooser_mode" "read" }
         }
@@ -1823,7 +1809,6 @@
                 "hscript"   "Hscript"
                 "python"    "Python"
             }
-            range   { 0 1 }
             parmtag { "autoscope" "0000000000000000" }
         }
     }

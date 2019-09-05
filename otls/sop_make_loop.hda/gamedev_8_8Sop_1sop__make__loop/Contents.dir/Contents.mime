@@ -20,9 +20,9 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position -36.5289 -4.69634
+position -1.42701 0.590876
 connectornextid 0
-flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
+flags =  lock off model off template off footprint off xray off bypass off display on render on highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
 {
 }
@@ -34,9 +34,9 @@ inputs
 }
 stat
 {
-  create 1548453938
-  modify 1548453943
-  author MAINGEAR@DESKTOP-P98C1VA
+  create 1567694946
+  modify 1567695317
+  author mikel@mikembp-sesi.local
   access 0777
 }
 color UT_Color RGB 0.8 0.8 0.8 
@@ -103,7 +103,7 @@ inputs
 stat
 {
   create 1470538612
-  modify 1470671218
+  modify 1567695260
   author Luiz@Luiz-PC
   access 0777
 }
@@ -128,7 +128,7 @@ Content-Type: text/plain
       righttype = extend
       default = 0.86207407407407399
       flags = 0
-      segment { length = 0 value = 0.86207407407407399 0.86207407407407399 expr = "abs(sin(($F - ch(\"../start_frame\")) * 90/ch(\"../expressions/loop_length\")*2))" }
+      segment { length = 0 value = 0.86207407407407399 0.86207407407407399 expr = "abs(pow(sin(($F - ch(\"../start_frame\")) * 90/ch(\"../expressions/loop_length\")*2),2))" }
     }
   }
 
@@ -142,7 +142,7 @@ group	[ 0	locks=0 ]	(	""	)
 mixgrp	[ 0	locks=0 ]	(	""	)
 mixmethod	[ 0	locks=0 ]	(	"blend"	)
 range	[ 0	locks=0 ]	(	0	1	)
-blend	[ 8	locks=0	autoscope=1 ]	(	[ blend	0.12659245357374938 ] 	)
+blend	[ 8	locks=0	autoscope=1 ]	(	[ blend	0 ] 	)
 expr	[ 0	locks=0 ]	(	[ expr	0 ] 	)
 dstpreadd	[ 8	locks=0 ]	(	0	)
 dstpremul	[ 0	locks=0 ]	(	1	)
@@ -164,7 +164,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.465"
+		"value":"17.5.347"
 	}
 }
 
@@ -258,7 +258,7 @@ Content-Type: text/plain
 {
 version 0.8
 method	[ 0	locks=0 ]	(	"byframe"	)
-frame	[ 8	locks=0 ]	(	[ frame	146 ] 	)
+frame	[ 8	locks=0 ]	(	[ frame	120 ] 	)
 integerframe	[ 0	locks=0 ]	(	"on"	)
 time	[ 0	locks=0 ]	(	[ time	8.2916666666666661 ] 	)
 rangeclamp	[ 0	locks=0 ]	(	"none"	)
@@ -273,7 +273,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.465"
+		"value":"17.5.347"
 	}
 }
 
@@ -367,7 +367,7 @@ Content-Type: text/plain
 {
 version 0.8
 method	[ 0	locks=0 ]	(	"byframe"	)
-frame	[ 8	locks=0 ]	(	[ frame	196 ] 	)
+frame	[ 8	locks=0 ]	(	[ frame	1 ] 	)
 integerframe	[ 0	locks=0 ]	(	"on"	)
 time	[ 0	locks=0 ]	(	[ time	6.208333333333333 ] 	)
 rangeclamp	[ 0	locks=0 ]	(	"none"	)
@@ -382,7 +382,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.465"
+		"value":"17.5.347"
 	}
 }
 
@@ -419,7 +419,7 @@ inputs
 stat
 {
   create 1470601849
-  modify 1470671226
+  modify 1567695286
   author Luiz@Luiz-PC
   access 0777
 }
@@ -437,7 +437,7 @@ Content-Type: text/plain
       lefttype = extend
       righttype = extend
       flags = 0
-      segment { length = 0 expr = "abs(sin(($F - ch(\"../start_frame\")) * 90/ch(\"../expressions/loop_length\")*2))" }
+      segment { length = 0 expr = "abs(pow(sin(($F - ch(\"../start_frame\")) * 90/ch(\"../expressions/loop_length\")*2),2))" }
     }
   }
 
@@ -472,7 +472,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.465"
+		"value":"17.5.347"
 	}
 }
 
@@ -552,7 +552,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.465"
+		"value":"17.5.347"
 	}
 }
 
@@ -639,7 +639,7 @@ Content-Type: text/plain
 version 0.8
 copyinput	[ 0	locks=0 ]	(	"on"	)
 cacheinput	[ 0	locks=0 ]	(	"off"	)
-loop_length	[ 8	locks=0 ]	(	[ loop_length	99 ] 	)
+loop_length	[ 8	locks=0 ]	(	[ loop_length	239 ] 	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -649,7 +649,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.465"
+		"value":"17.5.347"
 	}
 }
 
@@ -710,7 +710,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.465"
+		"value":"17.5.347"
 	}
 }
 
@@ -769,7 +769,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.465"
+		"value":"17.5.347"
 	}
 }
 

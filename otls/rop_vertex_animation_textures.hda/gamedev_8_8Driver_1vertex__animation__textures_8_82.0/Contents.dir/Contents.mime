@@ -31,7 +31,7 @@ Content-Disposition: attachment; filename="hdaroot.def"
 Content-Type: text/plain
 
 comment ""
-position -6.60448 -0.234515
+position -6.75804 -1.0279
 connectornextid 0
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
@@ -46,7 +46,7 @@ inputs
 stat
 {
   create 1568302312
-  modify 1568302343
+  modify 1569339666
   author mikel@mikembp-sesi.local
   access 0777
 }
@@ -1283,9 +1283,9 @@ vex_updatenmls	[ 0	locks=0 ]	(	"off"	)
 vex_matchattrib	[ 0	locks=0 ]	(	id	)
 vex_inplace	[ 0	locks=0 ]	(	"off"	)
 vex_selectiongroup	[ 0	locks=0 ]	(	""	)
-max_width	[ 0	locks=0 ]	(	[ max_width	1024 ] 	)
-numpt	[ 0	locks=0 ]	(	[ numpt	3072 ] 	)
-frame_count	[ 0	locks=0 ]	(	[ frame_count	99 ] 	)
+max_width	[ 0	locks=0 ]	(	[ max_width	4096 ] 	)
+numpt	[ 0	locks=0 ]	(	[ numpt	4095 ] 	)
+frame_count	[ 0	locks=0 ]	(	[ frame_count	100 ] 	)
 folder1	[ 0	locks=0 ]	(	0	0	)
 }
 
@@ -5388,7 +5388,7 @@ inputs
 stat
 {
   create 1462577487
-  modify 1567176612
+  modify 1569338573
   author belaid@BELAID-ART.redmond.corp.microsoft.com
   access 0777
 }
@@ -20377,7 +20377,7 @@ inputs
 stat
 {
   create 1499280403
-  modify 1567176612
+  modify 1569338573
   author mikel@mikembp-sesi.local
   access 0777
 }
@@ -20722,13 +20722,13 @@ idominance	[ 0	locks=0 ]	(	"odd"	)
 overriderange	[ 0	locks=0 ]	(	"off"	)
 singleimage	[ 0	locks=0 ]	(	"off"	)
 start	[ 0	locks=0 ]	(	[ start	1 ] 	)
-length	[ 0	locks=0 ]	(	[ length	240 ] 	)
+length	[ 0	locks=0 ]	(	[ length	101 ] 	)
 preextend	[ 0	locks=0 ]	(	"black"	)
 prehold	[ 0	locks=0 ]	(	0	)
 postextend	[ 0	locks=0 ]	(	"black"	)
 posthold	[ 0	locks=0 ]	(	0	)
 stdswitcher5	[ 0	locks=0 ]	(	0	0	0	0	)
-coord_swizzle	[ 0	locks=0 ]	(	[ coord_swizzle	0 ] 	)
+coord_swizzle	[ 0	locks=0 ]	(	[ coord_swizzle	1 ] 	)
 coord_flip	[ 0	locks=0 ]	(	0	)
 }
 
@@ -20748,7 +20748,7 @@ Content-Disposition: attachment; filename="hdaroot/textures/pack_normals.cop2"
 Content-Type: text/plain
 
 2
-53
+55
 0
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -22749,18 +22749,6 @@ Content-Type: text/plain
       flags = 0
       segment { length = 0 expr = $NFRAMES }
     }
-    channel target_texture_size {
-      lefttype = extend
-      righttype = extend
-      flags = 0
-      segment { length = 0 expr = ch(\"../../target_texture_size\") }
-    }
-    channel numpt {
-      lefttype = extend
-      righttype = extend
-      flags = 0
-      segment { length = 0 expr = npoints(\"../../objects/MESH/rigid/REF_MESH\") }
-    }
     channel quaternion_flip {
       lefttype = extend
       righttype = extend
@@ -22779,6 +22767,18 @@ Content-Type: text/plain
       righttype = extend
       flags = 0
       segment { length = 0 expr = ch(\"../../invert_pos\") }
+    }
+    channel target_texture_size {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = ch(\"../../target_texture_size\") }
+    }
+    channel numpt {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = npoints(\"../../objects/MESH/rigid/REF_MESH\") }
     }
   }
 
@@ -24962,7 +24962,7 @@ inputs
 stat
 {
   create 1499134361
-  modify 1567089778
+  modify 1568302340
   author mikel@mikembp-sesi.local
   access 0777
 }
@@ -25325,18 +25325,6 @@ Content-Type: text/plain
       flags = 0
       segment { length = 0 expr = $NFRAMES }
     }
-    channel target_texture_size {
-      lefttype = extend
-      righttype = extend
-      flags = 0
-      segment { length = 0 expr = "if(ch(\"m\")!=2, ch(\"../../target_texture_size\"),(floor(ch(\"../../target_texture_size\")/3)*3))" }
-    }
-    channel numpt {
-      lefttype = extend
-      righttype = extend
-      flags = 0
-      segment { length = 0 expr = "if(ch(\"m\")==0, npoints(\"../../objects/MESH/soft/OUT\"), if(ch(\"m\")==1, npoints(\"../../objects/MESH/rigid/REF_MESH\"), if(ch(\"m\")==2, npoints(\"../../objects/TEXTURE/FLUID_GEO\"), detail(\"../../objects/MESH/sprite/MAX_POINTS\", \"max_pts\", 0))))" }
-    }
     channel coord_swizzle {
       lefttype = extend
       righttype = extend
@@ -25354,6 +25342,18 @@ Content-Type: text/plain
       righttype = extend
       flags = 0
       segment { length = 0 expr = ch(\"../../method\") }
+    }
+    channel target_texture_size {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = "if(ch(\"m\")!=2, ch(\"../../target_texture_size\"),(floor(ch(\"../../target_texture_size\")/3)*3))" }
+    }
+    channel numpt {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = "if(ch(\"m\")==0, npoints(\"../../objects/MESH/soft/OUT\"), if(ch(\"m\")==1, npoints(\"../../objects/MESH/rigid/REF_MESH\"), if(ch(\"m\")==2, npoints(\"../../objects/TEXTURE/FLUID_GEO\"), detail(\"../../objects/MESH/sprite/MAX_POINTS\", \"max_pts\", 0))))" }
     }
   }
 
@@ -25389,7 +25389,7 @@ idominance	[ 0	locks=0 ]	(	"odd"	)
 overriderange	[ 0	locks=0 ]	(	"off"	)
 singleimage	[ 0	locks=0 ]	(	"off"	)
 start	[ 0	locks=0 ]	(	[ start	1 ] 	)
-length	[ 0	locks=0 ]	(	[ length	240 ] 	)
+length	[ 0	locks=0 ]	(	[ length	101 ] 	)
 preextend	[ 0	locks=0 ]	(	"black"	)
 prehold	[ 0	locks=0 ]	(	0	)
 postextend	[ 0	locks=0 ]	(	"black"	)
@@ -25403,7 +25403,7 @@ export_attribute_alpha	[ 0	locks=0 ]	(	Alpha	)
 coord_swizzle	[ 0	locks=0 ]	(	[ coord_swizzle	0 ] 	)
 coord_flip	[ 0	locks=0 ]	(	[ coord_flip	0 ] 	)
 stdswitcher5	[ 0	locks=0 ]	(	2	2	2	2	)
-m	[ 8	locks=0 ]	(	[ m	3 ] 	)
+m	[ 8	locks=0 ]	(	[ m	2 ] 	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -25426,7 +25426,7 @@ Content-Disposition: attachment; filename="hdaroot/textures/color.cop2"
 Content-Type: text/plain
 
 2
-296
+297
 0
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -26960,7 +26960,7 @@ inputs
 stat
 {
   create 1499134361
-  modify 1567176612
+  modify 1569338573
   author mikel@mikembp-sesi.local
   access 0777
 }
@@ -27315,18 +27315,6 @@ Content-Type: text/plain
       flags = 0
       segment { length = 0 expr = $NFRAMES }
     }
-    channel target_texture_size {
-      lefttype = extend
-      righttype = extend
-      flags = 0
-      segment { length = 0 expr = "if(ch(\"m\")!=2, ch(\"../../target_texture_size\"),(floor(ch(\"../../target_texture_size\")/3)*3))" }
-    }
-    channel numpt {
-      lefttype = extend
-      righttype = extend
-      flags = 0
-      segment { length = 0 expr = "if(ch(\"m\")==0, npoints(\"../../objects/MESH/soft/OUT\"), if(ch(\"m\")==1, npoints(\"../../objects/MESH/rigid/REF_MESH\"), if(ch(\"m\")==2, npoints(\"../../objects/TEXTURE/FLUID_GEO\"), detail(\"../../objects/MESH/sprite/MAX_POINTS\", \"max_pts\", 0))))" }
-    }
     channel coord_swizzle {
       lefttype = extend
       righttype = extend
@@ -27344,6 +27332,18 @@ Content-Type: text/plain
       righttype = extend
       flags = 0
       segment { length = 0 expr = ch(\"../../method\") }
+    }
+    channel target_texture_size {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = "if(ch(\"m\")!=2, ch(\"../../target_texture_size\"),(floor(ch(\"../../target_texture_size\")/3)*3))" }
+    }
+    channel numpt {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = "if(ch(\"m\")==0, npoints(\"../../objects/MESH/soft/OUT\"), if(ch(\"m\")==1, npoints(\"../../objects/MESH/rigid/REF_MESH\"), if(ch(\"m\")==2, npoints(\"../../objects/TEXTURE/FLUID_GEO\"), detail(\"../../objects/MESH/sprite/MAX_POINTS\", \"max_pts\", 0))))" }
     }
   }
 
@@ -27379,7 +27379,7 @@ idominance	[ 0	locks=0 ]	(	"odd"	)
 overriderange	[ 0	locks=0 ]	(	"off"	)
 singleimage	[ 0	locks=0 ]	(	"off"	)
 start	[ 0	locks=0 ]	(	[ start	1 ] 	)
-length	[ 0	locks=0 ]	(	[ length	240 ] 	)
+length	[ 0	locks=0 ]	(	[ length	101 ] 	)
 preextend	[ 0	locks=0 ]	(	"black"	)
 prehold	[ 0	locks=0 ]	(	0	)
 postextend	[ 0	locks=0 ]	(	"black"	)
@@ -27389,10 +27389,10 @@ geo	[ 0	locks=0 ]	(	op:`opfullpath(chs(\"path\"))`	)
 export_attribute	[ 0	locks=0 ]	(	N	)
 target_texture_size	[ 0	locks=0 ]	(	[ target_texture_size	0 ] 	)
 numpt	[ 0	locks=0 ]	(	[ numpt	0 ] 	)
-coord_swizzle	[ 0	locks=0 ]	(	[ coord_swizzle	0 ] 	)
-coord_flip	[ 0	locks=0 ]	(	[ coord_flip	1 ] 	)
+coord_swizzle	[ 0	locks=0 ]	(	[ coord_swizzle	1 ] 	)
+coord_flip	[ 0	locks=0 ]	(	[ coord_flip	0 ] 	)
 stdswitcher5	[ 0	locks=0 ]	(	0	0	0	0	)
-m	[ 8	locks=0 ]	(	[ m	0 ] 	)
+m	[ 8	locks=0 ]	(	[ m	2 ] 	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -27415,7 +27415,7 @@ Content-Disposition: attachment; filename="hdaroot/textures/normal.cop2"
 Content-Type: text/plain
 
 2
-247
+249
 0
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -28809,7 +28809,7 @@ inputs
 stat
 {
   create 1499134361
-  modify 1567176612
+  modify 1569338731
   author mikel@mikembp-sesi.local
   access 0777
 }
@@ -29206,24 +29206,6 @@ Content-Type: text/plain
       flags = 0
       segment { length = 0 expr = $NFRAMES }
     }
-    channel m {
-      lefttype = extend
-      righttype = extend
-      flags = 0
-      segment { length = 0 expr = ch(\"../../method\") }
-    }
-    channel target_texture_size {
-      lefttype = extend
-      righttype = extend
-      flags = 0
-      segment { length = 0 expr = "if(ch(\"m\")!=2, ch(\"../../target_texture_size\"),(floor(ch(\"../../target_texture_size\")/3)*3))" }
-    }
-    channel numpt {
-      lefttype = extend
-      righttype = extend
-      flags = 0
-      segment { length = 0 expr = "if(ch(\"m\")==0, npoints(\"../../objects/MESH/soft/OUT\"), if(ch(\"m\")==1, npoints(\"../../objects/MESH/rigid/REF_MESH\"), if(ch(\"m\")==2, npoints(\"../../objects/TEXTURE/FLUID_GEO\"), detail(\"../../objects/MESH/sprite/MAX_POINTS\", \"max_pts\", 0))))" }
-    }
     channel coord_swizzle {
       lefttype = extend
       righttype = extend
@@ -29247,6 +29229,24 @@ Content-Type: text/plain
       righttype = extend
       flags = 0
       segment { length = 0 expr = ch(\"../../wrap_data\") }
+    }
+    channel m {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = ch(\"../../method\") }
+    }
+    channel target_texture_size {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = "if(ch(\"m\")!=2, ch(\"../../target_texture_size\"),(floor(ch(\"../../target_texture_size\")/3)*3))" }
+    }
+    channel numpt {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = "if(ch(\"m\")==0, npoints(\"../../objects/MESH/soft/OUT\"), if(ch(\"m\")==1, npoints(\"../../objects/MESH/rigid/REF_MESH\"), if(ch(\"m\")==2, npoints(\"../../objects/TEXTURE/FLUID_GEO\"), detail(\"../../objects/MESH/sprite/MAX_POINTS\", \"max_pts\", 0))))" }
     }
   }
 
@@ -29282,7 +29282,7 @@ idominance	[ 0	locks=0 ]	(	"odd"	)
 overriderange	[ 0	locks=0 ]	(	"off"	)
 singleimage	[ 0	locks=0 ]	(	"off"	)
 start	[ 0	locks=0 ]	(	[ start	1 ] 	)
-length	[ 0	locks=0 ]	(	[ length	240 ] 	)
+length	[ 0	locks=0 ]	(	[ length	101 ] 	)
 preextend	[ 0	locks=0 ]	(	"black"	)
 prehold	[ 0	locks=0 ]	(	0	)
 postextend	[ 0	locks=0 ]	(	"black"	)
@@ -29296,11 +29296,11 @@ rest	[ 0	locks=0 ]	(	op:`chs(\"rest_path\")`	)
 export_attribute_rest	[ 0	locks=0 ]	(	rest	)
 target_texture_size	[ 0	locks=0 ]	(	[ target_texture_size	0 ] 	)
 numpt	[ 0	locks=0 ]	(	[ numpt	0 ] 	)
-coord_swizzle	[ 0	locks=0 ]	(	[ coord_swizzle	0 ] 	)
-coord_flip	[ 0	locks=0 ]	(	[ coord_flip	1 ] 	)
+coord_swizzle	[ 0	locks=0 ]	(	[ coord_swizzle	1 ] 	)
+coord_flip	[ 0	locks=0 ]	(	[ coord_flip	0 ] 	)
 stdswitcher5	[ 0	locks=0 ]	(	0	0	0	0	)
 wrap_data	[ 0	locks=0 ]	(	[ wrap_data	0 ] 	)
-num_frames	[ 8	locks=0 ]	(	[ num_frames	99 ] 	)
+num_frames	[ 8	locks=0 ]	(	[ num_frames	100 ] 	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -29323,7 +29323,7 @@ Content-Disposition: attachment; filename="hdaroot/textures/position.cop2"
 Content-Type: text/plain
 
 2
-429
+433
 0
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -29361,7 +29361,7 @@ inputs
 stat
 {
   create 1499134361
-  modify 1559660232
+  modify 1569338699
   author mikel@mikembp-sesi.local
   access 0777
 }
@@ -29877,7 +29877,7 @@ Content-Disposition: attachment; filename="hdaroot/textures/position/vectofloat1
 Content-Type: text/plain
 
 comment ""
-position 23.1482 8.3226
+position 22.7163 8.3226
 connectornextid 4
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on lowdetail off mediumdetail off highdetail on material off
 outputsNamed3
@@ -29897,7 +29897,7 @@ inputs
 stat
 {
   create 1499134514
-  modify 1559660232
+  modify 1569338701
   author mikel@mikembp-sesi.local
   access 0777
 }
@@ -34827,7 +34827,7 @@ Content-Type: text/plain
 comment ""
 position -10.6927 13.3568
 connectornextid 3
-flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress off colordefault off exposed on
+flags =  lock off model off template off footprint off xray off bypass off display on render off highlight off unload off savedata off compress off colordefault off exposed on
 outputsNamed3
 {
 2 "output1"
@@ -34845,7 +34845,7 @@ inputs
 stat
 {
   create 1559310513
-  modify 1567025084
+  modify 1569338731
   author mikel@mikembp-sesi
   access 0777
 }
@@ -35492,18 +35492,6 @@ Content-Type: text/plain
       flags = 0
       segment { length = 0 expr = $NFRAMES }
     }
-    channel m {
-      lefttype = extend
-      righttype = extend
-      flags = 0
-      segment { length = 0 expr = ch(\"../../method\") }
-    }
-    channel numpt {
-      lefttype = extend
-      righttype = extend
-      flags = 0
-      segment { length = 0 expr = "if(ch(\"m\")==0, npoints(\"../../objects/MESH/soft/OUT\"), if(ch(\"m\")==1, npoints(\"../../objects/MESH/rigid/REF_MESH\"), if(ch(\"m\")==2, npoints(\"../../objects/TEXTURE/FLUID_GEO\"), detail(\"../../objects/MESH/sprite/MAX_POINTS\", \"max_pts\", 0))))" }
-    }
     channel coord_swizzle {
       lefttype = extend
       righttype = extend
@@ -35533,6 +35521,18 @@ Content-Type: text/plain
       righttype = extend
       flags = 0
       segment { length = 0 expr = "if(ch(\"m\")!=2, ch(\"../../target_texture_size\"),(floor(ch(\"../../target_texture_size\")/3)*3))" }
+    }
+    channel m {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = ch(\"../../method\") }
+    }
+    channel numpt {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = "if(ch(\"m\")==0, npoints(\"../../objects/MESH/soft/OUT\"), if(ch(\"m\")==1, npoints(\"../../objects/MESH/rigid/REF_MESH\"), if(ch(\"m\")==2, npoints(\"../../objects/TEXTURE/FLUID_GEO\"), detail(\"../../objects/MESH/sprite/MAX_POINTS\", \"max_pts\", 0))))" }
     }
   }
 
@@ -35568,7 +35568,7 @@ idominance	[ 0	locks=0 ]	(	"odd"	)
 overriderange	[ 0	locks=0 ]	(	"off"	)
 singleimage	[ 0	locks=0 ]	(	"off"	)
 start	[ 0	locks=0 ]	(	[ start	1 ] 	)
-length	[ 0	locks=0 ]	(	[ length	240 ] 	)
+length	[ 0	locks=0 ]	(	[ length	101 ] 	)
 preextend	[ 0	locks=0 ]	(	"black"	)
 prehold	[ 0	locks=0 ]	(	0	)
 postextend	[ 0	locks=0 ]	(	"black"	)
@@ -35580,13 +35580,13 @@ export_attribute_p	[ 0	locks=0 ]	(	P	)
 rest_path	[ 0	locks=0 ]	(	`opfullpath(\"../../objects/MESH/soft/OUT\")`	)
 rest	[ 0	locks=0 ]	(	op:`chs(\"rest_path\")`	)
 export_attribute_rest	[ 0	locks=0 ]	(	rest	)
-target_texture_size	[ 0	locks=0 ]	(	[ target_texture_size	16 ] 	)
+target_texture_size	[ 8	locks=0 ]	(	[ target_texture_size	4095 ] 	)
 numpt	[ 0	locks=0 ]	(	[ numpt	0 ] 	)
 coord_swizzle	[ 0	locks=0 ]	(	[ coord_swizzle	1 ] 	)
 coord_flip	[ 0	locks=0 ]	(	[ coord_flip	0 ] 	)
 stdswitcher5	[ 0	locks=0 ]	(	0	0	0	0	)
 wrap_data	[ 0	locks=0 ]	(	[ wrap_data	0 ] 	)
-num_frames	[ 0	locks=0 ]	(	[ num_frames	15 ] 	)
+num_frames	[ 0	locks=0 ]	(	[ num_frames	100 ] 	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -42424,7 +42424,7 @@ Content-Type: text/plain
 
 {
 version 0.8
-input	[ 0	locks=0 ]	(	[ input	0 ] 	)
+input	[ 0	locks=0 ]	(	[ input	2 ] 	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -42793,7 +42793,7 @@ areaattrib	[ 0	locks=0 ]	(	area	)
 indepvoxel	[ 0	locks=0 ]	(	"off"	)
 useareaforvolumes	[ 0	locks=0 ]	(	"off"	)
 forcetotal	[ 0	locks=0 ]	(	"on"	)
-npts	[ 0	locks=0 ]	(	[ npts	1350 ] 	)
+npts	[ 0	locks=0 ]	(	[ npts	1024 ] 	)
 usedensitytexture	[ 0	locks=0 ]	(	"off"	)
 densitytexture	[ 0	locks=0 ]	(	default.pic	)
 primcountattrib	[ 0	locks=0 ]	(	count	)
@@ -43038,7 +43038,7 @@ t	[ 0	locks=0 ]	(	0	0	0	)
 r	[ 0	locks=0 ]	(	0	0	0	)
 s	[ 8	locks=0 ]	(	1	1	1	)
 shear	[ 0	locks=0 ]	(	0	0	0	)
-scale	[ 8	locks=0 ]	(	[ scale	0.0021005085117774117 ] 	)
+scale	[ 8	locks=0 ]	(	[ scale	0.0023014562076457399 ] 	)
 parmgroup_pivotxform	[ 0	locks=0 ]	(	0	)
 p	[ 0	locks=0 ]	(	0	0	0	)
 pr	[ 0	locks=0 ]	(	0	0	0	)
@@ -43139,7 +43139,7 @@ t	[ 0	locks=0 ]	(	0	0	0	)
 r	[ 0	locks=0 ]	(	0	0	0	)
 s	[ 0	locks=0 ]	(	1	1	1	)
 shear	[ 0	locks=0 ]	(	0	0	0	)
-scale	[ 0	locks=0 ]	(	[ scale	476.0751953125 ] 	)
+scale	[ 0	locks=0 ]	(	[ scale	434.50750732421875 ] 	)
 parmgroup_pivotxform	[ 0	locks=0 ]	(	0	)
 p	[ 0	locks=0 ]	(	0	0	0	)
 pr	[ 0	locks=0 ]	(	0	0	0	)
@@ -43305,7 +43305,7 @@ Content-Type: text/plain
 version 0.8
 itermethod	[ 0	locks=0 ]	(	"count"	)
 method	[ 0	locks=0 ]	(	"merge"	)
-iterations	[ 0	locks=0 ]	(	[ iterations	99 ] 	)
+iterations	[ 0	locks=0 ]	(	[ iterations	100 ] 	)
 startvalue	[ 0	locks=0 ]	(	[ startvalue	1 ] 	)
 increment	[ 0	locks=0 ]	(	1	)
 class	[ 0	locks=0 ]	(	"point"	)
@@ -43423,7 +43423,7 @@ inputs
 stat
 {
   create 1477494667
-  modify 1567025084
+  modify 1569339457
   author Luiz@Luiz-PC
   access 0777
 }
@@ -43547,7 +43547,7 @@ Content-Type: text/plain
 {
 version 0.8
 method	[ 0	locks=0 ]	(	"byframe"	)
-frame	[ 8	locks=0 ]	(	[ frame	99 ] 	)
+frame	[ 8	locks=0 ]	(	[ frame	100 ] 	)
 integerframe	[ 0	locks=0 ]	(	"on"	)
 time	[ 0	locks=0 ]	(	[ time	4.125 ] 	)
 rangeclamp	[ 0	locks=0 ]	(	"none"	)
@@ -44319,7 +44319,7 @@ Content-Type: text/plain
 
 {
 version 0.8
-input	[ 0	locks=0 ]	(	[ input	0 ] 	)
+input	[ 0	locks=0 ]	(	[ input	2 ] 	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -46066,10 +46066,10 @@ version 0.8
 method	[ 0	locks=0 ]	(	"byframe"	)
 frame	[ 8	locks=0 ]	(	[ frame	100 ] 	)
 integerframe	[ 0	locks=0 ]	(	"on"	)
-time	[ 0	locks=0 ]	(	[ time	0 ] 	)
+time	[ 0	locks=0 ]	(	[ time	2.7916667461395264 ] 	)
 rangeclamp	[ 0	locks=0 ]	(	"none"	)
-frange	[ 0	locks=0 ]	(	[ frange1	1 ] 	[ frange2	240 ] 	)
-trange	[ 0	locks=0 ]	(	[ trange1	0 ] 	[ trange2	9.9583333333333339 ] 	)
+frange	[ 0	locks=0 ]	(	[ frange1	1 ] 	[ frange2	101 ] 	)
+trange	[ 0	locks=0 ]	(	[ trange1	0 ] 	[ trange2	4.166666666666667 ] 	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -46112,7 +46112,7 @@ inputs
 stat
 {
   create 1486172943
-  modify 1568302412
+  modify 1569339707
   author Luiz@LAPTOP-LKBBB5D4
   access 0777
 }
@@ -46319,7 +46319,7 @@ inputs
 stat
 {
   create 1486172928
-  modify 1568302411
+  modify 1569339707
   author Luiz@LAPTOP-LKBBB5D4
   access 0777
 }
@@ -47921,10 +47921,10 @@ version 0.8
 method	[ 0	locks=0 ]	(	"byframe"	)
 frame	[ 0	locks=0 ]	(	[ frame	1 ] 	)
 integerframe	[ 0	locks=0 ]	(	"on"	)
-time	[ 0	locks=0 ]	(	[ time	0 ] 	)
+time	[ 0	locks=0 ]	(	[ time	2.7916667461395264 ] 	)
 rangeclamp	[ 0	locks=0 ]	(	"none"	)
-frange	[ 0	locks=0 ]	(	[ frange1	1 ] 	[ frange2	240 ] 	)
-trange	[ 0	locks=0 ]	(	[ trange1	0 ] 	[ trange2	9.9583333333333339 ] 	)
+frange	[ 0	locks=0 ]	(	[ frange1	1 ] 	[ frange2	101 ] 	)
+trange	[ 0	locks=0 ]	(	[ trange1	0 ] 	[ trange2	4.166666666666667 ] 	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -49288,10 +49288,10 @@ version 0.8
 method	[ 0	locks=0 ]	(	"byframe"	)
 frame	[ 0	locks=0 ]	(	[ frame	1 ] 	)
 integerframe	[ 0	locks=0 ]	(	"on"	)
-time	[ 0	locks=0 ]	(	[ time	0 ] 	)
+time	[ 0	locks=0 ]	(	[ time	3.4583332538604736 ] 	)
 rangeclamp	[ 0	locks=0 ]	(	"none"	)
-frange	[ 0	locks=0 ]	(	[ frange1	1 ] 	[ frange2	240 ] 	)
-trange	[ 0	locks=0 ]	(	[ trange1	0 ] 	[ trange2	9.9583333333333339 ] 	)
+frange	[ 0	locks=0 ]	(	[ frange1	1 ] 	[ frange2	101 ] 	)
+trange	[ 0	locks=0 ]	(	[ trange1	0 ] 	[ trange2	4.166666666666667 ] 	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -49855,10 +49855,10 @@ version 0.8
 method	[ 0	locks=0 ]	(	"byframe"	)
 frame	[ 0	locks=0 ]	(	[ frame	1 ] 	)
 integerframe	[ 0	locks=0 ]	(	"on"	)
-time	[ 0	locks=0 ]	(	[ time	0 ] 	)
+time	[ 0	locks=0 ]	(	[ time	2.7916667461395264 ] 	)
 rangeclamp	[ 0	locks=0 ]	(	"none"	)
-frange	[ 0	locks=0 ]	(	[ frange1	1 ] 	[ frange2	240 ] 	)
-trange	[ 0	locks=0 ]	(	[ trange1	0 ] 	[ trange2	9.9583333333333339 ] 	)
+frange	[ 0	locks=0 ]	(	[ frange1	1 ] 	[ frange2	101 ] 	)
+trange	[ 0	locks=0 ]	(	[ trange1	0 ] 	[ trange2	4.166666666666667 ] 	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -51741,8 +51741,8 @@ Content-Type: text/plain
 version 0.8
 itermethod	[ 0	locks=0 ]	(	"count"	)
 method	[ 0	locks=0 ]	(	"merge"	)
-iterations	[ 8	locks=0 ]	(	[ iterations	100 ] 	)
-startvalue	[ 0	locks=0 ]	(	[ startvalue	1 ] 	)
+iterations	[ 8	locks=0 ]	(	[ iterations	101 ] 	)
+startvalue	[ 0	locks=0 ]	(	[ startvalue	101 ] 	)
 increment	[ 0	locks=0 ]	(	1	)
 class	[ 0	locks=0 ]	(	"primitive"	)
 useattrib	[ 0	locks=0 ]	(	"on"	)
@@ -51923,12 +51923,12 @@ Content-Type: text/plain
 {
 version 0.8
 method	[ 0	locks=0 ]	(	"byframe"	)
-frame	[ 0	locks=0 ]	(	[ frame	100 ] 	)
+frame	[ 0	locks=0 ]	(	[ frame	101 ] 	)
 integerframe	[ 0	locks=0 ]	(	"on"	)
-time	[ 0	locks=0 ]	(	[ time	0 ] 	)
+time	[ 0	locks=0 ]	(	[ time	3.4583332538604736 ] 	)
 rangeclamp	[ 0	locks=0 ]	(	"none"	)
-frange	[ 0	locks=0 ]	(	[ frange1	1 ] 	[ frange2	240 ] 	)
-trange	[ 0	locks=0 ]	(	[ trange1	0 ] 	[ trange2	9.9583333333333339 ] 	)
+frange	[ 0	locks=0 ]	(	[ frange1	1 ] 	[ frange2	101 ] 	)
+trange	[ 0	locks=0 ]	(	[ trange1	0 ] 	[ trange2	4.166666666666667 ] 	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -51970,7 +51970,7 @@ inputs
 stat
 {
   create 1499281135
-  modify 1567176908
+  modify 1569339770
   author mikel@mikembp-sesi.local
   access 0777
 }
@@ -52068,7 +52068,7 @@ Content-Type: text/plain
 
 {
 version 0.8
-input	[ 8	locks=0 ]	(	[ input	1 ] 	)
+input	[ 8	locks=0 ]	(	[ input	2 ] 	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -52147,7 +52147,7 @@ Content-Type: text/plain
 
 {
 version 0.8
-input	[ 8	locks=0 ]	(	[ input	1 ] 	)
+input	[ 8	locks=0 ]	(	[ input	2 ] 	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -57065,7 +57065,7 @@ Content-Type: text/plain
 
 {
 version 0.8
-input	[ 8	locks=0 ]	(	[ input	1 ] 	)
+input	[ 8	locks=0 ]	(	[ input	0 ] 	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -58292,7 +58292,7 @@ inputs
 stat
 {
   create 1520036085
-  modify 1567025084
+  modify 1569339267
   author GDC_Houdini@AUSTIN
   access 0777
 }
@@ -58311,7 +58311,7 @@ Content-Type: text/plain
       righttype = extend
       default = 5000
       flags = 0
-      segment { length = 0 value = 5000 5000 expr = ceil(ch(\"../../../target_texture_size\")/3)*3-npoints(\"../SIM_GEO\") }
+      segment { length = 0 value = 5000 5000 expr = floor(ch(\"../../../target_texture_size\")/3)*3-npoints(\"../SIM_GEO\") }
     }
   }
 
@@ -58324,7 +58324,7 @@ version 0.8
 group	[ 0	locks=0 ]	(	""	)
 keep	[ 0	locks=0 ]	(	"off"	)
 ptsperpt	[ 0	locks=0 ]	(	"off"	)
-npts	[ 8	locks=0 ]	(	[ npts	963 ] 	)
+npts	[ 8	locks=0 ]	(	[ npts	1023 ] 	)
 nptsperpt	[ 0	locks=0 ]	(	10	)
 doattrib	[ 0	locks=0 ]	(	"off"	)
 attrib	[ 0	locks=0 ]	(	""	)
@@ -60483,7 +60483,7 @@ inputs
 stat
 {
   create 1534533243
-  modify 1568302412
+  modify 1569343444
   author MAINGEAR@DESKTOP-P98C1VA
   access 0777
 }
@@ -60544,7 +60544,7 @@ inputs
 stat
 {
   create 1534533243
-  modify 1568302412
+  modify 1569343444
   author MAINGEAR@DESKTOP-P98C1VA
   access 0777
 }
@@ -60670,10 +60670,10 @@ version 0.8
 method	[ 0	locks=0 ]	(	"byframe"	)
 frame	[ 8	locks=0 ]	(	[ frame	100 ] 	)
 integerframe	[ 0	locks=0 ]	(	"on"	)
-time	[ 0	locks=0 ]	(	[ time	0 ] 	)
+time	[ 0	locks=0 ]	(	[ time	3.4583332538604736 ] 	)
 rangeclamp	[ 0	locks=0 ]	(	"none"	)
-frange	[ 0	locks=0 ]	(	[ frange1	1 ] 	[ frange2	240 ] 	)
-trange	[ 0	locks=0 ]	(	[ trange1	0 ] 	[ trange2	9.9583333333333339 ] 	)
+frange	[ 0	locks=0 ]	(	[ frange1	1 ] 	[ frange2	101 ] 	)
+trange	[ 0	locks=0 ]	(	[ trange1	0 ] 	[ trange2	4.166666666666667 ] 	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -60833,7 +60833,7 @@ inputs
 stat
 {
   create 1518557022
-  modify 1567176812
+  modify 1569339360
   author blaidlaw@TOR-WKS-AB663.ubisoft.org
   access 0777
 }
@@ -62248,7 +62248,7 @@ Content-Type: text/plain
 {
 version 0.8
 stdswitcher	[ 0	locks=0 ]	(	0	)
-depth	[ 8	locks=0 ]	(	[ depth	2 ] 	)
+depth	[ 8	locks=0 ]	(	[ depth	7 ] 	)
 bwpoints	[ 0	locks=0 ]	(	`chs(\"../../bwpoints1\")`	`chs(\"../../bwpoints2\")`	)
 scope	[ 0	locks=0 ]	(	*	)
 }
@@ -63024,7 +63024,7 @@ inputs
 stat
 {
   create 1499279728
-  modify 1567025084
+  modify 1569338863
   author mikel@mikembp-sesi.local
   access 0777
 }
@@ -63443,16 +63443,16 @@ idominance	[ 0	locks=0 ]	(	"odd"	)
 overriderange	[ 0	locks=0 ]	(	"off"	)
 singleimage	[ 0	locks=0 ]	(	"off"	)
 start	[ 0	locks=0 ]	(	[ start	1 ] 	)
-length	[ 0	locks=0 ]	(	[ length	240 ] 	)
+length	[ 0	locks=0 ]	(	[ length	101 ] 	)
 preextend	[ 0	locks=0 ]	(	"black"	)
 prehold	[ 0	locks=0 ]	(	0	)
 postextend	[ 0	locks=0 ]	(	"black"	)
 posthold	[ 0	locks=0 ]	(	0	)
 m	[ 0	locks=0 ]	(	[ m	0 ] 	)
-s	[ 8	locks=0 ]	(	[ s1	0 ] 	[ s2	0 ] 	)
-r	[ 8	locks=0 ]	(	[ r1	0 ] 	[ r2	0 ] 	)
+s	[ 0	locks=0 ]	(	[ s1	0 ] 	[ s2	0 ] 	)
+r	[ 0	locks=0 ]	(	[ r1	0 ] 	[ r2	0 ] 	)
 f	[ 8	locks=0 ]	(	[ f1	1024 ] 	[ f2	0 ] 	)
-p	[ 8	locks=0 ]	(	[ p1	0 ] 	[ p2	0 ] 	)
+p	[ 0	locks=0 ]	(	[ p1	0 ] 	[ p2	0 ] 	)
 stdswitcher5	[ 0	locks=0 ]	(	2	2	2	2	)
 }
 
@@ -65639,7 +65639,7 @@ Content-Type: text/plain
 comment ""
 position -14.132 -0.510489
 connectornextid 1
-flags =  lock off model off template off footprint off xray off bypass off display on render off highlight off unload off savedata off compress off colordefault off exposed on
+flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress off colordefault off exposed on
 outputsNamed3
 {
 }
@@ -65654,7 +65654,7 @@ inputs
 stat
 {
   create 1521120922
-  modify 1566926295
+  modify 1569338367
   author blaidlaw@TOR-WKS-AB663.ubisoft.org
   access 0777
 }
@@ -69351,7 +69351,7 @@ preextend	[ 0	locks=0 ]	(	"black"	)
 prehold	[ 0	locks=0 ]	(	0	)
 postextend	[ 0	locks=0 ]	(	"black"	)
 posthold	[ 0	locks=0 ]	(	0	)
-_depth	[ 8	locks=0 ]	(	[ _depth	2 ] 	)
+_depth	[ 8	locks=0 ]	(	[ _depth	7 ] 	)
 stdswitcher5	[ 0	locks=0 ]	(	2	2	2	2	)
 }
 
@@ -69703,7 +69703,7 @@ Content-Type: text/plain
 
 {
 version 0.8
-padded_size	[ 0	locks=0 ]	(	[ padded_sizex	1024 ] 	[ padded_sizey	128 ] 	)
+padded_size	[ 0	locks=0 ]	(	[ padded_sizex	4096 ] 	[ padded_sizey	128 ] 	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -69757,7 +69757,7 @@ inputs
 stat
 {
   create 1560345417
-  modify 1567025084
+  modify 1569338375
   author mikel@mikembp-sesi
   access 0777
 }
@@ -69952,7 +69952,7 @@ Content-Type: text/plain
 {
 version 0.8
 stdswitcher	[ 0	locks=0 ]	(	0	)
-index	[ 8	locks=0 ]	(	[ index	1 ] 	)
+index	[ 8	locks=0 ]	(	[ index	0 ] 	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -72690,9 +72690,9 @@ version 0.8
 stdswitcher	[ 0	locks=0 ]	(	0	)
 crop	[ 0	locks=0 ]	(	"corners"	)
 units	[ 0	locks=0 ]	(	"pixel"	)
-hcrop	[ 0	locks=0 ]	(	0	[ hcrop2	1024 ] 	)
-vcrop	[ 0	locks=0 ]	(	0	[ vcrop2	512 ] 	)
-offset	[ 0	locks=0 ]	(	0	[ offset2	215 ] 	)
+hcrop	[ 0	locks=0 ]	(	0	[ hcrop2	4096 ] 	)
+vcrop	[ 0	locks=0 ]	(	0	[ vcrop2	128 ] 	)
+offset	[ 0	locks=0 ]	(	0	[ offset2	28 ] 	)
 hold	[ 0	locks=0 ]	(	"off"	)
 }
 
@@ -74022,7 +74022,7 @@ Content-Type: text/plain
 version 0.8
 execute	[ 0	locks=0 ]	(	0	)
 renderdialog	[ 0	locks=0 ]	(	0	)
-index	[ 0	locks=0 ]	(	[ index	0 ] 	)
+index	[ 0	locks=0 ]	(	[ index	1 ] 	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -75984,7 +75984,7 @@ Content-Type: text/plain
 version 0.8
 execute	[ 0	locks=0 ]	(	0	)
 renderdialog	[ 0	locks=0 ]	(	0	)
-index	[ 8	locks=0 ]	(	[ index	0 ] 	)
+index	[ 8	locks=0 ]	(	[ index	2 ] 	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -80396,7 +80396,7 @@ inputs
 stat
 {
   create 1499288484
-  modify 1567025084
+  modify 1569339348
   author mikel@mikembp-sesi.local
   access 0777
 }
@@ -80446,7 +80446,7 @@ take	[ 0	locks=0 ]	(	`chs(\"../../take\")`	)
 copswitcher	[ 0	locks=0 ]	(	3	3	3	3	3	)
 coppath	[ 0	locks=0 ]	(	../../textures/POSITION_AND_PACKED_NORMAL/XYZW	)
 tres	[ 0	locks=0 ]	(	"natural"	)
-res	[ 0	locks=0 ]	(	1024	512	)
+res	[ 0	locks=0 ]	(	4096	100	)
 resmenu	[ 0	locks=0 ]	(	0	)
 copoutput	[ 0	locks=0 ]	(	`chs(\"../../path_pos\")`	)
 mkpath	[ 0	locks=0 ]	(	"on"	)
@@ -80461,7 +80461,7 @@ batchmode	[ 0	locks=0 ]	(	"off"	)
 batchsize	[ 0	locks=0 ]	(	2	)
 reloadfiles	[ 0	locks=0 ]	(	"off"	)
 outputarea	[ 0	locks=0 ]	(	"frame"	)
-pixelcrop	[ 0	locks=0 ]	(	0	0	1023	511	)
+pixelcrop	[ 0	locks=0 ]	(	0	0	4095	99	)
 uvcrop	[ 0	locks=0 ]	(	0	0	1	1	)
 limitcanvaspixels	[ 0	locks=0 ]	(	"on"	)
 canvaspixels	[ 0	locks=0 ]	(	64	)
@@ -86276,7 +86276,7 @@ inputs
 stat
 {
   create 1499288484
-  modify 1567025084
+  modify 1569339365
   author mikel@mikembp-sesi.local
   access 0777
 }
@@ -86326,7 +86326,7 @@ take	[ 0	locks=0 ]	(	`chs(\"../../take\")`	)
 copswitcher	[ 0	locks=0 ]	(	0	0	0	0	0	)
 coppath	[ 0	locks=0 ]	(	../../textures/COLOR/XYZW	)
 tres	[ 0	locks=0 ]	(	"natural"	)
-res	[ 0	locks=0 ]	(	1024	512	)
+res	[ 0	locks=0 ]	(	4096	100	)
 resmenu	[ 0	locks=0 ]	(	0	)
 copoutput	[ 8	locks=0 ]	(	`chs(\"../../path_col\")`	)
 mkpath	[ 0	locks=0 ]	(	"on"	)
@@ -86341,7 +86341,7 @@ batchmode	[ 0	locks=0 ]	(	"off"	)
 batchsize	[ 0	locks=0 ]	(	2	)
 reloadfiles	[ 0	locks=0 ]	(	"off"	)
 outputarea	[ 0	locks=0 ]	(	"frame"	)
-pixelcrop	[ 0	locks=0 ]	(	0	0	1023	511	)
+pixelcrop	[ 0	locks=0 ]	(	0	0	4095	99	)
 uvcrop	[ 0	locks=0 ]	(	0	0	1	1	)
 limitcanvaspixels	[ 0	locks=0 ]	(	"on"	)
 canvaspixels	[ 0	locks=0 ]	(	64	)

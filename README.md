@@ -2,41 +2,30 @@
 
 This is a series of tools geared towards assisting Houdini users with a variety of tasks for game development. The older version of this repository focused on just the shelf. Now this is an all-inclusive toolset that spans the shelf, digital assets, custom desktops and scripts.
 
-If you'd like more information, please check out the overview page, which contains tutorials for several of the provided tools. [https://www.sidefx.com/tutorials/game-development-toolset-overview/](https://www.sidefx.com/tutorials/game-development-toolset-overview/)
+If you'd like more information, please check out [Game Development Toolset Overview](https://www.sidefx.com/tutorials/game-development-toolset-overview/), which contains tutorials for several of the provided tools. 
 
 NOTE: This is in-progress. Please file an [Issue](https://github.com/sideeffects/GameDevelopmentToolset/issues) if something doesn't seem quite right!
 
-Also, if you forked the respository and suddenly it stopped pulling, that's due to the link changing from [https://github.com/sideeffects/GameDevelopmentShelf/](https://github.com/sideeffects/GameDevelopmentShelf/) to [https://github.com/sideeffects/GameDevelopmentToolset/](https://github.com/sideeffects/GameDevelopmentToolset/). Github appears to forward traffic to the new link, but here's a little FYI just incase.
+Also, if you forked the respository and suddenly it stopped pulling, that's due to the repository name changing from [GameDevelopmentShelf](https://github.com/sideeffects/GameDevelopmentShelf/) to [GameDevelopmentToolset](https://github.com/sideeffects/GameDevelopmentToolset/). Github appears to forward traffic to the new link, but here's a little FYI just in case.
 
 # Installation
 
+You can install the Game Development Toolset from the updater built in to Houdini 16.5+ or you can manually download the sources from github.
 
+## Method 1 (Recommended): Built in Updater
 
-## Instructions - Method 1 (Recommended)
-Use the built in Updater in Houdini 16.5 to download the latest releases from Github. You can find more information [here](https://www.sidefx.com/tutorials/game-dev-toolset-installation/)
+Use the built in Updater in Houdini 16.5+ to download the latest releases from Github. You can find more information [here](https://www.sidefx.com/tutorials/game-dev-toolset-installation/)
 
-# Instructions - Method 2 (Cutting Edge)
-Download the repository using the green Clone or Download Button and unzip contents into the folder of your choosing
+## Method 2 (Cutting Edge): Manually Download from Github
 
-Edit the houdini.env file found at the topmost directory 
+1. Download the repository using the green Clone or Download Button and unzip contents into the folder of your choosing.
 
-Modify the line HOUDINI_PATH = C:\PATH\TO\YOUR\DIRECTORY;&
+2. Edit [houdini.env](https://www.sidefx.com/docs/houdini/basics/config_env#setting-environment-variables) and set `HOUDINI_PATH` and `PATH` into something like:
 
-Into something like HOUDINI_PATH = C:\Users\Luiz\Documents\GameDevelopmentToolset;&
-
-Copy the houdini.env file into the following folders depending on your operating system:
-
-Windows
-
-    C:\Users\[username]\Documents\houdini[ver#]
-
-OSX
-
-    /Users/[username]/Library/Preferences/houdini/[ver#]
-
-Linux
-
-    ~/houdini[ver#]
+    ```
+    HOUDINI_PATH = C:\Users\Luiz\Documents\GameDevelopmentToolset;&
+    PATH = C:\Users\Luiz\Documents\GameDevelopmentToolset\bin;$PATH
+    ```
 
 # What's Changed?
 Hi, my name is Luiz Kruel and I have taken over the github from Steven B. who is now working in production. A few of the SideFX TAs (TDs) will also be contributing example files and tools.
@@ -54,7 +43,7 @@ All of the HDAs are now using the new expanded format that was introduced in H16
 Instead of tying the examples as HDAs, we will be generating separate hip files that show how the tools should work in context
 
 ## Branched Development
-The *Development* branch is where we'll be working from. This is where the latest and greatest will live. The HoudiniXX are for archival purposes and we'll keep working on the latest release and will branch off when we make HDAs that use new functionality. 
+The [Development](https://github.com/sideeffects/GameDevelopmentToolset/tree/Development) branch is where we'll be working from. This is where the latest and greatest will live. The HoudiniXX branches are for archival purposes and we'll keep working on the latest release and will branch off when we make HDAs that use new functionality. 
 
-The Stable branch will be soon deprecated as the Releases workflow provides the same gating functionality. 
+The [Stable](https://github.com/sideeffects/GameDevelopmentToolset/tree/Stable) branch will be soon deprecated as the [Releases](https://github.com/sideeffects/GameDevelopmentToolset/releases) workflow provides the same gating functionality. 
 

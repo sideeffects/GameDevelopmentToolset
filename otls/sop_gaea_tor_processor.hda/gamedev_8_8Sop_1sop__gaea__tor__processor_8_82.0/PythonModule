@@ -80,7 +80,7 @@ def ProcessTor(a_node):
     
     # Forcing some node cooks
     a_node.node("extract_inputmaps").cook(force=True)
-    a_node.node("reimport_maps_loop").cook(force=True)
+    a_node.node("reimport_maps_loop").parm("resetcookpass").pressButton()#cook(force=True)
 
 # Optional parameter callback. Not used
 def ParmCallback(a_node):
@@ -90,7 +90,8 @@ def ParmCallback(a_node):
 def RunGaea(a_node, cmd, gaea_dir):
 
     hKey = _winreg.OpenKey(_winreg.HKEY_CURRENT_USER, r"Software\\QuadSpinner\\Gaea\\1.0") 
-    version = int(_winreg.QueryValueEx(hKey, "Version")[0].split(".")[-1])
+    version = _winreg.QueryValueEx(hKey, "Version")[0].split(".")[-1]
+    version = int("".join(x for x in version if x.isdigit()))
 
     if version < 26:
         raise hou.Error("The plugin requires at least Gaea version 1.0.26 or newer to work")

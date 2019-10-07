@@ -15,6 +15,7 @@
 #pragma range   rows            1 16
 #pragma range   columns         1 16
 #pragma range   camera_width    0 100
+#pragma range   camera_zoom     0.01 2
 
 #include "math.h"
 
@@ -38,6 +39,7 @@ fisheyelens(
         float rows = 2;
         float columns = 2;
         float camera_width = 1;
+        float camera_zoom = 1.1;
         )
 {
     float r = sqrt(x*x + y*y);

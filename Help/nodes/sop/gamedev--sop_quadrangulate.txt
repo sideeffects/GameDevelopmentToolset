@@ -24,6 +24,19 @@ Below you can see the results on the Rubber Toy
     #image2: /images/quadrangulate_after.png
 
 @parameters
-    Fast Mode:
-        Fast Mode skips a second pass to resolve quads where the longest edge isn't agreed upon by 2 neighborhing triangles.
-    
+
+	Ignore Edges: 
+		Edges that will be left alone and not collapsed. Helpful if you want to protect a certain edge from being deleted
+		
+	Force Remove Edges:
+		Edge that will be forcefully removed. Helpful if there are specific edges that the user wants to remove that the algorithm doesn't pick up 
+		
+	Fast Mode:
+		Fast Mode skips a second pass to resolve quads where the longest edge isn't agreed upon by 2 neighborhing triangles.
+		
+	Ignore Boundary Edges:
+		Protect Boundary Edges from being collapsed
+		
+	Ensure Max Edges:
+		Restrict the number of edges on the final polygons to be equal or less than this value.
+		

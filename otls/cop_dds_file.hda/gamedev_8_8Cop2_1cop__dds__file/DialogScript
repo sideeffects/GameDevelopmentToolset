@@ -1,9 +1,9 @@
-# Dialog script for dds_file automatically generated
+# Dialog script for gamedev::cop_dds_file automatically generated
 
 {
-    name	dds_file
+    name	gamedev::cop_dds_file
     script	dds_file
-    label	"DDS File"
+    label	"GameDev DDS File"
 
     help {
 	""
@@ -14,6 +14,7 @@
         label   "Image"
         type    image
         default { "" }
+        help    "Path to the DDS Image File "
         parmtag { "filechooser_pattern" "*.dds" }
         parmtag { "script_callback" "hou.pwd().hdaModule().reloadCallback(hou.pwd())" }
         parmtag { "script_callback_language" "python" }
@@ -24,6 +25,7 @@
         type    toggle
         joinnext
         default { "0" }
+        help    "Ignore the file native's size and use the specified one instead"
         parmtag { "script_callback" "hou.pwd().hdaModule().reloadCallback(hou.pwd())" }
         parmtag { "script_callback_language" "python" }
     }

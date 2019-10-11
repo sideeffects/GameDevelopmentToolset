@@ -26,6 +26,7 @@
         label   "Strength"
         type    float
         default { "1" }
+        help    "The intensity of the normal resulting normal map. "
         range   { 0 10 }
     }
     parm {
@@ -41,6 +42,7 @@
         label   "Blur Strength"
         type    float
         default { "0" }
+        help    "Additional blurring that can be used to fake beveling in the normal map"
         range   { 0 10 }
     }
     parm {
@@ -48,13 +50,13 @@
         label   "Flip X"
         type    toggle
         default { "0" }
-        range   { 0 1 }
+        help    "Invert the Red Channel"
     }
     parm {
         name    "flip_y"
         label   "Flip Y"
         type    toggle
         default { "0" }
-        range   { 0 1 }
+        help    "Invert the Green Channel, useful in case your renderer is expecting a different type of normal map. "
     }
 }

@@ -23,7 +23,7 @@ Sop
 Content-Disposition: attachment; filename="hdaroot.init"
 Content-Type: text/plain
 
-type = gamedev::sop_calculate_occlusion
+type = gamedev::sop_calculate_occlusion::2.0
 matchesdef = 0
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -32,26 +32,26 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position -5.28507 -5.1612
+position -2.7643 -1.35994
 connectornextid 2
-flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
+flags =  lock off model off template on footprint off xray off bypass off display on render on highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
 {
 1 "output1"
 }
 inputsNamed3
 {
-0 	normal1 1 1 "input1"
+0 	merge1 1 1 "input1"
 }
 inputs
 {
-0 	normal1 0 1
+0 	merge1 0 1
 }
 stat
 {
-  create 1559861917
-  modify 1559864438
-  author prisms@threadripper1
+  create 1570904802
+  modify 1570906678
+  author MAINGEAR@DESKTOP-P98C1VA
   access 0777
 }
 color UT_Color RGB 0.8 0.8 0.8 
@@ -109,7 +109,7 @@ inputs
 stat
 {
   create 1510767953
-  modify 1559863450
+  modify 1570905789
   author Scott@saudi
   access 0777
 }
@@ -159,17 +159,17 @@ Content-Type: text/plain
 {
 version 0.8
 group	[ 0	locks=0 ]	(	""	)
-attributes	[ 0	locks=0 ]	(	Cd	)
-method	[ 0	locks=0 ]	(	[ method	1 ] 	)
-iterations	[ 0	locks=0 ]	(	[ iterations	0 ] 	)
+attributes	[ 0	locks=0 ]	(	_occlusion	)
+method	[ 0	locks=0 ]	(	[ method	0 ] 	)
+iterations	[ 0	locks=0 ]	(	[ iterations	5 ] 	)
 mode	[ 0	locks=0 ]	(	"laplacian"	)
 frequency	[ 0	locks=0 ]	(	0.10000000000000001	)
-stepsize	[ 0	locks=0 ]	(	[ stepsize	0.5 ] 	)
+stepsize	[ 0	locks=0 ]	(	[ stepsize	0.29699999999999999 ] 	)
 oddstepsize	[ 0	locks=0 ]	(	0.5	)
 evenstepsize	[ 0	locks=0 ]	(	0.5	)
 weightattrib	[ 0	locks=0 ]	(	""	)
 pinborder	[ 0	locks=0 ]	(	"on"	)
-influencetype	[ 0	locks=0 ]	(	[ influencetype	0 ] 	)
+influencetype	[ 0	locks=0 ]	(	[ influencetype	1 ] 	)
 proxrad	[ 0	locks=0 ]	(	0.5	)
 maxneigh	[ 0	locks=0 ]	(	20	)
 }
@@ -720,8 +720,6 @@ vex_updatenmls	[ 0	locks=0 ]	(	"off"	)
 vex_matchattrib	[ 0	locks=0 ]	(	id	)
 vex_inplace	[ 0	locks=0 ]	(	"off"	)
 vex_selectiongroup	[ 0	locks=0 ]	(	""	)
-bindname1	[ 8	locks=0 ]	(	[ bindname1	occlusion ] 	)
-bindparm1	[ 0	locks=0 ]	(	occlusion	)
 stdswitcher3	[ 0	locks=0 ]	(	1	1	)
 ptnum	[ 0	locks=0 ]	(	0	)
 vtxnum	[ 0	locks=0 ]	(	0	)
@@ -750,11 +748,13 @@ outputramp	[ 0	locks=0 ]	(	2	)
 outputramp1pos	[ 0	locks=0 ]	(	0	)
 outputramp1value	[ 0	locks=0 ]	(	0	)
 outputramp1interp	[ 0	locks=0 ]	(	"linear"	)
+intensity	[ 0	locks=0 ]	(	3	)
+gamma	[ 0	locks=0 ]	(	1	)
 outputramp2pos	[ 0	locks=0 ]	(	1	)
 outputramp2value	[ 0	locks=0 ]	(	1	)
 outputramp2interp	[ 0	locks=0 ]	(	"linear"	)
-intensity	[ 0	locks=0 ]	(	3	)
-gamma	[ 0	locks=0 ]	(	1	)
+bindname1	[ 8	locks=0 ]	(	[ bindname1	occlusion ] 	)
+bindparm1	[ 0	locks=0 ]	(	occlusion	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -764,7 +764,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.258"
+		"value":"17.5.360"
 	}
 }
 
@@ -989,7 +989,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.258"
+		"value":"17.5.360"
 	}
 }
 
@@ -1056,7 +1056,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.258"
+		"value":"17.5.360"
 	}
 }
 
@@ -1121,7 +1121,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.258"
+		"value":"17.5.360"
 	}
 }
 
@@ -1248,7 +1248,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.258"
+		"value":"17.5.360"
 	}
 }
 
@@ -1352,7 +1352,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.258"
+		"value":"17.5.360"
 	}
 }
 
@@ -1441,7 +1441,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.258"
+		"value":"17.5.360"
 	}
 }
 
@@ -1538,7 +1538,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.258"
+		"value":"17.5.360"
 	}
 }
 
@@ -1598,7 +1598,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.258"
+		"value":"17.5.360"
 	}
 }
 
@@ -1658,7 +1658,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.258"
+		"value":"17.5.360"
 	}
 }
 
@@ -1726,7 +1726,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.258"
+		"value":"17.5.360"
 	}
 }
 
@@ -1853,7 +1853,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.258"
+		"value":"17.5.360"
 	}
 }
 
@@ -2054,7 +2054,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.258"
+		"value":"17.5.360"
 	}
 }
 
@@ -2091,7 +2091,7 @@ inputs
 stat
 {
   create 1540324890
-  modify 1559864209
+  modify 1570905822
   author MAINGEAR@DESKTOP-P98C1VA
   access 0777
 }
@@ -2382,6 +2382,25 @@ Content-Type: text/plain
       flags = 0
       segment { length = 0 value = 2 2 expr = ch(\"../outputramp\") }
     }
+    channel remapramp3pos {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = ch(\"../outputramp3pos\") }
+    }
+    channel remapramp3value {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = ch(\"../outputramp3value\") }
+    }
+    channel remapramp3interp {
+      lefttype = extend
+      righttype = extend
+      default = 1
+      flags = 0
+      segment { length = 0 value = 1 1 expr = ch(\"../outputramp3interp\") }
+    }
   }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -2437,15 +2456,18 @@ vex_selectiongroup	[ 0	locks=0 ]	(	""	)
 folder1	[ 0	locks=0 ]	(	0	0	)
 maxdist	[ 0	locks=0 ]	(	[ maxdist	2 ] 	)
 conewidth	[ 0	locks=0 ]	(	[ conewidth	90 ] 	)
-rays	[ 0	locks=0 ]	(	[ rays	50 ] 	)
-bias	[ 0	locks=0 ]	(	[ bias	0.5 ] 	)
-remapramp	[ 0	locks=0 ]	(	[ remapramp	2 ] 	)
+rays	[ 0	locks=0 ]	(	[ rays	100 ] 	)
+bias	[ 0	locks=0 ]	(	[ bias	0.29299999999999998 ] 	)
+remapramp	[ 0	locks=0 ]	(	[ remapramp	3 ] 	)
 remapramp1pos	[ 0	locks=0 ]	(	[ remapramp1pos	0 ] 	)
 remapramp1value	[ 0	locks=0 ]	(	[ remapramp1value	0 ] 	)
 remapramp1interp	[ 0	locks=0 ]	(	[ remapramp1interp	1 ] 	)
-remapramp2pos	[ 0	locks=0 ]	(	[ remapramp2pos	1 ] 	)
-remapramp2value	[ 0	locks=0 ]	(	[ remapramp2value	1 ] 	)
+remapramp2pos	[ 0	locks=0 ]	(	[ remapramp2pos	0.65798044204711914 ] 	)
+remapramp2value	[ 0	locks=0 ]	(	[ remapramp2value	0 ] 	)
 remapramp2interp	[ 0	locks=0 ]	(	[ remapramp2interp	1 ] 	)
+remapramp3pos	[ 0	locks=0 ]	(	[ remapramp3pos	1 ] 	)
+remapramp3value	[ 0	locks=0 ]	(	[ remapramp3value	1 ] 	)
+remapramp3interp	[ 0	locks=0 ]	(	[ remapramp3interp	1 ] 	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -2474,7 +2496,7 @@ sopflags sopflags =
 comment ""
 position 2.60146 -5.33326
 connectornextid 2
-flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
+flags =  lock off model off template on footprint off xray off bypass off display on render on highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
 {
 1 "output1"
@@ -2490,7 +2512,7 @@ inputs
 stat
 {
   create 1559863482
-  modify 1559863619
+  modify 1570905781
   author prisms@threadripper1
   access 0777
 }
@@ -2604,7 +2626,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.258"
+		"value":"17.5.360"
 	}
 }
 
@@ -2665,7 +2687,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.258"
+		"value":"17.5.360"
 	}
 }
 
@@ -2726,7 +2748,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.258"
+		"value":"17.5.360"
 	}
 }
 
@@ -2801,7 +2823,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.258"
+		"value":"17.5.360"
 	}
 }
 
@@ -2876,7 +2898,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.258"
+		"value":"17.5.360"
 	}
 }
 
@@ -2978,7 +3000,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.258"
+		"value":"17.5.360"
 	}
 }
 
@@ -3041,7 +3063,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.258"
+		"value":"17.5.360"
 	}
 }
 
@@ -3116,7 +3138,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.258"
+		"value":"17.5.360"
 	}
 }
 
@@ -3135,7 +3157,7 @@ sopflags sopflags =
 comment ""
 position 0.109407 -10.6518
 connectornextid 1
-flags =  lock off model off template on footprint off xray off bypass off display on render on highlight off unload off savedata off compress on colordefault on exposed on
+flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
 {
 }
@@ -3150,7 +3172,7 @@ inputs
 stat
 {
   create 1522779188
-  modify 1559863685
+  modify 1570905773
   author MAINGEAR@DESKTOP-P98C1VA
   access 0777
 }
@@ -3175,7 +3197,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.258"
+		"value":"17.5.360"
 	}
 }
 
@@ -3249,7 +3271,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.258"
+		"value":"17.5.360"
 	}
 }
 
@@ -3323,7 +3345,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.258"
+		"value":"17.5.360"
 	}
 }
 

@@ -32,7 +32,30 @@
         type    string
         default { "" }
         menutoggle {
-            [ "opmenu -l group1 basegroup" ]
+            [ "node = hou.pwd()" ]
+            [ "geo = node.geometry()" ]
+            [ "" ]
+            [ "group_type = node.parm(\"grouptype\").eval()" ]
+            [ "" ]
+            [ "# primitives" ]
+            [ "if group_type == 0:" ]
+            [ "    poly_groups = geo.primGroups()" ]
+            [ "" ]
+            [ "# points " ]
+            [ "if group_type == 1:" ]
+            [ "    poly_groups = geo.pointGroups()" ]
+            [ "" ]
+            [ "# edges " ]
+            [ "if group_type == 2:" ]
+            [ "    poly_groups = geo.edgeGroups()" ]
+            [ "" ]
+            [ "groups = []" ]
+            [ "for group in poly_groups:" ]
+            [ "    groups.append(group.name()) " ]
+            [ "    groups.append(group.name())" ]
+            [ "    " ]
+            [ "return groups" ]
+            language python
         }
         parmtag { "autoscope" "0000000000000000" }
         parmtag { "script_action" "import soputils\nkwargs['geometrytype'] = kwargs['node'].parmTuple('grouptype')\nkwargs['inputindex'] = 0\nkwargs['ordered'] = 0\nsoputils.selectGroupParm(kwargs)" }
@@ -58,7 +81,30 @@
         default { "" }
         disablewhen "{ align_forward == 0 }"
         menutoggle {
-            [ "opmenu -l group1 basegroup" ]
+            [ "node = hou.pwd()" ]
+            [ "geo = node.geometry()" ]
+            [ "" ]
+            [ "group_type = node.parm(\"grouptype\").eval()" ]
+            [ "" ]
+            [ "# primitives" ]
+            [ "if group_type == 0:" ]
+            [ "    poly_groups = geo.primGroups()" ]
+            [ "" ]
+            [ "# points " ]
+            [ "if group_type == 1:" ]
+            [ "    poly_groups = geo.pointGroups()" ]
+            [ "" ]
+            [ "# edges " ]
+            [ "if group_type == 2:" ]
+            [ "    poly_groups = geo.edgeGroups()" ]
+            [ "" ]
+            [ "groups = []" ]
+            [ "for group in poly_groups:" ]
+            [ "    groups.append(group.name()) " ]
+            [ "    groups.append(group.name())" ]
+            [ "    " ]
+            [ "return groups" ]
+            language python
         }
         parmtag { "autoscope" "0000000000000000" }
         parmtag { "script_action" "import soputils\nkwargs['geometrytype'] = kwargs['node'].parmTuple('grouptype')\nkwargs['inputindex'] = 0\nkwargs['ordered'] = 0\nsoputils.selectGroupParm(kwargs)" }

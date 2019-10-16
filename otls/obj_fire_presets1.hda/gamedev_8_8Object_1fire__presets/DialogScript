@@ -26,14 +26,14 @@
     groupcollapsible {
         name    "cachefolder"
         label   "Cache"
+        grouptag { "group_type" "collapsible" }
 
         parm {
             name    "loadfromdisk"
             label   "Load from Disk     "
             type    toggle
             joinnext
-            default { "off" }
-            range   { 0 1 }
+            default { [ "off" hscript-expr ] }
             parmtag { "autoscope" "0000000000000000" }
         }
         parm {
@@ -41,7 +41,6 @@
             label   "Reload Geometry"
             type    button
             default { "0" }
-            range   { 0 1 }
             parmtag { "autoscope" "0000000000000000" }
         }
         parm {
@@ -52,7 +51,6 @@
             menureplace {
                 [ "opmenu -l fire_import/fire_sim_import file" ]
             }
-            range   { 0 1 }
             parmtag { "autoscope" "0000000000000000" }
             parmtag { "filechooser_mode" "write" }
         }
@@ -62,7 +60,6 @@
             type    button
             joinnext
             default { "0" }
-            range   { 0 1 }
             parmtag { "autoscope" "0000000000000000" }
             parmtag { "script_callback_language" "python" }
             parmtag { "takecontrol" "always" }
@@ -72,7 +69,6 @@
             label   "Save to Disk in Background"
             type    button
             default { "0" }
-            range   { 0 1 }
             parmtag { "autoscope" "0000000000000000" }
             parmtag { "takecontrol" "always" }
         }
@@ -86,7 +82,6 @@
                 "normal"    "Save Frame Range"
                 "on"        "Save Frame Range Only (Strict)"
             }
-            range   { 0 1 }
             parmtag { "autoscope" "0000000000000000" }
         }
         parm {
@@ -107,7 +102,6 @@
             menu {
                 [ "opmenu -l fire_import/fire_sim_import take" ]
             }
-            range   { 0 1 }
             parmtag { "autoscope" "0000000000000000" }
         }
     }
@@ -160,6 +154,7 @@
         groupsimple {
             name    "sourcefolder"
             label   "Source"
+            grouptag { "group_type" "simple" }
 
             parm {
                 name    "scale_source"
@@ -175,6 +170,7 @@
         groupsimple {
             name    "pyrofolder"
             label   "Pyro Solver"
+            grouptag { "group_type" "simple" }
 
             parm {
                 name    "cooldown_time"
@@ -199,6 +195,7 @@
             groupsimple {
                 name    "shapefolder"
                 label   "Shape"
+                grouptag { "group_type" "simple" }
 
                 parm {
                     name    "dist_scale"
@@ -240,14 +237,14 @@
             groupsimple {
                 name    "advancedfolder"
                 label   "Advanced"
+                grouptag { "group_type" "simple" }
 
                 parm {
                     name    "opencl"
                     label   "Use OpenCL"
                     type    toggle
-                    default { "off" }
+                    default { [ "off" hscript-expr ] }
                     help    "Caching is enabled by default in DOPs.     Resizing is enabled by default. Resizing has to go through the CPU to manage the field changes. It can also fragment the GPU memory resulting in out-of-memory errors."
-                    range   { 0 1 }
                     parmtag { "autoscope" "0000000000000000" }
                 }
                 parm {
@@ -310,12 +307,12 @@
                 "1" "Stamp Points"
                 "2" "Sample Volumes"
             }
-            range   { 0 1 }
             parmtag { "autoscope" "0000000000000000" }
         }
         groupsimple {
             name    "sizefolder"
             label   "Source Size"
+            grouptag { "group_type" "simple" }
 
             parm {
                 name    "s2"
@@ -349,6 +346,7 @@
         groupsimple {
             name    "noisefolder"
             label   "Noise"
+            grouptag { "group_type" "simple" }
 
             parm {
                 name    "voronoiinfluence"
@@ -425,7 +423,7 @@
             name    "setmaxres"
             label   "Set Max Res"
             type    toggle
-            default { "off" }
+            default { [ "off" hscript-expr ] }
             parmtag { "autoscope" "0000000000000000" }
         }
         parm {
@@ -507,7 +505,7 @@
                 type    toggle
                 nolabel
                 joinnext
-                default { "off" }
+                default { [ "off" hscript-expr ] }
                 parmtag { "autoscope" "0000000000000000" }
             }
             parm {
@@ -589,7 +587,7 @@
                 type    toggle
                 nolabel
                 joinnext
-                default { "off" }
+                default { [ "off" hscript-expr ] }
                 parmtag { "autoscope" "0000000000000000" }
             }
             parm {
@@ -658,7 +656,7 @@
                 type    toggle
                 nolabel
                 joinnext
-                default { "on" }
+                default { [ "on" hscript-expr ] }
                 parmtag { "autoscope" "0000000000000000" }
             }
             parm {

@@ -14,6 +14,7 @@
     inputlabel	3	"Sub-Network Input #3"
     inputlabel	4	"Sub-Network Input #4"
     outputlabel	1	"AV Depth Map"
+    outputlabel	2	Pointcloud
 
     parm {
         name    "cook"
@@ -141,7 +142,7 @@
             }
             parm {
                 name    "localizerEstimatorMaxIterations"
-                label   "Localizer Max Ransac Error"
+                label   "Localizer Max Ransac Iterations"
                 type    integer
                 default { "4096" }
                 help    "Maximum number of iterations allowed in ransac step."
@@ -180,7 +181,7 @@
             }
             parm {
                 name    "localizerEstimatorError"
-                label   "Localizer Max Ransac Error"
+                label   "Localizer Estimator Error"
                 type    float
                 default { "0" }
                 help    "Maximum error (in pixels) allowed for camera localization (resectioning).\\n'                         'If set to 0, it will select a threshold according to the localizer estimator used\\n'                         '(if ACRansac, it will analyze the input data to select the optimal value)."

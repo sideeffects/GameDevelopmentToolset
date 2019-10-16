@@ -17,6 +17,7 @@
     groupsimple {
         name    "folder0"
         label   "General"
+        grouptag { "group_type" "simple" }
 
         parm {
             name    "mode"
@@ -47,7 +48,7 @@
             name    "negate"
             label   "Delete Non Selected"
             type    toggle
-            default { "off" }
+            default { [ "off" hscript-expr ] }
             disablewhen "{ bKeeplargest == 1 }"
             parmtag { "autoscope" "0000000000000000" }
         }
@@ -56,6 +57,7 @@
     groupsimple {
         name    "folder1"
         label   "Advanced"
+        grouptag { "group_type" "simple" }
 
         parm {
             name    "bCalculatePieceAttr"

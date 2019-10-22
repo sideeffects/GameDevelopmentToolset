@@ -20,29 +20,28 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position -4.5377 -3.64192
-connectornextid 2
-flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault off exposed on
+position -0.341176 -1.87059
+connectornextid 1
+flags =  lock off model off template on footprint off xray off bypass off display on render on highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
 {
-1 "output1"
 }
 inputsNamed3
 {
-0 	testgeometry_rubbertoy1 0 1 "input1"
+0 	testgeometry_pighead1 0 1 "input1"
 }
 inputs
 {
-0 	testgeometry_rubbertoy1 0 1
+0 	testgeometry_pighead1 0 1
 }
 stat
 {
-  create 1556054117
-  modify 1556054278
+  create 1571769367
+  modify 1571769771
   author MAINGEAR@DESKTOP-P98C1VA
   access 0777
 }
-color UT_Color RGB 0.475 0.812 0.204 
+color UT_Color RGB 0.8 0.8 0.8 
 delscript ""
 exprlanguage hscript
 end
@@ -63,7 +62,7 @@ Content-Disposition: attachment; filename="hdaroot.inp"
 Content-Type: text/plain
 
 1
-0 0 6 2 0 __NO_OWNER_NETWORK_BOX__ "FROMOUTPUT"
+0 -0.35226857241942322 7.9485129120345981 2 0 __NO_OWNER_NETWORK_BOX__ "FROMOUTPUT"
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
 Content-Disposition: attachment; filename="hdaroot/divide1.init"
@@ -139,7 +138,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.210"
+		"value":"17.5.360"
 	}
 }
 
@@ -205,7 +204,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.210"
+		"value":"17.5.360"
 	}
 }
 
@@ -280,7 +279,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.210"
+		"value":"17.5.360"
 	}
 }
 
@@ -306,16 +305,16 @@ outputsNamed3
 }
 inputsNamed3
 {
-0 	(0) "" 1 "input1"
+0 	switch3 1 1 "input1"
 }
 inputs
 {
-0 	(0) 0 1
+0 	switch3 0 1
 }
 stat
 {
   create 1528124209
-  modify 1528124395
+  modify 1571769691
   author MAINGEAR@DESKTOP-P98C1VA
   access 0777
 }
@@ -343,7 +342,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.210"
+		"value":"17.5.360"
 	}
 }
 
@@ -369,18 +368,18 @@ outputsNamed3
 }
 inputsNamed3
 {
-0 	(0) "" 1 "input1"
+0 	switch3 1 1 "input1"
 2 	vertexsplit1 1 1 "input2"
 }
 inputs
 {
-0 	(0) 0 1
+0 	switch3 0 1
 1 	vertexsplit1 0 1
 }
 stat
 {
   create 1528124344
-  modify 1528124395
+  modify 1571769686
   author MAINGEAR@DESKTOP-P98C1VA
   access 0777
 }
@@ -418,7 +417,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.210"
+		"value":"17.5.360"
 	}
 }
 
@@ -477,7 +476,158 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.5.210"
+		"value":"17.5.360"
+	}
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/facet1.init"
+Content-Type: text/plain
+
+type = facet
+matchesdef = 0
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/facet1.def"
+Content-Type: text/plain
+
+sopflags sopflags = 
+comment ""
+position 1.13919 6.40989
+connectornextid 2
+flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
+outputsNamed3
+{
+1 "output1"
+}
+inputsNamed3
+{
+0 	(0) "" 1 "input1"
+}
+inputs
+{
+0 	(0) 0 1
+}
+stat
+{
+  create 1571769466
+  modify 1571769688
+  author MAINGEAR@DESKTOP-P98C1VA
+  access 0777
+}
+color UT_Color RGB 0.8 0.8 0.8 
+delscript ""
+exprlanguage hscript
+end
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/facet1.parm"
+Content-Type: text/plain
+
+{
+version 0.8
+group	[ 0	locks=0 ]	(	""	)
+grouptype	[ 0	locks=0 ]	(	"guess"	)
+prenml	[ 0	locks=0 ]	(	"off"	)
+unit	[ 0	locks=0 ]	(	"off"	)
+unique	[ 0	locks=0 ]	(	"on"	)
+cons	[ 0	locks=0 ]	(	"none"	)
+dist	[ 0	locks=0 ]	(	0.001	)
+accurate	[ 0	locks=0 ]	(	"on"	)
+inline	[ 0	locks=0 ]	(	"off"	)
+inlinedist	[ 0	locks=0 ]	(	0.001	)
+orientPolys	[ 0	locks=0 ]	(	"off"	)
+cusp	[ 0	locks=0 ]	(	"off"	)
+angle	[ 0	locks=0 ]	(	20	)
+remove	[ 0	locks=0 ]	(	"off"	)
+mkplanar	[ 0	locks=0 ]	(	"off"	)
+postnml	[ 0	locks=0 ]	(	"off"	)
+reversenml	[ 0	locks=0 ]	(	"off"	)
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/facet1.userdata"
+Content-Type: text/plain
+
+{
+	"___Version___":{
+		"type":"string",
+		"value":"17.5.360"
+	}
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/switch3.init"
+Content-Type: text/plain
+
+type = switch
+matchesdef = 0
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/switch3.def"
+Content-Type: text/plain
+
+sopflags sopflags = 
+comment ""
+position -0.352269 5.54388
+connectornextid 3
+flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
+outputsNamed3
+{
+1 "output1"
+}
+inputsNamed3
+{
+0 	(0) "" 1 "input1"
+2 	facet1 1 1 "input2"
+}
+inputs
+{
+0 	(0) 0 1
+1 	facet1 0 1
+}
+stat
+{
+  create 1571769685
+  modify 1571769723
+  author MAINGEAR@DESKTOP-P98C1VA
+  access 0777
+}
+color UT_Color RGB 0.8 1 0.7 
+delscript ""
+exprlanguage hscript
+end
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/switch3.chn"
+Content-Type: text/plain
+
+{
+    channel input {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = ch(\"../split_vertices\") }
+    }
+  }
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/switch3.parm"
+Content-Type: text/plain
+
+{
+version 0.8
+input	[ 8	locks=0 ]	(	[ input	1 ] 	)
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/switch3.userdata"
+Content-Type: text/plain
+
+{
+	"___Version___":{
+		"type":"string",
+		"value":"17.5.360"
 	}
 }
 
@@ -485,13 +635,15 @@ Content-Type: text/plain
 Content-Disposition: attachment; filename="hdaroot.order"
 Content-Type: text/plain
 
-6
+8
 divide1
 ends1
 switch1
 vertexsplit1
 switch2
 output1
+facet1
+switch3
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
 Content-Disposition: attachment; filename="hdaroot.net"

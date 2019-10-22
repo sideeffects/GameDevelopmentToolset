@@ -26,4 +26,11 @@
         type    toggle
         default { "1" }
     }
+    parm {
+        name    "split_vertices"
+        label   "Split All Points"
+        type    toggle
+        default { "0" }
+        disablewhen "{ uv_borders == 1 }"
+    }
 }

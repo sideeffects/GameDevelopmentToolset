@@ -22,7 +22,6 @@
         menutoggle {
             [ "opmenu -l pointwrangle2 group" ]
         }
-        range   { 0 1 }
         parmtag { "autoscope" "0000000000000000" }
         parmtag { "script_action" "import soputils\nkwargs['geometrytype'] = kwargs['node'].parmTuple('grouptype')\nkwargs['inputindex'] = 0\nsoputils.selectGroupParm(kwargs)" }
         parmtag { "script_action_help" "Select geometry from an available viewport." }
@@ -40,7 +39,6 @@
             "points"    "Points"
             "prims"     "Primitives"
         }
-        range   { 0 1 }
         parmtag { "autoscope" "0000000000000000" }
     }
     parm {
@@ -68,12 +66,6 @@
             "1" "Y"
             "2" "Z"
         }
-    }
-    parm {
-        name    "symmetrical"
-        label   "Symmetrical"
-        type    toggle
-        default { "0" }
     }
     parm {
         name    "speed"
@@ -104,7 +96,7 @@
         label   "Frequency"
         type    vector2
         size    2
-        default { "0" "1" }
+        default { "1" "1" }
         range   { -1 1 }
     }
 }

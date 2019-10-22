@@ -32,22 +32,25 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position 0.515574 -4.31781
-connectornextid 0
+position -8.02353 -2.25882
+connectornextid 2
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
 {
+1 "output1"
 }
 inputsNamed3
 {
+0 	sop_axis_align1 1 1 "input1"
 }
 inputs
 {
+0 	sop_axis_align1 0 1
 }
 stat
 {
-  create 1552508046
-  modify 1552508057
+  create 1571772996
+  modify 1571773188
   author MAINGEAR@DESKTOP-P98C1VA
   access 0777
 }
@@ -107,7 +110,7 @@ inputs
 stat
 {
   create 1552499573
-  modify 1552500579
+  modify 1571773060
   author MAINGEAR@DESKTOP-P98C1VA
   access 0777
 }
@@ -355,7 +358,7 @@ sopflags sopflags =
 comment ""
 position -0.474304 1.41341
 connectornextid 3
-flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
+flags =  lock off model off template off footprint off xray off bypass off display on render on highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
 {
 2 "output1"
@@ -373,7 +376,7 @@ inputs
 stat
 {
   create 1552499122
-  modify 1552500652
+  modify 1571773246
   author MAINGEAR@DESKTOP-P98C1VA
   access 0777
 }
@@ -381,6 +384,20 @@ color UT_Color RGB 0.8 0.8 0.8
 delscript ""
 exprlanguage hscript
 end
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/sop_box_clip1.chn"
+Content-Type: text/plain
+
+{
+    channel cap {
+      lefttype = extend
+      righttype = extend
+      default = 1
+      flags = 0
+      segment { length = 0 value = 1 1 expr = ch(\"../cap\") }
+    }
+  }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
 Content-Disposition: attachment; filename="hdaroot/sop_box_clip1.parm"
@@ -398,7 +415,7 @@ neg_y	[ 0	locks=0 ]	(	"on"	)
 pos_y	[ 0	locks=0 ]	(	"on"	)
 neg_z	[ 0	locks=0 ]	(	"on"	)
 pos_z	[ 0	locks=0 ]	(	"on"	)
-cap	[ 0	locks=0 ]	(	"off"	)
+cap	[ 0	locks=0 ]	(	[ cap	1 ] 	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -474,7 +491,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.487"
+		"value":"17.5.360"
 	}
 }
 
@@ -493,7 +510,7 @@ sopflags sopflags =
 comment ""
 position 1.1296 -1.0323
 connectornextid 2
-flags =  lock off model off template off footprint off xray off bypass off display on render on highlight off unload off savedata off compress on colordefault off exposed on
+flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault off exposed on
 outputsNamed3
 {
 1 "output1"
@@ -509,7 +526,7 @@ inputs
 stat
 {
   create 1552499330
-  modify 1552500579
+  modify 1571773201
   author MAINGEAR@DESKTOP-P98C1VA
   access 0777
 }
@@ -550,7 +567,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.487"
+		"value":"17.5.360"
 	}
 }
 
@@ -585,7 +602,7 @@ inputs
 stat
 {
   create 1552499330
-  modify 1552501520
+  modify 1571773233
   author MAINGEAR@DESKTOP-P98C1VA
   access 0777
 }
@@ -614,7 +631,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.487"
+		"value":"17.5.360"
 	}
 }
 
@@ -647,7 +664,7 @@ inputs
 stat
 {
   create 1552499586
-  modify 1552501520
+  modify 1571773233
   author MAINGEAR@DESKTOP-P98C1VA
   access 0777
 }
@@ -676,7 +693,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.487"
+		"value":"17.5.360"
 	}
 }
 
@@ -710,7 +727,7 @@ inputs
 stat
 {
   create 1552501201
-  modify 1552501259
+  modify 1571773060
   author MAINGEAR@DESKTOP-P98C1VA
   access 0777
 }
@@ -735,7 +752,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.487"
+		"value":"17.5.360"
 	},
 	"nodeshape":{
 		"type":"string",
@@ -776,7 +793,7 @@ inputs
 stat
 {
   create 1552501240
-  modify 1552501259
+  modify 1571773060
   author MAINGEAR@DESKTOP-P98C1VA
   access 0777
 }
@@ -814,7 +831,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.487"
+		"value":"17.5.360"
 	}
 }
 

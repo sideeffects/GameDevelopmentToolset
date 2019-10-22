@@ -24,10 +24,18 @@
         parmtag { "autoscope" "0000000000000000" }
     }
     parm {
+        name    "cap"
+        label   "Fill Holes"
+        type    toggle
+        default { [ "on" hscript-expr ] }
+        help    "Toggle to enable capping the clipped faces."
+        parmtag { "autoscope" "0000000000000000" }
+    }
+    parm {
         name    "isolate_index"
         label   "Isolate Index"
         type    toggle
-        default { "off" }
+        default { [ "off" hscript-expr ] }
         parmtag { "autoscope" "0000000000000000" }
     }
     parm {

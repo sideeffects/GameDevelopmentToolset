@@ -18,6 +18,7 @@
     groupsimple {
         name    "scattering_options"
         label   "Scattering Options"
+        grouptag { "group_type" "simple" }
 
         parm {
             name    "angle"
@@ -40,7 +41,7 @@
             label   "Point Size (Min/Max)"
             type    vector2
             size    2
-            default { "0" "1" }
+            default { "0" "3" }
             range   { -1 1 }
         }
     }
@@ -48,6 +49,7 @@
     groupsimple {
         name    "meshing_options"
         label   "Meshing Options"
+        grouptag { "group_type" "simple" }
 
         parm {
             name    "smooth_iterations"
@@ -73,11 +75,21 @@
             range   { 0 100 }
             parmtag { "autoscope" "0000000000000000" }
         }
+        parm {
+            name    "color"
+            label   "Color"
+            type    color
+            size    3
+            default { "0.5" "0.5" "0.5" }
+            range   { 0 1 }
+            parmtag { "autoscope" "0000000000000000" }
+        }
     }
 
     groupsimple {
         name    "cleanup"
         label   "Clean Up"
+        grouptag { "group_type" "simple" }
 
         parm {
             name    "polyreduce"

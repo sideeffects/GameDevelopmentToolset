@@ -32,22 +32,25 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position -13.2128 4.53663
-connectornextid 0
-flags =  lock off model off template off footprint off xray off bypass off display on render on highlight off unload off savedata off compress on colordefault on exposed on
+position -2.58087 -4.16326
+connectornextid 2
+flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
 {
+1 "output1"
 }
 inputsNamed3
 {
+0 	sop_axis_align1 1 1 "input1"
 }
 inputs
 {
+0 	sop_axis_align1 0 1
 }
 stat
 {
-  create 1539802157
-  modify 1539802204
+  create 1571946447
+  modify 1571947695
   author MAINGEAR@DESKTOP-P98C1VA
   access 0777
 }
@@ -74,18 +77,18 @@ Content-Type: text/plain
 2
 2
 {
-	color := "UT_Color RGB 0.976 0.78 0.263 ";
 	autofit := 0;
-	height := 19.756697855804862;
-	width := 7.9720849450621181;
+	color := "UT_Color RGB 0.976 0.78 0.263 ";
 	comment := "AUTO UV";
-	y_position := -19.134158867725791;
+	height := 19.756697855804862;
 	minimized := 0;
+	width := 7.9720849450621181;
 	x_position := 16.759069251382797;
+	y_position := -19.134158867725791;
 }
 {
   create 1532461456
-  modify 1539802157
+  modify 1571946447
   author MAINGEAR@DESKTOP-P98C1VA
   access 0777
 }
@@ -97,18 +100,18 @@ Content-Type: text/plain
 2
 2
 {
-	color := "UT_Color RGB 0.584 0.776 1 ";
 	autofit := 0;
-	height := 18.257154323059524;
-	width := 6.3170263789689649;
+	color := "UT_Color RGB 0.584 0.776 1 ";
 	comment := CLUSTER;
-	y_position := -20.799043902553965;
+	height := 18.257154323059524;
 	minimized := 0;
+	width := 6.3170263789689649;
 	x_position := 7.113673621031035;
+	y_position := -20.799043902553965;
 }
 {
   create 1532461485
-  modify 1539802168
+  modify 1571946458
   author MAINGEAR@DESKTOP-P98C1VA
   access 0777
 }
@@ -120,18 +123,18 @@ Content-Type: text/plain
 2
 2
 {
-	color := "UT_Color RGB 0.765 1 0.576 ";
 	autofit := 0;
-	height := 37.092498424709753;
-	width := 12.142997329387018;
+	color := "UT_Color RGB 0.765 1 0.576 ";
 	comment := "SHORTEST PATH";
-	y_position := -27.885405133835409;
+	height := 37.092498424709753;
 	minimized := 0;
+	width := 12.142997329387018;
 	x_position := -14.980934967053395;
+	y_position := -27.885405133835409;
 }
 {
   create 1532461494
-  modify 1539802184
+  modify 1571946519
   author MAINGEAR@DESKTOP-P98C1VA
   access 0777
 }
@@ -143,18 +146,18 @@ Content-Type: text/plain
 2
 2
 {
-	color := "UT_Color RGB 0.71 0.784 1 ";
 	autofit := 0;
-	height := 7.9168360577977879;
-	width := 4.508959938425396;
+	color := "UT_Color RGB 0.71 0.784 1 ";
 	comment := "MERGE ISLANDS BACK IN";
-	y_position := -42.716456323447026;
+	height := 7.9168360577977879;
 	minimized := 0;
+	width := 4.508959938425396;
 	x_position := 3.4461075796659237;
+	y_position := -42.716456323447026;
 }
 {
   create 1532461550
-  modify 1539802160
+  modify 1571946450
   author MAINGEAR@DESKTOP-P98C1VA
   access 0777
 }
@@ -166,18 +169,18 @@ Content-Type: text/plain
 2
 2
 {
-	color := "UT_Color RGB 0.52 0.52 0.52 ";
 	autofit := 0;
-	height := 8.3075956761560334;
-	width := 5.0246376285350003;
+	color := "UT_Color RGB 0.52 0.52 0.52 ";
 	comment := "H17 UV AutoSeam";
-	y_position := -9.5574940516233653;
+	height := 8.3075956761560334;
 	minimized := 0;
+	width := 5.0246376285350003;
 	x_position := 30.721851875014377;
+	y_position := -9.5574940516233653;
 }
 {
   create 1538076104
-  modify 1539802158
+  modify 1571946448
   author MAINGEAR@DESKTOP-P98C1VA
   access 0777
 }
@@ -367,7 +370,7 @@ inputs
 stat
 {
   create 1503497812
-  modify 1532461512
+  modify 1571947520
   author Luiz@Luiz-PC
   access 0777
 }
@@ -609,16 +612,11 @@ grouptype	[ 0	locks=0 ]	(	"guess"	)
 class	[ 0	locks=0 ]	(	"point"	)
 vex_numcount	[ 0	locks=0 ]	(	10	)
 vex_threadjobsize	[ 0	locks=0 ]	(	1024	)
-snippet	[ 0	locks=0 ]	(	"if (f@curvature < 0)
-{
-    f@path_cost  = abs(min(0,f@curvature)) *  max(ch(\"convex_multiplier\"), 0) * 0.01;
-}else{
-    f@path_cost = abs(max(0, f@curvature)) * abs( min(ch(\"convex_multiplier\"), 0)) * 0.01;
-}
-f@path_cost = 1-(f@path_cost);// - f@occlusion*ch(\"occ_multiplier\"));
+snippet	[ 0	locks=0 ]	(	"
+f@path_cost = abs(max(0, f@convexity)) * ch(\"convex_multiplier\") ;
 f@path_cost +=  pow(f@occlusion,10) *ch(\"occ_multiplier\") ;
-f@path_cost = pow(f@path_cost*1,1) ;
-//f@path_cost = 0;"	)
+
+//f@path_cost = 0; "	)
 exportlist	[ 0	locks=0 ]	(	*	)
 vex_strict	[ 0	locks=0 ]	(	"off"	)
 autobind	[ 0	locks=0 ]	(	"on"	)
@@ -632,11 +630,11 @@ vex_matchattrib	[ 0	locks=0 ]	(	id	)
 vex_inplace	[ 0	locks=0 ]	(	"off"	)
 vex_selectiongroup	[ 0	locks=0 ]	(	""	)
 folder1	[ 0	locks=0 ]	(	0	0	)
-curvature_mult	[ 8	locks=0 ]	(	[ curvature_mult	0.10000000000000001 ] 	)
+curvature_mult	[ 0	locks=0 ]	(	[ curvature_mult	0.10000000000000001 ] 	)
 curvature_multiplier	[ 0	locks=0 ]	(	0	)
 concave_multiplier	[ 8	locks=0 ]	(	0	)
-convex_multiplier	[ 8	locks=0 ]	(	[ convex_multiplier	0.10000000000000001 ] 	)
-occ_multiplier	[ 8	locks=0 ]	(	[ occ_multiplier	1 ] 	)
+convex_multiplier	[ 0	locks=0 ]	(	[ convex_multiplier	0.5 ] 	)
+occ_multiplier	[ 8	locks=0 ]	(	[ occ_multiplier	0 ] 	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -866,7 +864,7 @@ inputs
 stat
 {
   create 1510932554
-  modify 1537469138
+  modify 1571947143
   author MAINGEAR@DESKTOP-P98C1VA
   access 0777
 }
@@ -883,7 +881,7 @@ Content-Type: text/plain
 version 0.8
 folder0	[ 0	locks=0 ]	(	0	)
 per_piece	[ 0	locks=0 ]	(	"off"	)
-method	[ 0	locks=0 ]	(	"5"	)
+method	[ 0	locks=0 ]	(	"4"	)
 voxel_size	[ 0	locks=0 ]	(	0.01	)
 folder1	[ 0	locks=0 ]	(	0	)
 concave_range_scale	[ 0	locks=0 ]	(	2	)
@@ -897,6 +895,7 @@ convex_intensity	[ 0	locks=0 ]	(	1	)
 convex_blur_ammount	[ 0	locks=0 ]	(	1	)
 vis_color	[ 0	locks=0 ]	(	"off"	)
 single_color	[ 0	locks=0 ]	(	"on"	)
+fit_01	[ 0	locks=0 ]	(	"off"	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -1057,25 +1056,30 @@ Content-Type: text/plain
 {
 version 0.8
 occ_settings	[ 0	locks=0 ]	(	0	)
-sepparm2	[ 0	locks=0 ]	(	)
 raycount	[ 0	locks=0 ]	(	20	)
 maxdist	[ 0	locks=0 ]	(	2	)
-raybbias	[ 0	locks=0 ]	(	0.01	)
 intensity	[ 8	locks=0 ]	(	[ intensity	1 ] 	)
+gamma	[ 0	locks=0 ]	(	1	)
+folder0	[ 0	locks=0 ]	(	0	)
+conewidth	[ 0	locks=0 ]	(	70	)
+raybias	[ 0	locks=0 ]	(	0.01	)
 occ_output	[ 0	locks=0 ]	(	0	)
 colorout	[ 0	locks=0 ]	(	"off"	)
 occattr	[ 0	locks=0 ]	(	occlusion	)
 outputramp	[ 0	locks=0 ]	(	2	)
-sepparm	[ 0	locks=0 ]	(	)
-sepparm3	[ 0	locks=0 ]	(	)
 folder1	[ 0	locks=0 ]	(	0	)
 method	[ 0	locks=0 ]	(	"edgelength"	)
 influencetype	[ 0	locks=0 ]	(	"connectivity"	)
-iterations2	[ 0	locks=0 ]	(	6	)
+iterations	[ 0	locks=0 ]	(	2	)
 blur	[ 0	locks=0 ]	(	0.5	)
 spacer	[ 0	locks=0 ]	(	""	)
 spacer2	[ 0	locks=0 ]	(	""	)
 like_btn	[ 0	locks=0 ]	(	0	)
+sepparm	[ 0	locks=0 ]	(	)
+sepparm2	[ 0	locks=0 ]	(	)
+sepparm3	[ 0	locks=0 ]	(	)
+raybbias	[ 0	locks=0 ]	(	0.01	)
+iterations2	[ 0	locks=0 ]	(	6	)
 outputramp1pos	[ 0	locks=0 ]	(	0	)
 outputramp1value	[ 0	locks=0 ]	(	0	)
 outputramp1interp	[ 0	locks=0 ]	(	"linear"	)
@@ -1345,7 +1349,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.373"
+		"value":"17.5.360"
 	},
 	"nodeshape":{
 		"type":"string",
@@ -1437,7 +1441,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.373"
+		"value":"17.5.360"
 	}
 }
 
@@ -1508,7 +1512,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.373"
+		"value":"17.5.360"
 	}
 }
 
@@ -1610,7 +1614,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.373"
+		"value":"17.5.360"
 	}
 }
 
@@ -1661,6 +1665,7 @@ Content-Type: text/plain
 {
 version 0.8
 group	[ 0	locks=0 ]	(	""	)
+grouptype	[ 0	locks=0 ]	(	"guess"	)
 prenml	[ 0	locks=0 ]	(	"off"	)
 unit	[ 0	locks=0 ]	(	"off"	)
 unique	[ 0	locks=0 ]	(	"off"	)
@@ -1691,7 +1696,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.373"
+		"value":"17.5.360"
 	}
 }
 
@@ -1726,7 +1731,7 @@ inputs
 stat
 {
   create 1503497845
-  modify 1532461512
+  modify 1571947000
   author Luiz@Luiz-PC
   access 0777
 }
@@ -1773,7 +1778,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.373"
+		"value":"17.5.360"
 	}
 }
 
@@ -1808,7 +1813,7 @@ inputs
 stat
 {
   create 1503497845
-  modify 1532461902
+  modify 1571950615
   author Luiz@Luiz-PC
   access 0777
 }
@@ -1843,7 +1848,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.373"
+		"value":"17.5.360"
 	}
 }
 
@@ -1880,7 +1885,7 @@ inputs
 stat
 {
   create 1503497869
-  modify 1532461512
+  modify 1571946871
   author Luiz@Luiz-PC
   access 0777
 }
@@ -1953,7 +1958,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.373"
+		"value":"17.5.360"
 	}
 }
 
@@ -1988,7 +1993,7 @@ inputs
 stat
 {
   create 1503497897
-  modify 1532461512
+  modify 1571947520
   author Luiz@Luiz-PC
   access 0777
 }
@@ -2057,7 +2062,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.373"
+		"value":"17.5.360"
 	}
 }
 
@@ -2137,7 +2142,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.373"
+		"value":"17.5.360"
 	}
 }
 
@@ -2231,7 +2236,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.373"
+		"value":"17.5.360"
 	}
 }
 
@@ -2305,7 +2310,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.373"
+		"value":"17.5.360"
 	}
 }
 
@@ -2387,7 +2392,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.373"
+		"value":"17.5.360"
 	}
 }
 
@@ -2457,7 +2462,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.373"
+		"value":"17.5.360"
 	}
 }
 
@@ -2561,7 +2566,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.373"
+		"value":"17.5.360"
 	}
 }
 
@@ -2587,14 +2592,14 @@ outputsNamed3
 }
 inputsNamed3
 {
-0 	attribtransfer3 2 1 "input1"
+0 	attribcopy1 2 1 "input1"
 2 	attribtransfer2 2 1 "input2"
 4 	(__dot10) "" 1 "input3"
 1 	(__dot11) "" 1 "input4"
 }
 inputs
 {
-0 	attribtransfer3 0 1
+0 	attribcopy1 0 1
 1 	attribtransfer2 0 1
 2 	(__dot10) 0 1
 3 	(__dot11) 0 1
@@ -2602,7 +2607,7 @@ inputs
 stat
 {
   create 1503498356
-  modify 1538076129
+  modify 1571946514
   author Luiz@Luiz-PC
   access 0777
 }
@@ -2631,7 +2636,7 @@ Content-Type: text/plain
 
 {
 version 0.8
-input	[ 8	locks=0 ]	(	[ input	3 ] 	)
+input	[ 8	locks=0 ]	(	[ input	0 ] 	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -2641,7 +2646,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.373"
+		"value":"17.5.360"
 	}
 }
 
@@ -2700,7 +2705,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.373"
+		"value":"17.5.360"
 	},
 	"nodeshape":{
 		"type":"string",
@@ -2784,7 +2789,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.373"
+		"value":"17.5.360"
 	}
 }
 
@@ -2856,7 +2861,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.373"
+		"value":"17.5.360"
 	}
 }
 
@@ -2938,7 +2943,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.373"
+		"value":"17.5.360"
 	}
 }
 
@@ -2973,7 +2978,7 @@ inputs
 stat
 {
   create 1504652436
-  modify 1532461840
+  modify 1571947660
   author Luiz@Luiz-PC
   access 0777
 }
@@ -3008,7 +3013,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.373"
+		"value":"17.5.360"
 	}
 }
 
@@ -3182,96 +3187,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.373"
-	}
-}
-
---HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot/attribtransfer3.init"
-Content-Type: text/plain
-
-type = attribtransfer
-matchesdef = 0
-
---HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot/attribtransfer3.def"
-Content-Type: text/plain
-
-sopflags sopflags = 
-comment ""
-position -6.83518 -27.6854
-connectornextid 3
-flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
-outputsNamed3
-{
-2 "output1"
-}
-inputsNamed3
-{
-0 	(__dot7) "" 1 "input1"
-1 	matchsize2 1 1 "input2"
-}
-inputs
-{
-0 	(__dot7) 0 1
-1 	matchsize2 0 1
-}
-stat
-{
-  create 1508110354
-  modify 1532461512
-  author paula@DESKTOP-JOVQSE4
-  access 0777
-}
-color UT_Color RGB 0.8 0.8 0.8 
-delscript ""
-exprlanguage hscript
-end
-
---HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot/attribtransfer3.parm"
-Content-Type: text/plain
-
-{
-version 0.8
-srcgroups	[ 0	locks=0 ]	(	""	)
-srcgrouptype	[ 0	locks=0 ]	(	"primitive"	)
-dstgroups	[ 0	locks=0 ]	(	""	)
-dstgrouptype	[ 0	locks=0 ]	(	"primitive"	)
-cardswitcher	[ 0	locks=0 ]	(	0	0	)
-detailattribs	[ 0	locks=0 ]	(	"off"	)
-detailattriblist	[ 0	locks=0 ]	(	""	)
-primitiveattribs	[ 0	locks=0 ]	(	"off"	)
-primattriblist	[ 0	locks=0 ]	(	""	)
-pointattribs	[ 0	locks=0 ]	(	"off"	)
-pointattriblist	[ 0	locks=0 ]	(	""	)
-vertexattribs	[ 0	locks=0 ]	(	"on"	)
-vertexattriblist	[ 0	locks=0 ]	(	`chs(\"../uvattrib\")`	)
-copyvariable	[ 0	locks=0 ]	(	"off"	)
-matchpattrib	[ 0	locks=0 ]	(	"on"	)
-kernel	[ 0	locks=0 ]	(	elendt	)
-kernelradius	[ 0	locks=0 ]	(	10	)
-maxsamplecount	[ 0	locks=0 ]	(	1	)
-threshold	[ 0	locks=0 ]	(	"on"	)
-thresholddist	[ 0	locks=0 ]	(	10	)
-blendwidth	[ 0	locks=0 ]	(	0	)
-uniformbias	[ 0	locks=0 ]	(	0.5	)
-}
-
---HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot/attribtransfer3.netbox"
-Content-Type: text/plain
-
-__netbox3
-
---HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot/attribtransfer3.userdata"
-Content-Type: text/plain
-
-{
-	"___Version___":{
-		"type":"string",
-		"value":"17.0.373"
+		"value":"17.5.360"
 	}
 }
 
@@ -3359,7 +3275,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.373"
+		"value":"17.5.360"
 	}
 }
 
@@ -3427,7 +3343,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.373"
+		"value":"17.5.360"
 	}
 }
 
@@ -3528,7 +3444,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.373"
+		"value":"17.5.360"
 	}
 }
 
@@ -3580,9 +3496,16 @@ Content-Type: text/plain
 version 0.8
 group	[ 0	locks=0 ]	(	""	)
 grouptype	[ 0	locks=0 ]	(	"guess"	)
+overridenormal	[ 0	locks=0 ]	(	"off"	)
+normalattrib	[ 0	locks=0 ]	(	N	)
+construct	[ 0	locks=0 ]	(	0	)
+docompute	[ 0	locks=0 ]	(	"on"	)
 type	[ 0	locks=0 ]	(	"typepoint"	)
 cuspangle	[ 0	locks=0 ]	(	60	)
 method	[ 0	locks=0 ]	(	1	)
+modify	[ 0	locks=0 ]	(	0	)
+normalize	[ 0	locks=0 ]	(	"off"	)
+reverse	[ 0	locks=0 ]	(	"off"	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -3598,7 +3521,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.373"
+		"value":"17.5.360"
 	}
 }
 
@@ -3617,7 +3540,7 @@ sopflags sopflags =
 comment ""
 position 4.46621 -43.6153
 connectornextid 2
-flags =  lock off model off template off footprint off xray off bypass off display on render on highlight off unload off savedata off compress on colordefault on exposed on
+flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
 {
 1 "output1"
@@ -3633,7 +3556,7 @@ inputs
 stat
 {
   create 1510175427
-  modify 1538076154
+  modify 1571946824
   author MAINGEAR@DESKTOP-P98C1VA
   access 0777
 }
@@ -3716,7 +3639,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.373"
+		"value":"17.5.360"
 	}
 }
 
@@ -3735,7 +3658,7 @@ sopflags sopflags =
 comment ""
 position -5.76281 -0.245867
 connectornextid 2
-flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
+flags =  lock off model off template on footprint off xray off bypass off display on render on highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
 {
 1 "output1"
@@ -3751,7 +3674,7 @@ inputs
 stat
 {
   create 1510932784
-  modify 1532461512
+  modify 1571947522
   author MAINGEAR@DESKTOP-P98C1VA
   access 0777
 }
@@ -3784,7 +3707,7 @@ group	[ 0	locks=0 ]	(	""	)
 reductiontarget	[ 0	locks=0 ]	(	0	)
 target	[ 0	locks=0 ]	(	"pt_count"	)
 percentage	[ 0	locks=0 ]	(	100	)
-finalcount	[ 8	locks=0 ]	(	[ finalcount	25 ] 	)
+finalcount	[ 8	locks=0 ]	(	[ finalcount	60 ] 	)
 reducepassedtarget	[ 0	locks=0 ]	(	"off"	)
 qualitytolerance	[ 0	locks=0 ]	(	1.0000000000000001e-05	)
 outputgeo	[ 0	locks=0 ]	(	0	)
@@ -3836,7 +3759,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.373"
+		"value":"17.5.360"
 	}
 }
 
@@ -3940,7 +3863,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.373"
+		"value":"17.5.360"
 	}
 }
 
@@ -4014,7 +3937,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.373"
+		"value":"17.5.360"
 	}
 }
 
@@ -4049,7 +3972,7 @@ inputs
 stat
 {
   create 1510937873
-  modify 1532461512
+  modify 1571947001
   author MAINGEAR@DESKTOP-P98C1VA
   access 0777
 }
@@ -4136,9 +4059,16 @@ Content-Type: text/plain
 version 0.8
 group	[ 0	locks=0 ]	(	""	)
 grouptype	[ 0	locks=0 ]	(	"guess"	)
+overridenormal	[ 0	locks=0 ]	(	"off"	)
+normalattrib	[ 0	locks=0 ]	(	N	)
+construct	[ 0	locks=0 ]	(	0	)
+docompute	[ 0	locks=0 ]	(	"on"	)
 type	[ 0	locks=0 ]	(	"typevertex"	)
 cuspangle	[ 0	locks=0 ]	(	180	)
 method	[ 0	locks=0 ]	(	1	)
+modify	[ 0	locks=0 ]	(	0	)
+normalize	[ 0	locks=0 ]	(	"off"	)
+reverse	[ 0	locks=0 ]	(	"off"	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -4154,7 +4084,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.373"
+		"value":"17.5.360"
 	}
 }
 
@@ -4225,7 +4155,7 @@ Content-Type: text/plain
 {
 version 0.8
 group	[ 0	locks=0 ]	(	""	)
-uvattrib	[ 0	locks=0 ]	(	[ uvattrib	uv2 ] 	)
+uvattrib	[ 0	locks=0 ]	(	[ uvattrib	uv ] 	)
 method	[ 0	locks=0 ]	(	[ method	1 ] 	)
 existinguvs	[ 0	locks=0 ]	(	0	)
 keepexistingseams	[ 0	locks=0 ]	(	"off"	)
@@ -4276,7 +4206,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.373"
+		"value":"17.5.360"
 	}
 }
 
@@ -4391,7 +4321,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.373"
+		"value":"17.5.360"
 	}
 }
 
@@ -4463,7 +4393,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.373"
+		"value":"17.5.360"
 	}
 }
 
@@ -4545,7 +4475,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.373"
+		"value":"17.5.360"
 	}
 }
 
@@ -4615,7 +4545,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.373"
+		"value":"17.5.360"
 	}
 }
 
@@ -4719,7 +4649,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.373"
+		"value":"17.5.360"
 	}
 }
 
@@ -4836,7 +4766,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.373"
+		"value":"17.5.360"
 	}
 }
 
@@ -4855,7 +4785,7 @@ sopflags sopflags =
 comment ""
 position 4.46621 -41.2462
 connectornextid 3
-flags =  lock off model off template on footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
+flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
 {
 1 "output1"
@@ -4873,7 +4803,7 @@ inputs
 stat
 {
   create 1538076136
-  modify 1538076379
+  modify 1571946822
   author MAINGEAR@DESKTOP-P98C1VA
   access 0777
 }
@@ -4911,7 +4841,87 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.373"
+		"value":"17.5.360"
+	}
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/attribcopy1.init"
+Content-Type: text/plain
+
+type = attribcopy
+matchesdef = 0
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/attribcopy1.def"
+Content-Type: text/plain
+
+sopflags sopflags = 
+comment ""
+position -6.60249 -27.4608
+connectornextid 3
+flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
+outputsNamed3
+{
+2 "output1"
+}
+inputsNamed3
+{
+0 	(__dot7) "" 1 "input1"
+1 	matchsize2 1 1 "input2"
+}
+inputs
+{
+0 	(__dot7) 0 1
+1 	matchsize2 0 1
+}
+stat
+{
+  create 1571946499
+  modify 1571946525
+  author MAINGEAR@DESKTOP-P98C1VA
+  access 0777
+}
+color UT_Color RGB 0.8 0.8 0.8 
+delscript ""
+exprlanguage hscript
+end
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/attribcopy1.parm"
+Content-Type: text/plain
+
+{
+version 0.8
+srcgroup	[ 0	locks=0 ]	(	""	)
+srcgrouptype	[ 0	locks=0 ]	(	"points"	)
+destgroup	[ 0	locks=0 ]	(	""	)
+destgrouptype	[ 0	locks=0 ]	(	"points"	)
+matchbyattribute	[ 0	locks=0 ]	(	"off"	)
+attributetomatch	[ 0	locks=0 ]	(	piece	)
+attrib	[ 0	locks=0 ]	(	"otherattrib"	)
+attribname	[ 0	locks=0 ]	(	`chs(\"../uvattrib\")`	)
+copyp	[ 0	locks=0 ]	(	"on"	)
+usenewname	[ 0	locks=0 ]	(	"off"	)
+newname	[ 0	locks=0 ]	(	""	)
+class	[ 0	locks=0 ]	(	"guess"	)
+copyvariable	[ 0	locks=0 ]	(	"on"	)
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/attribcopy1.netbox"
+Content-Type: text/plain
+
+__netbox3
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/attribcopy1.userdata"
+Content-Type: text/plain
+
+{
+	"___Version___":{
+		"type":"string",
+		"value":"17.5.360"
 	}
 }
 
@@ -5090,7 +5100,6 @@ foreach_begin3
 matchsize2
 normalize_mesh
 attribtransfer2
-attribtransfer3
 uvunwrap1
 switch5
 cluster3
@@ -5115,6 +5124,7 @@ sop_merge_small_islands1
 uvautoseam1
 uvflatten1
 switch2
+attribcopy1
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
 Content-Disposition: attachment; filename="hdaroot.net"

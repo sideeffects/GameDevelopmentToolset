@@ -162,7 +162,7 @@
                 type    toggle
                 nolabel
                 joinnext
-                default { "0" }
+                default { "1" }
             }
             parm {
                 name    "sNormal"
@@ -354,6 +354,20 @@
         label   "Advanced"
 
         parm {
+            name    "bUseUDIM"
+            label   "Use UDIM"
+            type    toggle
+            default { "0" }
+            parmtag { "script_callback_language" "python" }
+        }
+        parm {
+            name    "bNormalizedPosition"
+            label   "Normalized Position Map"
+            type    toggle
+            default { "1" }
+            parmtag { "script_callback_language" "python" }
+        }
+        parm {
             name    "bManualMode"
             label   "Manual Mode"
             type    toggle
@@ -416,7 +430,7 @@
                 label   "Cone Width"
                 type    angle
                 default { "90" }
-                range   { 1! 90! }
+                range   { 1! 180! }
                 parmtag { "autoscope" "0000000000000000" }
                 parmtag { "parmvop" "1" }
                 parmtag { "shaderparmcontexts" "cop2" }
@@ -473,7 +487,7 @@
                 label   "Cone Width"
                 type    angle
                 default { "90" }
-                range   { 1! 90! }
+                range   { 1! 180! }
                 parmtag { "autoscope" "0000000000000000" }
                 parmtag { "parmvop" "1" }
                 parmtag { "shaderparmcontexts" "cop2" }

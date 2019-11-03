@@ -18,14 +18,14 @@
         name    "start_frame"
         label   "Start Frame"
         type    integer
-        default { "$RFSTART" }
+        default { [ "$RFSTART" hscript-expr ] }
         range   { 0 10 }
     }
     parm {
         name    "end_frame"
         label   "End Frame"
         type    integer
-        default { "$RFEND" }
+        default { [ "$RFEND" hscript-expr ] }
         range   { 0 10 }
     }
     parm {

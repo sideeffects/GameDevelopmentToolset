@@ -32,25 +32,24 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position -5.82616 -20.4824
-connectornextid 2
+position -5.75296 -1.27426
+connectornextid 1
 flags =  lock off model off template on footprint off xray off bypass off display on render on highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
 {
-1 "output1"
 }
 inputsNamed3
 {
-0 	sop_gameres1 1 1 "input1"
+0 	testgeometry_rubbertoy1 0 1 "input1"
 }
 inputs
 {
-0 	sop_gameres1 0 1
+0 	testgeometry_rubbertoy1 0 1
 }
 stat
 {
-  create 1548802822
-  modify 1551820615
+  create 1571845135
+  modify 1571845343
   author MAINGEAR@DESKTOP-P98C1VA
   access 0777
 }
@@ -77,18 +76,18 @@ Content-Type: text/plain
 2
 2
 {
-	color := "UT_Color RGB 0 0 0 ";
 	autofit := 0;
-	height := 2.5059052531239105;
-	width := 3.1397274497230754;
+	color := "UT_Color RGB 0 0 0 ";
 	comment := "PLANE ABOVE MESH";
-	y_position := 3.554054899446152;
+	height := 2.5059052531239105;
 	minimized := 0;
+	width := 3.1397274497230754;
 	x_position := -0.81443594530256347;
+	y_position := 3.554054899446152;
 }
 {
   create 1551479696
-  modify 1551820393
+  modify 1571845136
   author MAINGEAR@DESKTOP-P98C1VA
   access 0777
 }
@@ -131,7 +130,7 @@ inputs
 stat
 {
   create 1548707448
-  modify 1551713424
+  modify 1571845233
   author MAINGEAR@DESKTOP-P98C1VA
   access 0777
 }
@@ -207,7 +206,7 @@ valuea	[ 0	locks=0 ]	(	0	0	0	0	)
 valueb	[ 0	locks=0 ]	(	1	1	1	1	)
 probvalueb	[ 0	locks=0 ]	(	0.5	)
 min	[ 8	locks=0 ]	(	[ minx	0 ] 	[ miny	0 ] 	[ minz	0 ] 	0	)
-max	[ 8	locks=0 ]	(	[ maxx	1 ] 	[ maxy	1 ] 	[ maxz	1 ] 	1	)
+max	[ 8	locks=0 ]	(	[ maxx	3 ] 	[ maxy	3 ] 	[ maxz	3 ] 	1	)
 mindiscrete	[ 0	locks=0 ]	(	0	0	0	0	)
 maxdiscrete	[ 0	locks=0 ]	(	9	9	9	9	)
 stepsize	[ 0	locks=0 ]	(	1	1	1	1	)
@@ -293,7 +292,7 @@ sopflags sopflags =
 comment ""
 position -0.222126 -4.2231
 connectornextid 2
-flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
+flags =  lock off model off template on footprint off xray off bypass off display on render on highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
 {
 1 "output1"
@@ -309,7 +308,7 @@ inputs
 stat
 {
   create 1548707465
-  modify 1551481166
+  modify 1571845266
   author MAINGEAR@DESKTOP-P98C1VA
   access 0777
 }
@@ -409,7 +408,7 @@ inputs
 stat
 {
   create 1548707924
-  modify 1551713435
+  modify 1571845349
   author MAINGEAR@DESKTOP-P98C1VA
   access 0777
 }
@@ -417,6 +416,34 @@ color UT_Color RGB 0.8 0.8 0.8
 delscript ""
 exprlanguage hscript
 end
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/color3.chn"
+Content-Type: text/plain
+
+{
+    channel colorr {
+      lefttype = extend
+      righttype = extend
+      default = 0.5
+      flags = 0
+      segment { length = 0 value = 0.5 0.5 expr = ch(\"../colorr\") }
+    }
+    channel colorg {
+      lefttype = extend
+      righttype = extend
+      default = 0.5
+      flags = 0
+      segment { length = 0 value = 0.5 0.5 expr = ch(\"../colorg\") }
+    }
+    channel colorb {
+      lefttype = extend
+      righttype = extend
+      default = 0.5
+      flags = 0
+      segment { length = 0 value = 0.5 0.5 expr = ch(\"../colorb\") }
+    }
+  }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
 Content-Disposition: attachment; filename="hdaroot/color3.parm"
@@ -429,7 +456,7 @@ grouptype	[ 0	locks=0 ]	(	"guess"	)
 deleteallcolorattribs	[ 0	locks=0 ]	(	"off"	)
 class	[ 0	locks=0 ]	(	2	)
 colortype	[ 0	locks=0 ]	(	0	)
-color	[ 0	locks=0 ]	(	0.5	0.5	0.5	)
+color	[ 0	locks=0 ]	(	[ colorr	0.5 ] 	[ colorg	0.5 ] 	[ colorb	0.5 ] 	)
 seed	[ 0	locks=0 ]	(	0	)
 rampattribute	[ 0	locks=0 ]	(	""	)
 ramprange	[ 0	locks=0 ]	(	0	1	)
@@ -579,7 +606,7 @@ inputs
 stat
 {
   create 1548707360
-  modify 1551713378
+  modify 1571845226
   author MAINGEAR@DESKTOP-P98C1VA
   access 0777
 }
@@ -623,7 +650,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.484"
+		"value":"17.5.360"
 	}
 }
 
@@ -658,7 +685,7 @@ inputs
 stat
 {
   create 1548707374
-  modify 1551713419
+  modify 1571845223
   author MAINGEAR@DESKTOP-P98C1VA
   access 0777
 }
@@ -727,7 +754,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.484"
+		"value":"17.5.360"
 	}
 }
 
@@ -762,7 +789,7 @@ inputs
 stat
 {
   create 1548707388
-  modify 1551481094
+  modify 1571845228
   author MAINGEAR@DESKTOP-P98C1VA
   access 0777
 }
@@ -839,7 +866,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.484"
+		"value":"17.5.360"
 	}
 }
 
@@ -876,7 +903,7 @@ inputs
 stat
 {
   create 1548707392
-  modify 1551713423
+  modify 1571845230
   author MAINGEAR@DESKTOP-P98C1VA
   access 0777
 }
@@ -934,7 +961,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.484"
+		"value":"17.5.360"
 	}
 }
 
@@ -999,7 +1026,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.484"
+		"value":"17.5.360"
 	}
 }
 
@@ -1036,7 +1063,7 @@ inputs
 stat
 {
   create 1548707427
-  modify 1551481166
+  modify 1571845234
   author MAINGEAR@DESKTOP-P98C1VA
   access 0777
 }
@@ -1081,7 +1108,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.484"
+		"value":"17.5.360"
 	}
 }
 
@@ -1154,7 +1181,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.484"
+		"value":"17.5.360"
 	}
 }
 
@@ -1206,9 +1233,16 @@ Content-Type: text/plain
 version 0.8
 group	[ 0	locks=0 ]	(	""	)
 grouptype	[ 0	locks=0 ]	(	"guess"	)
+overridenormal	[ 0	locks=0 ]	(	"off"	)
+normalattrib	[ 0	locks=0 ]	(	N	)
+construct	[ 0	locks=0 ]	(	0	)
+docompute	[ 0	locks=0 ]	(	"on"	)
 type	[ 0	locks=0 ]	(	"typevertex"	)
 cuspangle	[ 0	locks=0 ]	(	180	)
 method	[ 0	locks=0 ]	(	1	)
+modify	[ 0	locks=0 ]	(	0	)
+normalize	[ 0	locks=0 ]	(	"off"	)
+reverse	[ 0	locks=0 ]	(	"off"	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -1218,7 +1252,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.484"
+		"value":"17.5.360"
 	}
 }
 
@@ -1343,7 +1377,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.484"
+		"value":"17.5.360"
 	}
 }
 
@@ -1408,7 +1442,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.484"
+		"value":"17.5.360"
 	}
 }
 
@@ -1476,7 +1510,7 @@ group	[ 0	locks=0 ]	(	""	)
 reductiontarget	[ 0	locks=0 ]	(	0	)
 target	[ 0	locks=0 ]	(	"poly_count"	)
 percentage	[ 0	locks=0 ]	(	100	)
-finalcount	[ 0	locks=0 ]	(	[ finalcount	500 ] 	)
+finalcount	[ 0	locks=0 ]	(	[ finalcount	10000 ] 	)
 reducepassedtarget	[ 0	locks=0 ]	(	"off"	)
 qualitytolerance	[ 0	locks=0 ]	(	1.0000000000000001e-05	)
 outputgeo	[ 0	locks=0 ]	(	0	)
@@ -1519,7 +1553,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.484"
+		"value":"17.5.360"
 	}
 }
 
@@ -1571,9 +1605,16 @@ Content-Type: text/plain
 version 0.8
 group	[ 0	locks=0 ]	(	""	)
 grouptype	[ 0	locks=0 ]	(	"guess"	)
+overridenormal	[ 0	locks=0 ]	(	"off"	)
+normalattrib	[ 0	locks=0 ]	(	N	)
+construct	[ 0	locks=0 ]	(	0	)
+docompute	[ 0	locks=0 ]	(	"on"	)
 type	[ 0	locks=0 ]	(	"typevertex"	)
 cuspangle	[ 0	locks=0 ]	(	180	)
 method	[ 0	locks=0 ]	(	2	)
+modify	[ 0	locks=0 ]	(	0	)
+normalize	[ 0	locks=0 ]	(	"off"	)
+reverse	[ 0	locks=0 ]	(	"off"	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -1583,7 +1624,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.484"
+		"value":"17.5.360"
 	}
 }
 
@@ -1670,7 +1711,7 @@ size	[ 0	locks=0 ]	(	1	1	1	)
 t	[ 0	locks=0 ]	(	0	0	0	)
 affectnormal	[ 0	locks=0 ]	(	"on"	)
 dir	[ 0	locks=0 ]	(	0	1	0	)
-angle	[ 0	locks=0 ]	(	[ angle	57.200000000000003 ] 	)
+angle	[ 0	locks=0 ]	(	[ angle	60 ] 	)
 camerapath	[ 0	locks=0 ]	(	""	)
 affectdegenerate	[ 0	locks=0 ]	(	"off"	)
 degenerate	[ 0	locks=0 ]	(	"off"	)
@@ -1688,7 +1729,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.484"
+		"value":"17.5.360"
 	}
 }
 
@@ -1747,7 +1788,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.484"
+		"value":"17.5.360"
 	},
 	"nodeshape":{
 		"type":"string",
@@ -1826,7 +1867,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.484"
+		"value":"17.5.360"
 	}
 }
 
@@ -1887,7 +1928,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.484"
+		"value":"17.5.360"
 	}
 }
 
@@ -1965,7 +2006,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.484"
+		"value":"17.5.360"
 	}
 }
 
@@ -2040,7 +2081,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.484"
+		"value":"17.5.360"
 	}
 }
 
@@ -2122,7 +2163,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.484"
+		"value":"17.5.360"
 	}
 }
 
@@ -2187,7 +2228,7 @@ Content-Type: text/plain
 
 {
 version 0.8
-input	[ 8	locks=0 ]	(	[ input	0 ] 	)
+input	[ 8	locks=0 ]	(	[ input	1 ] 	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -2197,7 +2238,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.484"
+		"value":"17.5.360"
 	}
 }
 
@@ -2258,7 +2299,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.484"
+		"value":"17.5.360"
 	}
 }
 
@@ -2277,7 +2318,7 @@ sopflags sopflags =
 comment ""
 position 3.32614 -11.6684
 connectornextid 3
-flags =  lock off model off template on footprint off xray off bypass off display on render on highlight off unload off savedata off compress on colordefault on exposed on
+flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
 {
 0 "output1"
@@ -2295,7 +2336,7 @@ inputs
 stat
 {
   create 1551713583
-  modify 1551820565
+  modify 1571845220
   author MAINGEAR@DESKTOP-P98C1VA
   access 0777
 }
@@ -2333,7 +2374,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"17.0.484"
+		"value":"17.5.360"
 	}
 }
 

@@ -49,7 +49,7 @@
             name    "reducepassedtarget"
             label   "Continue Reducing Within Quality Tolerance"
             type    toggle
-            default { "off" }
+            default { [ "off" hscript-expr ] }
             disablewhen "{ use_instantmeshes == 1 }"
             parmtag { "autoscope" "0000000000000000" }
         }
@@ -66,7 +66,7 @@
             name    "originalpoints"
             label   "Use Only Original Point Positions"
             type    toggle
-            default { "off" }
+            default { [ "off" hscript-expr ] }
             disablewhen "{ use_instantmeshes == 1 }"
             parmtag { "autoscope" "0000000000000000" }
         }
@@ -74,7 +74,7 @@
             name    "preservequads"
             label   "Preserve Quads"
             type    toggle
-            default { "off" }
+            default { [ "off" hscript-expr ] }
             disablewhen "{ use_instantmeshes == 1 }"
             parmtag { "autoscope" "0000000000000000" }
         }
@@ -90,6 +90,7 @@
         groupsimple {
             name    "folder0"
             label   "Voxelize"
+            grouptag { "group_type" "simple" }
 
             parm {
                 name    "enable_voxelization"
@@ -125,7 +126,7 @@
                 name    "bounding_box_relative"
                 label   "Bounding Box Relative"
                 type    toggle
-                default { "on" }
+                default { [ "on" hscript-expr ] }
                 disablewhen "{ enable_voxelization == 0 }"
                 parmtag { "autoscope" "0000000000000000" }
             }
@@ -151,7 +152,7 @@
                 name    "project"
                 label   "Project to Original"
                 type    toggle
-                default { "off" }
+                default { [ "off" hscript-expr ] }
                 disablewhen "{ enable_voxelization == 0 }"
                 parmtag { "autoscope" "0000000000000000" }
             }
@@ -168,7 +169,7 @@
                 name    "sharpen_features"
                 label   "Sharpen Features"
                 type    toggle
-                default { "off" }
+                default { [ "off" hscript-expr ] }
                 disablewhen "{ enable_voxelization == 0 }"
                 parmtag { "autoscope" "0000000000000000" }
             }
@@ -192,12 +193,13 @@
         groupsimple {
             name    "folder3"
             label   "Method"
+            grouptag { "group_type" "simple" }
 
             parm {
                 name    "method"
                 label   "Method"
                 type    ordinal
-                default { "4" }
+                default { "3" }
                 menu {
                     "0" "Shortest Path"
                     "1" "Cluster"
@@ -315,6 +317,7 @@
         groupsimple {
             name    "folder4"
             label   "Packing Options"
+            grouptag { "group_type" "simple" }
 
             parm {
                 name    "merge_small_islands"
@@ -346,7 +349,7 @@
                 name    "orientation_mode"
                 label   "Orientation Mode"
                 type    ordinal
-                default { "20" }
+                default { "3" }
                 menu {
                     "1"     "Min"
                     "4"     "Axis Aligned"
@@ -427,7 +430,7 @@
             parm {
                 name    "uvresmenu"
                 label   "uvresmenu"
-                type    button
+                type    ordinal
                 default { "256 256" }
                 menumini {
                     "256 256"   "256 x 256"
@@ -452,7 +455,7 @@
                 type    toggle
                 nolabel
                 joinnext
-                default { "off" }
+                default { [ "off" hscript-expr ] }
                 parmtag { "autoscope" "0000000000000000" }
             }
             parm {
@@ -473,7 +476,7 @@
                     type    toggle
                     nolabel
                     joinnext
-                    default { "on" }
+                    default { [ "on" hscript-expr ] }
                     parmtag { "autoscope" "0000000000000000" }
                 }
                 parm {
@@ -490,7 +493,7 @@
                     type    toggle
                     nolabel
                     joinnext
-                    default { "on" }
+                    default { [ "on" hscript-expr ] }
                     parmtag { "autoscope" "0000000000000000" }
                 }
                 parm {
@@ -507,7 +510,7 @@
                     type    toggle
                     nolabel
                     joinnext
-                    default { "off" }
+                    default { [ "off" hscript-expr ] }
                     parmtag { "autoscope" "0000000000000000" }
                 }
                 parm {
@@ -524,7 +527,7 @@
                     type    toggle
                     nolabel
                     joinnext
-                    default { "off" }
+                    default { [ "off" hscript-expr ] }
                     parmtag { "autoscope" "0000000000000000" }
                 }
                 parm {
@@ -541,7 +544,7 @@
                     type    toggle
                     nolabel
                     joinnext
-                    default { "off" }
+                    default { [ "off" hscript-expr ] }
                     parmtag { "autoscope" "0000000000000000" }
                 }
                 parm {
@@ -558,7 +561,7 @@
                     type    toggle
                     nolabel
                     joinnext
-                    default { "off" }
+                    default { [ "off" hscript-expr ] }
                     parmtag { "autoscope" "0000000000000000" }
                 }
                 parm {
@@ -575,7 +578,7 @@
                     type    toggle
                     nolabel
                     joinnext
-                    default { "on" }
+                    default { [ "on" hscript-expr ] }
                     parmtag { "autoscope" "0000000000000000" }
                 }
                 parm {
@@ -592,7 +595,7 @@
                     type    toggle
                     nolabel
                     joinnext
-                    default { "off" }
+                    default { [ "off" hscript-expr ] }
                     parmtag { "autoscope" "0000000000000000" }
                 }
                 parm {
@@ -609,7 +612,7 @@
                     type    toggle
                     nolabel
                     joinnext
-                    default { "off" }
+                    default { [ "off" hscript-expr ] }
                     parmtag { "autoscope" "0000000000000000" }
                 }
                 parm {
@@ -626,7 +629,7 @@
                     type    toggle
                     nolabel
                     joinnext
-                    default { "off" }
+                    default { [ "off" hscript-expr ] }
                     parmtag { "autoscope" "0000000000000000" }
                 }
                 parm {
@@ -643,7 +646,7 @@
                     type    toggle
                     nolabel
                     joinnext
-                    default { "off" }
+                    default { [ "off" hscript-expr ] }
                     parmtag { "autoscope" "0000000000000000" }
                 }
                 parm {
@@ -706,7 +709,7 @@
                     name    "vm_bake_usemikkt"
                     label   "Use MikkT Tangent Space"
                     type    toggle
-                    default { "on" }
+                    default { [ "on" hscript-expr ] }
                     parmtag { "autoscope" "0000000000000000" }
                     parmtag { "mantra_class" "renderer" }
                     parmtag { "mantra_name" "bake_usemikkt" }
@@ -716,7 +719,7 @@
                     name    "vm_bake_tangentnormalflipy"
                     label   "Tangent Normal Flip Y"
                     type    toggle
-                    default { "off" }
+                    default { [ "off" hscript-expr ] }
                     parmtag { "autoscope" "0000000000000000" }
                     parmtag { "spare_category" "Baking" }
                 }
@@ -833,7 +836,7 @@
             name    "initswitch"
             label   "Init Switch"
             type    toggle
-            default { "on" }
+            default { [ "on" hscript-expr ] }
             parmtag { "autoscope" "0000000000000000" }
         }
         parm {

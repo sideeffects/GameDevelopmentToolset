@@ -17,6 +17,7 @@
     groupsimple {
         name    "folder1"
         label   "Method"
+        grouptag { "group_type" "simple" }
 
         parm {
             name    "uvattrib"
@@ -33,7 +34,7 @@
             name    "method"
             label   "Method"
             type    ordinal
-            default { "4" }
+            default { "3" }
             menu {
                 "0" "Shortest Path"
                 "1" "Cluster"
@@ -142,6 +143,7 @@
     groupsimple {
         name    "folder0"
         label   "Packing Options"
+        grouptag { "group_type" "simple" }
 
         parm {
             name    "merge_small_islands"
@@ -161,7 +163,7 @@
             name    "optimize_uv_border"
             label   "Optimize UV Border"
             type    toggle
-            default { "on" }
+            default { [ "on" hscript-expr ] }
             help    "Attempts to remove triangles that are sticking to the side of the UV island. May cause small islands to reappear"
             disablewhen "{ merge_small_islands == 0 }"
             parmtag { "autoscope" "0000000000000000" }

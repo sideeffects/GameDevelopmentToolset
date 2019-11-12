@@ -31,7 +31,7 @@ Content-Disposition: attachment; filename="hdaroot.def"
 Content-Type: text/plain
 
 comment ""
-position -2.68513 1.12442
+position -2.86842 0.91934
 connectornextid 0
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
@@ -45,9 +45,9 @@ inputs
 }
 stat
 {
-  create 1570656014
-  modify 1572794390
-  author mike.foy@foydev1
+  create 1573564474
+  modify 1573564589
+  author mikel@MacBook-Pro
   access 0777
 }
 color UT_Color RGB 0.8 0.8 0.8 
@@ -22749,6 +22749,18 @@ Content-Type: text/plain
       flags = 0
       segment { length = 0 expr = $NFRAMES }
     }
+    channel target_texture_size {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = ch(\"../../target_texture_size\") }
+    }
+    channel numpt {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = npoints(\"../../objects/MESH/rigid/REF_MESH\") }
+    }
     channel quaternion_flip {
       lefttype = extend
       righttype = extend
@@ -22767,18 +22779,6 @@ Content-Type: text/plain
       righttype = extend
       flags = 0
       segment { length = 0 expr = ch(\"../../invert_pos\") }
-    }
-    channel target_texture_size {
-      lefttype = extend
-      righttype = extend
-      flags = 0
-      segment { length = 0 expr = ch(\"../../target_texture_size\") }
-    }
-    channel numpt {
-      lefttype = extend
-      righttype = extend
-      flags = 0
-      segment { length = 0 expr = npoints(\"../../objects/MESH/rigid/REF_MESH\") }
     }
   }
 
@@ -25325,6 +25325,12 @@ Content-Type: text/plain
       flags = 0
       segment { length = 0 expr = $NFRAMES }
     }
+    channel target_texture_size {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = "if(ch(\"m\")!=2, ch(\"../../target_texture_size\"),(floor(ch(\"../../target_texture_size\")/3)*3))" }
+    }
     channel numpt {
       lefttype = extend
       righttype = extend
@@ -25348,12 +25354,6 @@ Content-Type: text/plain
       righttype = extend
       flags = 0
       segment { length = 0 expr = ch(\"../../method\") }
-    }
-    channel target_texture_size {
-      lefttype = extend
-      righttype = extend
-      flags = 0
-      segment { length = 0 expr = "if(ch(\"m\")!=2, ch(\"../../target_texture_size\"),(floor(ch(\"../../target_texture_size\")/3)*3))" }
     }
   }
 
@@ -27315,6 +27315,12 @@ Content-Type: text/plain
       flags = 0
       segment { length = 0 expr = $NFRAMES }
     }
+    channel target_texture_size {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = "if(ch(\"m\")!=2, ch(\"../../target_texture_size\"),(floor(ch(\"../../target_texture_size\")/3)*3))" }
+    }
     channel numpt {
       lefttype = extend
       righttype = extend
@@ -27338,12 +27344,6 @@ Content-Type: text/plain
       righttype = extend
       flags = 0
       segment { length = 0 expr = ch(\"../../method\") }
-    }
-    channel target_texture_size {
-      lefttype = extend
-      righttype = extend
-      flags = 0
-      segment { length = 0 expr = "if(ch(\"m\")!=2, ch(\"../../target_texture_size\"),(floor(ch(\"../../target_texture_size\")/3)*3))" }
     }
   }
 
@@ -29206,6 +29206,12 @@ Content-Type: text/plain
       flags = 0
       segment { length = 0 expr = $NFRAMES }
     }
+    channel m {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = ch(\"../../method\") }
+    }
     channel numpt {
       lefttype = extend
       righttype = extend
@@ -29235,12 +29241,6 @@ Content-Type: text/plain
       righttype = extend
       flags = 0
       segment { length = 0 expr = ch(\"../../wrap_data\") }
-    }
-    channel m {
-      lefttype = extend
-      righttype = extend
-      flags = 0
-      segment { length = 0 expr = ch(\"../../method\") }
     }
     channel target_texture_size {
       lefttype = extend
@@ -35466,6 +35466,12 @@ Content-Type: text/plain
       flags = 0
       segment { length = 0 expr = $NFRAMES }
     }
+    channel m {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = ch(\"../../method\") }
+    }
     channel numpt {
       lefttype = extend
       righttype = extend
@@ -35501,12 +35507,6 @@ Content-Type: text/plain
       righttype = extend
       flags = 0
       segment { length = 0 expr = "if(ch(\"m\")!=2, ch(\"../../target_texture_size\"),(floor(ch(\"../../target_texture_size\")/3)*3))" }
-    }
-    channel m {
-      lefttype = extend
-      righttype = extend
-      flags = 0
-      segment { length = 0 expr = ch(\"../../method\") }
     }
   }
 
@@ -45855,7 +45855,7 @@ Content-Type: text/plain
 version 0.8
 itermethod	[ 0	locks=0 ]	(	"count"	)
 method	[ 0	locks=0 ]	(	"feedback"	)
-iterations	[ 8	locks=0 ]	(	[ iterations	47 ] 	)
+iterations	[ 8	locks=0 ]	(	[ iterations	239 ] 	)
 startvalue	[ 0	locks=0 ]	(	1	)
 increment	[ 0	locks=0 ]	(	1	)
 class	[ 0	locks=0 ]	(	"point"	)
@@ -46038,7 +46038,7 @@ Content-Type: text/plain
 {
 version 0.8
 method	[ 0	locks=0 ]	(	"byframe"	)
-frame	[ 8	locks=0 ]	(	[ frame	47 ] 	)
+frame	[ 8	locks=0 ]	(	[ frame	239 ] 	)
 integerframe	[ 0	locks=0 ]	(	"on"	)
 time	[ 0	locks=0 ]	(	[ time	0.4583333432674408 ] 	)
 rangeclamp	[ 0	locks=0 ]	(	"none"	)
@@ -46086,7 +46086,7 @@ inputs
 stat
 {
   create 1486172943
-  modify 1572792379
+  modify 1573565192
   author Luiz@LAPTOP-LKBBB5D4
   access 0777
 }
@@ -46293,7 +46293,7 @@ inputs
 stat
 {
   create 1486172928
-  modify 1572792379
+  modify 1573565191
   author Luiz@LAPTOP-LKBBB5D4
   access 0777
 }
@@ -47274,7 +47274,7 @@ Content-Type: text/plain
 
 {
 version 0.8
-input	[ 0	locks=0 ]	(	[ input	2 ] 	)
+input	[ 0	locks=0 ]	(	[ input	0 ] 	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -48825,7 +48825,7 @@ Content-Type: text/plain
 
 {
 version 0.8
-input	[ 0	locks=0 ]	(	[ input	2 ] 	)
+input	[ 0	locks=0 ]	(	[ input	0 ] 	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -49986,7 +49986,7 @@ Content-Type: text/plain
 
 {
 version 0.8
-input	[ 0	locks=0 ]	(	[ input	2 ] 	)
+input	[ 0	locks=0 ]	(	[ input	0 ] 	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -57183,7 +57183,7 @@ Content-Type: text/plain
 
 {
 version 0.8
-input	[ 8	locks=0 ]	(	[ input	2 ] 	)
+input	[ 8	locks=0 ]	(	[ input	0 ] 	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -57702,7 +57702,7 @@ reduce	[ 0	locks=0 ]	(	""	)
 creases	[ 0	locks=0 ]	(	""	)
 stdswitcher	[ 0	locks=0 ]	(	1	1	1	1	)
 percentage	[ 0	locks=0 ]	(	100	)
-numpolys	[ 0	locks=0 ]	(	[ numpolys	1023 ] 	)
+numpolys	[ 0	locks=0 ]	(	[ numpolys	1024 ] 	)
 objpath	[ 0	locks=0 ]	(	""	)
 distance	[ 0	locks=0 ]	(	100	)
 minpercent	[ 0	locks=0 ]	(	0	)
@@ -60400,7 +60400,7 @@ Content-Type: text/plain
 version 0.8
 itermethod	[ 0	locks=0 ]	(	"count"	)
 method	[ 0	locks=0 ]	(	"feedback"	)
-iterations	[ 0	locks=0 ]	(	[ iterations	47 ] 	)
+iterations	[ 0	locks=0 ]	(	[ iterations	239 ] 	)
 startvalue	[ 0	locks=0 ]	(	1	)
 increment	[ 0	locks=0 ]	(	1	)
 class	[ 0	locks=0 ]	(	"point"	)
@@ -60457,7 +60457,7 @@ inputs
 stat
 {
   create 1534533243
-  modify 1572794388
+  modify 1573565191
   author MAINGEAR@DESKTOP-P98C1VA
   access 0777
 }
@@ -60518,7 +60518,7 @@ inputs
 stat
 {
   create 1534533243
-  modify 1572794388
+  modify 1573565191
   author MAINGEAR@DESKTOP-P98C1VA
   access 0777
 }
@@ -60642,7 +60642,7 @@ Content-Type: text/plain
 {
 version 0.8
 method	[ 0	locks=0 ]	(	"byframe"	)
-frame	[ 8	locks=0 ]	(	[ frame	47 ] 	)
+frame	[ 8	locks=0 ]	(	[ frame	239 ] 	)
 integerframe	[ 0	locks=0 ]	(	"on"	)
 time	[ 0	locks=0 ]	(	[ time	0 ] 	)
 rangeclamp	[ 0	locks=0 ]	(	"none"	)
@@ -63497,7 +63497,7 @@ maskplane	[ 0	locks=0 ]	(	A	)
 maskresize	[ 0	locks=0 ]	(	"off"	)
 maskinvert	[ 0	locks=0 ]	(	"off"	)
 overridesize	[ 0	locks=0 ]	(	"on"	)
-size	[ 0	locks=0 ]	(	[ size1	1024 ] 	[ size2	141 ] 	)
+size	[ 0	locks=0 ]	(	[ size1	0 ] 	[ size2	0 ] 	)
 sizemenu	[ 0	locks=0 ]	(	0	)
 overrideaspect	[ 0	locks=0 ]	(	"off"	)
 aspect	[ 0	locks=0 ]	(	[ aspect	1 ] 	)
@@ -63520,10 +63520,10 @@ preextend	[ 0	locks=0 ]	(	"black"	)
 prehold	[ 0	locks=0 ]	(	0	)
 postextend	[ 0	locks=0 ]	(	"black"	)
 posthold	[ 0	locks=0 ]	(	0	)
-m	[ 0	locks=0 ]	(	[ m	2 ] 	)
+m	[ 0	locks=0 ]	(	[ m	0 ] 	)
 s	[ 0	locks=0 ]	(	[ s1	0 ] 	[ s2	0 ] 	)
 r	[ 0	locks=0 ]	(	[ r1	0 ] 	[ r2	0 ] 	)
-f	[ 0	locks=0 ]	(	[ f1	1024 ] 	[ f2	141 ] 	)
+f	[ 0	locks=0 ]	(	[ f1	1024 ] 	[ f2	0 ] 	)
 p	[ 0	locks=0 ]	(	[ p1	0 ] 	[ p2	0 ] 	)
 stdswitcher5	[ 0	locks=0 ]	(	2	2	2	2	)
 }

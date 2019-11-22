@@ -20,24 +20,25 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position -2.29231 -5.50559
-connectornextid 1
-flags =  lock off model off template on footprint off xray off bypass off display on render on highlight off unload off savedata off compress on colordefault on exposed on
+position -9.582 2.7023
+connectornextid 2
+flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
 {
+1 "output1"
 }
 inputsNamed3
 {
-0 	group2 1 1 "input1"
+0 	testgeometry_pighead1 0 1 "input1"
 }
 inputs
 {
-0 	group2 0 1
+0 	testgeometry_pighead1 0 1
 }
 stat
 {
-  create 1571150558
-  modify 1571152036
+  create 1574301145
+  modify 1574301337
   author MAINGEAR@DESKTOP-P98C1VA
   access 0777
 }
@@ -62,7 +63,7 @@ Content-Disposition: attachment; filename="hdaroot.inp"
 Content-Type: text/plain
 
 1
-0 -1.8415964939053886 8.2428713058309313 2 0 __NO_OWNER_NETWORK_BOX__ "FROMOUTPUT"
+0 -2.6867357267219489 8.2831160312031482 2 0 __NO_OWNER_NETWORK_BOX__ "FROMOUTPUT"
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
 Content-Disposition: attachment; filename="hdaroot/blast2.init"
@@ -293,7 +294,7 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position -3.70846 4.15259
+position -4.35238 4.83675
 connectornextid 2
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
@@ -311,7 +312,7 @@ inputs
 stat
 {
   create 1524169200
-  modify 1524181827
+  modify 1574301333
   author MAINGEAR@DESKTOP-P98C1VA
   access 0777
 }
@@ -343,6 +344,13 @@ Content-Type: text/plain
       flags = 0
       segment { length = 0 expr = "explodematrix(dihedral(vector3(detail(\"../attribpromote1\", \"N\",0),detail(\"../attribpromote1\", \"N\",1),detail(\"../attribpromote1\", \"N\",2)),vector3(0,1,0)), \"SRT\", \"XYZ\", \"RZ\")" }
     }
+    channel addattrib {
+      lefttype = extend
+      righttype = extend
+      default = 1
+      flags = 0
+      segment { length = 0 value = 1 1 expr = ch(\"../addattrib\") }
+    }
   }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -356,7 +364,7 @@ grouptype	[ 0	locks=0 ]	(	"guess"	)
 xOrd	[ 0	locks=0 ]	(	"srt"	)
 rOrd	[ 0	locks=0 ]	(	"xyz"	)
 t	[ 0	locks=0 ]	(	0	0	0	)
-r	[ 8	locks=0 ]	(	[ rx	-6.3570232043949266 ] 	[ ry	0.094649701675052211 ] 	[ rz	1.7042777914987048 ] 	)
+r	[ 8	locks=0 ]	(	[ rx	-8.7886138506050564 ] 	[ ry	-3.5463527374956634 ] 	[ rz	-43.884464472968034 ] 	)
 s	[ 0	locks=0 ]	(	1	1	1	)
 shear	[ 8	locks=0 ]	(	0	0	0	)
 scale	[ 0	locks=0 ]	(	1	)
@@ -376,8 +384,8 @@ updatenmls	[ 0	locks=0 ]	(	"off"	)
 updateaffectednmls	[ 0	locks=0 ]	(	"on"	)
 vlength	[ 0	locks=0 ]	(	"on"	)
 invertxform	[ 0	locks=0 ]	(	"off"	)
-addattrib	[ 0	locks=0 ]	(	"off"	)
-outputattrib	[ 0	locks=0 ]	(	xform	)
+addattrib	[ 8	locks=0 ]	(	[ addattrib	1 ] 	)
+outputattrib	[ 0	locks=0 ]	(	`chs(\"../outputattrib\")`	)
 outputmerge	[ 0	locks=0 ]	(	"post"	)
 }
 
@@ -405,7 +413,7 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position -1.13988 0.99212
+position -2.11009 0.56955
 connectornextid 2
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
@@ -423,7 +431,7 @@ inputs
 stat
 {
   create 1524169200
-  modify 1524181830
+  modify 1574301283
   author MAINGEAR@DESKTOP-P98C1VA
   access 0777
 }
@@ -443,6 +451,20 @@ Content-Type: text/plain
       flags = 0
       segment { length = 0 expr = "explodematrix(dihedral(vector3(detail(\"../attribpromote2\", \"N\",0),detail(\"../attribpromote2\", \"N\",1),detail(\"../attribpromote2\", \"N\",2)),vector3(1,0,0)), \"SRT\", \"XYZ\", \"RY\")" }
     }
+    channel outputattrib {
+      lefttype = extend
+      righttype = extend
+      defaultString = \"xform\"
+      flags = 0
+      segment { length = 0 expr = chs(\"../outputattrib\") }
+    }
+    channel addattrib {
+      lefttype = extend
+      righttype = extend
+      default = 1
+      flags = 0
+      segment { length = 0 value = 1 1 expr = ch(\"../addattrib\") }
+    }
   }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -456,7 +478,7 @@ grouptype	[ 0	locks=0 ]	(	"guess"	)
 xOrd	[ 0	locks=0 ]	(	"srt"	)
 rOrd	[ 0	locks=0 ]	(	"xyz"	)
 t	[ 0	locks=0 ]	(	0	0	0	)
-r	[ 8	locks=0 ]	(	0	[ ry	-266.93287786029765 ] 	0	)
+r	[ 8	locks=0 ]	(	0	[ ry	-261.64067770240115 ] 	0	)
 s	[ 0	locks=0 ]	(	1	1	1	)
 shear	[ 8	locks=0 ]	(	0	0	0	)
 scale	[ 0	locks=0 ]	(	1	)
@@ -476,8 +498,8 @@ updatenmls	[ 0	locks=0 ]	(	"off"	)
 updateaffectednmls	[ 0	locks=0 ]	(	"on"	)
 vlength	[ 0	locks=0 ]	(	"on"	)
 invertxform	[ 0	locks=0 ]	(	"off"	)
-addattrib	[ 0	locks=0 ]	(	"off"	)
-outputattrib	[ 0	locks=0 ]	(	xform	)
+addattrib	[ 0	locks=0 ]	(	[ addattrib	1 ] 	)
+outputattrib	[ 0	locks=0 ]	(	[ outputattrib	xform ] 	)
 outputmerge	[ 0	locks=0 ]	(	"post"	)
 }
 
@@ -708,7 +730,7 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position -2.57391 -1.25692
+position -3.29832 -1.31729
 connectornextid 3
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
@@ -728,7 +750,7 @@ inputs
 stat
 {
   create 1524181050
-  modify 1543600193
+  modify 1574301176
   author MAINGEAR@DESKTOP-P98C1VA
   access 0777
 }
@@ -784,7 +806,7 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position -2.57391 -3.22662
+position -3.29832 -3.22662
 connectornextid 1
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
@@ -801,7 +823,7 @@ inputs
 stat
 {
   create 1524181056
-  modify 1524181074
+  modify 1574301179
   author MAINGEAR@DESKTOP-P98C1VA
   access 0777
 }
@@ -918,7 +940,7 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position -1.62715 4.02926
+position -1.64727 4.83675
 connectornextid 2
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
@@ -936,7 +958,7 @@ inputs
 stat
 {
   create 1524169200
-  modify 1524181860
+  modify 1574301329
   author MAINGEAR@DESKTOP-P98C1VA
   access 0777
 }
@@ -968,6 +990,13 @@ Content-Type: text/plain
       flags = 0
       segment { length = 0 expr = "explodematrix(dihedral(vector3(detail(\"../attribpromote1\", \"N\",0),detail(\"../attribpromote1\", \"N\",1),detail(\"../attribpromote1\", \"N\",2)),vector3(0,-1,0)), \"SRT\", \"XYZ\", \"RZ\")" }
     }
+    channel addattrib {
+      lefttype = extend
+      righttype = extend
+      default = 1
+      flags = 0
+      segment { length = 0 value = 1 1 expr = ch(\"../addattrib\") }
+    }
   }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -981,7 +1010,7 @@ grouptype	[ 0	locks=0 ]	(	"guess"	)
 xOrd	[ 0	locks=0 ]	(	"srt"	)
 rOrd	[ 0	locks=0 ]	(	"xyz"	)
 t	[ 0	locks=0 ]	(	0	0	0	)
-r	[ 8	locks=0 ]	(	[ rx	-192.70707285344548 ] 	[ ry	-197.89267838879007 ] 	[ rz	-70.54380620550539 ] 	)
+r	[ 8	locks=0 ]	(	[ rx	-170.59814728950425 ] 	[ ry	-158.98941438194944 ] 	[ rz	-47.82992231566066 ] 	)
 s	[ 0	locks=0 ]	(	1	1	1	)
 shear	[ 8	locks=0 ]	(	0	0	0	)
 scale	[ 0	locks=0 ]	(	1	)
@@ -1001,8 +1030,8 @@ updatenmls	[ 0	locks=0 ]	(	"off"	)
 updateaffectednmls	[ 0	locks=0 ]	(	"on"	)
 vlength	[ 0	locks=0 ]	(	"on"	)
 invertxform	[ 0	locks=0 ]	(	"off"	)
-addattrib	[ 0	locks=0 ]	(	"off"	)
-outputattrib	[ 0	locks=0 ]	(	xform	)
+addattrib	[ 8	locks=0 ]	(	[ addattrib	0 ] 	)
+outputattrib	[ 0	locks=0 ]	(	`chs(\"../outputattrib\")`	)
 outputmerge	[ 0	locks=0 ]	(	"post"	)
 }
 

@@ -47,7 +47,7 @@ inputs
 stat
 {
   create 1574472832
-  modify 1574472874
+  modify 1574473988
   author MAINGEAR@DESKTOP-P98C1VA
   access 0777
 }
@@ -202,7 +202,7 @@ Content-Type: text/plain
 Content-Disposition: attachment; filename="hdaroot/rizom_processor.init"
 Content-Type: text/plain
 
-type = gamedeve::sop_rizomuv_processor
+type = gamedev::sop_rizomuv_processor
 matchesdef = 1
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -228,8 +228,8 @@ inputs
 }
 stat
 {
-  create 1574460036
-  modify 1574460108
+  create 1574473986
+  modify 1574474040
   author MAINGEAR@DESKTOP-P98C1VA
   access 0777
 }
@@ -243,12 +243,6 @@ Content-Disposition: attachment; filename="hdaroot/rizom_processor.chn"
 Content-Type: text/plain
 
 {
-    channel outgoingUV {
-      lefttype = extend
-      righttype = extend
-      flags = 0
-      segment { length = 0 expr = chs(\"../outgoingUV\") }
-    }
     channel uv_tiles_offset1 {
       lefttype = extend
       righttype = extend
@@ -260,6 +254,12 @@ Content-Type: text/plain
       righttype = extend
       flags = 0
       segment { length = 0 expr = ch(\"../uv_tiles_offset2\") }
+    }
+    channel outgoingUV {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = chs(\"../outgoingUV\") }
     }
     channel rizomloc {
       lefttype = extend
@@ -285,7 +285,7 @@ folder0	[ 0	locks=0	autoscope=0 ]	(	0	)
 clearUVs	[ 0	locks=0	autoscope=0 ]	(	"off"	)
 uv_tiles_offset	[ 0	locks=0	autoscope=0 ]	(	[ uv_tiles_offset1	0 ] 	[ uv_tiles_offset2	0 ] 	)
 sepparm	[ 0	locks=0 ]	(	)
-gtype	[ 0	locks=0	autoscope=0 ]	(	"3"	)
+gtype	[ 0	locks=0	autoscope=0 ]	(	3	)
 availGroups	[ 0	locks=0	autoscope=0 ]	(	""	)
 sepparm2	[ 0	locks=0 ]	(	)
 outgoingUV	[ 0	locks=0	autoscope=0 ]	(	[ outgoingUV	uv ] 	)
@@ -594,7 +594,7 @@ inputs
 stat
 {
   create 1574278665
-  modify 1574460114
+  modify 1574473988
   author MAINGEAR@DESKTOP-P98C1VA
   access 0777
 }
@@ -806,7 +806,7 @@ inputs
 stat
 {
   create 1574287813
-  modify 1574460036
+  modify 1574473986
   author MAINGEAR@DESKTOP-P98C1VA
   access 0777
 }

@@ -34,7 +34,7 @@ sopflags sopflags =
 comment ""
 position -2.69921 -5.55237
 connectornextid 2
-flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
+flags =  lock off model off template on footprint off xray off bypass off display on render on highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
 {
 1 "output1"
@@ -50,7 +50,7 @@ inputs
 stat
 {
   create 1574483542
-  modify 1574485238
+  modify 1574801943
   author MAINGEAR@DESKTOP-P98C1VA
   access 0777
 }
@@ -108,7 +108,7 @@ inputs
 stat
 {
   create 1574474002
-  modify 1574484660
+  modify 1574801945
   author MAINGEAR@DESKTOP-P98C1VA
   access 0777
 }
@@ -181,7 +181,7 @@ sepparm4	[ 0	locks=0 ]	(	)
 rizomSDKHelp	[ 0	locks=0 ]	(	0	)
 rizomWeb	[ 0	locks=0 ]	(	0	)
 rizomloc	[ 0	locks=0	autoscope=0 ]	(	[ rizomloc	"C:/Program Files/Rizom Lab/RizomUV 2019/rizomuv.exe" ] 	)
-templocation	[ 0	locks=0	autoscope=0 ]	(	[ templocation	C:/Users/MAINGEAR/sidefx_rizom_bridge_crab_sop_rizomuv_unwrap1.fbx ] 	)
+templocation	[ 0	locks=0	autoscope=0 ]	(	[ templocation	C:/Users/MAINGEAR/sidefx_rizom_bridge_statue_sop_rizomuv_unwrap1.fbx ] 	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -226,7 +226,7 @@ inputs
 stat
 {
   create 1572532862
-  modify 1574389495
+  modify 1574489454
   author MAINGEAR@DESKTOP-P98C1VA
   access 0777
 }
@@ -373,7 +373,7 @@ inputs
 stat
 {
   create 1572532862
-  modify 1574389591
+  modify 1574805439
   author MAINGEAR@DESKTOP-P98C1VA
   access 0777
 }
@@ -400,26 +400,10 @@ script = geo.attribValue(rizom_attr)
 
 parent_node = node.parent()
 
-bounds = []
-
-parm_val = {\"xpos_ypos\":'\"XPYP\"',
-            \"xpos_zpos\":'\"XPZP\"',
-            \"xpos_yneg\":'\"XPYM\"',
-            \"xpos_zneg\":'\"XPZM\"',
-            \"ypos_zpos\":'\"YPZP\"',
-            \"yneg_zpos\":'\"YMZP\"',
-            \"yneg_zneg\":'\"YMZM\"',
-            \"ypos_zneg\":'\"YPZM\"',
-            \"xneg_ypos\":'\"XMYP\"',
-            \"xneg_zpos\":'\"XMZP\"',
-            \"xneg_yneg\":'\"XMYM\"',            
-            \"xneg_zneg\":'\"XMZM\"',            
-
-}
-
-for parm in parm_val:
-    if parent_node.parm(parm).eval():
-        bounds.append(parm_val[parm])
+developability = parent_node.parm(\"force\").eval()
+fix_revolution_shapes = parent_node.parm(\"fix_revolution_shapes\").eval()
+enable_island_count = parent_node.parm(\"enable_island_count\").eval()
+island_count = parent_node.parm(\"island_count\").eval()
 
 
 # Advanced Settings
@@ -439,6 +423,11 @@ reweld_length_max = parent_node.parm(\"reweld_length_max\").eval()
 
 on_size_limiter = parent_node.parm(\"on_size_limiter\").eval()
 size_limiter = parent_node.parm(\"size_limiter\").eval()
+
+
+revolution_shapes = \"false\"
+if fix_revolution_shapes:
+    revolution_shapes = \"true\"
 
 pipes_cutter = \"false\"
 if select_hole_links:
@@ -460,10 +449,16 @@ script += ', ResetBefore=true'
 script += ', ProtectMapName=\"Protect\"'
 script += ', FilterIslandVisible=true'
 
-if len(bounds):
-    script += ', Auto={Box={ActiveEdges={ '
-    script += \",\".join(bounds) 
-    script += '}}'
+if enable_island_count:
+    developability = 0 
+
+script += ', Auto={QuasiDevelopable={Developability={ ' + str(developability)
+script += ', FitCones=' + revolution_shapes
+script += ', IslandPolyNBMin=1' 
+if enable_island_count: 
+    script += ', IslandsNB=' + str(island_count)
+
+script += '}}'
     
     
 script += ', PipesCutter=' + pipes_cutter
@@ -531,7 +526,7 @@ inputs
 stat
 {
   create 1572532862
-  modify 1574390610
+  modify 1574489454
   author MAINGEAR@DESKTOP-P98C1VA
   access 0777
 }
@@ -654,7 +649,7 @@ inputs
 stat
 {
   create 1573659801
-  modify 1574389498
+  modify 1574489454
   author MAINGEAR@DESKTOP-P98C1VA
   access 0777
 }
@@ -683,7 +678,7 @@ Content-Type: text/plain
 
 {
 version 0.8
-input	[ 8	locks=0 ]	(	[ input	0 ] 	)
+input	[ 8	locks=0 ]	(	[ input	1 ] 	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -1046,7 +1041,7 @@ inputs
 stat
 {
   create 1574278537
-  modify 1574287816
+  modify 1574489454
   author MAINGEAR@DESKTOP-P98C1VA
   access 0777
 }
@@ -1105,7 +1100,7 @@ inputs
 stat
 {
   create 1574278546
-  modify 1574460430
+  modify 1574489454
   author MAINGEAR@DESKTOP-P98C1VA
   access 0777
 }
@@ -1163,7 +1158,7 @@ inputs
 stat
 {
   create 1574278665
-  modify 1574484675
+  modify 1574801956
   author MAINGEAR@DESKTOP-P98C1VA
   access 0777
 }
@@ -1253,7 +1248,7 @@ inputs
 stat
 {
   create 1574278669
-  modify 1574287815
+  modify 1574489454
   author MAINGEAR@DESKTOP-P98C1VA
   access 0777
 }
@@ -1316,7 +1311,7 @@ inputs
 stat
 {
   create 1574278674
-  modify 1574460432
+  modify 1574489454
   author MAINGEAR@DESKTOP-P98C1VA
   access 0777
 }

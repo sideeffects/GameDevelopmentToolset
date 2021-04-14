@@ -1,3 +1,6 @@
+# [SideFX Labs](https://github.com/sideeffects/SideFXLabs)
+The GameDev Toolset has been rebranded as SideFXLabs as these tools are useful for more than game development. See the [SideFX Labs](https://github.com/sideeffects/SideFXLabs) repo for the latest changes.
+
 # Game Development Toolset
 
 This is a series of tools geared towards assisting Houdini users with a variety of tasks for game development. The older version of this repository focused on just the shelf. Now this is an all-inclusive toolset that spans the shelf, digital assets, custom desktops and scripts.
